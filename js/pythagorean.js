@@ -1,0 +1,2 @@
+function calculatePythagorean(){const a=parseFloat(document.getElementById('sideA').value)||0;const b=parseFloat(document.getElementById('sideB').value)||0;const c=Math.sqrt(a*a+b*b);document.getElementById('resultValue').textContent=c.toFixed(3);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculatePythagorean);calculatePythagorean();});
