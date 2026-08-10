@@ -1,0 +1,2 @@
+function calculateRent(){const income=parseFloat(document.getElementById('monthlyIncome').value)||0;const percent=parseFloat(document.getElementById('rentPercent').value)||0;const maxRent=income*(percent/100);const fmt=v=>cpFormatMoney(v);document.getElementById('resultValue').textContent=fmt(maxRent);document.getElementById('outAnnual').textContent=fmt(maxRent*12);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateRent);calculateRent();});
