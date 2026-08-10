@@ -1,0 +1,4 @@
+function factorial(num){if(num<0)return NaN;let result=1;for(let i=2;i<=num;i++)result*=i;return result;}
+function calculatePermComb(){const n=parseInt(document.getElementById('nValue').value)||0;const r=parseInt(document.getElementById('rValue').value)||0;const type=document.getElementById('calcType').value;let result;if(r>n||n<0||r<0){result=NaN;}else if(type==='permutation'){result=factorial(n)/factorial(n-r);}else{result=factorial(n)/(factorial(r)*factorial(n-r));}
+document.getElementById('resultValue').textContent=isNaN(result)?'Invalid input':result.toLocaleString('en-US',{maximumFractionDigits:0});document.getElementById('outFormula').textContent=type==='permutation'?`P(${n},${r}) = ${n}! / (${n}-${r})!`:`C(${n},${r}) = ${n}! / (${r}! \u00d7 (${n}-${r})!)`;}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculatePermComb);calculatePermComb();});
