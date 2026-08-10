@@ -1,0 +1,5 @@
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;}
+function calculateFraction(){const n1=parseInt(document.getElementById('num1').value)||0;const d1=parseInt(document.getElementById('den1').value)||1;const op=document.getElementById('operation').value;const n2=parseInt(document.getElementById('num2').value)||0;const d2=parseInt(document.getElementById('den2').value)||1;let resNum,resDen;switch(op){case'add':resNum=n1*d2+n2*d1;resDen=d1*d2;break;case'subtract':resNum=n1*d2-n2*d1;resDen=d1*d2;break;case'multiply':resNum=n1*n2;resDen=d1*d2;break;case'divide':resNum=n1*d2;resDen=d1*n2;break;}
+if(resDen<0){resNum=-resNum;resDen=-resDen;}
+const divisor=gcd(resNum,resDen);const simpleNum=resNum/divisor;const simpleDen=resDen/divisor;document.getElementById('resultValue').textContent=simpleDen!==0?`${simpleNum}/${simpleDen}`:'Error';document.getElementById('outDecimal').textContent=simpleDen!==0?(simpleNum/simpleDen).toFixed(4):'—';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateFraction);calculateFraction();});
