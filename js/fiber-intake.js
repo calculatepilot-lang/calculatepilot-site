@@ -1,0 +1,3 @@
+function calculateFiberIntake(){const dailyCalories=parseFloat(document.getElementById('dailyCalories').value)||0;const sex=document.getElementById('sex').value;const age=parseFloat(document.getElementById('age').value)||30;const calorieBasedFiber=(dailyCalories/1000)*14;let standardRef;if(sex==='male'){standardRef=age>50?30:38;}else{standardRef=age>50?21:25;}
+document.getElementById('resultValue').textContent=calorieBasedFiber.toFixed(1)+' g/day';document.getElementById('outStandardRef').textContent=standardRef+' g/day';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateFiberIntake);calculateFiberIntake();});
