@@ -1,0 +1,3 @@
+function calculateDateDiff(){const start=new Date(document.getElementById('startDate').value);const end=new Date(document.getElementById('endDate').value);if(isNaN(start)||isNaN(end)){document.getElementById('resultValue').textContent='—';return;}
+const msPerDay=1000*60*60*24;const days=Math.round((end-start)/msPerDay);const weeks=(days/7).toFixed(1);const months=(days/30.44).toFixed(1);document.getElementById('resultValue').textContent=`${days.toLocaleString()} days`;document.getElementById('outWeeks').textContent=weeks;document.getElementById('outMonths').textContent=months;}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateDateDiff);calculateDateDiff();});
