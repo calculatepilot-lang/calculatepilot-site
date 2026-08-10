@@ -1,0 +1,4 @@
+function calculateSleep(){const wakeTimeStr=document.getElementById('wakeTime').value;if(!wakeTimeStr){document.getElementById('resultValue').textContent='—';return;}
+const[hh,mm]=wakeTimeStr.split(':').map(Number);const wake=new Date();wake.setHours(hh,mm,0,0);function bedtimeFor(cycles){const minutesBack=cycles*90+15;const bedtime=new Date(wake.getTime()-minutesBack*60000);return bedtime.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});}
+document.getElementById('resultValue').textContent=bedtimeFor(6);document.getElementById('outCycle5').textContent=bedtimeFor(5);document.getElementById('outCycle4').textContent=bedtimeFor(4);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateSleep);calculateSleep();});
