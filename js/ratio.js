@@ -1,0 +1,3 @@
+function gcdRatio(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a||1;}
+function calculateRatio(){const a=parseFloat(document.getElementById('a').value)||0;const b=parseFloat(document.getElementById('b').value)||0;const scaledA=parseFloat(document.getElementById('scaledA').value)||0;const divisor=gcdRatio(a,b);const simpleA=a/divisor;const simpleB=b/divisor;document.getElementById('resultValue').textContent=`${simpleA} : ${simpleB}`;const scaledB=a!==0?(scaledA*b)/a:0;document.getElementById('outScaledB').textContent=scaledB.toFixed(3);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateRatio);calculateRatio();});
