@@ -1,0 +1,3 @@
+function calculateLog(){const value=parseFloat(document.getElementById('value').value)||0;const base=parseFloat(document.getElementById('base').value)||0;if(value<=0||base<=0||base===1){document.getElementById('resultValue').textContent='Invalid input';document.getElementById('outNaturalLog').textContent='—';return;}
+const result=Math.log(value)/Math.log(base);const naturalLog=Math.log(value);document.getElementById('resultValue').textContent=result.toFixed(6);document.getElementById('outNaturalLog').textContent=naturalLog.toFixed(6);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateLog);calculateLog();});
