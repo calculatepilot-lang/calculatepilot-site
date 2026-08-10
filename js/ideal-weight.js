@@ -1,0 +1,2 @@
+function calculateIdealWeight(){const sex=document.getElementById('sex').value;const heightCm=parseFloat(document.getElementById('heightCm').value)||0;const totalInches=heightCm/2.54;const inchesOver5ft=Math.max(totalInches-60,0);let idealKg=sex==='male'?50+2.3*inchesOver5ft:45.5+2.3*inchesOver5ft;document.getElementById('resultValue').textContent=idealKg.toFixed(1)+' kg ('+(idealKg*2.20462).toFixed(1)+' lb)';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateIdealWeight);calculateIdealWeight();});
