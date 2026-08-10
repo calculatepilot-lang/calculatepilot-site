@@ -1,0 +1,2 @@
+function calculateCircle(){const r=parseFloat(document.getElementById('radius').value)||0;const area=Math.PI*r*r;const circumference=2*Math.PI*r;const diameter=2*r;document.getElementById('resultValue').textContent=area.toFixed(2);document.getElementById('outCircumference').textContent=circumference.toFixed(2);document.getElementById('outDiameter').textContent=diameter.toFixed(2);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateCircle);calculateCircle();});
