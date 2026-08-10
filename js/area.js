@@ -1,0 +1,2 @@
+function calculateArea(){const shape=document.getElementById('shape').value;const d1=parseFloat(document.getElementById('dimension1').value)||0;const d2=parseFloat(document.getElementById('dimension2').value)||0;let area=0;if(shape==='rectangle')area=d1*d2;else if(shape==='circle')area=Math.PI*d1*d1;else if(shape==='triangle')area=0.5*d1*d2;document.getElementById('resultValue').textContent=area.toFixed(2)+' sq units';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateArea);calculateArea();});
