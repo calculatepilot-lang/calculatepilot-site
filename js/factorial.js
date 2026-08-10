@@ -1,0 +1,5 @@
+function factorialBig(n){let result=1n;for(let i=2n;i<=BigInt(n);i++)result*=i;return result;}
+function calculateFactorial(){const n=parseInt(document.getElementById('numberInput').value)||0;if(n<0){document.getElementById('resultValue').textContent='Undefined (negative number)';document.getElementById('outDigits').textContent='\u2014';return;}
+if(n>5000){document.getElementById('resultValue').textContent='Too large to display';document.getElementById('outDigits').textContent='\u2014';return;}
+const result=factorialBig(n);const resultStr=result.toString();document.getElementById('resultValue').textContent=resultStr.length>30?resultStr.slice(0,15)+'\u2026'+resultStr.slice(-10)+` (${resultStr.length} digits)`:resultStr;document.getElementById('outDigits').textContent=resultStr.length.toLocaleString('en-US');}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateFactorial);calculateFactorial();});
