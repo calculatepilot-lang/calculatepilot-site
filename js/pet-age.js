@@ -1,0 +1,3 @@
+function calculatePetAge(){const petAge=parseFloat(document.getElementById('petAge').value)||0;let humanAge;if(petAge<=0){humanAge=0;}else{humanAge=16*Math.log(petAge)+31;humanAge=Math.max(0,humanAge);}
+document.getElementById('resultValue').textContent=humanAge.toFixed(1)+' human years';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculatePetAge);calculatePetAge();});
