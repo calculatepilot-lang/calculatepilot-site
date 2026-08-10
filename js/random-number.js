@@ -1,0 +1,3 @@
+function generateRandomNumber(){const min=Math.ceil(parseFloat(document.getElementById('minValue').value)||0);const max=Math.floor(parseFloat(document.getElementById('maxValue').value)||0);if(min>max){document.getElementById('resultValue').textContent='Min must be ≤ max';return;}
+const range=max-min+1;const array=new Uint32Array(1);crypto.getRandomValues(array);const result=min+(array[0]%range);document.getElementById('resultValue').textContent=result;}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',generateRandomNumber);generateRandomNumber();});
