@@ -1,0 +1,2 @@
+function calculateSalesTax(){const price=parseFloat(document.getElementById('price').value)||0;const rate=parseFloat(document.getElementById('taxRate').value)||0;const tax=price*(rate/100);const total=price+tax;const fmt=v=>cpFormatMoney(v);document.getElementById('resultValue').textContent=fmt(total);document.getElementById('outTax').textContent=fmt(tax);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateSalesTax);calculateSalesTax();});
