@@ -1,0 +1,2 @@
+function calculateCaloriesBurned(){const met=parseFloat(document.getElementById('activity').value)||0;const weight=parseFloat(document.getElementById('weightKg').value)||0;const minutes=parseFloat(document.getElementById('durationMinutes').value)||0;const calories=met*weight*(minutes/60);document.getElementById('resultValue').textContent=Math.round(calories).toLocaleString()+' kcal';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateCaloriesBurned);calculateCaloriesBurned();});
