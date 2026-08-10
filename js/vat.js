@@ -1,0 +1,3 @@
+function calculateVAT(){const amount=parseFloat(document.getElementById('amount').value)||0;const vatRate=parseFloat(document.getElementById('vatRate').value)||0;const mode=document.getElementById('mode').value;const r=vatRate/100;let net,vatAmount,gross;if(mode==='add'){net=amount;vatAmount=net*r;gross=net+vatAmount;}else{gross=amount;net=gross/(1+r);vatAmount=gross-net;}
+const fmt=v=>cpFormatMoney(v);document.getElementById('resultValue').textContent=fmt(gross);document.getElementById('outNet').textContent=fmt(net);document.getElementById('outVATAmount').textContent=fmt(vatAmount);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateVAT);calculateVAT();});
