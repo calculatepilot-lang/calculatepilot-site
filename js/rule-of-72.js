@@ -1,0 +1,2 @@
+function calculateRuleOf72(){const rate=parseFloat(document.getElementById('annualRate').value)||0.0001;const yearsToDouble=72/rate;const preciseYears=rate>0?Math.log(2)/Math.log(1+rate/100):0;document.getElementById('resultValue').textContent=yearsToDouble.toFixed(1)+' years';document.getElementById('outPrecise').textContent=preciseYears.toFixed(1)+' years';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateRuleOf72);calculateRuleOf72();});
