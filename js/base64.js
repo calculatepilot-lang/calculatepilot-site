@@ -1,0 +1,3 @@
+function calculateBase64(){const mode=document.getElementById('mode').value;const input=document.getElementById('inputText').value;try{let output;if(mode==='encode'){output=btoa(unescape(encodeURIComponent(input)));}else{output=decodeURIComponent(escape(atob(input)));}
+document.getElementById('resultValue').textContent=output||'—';}catch(err){document.getElementById('resultValue').textContent='Invalid input for decoding';}}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateBase64);calculateBase64();});
