@@ -1,0 +1,2 @@
+function calculateExponent(){const base=parseFloat(document.getElementById('baseNum').value)||0;const exp=parseFloat(document.getElementById('exponentNum').value)||0;const result=Math.pow(base,exp);document.getElementById('resultValue').textContent=Number.isFinite(result)?result.toLocaleString('en-US',{maximumFractionDigits:8}):'Undefined';document.getElementById('outExpression').textContent=base+' ^ '+exp;}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateExponent);calculateExponent();});
