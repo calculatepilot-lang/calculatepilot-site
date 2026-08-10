@@ -1,0 +1,5 @@
+function safeEvaluate(expr){let e=expr.replace(/\bpi\b/gi,'(Math.PI)').replace(/\be\b/g,'(Math.E)').replace(/\bsqrt\(/gi,'Math.sqrt(').replace(/\bln\(/gi,'Math.log(').replace(/\blog\(/gi,'Math.log10(').replace(/\bsin\(/gi,'Math.sin(Math.PI/180*').replace(/\bcos\(/gi,'Math.cos(Math.PI/180*').replace(/\btan\(/gi,'Math.tan(Math.PI/180*').replace(/\^/g,'**').replace(/×/g,'*').replace(/÷/g,'/');const stripped=e.replace(/Math\.(PI|E|sqrt|log10|log|sin|cos|tan)/g,'');if(/[A-Za-z_$]/.test(stripped)){throw new Error('Invalid expression');}
+if(!/^[0-9+\-*/().,\s]*$/.test(stripped)){throw new Error('Invalid characters');}
+return Function('"use strict"; return ('+e+')')();}
+function calculateScientific(){const expr=document.getElementById('expression').value;try{const result=safeEvaluate(expr);document.getElementById('resultValue').textContent=isFinite(result)?Number(result.toFixed(6)).toString():'Error';}catch(err){document.getElementById('resultValue').textContent='Error';}}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateScientific);calculateScientific();});
