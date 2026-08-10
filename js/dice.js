@@ -1,0 +1,3 @@
+function rollDice(){const numberOfDice=Math.min(Math.max(parseInt(document.getElementById('numberOfDice').value)||1,1),20);const sides=Math.max(parseInt(document.getElementById('sides').value)||6,2);const array=new Uint32Array(numberOfDice);crypto.getRandomValues(array);const rolls=[];let total=0;for(let i=0;i<numberOfDice;i++){const roll=(array[i]%sides)+1;rolls.push(roll);total+=roll;}
+document.getElementById('resultValue').textContent=total;document.getElementById('outRolls').textContent=rolls.join(', ');}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',rollDice);rollDice();});
