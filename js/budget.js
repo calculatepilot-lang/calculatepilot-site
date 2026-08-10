@@ -1,0 +1,2 @@
+function calculateBudget(){const income=parseFloat(document.getElementById('monthlyIncome').value)||0;const needs=income*0.5;const wants=income*0.3;const savings=income*0.2;const fmt=v=>cpFormatMoney(v);document.getElementById('resultValue').textContent=fmt(needs);document.getElementById('outWants').textContent=fmt(wants);document.getElementById('outSavings').textContent=fmt(savings);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateBudget);calculateBudget();});
