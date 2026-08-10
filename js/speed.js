@@ -1,0 +1,2 @@
+function calculateSpeed(){const distance=parseFloat(document.getElementById('distance').value)||0;const hours=parseFloat(document.getElementById('hours').value)||1;const speedMph=distance/hours;const speedKmh=speedMph*1.60934;document.getElementById('resultValue').textContent=speedMph.toFixed(2)+' mph';document.getElementById('outKmh').textContent=speedKmh.toFixed(2)+' km/h';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateSpeed);calculateSpeed();});
