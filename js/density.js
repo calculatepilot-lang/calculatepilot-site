@@ -1,0 +1,2 @@
+function calculateDensity(){const mass=parseFloat(document.getElementById('mass').value)||0;const volume=parseFloat(document.getElementById('volume').value)||1;const densityKgM3=mass/volume;const densityGCm3=densityKgM3/1000;document.getElementById('resultValue').textContent=densityKgM3.toFixed(2)+' kg/m³';document.getElementById('outGramsPerCm3').textContent=densityGCm3.toFixed(4)+' g/cm³';}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateDensity);calculateDensity();});
