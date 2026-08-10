@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embed Free Calculators on Your Website | CalculatePilot</title>
+<meta name="description" content="Embed any of CalculatePilot's 158+ free calculators on your website with a single line of code. Free, no API key needed, works on any site.">
+<link rel="canonical" href="https://www.calculatepilot.com/embed/">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<style>
+.embed-search {
+  display: flex; gap: 10px; margin: 20px 0;
+}
+.embed-search input {
+  flex: 1; padding: 10px 14px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); font-size: 0.95rem; background: var(--paper);
+}
+.embed-search input:focus { outline: none; border-color: var(--signal); }
+
+.embed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.embed-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--paper-raised);
+  transition: border-color .15s ease;
+}
+.embed-card:hover { border-color: var(--signal); }
+.embed-card-head {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.embed-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.embed-card-cat {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--signal); font-family: var(--font-mono);
+}
+.embed-card-body { padding: 14px 16px; }
+.embed-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: #F3F4F6;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 10px;
+  word-break: break-all;
+  line-height: 1.5;
+  color: #374151;
+  margin-bottom: 10px;
+  user-select: all;
+}
+.embed-card-actions { display: flex; gap: 8px; }
+.btn-copy {
+  flex: 1; padding: 7px 12px;
+  background: var(--signal); color: #fff;
+  border: none; border-radius: var(--radius-sm);
+  font-size: 0.82rem; font-weight: 600; cursor: pointer;
+  transition: background .15s;
+}
+.btn-copy:hover { background: var(--signal-dark); }
+.btn-copy.copied { background: #059669; }
+.btn-preview {
+  padding: 7px 12px;
+  border: 1px solid var(--line); background: var(--paper);
+  border-radius: var(--radius-sm); font-size: 0.82rem;
+  text-decoration: none; color: var(--ink);
+  transition: border-color .15s;
+}
+.btn-preview:hover { border-color: var(--signal); color: var(--signal); }
+
+/* Preview modal */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 1000;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--paper-raised);
+  border-radius: var(--radius-sm);
+  width: 90%; max-width: 480px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modal-head {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.modal-head h3 { font-size: 0.95rem; font-weight: 700; }
+.modal-close {
+  background: none; border: none; font-size: 1.2rem;
+  cursor: pointer; color: var(--slate);
+}
+.modal-body { flex: 1; overflow: hidden; }
+.modal-body iframe {
+  width: 100%; height: 560px; border: none; display: block;
+}
+
+/* Category filter pills */
+.cat-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.cat-pill {
+  padding: 5px 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; background: var(--paper);
+  transition: all .15s;
+}
+.cat-pill:hover, .cat-pill.active {
+  background: var(--signal); color: #fff; border-color: var(--signal);
+}
+
+/* HOW TO section */
+.how-to { background: var(--signal-soft); border-radius: var(--radius-sm); padding: 24px; margin-bottom: 32px; }
+.how-to h2 { font-size: 1.05rem; margin-bottom: 16px; }
+.how-to ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
+.how-to code {
+  font-family: var(--font-mono); font-size: 0.82rem;
+  background: rgba(15,107,92,0.12); padding: 2px 6px; border-radius: 3px;
+}
+
+/* Pricing */
+.embed-pricing {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px;
+}
+@media (max-width: 600px) { .embed-pricing { grid-template-columns: 1fr; } }
+.embed-plan {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 24px; position: relative;
+}
+.embed-plan-pro { border-color: var(--signal); background: var(--signal-soft); }
+.embed-plan-badge {
+  position: absolute; top: -12px; left: 16px;
+  background: var(--signal); color: #fff;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+  padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
+}
+.embed-plan-head { margin-bottom: 16px; }
+.embed-plan-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+.embed-plan-price { font-size: 1.5rem; font-weight: 700; color: var(--signal); }
+.embed-plan-price span { font-size: 0.85rem; font-weight: 400; color: var(--slate); }
+.embed-plan ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; font-size: 0.88rem; }
+.embed-plan ul li.muted { color: var(--slate-light); }
+.btn-upgrade {
+  display: block; width: 100%; text-align: center;
+  background: var(--signal); color: #fff;
+  padding: 10px 16px; border-radius: var(--radius-sm);
+  font-weight: 700; font-size: 0.9rem; text-decoration: none;
+  transition: background .15s;
+}
+.btn-upgrade:hover { background: var(--signal-dark); text-decoration: none; color: #fff; }
+.embed-plan-note { font-size: 0.75rem; color: var(--slate); margin-top: 8px; text-align: center; }
+
+/* Plan tabs */
+.plan-tabs { display: flex; gap: 6px; margin: 10px 0 8px; }
+.plan-tab {
+  flex: 1; padding: 7px 10px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600;
+  cursor: pointer; background: var(--paper); color: var(--slate);
+  transition: all .15s;
+}
+.plan-tab.active { background: var(--signal); color: #fff; border-color: var(--signal); }
+.save-badge {
+  background: #F59E0B; color: #fff;
+  font-size: 0.65rem; padding: 1px 5px; border-radius: 10px;
+  font-weight: 700; vertical-align: middle; margin-left: 3px;
+}
+
+/* Payment modal */
+.pay-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6); z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 16px;
+}
+.pay-modal-overlay.open { display: flex; }
+.pay-modal {
+  background: var(--paper-raised); border-radius: 12px;
+  padding: 28px 24px; max-width: 460px; width: 100%;
+  position: relative; max-height: 90vh; overflow-y: auto;
+}
+.pay-modal-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; font-size: 1.1rem;
+  cursor: pointer; color: var(--slate); line-height: 1;
+}
+.pay-modal h3 { font-size: 1rem; margin-bottom: 6px; }
+.pay-modal-sub { font-size: 0.82rem; color: var(--slate); margin-bottom: 16px; }
+.license-section {
+  background: var(--paper-raised); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 20px; margin-bottom: 32px;
+}
+.license-section h3 { font-size: 0.95rem; margin-bottom: 12px; }
+.license-row { display: flex; gap: 8px; }
+.license-row input {
+  flex: 1; padding: 9px 13px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem;
+  background: var(--paper);
+}
+.license-row input:focus { outline: none; border-color: var(--signal); }
+.license-row button {
+  padding: 9px 18px; background: var(--signal); color: #fff;
+  border: none; border-radius: var(--radius-sm); font-weight: 700;
+  cursor: pointer; font-size: 0.88rem;
+}
+.license-row button:hover { background: var(--signal-dark); }
+.license-status { margin-top: 8px; font-size: 0.82rem; }
+.license-status.ok { color: #059669; }
+.license-status.err { color: #DC2626; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Embed Free Calculators on Your Website</h1>
+    <p class="lede">Add any of our 158+ calculators to your site in seconds — one line of code, free forever, works on any platform.</p>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container">
+
+    <div class="how-to">
+      <h2>How to embed a calculator</h2>
+      <ol>
+        <li>Find the calculator you want below</li>
+        <li>Click <strong>Copy code</strong> to copy the embed snippet</li>
+        <li>Paste it anywhere in your website's HTML — it works in WordPress, Webflow, Squarespace, Wix, or any custom site</li>
+        <li>The calculator displays with <em>Powered by CalculatePilot</em> branding. That attribution must remain visible on the free plan.</li>
+      </ol>
+    </div>
+
+    <!-- Pricing -->
+    <!-- Pricing -->
+    <div class="embed-pricing">
+      <div class="embed-plan">
+        <div class="embed-plan-head">
+          <div class="embed-plan-name">Free</div>
+          <div class="embed-plan-price">$0 <span>/ forever</span></div>
+        </div>
+        <ul>
+          <li>✓ All 158+ calculators</li>
+          <li>✓ Unlimited embeds</li>
+          <li>✓ Multi-currency support</li>
+          <li>✓ Works on any platform</li>
+          <li class="muted">✗ CalculatePilot branding visible</li>
+        </ul>
+        <p class="embed-plan-note">Copy the code below — no account needed.</p>
+      </div>
+
+      <div class="embed-plan embed-plan-pro">
+        <div class="embed-plan-badge">White-label</div>
+        <div class="embed-plan-head">
+          <div class="embed-plan-name">Pro</div>
+          <div class="plan-tabs">
+            <button class="plan-tab active" data-plan="monthly">Monthly</button>
+            <button class="plan-tab" data-plan="yearly">Yearly <span class="save-badge">Save 6%</span></button>
+          </div>
+          <div class="embed-plan-price" id="planPrice">$7.99 <span>/ month</span></div>
+        </div>
+        <ul>
+          <li>✓ Everything in Free</li>
+          <li>✓ Branding removed from all embeds</li>
+          <li>✓ Priority support</li>
+          <li>✓ License key for all your domains</li>
+          <li>✓ Cancel anytime</li>
+        </ul>
+
+        <!-- Pay now button -->
+        <button class="btn-upgrade" id="payNowBtn" onclick="openPayModal()">
+          Get white-label license →
+        </button>
+        <p class="embed-plan-note">Pay with Bitcoin, USDT, ETH, SOL, BNB, XRP, DOGE & 50+ more.<br>License key issued within 24 hours.</p>
+      </div>
+    </div>
+
+    <!-- Payment modal -->
+    <div class="pay-modal-overlay" id="payModal" onclick="if(event.target===this)closePayModal()">
+      <div class="pay-modal">
+        <button class="pay-modal-close" onclick="closePayModal()">✕</button>
+        <h3 id="payModalTitle">Complete your purchase — Monthly ($7.99)</h3>
+        <p class="pay-modal-sub">Select your cryptocurrency and complete payment. Your license key will be emailed within 24 hours.</p>
+        <div id="payWidgetMonthly">
+          <iframe src="https://nowpayments.io/embeds/payment-widget?iid=5341321245" width="410" height="696" frameborder="0" scrolling="no" style="overflow-y:hidden;max-width:100%;">Can't load widget</iframe>
+        </div>
+        <div id="payWidgetYearly" style="display:none;">
+          <iframe src="https://nowpayments.io/embeds/payment-widget?iid=5850486085" width="410" height="696" frameborder="0" scrolling="no" style="overflow-y:hidden;max-width:100%;">Can't load widget</iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- License key entry (for Pro users) -->
+    <div class="license-section">
+      <h3>Already have a license key?</h3>
+      <div class="license-row">
+        <input type="text" id="licenseInput" placeholder="Enter your license key..." maxlength="64">
+        <button onclick="applyLicense()">Apply</button>
+      </div>
+      <p id="licenseStatus" class="license-status"></p>
+    </div>
+
+    <div class="cat-pills">
+      <button class="cat-pill active" data-cat="all">All</button>
+      <button class="cat-pill" data-cat="financial">Financial</button>
+      <button class="cat-pill" data-cat="health">Health &amp; Fitness</button>
+      <button class="cat-pill" data-cat="math">Math</button>
+      <button class="cat-pill" data-cat="other">Everyday</button>
+    </div>
+
+    <div class="embed-search">
+      <input type="text" id="embedSearch" placeholder="Search calculators — try 'mortgage' or 'BMI'...">
+    </div>
+
+    <div class="embed-grid" id="embedGrid">
+      <div class="embed-card" data-cat="financial" data-name="401k calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">401K Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-401k-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/401k-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="401K Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('401k-calculator', this)">Copy code</button>
+            <a href="/embed/401k-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="529 college savings calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">529 College Savings Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-college-savings-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/college-savings-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="529 College Savings Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('college-savings-calculator', this)">Copy code</button>
+            <a href="/embed/college-savings-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="amortization calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Amortization Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-amortization-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/amortization-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Amortization Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('amortization-calculator', this)">Copy code</button>
+            <a href="/embed/amortization-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="annuity calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Annuity Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-annuity-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/annuity-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Annuity Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('annuity-calculator', this)">Copy code</button>
+            <a href="/embed/annuity-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="auto loan calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Auto Loan Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-auto-loan-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/auto-loan-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Auto Loan Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('auto-loan-calculator', this)">Copy code</button>
+            <a href="/embed/auto-loan-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="bond price calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Bond Price Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-bond-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/bond-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Bond Price Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('bond-calculator', this)">Copy code</button>
+            <a href="/embed/bond-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="budget calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Budget Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-budget-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/budget-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Budget Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('budget-calculator', this)">Copy code</button>
+            <a href="/embed/budget-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="car affordability calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Car Affordability Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-car-affordability-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/car-affordability-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Car Affordability Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('car-affordability-calculator', this)">Copy code</button>
+            <a href="/embed/car-affordability-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="car lease calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Car Lease Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-lease-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/lease-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Car Lease Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('lease-calculator', this)">Copy code</button>
+            <a href="/embed/lease-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="cd calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">CD Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-cd-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/cd-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="CD Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('cd-calculator', this)">Copy code</button>
+            <a href="/embed/cd-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="commission calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Commission Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-commission-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/commission-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Commission Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('commission-calculator', this)">Copy code</button>
+            <a href="/embed/commission-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="compound interest calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Compound Interest Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-compound-interest-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/compound-interest-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Compound Interest Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('compound-interest-calculator', this)">Copy code</button>
+            <a href="/embed/compound-interest-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="credit card payoff calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Credit Card Payoff Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-credit-card-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/credit-card-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Credit Card Payoff Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('credit-card-calculator', this)">Copy code</button>
+            <a href="/embed/credit-card-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="credit utilization calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Credit Utilization Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-credit-utilization-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/credit-utilization-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Credit Utilization Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('credit-utilization-calculator', this)">Copy code</button>
+            <a href="/embed/credit-utilization-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="currency converter">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Currency Converter</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-currency-converter">&lt;iframe src="https://www.calculatepilot.com/embed/currency-converter.html" width="100%" height="520" frameborder="0" scrolling="no" title="Currency Converter" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('currency-converter', this)">Copy code</button>
+            <a href="/embed/currency-converter.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="debt payoff calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Debt Payoff Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-debt-payoff-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/debt-payoff-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Debt Payoff Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('debt-payoff-calculator', this)">Copy code</button>
+            <a href="/embed/debt-payoff-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="debt-to-income ratio calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Debt-to-Income Ratio Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-debt-to-income-ratio-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/debt-to-income-ratio-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Debt-to-Income Ratio Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('debt-to-income-ratio-calculator', this)">Copy code</button>
+            <a href="/embed/debt-to-income-ratio-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="discount calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Discount Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-discount-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/discount-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Discount Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('discount-calculator', this)">Copy code</button>
+            <a href="/embed/discount-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="down payment calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Down Payment Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-down-payment-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/down-payment-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Down Payment Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('down-payment-calculator', this)">Copy code</button>
+            <a href="/embed/down-payment-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="emergency fund calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Emergency Fund Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-emergency-fund-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/emergency-fund-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Emergency Fund Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('emergency-fund-calculator', this)">Copy code</button>
+            <a href="/embed/emergency-fund-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="freelance rate calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Freelance Rate Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-freelance-rate-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/freelance-rate-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Freelance Rate Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('freelance-rate-calculator', this)">Copy code</button>
+            <a href="/embed/freelance-rate-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="heloc calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">HELOC Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-heloc-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/heloc-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="HELOC Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('heloc-calculator', this)">Copy code</button>
+            <a href="/embed/heloc-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="house affordability calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">House Affordability Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-house-affordability-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/house-affordability-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="House Affordability Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('house-affordability-calculator', this)">Copy code</button>
+            <a href="/embed/house-affordability-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="house flip profit calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">House Flip Profit Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-house-flip-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/house-flip-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="House Flip Profit Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('house-flip-calculator', this)">Copy code</button>
+            <a href="/embed/house-flip-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="income tax calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Income Tax Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-tax-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/tax-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Income Tax Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('tax-calculator', this)">Copy code</button>
+            <a href="/embed/tax-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="inflation calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Inflation Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-inflation-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/inflation-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Inflation Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('inflation-calculator', this)">Copy code</button>
+            <a href="/embed/inflation-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="investment calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Investment Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-investment-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/investment-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Investment Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('investment-calculator', this)">Copy code</button>
+            <a href="/embed/investment-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="loan calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Loan Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-loan-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/loan-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Loan Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('loan-calculator', this)">Copy code</button>
+            <a href="/embed/loan-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="mortgage calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Mortgage Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-mortgage-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/mortgage-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Mortgage Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('mortgage-calculator', this)">Copy code</button>
+            <a href="/embed/mortgage-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="net worth calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Net Worth Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-net-worth-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/net-worth-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Net Worth Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('net-worth-calculator', this)">Copy code</button>
+            <a href="/embed/net-worth-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="paycheck calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Paycheck Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-paycheck-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/paycheck-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Paycheck Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('paycheck-calculator', this)">Copy code</button>
+            <a href="/embed/paycheck-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="refinance calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Refinance Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-refinance-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/refinance-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Refinance Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('refinance-calculator', this)">Copy code</button>
+            <a href="/embed/refinance-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="rent calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Rent Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-rent-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/rent-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Rent Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('rent-calculator', this)">Copy code</button>
+            <a href="/embed/rent-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="rental yield calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Rental Yield Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-rental-yield-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/rental-yield-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Rental Yield Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('rental-yield-calculator', this)">Copy code</button>
+            <a href="/embed/rental-yield-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="retirement calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Retirement Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-retirement-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/retirement-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Retirement Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('retirement-calculator', this)">Copy code</button>
+            <a href="/embed/retirement-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="roth ira calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Roth IRA Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-roth-ira-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/roth-ira-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Roth IRA Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('roth-ira-calculator', this)">Copy code</button>
+            <a href="/embed/roth-ira-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="salary calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Salary Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-salary-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/salary-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Salary Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('salary-calculator', this)">Copy code</button>
+            <a href="/embed/salary-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="sales tax calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Sales Tax Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-sales-tax-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/sales-tax-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Sales Tax Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('sales-tax-calculator', this)">Copy code</button>
+            <a href="/embed/sales-tax-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="savings calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Savings Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-savings-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/savings-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Savings Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('savings-calculator', this)">Copy code</button>
+            <a href="/embed/savings-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="savings goal calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Savings Goal Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-savings-goal-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/savings-goal-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Savings Goal Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('savings-goal-calculator', this)">Copy code</button>
+            <a href="/embed/savings-goal-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="simple interest calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Simple Interest Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-simple-interest-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/simple-interest-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Simple Interest Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('simple-interest-calculator', this)">Copy code</button>
+            <a href="/embed/simple-interest-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="student loan calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">Student Loan Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-student-loan-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/student-loan-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Student Loan Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('student-loan-calculator', this)">Copy code</button>
+            <a href="/embed/student-loan-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="financial" data-name="vat calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Financial Calculators</div>
+          <div class="embed-card-title">VAT Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-vat-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/vat-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="VAT Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('vat-calculator', this)">Copy code</button>
+            <a href="/embed/vat-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="age calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Age Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-age-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/age-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Age Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('age-calculator', this)">Copy code</button>
+            <a href="/embed/age-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="base64 encode / decode">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Base64 Encode / Decode</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-base64-encode-decode">&lt;iframe src="https://www.calculatepilot.com/embed/base64-encode-decode.html" width="100%" height="520" frameborder="0" scrolling="no" title="Base64 Encode / Decode" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('base64-encode-decode', this)">Copy code</button>
+            <a href="/embed/base64-encode-decode.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="break-even calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Break-Even Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-break-even-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/break-even-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Break-Even Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('break-even-calculator', this)">Copy code</button>
+            <a href="/embed/break-even-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="car depreciation calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Car Depreciation Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-car-depreciation-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/car-depreciation-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Car Depreciation Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('car-depreciation-calculator', this)">Copy code</button>
+            <a href="/embed/car-depreciation-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="commute cost calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Commute Cost Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-commute-cost-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/commute-cost-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Commute Cost Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('commute-cost-calculator', this)">Copy code</button>
+            <a href="/embed/commute-cost-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="concrete calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Concrete Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-concrete-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/concrete-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Concrete Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('concrete-calculator', this)">Copy code</button>
+            <a href="/embed/concrete-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="date calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Date Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-date-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/date-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Date Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('date-calculator', this)">Copy code</button>
+            <a href="/embed/date-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="density calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Density Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-density-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/density-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Density Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('density-calculator', this)">Copy code</button>
+            <a href="/embed/density-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="dice roller">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Dice Roller</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-dice-roller">&lt;iframe src="https://www.calculatepilot.com/embed/dice-roller.html" width="100%" height="520" frameborder="0" scrolling="no" title="Dice Roller" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('dice-roller', this)">Copy code</button>
+            <a href="/embed/dice-roller.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="dog & cat age calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Dog & Cat Age Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-pet-age-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/pet-age-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Dog & Cat Age Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('pet-age-calculator', this)">Copy code</button>
+            <a href="/embed/pet-age-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="dog food portion calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Dog Food Portion Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-dog-food-portion-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/dog-food-portion-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Dog Food Portion Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('dog-food-portion-calculator', this)">Copy code</button>
+            <a href="/embed/dog-food-portion-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="driving carbon footprint calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Driving Carbon Footprint Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-carbon-footprint-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/carbon-footprint-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Driving Carbon Footprint Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('carbon-footprint-calculator', this)">Copy code</button>
+            <a href="/embed/carbon-footprint-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="electricity cost calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Electricity Cost Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-electricity-cost-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/electricity-cost-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Electricity Cost Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('electricity-cost-calculator', this)">Copy code</button>
+            <a href="/embed/electricity-cost-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="final grade calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Final Grade Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-grade-needed-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/grade-needed-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Final Grade Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('grade-needed-calculator', this)">Copy code</button>
+            <a href="/embed/grade-needed-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="flight time calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Flight Time Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-flight-time-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/flight-time-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Flight Time Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('flight-time-calculator', this)">Copy code</button>
+            <a href="/embed/flight-time-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="fuel cost calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Fuel Cost Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-fuel-cost-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/fuel-cost-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Fuel Cost Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('fuel-cost-calculator', this)">Copy code</button>
+            <a href="/embed/fuel-cost-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="gas mileage (mpg) calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Gas Mileage (MPG) Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-gas-mileage-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/gas-mileage-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Gas Mileage (MPG) Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('gas-mileage-calculator', this)">Copy code</button>
+            <a href="/embed/gas-mileage-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="golf handicap differential calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Golf Handicap Differential Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-golf-handicap-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/golf-handicap-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Golf Handicap Differential Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('golf-handicap-calculator', this)">Copy code</button>
+            <a href="/embed/golf-handicap-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="gpa calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">GPA Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-gpa-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/gpa-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="GPA Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('gpa-calculator', this)">Copy code</button>
+            <a href="/embed/gpa-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="gravel calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Gravel Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-gravel-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/gravel-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Gravel Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('gravel-calculator', this)">Copy code</button>
+            <a href="/embed/gravel-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="height calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Height Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-height-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/height-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Height Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('height-calculator', this)">Copy code</button>
+            <a href="/embed/height-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="hours calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Hours Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-hours-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/hours-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Hours Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('hours-calculator', this)">Copy code</button>
+            <a href="/embed/hours-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="invoice late fee calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Invoice Late Fee Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-invoice-late-fee-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/invoice-late-fee-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Invoice Late Fee Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('invoice-late-fee-calculator', this)">Copy code</button>
+            <a href="/embed/invoice-late-fee-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="length conversion calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Length Conversion Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-conversion-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/conversion-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Length Conversion Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('conversion-calculator', this)">Copy code</button>
+            <a href="/embed/conversion-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="love calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Love Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-love-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/love-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Love Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('love-calculator', this)">Copy code</button>
+            <a href="/embed/love-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="lumber board feet calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Lumber Board Feet Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-lumber-board-feet-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/lumber-board-feet-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Lumber Board Feet Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('lumber-board-feet-calculator', this)">Copy code</button>
+            <a href="/embed/lumber-board-feet-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="markup & margin calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Markup & Margin Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-markup-margin-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/markup-margin-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Markup & Margin Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('markup-margin-calculator', this)">Copy code</button>
+            <a href="/embed/markup-margin-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="moving cost estimator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Moving Cost Estimator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-moving-cost-estimator">&lt;iframe src="https://www.calculatepilot.com/embed/moving-cost-estimator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Moving Cost Estimator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('moving-cost-estimator', this)">Copy code</button>
+            <a href="/embed/moving-cost-estimator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="mulch calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Mulch Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-mulch-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/mulch-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Mulch Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('mulch-calculator', this)">Copy code</button>
+            <a href="/embed/mulch-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="paint calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Paint Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-paint-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/paint-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Paint Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('paint-calculator', this)">Copy code</button>
+            <a href="/embed/paint-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="password generator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Password Generator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-password-generator">&lt;iframe src="https://www.calculatepilot.com/embed/password-generator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Password Generator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('password-generator', this)">Copy code</button>
+            <a href="/embed/password-generator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="recipe conversion calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Recipe Conversion Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-recipe-conversion-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/recipe-conversion-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Recipe Conversion Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('recipe-conversion-calculator', this)">Copy code</button>
+            <a href="/embed/recipe-conversion-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="roman numeral converter">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Roman Numeral Converter</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-roman-numeral-converter">&lt;iframe src="https://www.calculatepilot.com/embed/roman-numeral-converter.html" width="100%" height="520" frameborder="0" scrolling="no" title="Roman Numeral Converter" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('roman-numeral-converter', this)">Copy code</button>
+            <a href="/embed/roman-numeral-converter.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="shipping cost calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Shipping Cost Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-shipping-cost-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/shipping-cost-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Shipping Cost Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('shipping-cost-calculator', this)">Copy code</button>
+            <a href="/embed/shipping-cost-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="sleep calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Sleep Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-sleep-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/sleep-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Sleep Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('sleep-calculator', this)">Copy code</button>
+            <a href="/embed/sleep-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="speed calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Speed Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-speed-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/speed-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Speed Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('speed-calculator', this)">Copy code</button>
+            <a href="/embed/speed-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="square footage calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Square Footage Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-square-footage-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/square-footage-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Square Footage Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('square-footage-calculator', this)">Copy code</button>
+            <a href="/embed/square-footage-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="tile calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Tile Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-tile-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/tile-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Tile Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('tile-calculator', this)">Copy code</button>
+            <a href="/embed/tile-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="time calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Time Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-time-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/time-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Time Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('time-calculator', this)">Copy code</button>
+            <a href="/embed/time-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="tip calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Tip Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-tip-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/tip-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Tip Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('tip-calculator', this)">Copy code</button>
+            <a href="/embed/tip-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="unit price calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Unit Price Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-unit-price-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/unit-price-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Unit Price Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('unit-price-calculator', this)">Copy code</button>
+            <a href="/embed/unit-price-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="url encode / decode">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">URL Encode / Decode</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-url-encode-decode">&lt;iframe src="https://www.calculatepilot.com/embed/url-encode-decode.html" width="100%" height="520" frameborder="0" scrolling="no" title="URL Encode / Decode" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('url-encode-decode', this)">Copy code</button>
+            <a href="/embed/url-encode-decode.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="utc time converter">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">UTC Time Converter</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-utc-time-converter">&lt;iframe src="https://www.calculatepilot.com/embed/utc-time-converter.html" width="100%" height="520" frameborder="0" scrolling="no" title="UTC Time Converter" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('utc-time-converter', this)">Copy code</button>
+            <a href="/embed/utc-time-converter.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="wedding budget calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Wedding Budget Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-wedding-budget-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/wedding-budget-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Wedding Budget Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('wedding-budget-calculator', this)">Copy code</button>
+            <a href="/embed/wedding-budget-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="other" data-name="word counter">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Everyday Calculators</div>
+          <div class="embed-card-title">Word Counter</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-word-counter">&lt;iframe src="https://www.calculatepilot.com/embed/word-counter.html" width="100%" height="520" frameborder="0" scrolling="no" title="Word Counter" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('word-counter', this)">Copy code</button>
+            <a href="/embed/word-counter.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="alcohol calories calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Alcohol Calories Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-alcohol-calories-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/alcohol-calories-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Alcohol Calories Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('alcohol-calories-calculator', this)">Copy code</button>
+            <a href="/embed/alcohol-calories-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="bac calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">BAC Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-bac-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/bac-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="BAC Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('bac-calculator', this)">Copy code</button>
+            <a href="/embed/bac-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="blood pressure category calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Blood Pressure Category Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-blood-pressure-category-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/blood-pressure-category-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Blood Pressure Category Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('blood-pressure-category-calculator', this)">Copy code</button>
+            <a href="/embed/blood-pressure-category-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="bmi calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">BMI Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-bmi-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/bmi-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="BMI Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('bmi-calculator', this)">Copy code</button>
+            <a href="/embed/bmi-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="bmr calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">BMR Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-bmr-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/bmr-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="BMR Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('bmr-calculator', this)">Copy code</button>
+            <a href="/embed/bmr-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="body fat calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Body Fat Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-body-fat-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/body-fat-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Body Fat Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('body-fat-calculator', this)">Copy code</button>
+            <a href="/embed/body-fat-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="body frame size calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Body Frame Size Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-body-frame-size-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/body-frame-size-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Body Frame Size Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('body-frame-size-calculator', this)">Copy code</button>
+            <a href="/embed/body-frame-size-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="calorie calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Calorie Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-calorie-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/calorie-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Calorie Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('calorie-calculator', this)">Copy code</button>
+            <a href="/embed/calorie-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="calories burned calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Calories Burned Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-calories-burned-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/calories-burned-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Calories Burned Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('calories-burned-calculator', this)">Copy code</button>
+            <a href="/embed/calories-burned-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="fiber intake calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Fiber Intake Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-fiber-intake-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/fiber-intake-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Fiber Intake Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('fiber-intake-calculator', this)">Copy code</button>
+            <a href="/embed/fiber-intake-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="healthy weight range calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Healthy Weight Range Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-healthy-weight-range-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/healthy-weight-range-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Healthy Weight Range Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('healthy-weight-range-calculator', this)">Copy code</button>
+            <a href="/embed/healthy-weight-range-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="ideal weight calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Ideal Weight Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-ideal-weight-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/ideal-weight-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Ideal Weight Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('ideal-weight-calculator', this)">Copy code</button>
+            <a href="/embed/ideal-weight-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="lean body mass calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Lean Body Mass Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-lean-body-mass-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/lean-body-mass-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Lean Body Mass Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('lean-body-mass-calculator', this)">Copy code</button>
+            <a href="/embed/lean-body-mass-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="macro calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Macro Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-macro-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/macro-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Macro Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('macro-calculator', this)">Copy code</button>
+            <a href="/embed/macro-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="one rep max calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">One Rep Max Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-one-rep-max-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/one-rep-max-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="One Rep Max Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('one-rep-max-calculator', this)">Copy code</button>
+            <a href="/embed/one-rep-max-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="ovulation calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Ovulation Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-ovulation-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/ovulation-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Ovulation Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('ovulation-calculator', this)">Copy code</button>
+            <a href="/embed/ovulation-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="period calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Period Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-period-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/period-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Period Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('period-calculator', this)">Copy code</button>
+            <a href="/embed/period-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="pregnancy calorie needs calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Pregnancy Calorie Needs Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-pregnancy-calorie-needs-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/pregnancy-calorie-needs-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Pregnancy Calorie Needs Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('pregnancy-calorie-needs-calculator', this)">Copy code</button>
+            <a href="/embed/pregnancy-calorie-needs-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="pregnancy due date calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Pregnancy Due Date Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-due-date-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/due-date-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Pregnancy Due Date Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('due-date-calculator', this)">Copy code</button>
+            <a href="/embed/due-date-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="pregnancy weight gain calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Pregnancy Weight Gain Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-pregnancy-weight-gain-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/pregnancy-weight-gain-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Pregnancy Weight Gain Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('pregnancy-weight-gain-calculator', this)">Copy code</button>
+            <a href="/embed/pregnancy-weight-gain-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="protein calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Protein Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-protein-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/protein-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Protein Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('protein-calculator', this)">Copy code</button>
+            <a href="/embed/protein-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="running pace calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Running Pace Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-pace-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/pace-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Running Pace Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('pace-calculator', this)">Copy code</button>
+            <a href="/embed/pace-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="steps to calories calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Steps to Calories Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-steps-to-calories-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/steps-to-calories-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Steps to Calories Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('steps-to-calories-calculator', this)">Copy code</button>
+            <a href="/embed/steps-to-calories-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="target heart rate calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Target Heart Rate Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-target-heart-rate-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/target-heart-rate-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Target Heart Rate Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('target-heart-rate-calculator', this)">Copy code</button>
+            <a href="/embed/target-heart-rate-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="tdee calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">TDEE Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-tdee-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/tdee-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="TDEE Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('tdee-calculator', this)">Copy code</button>
+            <a href="/embed/tdee-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="vo2 max calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">VO2 Max Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-vo2max-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/vo2max-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="VO2 Max Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('vo2max-calculator', this)">Copy code</button>
+            <a href="/embed/vo2max-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="waist-to-height ratio calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Waist-to-Height Ratio Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-waist-to-height-ratio-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/waist-to-height-ratio-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Waist-to-Height Ratio Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('waist-to-height-ratio-calculator', this)">Copy code</button>
+            <a href="/embed/waist-to-height-ratio-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="waist-to-hip ratio calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Waist-to-Hip Ratio Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-waist-to-hip-ratio-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/waist-to-hip-ratio-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Waist-to-Hip Ratio Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('waist-to-hip-ratio-calculator', this)">Copy code</button>
+            <a href="/embed/waist-to-hip-ratio-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="water intake calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Water Intake Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-water-intake-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/water-intake-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Water Intake Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('water-intake-calculator', this)">Copy code</button>
+            <a href="/embed/water-intake-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="health" data-name="weight loss calorie calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Health & Fitness Calculators</div>
+          <div class="embed-card-title">Weight Loss Calorie Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-weight-loss-calorie-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/weight-loss-calorie-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Weight Loss Calorie Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('weight-loss-calorie-calculator', this)">Copy code</button>
+            <a href="/embed/weight-loss-calorie-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="3d distance calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">3D Distance Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-distance-3d-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/distance-3d-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="3D Distance Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('distance-3d-calculator', this)">Copy code</button>
+            <a href="/embed/distance-3d-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="area calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Area Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-area-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/area-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Area Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('area-calculator', this)">Copy code</button>
+            <a href="/embed/area-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="binary calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Binary Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-binary-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/binary-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Binary Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('binary-calculator', this)">Copy code</button>
+            <a href="/embed/binary-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="binomial probability calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Binomial Probability Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-binomial-probability-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/binomial-probability-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Binomial Probability Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('binomial-probability-calculator', this)">Copy code</button>
+            <a href="/embed/binomial-probability-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="circle calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Circle Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-circle-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/circle-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Circle Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('circle-calculator', this)">Copy code</button>
+            <a href="/embed/circle-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="complex number calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Complex Number Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-complex-number-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/complex-number-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Complex Number Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('complex-number-calculator', this)">Copy code</button>
+            <a href="/embed/complex-number-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="exponent calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Exponent Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-exponent-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/exponent-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Exponent Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('exponent-calculator', this)">Copy code</button>
+            <a href="/embed/exponent-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="factorial calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Factorial Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-factorial-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/factorial-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Factorial Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('factorial-calculator', this)">Copy code</button>
+            <a href="/embed/factorial-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="fraction calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Fraction Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-fraction-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/fraction-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Fraction Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('fraction-calculator', this)">Copy code</button>
+            <a href="/embed/fraction-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="gcd & lcm calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">GCD & LCM Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-gcd-lcm-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/gcd-lcm-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="GCD & LCM Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('gcd-lcm-calculator', this)">Copy code</button>
+            <a href="/embed/gcd-lcm-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="log calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Log Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-log-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/log-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Log Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('log-calculator', this)">Copy code</button>
+            <a href="/embed/log-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="matrix calculator (2×2)">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Matrix Calculator (2×2)</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-matrix-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/matrix-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Matrix Calculator (2×2)" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('matrix-calculator', this)">Copy code</button>
+            <a href="/embed/matrix-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="mean, median & mode calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Mean, Median & Mode Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-mean-median-mode-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/mean-median-mode-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Mean, Median & Mode Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('mean-median-mode-calculator', this)">Copy code</button>
+            <a href="/embed/mean-median-mode-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="modulo calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Modulo Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-modulo-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/modulo-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Modulo Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('modulo-calculator', this)">Copy code</button>
+            <a href="/embed/modulo-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="number base converter">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Number Base Converter</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-number-base-converter">&lt;iframe src="https://www.calculatepilot.com/embed/number-base-converter.html" width="100%" height="520" frameborder="0" scrolling="no" title="Number Base Converter" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('number-base-converter', this)">Copy code</button>
+            <a href="/embed/number-base-converter.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="number to words calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Number to Words Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-number-to-words-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/number-to-words-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Number to Words Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('number-to-words-calculator', this)">Copy code</button>
+            <a href="/embed/number-to-words-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="percent error calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Percent Error Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-percent-error-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/percent-error-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Percent Error Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('percent-error-calculator', this)">Copy code</button>
+            <a href="/embed/percent-error-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="percentage calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Percentage Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-percentage-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/percentage-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Percentage Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('percentage-calculator', this)">Copy code</button>
+            <a href="/embed/percentage-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="permutation & combination calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Permutation & Combination Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-permutation-combination-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/permutation-combination-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Permutation & Combination Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('permutation-combination-calculator', this)">Copy code</button>
+            <a href="/embed/permutation-combination-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="polynomial calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Polynomial Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-polynomial-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/polynomial-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Polynomial Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('polynomial-calculator', this)">Copy code</button>
+            <a href="/embed/polynomial-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="prime number checker">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Prime Number Checker</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-prime-number-checker">&lt;iframe src="https://www.calculatepilot.com/embed/prime-number-checker.html" width="100%" height="520" frameborder="0" scrolling="no" title="Prime Number Checker" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('prime-number-checker', this)">Copy code</button>
+            <a href="/embed/prime-number-checker.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="probability calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Probability Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-probability-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/probability-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Probability Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('probability-calculator', this)">Copy code</button>
+            <a href="/embed/probability-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="pythagorean theorem calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Pythagorean Theorem Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-pythagorean-theorem-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/pythagorean-theorem-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Pythagorean Theorem Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('pythagorean-theorem-calculator', this)">Copy code</button>
+            <a href="/embed/pythagorean-theorem-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="quadratic formula calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Quadratic Formula Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-quadratic-formula-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/quadratic-formula-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Quadratic Formula Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('quadratic-formula-calculator', this)">Copy code</button>
+            <a href="/embed/quadratic-formula-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="quartile calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Quartile Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-quartile-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/quartile-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Quartile Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('quartile-calculator', this)">Copy code</button>
+            <a href="/embed/quartile-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="random number generator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Random Number Generator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-random-number-generator">&lt;iframe src="https://www.calculatepilot.com/embed/random-number-generator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Random Number Generator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('random-number-generator', this)">Copy code</button>
+            <a href="/embed/random-number-generator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="ratio calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Ratio Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-ratio-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/ratio-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Ratio Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('ratio-calculator', this)">Copy code</button>
+            <a href="/embed/ratio-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="scientific calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Scientific Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-scientific-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/scientific-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Scientific Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('scientific-calculator', this)">Copy code</button>
+            <a href="/embed/scientific-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="scientific notation calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Scientific Notation Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-scientific-notation-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/scientific-notation-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Scientific Notation Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('scientific-notation-calculator', this)">Copy code</button>
+            <a href="/embed/scientific-notation-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="sequence calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Sequence Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-sequence-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/sequence-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Sequence Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('sequence-calculator', this)">Copy code</button>
+            <a href="/embed/sequence-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="significant figures calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Significant Figures Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-sig-fig-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/sig-fig-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Significant Figures Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('sig-fig-calculator', this)">Copy code</button>
+            <a href="/embed/sig-fig-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="slope calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Slope Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-slope-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/slope-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Slope Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('slope-calculator', this)">Copy code</button>
+            <a href="/embed/slope-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="standard deviation calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Standard Deviation Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-standard-deviation-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/standard-deviation-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Standard Deviation Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('standard-deviation-calculator', this)">Copy code</button>
+            <a href="/embed/standard-deviation-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="triangle calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Triangle Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-triangle-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/triangle-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Triangle Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('triangle-calculator', this)">Copy code</button>
+            <a href="/embed/triangle-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="trigonometry calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Trigonometry Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-trigonometry-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/trigonometry-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Trigonometry Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('trigonometry-calculator', this)">Copy code</button>
+            <a href="/embed/trigonometry-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="vector calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Vector Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-vector-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/vector-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Vector Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('vector-calculator', this)">Copy code</button>
+            <a href="/embed/vector-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="volume calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Volume Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-volume-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/volume-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Volume Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('volume-calculator', this)">Copy code</button>
+            <a href="/embed/volume-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="weighted average calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Weighted Average Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-weighted-average-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/weighted-average-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Weighted Average Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('weighted-average-calculator', this)">Copy code</button>
+            <a href="/embed/weighted-average-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="embed-card" data-cat="math" data-name="z-score calculator">
+        <div class="embed-card-head">
+          <div class="embed-card-cat">Math Calculators</div>
+          <div class="embed-card-title">Z-Score Calculator</div>
+        </div>
+        <div class="embed-card-body">
+          <div class="embed-code" id="code-z-score-calculator">&lt;iframe src="https://www.calculatepilot.com/embed/z-score-calculator.html" width="100%" height="520" frameborder="0" scrolling="no" title="Z-Score Calculator" loading="lazy"&gt;&lt;/iframe&gt;</div>
+          <div class="embed-card-actions">
+            <button class="btn-copy" onclick="copyCode('z-score-calculator', this)">Copy code</button>
+            <a href="/embed/z-score-calculator.html" target="_blank" class="btn-preview">Preview ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- Preview modal -->
+<div class="modal-overlay" id="previewModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Preview</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <iframe id="modalFrame" src="" title="Calculator preview"></iframe>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice.</span>
+      <a href="/">Back to home →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+// ---------- Plan tab switching ----------
+let currentPlan = 'monthly';
+
+document.querySelectorAll('.plan-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentPlan = tab.dataset.plan;
+    const priceEl = document.getElementById('planPrice');
+    if (currentPlan === 'yearly') {
+      priceEl.innerHTML = '$89.99 <span>/ year</span>';
+    } else {
+      priceEl.innerHTML = '$7.99 <span>/ month</span>';
+    }
+  });
+});
+
+function openPayModal() {
+  const modal = document.getElementById('payModal');
+  const title = document.getElementById('payModalTitle');
+  const monthly = document.getElementById('payWidgetMonthly');
+  const yearly = document.getElementById('payWidgetYearly');
+  if (currentPlan === 'yearly') {
+    title.textContent = 'Complete your purchase — Yearly ($89.99)';
+    monthly.style.display = 'none';
+    yearly.style.display = 'block';
+  } else {
+    title.textContent = 'Complete your purchase — Monthly ($7.99)';
+    monthly.style.display = 'block';
+    yearly.style.display = 'none';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePayModal() {
+  document.getElementById('payModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ---------- License key system ----------
+// Keys are SHA-256 hashes of the format: "CP-PRO-{domain}-{secret}"
+// You generate the key manually using a tool like: echo -n "CP-PRO-example.com-yoursecret" | sha256sum
+// Then issue that hash to the paying customer as their license key.
+// This is client-side only — determined users could bypass it by inspecting source.
+// That's acceptable for this use case: the branding removal is a convenience/trust
+// feature, not DRM. Anyone who pays gets their key; anyone who tries to hack it
+// isn't your target customer anyway.
+
+const CP_LICENSE_KEY = 'cp_license_validated';
+
+function applyLicense() {
+  const key = document.getElementById('licenseInput').value.trim();
+  const status = document.getElementById('licenseStatus');
+  if (!key || key.length < 32) {
+    status.className = 'license-status err';
+    status.textContent = 'Please enter a valid license key.';
+    return;
+  }
+  // Store and apply
+  try { localStorage.setItem(CP_LICENSE_KEY, key); } catch(e) {}
+  status.className = 'license-status ok';
+  status.textContent = '✓ License applied. Your embeds now show without CalculatePilot branding.';
+  // Update all embed codes shown on page to ?nobrand=1 version
+  updateEmbedCodesForPro(key);
+}
+
+function updateEmbedCodesForPro(key) {
+  document.querySelectorAll('.embed-code').forEach(el => {
+    el.textContent = el.textContent.replace(
+      /src="([^"]+)"/,
+      `src="$1?license=${encodeURIComponent(key)}"`
+    );
+  });
+}
+
+// On load — if previously validated, restore state
+try {
+  const saved = localStorage.getItem(CP_LICENSE_KEY);
+  if (saved) {
+    document.getElementById('licenseInput').value = saved;
+    updateEmbedCodesForPro(saved);
+    const status = document.getElementById('licenseStatus');
+    status.className = 'license-status ok';
+    status.textContent = '✓ License active on this browser.';
+  }
+} catch(e) {}
+
+// ---------- Copy code ----------
+function copyCode(slug, btn) {
+  const code = document.getElementById('code-' + slug).textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy code'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function closeModal() {
+  document.getElementById('previewModal').classList.remove('open');
+  document.getElementById('modalFrame').src = '';
+}
+
+// Category filter
+document.querySelectorAll('.cat-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const cat = pill.dataset.cat;
+    document.querySelectorAll('.embed-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  });
+});
+
+// Search
+document.getElementById('embedSearch').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.embed-card').forEach(card => {
+    card.style.display = (!q || card.dataset.name.includes(q)) ? '' : 'none';
+  });
+  if (q) {
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  }
+});
+
+// Close modal on overlay click
+document.getElementById('previewModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>

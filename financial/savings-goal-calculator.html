@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Goal Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate how long it will take to reach a specific savings goal based on your monthly contribution and interest rate. No signup needed. CalculatePilot explains">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/savings-goal-calculator.html">
+<meta property="og:title" content="Savings Goal Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate how long it will take to reach a specific savings goal based on your monthly contribution and interest rate. No signup needed. CalculatePilot explains">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/savings-goal-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Savings Goal Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate how long it will take to reach a specific savings goal based on your monthly contribution and interest rate. No signup needed. CalculatePilot explains">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Savings Goal Calculator",
+  "url": "https://www.calculatepilot.com/financial/savings-goal-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate how long it will take to reach a specific savings goal based on your monthly contribution and interest rate. No signup needed. CalculatePilot explains"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Financial Calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Savings Goal Calculator", "item": "https://www.calculatepilot.com/financial/savings-goal-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What if I don\u0027t earn any interest on my savings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Set the annual return field to 0% \u2014 the calculator will then simply project based on your contributions alone, without any compounding growth added." }
+    },    {
+      "@type": "Question",
+      "name": "What does it mean if the calculator says my goal isn\u0027t reachable?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This appears if your monthly contribution and return rate combined wouldn\u0027t reach the goal within 50 years \u2014 in that case, consider increasing your monthly contribution or adjusting your goal amount or timeline expectations." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Savings Goal Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Savings Goal Calculator</h1>
+    <p class="lede">Calculate how long it will take to reach any savings goal, based on your monthly contribution and expected growth rate.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="goalAmount">Savings goal ($)</label>
+        <input type="number" id="goalAmount" value="20000" step="500" min="0">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="currentSavings">Current savings ($)</label>
+          <input type="number" id="currentSavings" value="3000" step="100" min="0">
+        </div>
+        <div class="field">
+          <label for="monthlyContribution">Monthly contribution ($)</label>
+          <input type="number" id="monthlyContribution" value="500" step="25" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="annualReturn">Expected annual return (%)</label>
+        <input type="number" id="annualReturn" value="3" step="0.1" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Currency</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Time to reach your goal</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Total months needed</span><span id="outTotalMonths">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>A flexible tool for any savings goal</h2>
+    <p>Unlike calculators built around a specific purpose (retirement, a house down payment, college), this one works for any savings target — a wedding, a vacation, a new car, a business investment, or simply a general savings milestone. Enter your goal, what you're starting with, and your monthly contribution to see a realistic timeline.</p>
+    <p>The annual return field is optional in effect — set it to 0% if your savings are sitting in a non-interest-bearing account, or use a modest rate if it's in a high-yield savings account or similar low-risk vehicle.</p>
+    <h2>How increasing your contribution changes the timeline</h2>
+    <p>Because this calculation compounds monthly, even modest increases to your monthly contribution can meaningfully shorten your timeline, especially for longer-term goals — it's worth experimenting with a few different contribution amounts to see the trade-off between saving more aggressively now versus a longer, more comfortable timeline.</p>
+    <p>If reaching your goal feels too slow at your current contribution rate, this calculator makes it concrete exactly how much increasing your monthly amount would speed things up, which can help make a decision to save more feel more motivating than abstract.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What if I don't earn any interest on my savings?</h3>
+      <p>Set the annual return field to 0% — the calculator will then simply project based on your contributions alone, without any compounding growth added.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What does it mean if the calculator says my goal isn't reachable?</h3>
+      <p>This appears if your monthly contribution and return rate combined wouldn't reach the goal within 50 years — in that case, consider increasing your monthly contribution or adjusting your goal amount or timeline expectations.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
+      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
+      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/savings-goal-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=ed5961c9"></script>
+<script src="/js/savings-goal.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

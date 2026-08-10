@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Distance Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the straight-line distance between two points in 3D space given their x, y, z coordinates. No signup needed. CalculatePilot explains the formula behin">
+<link rel="canonical" href="https://www.calculatepilot.com/math/distance-3d-calculator.html">
+<meta property="og:title" content="3D Distance Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the straight-line distance between two points in 3D space given their x, y, z coordinates. No signup needed. CalculatePilot explains the formula behin">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/distance-3d-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3D Distance Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the straight-line distance between two points in 3D space given their x, y, z coordinates. No signup needed. CalculatePilot explains the formula behin">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "3D Distance Calculator",
+  "url": "https://www.calculatepilot.com/math/distance-3d-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the straight-line distance between two points in 3D space given their x, y, z coordinates. No signup needed. CalculatePilot explains the formula behin"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "3D Distance Calculator", "item": "https://www.calculatepilot.com/math/distance-3d-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is this different from the standard 2D distance formula?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It\u0027s the same underlying principle, extended with one additional term for the z-axis (depth) difference \u2014 the 2D formula is simply this one with the z-component removed." }
+    },    {
+      "@type": "Question",
+      "name": "What units does the result use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The result is in whatever unit your coordinates are in \u2014 if your x, y, z values are in meters, the distance will be in meters; the calculator doesn\u0027t assume or convert units." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / 3D Distance Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>3D Distance Calculator</h1>
+    <p class="lede">Calculate the straight-line distance between two points in 3D space using their x, y, and z coordinates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="x1">x₁</label>
+          <input type="number" id="x1" value="0" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="y1">y₁</label>
+          <input type="number" id="y1" value="0" step="0.5" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="z1">z₁</label>
+          <input type="number" id="z1" value="0" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="x2">x₂</label>
+          <input type="number" id="x2" value="3" step="0.5" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="y2">y₂</label>
+          <input type="number" id="y2" value="4" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="z2">z₂</label>
+          <input type="number" id="z2" value="12" step="0.5" >
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Distance</div>
+        <div class="readout-value big" id="resultValue">—</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Extending the distance formula to three dimensions</h2>
+    <p>The familiar 2D distance formula extends naturally to three dimensions by adding a third term for the z-axis difference: distance equals the square root of (Δx)² + (Δy)² + (Δz)². It's the same Pythagorean-theorem logic as the 2D case, just applied across one additional dimension.</p>
+    <p>This generalizes further to any number of dimensions in higher mathematics, following the same pattern — though 3D distance is by far the most common practical application outside of pure math contexts.</p>
+    <h2>Where 3D distance calculations are used</h2>
+    <p>This formula is fundamental to 3D graphics and game development (calculating distances between objects in a scene), physics simulations, robotics and spatial navigation, GPS and satellite positioning systems, and molecular modeling in chemistry, where atomic distances in 3D space are routinely calculated.</p>
+    <p>Any application involving objects positioned in three-dimensional space — whether physical or virtual — relies on this same underlying distance formula, making it one of the more broadly applicable calculations in applied mathematics.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>How is this different from the standard 2D distance formula?</h3>
+      <p>It's the same underlying principle, extended with one additional term for the z-axis (depth) difference — the 2D formula is simply this one with the z-component removed.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What units does the result use?</h3>
+      <p>The result is in whatever unit your coordinates are in — if your x, y, z values are in meters, the distance will be in meters; the calculator doesn't assume or convert units.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/distance-3d-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/distance-3d.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Period Calculator — Predict Your Next Period | CalculatePilot</title>
+<meta name="description" content="Estimate the start date of your next period based on your last period and average cycle length. No signup needed. CalculatePilot explains the formula behind eve">
+<link rel="canonical" href="https://www.calculatepilot.com/health/period-calculator.html">
+<meta property="og:title" content="Period Calculator — Predict Your Next Period | CalculatePilot">
+<meta property="og:description" content="Estimate the start date of your next period based on your last period and average cycle length. No signup needed. CalculatePilot explains the formula behind eve">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/health/period-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Period Calculator — Predict Your Next Period | CalculatePilot">
+<meta name="twitter:description" content="Estimate the start date of your next period based on your last period and average cycle length. No signup needed. CalculatePilot explains the formula behind eve">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Period Calculator",
+  "url": "https://www.calculatepilot.com/health/period-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Estimate the start date of your next period based on your last period and average cycle length. No signup needed. CalculatePilot explains the formula behind eve"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Health & Fitness Calculators", "item": "https://www.calculatepilot.com/health-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Period Calculator", "item": "https://www.calculatepilot.com/health/period-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What if my cycle is irregular?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This estimate assumes a consistent cycle length, so it will be less accurate if your cycles vary significantly month to month. Tracking over several cycles can improve accuracy." }
+    },    {
+      "@type": "Question",
+      "name": "What counts as an irregular cycle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cycles that vary by more than about 7-9 days from month to month, or fall well outside the typical 21-35 day range, are generally considered irregular and worth tracking closely or discussing with a provider." }
+    },    {
+      "@type": "Question",
+      "name": "Can stress affect period timing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes \u2014 stress, significant weight changes, travel, and illness can all shift cycle timing temporarily, which is part of why calendar predictions are estimates rather than guarantees." }
+    },    {
+      "@type": "Question",
+      "name": "How much can cycle length normally vary month to month?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Some natural variation (a few days) is common even for people with generally regular cycles \u2014 larger or more frequent variation may be worth discussing with a healthcare provider." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / Period Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Period Calculator</h1>
+    <p class="lede">Estimate when your next period will start based on your last period and typical cycle length.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="lastPeriodDate">First day of last period</label>
+          <input type="date" id="lastPeriodDate" value="2026-07-01"  >
+        </div>
+        <div class="field">
+          <label for="cycleLength">Average cycle length (days)</label>
+          <input type="number" id="cycleLength" value="28" step="1" min="20">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Next period (estimated)</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Following period (estimated)</span><span id="outFollowing">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Cycle variability</h2>
+    <p>Cycle length can vary month to month even for people with generally regular cycles — treat this as an estimate, and track over a few months for a more personalized pattern.</p>
+    <h2>Tracking cycle patterns over time</h2>
+    <p>While this calculator uses a single average cycle length, actual cycles often vary by a few days from month to month even in people with generally regular patterns. Tracking your actual start dates over several months tends to produce more accurate predictions than a single average assumption.</p>
+    <p>Significant or sudden changes in cycle regularity are worth discussing with a healthcare provider, since they can sometimes signal underlying factors worth understanding.</p>
+    <h2>A worked example</h2>
+    <p>With a last period starting July 1 and a 29-day average cycle, the next period is estimated around July 30, with the following one estimated around August 28.</p>
+    <p>For someone with a shorter 24-day cycle starting on the same date, the next period would be estimated around July 25 instead — 5 days earlier, showing how meaningfully cycle length affects these predictions.</p>
+    <h2>Tracking your cycle over time</h2>
+    <p>A single-cycle estimate is a reasonable starting point, but tracking actual period start dates over 3-6 months typically produces a more personalized and accurate prediction than a generic 28-day assumption, especially if your cycle tends to run shorter or longer than average.</p>
+    <p>Cycle length can also shift due to stress, travel, illness, or hormonal changes, so even a well-tracked pattern can vary — treating predictions as an estimate rather than a certainty is generally the most realistic approach.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What if my cycle is irregular?</h3>
+      <p>This estimate assumes a consistent cycle length, so it will be less accurate if your cycles vary significantly month to month. Tracking over several cycles can improve accuracy.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What counts as an irregular cycle?</h3>
+      <p>Cycles that vary by more than about 7-9 days from month to month, or fall well outside the typical 21-35 day range, are generally considered irregular and worth tracking closely or discussing with a provider.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can stress affect period timing?</h3>
+      <p>Yes — stress, significant weight changes, travel, and illness can all shift cycle timing temporarily, which is part of why calendar predictions are estimates rather than guarantees.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How much can cycle length normally vary month to month?</h3>
+      <p>Some natural variation (a few days) is common even for people with generally regular cycles — larger or more frequent variation may be worth discussing with a healthcare provider.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Alcohol Calories Calculator <span class="arrow">→</span></a>
+      <a href="/health/bac-calculator.html" class="tool-link">BAC Calculator <span class="arrow">→</span></a>
+      <a href="/health/blood-pressure-category-calculator.html" class="tool-link">Blood Pressure Category Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmi-calculator.html" class="tool-link">BMI Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/period-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/period.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

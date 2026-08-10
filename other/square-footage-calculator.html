@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Square Footage Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the square footage of a space and the total cost based on price per square foot. Free, no signup — instant results with the formula explained.">
+<link rel="canonical" href="https://www.calculatepilot.com/other/square-footage-calculator.html">
+<meta property="og:title" content="Square Footage Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the square footage of a space and the total cost based on price per square foot. Free, no signup — instant results with the formula explained.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/square-footage-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Square Footage Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the square footage of a space and the total cost based on price per square foot. Free, no signup — instant results with the formula explained.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Square Footage Calculator",
+  "url": "https://www.calculatepilot.com/other/square-footage-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the square footage of a space and the total cost based on price per square foot. Free, no signup \u2014 instant results with the formula explained."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Square Footage Calculator", "item": "https://www.calculatepilot.com/other/square-footage-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is price per square foot a reliable way to compare properties?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It\u0027s a useful starting point for comparing similar properties, but it doesn\u0027t account for lot size, location, finish quality, or layout \u2014 treat it as one data point among several rather than a complete valuation method." }
+    },    {
+      "@type": "Question",
+      "name": "How do I calculate square footage for an irregularly shaped room?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Break the space into simple rectangular sections, calculate the square footage of each separately, then add the totals together for the full area." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Square Footage Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Square Footage Calculator</h1>
+    <p class="lede">Calculate the square footage of a room or lot, and the total cost based on a price per square foot.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="length">Length (ft)</label>
+          <input type="number" id="length" value="20" step="0.5" min="0">
+        </div>
+        <div class="field">
+          <label for="width">Width (ft)</label>
+          <input type="number" id="width" value="15" step="0.5" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="pricePerSqFt">Price per sq ft ($, optional)</label>
+        <input type="number" id="pricePerSqFt" value="150" step="1" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Currency</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Square footage</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Total cost</span><span id="outTotalCost">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Why square footage matters in real estate</h2>
+    <p>Price per square foot is one of the most common ways to compare properties on a like-for-like basis, since it normalizes for size — a larger house isn't necessarily a better deal than a smaller one until you compare their price relative to actual living space.</p>
+    <p>That said, price per square foot has limitations as a comparison tool — it doesn't account for lot size, location desirability, finish quality, layout efficiency, or amenities, all of which can meaningfully affect a property's actual value beyond raw square footage.</p>
+    <h2>Measuring irregular spaces</h2>
+    <p>For a simple rectangular room, this calculation is straightforward. For irregular or multi-section spaces (an L-shaped room, a house with multiple wings), the most accurate approach is to break the space into simple rectangular sections, calculate each separately, then sum the totals.</p>
+    <p>It's also worth being consistent about what's included — some square footage figures include garages, porches, or unfinished basements while others don't, which can create confusion when comparing figures from different sources.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Is price per square foot a reliable way to compare properties?</h3>
+      <p>It's a useful starting point for comparing similar properties, but it doesn't account for lot size, location, finish quality, or layout — treat it as one data point among several rather than a complete valuation method.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I calculate square footage for an irregularly shaped room?</h3>
+      <p>Break the space into simple rectangular sections, calculate the square footage of each separately, then add the totals together for the full area.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/square-footage-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=ed5961c9"></script>
+<script src="/js/square-footage.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

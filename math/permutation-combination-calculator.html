@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permutation & Combination Calculator (nPr, nCr) | CalculatePilot</title>
+<meta name="description" content="Calculate permutations (nPr) and combinations (nCr) for any values of n and r. No signup needed. CalculatePilot explains the formula behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/permutation-combination-calculator.html">
+<meta property="og:title" content="Permutation & Combination Calculator (nPr, nCr) | CalculatePilot">
+<meta property="og:description" content="Calculate permutations (nPr) and combinations (nCr) for any values of n and r. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/permutation-combination-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Permutation & Combination Calculator (nPr, nCr) | CalculatePilot">
+<meta name="twitter:description" content="Calculate permutations (nPr) and combinations (nCr) for any values of n and r. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Permutation \u0026 Combination Calculator",
+  "url": "https://www.calculatepilot.com/math/permutation-combination-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate permutations (nPr) and combinations (nCr) for any values of n and r. No signup needed. CalculatePilot explains the formula behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Permutation & Combination Calculator", "item": "https://www.calculatepilot.com/math/permutation-combination-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know whether to use permutation or combination?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ask whether order matters for your situation. If rearranging the same items creates a different outcome (like race placements), use permutation. If the same items in any order count as the same result (like a committee), use combination." }
+    },    {
+      "@type": "Question",
+      "name": "Why is nPr always bigger than nCr for the same n and r?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because permutations count every possible ordering of the same r items as separate outcomes, while combinations group all those orderings together as one outcome \u2014 so nPr is always a multiple of nCr (specifically, nPr = nCr \u00d7 r!)." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Permutation & Combination Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Permutation & Combination Calculator</h1>
+    <p class="lede">Calculate the number of permutations (order matters) or combinations (order doesn't matter) for choosing r items from n.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="calcType">Type</label>
+        <select id="calcType">
+          <option value="permutation" selected>Permutation (nPr) — order matters</option>
+          <option value="combination" >Combination (nCr) — order doesn't matter</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="nValue">n (total items)</label>
+          <input type="number" id="nValue" value="10" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="rValue">r (items chosen)</label>
+          <input type="number" id="rValue" value="3" step="1" min="0">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Result</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Formula</span><span id="outFormula">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Permutations vs. combinations</h2>
+    <p>The key difference is whether order matters. Arranging 3 people in a race (1st, 2nd, 3rd place) is a permutation, since who comes in 1st versus 2nd matters. Choosing 3 people for a committee is a combination, since the group is the same regardless of the order they were selected in.</p>
+    <p>Because permutations count every possible ordering separately, nPr is always greater than or equal to nCr for the same n and r — combinations essentially group together all the orderings that contain the same items.</p>
+    <h2>A worked example</h2>
+    <p>Choosing 3 winners (1st, 2nd, 3rd prize) from 10 entrants is a permutation: 10P3 = 10!/(10-3)! = 720 possible outcomes, since each different order counts separately.</p>
+    <p>Choosing 3 people from 10 to form a team (no ranking) is a combination: 10C3 = 10!/(3!×7!) = 120 possible outcomes — much smaller, since it doesn't matter which order the 3 were chosen in.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>How do I know whether to use permutation or combination?</h3>
+      <p>Ask whether order matters for your situation. If rearranging the same items creates a different outcome (like race placements), use permutation. If the same items in any order count as the same result (like a committee), use combination.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why is nPr always bigger than nCr for the same n and r?</h3>
+      <p>Because permutations count every possible ordering of the same r items as separate outcomes, while combinations group all those orderings together as one outcome — so nPr is always a multiple of nCr (specifically, nPr = nCr × r!).</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/permutation-combination-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/permutation-combination.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

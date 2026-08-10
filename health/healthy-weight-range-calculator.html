@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Weight Range Calculator — Based on BMI | CalculatePilot</title>
+<meta name="description" content="Calculate your healthy weight range for your height, based on the standard BMI range of 18.5-24.9. No signup needed. CalculatePilot explains the formula behind ">
+<link rel="canonical" href="https://www.calculatepilot.com/health/healthy-weight-range-calculator.html">
+<meta property="og:title" content="Healthy Weight Range Calculator — Based on BMI | CalculatePilot">
+<meta property="og:description" content="Calculate your healthy weight range for your height, based on the standard BMI range of 18.5-24.9. No signup needed. CalculatePilot explains the formula behind ">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/health/healthy-weight-range-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Healthy Weight Range Calculator — Based on BMI | CalculatePilot">
+<meta name="twitter:description" content="Calculate your healthy weight range for your height, based on the standard BMI range of 18.5-24.9. No signup needed. CalculatePilot explains the formula behind ">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Healthy Weight Range Calculator",
+  "url": "https://www.calculatepilot.com/health/healthy-weight-range-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate your healthy weight range for your height, based on the standard BMI range of 18.5-24.9. No signup needed. CalculatePilot explains the formula behind "
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Health & Fitness Calculators", "item": "https://www.calculatepilot.com/health-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Healthy Weight Range Calculator", "item": "https://www.calculatepilot.com/health/healthy-weight-range-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this account for muscle mass?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 like standard BMI, this range doesn\u0027t distinguish between muscle and fat, so very muscular individuals may fall above this range while still being at a healthy body composition." }
+    },    {
+      "@type": "Question",
+      "name": "Should I try to hit the exact middle of this range?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily \u2014 this range is a general statistical reference, not a personalized target. Where you sit within (or even slightly outside) this range depends on individual factors like frame size and muscle mass." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / Healthy Weight Range Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Healthy Weight Range Calculator</h1>
+    <p class="lede">Calculate the healthy weight range for your height, based on the standard BMI range of 18.5–24.9.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="units">Units</label>
+        <select id="units">
+          <option value="imperial" selected>Imperial (in)</option>
+          <option value="metric" >Metric (cm)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="height">Height</label>
+        <input type="number" id="height" value="67" step="0.5" min="1">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Healthy weight range</div>
+        <div class="readout-value big" id="resultValue">—</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>How this range is calculated</h2>
+    <p>This calculator works backward from the standard 'normal weight' BMI range (18.5 to 24.9) to find the corresponding weight range for your specific height — essentially showing you the weight window that would keep your BMI within that commonly used reference range.</p>
+    <p>Because it's derived directly from BMI, this range carries the same limitations as BMI itself — it doesn't distinguish between muscle and fat mass, so very muscular individuals may fall 'above range' while still being at a healthy body composition, and the reverse can be true for people with low muscle mass.</p>
+    <h2>Using this as one reference point, not a strict target</h2>
+    <p>This range is a population-level statistical reference, not a personalized medical target — factors like frame size, muscle mass, age, and overall health picture all matter alongside where your weight falls in this range. It's best used as a general orientation point rather than a strict goal to hit exactly.</p>
+    <p>For a more complete picture of healthy weight for your individual situation, pairing this with other measures (like waist circumference or body composition) — and ideally input from a healthcare provider — gives a fuller picture than any single number alone.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Does this account for muscle mass?</h3>
+      <p>No — like standard BMI, this range doesn't distinguish between muscle and fat, so very muscular individuals may fall above this range while still being at a healthy body composition.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Should I try to hit the exact middle of this range?</h3>
+      <p>Not necessarily — this range is a general statistical reference, not a personalized target. Where you sit within (or even slightly outside) this range depends on individual factors like frame size and muscle mass.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Alcohol Calories Calculator <span class="arrow">→</span></a>
+      <a href="/health/bac-calculator.html" class="tool-link">BAC Calculator <span class="arrow">→</span></a>
+      <a href="/health/blood-pressure-category-calculator.html" class="tool-link">Blood Pressure Category Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmi-calculator.html" class="tool-link">BMI Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/healthy-weight-range-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/healthy-weight-range.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

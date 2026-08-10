@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Pressure Category Calculator | CalculatePilot</title>
+<meta name="description" content="Check which AHA blood pressure category your reading falls into, from normal to hypertensive crisis. No signup needed. CalculatePilot explains the formula behin">
+<link rel="canonical" href="https://www.calculatepilot.com/health/blood-pressure-category-calculator.html">
+<meta property="og:title" content="Blood Pressure Category Calculator | CalculatePilot">
+<meta property="og:description" content="Check which AHA blood pressure category your reading falls into, from normal to hypertensive crisis. No signup needed. CalculatePilot explains the formula behin">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/health/blood-pressure-category-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blood Pressure Category Calculator | CalculatePilot">
+<meta name="twitter:description" content="Check which AHA blood pressure category your reading falls into, from normal to hypertensive crisis. No signup needed. CalculatePilot explains the formula behin">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Blood Pressure Category Calculator",
+  "url": "https://www.calculatepilot.com/health/blood-pressure-category-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Check which AHA blood pressure category your reading falls into, from normal to hypertensive crisis. No signup needed. CalculatePilot explains the formula behin"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Health & Fitness Calculators", "item": "https://www.calculatepilot.com/health-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Blood Pressure Category Calculator", "item": "https://www.calculatepilot.com/health/blood-pressure-category-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I be concerned about a single high reading?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A single elevated reading isn\u0027t necessarily cause for alarm, since blood pressure fluctuates naturally \u2014 but a reading in the Stage 2 or Crisis range, or a pattern of consistently high readings, is worth discussing with a healthcare provider." }
+    },    {
+      "@type": "Question",
+      "name": "Why does this calculator use whichever number is higher?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard guidelines classify blood pressure based on whichever of the two numbers (systolic or diastolic) falls into the more severe category \u2014 a reading can be classified as elevated risk even if only one of the two numbers is high." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / Blood Pressure Category Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Blood Pressure Category Calculator</h1>
+    <p class="lede">Check which standard blood pressure category your reading falls into, based on American Heart Association guidelines.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="systolic">Systolic (top number)</label>
+          <input type="number" id="systolic" value="118" step="1" min="50">
+        </div>
+        <div class="field">
+          <label for="diastolic">Diastolic (bottom number)</label>
+          <input type="number" id="diastolic" value="76" step="1" min="30">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Category</div>
+        <div class="readout-value big" id="resultValue">—</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Important: this is educational, not a diagnosis</h2>
+    <p>This calculator categorizes a single reading against standard published thresholds for general awareness only — it is not a diagnosis and cannot account for your full medical history, medications, or the pattern of readings over time that a clinician would consider. Blood pressure also naturally varies throughout the day and can be affected by stress, caffeine, recent activity, and measurement technique.</p>
+    <p>If your reading falls in the Stage 2 or Hypertensive Crisis range, or if you have any concerning symptoms, contact a healthcare provider — a single home reading in a high category is worth having checked, particularly if it's unusually high for you.</p>
+    <h2>How blood pressure categories are defined</h2>
+    <p>Standard American Heart Association categories use both the systolic (top) and diastolic (bottom) numbers, with whichever number falls into a higher category determining the overall classification: Normal (below 120/80), Elevated (120-129 systolic with diastolic under 80), Stage 1 (130-139 systolic or 80-89 diastolic), Stage 2 (140+ systolic or 90+ diastolic), and Hypertensive Crisis (above 180 systolic or above 120 diastolic, requiring immediate medical attention).</p>
+    <p>For an accurate ongoing picture, most guidelines recommend averaging multiple readings taken on different days rather than relying on a single measurement, since blood pressure can fluctuate meaningfully between individual readings.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Should I be concerned about a single high reading?</h3>
+      <p>A single elevated reading isn't necessarily cause for alarm, since blood pressure fluctuates naturally — but a reading in the Stage 2 or Crisis range, or a pattern of consistently high readings, is worth discussing with a healthcare provider.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why does this calculator use whichever number is higher?</h3>
+      <p>Standard guidelines classify blood pressure based on whichever of the two numbers (systolic or diastolic) falls into the more severe category — a reading can be classified as elevated risk even if only one of the two numbers is high.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Alcohol Calories Calculator <span class="arrow">→</span></a>
+      <a href="/health/bac-calculator.html" class="tool-link">BAC Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmi-calculator.html" class="tool-link">BMI Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmr-calculator.html" class="tool-link">BMR Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/blood-pressure-category-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/blood-pressure.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probability Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the probability of a single event, or the combined probability of two independent events (AND/OR). No signup needed. CalculatePilot explains the formu">
+<link rel="canonical" href="https://www.calculatepilot.com/math/probability-calculator.html">
+<meta property="og:title" content="Probability Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the probability of a single event, or the combined probability of two independent events (AND/OR). No signup needed. CalculatePilot explains the formu">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/probability-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Probability Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the probability of a single event, or the combined probability of two independent events (AND/OR). No signup needed. CalculatePilot explains the formu">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Probability Calculator",
+  "url": "https://www.calculatepilot.com/math/probability-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the probability of a single event, or the combined probability of two independent events (AND/OR). No signup needed. CalculatePilot explains the formu"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Probability Calculator", "item": "https://www.calculatepilot.com/math/probability-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it mean for two events to be independent?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Independent events don\u0027t affect each other\u0027s outcome \u2014 like separate coin flips or dice rolls. This is different from dependent events, such as drawing cards without replacement, where earlier outcomes change later probabilities." }
+    },    {
+      "@type": "Question",
+      "name": "Why do I subtract the overlap when calculating OR probability?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Simply adding the two probabilities would double-count the outcome where both events happen \u2014 subtracting the overlap (the AND probability) corrects for that double-counting." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Probability Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Probability Calculator</h1>
+    <p class="lede">Calculate the probability of a single event, or combine two independent events with AND/OR logic.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="combineType">Combine events with</label>
+        <select id="combineType">
+          <option value="and" selected>AND (both events happen)</option>
+          <option value="or" >OR (at least one event happens)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="favorableA">Event A: favorable outcomes</label>
+          <input type="number" id="favorableA" value="1" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="totalA">Event A: total outcomes</label>
+          <input type="number" id="totalA" value="6" step="1" min="1">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="favorableB">Event B: favorable outcomes</label>
+          <input type="number" id="favorableB" value="1" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="totalB">Event B: total outcomes</label>
+          <input type="number" id="totalB" value="6" step="1" min="1">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Combined probability</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Probability of A</span><span id="outProbA">—</span></div>
+          <div class="readout-row"><span>Probability of B</span><span id="outProbB">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>AND vs. OR for combining probabilities</h2>
+    <p>This calculator assumes both events are independent — meaning the outcome of one doesn't affect the other, like two separate dice rolls. For 'AND' (both events happening), independent probabilities multiply together. For 'OR' (at least one happening), you add the individual probabilities and subtract their overlap, since simply adding would double-count the case where both happen.</p>
+    <p>A classic example: rolling a 6 on one die (1/6) AND rolling a 6 on a second die (1/6) gives 1/6 × 1/6 = 1/36 — much less likely than either event alone, which makes sense since both specific outcomes need to occur together.</p>
+    <h2>What 'independent events' means</h2>
+    <p>Independent events don't influence each other's outcome — a coin flip doesn't affect the next coin flip, and rolling one die doesn't affect another. This is different from dependent events, like drawing cards from a deck without replacement, where each draw changes the probabilities for the next one.</p>
+    <p>This calculator's formulas are only valid for independent events — dependent event calculations require a different, more involved approach that accounts for how earlier outcomes change later probabilities.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What does it mean for two events to be independent?</h3>
+      <p>Independent events don't affect each other's outcome — like separate coin flips or dice rolls. This is different from dependent events, such as drawing cards without replacement, where earlier outcomes change later probabilities.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why do I subtract the overlap when calculating OR probability?</h3>
+      <p>Simply adding the two probabilities would double-count the outcome where both events happen — subtracting the overlap (the AND probability) corrects for that double-counting.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/probability-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/probability.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

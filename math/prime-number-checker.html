@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Number Checker | CalculatePilot</title>
+<meta name="description" content="Check whether a number is prime and see its prime factorization. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/prime-number-checker.html">
+<meta property="og:title" content="Prime Number Checker | CalculatePilot">
+<meta property="og:description" content="Check whether a number is prime and see its prime factorization. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/prime-number-checker.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prime Number Checker | CalculatePilot">
+<meta name="twitter:description" content="Check whether a number is prime and see its prime factorization. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Prime Number Checker",
+  "url": "https://www.calculatepilot.com/math/prime-number-checker.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Check whether a number is prime and see its prime factorization. Free, no signup \u2014 shows the formula and step-by-step methodology behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Prime Number Checker", "item": "https://www.calculatepilot.com/math/prime-number-checker.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 1 a prime number?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 by definition, a prime number must have exactly two distinct positive divisors (1 and itself). Since 1 only has one divisor (itself), it\u0027s excluded from being prime." }
+    },    {
+      "@type": "Question",
+      "name": "Why is 2 the only even prime number?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every even number greater than 2 is divisible by 2 in addition to 1 and itself, giving it at least three divisors \u2014 which disqualifies it from being prime by definition." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Prime Number Checker
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Prime Number Checker</h1>
+    <p class="lede">Check whether a number is prime, and see its full prime factorization if it isn't.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="numberInput">Number</label>
+        <input type="number" id="numberInput" value="97" step="1" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Result</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Prime factors</span><span id="outFactors">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>What makes a number prime</h2>
+    <p>A prime number is a whole number greater than 1 that has exactly two positive divisors: 1 and itself. Numbers with more than two divisors are called composite. By this definition, 1 is neither prime nor composite, and 2 is the only even prime number — every other even number is divisible by 2, disqualifying it.</p>
+    <p>This calculator checks primality by testing whether any number up to the square root of your input divides it evenly — if none do, the number is prime. This is an efficient method since any factor larger than the square root would need a corresponding factor smaller than it.</p>
+    <h2>Prime factorization explained</h2>
+    <p>Every composite number can be broken down into a unique set of prime factors — for example, 84 = 2 × 2 × 3 × 7. This is known as the Fundamental Theorem of Arithmetic, and it's the basis for many areas of number theory and cryptography.</p>
+    <p>Prime factorization has practical applications beyond pure math — it's foundational to encryption algorithms like RSA, which rely on the fact that factoring very large numbers into their prime components is computationally difficult.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Is 1 a prime number?</h3>
+      <p>No — by definition, a prime number must have exactly two distinct positive divisors (1 and itself). Since 1 only has one divisor (itself), it's excluded from being prime.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why is 2 the only even prime number?</h3>
+      <p>Every even number greater than 2 is divisible by 2 in addition to 1 and itself, giving it at least three divisors — which disqualifies it from being prime by definition.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/prime-number-checker.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/prime-checker.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

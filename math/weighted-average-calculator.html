@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weighted Average Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate a weighted average from a list of values and their corresponding weights. No signup needed. CalculatePilot explains the formula behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/weighted-average-calculator.html">
+<meta property="og:title" content="Weighted Average Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate a weighted average from a list of values and their corresponding weights. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/weighted-average-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weighted Average Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate a weighted average from a list of values and their corresponding weights. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Weighted Average Calculator",
+  "url": "https://www.calculatepilot.com/math/weighted-average-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate a weighted average from a list of values and their corresponding weights. No signup needed. CalculatePilot explains the formula behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Weighted Average Calculator", "item": "https://www.calculatepilot.com/math/weighted-average-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do my weights need to add up to 100%?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 this calculator normalizes automatically by dividing by the total weight, so proportional weights (like 2, 3, 5) work the same as their percentage equivalents." }
+    },    {
+      "@type": "Question",
+      "name": "What happens if I enter a different number of values and weights?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The calculator uses only as many pairs as match up (the shorter of the two lists), so make sure your values and weights lists have the same number of entries, in the same order, for an accurate result." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Weighted Average Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Weighted Average Calculator</h1>
+    <p class="lede">Calculate a weighted average from a list of values and their corresponding weights — useful for grades, scores, and portfolios.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="valuesList">Values (comma-separated)</label>
+        <input type="text" id="valuesList" value="85, 90, 78, 92"  >
+      </div>
+      <div class="field">
+        <label for="weightsList">Weights (comma-separated, same order)</label>
+        <input type="text" id="weightsList" value="0.2, 0.3, 0.2, 0.3"  >
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Weighted average</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Simple (unweighted) average</span><span id="outSimpleAverage">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Why weighted average differs from a simple average</h2>
+    <p>A simple average treats every value equally, but a weighted average lets some values count more than others — this matters whenever different items genuinely carry different importance, like a final exam worth more than a weekly quiz, or a large purchase mattering more to a portfolio's overall price than a small one.</p>
+    <p>Weights don't need to sum to exactly 1 or 100% for this calculator to work — since the formula divides by the total weight, proportional weights (like 2, 3, 2, 3) produce the same result as their equivalent percentages (20%, 30%, 20%, 30%).</p>
+    <h2>Common uses for weighted averages</h2>
+    <p>Weighted averages show up constantly: calculating a course grade from assignments worth different percentages, computing the average cost basis of shares bought at different prices and quantities, blending survey results where responses come from different-sized groups, and averaging investment returns weighted by amount invested.</p>
+    <p>Getting the weights right is the most important part of this calculation — an incorrect weighting scheme (like accidentally treating all items as equal) is one of the most common sources of error when calculating grades or blended scores by hand.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Do my weights need to add up to 100%?</h3>
+      <p>No — this calculator normalizes automatically by dividing by the total weight, so proportional weights (like 2, 3, 5) work the same as their percentage equivalents.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What happens if I enter a different number of values and weights?</h3>
+      <p>The calculator uses only as many pairs as match up (the shorter of the two lists), so make sure your values and weights lists have the same number of entries, in the same order, for an accurate result.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/weighted-average-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/weighted-average.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

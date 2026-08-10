@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPA Calculator | CalculatePilot</title>
+<meta name="robots" content="noindex, follow">
+<style>
+/* Self-contained embed styles — no external dependencies, no font loading delay */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #FBFBFA;
+  --paper-raised: #FFFFFF;
+  --ink: #14171A;
+  --slate: #6B7280;
+  --line: #E5E7EB;
+  --signal: #0F6B5C;
+  --signal-dark: #0B5347;
+  --signal-soft: #EAF4F1;
+  --mono: 'Courier New', 'Lucida Console', monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+  --radius: 6px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.embed-wrap {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---- Header ---- */
+.embed-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 2px solid var(--signal);
+  padding-bottom: 10px;
+}
+.embed-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.embed-lede {
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+/* ---- Form fields ---- */
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
+.field input, .field select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  background: var(--paper-raised);
+  color: var(--ink);
+  width: 100%;
+}
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: var(--signal);
+}
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ---- Result readout ---- */
+.embed-result {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.embed-result-bar { height: 4px; background: var(--signal); }
+.embed-result-body { padding: 14px; }
+.embed-result-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+.embed-result-value {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--signal);
+  line-height: 1.2;
+}
+.embed-breakdown {
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.embed-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+.embed-row span:first-child { color: var(--slate); }
+.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
+
+/* ---- Currency picker (money calculators) ---- */
+.embed-currency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
+.embed-currency select {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ---- Branding footer ---- */
+.embed-brand {
+  margin-top: auto;
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-raised);
+}
+.embed-brand a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--signal);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.embed-brand a:hover { color: var(--signal-dark); }
+.embed-brand a span { font-weight: 400; color: var(--slate); }
+.embed-brand-dot { color: var(--signal); }
+.embed-disclaimer {
+  font-size: 0.68rem;
+  color: var(--slate);
+}
+</style>
+</head>
+<body>
+
+<div class="embed-wrap">
+  <div class="embed-header">
+    <div class="embed-title">GPA Calculator</div>
+  </div>
+
+  <form id="calcForm" autocomplete="off">
+
+<div class="field-row">        <div class="field">
+          <label for="grade1">Course 1 grade</label>
+          <select id="grade1">
+            <option value="4" selected>A (4.0)</option>
+            <option value="3.7" >A- (3.7)</option>
+            <option value="3.3" >B+ (3.3)</option>
+            <option value="3" >B (3.0)</option>
+            <option value="2.7" >B- (2.7)</option>
+            <option value="2.3" >C+ (2.3)</option>
+            <option value="2" >C (2.0)</option>
+            <option value="1" >D (1.0)</option>
+            <option value="0" >F (0.0)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="credits1">Course 1 credits</label>
+          <input type="number" id="credits1" value="3"
+step="1"min="0">
+        </div>
+</div><div class="field-row">        <div class="field">
+          <label for="grade2">Course 2 grade</label>
+          <select id="grade2">
+            <option value="4" >A (4.0)</option>
+            <option value="3.7" selected>A- (3.7)</option>
+            <option value="3.3" >B+ (3.3)</option>
+            <option value="3" >B (3.0)</option>
+            <option value="2.7" >B- (2.7)</option>
+            <option value="2.3" >C+ (2.3)</option>
+            <option value="2" >C (2.0)</option>
+            <option value="1" >D (1.0)</option>
+            <option value="0" >F (0.0)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="credits2">Course 2 credits</label>
+          <input type="number" id="credits2" value="3"
+step="1"min="0">
+        </div>
+</div><div class="field-row">        <div class="field">
+          <label for="grade3">Course 3 grade</label>
+          <select id="grade3">
+            <option value="4" >A (4.0)</option>
+            <option value="3.7" >A- (3.7)</option>
+            <option value="3.3" selected>B+ (3.3)</option>
+            <option value="3" >B (3.0)</option>
+            <option value="2.7" >B- (2.7)</option>
+            <option value="2.3" >C+ (2.3)</option>
+            <option value="2" >C (2.0)</option>
+            <option value="1" >D (1.0)</option>
+            <option value="0" >F (0.0)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="credits3">Course 3 credits</label>
+          <input type="number" id="credits3" value="3"
+step="1"min="0">
+        </div>
+</div><div class="field-row">        <div class="field">
+          <label for="grade4">Course 4 grade</label>
+          <select id="grade4">
+            <option value="4" >A (4.0)</option>
+            <option value="3.7" >A- (3.7)</option>
+            <option value="3.3" >B+ (3.3)</option>
+            <option value="3" selected>B (3.0)</option>
+            <option value="2.7" >B- (2.7)</option>
+            <option value="2.3" >C+ (2.3)</option>
+            <option value="2" >C (2.0)</option>
+            <option value="1" >D (1.0)</option>
+            <option value="0" >F (0.0)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="credits4">Course 4 credits</label>
+          <input type="number" id="credits4" value="3"
+step="1"min="0">
+        </div>
+</div>  </form>
+
+  <div class="embed-result">
+    <div class="embed-result-bar"></div>
+    <div class="embed-result-body">
+      <div class="embed-result-label">Your GPA</div>
+      <div class="embed-result-value" id="resultValue">—</div>
+      <div class="embed-breakdown">
+        <div class="embed-row"><span>Total credit hours</span><span id="outTotalCredits">—</span></div>
+        <div class="embed-row"><span>Total quality points</span><span id="outQualityPoints">—</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="embed-brand">
+  <a href="https://www.calculatepilot.com/other/gpa-calculator.html?ref=widget" target="_blank" rel="noopener">
+    calculatepilot<span class="embed-brand-dot">.</span> <span>— Open full calculator →</span>
+  </a>
+  <span class="embed-disclaimer">Estimates only</span>
+</div>
+
+
+<script src="https://www.calculatepilot.com/js/gpa.js"></script>
+</body>
+</html>

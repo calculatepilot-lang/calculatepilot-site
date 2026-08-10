@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAC Calculator — Estimate Blood Alcohol Content | CalculatePilot</title>
+<meta name="description" content="Estimate blood alcohol content (BAC) based on drinks consumed, body weight, and time elapsed. For educational purposes only.">
+<link rel="canonical" href="https://www.calculatepilot.com/health/bac-calculator.html">
+<meta property="og:title" content="BAC Calculator — Estimate Blood Alcohol Content | CalculatePilot">
+<meta property="og:description" content="Estimate blood alcohol content (BAC) based on drinks consumed, body weight, and time elapsed. For educational purposes only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/health/bac-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BAC Calculator — Estimate Blood Alcohol Content | CalculatePilot">
+<meta name="twitter:description" content="Estimate blood alcohol content (BAC) based on drinks consumed, body weight, and time elapsed. For educational purposes only.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BAC Calculator",
+  "url": "https://www.calculatepilot.com/health/bac-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Estimate blood alcohol content (BAC) based on drinks consumed, body weight, and time elapsed. For educational purposes only."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Health & Fitness Calculators", "item": "https://www.calculatepilot.com/health-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "BAC Calculator", "item": "https://www.calculatepilot.com/health/bac-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use this to decide if I\u0027m safe to drive?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This is an educational estimate only, and actual impairment can occur below what any calculator predicts. Never use a BAC estimate to make a driving decision \u2014 always arrange alternative transportation after drinking." }
+    },    {
+      "@type": "Question",
+      "name": "Why might my actual BAC differ from this estimate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Real BAC depends on many factors this simple formula can\u0027t capture, including individual metabolism, food consumed, medications, drink strength, and rate of consumption \u2014 treat this as a rough educational estimate, not a precise measurement." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / BAC Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>BAC Calculator</h1>
+    <p class="lede">Estimate blood alcohol content based on drinks consumed, body weight, and time elapsed. This is an educational estimate only — never use it to decide whether it's safe to drive.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="sex">Sex</label>
+        <select id="sex">
+          <option value="male" selected>Male</option>
+          <option value="female" >Female</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="weight">Body weight (lb)</label>
+          <input type="number" id="weight" value="170" step="1" min="60">
+        </div>
+        <div class="field">
+          <label for="numDrinks">Standard drinks consumed</label>
+          <input type="number" id="numDrinks" value="2" step="1" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="hoursElapsed">Hours since first drink</label>
+        <input type="number" id="hoursElapsed" value="1" step="0.25" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Estimated BAC</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Estimated time until BAC reaches 0</span><span id="outHoursToZero">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>This is an estimate — not a safety determination</h2>
+    <p>This calculator uses a standard estimation formula (a version of the Widmark equation) to give a rough idea of blood alcohol content. It is intended for educational awareness only. It cannot account for individual metabolism, medication interactions, food intake, drink strength variation, or many other real factors that affect actual BAC — meaning your true BAC could be meaningfully different from this estimate, in either direction.</p>
+    <p>No BAC level is 'safe' for driving, and impairment to reaction time and judgment begins well below most legal limits. This tool should never be used to decide whether you or someone else is fit to drive. If you've been drinking, arrange a rideshare, taxi, designated sober driver, or public transit instead.</p>
+    <h2>What counts as a 'standard drink'</h2>
+    <p>A standard US drink is typically defined as about 14 grams (0.6 oz) of pure alcohol — roughly a 12 oz regular beer, a 5 oz glass of wine, or a 1.5 oz shot of 80-proof spirits. Stronger beers, larger pours, and mixed drinks with multiple shots can contain significantly more alcohol than one standard drink, which this calculator can't detect from a simple drink count.</p>
+    <p>If you're tracking consumption for awareness, it's worth being honest about actual pour sizes and drink strength rather than assuming every drink equals exactly one standard unit.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Can I use this to decide if I'm safe to drive?</h3>
+      <p>No. This is an educational estimate only, and actual impairment can occur below what any calculator predicts. Never use a BAC estimate to make a driving decision — always arrange alternative transportation after drinking.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why might my actual BAC differ from this estimate?</h3>
+      <p>Real BAC depends on many factors this simple formula can't capture, including individual metabolism, food consumed, medications, drink strength, and rate of consumption — treat this as a rough educational estimate, not a precise measurement.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Alcohol Calories Calculator <span class="arrow">→</span></a>
+      <a href="/health/blood-pressure-category-calculator.html" class="tool-link">Blood Pressure Category Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmi-calculator.html" class="tool-link">BMI Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmr-calculator.html" class="tool-link">BMR Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/bac-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/bac.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

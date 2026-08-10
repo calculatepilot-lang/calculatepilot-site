@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Cost Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. No signup needed. CalculatePilot explains the formula be">
+<link rel="canonical" href="https://www.calculatepilot.com/other/shipping-cost-calculator.html">
+<meta property="og:title" content="Shipping Cost Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. No signup needed. CalculatePilot explains the formula be">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/shipping-cost-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shipping Cost Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. No signup needed. CalculatePilot explains the formula be">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Shipping Cost Calculator",
+  "url": "https://www.calculatepilot.com/other/shipping-cost-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. No signup needed. CalculatePilot explains the formula be"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Shipping Cost Calculator", "item": "https://www.calculatepilot.com/other/shipping-cost-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why would I be charged for a heavier weight than my package actually weighs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "If your package is large relative to its actual weight, carriers charge based on \u0027dimensional weight\u0027 instead \u2014 a size-based calculation designed to account for the space large packages take up in transport, regardless of how light they are." }
+    },    {
+      "@type": "Question",
+      "name": "Does every carrier use the same dimensional weight divisor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 166 is common for many US domestic shipments, but some carriers and international services use different divisors (like 139), so check your specific carrier\u0027s published rates for the most accurate estimate." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Shipping Cost Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Shipping Cost Calculator</h1>
+    <p class="lede">Estimate shipping cost based on your package's actual weight, dimensions, and carrier rate — accounting for dimensional weight pricing.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="actualWeight">Actual weight (lb)</label>
+          <input type="number" id="actualWeight" value="3" step="0.1" min="0">
+        </div>
+        <div class="field">
+          <label for="pricePerLb">Carrier rate ($/lb)</label>
+          <input type="number" id="pricePerLb" value="1.2" step="0.05" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="length">Length (in)</label>
+          <input type="number" id="length" value="14" step="0.5" min="0">
+        </div>
+        <div class="field">
+          <label for="width">Width (in)</label>
+          <input type="number" id="width" value="10" step="0.5" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="height">Height (in)</label>
+        <input type="number" id="height" value="8" step="0.5" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Currency</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Estimated shipping cost</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Billable weight (used for cost)</span><span id="outBillableWeight">—</span></div>
+          <div class="readout-row"><span>Dimensional weight</span><span id="outDimWeight">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>What dimensional weight means</h2>
+    <p>Most major carriers charge based on whichever is greater: a package's actual weight or its 'dimensional weight' — a calculated figure based on the box's size, meant to account for the fact that large, lightweight packages take up valuable truck and plane space regardless of how little they weigh.</p>
+    <p>This calculator uses the widely used divisor of 166 (common for domestic US shipments) to calculate dimensional weight from length × width × height in inches. Some carriers and international shipments use a different divisor (like 139), so check your specific carrier's published formula for precise quotes.</p>
+    <h2>Why oversized-but-light packages cost more than expected</h2>
+    <p>This is the most common shipping cost surprise for e-commerce sellers — a large, lightweight item (like a lampshade or a pillow) can trigger a dimensional weight charge far higher than its actual weight would suggest, since the box's volume, not just its contents' weight, drives the cost.</p>
+    <p>Using the smallest reasonable packaging for a given item is one of the most effective ways to control shipping costs, since reducing box dimensions directly reduces dimensional weight, even when actual product weight stays the same.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why would I be charged for a heavier weight than my package actually weighs?</h3>
+      <p>If your package is large relative to its actual weight, carriers charge based on 'dimensional weight' instead — a size-based calculation designed to account for the space large packages take up in transport, regardless of how light they are.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does every carrier use the same dimensional weight divisor?</h3>
+      <p>No — 166 is common for many US domestic shipments, but some carriers and international services use different divisors (like 139), so check your specific carrier's published rates for the most accurate estimate.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/shipping-cost-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=ed5961c9"></script>
+<script src="/js/shipping-cost.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

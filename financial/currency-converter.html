@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter | CalculatePilot</title>
+<meta name="description" content="Convert between currencies using an exchange rate you provide. Free, no signup — formula explained on every result. Multi-currency support included.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/currency-converter.html">
+<meta property="og:title" content="Currency Converter | CalculatePilot">
+<meta property="og:description" content="Convert between currencies using an exchange rate you provide. Free, no signup — formula explained on every result. Multi-currency support included.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/currency-converter.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Currency Converter | CalculatePilot">
+<meta name="twitter:description" content="Convert between currencies using an exchange rate you provide. Free, no signup — formula explained on every result. Multi-currency support included.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Currency Converter",
+  "url": "https://www.calculatepilot.com/financial/currency-converter.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Convert between currencies using an exchange rate you provide. Free, no signup \u2014 formula explained on every result. Multi-currency support included."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Financial Calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Currency Converter", "item": "https://www.calculatepilot.com/financial/currency-converter.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why doesn\u0027t this calculator show live exchange rates automatically?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Exchange rates fluctuate constantly, and displaying a rate that isn\u0027t truly live could be misleading \u2014 entering the current rate yourself from a trusted source ensures you\u0027re always working with an up-to-date figure." }
+    },    {
+      "@type": "Question",
+      "name": "Why is the rate I get from my bank different from the rate I see online?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Banks and exchange services typically apply a markup above the \u0027mid-market\u0027 rate quoted by financial data sources, plus sometimes an additional fee \u2014 this is standard practice and part of how currency exchange services generate revenue." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Currency Converter
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Currency Converter</h1>
+    <p class="lede">Convert an amount between currencies using an exchange rate you enter — enter the current rate for accurate results.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" value="100" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="exchangeRate">Exchange rate (1 unit = ?)</label>
+          <input type="number" id="exchangeRate" value="1.27" step="0.0001" min="0">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Converted amount</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Inverse rate</span><span id="outInverseRate">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Why you need to enter your own rate</h2>
+    <p>Exchange rates change constantly throughout the trading day, so rather than showing a rate that could be stale or inaccurate, this calculator asks you to enter the current rate yourself — which you can find from your bank, a currency exchange service, or a live financial data source right before converting.</p>
+    <p>This calculator then handles the math precisely: multiplying your amount by the rate you provide, and showing the inverse rate for reference if you need to convert in the opposite direction.</p>
+    <h2>Bank rates vs. market rates</h2>
+    <p>The exchange rate you see quoted by financial news sources is typically the 'mid-market' rate — the midpoint between buy and sell prices on the wholesale currency market. Banks and currency exchange services usually apply a markup on top of this rate, plus sometimes an explicit fee, meaning the rate you actually receive when exchanging money is often less favorable than the quoted market rate.</p>
+    <p>For significant currency exchanges, it's worth comparing rates across a few providers, since the markup applied can vary meaningfully between banks, exchange kiosks, and online services.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why doesn't this calculator show live exchange rates automatically?</h3>
+      <p>Exchange rates fluctuate constantly, and displaying a rate that isn't truly live could be misleading — entering the current rate yourself from a trusted source ensures you're always working with an up-to-date figure.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why is the rate I get from my bank different from the rate I see online?</h3>
+      <p>Banks and exchange services typically apply a markup above the 'mid-market' rate quoted by financial data sources, plus sometimes an additional fee — this is standard practice and part of how currency exchange services generate revenue.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
+      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
+      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/currency-converter.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

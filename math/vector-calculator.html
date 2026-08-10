@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vector Calculator | CalculatePilot</title>
+<meta name="description" content="Perform vector addition, subtraction, dot product, cross product, and magnitude calculations in 2D or 3D. No signup needed. CalculatePilot explains the formula ">
+<link rel="canonical" href="https://www.calculatepilot.com/math/vector-calculator.html">
+<meta property="og:title" content="Vector Calculator | CalculatePilot">
+<meta property="og:description" content="Perform vector addition, subtraction, dot product, cross product, and magnitude calculations in 2D or 3D. No signup needed. CalculatePilot explains the formula ">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/vector-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vector Calculator | CalculatePilot">
+<meta name="twitter:description" content="Perform vector addition, subtraction, dot product, cross product, and magnitude calculations in 2D or 3D. No signup needed. CalculatePilot explains the formula ">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Vector Calculator",
+  "url": "https://www.calculatepilot.com/math/vector-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Perform vector addition, subtraction, dot product, cross product, and magnitude calculations in 2D or 3D. No signup needed. CalculatePilot explains the formula "
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Vector Calculator", "item": "https://www.calculatepilot.com/math/vector-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for 2D vectors?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes \u2014 just leave both z fields at 0, and the math works the same way, since a 2D vector is simply a 3D vector with no third-dimension component." }
+    },    {
+      "@type": "Question",
+      "name": "Why is the cross product only defined in 3D?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The cross product\u0027s defining property \u2014 producing a vector perpendicular to both inputs \u2014 is a specifically 3-dimensional concept; in 2D there are infinitely many directions perpendicular to a plane\u0027s normal, so the same operation doesn\u0027t generalize the same way." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Vector Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Vector Calculator</h1>
+    <p class="lede">Calculate vector addition, subtraction, dot product, cross product, or magnitude for 2D or 3D vectors.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="operation">Operation</label>
+        <select id="operation">
+          <option value="add" selected>Add (A + B)</option>
+          <option value="subtract" >Subtract (A − B)</option>
+          <option value="dot" >Dot product (A · B)</option>
+          <option value="cross" >Cross product (A × B) — 3D only</option>
+          <option value="magnitude" >Magnitude of A</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="x1">Vector A: x</label>
+          <input type="number" id="x1" value="2" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="y1">Vector A: y</label>
+          <input type="number" id="y1" value="3" step="0.5" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="z1">Vector A: z (0 for 2D)</label>
+          <input type="number" id="z1" value="0" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="x2">Vector B: x</label>
+          <input type="number" id="x2" value="1" step="0.5" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="y2">Vector B: y</label>
+          <input type="number" id="y2" value="4" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="z2">Vector B: z (0 for 2D)</label>
+          <input type="number" id="z2" value="0" step="0.5" >
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Result</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Magnitude of result</span><span id="outMagnitude">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Using this for 2D vectors</h2>
+    <p>For 2D vector problems, simply leave both z fields at 0 — the calculator works the same way, just with the third dimension contributing nothing to the result, effectively reducing every operation to standard 2D vector math.</p>
+    <p>This is a common pattern in math and physics software — 2D problems are frequently treated as a special case of 3D with the third dimension held at zero, rather than needing entirely separate formulas.</p>
+    <h2>Dot product vs. cross product</h2>
+    <p>The dot product returns a single number (a scalar) and relates to the angle between two vectors — it's zero when vectors are perpendicular, and its sign tells you whether the vectors point in generally the same or opposite directions.</p>
+    <p>The cross product returns a new vector (only defined in 3D) that's perpendicular to both input vectors — it's used to find a normal vector to a plane, and its magnitude relates to the area of the parallelogram the two input vectors would form.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Can I use this calculator for 2D vectors?</h3>
+      <p>Yes — just leave both z fields at 0, and the math works the same way, since a 2D vector is simply a 3D vector with no third-dimension component.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why is the cross product only defined in 3D?</h3>
+      <p>The cross product's defining property — producing a vector perpendicular to both inputs — is a specifically 3-dimensional concept; in 2D there are infinitely many directions perpendicular to a plane's normal, so the same operation doesn't generalize the same way.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/vector-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/vector.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

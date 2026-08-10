@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VO2 Max Calculator | CalculatePilot</title>
+<meta name="description" content="Estimate your VO2 max (cardiorespiratory fitness) using a simple non-exercise heart rate formula. No signup needed. CalculatePilot explains the formula behind e">
+<link rel="canonical" href="https://www.calculatepilot.com/health/vo2max-calculator.html">
+<meta property="og:title" content="VO2 Max Calculator | CalculatePilot">
+<meta property="og:description" content="Estimate your VO2 max (cardiorespiratory fitness) using a simple non-exercise heart rate formula. No signup needed. CalculatePilot explains the formula behind e">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/health/vo2max-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VO2 Max Calculator | CalculatePilot">
+<meta name="twitter:description" content="Estimate your VO2 max (cardiorespiratory fitness) using a simple non-exercise heart rate formula. No signup needed. CalculatePilot explains the formula behind e">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VO2 Max Calculator",
+  "url": "https://www.calculatepilot.com/health/vo2max-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Estimate your VO2 max (cardiorespiratory fitness) using a simple non-exercise heart rate formula. No signup needed. CalculatePilot explains the formula behind e"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Health & Fitness Calculators", "item": "https://www.calculatepilot.com/health-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "VO2 Max Calculator", "item": "https://www.calculatepilot.com/health/vo2max-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is this compared to a lab VO2 max test?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This non-exercise formula is a reasonable estimate but is less precise than a supervised lab test with breathing gas analysis \u2014 it\u0027s most useful for tracking general trends over time rather than as a precise clinical measurement." }
+    },    {
+      "@type": "Question",
+      "name": "When should I measure my resting heart rate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "First thing in the morning before getting out of bed generally gives the most accurate and consistent reading, since your body is in its most relaxed state at that point." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / VO2 Max Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>VO2 Max Calculator</h1>
+    <p class="lede">Estimate your VO2 max — a standard measure of cardiorespiratory fitness — using your resting heart rate.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="age">Age</label>
+          <input type="number" id="age" value="30" step="1" min="1">
+        </div>
+        <div class="field">
+          <label for="restingHR">Resting heart rate (bpm)</label>
+          <input type="number" id="restingHR" value="65" step="1" min="30">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Estimated VO2 max</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Estimated max heart rate</span><span id="outMaxHR">—</span></div>
+          <div class="readout-row"><span>Fitness category</span><span id="outCategory">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>About this non-exercise estimate</h2>
+    <p>VO2 max — the maximum amount of oxygen your body can use during intense exercise — is typically measured precisely in a lab using specialized equipment during a graded exercise test. This calculator instead uses a non-exercise regression formula based on the relationship between resting heart rate and estimated maximum heart rate, which is far more accessible but also less precise than direct testing.</p>
+    <p>This estimate tends to be reasonably useful for tracking your own trends over time (is your resting heart rate improving as you get fitter?) even if the absolute number isn't as precise as a lab test would provide.</p>
+    <h2>Why resting heart rate reflects fitness</h2>
+    <p>A lower resting heart rate generally indicates a more efficient cardiovascular system — a well-conditioned heart can pump more blood per beat, requiring fewer beats per minute to meet the body's resting oxygen demand. This is why endurance athletes often have notably low resting heart rates compared to sedentary individuals of the same age.</p>
+    <p>Resting heart rate is best measured first thing in the morning before getting out of bed, when your body is in its most relaxed, undisturbed state — measurements taken later in the day after activity, caffeine, or stress tend to run higher and less representative.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>How accurate is this compared to a lab VO2 max test?</h3>
+      <p>This non-exercise formula is a reasonable estimate but is less precise than a supervised lab test with breathing gas analysis — it's most useful for tracking general trends over time rather than as a precise clinical measurement.</p>
+    </div>
+    <div class="faq-item">
+      <h3>When should I measure my resting heart rate?</h3>
+      <p>First thing in the morning before getting out of bed generally gives the most accurate and consistent reading, since your body is in its most relaxed state at that point.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Alcohol Calories Calculator <span class="arrow">→</span></a>
+      <a href="/health/bac-calculator.html" class="tool-link">BAC Calculator <span class="arrow">→</span></a>
+      <a href="/health/blood-pressure-category-calculator.html" class="tool-link">Blood Pressure Category Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmi-calculator.html" class="tool-link">BMI Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/vo2max-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/vo2max.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

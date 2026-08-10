@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Tax Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate sales tax and total price for a purchase based on the local tax rate. No signup needed. CalculatePilot explains the formula behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/sales-tax-calculator.html">
+<meta property="og:title" content="Sales Tax Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate sales tax and total price for a purchase based on the local tax rate. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/sales-tax-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sales Tax Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate sales tax and total price for a purchase based on the local tax rate. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Sales Tax Calculator",
+  "url": "https://www.calculatepilot.com/financial/sales-tax-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate sales tax and total price for a purchase based on the local tax rate. No signup needed. CalculatePilot explains the formula behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Financial Calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Sales Tax Calculator", "item": "https://www.calculatepilot.com/financial/sales-tax-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this work for reverse sales tax (finding pre-tax price)?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This calculator goes from pre-tax price to total. If you only know the total, divide it by (1 + tax rate as a decimal) to back out the pre-tax price." }
+    },    {
+      "@type": "Question",
+      "name": "Are all purchases subject to sales tax?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 many states exempt certain categories like groceries, prescription medications, or clothing (often up to a certain dollar amount) from sales tax, though exemptions vary significantly by state." }
+    },    {
+      "@type": "Question",
+      "name": "Do online purchases include sales tax?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Generally yes \u2014 most online retailers are now required to collect sales tax based on the buyer\u0027s location, following changes in tax law over the past several years." }
+    },    {
+      "@type": "Question",
+      "name": "Why do some states have no sales tax?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A handful of US states choose to fund government operations primarily through other means like income or property tax, and forgo a general state sales tax entirely." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Sales Tax Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Sales Tax Calculator</h1>
+    <p class="lede">Calculate the sales tax and final total on a purchase.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="price">Price before tax</label>
+          <input type="number" id="price" value="89.99" step="0.01" min="0">
+        </div>
+        <div class="field">
+          <label for="taxRate">Sales tax rate (%)</label>
+          <input type="number" id="taxRate" value="8.25" step="0.01" min="0">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Currency</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Total price</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Sales tax</span><span id="outTax">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Sales tax varies significantly by location</h2>
+    <p>Unlike many countries with a national sales tax, the US has no federal sales tax — rates are set at the state level and often layered with additional county and city taxes, meaning the total rate can vary substantially even between neighboring areas.</p>
+    <p>A few US states charge no state sales tax at all, while combined state-and-local rates elsewhere can exceed 9-10% — always check your specific local rate rather than assuming a national average applies.</p>
+    <h2>A worked example</h2>
+    <p>A $340 purchase at 6.5% sales tax: tax is $340 times 0.065, or $22.10, for a total of $362.10.</p>
+    <p>Compare that to a location with 9% tax: the same $340 purchase would cost $30.60 in tax, for a total of $370.60 — an $8.50 difference purely from location, illustrating why local tax rates are worth checking for larger purchases.</p>
+    <h2>Why sales tax rates vary so much</h2>
+    <p>Unlike federal income tax, sales tax in the US is set at the state and often local level, which is why rates vary significantly by location — some states charge no sales tax at all, while combined state and local rates elsewhere can exceed 10%.</p>
+    <p>Certain categories of goods, like groceries or prescription medications, are frequently exempt or taxed at a reduced rate depending on the jurisdiction, so the rate that applies can vary even within the same city depending on what's being purchased.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Does this work for reverse sales tax (finding pre-tax price)?</h3>
+      <p>This calculator goes from pre-tax price to total. If you only know the total, divide it by (1 + tax rate as a decimal) to back out the pre-tax price.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are all purchases subject to sales tax?</h3>
+      <p>No — many states exempt certain categories like groceries, prescription medications, or clothing (often up to a certain dollar amount) from sales tax, though exemptions vary significantly by state.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do online purchases include sales tax?</h3>
+      <p>Generally yes — most online retailers are now required to collect sales tax based on the buyer's location, following changes in tax law over the past several years.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why do some states have no sales tax?</h3>
+      <p>A handful of US states choose to fund government operations primarily through other means like income or property tax, and forgo a general state sales tax entirely.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
+      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
+      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/sales-tax-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=ed5961c9"></script>
+<script src="/js/sales-tax.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Conversion Calculator — Scale Any Recipe | CalculatePilot</title>
+<meta name="description" content="Scale a recipe up or down to a different number of servings, with automatic proportional conversion for each ingredient.">
+<link rel="canonical" href="https://www.calculatepilot.com/other/recipe-conversion-calculator.html">
+<meta property="og:title" content="Recipe Conversion Calculator — Scale Any Recipe | CalculatePilot">
+<meta property="og:description" content="Scale a recipe up or down to a different number of servings, with automatic proportional conversion for each ingredient.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/recipe-conversion-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Conversion Calculator — Scale Any Recipe | CalculatePilot">
+<meta name="twitter:description" content="Scale a recipe up or down to a different number of servings, with automatic proportional conversion for each ingredient.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Recipe Conversion Calculator",
+  "url": "https://www.calculatepilot.com/other/recipe-conversion-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Scale a recipe up or down to a different number of servings, with automatic proportional conversion for each ingredient."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Recipe Conversion Calculator", "item": "https://www.calculatepilot.com/other/recipe-conversion-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does cooking time scale the same way as ingredient amounts?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 cooking and baking times generally don\u0027t scale linearly with quantity. Use the scaled ingredient amounts as calculated, but check for doneness visually or with a thermometer rather than simply scaling the original cook time proportionally." }
+    },    {
+      "@type": "Question",
+      "name": "Should I scale spices and leavening agents the same way as other ingredients?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not always \u2014 strong spices and leavening agents (baking soda, baking powder, yeast) can behave unpredictably at larger quantities, so many cooks scale these more conservatively than a strict proportional increase, adjusting to taste." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Recipe Conversion Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Recipe Conversion Calculator</h1>
+    <p class="lede">Scale any recipe up or down to a different number of servings, keeping every ingredient proportional.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="originalServings">Original recipe servings</label>
+          <input type="number" id="originalServings" value="4" step="0.5" min="0.5">
+        </div>
+        <div class="field">
+          <label for="desiredServings">Desired servings</label>
+          <input type="number" id="desiredServings" value="6" step="0.5" min="0.5">
+        </div>
+      </div>
+      <div class="field">
+        <label for="ingredientAmount">Ingredient amount (in your preferred unit)</label>
+        <input type="number" id="ingredientAmount" value="2" step="0.125" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Scaled amount</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Scale factor</span><span id="outScaleFactor">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Scaling each ingredient in a recipe</h2>
+    <p>This calculator computes a single scale factor from your original and desired servings, then applies it to whatever ingredient amount you enter — repeat the process for each ingredient in your recipe using the same scale factor to convert the entire recipe consistently.</p>
+    <p>The unit doesn't matter for the math — whether you're scaling cups, grams, tablespoons, or a count of eggs, the same proportional scale factor applies uniformly across every ingredient.</p>
+    <h2>When scaling isn't perfectly linear</h2>
+    <p>Most ingredients scale linearly and predictably, but a few don't behave this way in practice — leavening agents (baking soda, baking powder, yeast) and strong spices or seasonings often need smaller proportional increases than a strict linear scale-up would suggest, since their effects can compound unpredictably at larger quantities.</p>
+    <p>Cooking and baking times also don't scale linearly with quantity — doubling a recipe rarely means doubling the cook time, since factors like pan size, heat penetration, and surface area all change the relationship. Treat calculated times as a starting estimate and check for doneness rather than relying on a purely proportional time calculation.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Does cooking time scale the same way as ingredient amounts?</h3>
+      <p>No — cooking and baking times generally don't scale linearly with quantity. Use the scaled ingredient amounts as calculated, but check for doneness visually or with a thermometer rather than simply scaling the original cook time proportionally.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Should I scale spices and leavening agents the same way as other ingredients?</h3>
+      <p>Not always — strong spices and leavening agents (baking soda, baking powder, yeast) can behave unpredictably at larger quantities, so many cooks scale these more conservatively than a strict proportional increase, adjusting to taste.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/recipe-conversion-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/recipe-conversion.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

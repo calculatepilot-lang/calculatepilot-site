@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Calculator — Rectangle, Circle & Triangle | CalculatePilot</title>
+<meta name="description" content="Calculate the area of a rectangle, circle, or triangle. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/area-calculator.html">
+<meta property="og:title" content="Area Calculator — Rectangle, Circle & Triangle | CalculatePilot">
+<meta property="og:description" content="Calculate the area of a rectangle, circle, or triangle. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/area-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Area Calculator — Rectangle, Circle & Triangle | CalculatePilot">
+<meta name="twitter:description" content="Calculate the area of a rectangle, circle, or triangle. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Area Calculator",
+  "url": "https://www.calculatepilot.com/math/area-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the area of a rectangle, circle, or triangle. Free, no signup \u2014 shows the formula and step-by-step methodology behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Area Calculator", "item": "https://www.calculatepilot.com/math/area-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does dimension 2 mean for a circle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It\u0027s ignored \u2014 only dimension 1 (the radius) is used for circle area calculations." }
+    },    {
+      "@type": "Question",
+      "name": "How do I calculate area for a shape not listed here?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Break irregular shapes into combinations of rectangles, triangles, and circles, calculate each area, then sum them \u2014 this works for most real-world irregular shapes." }
+    },    {
+      "@type": "Question",
+      "name": "What\u0027s the difference between area and perimeter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Area measures the space enclosed within a shape (in square units), while perimeter measures the total distance around the outside edge (in linear units) \u2014 they answer different questions entirely." }
+    },    {
+      "@type": "Question",
+      "name": "Why is area always in \u0027square\u0027 units?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because area measures two-dimensional space \u2014 multiplying two length measurements together produces a unit that\u0027s inherently squared, like square feet or square meters." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Area Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Area Calculator</h1>
+    <p class="lede">Calculate the area of a rectangle, circle, or triangle.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="shape">Shape</label>
+        <select id="shape">
+          <option value="rectangle" selected>Rectangle</option>
+          <option value="circle" >Circle</option>
+          <option value="triangle" >Triangle</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="dimension1">Length / Radius / Base</label>
+          <input type="number" id="dimension1" value="10" step="0.1" min="0">
+        </div>
+        <div class="field">
+          <label for="dimension2">Width / Height (n/a for circle)</label>
+          <input type="number" id="dimension2" value="5" step="0.1" min="0">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Area</div>
+        <div class="readout-value big" id="resultValue">—</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Formulas used</h2>
+    <p>Rectangle: length × width. Circle: π × radius². Triangle: ½ × base × height.</p>
+    <h2>Choosing the right shape and units</h2>
+    <p>Make sure both dimensions are in the same unit before calculating — mixing feet and inches, or meters and centimeters, will produce an incorrect area. Convert everything to one consistent unit first.</p>
+    <p>For irregular shapes not covered here (like trapezoids or complex polygons), break the shape into simpler rectangles, triangles, or circles, calculate each area separately, then add them together for the total.</p>
+    <h2>A worked example</h2>
+    <p>A rectangular room 12ft by 15ft has an area of 180 square feet — useful for flooring or paint coverage estimates.</p>
+    <p>A circular pool with a 4ft radius has an area of pi times 4 squared, approximately 50.3 square feet, while a triangular garden bed with a 6ft base and 4ft height has an area of one-half times 6 times 4, or 12 square feet.</p>
+    <h2>Area formulas for common shapes</h2>
+    <p>Beyond the three shapes covered here, other common area formulas include a trapezoid (½ × (base1 + base2) × height), a parallelogram (base × height), and a regular polygon (more complex, involving the number of sides and apothem) — rectangle, circle, and triangle formulas cover the large majority of everyday area calculations.</p>
+    <p>Units matter as much as the formula — always ensure both dimensions are in the same unit before calculating, and remember that area is always expressed in square units (like square feet or square meters), reflecting its two-dimensional nature.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What does dimension 2 mean for a circle?</h3>
+      <p>It's ignored — only dimension 1 (the radius) is used for circle area calculations.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I calculate area for a shape not listed here?</h3>
+      <p>Break irregular shapes into combinations of rectangles, triangles, and circles, calculate each area, then sum them — this works for most real-world irregular shapes.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What's the difference between area and perimeter?</h3>
+      <p>Area measures the space enclosed within a shape (in square units), while perimeter measures the total distance around the outside edge (in linear units) — they answer different questions entirely.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why is area always in 'square' units?</h3>
+      <p>Because area measures two-dimensional space — multiplying two length measurements together produces a unit that's inherently squared, like square feet or square meters.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+      <a href="/math/complex-number-calculator.html" class="tool-link">Complex Number Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/area-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/area.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetic & Geometric Sequence Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the nth term and sum of an arithmetic or geometric sequence. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/sequence-calculator.html">
+<meta property="og:title" content="Arithmetic & Geometric Sequence Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the nth term and sum of an arithmetic or geometric sequence. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/sequence-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arithmetic & Geometric Sequence Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the nth term and sum of an arithmetic or geometric sequence. Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Sequence Calculator",
+  "url": "https://www.calculatepilot.com/math/sequence-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the nth term and sum of an arithmetic or geometric sequence. Free, no signup \u2014 shows the formula and step-by-step methodology behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Sequence Calculator", "item": "https://www.calculatepilot.com/math/sequence-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can I tell if a sequence is arithmetic or geometric?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Check whether consecutive terms differ by a constant amount (arithmetic, e.g., always +4) or a constant ratio (geometric, e.g., always \u00d73) \u2014 dividing consecutive terms will confirm geometric, subtracting will confirm arithmetic." }
+    },    {
+      "@type": "Question",
+      "name": "What happens to a geometric sequence if the ratio is between 0 and 1?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The sequence decreases toward zero rather than growing, since each term is a fraction of the previous one \u2014 this pattern describes things like radioactive decay or a bouncing ball losing height with each bounce." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Sequence Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Sequence Calculator</h1>
+    <p class="lede">Calculate the nth term and the sum of the first n terms of an arithmetic or geometric sequence.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="sequenceType">Sequence type</label>
+        <select id="sequenceType">
+          <option value="arithmetic" selected>Arithmetic (constant difference)</option>
+          <option value="geometric" >Geometric (constant ratio)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="firstTerm">First term</label>
+          <input type="number" id="firstTerm" value="3" step="0.5" >
+        </div>
+        <div class="field">
+          <label for="commonValue">Common difference / ratio</label>
+          <input type="number" id="commonValue" value="2" step="0.5" >
+        </div>
+      </div>
+      <div class="field">
+        <label for="termNumber">Which term (n)</label>
+        <input type="number" id="termNumber" value="10" step="1" min="1">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">nth term</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Sum of first n terms</span><span id="outSum">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Arithmetic vs. geometric sequences</h2>
+    <p>An arithmetic sequence adds the same fixed amount (the common difference) to get each next term — like 3, 7, 11, 15. A geometric sequence multiplies by the same fixed amount (the common ratio) instead — like 3, 6, 12, 24. Recognizing which pattern applies is the first step to solving any sequence problem.</p>
+    <p>Geometric sequences grow (or shrink) much faster than arithmetic ones when the ratio is greater than 1, which is why compound interest, population growth, and radioactive decay are all modeled as geometric rather than arithmetic sequences.</p>
+    <h2>Where sequences show up practically</h2>
+    <p>Arithmetic sequences describe steady, linear patterns — evenly spaced seating rows, a savings plan with fixed regular deposits (before interest), or a countdown with equal intervals. Geometric sequences describe compounding or exponential patterns — investment growth, viral spread modeling, or the doubling pattern in some biological processes.</p>
+    <p>The sum formulas this calculator uses are especially useful for geometric sequences, where manually adding many terms would be impractical — the formula collapses that sum into a single calculation.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>How can I tell if a sequence is arithmetic or geometric?</h3>
+      <p>Check whether consecutive terms differ by a constant amount (arithmetic, e.g., always +4) or a constant ratio (geometric, e.g., always ×3) — dividing consecutive terms will confirm geometric, subtracting will confirm arithmetic.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What happens to a geometric sequence if the ratio is between 0 and 1?</h3>
+      <p>The sequence decreases toward zero rather than growing, since each term is a fraction of the previous one — this pattern describes things like radioactive decay or a bouncing ball losing height with each bounce.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/sequence-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/sequence.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

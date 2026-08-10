@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Significant Figures Calculator | CalculatePilot</title>
+<meta name="description" content="Count the significant figures in a number and round it to a specific number of significant figures. No signup needed. CalculatePilot explains the formula behind">
+<link rel="canonical" href="https://www.calculatepilot.com/math/sig-fig-calculator.html">
+<meta property="og:title" content="Significant Figures Calculator | CalculatePilot">
+<meta property="og:description" content="Count the significant figures in a number and round it to a specific number of significant figures. No signup needed. CalculatePilot explains the formula behind">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/sig-fig-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Significant Figures Calculator | CalculatePilot">
+<meta name="twitter:description" content="Count the significant figures in a number and round it to a specific number of significant figures. No signup needed. CalculatePilot explains the formula behind">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Significant Figures Calculator",
+  "url": "https://www.calculatepilot.com/math/sig-fig-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Count the significant figures in a number and round it to a specific number of significant figures. No signup needed. CalculatePilot explains the formula behind"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Significant Figures Calculator", "item": "https://www.calculatepilot.com/math/sig-fig-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is \u0027100\u0027 ambiguous for significant figures?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Without a decimal point, it\u0027s unclear whether the trailing zeros are meant to be significant or are just placeholders \u2014 standard convention treats them as not significant (1 sig fig), though scientific notation (1 \u00d7 10\u00b2) removes the ambiguity entirely." }
+    },    {
+      "@type": "Question",
+      "name": "Are leading zeros ever significant?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 leading zeros (before the first non-zero digit) are never significant. They only indicate the position of the decimal point, as in 0.0025, which has 2 significant figures." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Significant Figures Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Significant Figures Calculator</h1>
+    <p class="lede">Count the significant figures in a number, and round it to however many significant figures you need.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="numberInput">Number</label>
+          <input type="text" id="numberInput" value="0.004520"  >
+        </div>
+        <div class="field">
+          <label for="roundTo">Round to how many sig figs</label>
+          <input type="number" id="roundTo" value="3" step="1" min="1">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Significant figures</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Rounded result</span><span id="outRounded">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Rules for counting significant figures</h2>
+    <p>All non-zero digits are always significant. Zeros between non-zero digits are always significant (like the zero in 105). Leading zeros (before the first non-zero digit) are never significant — they just indicate the decimal place. Trailing zeros are significant only if there's a decimal point present, which is why 100 is ambiguous (commonly treated as 1 sig fig) while 100.0 is unambiguous (4 sig figs).</p>
+    <p>This calculator follows the standard convention: trailing zeros without a decimal point are treated as not significant, since that's the most common teaching convention — though some contexts use bar notation or scientific notation to remove this ambiguity entirely.</p>
+    <h2>Why significant figures matter in science</h2>
+    <p>Significant figures communicate the precision of a measurement — reporting a result with more sig figs than your measuring instrument can support implies false precision, while reporting too few loses meaningful information. When performing calculations with measured values, results are generally rounded to match the precision of the least precise input.</p>
+    <p>This is especially important in chemistry, physics, and engineering, where reporting an answer with the wrong number of significant figures can be marked as technically incorrect even if the underlying math is right.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why is '100' ambiguous for significant figures?</h3>
+      <p>Without a decimal point, it's unclear whether the trailing zeros are meant to be significant or are just placeholders — standard convention treats them as not significant (1 sig fig), though scientific notation (1 × 10²) removes the ambiguity entirely.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are leading zeros ever significant?</h3>
+      <p>No — leading zeros (before the first non-zero digit) are never significant. They only indicate the position of the decimal point, as in 0.0025, which has 2 significant figures.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/sig-fig-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/sig-fig.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

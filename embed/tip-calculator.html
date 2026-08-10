@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator | CalculatePilot</title>
+<meta name="robots" content="noindex, follow">
+<style>
+/* Self-contained embed styles — no external dependencies, no font loading delay */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #FBFBFA;
+  --paper-raised: #FFFFFF;
+  --ink: #14171A;
+  --slate: #6B7280;
+  --line: #E5E7EB;
+  --signal: #0F6B5C;
+  --signal-dark: #0B5347;
+  --signal-soft: #EAF4F1;
+  --mono: 'Courier New', 'Lucida Console', monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+  --radius: 6px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.embed-wrap {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---- Header ---- */
+.embed-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 2px solid var(--signal);
+  padding-bottom: 10px;
+}
+.embed-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.embed-lede {
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+/* ---- Form fields ---- */
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
+.field input, .field select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  background: var(--paper-raised);
+  color: var(--ink);
+  width: 100%;
+}
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: var(--signal);
+}
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ---- Result readout ---- */
+.embed-result {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.embed-result-bar { height: 4px; background: var(--signal); }
+.embed-result-body { padding: 14px; }
+.embed-result-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+.embed-result-value {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--signal);
+  line-height: 1.2;
+}
+.embed-breakdown {
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.embed-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+.embed-row span:first-child { color: var(--slate); }
+.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
+
+/* ---- Currency picker (money calculators) ---- */
+.embed-currency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
+.embed-currency select {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ---- Branding footer ---- */
+.embed-brand {
+  margin-top: auto;
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-raised);
+}
+.embed-brand a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--signal);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.embed-brand a:hover { color: var(--signal-dark); }
+.embed-brand a span { font-weight: 400; color: var(--slate); }
+.embed-brand-dot { color: var(--signal); }
+.embed-disclaimer {
+  font-size: 0.68rem;
+  color: var(--slate);
+}
+</style>
+</head>
+<body>
+
+<div class="embed-wrap">
+  <div class="embed-header">
+    <div class="embed-title">Tip Calculator</div>
+  </div>
+
+  <form id="calcForm" autocomplete="off">
+    <div class="embed-currency">
+      <label>Currency</label>
+      <select id="cpCurrencySelect" class="cp-currency-select">
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="EUR">€ EUR</option>
+        <option value="CAD">CA$ CAD</option>
+        <option value="AUD">A$ AUD</option>
+        <option value="INR">₹ INR</option>
+        <option value="PKR">Rs PKR</option>
+        <option value="AED">AED</option>
+        <option value="SAR">SAR</option>
+        <option value="JPY">¥ JPY</option>
+        <option value="CNY">¥ CNY</option>
+        <option value="NZD">NZ$ NZD</option>
+        <option value="SGD">S$ SGD</option>
+        <option value="ZAR">R ZAR</option>
+        <option value="CHF">CHF</option>
+        <option value="MXN">MX$ MXN</option>
+        <option value="BRL">R$ BRL</option>
+        <option value="NGN">₦ NGN</option>
+        <option value="EGP">E£ EGP</option>
+        <option value="KES">KSh KES</option>
+      </select>
+    </div>
+
+<div class="field-row">        <div class="field">
+          <label for="billAmount">Bill amount</label>
+          <input type="number" id="billAmount" value="85"
+step="1"min="0">
+        </div>
+        <div class="field">
+          <label for="tipPercent">Tip (%)</label>
+          <input type="number" id="tipPercent" value="18"
+step="1"min="0">
+        </div>
+</div>        <div class="field">
+          <label for="numPeople">Number of people</label>
+          <input type="number" id="numPeople" value="2"
+step="1"min="1">
+        </div>
+  </form>
+
+  <div class="embed-result">
+    <div class="embed-result-bar"></div>
+    <div class="embed-result-body">
+      <div class="embed-result-label">Total per person</div>
+      <div class="embed-result-value" id="resultValue">—</div>
+      <div class="embed-breakdown">
+        <div class="embed-row"><span>Tip amount</span><span id="outTipAmount">—</span></div>
+        <div class="embed-row"><span>Total bill</span><span id="outTotalBill">—</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="embed-brand">
+  <a href="https://www.calculatepilot.com/other/tip-calculator.html?ref=widget" target="_blank" rel="noopener">
+    calculatepilot<span class="embed-brand-dot">.</span> <span>— Open full calculator →</span>
+  </a>
+  <span class="embed-disclaimer">Estimates only</span>
+</div>
+
+<script>
+// Minimal inline currency formatter — no external dependency
+const CP_CURRENCIES = {
+  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
+  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
+  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
+};
+const CP_KEY = 'cp_currency';
+function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
+function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
+function cpFormatMoney(v, opts){
+  opts = opts||{};
+  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
+  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
+  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
+  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
+  return sym + num;
+}
+function cpInitSelectors(){
+  const sels = document.querySelectorAll('.cp-currency-select');
+  const cur = cpGetCurrency();
+  sels.forEach(s => {
+    s.value = cur;
+    s.addEventListener('change', () => {
+      cpSetCurrency(s.value);
+      sels.forEach(x => x.value = s.value);
+      const f = document.getElementById('calcForm');
+      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', cpInitSelectors);
+</script>
+
+<script src="https://www.calculatepilot.com/js/tip.js"></script>
+</body>
+</html>

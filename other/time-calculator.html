@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Calculator — Add or Subtract Time | CalculatePilot</title>
+<meta name="description" content="Add or subtract hours, minutes, and seconds between two time durations. Free, no signup — instant results with the formula explained.">
+<link rel="canonical" href="https://www.calculatepilot.com/other/time-calculator.html">
+<meta property="og:title" content="Time Calculator — Add or Subtract Time | CalculatePilot">
+<meta property="og:description" content="Add or subtract hours, minutes, and seconds between two time durations. Free, no signup — instant results with the formula explained.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/time-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Time Calculator — Add or Subtract Time | CalculatePilot">
+<meta name="twitter:description" content="Add or subtract hours, minutes, and seconds between two time durations. Free, no signup — instant results with the formula explained.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Time Calculator",
+  "url": "https://www.calculatepilot.com/other/time-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Add or subtract hours, minutes, and seconds between two time durations. Free, no signup \u2014 instant results with the formula explained."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Time Calculator", "item": "https://www.calculatepilot.com/other/time-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if subtraction goes negative?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The result shows a negative duration, indicating the second time value is larger than the first." }
+    },    {
+      "@type": "Question",
+      "name": "Can I add more than two time values?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This calculator handles two time values at once \u2014 for more, calculate the first two, then use that result as one of the inputs in a second calculation." }
+    },    {
+      "@type": "Question",
+      "name": "What if my subtraction result would be negative?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The calculator will show a negative duration, indicating the second time value exceeds the first \u2014 useful for identifying scheduling conflicts or overruns." }
+    },    {
+      "@type": "Question",
+      "name": "Why can\u0027t I just subtract times like regular numbers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because time uses a base-60 system (60 minutes per hour), not base-10 \u2014 direct decimal subtraction gives an incorrect result unless minutes are properly carried over or borrowed, which this calculator handles automatically." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Time Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Time Calculator</h1>
+    <p class="lede">Add or subtract two time durations made up of hours, minutes, and seconds.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="h1">Hours 1</label>
+          <input type="number" id="h1" value="2" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="m1">Minutes 1</label>
+          <input type="number" id="m1" value="30" step="1" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="operation">Operation</label>
+        <select id="operation">
+          <option value="add" selected>+ Add</option>
+          <option value="subtract" >− Subtract</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="h2">Hours 2</label>
+          <input type="number" id="h2" value="1" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="m2">Minutes 2</label>
+          <input type="number" id="m2" value="45" step="1" min="0">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Result</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Total minutes</span><span id="outTotalMinutes">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Common uses for time addition and subtraction</h2>
+    <p>Adding or subtracting time durations comes up constantly in scheduling, cooking (combining prep and cook times), travel planning (layover durations, total trip time), and project time tracking.</p>
+    <p>Unlike regular decimal math, time calculations require careful handling of the 60-minute-per-hour boundary — which is exactly the kind of calculation this tool automates to avoid manual carrying errors.</p>
+    <h2>A worked example</h2>
+    <p>Adding 2 hours 45 minutes and 1 hour 30 minutes: total minutes equals 165 plus 90, or 255 minutes, which converts to 4 hours 15 minutes.</p>
+    <p>Subtracting instead (2h45m minus 1h30m): the result is 1 hour 15 minutes, or 75 total minutes — useful for calculating elapsed time between two duration measurements.</p>
+    <h2>Working with time in hours and minutes</h2>
+    <p>Time arithmetic is different from decimal arithmetic because it's base-60 (60 minutes per hour) rather than base-10, which is why simply subtracting or adding the numbers as if they were decimals gives the wrong answer — this calculator handles the base-60 conversion automatically.</p>
+    <p>This kind of calculation is useful for tallying total time across multiple activities, adjusting a schedule, or figuring out how much time remains between two durations without manually converting everything to minutes first.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What happens if subtraction goes negative?</h3>
+      <p>The result shows a negative duration, indicating the second time value is larger than the first.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I add more than two time values?</h3>
+      <p>This calculator handles two time values at once — for more, calculate the first two, then use that result as one of the inputs in a second calculation.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if my subtraction result would be negative?</h3>
+      <p>The calculator will show a negative duration, indicating the second time value exceeds the first — useful for identifying scheduling conflicts or overruns.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why can't I just subtract times like regular numbers?</h3>
+      <p>Because time uses a base-60 system (60 minutes per hour), not base-10 — direct decimal subtraction gives an incorrect result unless minutes are properly carried over or borrowed, which this calculator handles automatically.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/time-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/time.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

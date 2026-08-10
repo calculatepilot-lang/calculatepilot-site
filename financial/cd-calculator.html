@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CD Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the maturity value and interest earned on a certificate of deposit (CD) based on your deposit, rate, and term.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/cd-calculator.html">
+<meta property="og:title" content="CD Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the maturity value and interest earned on a certificate of deposit (CD) based on your deposit, rate, and term.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/cd-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CD Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the maturity value and interest earned on a certificate of deposit (CD) based on your deposit, rate, and term.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CD Calculator",
+  "url": "https://www.calculatepilot.com/financial/cd-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the maturity value and interest earned on a certificate of deposit (CD) based on your deposit, rate, and term."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Financial Calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "CD Calculator", "item": "https://www.calculatepilot.com/financial/cd-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if I withdraw from a CD early?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most CDs charge an early withdrawal penalty, commonly equal to a few months of interest, which can reduce or even eliminate the interest earned depending on how early you withdraw." }
+    },    {
+      "@type": "Question",
+      "name": "Is a CD better than a savings account?",
+      "acceptedAnswer": { "@type": "Answer", "text": "CDs typically offer higher fixed rates in exchange for locking up your money for a set term, while savings accounts offer more flexibility with generally lower, variable rates \u2014 the better choice depends on whether you need access to the funds." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / CD Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>CD Calculator</h1>
+    <p class="lede">Calculate how much a certificate of deposit will be worth at maturity, and how much interest it earns.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="depositAmount">Deposit amount ($)</label>
+        <input type="number" id="depositAmount" value="10000" step="100" min="0">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="annualRate">Annual interest rate (%)</label>
+          <input type="number" id="annualRate" value="4.5" step="0.1" min="0">
+        </div>
+        <div class="field">
+          <label for="termMonths">Term (months)</label>
+          <input type="number" id="termMonths" value="12" step="1" min="1">
+        </div>
+      </div>
+      <div class="field">
+        <label for="compounding">Compounding frequency</label>
+        <select id="compounding">
+          <option value="monthly" selected>Monthly</option>
+          <option value="quarterly" >Quarterly</option>
+          <option value="annually" >Annually</option>
+        </select>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Currency</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Maturity value</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Interest earned</span><span id="outInterestEarned">—</span></div>
+          <div class="readout-row"><span>Original deposit</span><span id="outDeposit">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Why CDs offer predictable, fixed returns</h2>
+    <p>Unlike a savings account, a CD locks in both your rate and your money for a fixed term — in exchange, banks typically offer a higher rate than a standard savings account, since they can rely on the deposit staying put for the full term.</p>
+    <p>The trade-off is liquidity: withdrawing funds before the CD matures usually triggers an early withdrawal penalty, often equal to several months of interest, so CDs work best for money you're confident you won't need during the term.</p>
+    <h2>Comparing CD terms and rates</h2>
+    <p>Longer-term CDs don't always offer meaningfully higher rates than shorter-term ones — rate curves shift with the broader interest rate environment, so it's worth comparing actual offered rates across terms rather than assuming longer always means better.</p>
+    <p>A common strategy called 'CD laddering' spreads deposits across multiple CDs with staggered maturity dates, balancing the higher rates of longer terms with periodic access to some of your funds.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What happens if I withdraw from a CD early?</h3>
+      <p>Most CDs charge an early withdrawal penalty, commonly equal to a few months of interest, which can reduce or even eliminate the interest earned depending on how early you withdraw.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is a CD better than a savings account?</h3>
+      <p>CDs typically offer higher fixed rates in exchange for locking up your money for a set term, while savings accounts offer more flexibility with generally lower, variable rates — the better choice depends on whether you need access to the funds.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
+      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
+      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/cd-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=ed5961c9"></script>
+<script src="/js/cd.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

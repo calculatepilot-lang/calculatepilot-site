@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running Pace Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate your running pace per mile or kilometer, plus your average speed, from your time and distance. No signup needed. CalculatePilot explains the formula b">
+<link rel="canonical" href="https://www.calculatepilot.com/health/pace-calculator.html">
+<meta property="og:title" content="Running Pace Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate your running pace per mile or kilometer, plus your average speed, from your time and distance. No signup needed. CalculatePilot explains the formula b">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/health/pace-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Running Pace Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate your running pace per mile or kilometer, plus your average speed, from your time and distance. No signup needed. CalculatePilot explains the formula b">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Running Pace Calculator",
+  "url": "https://www.calculatepilot.com/health/pace-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate your running pace per mile or kilometer, plus your average speed, from your time and distance. No signup needed. CalculatePilot explains the formula b"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Health & Fitness Calculators", "item": "https://www.calculatepilot.com/health-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Running Pace Calculator", "item": "https://www.calculatepilot.com/health/pace-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my pace per mile a bigger number than my pace per kilometer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because a mile covers more distance than a kilometer, it takes longer to run \u2014 so at the same overall speed, your minutes-per-mile figure will always be larger than your minutes-per-kilometer figure." }
+    },    {
+      "@type": "Question",
+      "name": "What\u0027s a good pace for a beginner runner?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This varies widely by individual fitness level \u2014 the most useful benchmark is usually your own pace over time, tracking whether it\u0027s improving, rather than comparing directly to others." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / Running Pace Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Running Pace Calculator</h1>
+    <p class="lede">Calculate your running pace per mile or kilometer, plus your average speed, from your race time and distance.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="distance">Distance</label>
+          <input type="number" id="distance" value="5" step="0.01" min="0">
+        </div>
+        <div class="field">
+          <label for="distanceUnit">Unit</label>
+          <select id="distanceUnit">
+            <option value="mi" selected>Miles</option>
+            <option value="km" >Kilometers</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="hours">Hours</label>
+          <input type="number" id="hours" value="0" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="minutes">Minutes</label>
+          <input type="number" id="minutes" value="45" step="1" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="seconds">Seconds</label>
+        <input type="number" id="seconds" value="0" step="1" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Pace</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Pace (other unit)</span><span id="outOtherPace">—</span></div>
+          <div class="readout-row"><span>Average speed</span><span id="outSpeed">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Using pace to plan a race</h2>
+    <p>Knowing your pace per mile or kilometer is one of the most useful numbers for race planning — it lets you calculate splits (target times at checkpoints along a race) and gauge whether you're on track to hit a goal finish time partway through a run.</p>
+    <p>Many runners train at a range of paces for different purposes — easy runs at a slower, conversational pace, tempo runs at a moderately hard sustained pace, and interval training at faster than race pace — rather than running every workout at the same intensity.</p>
+    <h2>Converting between mile and kilometer pace</h2>
+    <p>Since a mile is longer than a kilometer (about 1.6 times), your pace per mile will always be a larger number than your pace per kilometer for the same running speed — this trips up runners switching between US and international race formats, where finish times are the same but pace units differ.</p>
+    <p>This calculator shows both automatically, which is useful if you train using one unit but race using the other.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why is my pace per mile a bigger number than my pace per kilometer?</h3>
+      <p>Because a mile covers more distance than a kilometer, it takes longer to run — so at the same overall speed, your minutes-per-mile figure will always be larger than your minutes-per-kilometer figure.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What's a good pace for a beginner runner?</h3>
+      <p>This varies widely by individual fitness level — the most useful benchmark is usually your own pace over time, tracking whether it's improving, rather than comparing directly to others.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Alcohol Calories Calculator <span class="arrow">→</span></a>
+      <a href="/health/bac-calculator.html" class="tool-link">BAC Calculator <span class="arrow">→</span></a>
+      <a href="/health/blood-pressure-category-calculator.html" class="tool-link">Blood Pressure Category Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmi-calculator.html" class="tool-link">BMI Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/pace-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/pace.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

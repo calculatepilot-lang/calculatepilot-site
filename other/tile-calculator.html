@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tile Calculator — How Many Tiles Do You Need? | CalculatePilot</title>
+<meta name="description" content="Calculate how many tiles you need for a floor or wall based on room size, tile size, and waste percentage. No signup needed. CalculatePilot explains the formula">
+<link rel="canonical" href="https://www.calculatepilot.com/other/tile-calculator.html">
+<meta property="og:title" content="Tile Calculator — How Many Tiles Do You Need? | CalculatePilot">
+<meta property="og:description" content="Calculate how many tiles you need for a floor or wall based on room size, tile size, and waste percentage. No signup needed. CalculatePilot explains the formula">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/tile-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tile Calculator — How Many Tiles Do You Need? | CalculatePilot">
+<meta name="twitter:description" content="Calculate how many tiles you need for a floor or wall based on room size, tile size, and waste percentage. No signup needed. CalculatePilot explains the formula">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Tile Calculator",
+  "url": "https://www.calculatepilot.com/other/tile-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate how many tiles you need for a floor or wall based on room size, tile size, and waste percentage. No signup needed. CalculatePilot explains the formula"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Tile Calculator", "item": "https://www.calculatepilot.com/other/tile-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I buy extra tiles beyond the waste allowance?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Many installers recommend keeping a few extra tiles beyond even the waste-adjusted total for future repairs, since matching discontinued tile lines later can be difficult or impossible." }
+    },    {
+      "@type": "Question",
+      "name": "Does tile layout pattern affect how many tiles I need?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes \u2014 diagonal or complex patterns like herringbone typically require a higher waste allowance (15-20%) than a simple straight grid layout (10%), due to the additional angled cuts involved." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Tile Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Tile Calculator</h1>
+    <p class="lede">Calculate how many tiles you need for a floor, including a waste allowance for cuts and breakage.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="roomLength">Room length (ft)</label>
+          <input type="number" id="roomLength" value="12" step="0.5" min="0">
+        </div>
+        <div class="field">
+          <label for="roomWidth">Room width (ft)</label>
+          <input type="number" id="roomWidth" value="10" step="0.5" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="tileSize">Tile size (inches, square)</label>
+          <input type="number" id="tileSize" value="12" step="1" min="1">
+        </div>
+        <div class="field">
+          <label for="wastePercent">Waste allowance (%)</label>
+          <input type="number" id="wastePercent" value="10" step="1" min="0">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Tiles needed</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Room area</span><span id="outRoomArea">—</span></div>
+          <div class="readout-row"><span>Area with waste allowance</span><span id="outAreaWithWaste">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Why a waste allowance is necessary</h2>
+    <p>Tiles rarely fit a room perfectly — edges, corners, and around fixtures like doorways or cabinets require cuts, and some cut pieces will break or be unusable. A 10% waste allowance is standard for straight tile layouts, but more complex patterns (diagonal layouts, herringbone) often warrant 15-20% to account for the additional cuts involved.</p>
+    <p>It's better to over-order slightly than to run short mid-installation — dye lots can vary between production batches, so a tile ordered later to complete a shortfall may not match perfectly.</p>
+    <h2>Tile size and layout considerations</h2>
+    <p>Larger tiles generally mean fewer grout lines and a more seamless look, but also more waste when cutting around irregular room shapes, since each cut piece represents a bigger loss of material compared to smaller tiles.</p>
+    <p>For rooms with alcoves, closets, or unusual angles, it's often more accurate to break the space into simple rectangular sections and calculate each separately, then sum the totals, rather than using one overall room measurement.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Should I buy extra tiles beyond the waste allowance?</h3>
+      <p>Many installers recommend keeping a few extra tiles beyond even the waste-adjusted total for future repairs, since matching discontinued tile lines later can be difficult or impossible.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does tile layout pattern affect how many tiles I need?</h3>
+      <p>Yes — diagonal or complex patterns like herringbone typically require a higher waste allowance (15-20%) than a simple straight grid layout (10%), due to the additional angled cuts involved.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/tile-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/tile.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

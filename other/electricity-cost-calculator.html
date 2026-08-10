@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricity Cost Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the electricity cost of running an appliance based on its wattage, usage hours, and your rate per kWh. No signup needed. CalculatePilot explains the f">
+<link rel="canonical" href="https://www.calculatepilot.com/other/electricity-cost-calculator.html">
+<meta property="og:title" content="Electricity Cost Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the electricity cost of running an appliance based on its wattage, usage hours, and your rate per kWh. No signup needed. CalculatePilot explains the f">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/electricity-cost-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Electricity Cost Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the electricity cost of running an appliance based on its wattage, usage hours, and your rate per kWh. No signup needed. CalculatePilot explains the f">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Electricity Cost Calculator",
+  "url": "https://www.calculatepilot.com/other/electricity-cost-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the electricity cost of running an appliance based on its wattage, usage hours, and your rate per kWh. No signup needed. CalculatePilot explains the f"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Electricity Cost Calculator", "item": "https://www.calculatepilot.com/other/electricity-cost-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where can I find my appliance\u0027s wattage?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Check the label on the appliance itself or its manual \u2014 if only amps and volts are listed, multiply them together to get watts." }
+    },    {
+      "@type": "Question",
+      "name": "Does this account for appliances that cycle on and off, like a refrigerator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 this calculator assumes constant wattage for the hours entered, which is most accurate for devices that run steadily. Cycling appliances use less energy on average than their rated wattage suggests." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Electricity Cost Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Electricity Cost Calculator</h1>
+    <p class="lede">Calculate how much it costs to run an appliance based on its wattage, daily usage, and your electricity rate.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="watts">Appliance wattage (W)</label>
+          <input type="number" id="watts" value="1500" step="10" min="0">
+        </div>
+        <div class="field">
+          <label for="hoursPerDay">Hours used per day</label>
+          <input type="number" id="hoursPerDay" value="2" step="0.25" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pricePerKWh">Price per kWh ($)</label>
+          <input type="number" id="pricePerKWh" value="0.15" step="0.01" min="0">
+        </div>
+        <div class="field">
+          <label for="days">Number of days</label>
+          <input type="number" id="days" value="30" step="1" min="1">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Currency</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Estimated cost</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Total energy used</span><span id="outTotalKWh">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Finding your appliance's wattage</h2>
+    <p>Wattage is usually printed directly on the appliance's label or in its manual, often listed alongside voltage and amperage. If only amps and volts are given, wattage equals amps multiplied by volts — a useful conversion if the wattage isn't listed directly.</p>
+    <p>Many devices don't run at their maximum rated wattage continuously — a refrigerator's compressor cycles on and off rather than running constantly at full power, so its actual average consumption is typically lower than its rated wattage. This calculator assumes constant wattage during the hours entered, which works best for devices that do run steadily, like a space heater or a lamp.</p>
+    <h2>Identifying your biggest energy costs</h2>
+    <p>Running this calculation for your major appliances (HVAC systems, water heaters, dryers, and older refrigerators are often the biggest consumers) can reveal which devices are actually driving your electricity bill, since the difference between a low-wattage and high-wattage device run for the same hours can be substantial.</p>
+    <p>Comparing an old appliance to a newer, more efficient replacement using this same calculator can help estimate potential savings from an upgrade, based on the wattage difference between the two.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Where can I find my appliance's wattage?</h3>
+      <p>Check the label on the appliance itself or its manual — if only amps and volts are listed, multiply them together to get watts.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does this account for appliances that cycle on and off, like a refrigerator?</h3>
+      <p>No — this calculator assumes constant wattage for the hours entered, which is most accurate for devices that run steadily. Cycling appliances use less energy on average than their rated wattage suggests.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/electricity-cost-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=ed5961c9"></script>
+<script src="/js/electricity-cost.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

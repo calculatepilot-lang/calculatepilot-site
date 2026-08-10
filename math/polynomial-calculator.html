@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polynomial Calculator | CalculatePilot</title>
+<meta name="description" content="Add, subtract, or multiply two polynomials up to degree 2 (quadratics). Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/polynomial-calculator.html">
+<meta property="og:title" content="Polynomial Calculator | CalculatePilot">
+<meta property="og:description" content="Add, subtract, or multiply two polynomials up to degree 2 (quadratics). Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/polynomial-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Polynomial Calculator | CalculatePilot">
+<meta name="twitter:description" content="Add, subtract, or multiply two polynomials up to degree 2 (quadratics). Free, no signup — shows the formula and step-by-step methodology behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Polynomial Calculator",
+  "url": "https://www.calculatepilot.com/math/polynomial-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Add, subtract, or multiply two polynomials up to degree 2 (quadratics). Free, no signup \u2014 shows the formula and step-by-step methodology behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Polynomial Calculator", "item": "https://www.calculatepilot.com/math/polynomial-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why can\u0027t I just add all the coefficients together?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only terms with the same power of x can be combined \u2014 an x\u00b2 term and an x term represent fundamentally different quantities, similar to how you can\u0027t directly combine different units of measurement." }
+    },    {
+      "@type": "Question",
+      "name": "Why does multiplying two quadratics give a degree-4 result?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because multiplying the highest-degree terms (x\u00b2 \u00d7 x\u00b2) produces x\u2074 \u2014 multiplication of polynomials adds their degrees together, so two degree-2 polynomials multiply to a degree-4 result." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Polynomial Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Polynomial Calculator</h1>
+    <p class="lede">Add, subtract, or multiply two polynomials (up to quadratics) and get the simplified result.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="operation">Operation</label>
+        <select id="operation">
+          <option value="add" selected>Add</option>
+          <option value="subtract" >Subtract</option>
+          <option value="multiply" >Multiply</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="a1">1st polynomial: x² coefficient</label>
+          <input type="number" id="a1" value="2" step="1" >
+        </div>
+        <div class="field">
+          <label for="b1">1st polynomial: x coefficient</label>
+          <input type="number" id="b1" value="3" step="1" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="c1">1st polynomial: constant</label>
+          <input type="number" id="c1" value="-1" step="1" >
+        </div>
+        <div class="field">
+          <label for="a2">2nd polynomial: x² coefficient</label>
+          <input type="number" id="a2" value="1" step="1" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="b2">2nd polynomial: x coefficient</label>
+          <input type="number" id="b2" value="-2" step="1" >
+        </div>
+        <div class="field">
+          <label for="c2">2nd polynomial: constant</label>
+          <input type="number" id="c2" value="4" step="1" >
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Result</div>
+        <div class="readout-value big" id="resultValue">—</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Combining like terms</h2>
+    <p>Adding or subtracting polynomials works by combining 'like terms' — terms with the same power of x. The x² terms combine with each other, the x terms combine with each other, and the constants combine with each other, each independently of the other groups.</p>
+    <p>This is the same principle as combining units in everyday math — you can add 3 apples and 2 apples to get 5 apples, but you can't directly combine apples and oranges. Here, x² terms, x terms, and constants are the different 'units' being kept separate.</p>
+    <h2>Why multiplication increases the degree</h2>
+    <p>Multiplying two quadratics (degree 2) produces a degree 4 result, since multiplying x² by x² gives x⁴ — each term in the first polynomial must be multiplied by each term in the second, similar to multiplying two binomials with the FOIL method, just with more terms to track.</p>
+    <p>This calculator handles that full expansion and combines like terms automatically, which becomes tedious and error-prone to do by hand as the number of terms grows.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why can't I just add all the coefficients together?</h3>
+      <p>Only terms with the same power of x can be combined — an x² term and an x term represent fundamentally different quantities, similar to how you can't directly combine different units of measurement.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why does multiplying two quadratics give a degree-4 result?</h3>
+      <p>Because multiplying the highest-degree terms (x² × x²) produces x⁴ — multiplication of polynomials adds their degrees together, so two degree-2 polynomials multiply to a degree-4 result.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/polynomial-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/polynomial.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

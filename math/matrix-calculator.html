@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Calculator | CalculatePilot</title>
+<meta name="description" content="Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. No signup needed. CalculatePilot explains the formula behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/matrix-calculator.html">
+<meta property="og:title" content="Matrix Calculator | CalculatePilot">
+<meta property="og:description" content="Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/matrix-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Matrix Calculator | CalculatePilot">
+<meta name="twitter:description" content="Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Matrix Calculator (2\u00d72)",
+  "url": "https://www.calculatepilot.com/math/matrix-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. No signup needed. CalculatePilot explains the formula behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Matrix Calculator (2×2)", "item": "https://www.calculatepilot.com/math/matrix-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why isn\u0027t matrix multiplication done element by element?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Matrix multiplication follows a row-by-column rule rooted in linear algebra (representing composition of linear transformations), which is fundamentally different from simple element-wise multiplication." }
+    },    {
+      "@type": "Question",
+      "name": "What does it mean if the determinant is zero?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A zero determinant means the matrix is \u0027singular\u0027 \u2014 it cannot be inverted, and the corresponding system of linear equations doesn\u0027t have a unique solution." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Matrix Calculator (2×2)
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Matrix Calculator (2×2)</h1>
+    <p class="lede">Add, subtract, or multiply two 2×2 matrices, and calculate the determinant of matrix A.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="operation">Operation</label>
+        <select id="operation">
+          <option value="add" selected>Add (A + B)</option>
+          <option value="subtract" >Subtract (A − B)</option>
+          <option value="multiply" >Multiply (A × B)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="a1">A row 1, col 1</label>
+          <input type="number" id="a1" value="1" step="1" >
+        </div>
+        <div class="field">
+          <label for="a2">A row 1, col 2</label>
+          <input type="number" id="a2" value="2" step="1" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="a3">A row 2, col 1</label>
+          <input type="number" id="a3" value="3" step="1" >
+        </div>
+        <div class="field">
+          <label for="a4">A row 2, col 2</label>
+          <input type="number" id="a4" value="4" step="1" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="b1">B row 1, col 1</label>
+          <input type="number" id="b1" value="5" step="1" >
+        </div>
+        <div class="field">
+          <label for="b2">B row 1, col 2</label>
+          <input type="number" id="b2" value="6" step="1" >
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="b3">B row 2, col 1</label>
+          <input type="number" id="b3" value="7" step="1" >
+        </div>
+        <div class="field">
+          <label for="b4">B row 2, col 2</label>
+          <input type="number" id="b4" value="8" step="1" >
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Result matrix</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Operation</span><span id="outLabel">—</span></div>
+          <div class="readout-row"><span>Determinant of A</span><span id="outDeterminant">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>How 2×2 matrix multiplication works</h2>
+    <p>Unlike addition and subtraction, matrix multiplication isn't done element-by-element. Each entry in the result is a sum of products: the entry in row i, column j of the result comes from multiplying row i of matrix A by column j of matrix B, element by element, and summing.</p>
+    <p>This also means matrix multiplication generally isn't commutative — A × B usually doesn't equal B × A, unlike regular number multiplication, which is an important distinction when working with matrices in linear algebra.</p>
+    <h2>What the determinant tells you</h2>
+    <p>The determinant of a 2×2 matrix reveals whether the matrix can be inverted — a determinant of zero means the matrix has no inverse (it's called 'singular'), which has practical implications when solving systems of linear equations.</p>
+    <p>Geometrically, the absolute value of the determinant represents how much the matrix scales area when used as a linear transformation — a determinant of 2 means the transformation doubles area, for example.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why isn't matrix multiplication done element by element?</h3>
+      <p>Matrix multiplication follows a row-by-column rule rooted in linear algebra (representing composition of linear transformations), which is fundamentally different from simple element-wise multiplication.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What does it mean if the determinant is zero?</h3>
+      <p>A zero determinant means the matrix is 'singular' — it cannot be inverted, and the corresponding system of linear equations doesn't have a unique solution.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/matrix-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/matrix.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

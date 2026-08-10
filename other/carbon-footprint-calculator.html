@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carbon Footprint Calculator | CalculatePilot</title>
+<meta name="description" content="Calculate the CO2 emissions from your driving based on miles driven, fuel economy, and fuel type. Free, no signup — instant results with the formula explained.">
+<link rel="canonical" href="https://www.calculatepilot.com/other/carbon-footprint-calculator.html">
+<meta property="og:title" content="Carbon Footprint Calculator | CalculatePilot">
+<meta property="og:description" content="Calculate the CO2 emissions from your driving based on miles driven, fuel economy, and fuel type. Free, no signup — instant results with the formula explained.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/other/carbon-footprint-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Carbon Footprint Calculator | CalculatePilot">
+<meta name="twitter:description" content="Calculate the CO2 emissions from your driving based on miles driven, fuel economy, and fuel type. Free, no signup — instant results with the formula explained.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Driving Carbon Footprint Calculator",
+  "url": "https://www.calculatepilot.com/other/carbon-footprint-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the CO2 emissions from your driving based on miles driven, fuel economy, and fuel type. Free, no signup \u2014 instant results with the formula explained."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Driving Carbon Footprint Calculator", "item": "https://www.calculatepilot.com/other/carbon-footprint-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this include emissions from manufacturing the fuel itself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 this calculates tailpipe emissions from fuel combustion only. A full lifecycle assessment would also include upstream emissions from extracting, refining, and transporting the fuel, which would push the total somewhat higher." }
+    },    {
+      "@type": "Question",
+      "name": "Why does diesel have a higher emission factor than gasoline per gallon?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Diesel fuel is denser and contains more carbon per gallon than gasoline, so burning it produces more CO\u2082 per gallon \u2014 even though diesel engines often achieve better fuel economy, which can partially offset the difference in overall emissions." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Driving Carbon Footprint Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Driving Carbon Footprint Calculator</h1>
+    <p class="lede">Calculate the estimated CO₂ emissions from your driving, based on miles driven and your vehicle's fuel economy.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="milesDriven">Miles driven</label>
+          <input type="number" id="milesDriven" value="12000" step="100" min="0">
+        </div>
+        <div class="field">
+          <label for="mpg">Fuel economy (MPG)</label>
+          <input type="number" id="mpg" value="28" step="1" min="1">
+        </div>
+      </div>
+      <div class="field">
+        <label for="fuelType">Fuel type</label>
+        <select id="fuelType">
+          <option value="gasoline" selected>Gasoline</option>
+          <option value="diesel" >Diesel</option>
+        </select>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Estimated CO₂ emissions</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>In pounds</span><span id="outLb">—</span></div>
+          <div class="readout-row"><span>Gallons of fuel used</span><span id="outGallons">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>How this estimate is calculated</h2>
+    <p>This calculator uses standard emission factors: burning one gallon of gasoline produces roughly 8.887 kg of CO₂, while diesel produces roughly 10.180 kg per gallon (diesel is denser and contains more carbon per gallon, despite often getting better fuel economy). Your total gallons used is estimated from miles driven divided by fuel economy, then multiplied by the appropriate emission factor.</p>
+    <p>This measures only tailpipe emissions from fuel combustion — it doesn't include the 'upstream' emissions from extracting, refining, and transporting the fuel itself, or emissions from vehicle manufacturing, which would make a full lifecycle footprint somewhat higher than this driving-only estimate.</p>
+    <h2>Putting your driving footprint in context</h2>
+    <p>Vehicle emissions are one of several major contributors to a typical household's overall carbon footprint, alongside home energy use, air travel, and diet — reducing driving emissions (through more fuel-efficient vehicles, reduced mileage, or alternative transportation) is one lever among several for those looking to reduce overall environmental impact.</p>
+    <p>Fuel economy has an outsized effect on this calculation — an inefficient vehicle at 15 MPG produces roughly double the emissions of an efficient one at 30 MPG for the same distance driven, which is why fuel efficiency ratings are commonly highlighted in vehicle environmental comparisons.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Does this include emissions from manufacturing the fuel itself?</h3>
+      <p>No — this calculates tailpipe emissions from fuel combustion only. A full lifecycle assessment would also include upstream emissions from extracting, refining, and transporting the fuel, which would push the total somewhat higher.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why does diesel have a higher emission factor than gasoline per gallon?</h3>
+      <p>Diesel fuel is denser and contains more carbon per gallon than gasoline, so burning it produces more CO₂ per gallon — even though diesel engines often achieve better fuel economy, which can partially offset the difference in overall emissions.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
+      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
+      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
+      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/carbon-footprint-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/carbon-footprint.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

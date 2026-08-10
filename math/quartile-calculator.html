@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quartile Calculator — Q1, Q3, Median & IQR | CalculatePilot</title>
+<meta name="description" content="Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. No signup needed. CalculatePilot explains the formula behind every result.">
+<link rel="canonical" href="https://www.calculatepilot.com/math/quartile-calculator.html">
+<meta property="og:title" content="Quartile Calculator — Q1, Q3, Median & IQR | CalculatePilot">
+<meta property="og:description" content="Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/quartile-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quartile Calculator — Q1, Q3, Median & IQR | CalculatePilot">
+<meta name="twitter:description" content="Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. No signup needed. CalculatePilot explains the formula behind every result.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Quartile Calculator",
+  "url": "https://www.calculatepilot.com/math/quartile-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. No signup needed. CalculatePilot explains the formula behind every result."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Quartile Calculator", "item": "https://www.calculatepilot.com/math/quartile-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why might my quartile results differ slightly from another calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There are several accepted methods for calculating quartiles, particularly for small or even-sized data sets, and different tools sometimes default to different conventions \u2014 this calculator uses a common median-based split method, but results can vary slightly by method for small samples." }
+    },    {
+      "@type": "Question",
+      "name": "How is IQR used to detect outliers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A common rule flags values more than 1.5 times the IQR below Q1 or above Q3 as potential outliers \u2014 this method is the basis for the whiskers shown on a standard box plot." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Quartile Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Quartile Calculator</h1>
+    <p class="lede">Calculate the quartiles and interquartile range (IQR) of a data set — useful for understanding data spread and outliers.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="numberList">Numbers (comma-separated)</label>
+        <input type="text" id="numberList" value="2, 4, 4, 6, 8, 9, 11, 13, 15, 18"  >
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Median (Q2)</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Q1 (25th percentile)</span><span id="outQ1">—</span></div>
+          <div class="readout-row"><span>Q3 (75th percentile)</span><span id="outQ3">—</span></div>
+          <div class="readout-row"><span>Interquartile range (IQR)</span><span id="outIQR">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>What quartiles tell you about your data</h2>
+    <p>Quartiles split sorted data into four equal groups. Q1 (the 25th percentile) marks the point below which a quarter of the data falls, Q2 (the median) marks the halfway point, and Q3 (the 75th percentile) marks the point below which three-quarters of the data falls.</p>
+    <p>The interquartile range (IQR), the distance between Q1 and Q3, captures the spread of the middle 50% of your data — it's a more outlier-resistant measure of spread than the full range (max minus min), since it ignores extreme values at either end.</p>
+    <h2>Using IQR to spot outliers</h2>
+    <p>A common rule of thumb flags any value more than 1.5 times the IQR below Q1 or above Q3 as a potential outlier — this method is widely used in statistics (it's the basis for the whiskers on a standard box plot) because it doesn't rely on assuming a normal distribution the way some other outlier detection methods do.</p>
+    <p>Different statistical software and textbooks sometimes use slightly different methods for calculating quartiles on small data sets (this calculator uses a common median-based split method) — for large data sets the differences between methods become negligible, but for small samples, results can vary slightly by method.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Why might my quartile results differ slightly from another calculator?</h3>
+      <p>There are several accepted methods for calculating quartiles, particularly for small or even-sized data sets, and different tools sometimes default to different conventions — this calculator uses a common median-based split method, but results can vary slightly by method for small samples.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How is IQR used to detect outliers?</h3>
+      <p>A common rule flags values more than 1.5 times the IQR below Q1 or above Q3 as potential outliers — this method is the basis for the whiskers shown on a standard box plot.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/quartile-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/quartile.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>

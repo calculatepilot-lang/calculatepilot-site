@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Z-Score Calculator — Standard Score & Percentile | CalculatePilot</title>
+<meta name="description" content="Calculate a z-score and its corresponding percentile for a value given a mean and standard deviation. No signup needed. CalculatePilot explains the formula behi">
+<link rel="canonical" href="https://www.calculatepilot.com/math/z-score-calculator.html">
+<meta property="og:title" content="Z-Score Calculator — Standard Score & Percentile | CalculatePilot">
+<meta property="og:description" content="Calculate a z-score and its corresponding percentile for a value given a mean and standard deviation. No signup needed. CalculatePilot explains the formula behi">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/math/z-score-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Z-Score Calculator — Standard Score & Percentile | CalculatePilot">
+<meta name="twitter:description" content="Calculate a z-score and its corresponding percentile for a value given a mean and standard deviation. No signup needed. CalculatePilot explains the formula behi">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=ed5961c9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Z-Score Calculator",
+  "url": "https://www.calculatepilot.com/math/z-score-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculate a z-score and its corresponding percentile for a value given a mean and standard deviation. No signup needed. CalculatePilot explains the formula behi"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Z-Score Calculator", "item": "https://www.calculatepilot.com/math/z-score-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a negative z-score mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It means the value is below the mean of the data set \u2014 the more negative the z-score, the further below the mean, in standard deviation units." }
+    },    {
+      "@type": "Question",
+      "name": "Does the percentile estimate work for any data distribution?",
+      "acceptedAnswer": { "@type": "Answer", "text": "This calculator assumes a normal (bell-curve) distribution, which is common but not universal \u2014 for significantly skewed or non-normal data, the percentile estimate becomes less accurate." }
+    }  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Z-Score Calculator
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Z-Score Calculator</h1>
+    <p class="lede">Calculate a z-score and corresponding percentile for any value, given a data set's mean and standard deviation.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="value">Value (x)</label>
+        <input type="number" id="value" value="85" step="0.1" >
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="mean">Mean (μ)</label>
+          <input type="number" id="mean" value="70" step="0.1" >
+        </div>
+        <div class="field">
+          <label for="stdDev">Standard deviation (σ)</label>
+          <input type="number" id="stdDev" value="10" step="0.1" min="0.001">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Z-score</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Approximate percentile</span><span id="outPercentile">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>What a z-score tells you</h2>
+    <p>A z-score measures how many standard deviations a value is from the mean of its data set. A z-score of 0 means the value equals the mean, a positive z-score means it's above the mean, and a negative z-score means it's below — the magnitude tells you how unusual or typical that value is relative to the overall distribution.</p>
+    <p>Z-scores are especially useful for comparing values from different distributions or different units — a z-score of 1.5 means the same relative standing regardless of whether the underlying data is test scores, heights, or measurements in any other unit.</p>
+    <h2>How percentile is estimated</h2>
+    <p>This calculator converts the z-score to an approximate percentile assuming the data follows a normal (bell-curve) distribution — a very common assumption for many natural and statistical phenomena, but not universally true for every data set. If your underlying data is significantly skewed or non-normal, the percentile estimate becomes less reliable.</p>
+    <p>A z-score of 0 corresponds to the 50th percentile (the median in a normal distribution), while a z-score of about 1.96 corresponds to roughly the 97.5th percentile — this is why 1.96 is a commonly referenced value in statistics for 95% confidence intervals.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What does a negative z-score mean?</h3>
+      <p>It means the value is below the mean of the data set — the more negative the z-score, the further below the mean, in standard deviation units.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does the percentile estimate work for any data distribution?</h3>
+      <p>This calculator assumes a normal (bell-curve) distribution, which is common but not universal — for significantly skewed or non-normal data, the percentile estimate becomes less accurate.</p>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/z-score-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Embed this calculator</a> &nbsp;·&nbsp; <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/z-score.js?v=ed5961c9"></script>
+<script src="/js/nav.js?v=ed5961c9"></script>
+</body>
+</html>
