@@ -1,0 +1,3 @@
+function calculateGPA(){let totalCredits=0;let totalQualityPoints=0;for(let i=1;i<=4;i++){const grade=parseFloat(document.getElementById('grade'+i).value)||0;const credits=parseFloat(document.getElementById('credits'+i).value)||0;totalCredits+=credits;totalQualityPoints+=grade*credits;}
+const gpa=totalCredits>0?totalQualityPoints/totalCredits:0;document.getElementById('resultValue').textContent=totalCredits>0?gpa.toFixed(2):'—';document.getElementById('outTotalCredits').textContent=totalCredits;document.getElementById('outQualityPoints').textContent=totalQualityPoints.toFixed(2);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateGPA);calculateGPA();});
