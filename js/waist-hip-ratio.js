@@ -1,0 +1,3 @@
+function calculateWHR(){const waist=parseFloat(document.getElementById('waist').value)||0;const hip=parseFloat(document.getElementById('hip').value)||1;const sex=document.getElementById('sex').value;const ratio=waist/hip;let risk;if(sex==='male'){risk=ratio<0.90?'Low risk':ratio<1.0?'Moderate risk':'High risk';}else{risk=ratio<0.80?'Low risk':ratio<0.85?'Moderate risk':'High risk';}
+document.getElementById('resultValue').textContent=ratio.toFixed(2);document.getElementById('outRisk').textContent=risk;}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateWHR);calculateWHR();});
