@@ -1,0 +1,2 @@
+function calculateGolfHandicap(){const score=parseFloat(document.getElementById('score').value)||0;const courseRating=parseFloat(document.getElementById('courseRating').value)||0;const slopeRating=parseFloat(document.getElementById('slopeRating').value)||113;const differential=(score-courseRating)*113/slopeRating;document.getElementById('resultValue').textContent=differential.toFixed(1);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateGolfHandicap);calculateGolfHandicap();});
