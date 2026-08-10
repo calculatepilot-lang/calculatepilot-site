@@ -1,0 +1,2 @@
+function calculateUrlEncode(){const mode=document.getElementById('mode').value;const input=document.getElementById('inputText').value;try{const output=mode==='encode'?encodeURIComponent(input):decodeURIComponent(input);document.getElementById('resultValue').textContent=output||'—';}catch(err){document.getElementById('resultValue').textContent='Invalid input for decoding';}}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateUrlEncode);calculateUrlEncode();});
