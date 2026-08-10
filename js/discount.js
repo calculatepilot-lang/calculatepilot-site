@@ -1,0 +1,2 @@
+function calculateDiscount(){const original=parseFloat(document.getElementById('originalPrice').value)||0;const percent=parseFloat(document.getElementById('discountPercent').value)||0;const savings=original*(percent/100);const final=original-savings;const fmt=v=>cpFormatMoney(v);document.getElementById('resultValue').textContent=fmt(final);document.getElementById('outSavings').textContent=fmt(savings);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateDiscount);calculateDiscount();});
