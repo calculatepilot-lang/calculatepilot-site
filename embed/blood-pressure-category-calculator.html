@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Pressure Category Calculator | CalculatePilot</title>
+<meta name="robots" content="noindex, follow">
+<style>
+/* Self-contained embed styles — no external dependencies, no font loading delay */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #FBFBFA;
+  --paper-raised: #FFFFFF;
+  --ink: #14171A;
+  --slate: #6B7280;
+  --line: #E5E7EB;
+  --signal: #0F6B5C;
+  --signal-dark: #0B5347;
+  --signal-soft: #EAF4F1;
+  --mono: 'Courier New', 'Lucida Console', monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+  --radius: 6px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.embed-wrap {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---- Header ---- */
+.embed-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 2px solid var(--signal);
+  padding-bottom: 10px;
+}
+.embed-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.embed-lede {
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+/* ---- Form fields ---- */
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
+.field input, .field select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  background: var(--paper-raised);
+  color: var(--ink);
+  width: 100%;
+}
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: var(--signal);
+}
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ---- Result readout ---- */
+.embed-result {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.embed-result-bar { height: 4px; background: var(--signal); }
+.embed-result-body { padding: 14px; }
+.embed-result-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+.embed-result-value {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--signal);
+  line-height: 1.2;
+}
+.embed-breakdown {
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.embed-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+.embed-row span:first-child { color: var(--slate); }
+.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
+
+/* ---- Currency picker (money calculators) ---- */
+.embed-currency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
+.embed-currency select {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ---- Branding footer ---- */
+.embed-brand {
+  margin-top: auto;
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-raised);
+}
+.embed-brand a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--signal);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.embed-brand a:hover { color: var(--signal-dark); }
+.embed-brand a span { font-weight: 400; color: var(--slate); }
+.embed-brand-dot { color: var(--signal); }
+.embed-disclaimer {
+  font-size: 0.68rem;
+  color: var(--slate);
+}
+</style>
+</head>
+<body>
+
+<div class="embed-wrap">
+  <div class="embed-header">
+    <div class="embed-title">Blood Pressure Category Calculator</div>
+  </div>
+
+  <form id="calcForm" autocomplete="off">
+
+<div class="field-row">        <div class="field">
+          <label for="systolic">Systolic (top number)</label>
+          <input type="number" id="systolic" value="118"
+step="1"min="50">
+        </div>
+        <div class="field">
+          <label for="diastolic">Diastolic (bottom number)</label>
+          <input type="number" id="diastolic" value="76"
+step="1"min="30">
+        </div>
+</div>  </form>
+
+  <div class="embed-result">
+    <div class="embed-result-bar"></div>
+    <div class="embed-result-body">
+      <div class="embed-result-label">Category</div>
+      <div class="embed-result-value" id="resultValue">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="embed-brand">
+  <a href="https://www.calculatepilot.com/health/blood-pressure-category-calculator.html?ref=widget" target="_blank" rel="noopener">
+    calculatepilot<span class="embed-brand-dot">.</span> <span>— Open full calculator →</span>
+  </a>
+  <span class="embed-disclaimer">Estimates only</span>
+</div>
+
+
+<script src="https://www.calculatepilot.com/js/blood-pressure.js"></script>
+</body>
+</html>
