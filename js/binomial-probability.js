@@ -1,0 +1,4 @@
+function factorial(n){let result=1;for(let i=2;i<=n;i++)result*=i;return result;}
+function combination(n,k){if(k>n||k<0)return 0;return factorial(n)/(factorial(k)*factorial(n-k));}
+function calculateBinomialProbability(){const n=parseInt(document.getElementById('trials').value)||0;const p=parseFloat(document.getElementById('probability').value)||0;const k=parseInt(document.getElementById('successes').value)||0;const prob=combination(n,k)*Math.pow(p,k)*Math.pow(1-p,n-k);const mean=n*p;const variance=n*p*(1-p);document.getElementById('resultValue').textContent=(prob*100).toFixed(3)+'%';document.getElementById('outMean').textContent=mean.toFixed(2);document.getElementById('outVariance').textContent=variance.toFixed(3);}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('calcForm').addEventListener('input',calculateBinomialProbability);calculateBinomialProbability();});
