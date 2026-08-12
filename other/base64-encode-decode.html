@@ -62,20 +62,28 @@
     {
       "@type": "Question",
       "name": "Is Base64 encoding a form of encryption?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 Base64 is not encryption or security of any kind. It\u0027s simply a reversible encoding format anyone can decode; don\u0027t use it to protect sensitive information." }
-    },    {
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — Base64 is not encryption or security of any kind. It's simply a reversible encoding format anyone can decode; don't use it to protect sensitive information."
+      }
+    },
+    {
       "@type": "Question",
       "name": "Is Base64 the same as encryption?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 encryption requires a key to reverse, while Base64 encoding can be decoded by anyone instantly with no key required. It\u0027s purely a format conversion, not a security measure." }
-    },    {
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — encryption requires a key to reverse, while Base64 encoding can be decoded by anyone instantly with no key required. It's purely a format conversion, not a security measure."
+      }
+    },
+    {
       "@type": "Question",
       "name": "Why does encoded Base64 text look longer than the original?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Base64 encoding increases data size by roughly 33%, since it represents binary data using a restricted set of 64 printable characters rather than the full byte range." }
-    },    {
-      "@type": "Question",
-      "name": "Is Base64 the same as encryption?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 Base64 is simply a reversible encoding format, not encryption. Anyone can decode Base64 text instantly, so it provides no security or confidentiality." }
-    }  ]
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 encoding increases data size by roughly 33%, since it represents binary data using a restricted set of 64 printable characters rather than the full byte range."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -89,6 +97,7 @@
       <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
       <li><a href="/math-calculators.html">Math</a></li>
       <li><a href="/other-calculators.html">Everyday</a></li>
+      <li><a href="/guides/">Guides</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Open menu">Menu</button>
   </div>
@@ -146,7 +155,7 @@
     <h2>A worked example</h2>
     <p>The text "Hi!" encodes to "SGkh" in Base64 — notice the encoded version is longer than the original, which is expected due to Base64's roughly 33% size overhead.</p>
     <p>Decoding "Q2FsY3VsYXRlUGlsb3Q=" returns "CalculatePilot" — the equals sign at the end is padding, used when the original data doesn't divide evenly into the 3-byte chunks Base64 encoding works with internally.</p>
-    <h2>Where Base64 encoding is commonly used</h2>
+    <h2>Base64 in email, data URIs and APIs</h2>
     <p>Base64 is frequently used to embed image or file data directly inside HTML, CSS, or JSON where binary data isn't safely transmittable in plain text, to encode email attachments, and to safely pass data through systems that only support plain text characters, like some URL parameters or API payloads.</p>
     <p>It's a common misconception that Base64 provides security — it doesn't. It's purely an encoding format for safe data transmission, and anyone can decode it instantly, so it should never be used to protect sensitive information like passwords.</p>
 
@@ -163,17 +172,13 @@
       <h3>Why does encoded Base64 text look longer than the original?</h3>
       <p>Base64 encoding increases data size by roughly 33%, since it represents binary data using a restricted set of 64 printable characters rather than the full byte range.</p>
     </div>
-    <div class="faq-item">
-      <h3>Is Base64 the same as encryption?</h3>
-      <p>No — Base64 is simply a reversible encoding format, not encryption. Anyone can decode Base64 text instantly, so it provides no security or confidentiality.</p>
-    </div>
 
     <h2>Related calculators</h2>
     <div class="tool-grid">
-      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
-      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
-      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
-      <a href="/other/carbon-footprint-calculator.html" class="tool-link">Driving Carbon Footprint Calculator <span class="arrow">→</span></a>
+      <a href="/other/url-encode-decode.html" class="tool-link">URL Encode / Decode <span class="arrow">&rarr;</span></a>
+      <a href="/other/word-counter.html" class="tool-link">Word Counter <span class="arrow">&rarr;</span></a>
+      <a href="/other/password-generator.html" class="tool-link">Password Generator <span class="arrow">&rarr;</span></a>
+      <a href="/other/tip-calculator.html" class="tool-link">Tip Calculator <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
