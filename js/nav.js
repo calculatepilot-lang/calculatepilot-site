@@ -1,4 +1,46 @@
-document.addEventListener('DOMContentLoaded',()=>{const toggle=document.querySelector('.nav-toggle');const links=document.querySelector('.nav-links');if(!toggle||!links)return;toggle.addEventListener('click',()=>{const isOpen=links.classList.toggle('nav-open');toggle.setAttribute('aria-expanded',isOpen?'true':'false');toggle.textContent=isOpen?'Close':'Menu';});links.addEventListener('click',(e)=>{if(e.target.tagName==='A'){links.classList.remove('nav-open');toggle.textContent='Menu';toggle.setAttribute('aria-expanded','false');}});document.addEventListener('click',(e)=>{if(!links.classList.contains('nav-open'))return;if(!links.contains(e.target)&&!toggle.contains(e.target)){links.classList.remove('nav-open');toggle.textContent='Menu';toggle.setAttribute('aria-expanded','false');}});});
+document.addEventListener('DOMContentLoaded',()=>{
+  const toggle=document.querySelector('.nav-toggle');
+  const links=document.querySelector('.nav-links');
+
+  // Site-wide Guides navigation link. Because the static site shares nav.js,
+  // this keeps Guides discoverable in desktop and mobile navigation everywhere.
+  if(links && !links.querySelector('a[href="/guides/"]')){
+    const li=document.createElement('li');
+    li.innerHTML='<a href="/guides/">Guides</a>';
+    links.appendChild(li);
+  }
+
+  // Site-wide Guides footer link. Add it once to the existing footer-bottom row.
+  const footerBottom=document.querySelector('.site-footer .footer-bottom');
+  if(footerBottom && !footerBottom.querySelector('a[href="/guides/"]')){
+    const guideLink=document.createElement('a');
+    guideLink.href='/guides/';
+    guideLink.textContent='Guides →';
+    footerBottom.appendChild(guideLink);
+  }
+
+  if(!toggle||!links)return;
+  toggle.addEventListener('click',()=>{
+    const isOpen=links.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded',isOpen?'true':'false');
+    toggle.textContent=isOpen?'Close':'Menu';
+  });
+  links.addEventListener('click',(e)=>{
+    if(e.target.tagName==='A'){
+      links.classList.remove('nav-open');
+      toggle.textContent='Menu';
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+  document.addEventListener('click',(e)=>{
+    if(!links.classList.contains('nav-open'))return;
+    if(!links.contains(e.target)&&!toggle.contains(e.target)){
+      links.classList.remove('nav-open');
+      toggle.textContent='Menu';
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+});
 
 
 /* ---- Save & restore last inputs (per calculator, per browser) ---- */
