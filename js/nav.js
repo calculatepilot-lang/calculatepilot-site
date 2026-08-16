@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   const toggle=document.querySelector('.nav-toggle');
   const links=document.querySelector('.nav-links');
 
-  // Site-wide Guides navigation link. Because the static site shares nav.js,
-  // this keeps Guides discoverable in desktop and mobile navigation everywhere.
-  if(links && !links.querySelector('a[href="/guides/"]')){
+  // Site-wide Guides navigation link. Add it only when the page does not
+  // already contain a Guides link, regardless of whether it uses /guides/
+  // or /guides/index.html as the href.
+  if(links && !links.querySelector('a[href="/guides/"], a[href="/guides/index.html"]')){
     const li=document.createElement('li');
     li.innerHTML='<a href="/guides/">Guides</a>';
     links.appendChild(li);
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   // Site-wide Guides footer link. Add it once to the existing footer-bottom row.
   const footerBottom=document.querySelector('.site-footer .footer-bottom');
-  if(footerBottom && !footerBottom.querySelector('a[href="/guides/"]')){
+  if(footerBottom && !footerBottom.querySelector('a[href="/guides/"], a[href="/guides/index.html"]')){
     const guideLink=document.createElement('a');
     guideLink.href='/guides/';
     guideLink.textContent='Guides →';
