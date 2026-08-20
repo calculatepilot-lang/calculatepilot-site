@@ -1,6 +1,11 @@
 Options -Indexes
 DirectoryIndex index.html
 
+# Ensure UTF-8 is declared for plain-text files (llms.txt, robots.txt) so
+# non-ASCII characters (em dashes, multiplication signs) render correctly
+# instead of being served with an unspecified/wrong charset.
+AddType 'text/plain; charset=UTF-8' txt
+
 ErrorDocument 403 /index.html
 ErrorDocument 404 /404.html
 
