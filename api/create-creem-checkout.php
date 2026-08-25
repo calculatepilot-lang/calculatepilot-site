@@ -44,62 +44,36 @@ try {
             'x-api-key: ' . $CP['creem_api_key'],
         ],
         CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_SLASHES),
+        CURLOPT_CONNECTTIMEOUT => 10,
         CURLOPT_TIMEOUT => 20,
     ]);
     $response = curl_exec($ch);
     $status = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error = curl_error($ch);
-    $errno = curl_errno($ch);
     curl_close($ch);
 
+    // NOTE: we deliberately respond with HTTP 200 here even on a Creem-side
+    // failure. Cloudflare silently replaces the body of any 5xx response
+    // from this origin with its own branded error page, which was masking
+    // these errors during the last incident. The client checks the `ok`
+    // field, not the HTTP status, to detect failure.
     if ($response === false || $status < 200 || $status >= 300) {
         error_log('Creem checkout error: HTTP ' . $status . ' ' . $error . ' ' . (string) $response);
-        // TEMP DEBUG: remove this block once the 502 root cause is found.
-        // Safe: only exposes curl error text, Creem's HTTP status, and Creem's
-        // response body (truncated). Never includes the API key, DB password,
-        // or webhook secret.
-        cp_json([
-            'error' => 'Unable to create checkout. Please try again.',
-            'debug' => [
-                'stage' => 'creem_curl_request',
-                'base_url' => $baseUrl,
-                'test_mode' => (bool) $CP['creem_test_mode'],
-                'curl_errno' => $errno,
-                'curl_error' => $error,
-                'creem_http_status' => $status,
-                'creem_response_body' => $response === false ? '(curl_exec returned false)' : substr((string) $response, 0, 1000),
-            ],
-        ], 502);
+        cp_json(['ok' => false, 'error' => 'Unable to create checkout. Please try again.'], 200);
     }
 
     $result = json_decode($response, true);
     if (!is_array($result) || empty($result['checkout_url'])) {
         error_log('Unexpected Creem checkout response: ' . $response);
-        // TEMP DEBUG: remove once root cause is found.
-        cp_json([
-            'error' => 'Unable to start checkout.',
-            'debug' => [
-                'stage' => 'creem_response_parse',
-                'creem_http_status' => $status,
-                'creem_response_body' => substr((string) $response, 0, 1000),
-            ],
-        ], 502);
+        cp_json(['ok' => false, 'error' => 'Unable to start checkout.'], 200);
     }
 
     cp_json([
+        'ok' => true,
         'checkout_url' => $result['checkout_url'],
         'request_id' => $requestId,
     ]);
 } catch (Throwable $e) {
     error_log('CalculatePilot checkout fatal error: ' . $e->getMessage());
-    // TEMP DEBUG: remove once root cause is found.
-    cp_json([
-        'error' => 'Server configuration error while starting checkout. Please verify the database settings and PHP extensions.',
-        'debug' => [
-            'stage' => 'fatal_exception',
-            'exception_class' => get_class($e),
-            'exception_message' => $e->getMessage(),
-            'exception_file' => basename($e->getFile()) . ':' . $e->getLine(),
-        ],
-    ], 500);
+    cp_json(['ok' => false, 'error' => 'Server configuration error while starting checkout.'], 200);
 }
