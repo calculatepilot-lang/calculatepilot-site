@@ -51,7 +51,7 @@ async function startCreemCheckout() {
 }
 
 // ---------- Server-validated license application ----------
-const CP_LICENSE_KEY = 'cp_license_validated';
+const CP_CREEM_LICENSE_KEY = 'cp_license_validated';
 
 function setLicenseStatus(message, ok) {
   const status = document.getElementById('licenseStatus');
@@ -80,7 +80,7 @@ async function validateLicenseKey(key, showStatus) {
     if (showStatus) setLicenseStatus(data.message || 'This license is not active.', false);
     return false;
   }
-  try { localStorage.setItem(CP_LICENSE_KEY, key); } catch (e) {}
+  try { localStorage.setItem(CP_CREEM_LICENSE_KEY, key); } catch (e) {}
   updateEmbedCodesForLicensedUser(key);
   if (showStatus) setLicenseStatus('✓ License verified. Your copied embed codes are now white-label.', true);
   return true;
@@ -108,7 +108,7 @@ window.applyLicense = async function applyLicense() {
 // is never trusted merely because it exists in localStorage.
 (async function restoreVerifiedLicense() {
   let saved = '';
-  try { saved = localStorage.getItem(CP_LICENSE_KEY) || ''; } catch (e) {}
+  try { saved = localStorage.getItem(CP_CREEM_LICENSE_KEY) || ''; } catch (e) {}
   if (!saved) return;
   document.getElementById('licenseInput').value = saved;
   try {
@@ -116,7 +116,7 @@ window.applyLicense = async function applyLicense() {
     if (valid) {
       setLicenseStatus('✓ License active. White-label embed codes are ready.', true);
     } else {
-      try { localStorage.removeItem(CP_LICENSE_KEY); } catch (e) {}
+      try { localStorage.removeItem(CP_CREEM_LICENSE_KEY); } catch (e) {}
       document.getElementById('licenseInput').value = '';
       setLicenseStatus('Your saved license is no longer active.', false);
     }
