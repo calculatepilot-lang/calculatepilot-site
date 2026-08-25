@@ -112,6 +112,7 @@
   padding: 11px; border-radius: 8px;
   font-weight: 700; font-size: 0.92rem; text-decoration: none;
   cursor: pointer; transition: background .15s;
+  border: none;
 }
 .plan-cta.free {
   background: var(--paper); border: 1px solid var(--line); color: var(--ink);
@@ -121,39 +122,7 @@
   background: var(--signal); color: #fff; border: none;
 }
 .plan-cta.pro-btn:hover { background: var(--signal-dark); }
-
-/* Payment modal */
-.payment-modal-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.55);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.payment-modal-overlay.open { display: flex; }
-.payment-modal {
-  background: var(--paper-raised);
-  border-radius: 16px;
-  padding: 28px 24px;
-  max-width: 460px;
-  width: 100%;
-  position: relative;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-.payment-modal-close {
-  position: absolute; top: 14px; right: 16px;
-  background: none; border: none; font-size: 1.3rem;
-  cursor: pointer; color: var(--slate); line-height: 1;
-}
-.payment-modal h2 { font-size: 1.1rem; margin-bottom: 4px; }
-.payment-modal .plan-label {
-  font-size: 0.8rem; color: var(--slate); margin-bottom: 20px;
-}
-.widget-container { margin: 0 auto; }
-.widget-container iframe { max-width: 100%; border-radius: 8px; }
+.plan-cta.pro-btn:disabled { opacity: 0.7; cursor: default; }
 
 /* Billing period JS toggle */
 .price-monthly { display: inline; }
@@ -256,10 +225,10 @@
         <li>CalculatePilot branding removed</li>
         <li>License key for unlimited domains</li>
         <li>Priority email support</li>
-        <li>License key issued within 24 hours</li>
+        <li>License key issued automatically after payment</li>
       </ul>
-      <button class="plan-cta pro-btn" onclick="openPayment()">Get Pro license →</button>
-      <p style="font-size:0.73rem;color:var(--slate);text-align:center;margin-top:8px;">Pay with Bitcoin, USDT, ETH, SOL &amp; 50+ cryptos</p>
+      <button class="plan-cta pro-btn" id="payNowBtn" onclick="startCreemCheckout()">Get Pro license →</button>
+      <p style="font-size:0.73rem;color:var(--slate);text-align:center;margin-top:8px;">Secure checkout through Creem. License key emailed automatically after payment.</p>
     </div>
   </div>
 
@@ -318,11 +287,11 @@
     <h2>Common questions</h2>
     <div class="faq-item">
       <h3>How do I get my license key after paying?</h3>
-      <p>Once your payment confirms, email help@calculatepilot.com with your receipt. We'll issue your license key within 24 hours. Enter it at calculatepilot.com/embed/ and your embed codes update instantly.</p>
+      <p>Your license key is generated and emailed to you automatically as soon as your payment is confirmed through Creem — no manual step needed. Enter it at calculatepilot.com/embed/ and your embed codes update instantly.</p>
     </div>
     <div class="faq-item">
-      <h3>What cryptocurrencies do you accept?</h3>
-      <p>Bitcoin (BTC), Ethereum (ETH), USDT, Solana (SOL), BNB, XRP, Dogecoin, and 50+ others via NOWPayments.</p>
+      <h3>What payment methods do you accept?</h3>
+      <p>All major debit and credit cards, processed securely through Creem.</p>
     </div>
     <div class="faq-item">
       <h3>Does the Pro license cover all my websites?</h3>
@@ -339,29 +308,6 @@
   </div>
 </div>
 </main>
-
-<!-- Payment modal -->
-<div class="payment-modal-overlay" id="paymentModal">
-  <div class="payment-modal">
-    <button class="payment-modal-close" onclick="closePayment()" aria-label="Close">×</button>
-    <h2>Get Pro License</h2>
-    <p class="plan-label" id="modalPlanLabel">Monthly — $7.99/month</p>
-
-    <!-- Monthly widget -->
-    <div class="widget-container" id="widgetMonthly">
-      <iframe src="https://nowpayments.io/embeds/payment-widget?iid=5341321245" width="410" height="696" frameborder="0" scrolling="no" style="overflow-y:hidden;max-width:100%;">
-        Can't load widget
-      </iframe>
-    </div>
-
-    <!-- Yearly widget -->
-    <div class="widget-container" id="widgetYearly" style="display:none;">
-      <iframe src="https://nowpayments.io/embeds/payment-widget?iid=5850486085" width="410" height="696" frameborder="0" scrolling="no" style="overflow-y:hidden;max-width:100%;">
-        Can't load widget
-      </iframe>
-    </div>
-  </div>
-</div>
 
 <footer class="site-footer">
   <div class="container">
@@ -401,34 +347,30 @@ function toggleBilling() {
   }
 }
 
-function openPayment() {
-  const modal = document.getElementById('paymentModal');
-  const label = document.getElementById('modalPlanLabel');
-  const widgetMonthly = document.getElementById('widgetMonthly');
-  const widgetYearly = document.getElementById('widgetYearly');
-
-  if (isYearly) {
-    label.textContent = 'Yearly — $89.99/year (best value)';
-    widgetMonthly.style.display = 'none';
-    widgetYearly.style.display = 'block';
-  } else {
-    label.textContent = 'Monthly — $7.99/month';
-    widgetMonthly.style.display = 'block';
-    widgetYearly.style.display = 'none';
+// ---------- Creem checkout ----------
+async function startCreemCheckout() {
+  const btn = document.getElementById('payNowBtn');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Opening secure checkout…';
+  try {
+    const plan = isYearly ? 'yearly' : 'monthly';
+    const response = await fetch('/api/create-creem-checkout.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({plan: plan})
+    });
+    const data = await response.json();
+    if (!data.ok || !data.checkout_url) {
+      throw new Error(data.error || 'Unable to start checkout.');
+    }
+    window.location.href = data.checkout_url;
+  } catch (error) {
+    alert(error.message || 'Unable to start checkout. Please try again.');
+    btn.disabled = false;
+    btn.textContent = originalText;
   }
-
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
 }
-
-function closePayment() {
-  document.getElementById('paymentModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('paymentModal').addEventListener('click', function(e) {
-  if (e.target === this) closePayment();
-});
 </script>
 </body>
 </html>
