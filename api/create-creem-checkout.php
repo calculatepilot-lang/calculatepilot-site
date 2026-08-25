@@ -49,17 +49,41 @@ try {
     $response = curl_exec($ch);
     $status = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error = curl_error($ch);
+    $errno = curl_errno($ch);
     curl_close($ch);
 
     if ($response === false || $status < 200 || $status >= 300) {
         error_log('Creem checkout error: HTTP ' . $status . ' ' . $error . ' ' . (string) $response);
-        cp_json(['error' => 'Unable to create checkout. Please try again.'], 502);
+        // TEMP DEBUG: remove this block once the 502 root cause is found.
+        // Safe: only exposes curl error text, Creem's HTTP status, and Creem's
+        // response body (truncated). Never includes the API key, DB password,
+        // or webhook secret.
+        cp_json([
+            'error' => 'Unable to create checkout. Please try again.',
+            'debug' => [
+                'stage' => 'creem_curl_request',
+                'base_url' => $baseUrl,
+                'test_mode' => (bool) $CP['creem_test_mode'],
+                'curl_errno' => $errno,
+                'curl_error' => $error,
+                'creem_http_status' => $status,
+                'creem_response_body' => $response === false ? '(curl_exec returned false)' : substr((string) $response, 0, 1000),
+            ],
+        ], 502);
     }
 
     $result = json_decode($response, true);
     if (!is_array($result) || empty($result['checkout_url'])) {
         error_log('Unexpected Creem checkout response: ' . $response);
-        cp_json(['error' => 'Unable to start checkout.'], 502);
+        // TEMP DEBUG: remove once root cause is found.
+        cp_json([
+            'error' => 'Unable to start checkout.',
+            'debug' => [
+                'stage' => 'creem_response_parse',
+                'creem_http_status' => $status,
+                'creem_response_body' => substr((string) $response, 0, 1000),
+            ],
+        ], 502);
     }
 
     cp_json([
@@ -68,7 +92,14 @@ try {
     ]);
 } catch (Throwable $e) {
     error_log('CalculatePilot checkout fatal error: ' . $e->getMessage());
+    // TEMP DEBUG: remove once root cause is found.
     cp_json([
         'error' => 'Server configuration error while starting checkout. Please verify the database settings and PHP extensions.',
+        'debug' => [
+            'stage' => 'fatal_exception',
+            'exception_class' => get_class($e),
+            'exception_message' => $e->getMessage(),
+            'exception_file' => basename($e->getFile()) . ':' . $e->getLine(),
+        ],
     ], 500);
 }
