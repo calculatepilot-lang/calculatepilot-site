@@ -18,6 +18,18 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^calculatepilot\.com$ [NC]
 RewriteRule ^(.*)$ https://www.calculatepilot.com/$1 [L,R=301]
 
+# Privacy-first analytics consent.
+# Strip the existing third-party analytics script tags from HTML responses so
+# Google Analytics and Ahrefs Analytics cannot load before the consent manager.
+# The consent manager loads them only after the visitor explicitly allows analytics.
+<IfModule mod_substitute.c>
+  AddOutputFilterByType SUBSTITUTE text/html
+  SubstituteMaxLineLength 2m
+  Substitute "s|<script async src=\"https://www.googletagmanager.com/gtag/js\?id=G-YFZBQ0VRQS\"></script>||i"
+  Substitute "s|<script src=\"https://analytics.ahrefs.com/analytics.js\" data-key=\"HAKNwRlvdHsSgoa1o6fIfA\" async></script>||i"
+  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260830\" defer></script>\n</head>|i"
+</IfModule>
+
 # Cache static assets
 <IfModule mod_expires.c>
   ExpiresActive On
