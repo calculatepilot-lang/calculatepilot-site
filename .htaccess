@@ -6,6 +6,10 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
+# Canonicalize the Guides landing page.
+# The preferred URL is /guides/; /guides/index.html is a legacy/internal URL.
+RewriteRule ^guides/index\.html$ /guides/ [R=301,L]
+
 # Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
