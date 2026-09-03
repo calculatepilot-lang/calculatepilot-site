@@ -6,22 +6,28 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
+# Canonicalize the Guides landing page.
+# The preferred URL is /guides/; /guides/index.html is a legacy/internal URL.
 RewriteRule ^guides/index\.html$ /guides/ [R=301,L]
 
+# Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Force www on the English apex host only.
 RewriteCond %{HTTP_HOST} ^calculatepilot\.com$ [NC]
 RewriteRule ^(.*)$ https://www.calculatepilot.com/$1 [L,R=301]
 
+# Privacy-first analytics consent and site-wide language selector.
 <IfModule mod_substitute.c>
   AddOutputFilterByType SUBSTITUTE text/html
   SubstituteMaxLineLength 2m
   Substitute "s|<script async src=\"https://www.googletagmanager.com/gtag/js\?id=G-YFZBQ0VRQS\"></script>||i"
   Substitute "s|<script src=\"https://analytics.ahrefs.com/analytics.js\" data-key=\"HAKNwRlvdHsSgoa1o6fIfA\" async></script>||i"
-  Substitute "s|</head>|<link rel=\"alternate\" hreflang=\"en\" href=\"https://www.calculatepilot.com%{REQUEST_URI}\">\n<link rel=\"alternate\" hreflang=\"fr\" href=\"https://fr.calculatepilot.com%{REQUEST_URI}\">\n<link rel=\"alternate\" hreflang=\"de\" href=\"https://de.calculatepilot.com%{REQUEST_URI}\">\n<link rel=\"alternate\" hreflang=\"es\" href=\"https://es.calculatepilot.com%{REQUEST_URI}\">\n<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://www.calculatepilot.com%{REQUEST_URI}\">\n<script src=\"/js/consent.js?v=20260830\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260903\" defer></script>\n</head>|i"
+  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260830\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260903\" defer></script>\n</head>|i"
 </IfModule>
 
+# Cache static assets
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
