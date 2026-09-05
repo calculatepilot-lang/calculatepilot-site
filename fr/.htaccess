@@ -2,3 +2,37 @@ Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 403 /index.html
 ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Localized category landing routes.
+RewriteRule ^financial/?$ /financial-calculators.html [L]
+RewriteRule ^health/?$ /health-calculators.html [L]
+RewriteRule ^math/?$ /math-calculators.html [L]
+RewriteRule ^other/?$ /other-calculators.html [L]
+
+# Any untranslated calculator/page falls back to the matching English path while keeping the /fr/ URL in the browser.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /$1 [L]
+
+<IfModule mod_substitute.c>
+  AddOutputFilterByType SUBSTITUTE text/html
+  SubstituteMaxLineLength 2m
+  # Keep navigation inside the French namespace where the corresponding route exists.
+  Substitute "s|href=\"https://www.calculatepilot.com/financial-calculators.html\"|href=\"/fr/financial/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/health-calculators.html\"|href=\"/fr/health/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/math-calculators.html\"|href=\"/fr/math/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/other-calculators.html\"|href=\"/fr/other/\"|gi"
+  Substitute "s|href=\"/financial-calculators.html\"|href=\"/fr/financial/\"|gi"
+  Substitute "s|href=\"/health-calculators.html\"|href=\"/fr/health/\"|gi"
+  Substitute "s|href=\"/math-calculators.html\"|href=\"/fr/math/\"|gi"
+  Substitute "s|href=\"/other-calculators.html\"|href=\"/fr/other/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/guides/index.html\"|href=\"/guides/\"|gi"
+  Substitute "s|href=\"/guides/index.html\"|href=\"/guides/\"|gi"
+  Substitute "s|href=\"/\" class=\"logo\"|href=\"/fr/\" class=\"logo\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/financial/|href=\"/fr/financial/|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/health/|href=\"/fr/health/|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/math/|href=\"/fr/math/|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/other/|href=\"/fr/other/|gi"
+</IfModule>
