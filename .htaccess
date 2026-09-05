@@ -6,11 +6,14 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
+# Legacy language subdomains -> canonical language subdirectories.
+RewriteCond %{HTTP_HOST} ^(fr|de|es)\.calculatepilot\.com$ [NC]
+RewriteRule ^(.*)$ https://www.calculatepilot.com/%1/$1 [R=301,L,NE]
+
 # Canonicalize the Guides landing page.
-# The preferred URL is /guides/; /guides/index.html is a legacy/internal URL.
 RewriteRule ^guides/index\.html$ /guides/ [R=301,L]
 
-# Force HTTPS
+# Force HTTPS.
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -24,10 +27,10 @@ RewriteRule ^(.*)$ https://www.calculatepilot.com/$1 [L,R=301]
   SubstituteMaxLineLength 2m
   Substitute "s|<script async src=\"https://www.googletagmanager.com/gtag/js\?id=G-YFZBQ0VRQS\"></script>||i"
   Substitute "s|<script src=\"https://analytics.ahrefs.com/analytics.js\" data-key=\"HAKNwRlvdHsSgoa1o6fIfA\" async></script>||i"
-  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260830\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260903\" defer></script>\n</head>|i"
+  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260830\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260905\" defer></script>\n</head>|i"
 </IfModule>
 
-# Cache static assets
+# Cache static assets.
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
