@@ -2,3 +2,34 @@ Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 403 /index.html
 ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+RewriteRule ^financial/?$ /financial-calculators.html [L]
+RewriteRule ^health/?$ /health-calculators.html [L]
+RewriteRule ^math/?$ /math-calculators.html [L]
+RewriteRule ^other/?$ /other-calculators.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /$1 [L]
+
+<IfModule mod_substitute.c>
+  AddOutputFilterByType SUBSTITUTE text/html
+  SubstituteMaxLineLength 2m
+  Substitute "s|href=\"https://www.calculatepilot.com/financial-calculators.html\"|href=\"/es/financial/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/health-calculators.html\"|href=\"/es/health/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/math-calculators.html\"|href=\"/es/math/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/other-calculators.html\"|href=\"/es/other/\"|gi"
+  Substitute "s|href=\"/financial-calculators.html\"|href=\"/es/financial/\"|gi"
+  Substitute "s|href=\"/health-calculators.html\"|href=\"/es/health/\"|gi"
+  Substitute "s|href=\"/math-calculators.html\"|href=\"/es/math/\"|gi"
+  Substitute "s|href=\"/other-calculators.html\"|href=\"/es/other/\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/guides/index.html\"|href=\"/guides/\"|gi"
+  Substitute "s|href=\"/guides/index.html\"|href=\"/guides/\"|gi"
+  Substitute "s|href=\"/\" class=\"logo\"|href=\"/es/\" class=\"logo\"|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/financial/|href=\"/es/financial/|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/health/|href=\"/es/health/|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/math/|href=\"/es/math/|gi"
+  Substitute "s|href=\"https://www.calculatepilot.com/other/|href=\"/es/other/|gi"
+</IfModule>
