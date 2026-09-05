@@ -4,14 +4,10 @@ ErrorDocument 403 /index.html
 ErrorDocument 404 /404.html
 
 RewriteEngine On
-
-# Localized category landing routes.
 RewriteRule ^financial/?$ /financial-calculators.html [L]
 RewriteRule ^health/?$ /health-calculators.html [L]
 RewriteRule ^math/?$ /math-calculators.html [L]
 RewriteRule ^other/?$ /other-calculators.html [L]
-
-# Any untranslated calculator/page falls back to the matching English path while keeping the /fr/ URL in the browser.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ /$1 [L]
@@ -19,7 +15,9 @@ RewriteRule ^(.+)$ /$1 [L]
 <IfModule mod_substitute.c>
   AddOutputFilterByType SUBSTITUTE text/html
   SubstituteMaxLineLength 2m
-  # Keep navigation inside the French namespace where the corresponding route exists.
+  Substitute "s|https://fr.calculatepilot.com/|https://www.calculatepilot.com/fr/|gi"
+  Substitute "s|https://de.calculatepilot.com/|https://www.calculatepilot.com/de/|gi"
+  Substitute "s|https://es.calculatepilot.com/|https://www.calculatepilot.com/es/|gi"
   Substitute "s|href=\"https://www.calculatepilot.com/financial-calculators.html\"|href=\"/fr/financial/\"|gi"
   Substitute "s|href=\"https://www.calculatepilot.com/health-calculators.html\"|href=\"/fr/health/\"|gi"
   Substitute "s|href=\"https://www.calculatepilot.com/math-calculators.html\"|href=\"/fr/math/\"|gi"
