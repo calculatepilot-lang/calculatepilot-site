@@ -1,31 +1,42 @@
 /* CalculatePilot language selector
- * Keeps the existing primary navigation unchanged and adds a compact selector.
+ * Uses language subdirectories on calculatepilot.com.
  * No automatic language redirects are performed.
  */
 (function () {
   'use strict';
 
   var locales = [
-    { code: 'en', label: 'English', host: 'www.calculatepilot.com' },
-    { code: 'fr', label: 'Français', host: 'fr.calculatepilot.com' },
-    { code: 'de', label: 'Deutsch', host: 'de.calculatepilot.com' },
-    { code: 'es', label: 'Español', host: 'es.calculatepilot.com' }
+    { code: 'en', label: 'English', prefix: '' },
+    { code: 'fr', label: 'Français', prefix: '/fr' },
+    { code: 'de', label: 'Deutsch', prefix: '/de' },
+    { code: 'es', label: 'Español', prefix: '/es' }
   ];
 
-  var hostname = window.location.hostname.toLowerCase();
-  var current = locales.find(function (locale) {
-    return hostname === locale.host;
-  }) || locales[0];
+  var path = window.location.pathname || '/';
+  var current = locales[0];
+  locales.slice(1).some(function (locale) {
+    if (path === locale.prefix || path.indexOf(locale.prefix + '/') === 0) {
+      current = locale;
+      return true;
+    }
+    return false;
+  });
 
   function localizedUrl(locale) {
-    var path = window.location.pathname || '/';
+    var cleanPath = path;
+    if (current.prefix && (cleanPath === current.prefix || cleanPath.indexOf(current.prefix + '/') === 0)) {
+      cleanPath = cleanPath.slice(current.prefix.length) || '/';
+    }
+    if (cleanPath.charAt(0) !== '/') cleanPath = '/' + cleanPath;
+    var target = locale.prefix + cleanPath;
+    if (target === '') target = '/';
     var query = window.location.search || '';
     var hash = window.location.hash || '';
-    return 'https://' + locale.host + (path === '' ? '/' : path) + query + hash;
+    return target + query + hash;
   }
 
   function createSelector() {
-    if (!document.querySelector('.cp-language-selector')) return;
+    if (!document.querySelector('.site-header .container')) return null;
 
     var wrapper = document.createElement('div');
     wrapper.className = 'cp-language-selector';
@@ -48,9 +59,7 @@
     });
 
     select.addEventListener('change', function () {
-      var locale = locales.find(function (item) {
-        return item.code === select.value;
-      });
+      var locale = locales.find(function (item) { return item.code === select.value; });
       if (locale) window.location.href = localizedUrl(locale);
     });
 
@@ -62,16 +71,11 @@
   function mount() {
     var headerContainer = document.querySelector('.site-header .container');
     if (!headerContainer || headerContainer.querySelector('.cp-language-selector')) return;
-
     var selector = createSelector();
     if (!selector) return;
-
     var toggle = headerContainer.querySelector('.nav-toggle');
-    if (toggle) {
-      headerContainer.insertBefore(selector, toggle);
-    } else {
-      headerContainer.appendChild(selector);
-    }
+    if (toggle) headerContainer.insertBefore(selector, toggle);
+    else headerContainer.appendChild(selector);
   }
 
   var style = document.createElement('style');
@@ -84,9 +88,6 @@
   ].join('');
   document.head.appendChild(style);
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount);
-  } else {
-    mount();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
 })();
