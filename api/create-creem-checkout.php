@@ -59,7 +59,25 @@ try {
     // field, not the HTTP status, to detect failure.
     if ($response === false || $status < 200 || $status >= 300) {
         error_log('Creem checkout error: HTTP ' . $status . ' ' . $error . ' ' . (string) $response);
-        cp_json(['ok' => false, 'error' => 'Unable to create checkout. Please try again.'], 200);
+
+        $creemBody = is_string($response) ? json_decode($response, true) : null;
+        $creemMessage = is_array($creemBody) ? (string) ($creemBody['message'] ?? $creemBody['error'] ?? '') : '';
+
+        if ($response === false) {
+            $userError = 'Could not reach the payment provider. Please try again in a moment.';
+        } elseif ($status === 401 || $status === 403) {
+            $userError = 'Checkout is misconfigured (invalid API key). Please contact support.';
+        } elseif ($status === 404) {
+            $userError = 'Checkout is misconfigured (unknown product). Please contact support.';
+        } elseif ($status >= 500) {
+            $userError = 'The payment provider is temporarily unavailable. Please try again shortly.';
+        } elseif ($creemMessage !== '') {
+            $userError = $creemMessage;
+        } else {
+            $userError = 'Unable to create checkout. Please try again.';
+        }
+
+        cp_json(['ok' => false, 'error' => $userError], 200);
     }
 
     $result = json_decode($response, true);
