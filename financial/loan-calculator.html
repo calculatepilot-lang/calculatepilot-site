@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YFZBQ0VRQS');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loan Calculator — Monthly Payment, Interest & Total Cost | CalculatePilot</title>
@@ -21,16 +14,44 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/loan-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Loan Calculator — Monthly Payment, Interest & Total Cost | CalculatePilot">
-<meta name="twitter:description" content="Free loan calculator: monthly payment, total interest, and total repayment for any fixed-rate loan. Instant results with the formula explained. No signup.">
-<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
 </head>
 <body>
-<p>DO NOT USE THIS SHORT VERSION</p>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Loan Calculator</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Loan Calculator</h1><p class="lede">Work out your monthly payment, total interest, and total repayment on any fixed-rate loan.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+<div class="field-row"><div class="field"><label for="loanAmount">Loan amount</label><input type="number" id="loanAmount" value="15000" step="100" min="0"></div><div class="field"><label for="interestRate">Interest rate (% APR)</label><input type="number" id="interestRate" value="7.5" step="0.01" min="0"></div></div>
+<div class="field"><label for="loanTermMonths">Loan term (months)</label><input type="number" id="loanTermMonths" value="60" step="1" min="1"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Monthly payment</div><div class="readout-value big" id="resultValue">—</div><div class="readout-breakdown"><div class="readout-row"><span>Total interest</span><span id="outTotalInterest">—</span></div><div class="readout-row"><span>Total repayment</span><span id="outTotalRepayment">—</span></div></div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>How this calculator works</h2>
+<p>This uses the same amortization formula banks use for personal, auto, and business loans. See also the <a href="/financial/amortization-calculator.html">Amortization Calculator</a> and <a href="/financial/student-loan-calculator.html">Student Loan Calculator</a>.</p>
+<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]<br><span style="color:var(--slate);font-family:var(--font-body);font-size:0.85rem;">M = monthly payment · P = loan amount · i = monthly interest rate · n = number of months</span></div>
+<h2>How loan term affects total cost</h2>
+<p>A longer term lowers your monthly payment but increases total interest. A shorter term raises the monthly payment but reduces total interest significantly.</p>
+<h2>A worked example</h2>
+<p>A $20,000 loan at 7.5% costs about $401/month over 60 months with roughly $4,050 in total interest, versus about $626/month over 36 months with about $2,530 in interest.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What's the difference between APR and interest rate?</h3><p>The interest rate is the cost of borrowing the principal. APR usually includes additional fees.</p></div>
+<div class="faq-item"><h3>Does paying extra each month reduce total interest?</h3><p>Yes — extra payments go toward principal and can shorten the loan term.</p></div>
+<h2>Related calculators</h2>
+<div class="tool-grid">
+<a href="/financial/mortgage-calculator.html" class="tool-link">Mortgage Calculator <span class="arrow">→</span></a>
+<a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
+<a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
+<a href="/financial/student-loan-calculator.html" class="tool-link">Student Loan Calculator <span class="arrow">→</span></a>
+</div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice.</span><span><a href="/embed/loan-calculator.html" target="_blank" style="color:var(--signal);text-decoration:none;font-weight:600;">Embed this calculator</a></span></div></div></footer>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/loan.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
