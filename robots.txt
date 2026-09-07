@@ -1,6 +1,39 @@
+# Search / AI-answer crawlers — allowed (visibility in search & AI answers)
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: AppleBot
+Allow: /
+
+# AI training-only crawlers — disallowed (content not licensed for model training)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Everyone else
 User-agent: *
 Allow: /
 Disallow: /embed/
