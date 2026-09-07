@@ -6,17 +6,19 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
-# Canonicalize the Guides landing page.
-# The preferred URL is /guides/; /guides/index.html is a legacy/internal URL.
-RewriteRule ^guides/index\.html$ /guides/ [R=301,L]
+# Canonicalize the legacy Guides landing page directly to the final URL.
+# This must run before the host/scheme rule so it remains a single-hop redirect.
+RewriteCond %{REQUEST_URI} ^/guides/index\.html$ [NC]
+RewriteRule ^ https://www.calculatepilot.com/guides/ [R=301,L,NE]
 
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Force www on the English apex host only.
+# Canonical host + HTTPS: https://www.calculatepilot.com
+# One rule handles all three non-canonical variants in a single 301:
+#   http://calculatepilot.com/*
+#   http://www.calculatepilot.com/*
+#   https://calculatepilot.com/*
+RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^calculatepilot\.com$ [NC]
-RewriteRule ^(.*)$ https://www.calculatepilot.com/$1 [L,R=301]
+RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
 
 # Privacy-first analytics consent and site-wide language selector.
 <IfModule mod_substitute.c>
