@@ -10,15 +10,14 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-YFZBQ0VRQS');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMI Calculator — Body Mass Index Tool | CalculatePilot</title>
-<meta name="description" content="Free BMI calculator for adults. Enter height and weight in metric or imperial units to get your Body Mass Index, category, and healthy weight range instantly.">
+<title>BMI Calculator — Check Your Body Mass Index | CalculatePilot</title>
+<meta name="description" content="Calculate your Body Mass Index (BMI) using height and weight, in metric or imperial units. Free and instant, with clear category guidance.">
 <link rel="canonical" href="https://www.calculatepilot.com/health/bmi-calculator.html">
-<meta property="og:title" content="BMI Calculator — Free Body Mass Index Tool (Metric & Imperial) | CalculatePilot">
+<meta property="og:title" content="BMI Calculator — Check Your Body Mass Index | CalculatePilot">
 <meta property="og:description" content="Calculate your Body Mass Index (BMI) using height and weight, in metric or imperial units. Free and instant, with clear category guidance.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/health/bmi-calculator.html">
@@ -27,12 +26,110 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BMI Calculator — Free Body Mass Index Tool (Metric & Imperial) | CalculatePilot">
+<meta name="twitter:title" content="BMI Calculator — Check Your Body Mass Index | CalculatePilot">
 <meta name="twitter:description" content="Calculate your Body Mass Index (BMI) using height and weight, in metric or imperial units. Free and instant, with clear category guidance.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BMI Calculator","url":"https://www.calculatepilot.com/health/bmi-calculator.html","applicationCategory":"HealthApplication","operatingSystem":"Web","browserRequirements":"Requires a modern web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},"isAccessibleForFree":true,"description":"Calculate your Body Mass Index (BMI) using height and weight, in metric or imperial units. Free and instant, with clear category guidance."}</script>
 </head>
 <body>
-<p>temp short to restore later if needed - NO this is incomplete</p>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/financial-calculators.html">Financial</a></li>
+      <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
+      <li><a href="/math-calculators.html">Math</a></li>
+      <li><a href="/other-calculators.html">Everyday</a></li>
+      <li><a href="/guides/index.html">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/health-calculators.html">Health & Fitness Calculators</a> / BMI Calculator
+  </nav>
+</div>
+<section class="calc-page-head">
+  <div class="container">
+    <h1>BMI Calculator</h1>
+    <p class="lede">Work out your Body Mass Index (BMI) from your height and weight, and see which weight category it falls into.</p>
+  </div>
+</section>
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="units">Units</label>
+        <select id="units">
+          <option value="imperial" selected>Imperial (lb / in)</option>
+          <option value="metric">Metric (kg / cm)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="weight">Weight</label>
+          <input type="number" id="weight" value="160" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="height">Height (inches)</label>
+          <input type="number" id="height" value="67" step="1" min="0">
+        </div>
+      </div>
+    </form>
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Your BMI</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Category</span><span id="outCategory">—</span></div>
+          <div class="readout-row"><span>Healthy weight range</span><span id="outHealthyRange">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="content-block">
+  <div class="container prose">
+    <h2>How this calculator works</h2>
+    <p>BMI is calculated by dividing weight by the square of height. It's a quick screening tool, not a diagnosis — it doesn't distinguish muscle from fat.</p>
+    <div class="formula-box">BMI = weight(kg) / height(m)²<br><span style="color:var(--slate); font-family:var(--font-body); font-size:0.85rem;">Imperial inputs are converted to metric automatically before calculating.</span></div>
+    <h2>How to interpret your BMI</h2>
+    <p>Under 18.5 is considered underweight, 18.5–24.9 is considered a healthy range, 25–29.9 is considered overweight, and 30 or above is considered obese, according to standard adult BMI categories used by major health organizations worldwide.</p>
+    <p>BMI doesn't account for muscle mass, bone density, or body composition, so athletes and very muscular people often score higher than their actual body fat would suggest.</p>
+    <h2>A worked example</h2>
+    <p>Take someone who is 5'7" (67 inches) and weighs 160 lbs. Using the imperial formula — weight in pounds divided by height in inches squared, multiplied by 703 — gives (160 ÷ 4489) × 703 ≈ 25.1, landing just into the 'overweight' category.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item"><h3>Is BMI accurate for everyone?</h3><p>BMI is a useful screening tool for most adults but can be misleading for athletes, older adults, and people with unusually high or low muscle mass. It doesn't measure body fat directly.</p></div>
+    <div class="faq-item"><h3>What is a healthy BMI range?</h3><p>For most adults, a BMI between 18.5 and 24.9 is considered a healthy weight range.</p></div>
+    <h2>Related calculators</h2>
+    <div class="tool-grid">
+      <a href="/health/body-fat-calculator.html" class="tool-link">Body Fat Calculator <span class="arrow">→</span></a>
+      <a href="/health/bmr-calculator.html" class="tool-link">BMR Calculator <span class="arrow">→</span></a>
+      <a href="/health/calorie-calculator.html" class="tool-link">Calorie Calculator <span class="arrow">→</span></a>
+      <a href="/health/macro-calculator.html" class="tool-link">Macro Calculator <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Free, accurate calculators for everyday decisions — built for clarity, not clutter.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimates only — for guidance, not professional advice. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Our methodology →</a></span>
+      <span><a href="/embed/bmi-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">Embed this calculator</a>  ·  <a href="/" style="color:var(--slate);">All calculators →</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/js/bmi.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
