@@ -1,2 +1,9 @@
 Options -Indexes
 DirectoryIndex index.php index.html
+
+# These pages are designed to be embedded via <iframe> on other sites —
+# override the site-wide X-Frame-Options: SAMEORIGIN set in the parent
+# .htaccess so embeds keep working.
+<IfModule mod_headers.c>
+  Header unset X-Frame-Options
+</IfModule>
