@@ -1,6 +1,5 @@
 /* CalculatePilot privacy-first analytics consent.
- * Basic consent implementation: Google Analytics and Ahrefs Analytics are
- * not loaded until the visitor explicitly accepts analytics cookies.
+ * Google Analytics, Ahrefs, and Microsoft Clarity load only after the visitor accepts analytics cookies.
  */
 (function () {
   'use strict';
@@ -8,6 +7,7 @@
   var CONSENT_KEY = 'calculatepilot_analytics_consent_v1';
   var GA_ID = 'G-YFZBQ0VRQS';
   var AHREFS_KEY = 'HAKNwRlvdHsSgoa1o6fIfA';
+  var CLARITY_ID = 'yf5cj7b49w';
 
   function getConsent() {
     try { return window.localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
@@ -46,6 +46,12 @@
     ahrefs.src = 'https://analytics.ahrefs.com/analytics.js';
     ahrefs.setAttribute('data-key', AHREFS_KEY);
     document.head.appendChild(ahrefs);
+
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_ID);
   }
 
   function applyChoice(value) {
@@ -83,7 +89,7 @@
     banner.innerHTML =
       '<div class="cp-consent-inner">' +
         '<div class="cp-consent-copy">' +
-          '<strong>Privacy &amp; cookies</strong>' +
+          '<strong>Privacy & cookies</strong>' +
           '<p>We use optional analytics to understand how CalculatePilot is used and improve the site. Analytics are off until you choose to allow them. You can change your choice at any time.</p>' +
           '<a href="/privacy.html">Read our Privacy Policy</a>' +
         '</div>' +
