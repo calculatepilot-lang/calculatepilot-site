@@ -19,6 +19,7 @@
 <meta name="twitter:title" content="Mortgage Calculator — Monthly Payment, Tax & Insurance | CalculatePilot">
 <meta name="twitter:description" content="Free mortgage calculator: monthly payment with principal, interest, property tax and insurance. See total interest. No signup.">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a monthly mortgage payment calculated?","acceptedAnswer":{"@type":"Answer","text":"Principal and interest use the fixed-rate amortization formula. Monthly tax and insurance are then added. The result is an estimate, not a lender quote."}},{"@type":"Question","name":"Does this include PMI, HOA fees, or closing costs?","acceptedAnswer":{"@type":"Answer","text":"No. This page covers principal, interest, property tax, and homeowners insurance. PMI, HOA dues, utilities, and closing costs are separate."}},{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common starting point is keeping total housing costs around 28-36% of gross income, then stress-testing a higher rate."}},{"@type":"Question","name":"Should I choose a 15-year or 30-year mortgage?","acceptedAnswer":{"@type":"Answer","text":"A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for other goals."}},{"@type":"Question","name":"Does a larger down payment lower my monthly payment?","acceptedAnswer":{"@type":"Answer","text":"Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down."}},{"@type":"Question","name":"Are these figures a formal loan offer?","acceptedAnswer":{"@type":"Answer","text":"No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote."}}]}</script>
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
@@ -48,8 +49,38 @@
 </div></section>
 <section class="content-block"><div class="container prose">
 <h2>How this calculator works</h2>
-<p>This calculator uses the standard fixed-rate amortization formula for principal and interest, then adds property tax and home insurance.</p>
-<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</div>
+<p>This calculator uses the standard fixed-rate amortization formula for principal and interest, then adds property tax and home insurance so you can see a realistic monthly housing cost — not just the loan payment.</p>
+<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]<br><span style="color:var(--slate);font-family:var(--font-body);font-size:0.85rem;">M = monthly principal & interest · P = loan amount · i = monthly interest rate · n = number of months</span></div>
+<p>Loan amount is home price minus down payment. The monthly rate <em>i</em> is the annual rate divided by 12. Property tax and home insurance are divided by 12 and added on top. PMI and HOA fees are not included here — add those separately if they apply.</p>
+<h2>What goes into a monthly mortgage payment</h2>
+<p>Most lenders quote PITI: principal, interest, taxes, and insurance.</p>
+<ul>
+<li><strong>Principal</strong> — the portion that reduces the loan balance.</li>
+<li><strong>Interest</strong> — the cost of borrowing. Early payments are mostly interest.</li>
+<li><strong>Property tax</strong> — usually collected monthly into escrow.</li>
+<li><strong>Homeowners insurance</strong> — also often escrowed.</li>
+</ul>
+<p>A 20% down payment typically avoids private mortgage insurance (PMI). Use the <a href="/financial/down-payment-calculator.html">Down Payment Calculator</a> if you are still deciding how much to put down.</p>
+<h2>A worked example</h2>
+<p>Home price $400,000, down payment $80,000, 30-year term at 6.5%, annual tax $3,600, insurance $1,400:</p>
+<ul>
+<li>Loan amount = $320,000</li>
+<li>Principal & interest ≈ $2,022/month</li>
+<li>Tax ≈ $300/month, insurance ≈ $117/month</li>
+<li>Estimated total ≈ $2,439/month</li>
+<li>Total interest over 30 years is typically more than $400,000 at this rate</li>
+</ul>
+<p>The same loan over 15 years raises the monthly principal-and-interest payment but cuts total interest sharply. Compare schedules with the <a href="/financial/amortization-calculator.html">Amortization Calculator</a>.</p>
+<h2>How loan term and extra payments change the cost</h2>
+<p>A longer term lowers the monthly payment and increases total interest. Extra principal payments shorten the term and reduce interest because later interest is calculated on a smaller balance. Before paying extra, check for prepayment penalties and whether the cash would earn more elsewhere.</p>
+<p>If you already have a loan and rates have dropped, model a new payment with the <a href="/financial/refinance-calculator.html">Refinance Calculator</a> before paying closing costs.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>How is a monthly mortgage payment calculated?</h3><p>Principal and interest use the fixed-rate amortization formula above. Monthly tax and insurance are then added. The result is an estimate, not a lender quote.</p></div>
+<div class="faq-item"><h3>Does this include PMI, HOA fees, or closing costs?</h3><p>No. This page covers principal, interest, property tax, and homeowners insurance. PMI, HOA dues, utilities, and closing costs are separate.</p></div>
+<div class="faq-item"><h3>How much house can I afford?</h3><p>A common starting point is keeping total housing costs around 28–36% of gross income, then stress-testing a higher rate. Pair this tool with the <a href="/financial/loan-calculator.html">Loan Calculator</a> for non-mortgage debt.</p></div>
+<div class="faq-item"><h3>Should I choose a 15-year or 30-year mortgage?</h3><p>A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for savings or other goals.</p></div>
+<div class="faq-item"><h3>Does a larger down payment lower my monthly payment?</h3><p>Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down.</p></div>
+<div class="faq-item"><h3>Are these figures a formal loan offer?</h3><p>No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote.</p></div>
 <h2>Related calculators</h2>
 <div class="tool-grid">
 <a href="/financial/loan-calculator.html" class="tool-link">Loan Calculator <span class="arrow">→</span></a>
