@@ -16,6 +16,7 @@
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
 <meta property="og:site_name" content="CalculatePilot">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you calculate exact age?","acceptedAnswer":{"@type":"Answer","text":"Count complete years from the birth date to the target date, then complete months, then remaining days. Leap days are included in the calendar difference."}},{"@type":"Question","name":"Does this calculator include leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes. Age is computed from real calendar dates, so 29 February and other leap days are counted correctly."}},{"@type":"Question","name":"Can I calculate age on a past or future date?","acceptedAnswer":{"@type":"Answer","text":"Yes. Change the Age at date field to any date. That is useful for age on a specific event, school cutoff, or future birthday."}},{"@type":"Question","name":"Why do websites show different ages in days?","acceptedAnswer":{"@type":"Answer","text":"Some tools count only 365-day years and ignore leap days. This calculator uses the actual calendar, so total days lived can differ by a day or two from a simplified count."}}]}</script>
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
@@ -31,9 +32,23 @@
 </div></section>
 <section class="content-block"><div class="container prose">
 <h2>How age is calculated here</h2>
-<p>This calculator counts complete years, then complete months, then remaining days.</p>
+<p>This calculator counts complete years first, then complete months, then leftover days. That matches how people usually state age (“31 years, 4 months, and 9 days”) rather than a raw day count alone.</p>
+<p>Need the number of days between two arbitrary dates instead of an age breakdown? Use the <a href="/other/date-calculator.html">Date Calculator</a>.</p>
 <h2>A worked example</h2>
-<p>Born March 15, 1995, as of July 24, 2026 is 31 years, 4 months, and 9 days.</p>
+<p>Born 15 March 1995, measured on 24 July 2026:</p>
+<ul>
+<li>Complete years: 31 (15 March 2026)</li>
+<li>Complete months after that: 4 (to 15 July 2026)</li>
+<li>Remaining days: 9</li>
+<li>Result: 31 years, 4 months, and 9 days</li>
+</ul>
+<h2>Leap years and birthday edge cases</h2>
+<p>Leap days are included because the tool uses real calendar dates. If someone was born on 29 February, most systems treat 1 March as the birthday in non-leap years. Total days lived will be higher than “years × 365” because leap days add extra days over time.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>How do you calculate exact age?</h3><p>Count complete years from the birth date to the target date, then complete months, then remaining days.</p></div>
+<div class="faq-item"><h3>Does this calculator include leap years?</h3><p>Yes. Age is computed from real calendar dates, so 29 February and other leap days are counted correctly.</p></div>
+<div class="faq-item"><h3>Can I calculate age on a past or future date?</h3><p>Yes. Change the Age at date field. That is useful for a school cutoff, visa form, or future birthday.</p></div>
+<div class="faq-item"><h3>Why do websites show different ages in days?</h3><p>Some tools ignore leap days or use 365-day years. This page uses the actual calendar, so the day count can differ by a day or two.</p></div>
 <h2>Related calculators</h2>
 <div class="tool-grid">
 <a href="/other/date-calculator.html" class="tool-link">Date Calculator <span class="arrow">→</span></a>
