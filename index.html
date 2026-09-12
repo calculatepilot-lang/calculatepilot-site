@@ -29,6 +29,7 @@
 <meta name="twitter:description" content="158+ free, accurate calculators for finance, health, math, and everyday life.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/home-redesign.css?v=20260913">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,11 +83,11 @@
 }
 </script>
 </head>
-<body>
+<body class="home">
 
 <header class="site-header">
   <div class="container">
-    <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <a href="/" class="logo"><img class="logo-img" src="/favicon.png" width="32" height="32" alt="">calculatepilot<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="/financial-calculators.html">Financial</a></li>
       <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
@@ -94,6 +95,12 @@
       <li><a href="/other-calculators.html">Everyday</a></li>
       <li><a href="/guides/index.html">Guides</a></li>
     </ul>
+    <div class="header-actions">
+      <a class="header-icon" href="#siteSearchInput" aria-label="Jump to search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+      </a>
+      <a class="header-cta" href="/embed/">Embed Tools</a>
+    </div>
     <button class="nav-toggle" aria-label="Open menu">Menu</button>
   </div>
 </header>
@@ -113,16 +120,28 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <div class="eyebrow">158 free calculators</div>
+      <div class="eyebrow">158 FREE CALCULATORS</div>
       <h1>Every number you need, worked out precisely.</h1>
       <p class="lede">Mortgages, macros, matrices, and everything in between — fast, accurate calculators with no sign-up, no clutter, and clear explanations of how each answer is worked out.</p>
       <div class="search-bar" style="position:relative;">
-        <input type="text" id="siteSearchInput" placeholder="Search calculators — try &ldquo;mortgage&rdquo; or &ldquo;BMI&rdquo;" aria-label="Search calculators" autocomplete="off">
+        <input type="text" id="siteSearchInput" placeholder="Search calculators — try “mortgage” or “BMI”" aria-label="Search calculators" autocomplete="off">
         <button class="btn btn-primary" id="siteSearchButton">Search</button>
         <div id="siteSearchDropdown" class="search-dropdown"></div>
       </div>
+      <div class="search-pills">Popular searches:
+        <a href="/financial/mortgage-calculator.html">Mortgage</a> ·
+        <a href="/health/bmi-calculator.html">BMI</a> ·
+        <a href="/financial/compound-interest-calculator.html">Compound Interest</a> ·
+        <a href="/math/percentage-calculator.html">Percentage</a>
+      </div>
+      <div class="trust-row">
+        <span><i class="trust-dot"></i> Client-side precision</span>
+        <span><i class="trust-dot"></i> Zero server logging</span>
+        <span><i class="trust-dot"></i> Open formulas</span>
+      </div>
     </div>
 <div class="calc-widget" data-calc-root>
+  <div class="calc-widget-head"><span>Standard engine</span><span>Ready</span></div>
   <div class="bar"></div>
   <div class="calc-display">
     <div class="calc-display-sub" data-display-sub></div>
@@ -153,10 +172,31 @@
     <button class="calc-btn" data-action="decimal">.</button>
     <button class="calc-btn calc-btn-equals" data-action="equals">=</button>
   </div>
+  <div class="calc-ready"><span>Direct client computation</span><span>No account</span></div>
 </div>  </div>
 </section>
 
-<!-- Embed feature banner -->
+<section class="platforms">
+  <div class="container">
+    <div class="platforms-head">
+      <div>
+        <h2>Available on</h2>
+        <p class="lede" style="margin:0;font-size:.9rem;">Use the same tools in the browser or embed them in your stack.</p>
+      </div>
+    </div>
+    <div class="plat-grid">
+      <a class="plat-card" href="https://chromewebstore.google.com/detail/calculatepilot-quick-calc/mbdmiaeepodajcnpbpllppoccmkdcaao"><span>Chrome</span><span class="plat-status">Available</span></a>
+      <span class="plat-card"><span>Shopify</span><span class="plat-status soon">Coming soon</span></span>
+      <a class="plat-card" href="https://wordpress.org/plugins/calculatepilot-calculator-embed"><span>WordPress</span><span class="plat-status">Available</span></a>
+      <span class="plat-card"><span>Firefox</span><span class="plat-status soon">Coming soon</span></span>
+      <a class="plat-card" href="https://addons.mozilla.org/en-US/firefox/addon/calculatepilot-calculator/"><span>Mozilla Add-on</span><span class="plat-status">Available</span></a>
+      <span class="plat-card"><span>Opera</span><span class="plat-status soon">Coming soon</span></span>
+      <span class="plat-card"><span>Android</span><span class="plat-status soon">Coming soon</span></span>
+      <span class="plat-card"><span>iOS</span><span class="plat-status soon">Coming soon</span></span>
+    </div>
+  </div>
+</section>
+
 <section class="embed-banner-section">
   <div class="container">
     <a href="/embed/" class="embed-banner-link">
@@ -180,27 +220,32 @@
   <div class="container">
     <div class="section-head">
       <h2>Browse by category</h2>
+      <a href="/sitemap.html">All 158 tools</a>
     </div>
     <div class="cat-grid">
       <a href="/financial-calculators.html" class="cat-card">
-        <div class="n">43 tools</div>
+        <div class="n">43 TOOLS</div>
         <h3>Financial</h3>
         <p>Mortgages, loans, taxes, retirement, investing.</p>
+        <span class="cat-more">View collection →</span>
       </a>
       <a href="/health-calculators.html" class="cat-card">
-        <div class="n">30 tools</div>
+        <div class="n">30 TOOLS</div>
         <h3>Health &amp; Fitness</h3>
         <p>BMI, calories, macros, pregnancy, body composition.</p>
+        <span class="cat-more">View collection →</span>
       </a>
       <a href="/math-calculators.html" class="cat-card">
-        <div class="n">40 tools</div>
+        <div class="n">40 TOOLS</div>
         <h3>Math</h3>
         <p>Algebra, geometry, statistics, number theory.</p>
+        <span class="cat-more">View collection →</span>
       </a>
       <a href="/other-calculators.html" class="cat-card">
-        <div class="n">45 tools</div>
+        <div class="n">45 TOOLS</div>
         <h3>Everyday</h3>
         <p>Age, time, GPA, conversions, home &amp; auto.</p>
+        <span class="cat-more">View collection →</span>
       </a>
     </div>
   </div>
@@ -228,32 +273,50 @@
   </div>
 </section>
 
-<section class="content-block">
-  <div class="container prose">
+<section class="container split-why">
+  <div class="why-card">
     <h2>Why CalculatePilot</h2>
     <p>Most calculator sites feel like they were built in 2005 and never touched again — cluttered with ads, slow to load, and vague about how they actually arrive at an answer. CalculatePilot is built the opposite way: fast, clean, and transparent. Every one of our 158 calculators shows you the formula and methodology behind the result, not just a number, so you can trust it and understand it.</p>
-    <p>There's no account to create and nothing to sign up for. Every calculation runs directly in your browser — the numbers you enter aren't sent to or stored on our servers. Whether you're working out a mortgage payment, checking your BMI, solving a quadratic equation, or estimating the cost of a move, the goal is the same: a fast, accurate answer with a clear explanation, and nothing standing in the way of getting it.</p>
-
+    <p>There's no account to create and nothing to sign up for. Every calculation runs directly in your browser — the numbers you enter aren't sent to or stored on our servers.</p>
+    <div class="why-stats">
+      <div><strong>0</strong> Accounts required</div>
+      <div><strong>100%</strong> In-browser calculation</div>
+    </div>
+  </div>
+  <div class="why-card">
     <h2>How our calculators work</h2>
-    <p>Each calculator on CalculatePilot is built on standard, well-established formulas used in finance, healthcare, education, and engineering — the same methodology you'd find in a textbook or used by a professional in that field. We don't invent shortcuts or approximations without saying so; where a calculator relies on a simplified assumption (like an average tax rate instead of full bracket tables, since those change every year and vary by location), the page explains that plainly rather than presenting an estimate as more precise than it is.</p>
-    <p>Every calculator page includes a written breakdown of the formula, a worked explanation of how the result was reached, and answers to common questions about that specific calculation. If you want to double-check the math yourself, you can — nothing is a black box.</p>
+    <p>Each calculator on CalculatePilot is built on standard, well-established formulas used in finance, healthcare, education, and engineering — the same methodology you'd find in a textbook or used by a professional in that field. We don't invent shortcuts or approximations without saying so; where a calculator relies on a simplified assumption, the page explains that plainly.</p>
+    <p>Every calculator page includes a written breakdown of the formula, a worked explanation of how the result was reached, and answers to common questions about that specific calculation.</p>
+    <p><a href="/methodology.html">Read our methodology →</a></p>
+  </div>
+</section>
 
+<section class="content-block">
+  <div class="container faq-wrap">
     <h2>Frequently asked questions</h2>
     <div class="faq-item">
-      <h3>Is CalculatePilot really free to use?</h3>
-      <p>Yes. Every calculator on CalculatePilot is free, with no account, sign-up, or subscription required. You can use any tool as many times as you like.</p>
+      <details open>
+        <summary><h3>Is CalculatePilot really free to use?</h3></summary>
+        <p>Yes. Every calculator on CalculatePilot is free, with no account, sign-up, or subscription required. You can use any tool as many times as you like.</p>
+      </details>
     </div>
     <div class="faq-item">
-      <h3>How accurate are CalculatePilot's calculators?</h3>
-      <p>Each calculator is built on standard, well-established formulas used in finance, healthcare, and education, and every page explains the exact formula and methodology used so you can verify the logic yourself.</p>
+      <details>
+        <summary><h3>How accurate are CalculatePilot's calculators?</h3></summary>
+        <p>Each calculator is built on standard, well-established formulas used in finance, healthcare, and education, and every page explains the exact formula and methodology used so you can verify the logic yourself.</p>
+      </details>
     </div>
     <div class="faq-item">
-      <h3>Do I need to create an account to use CalculatePilot?</h3>
-      <p>No. There is no login or account system. Every calculator runs directly in your browser, and the values you enter are not sent to or stored on our servers.</p>
+      <details>
+        <summary><h3>Do I need to create an account to use CalculatePilot?</h3></summary>
+        <p>No. There is no login or account system. Every calculator runs directly in your browser, and the values you enter are not sent to or stored on our servers.</p>
+      </details>
     </div>
     <div class="faq-item">
-      <h3>Can I embed CalculatePilot's calculators on my own website?</h3>
-      <p>Yes — every calculator on CalculatePilot can be embedded on your website with a single line of HTML. Free with CalculatePilot branding. Visit calculatepilot.com/embed/ for codes.</p>
+      <details>
+        <summary><h3>Can I embed CalculatePilot's calculators on my own website?</h3></summary>
+        <p>Yes — every calculator on CalculatePilot can be embedded on your website with a single line of HTML. Free with CalculatePilot branding. Visit calculatepilot.com/embed/ for codes.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -264,7 +327,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <a href="/" class="logo"><img class="logo-img" src="/favicon.png" width="32" height="32" alt="">calculatepilot<span class="dot">.</span></a>
         <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Free, accurate calculators for everyday decisions — built for clarity, not clutter.</p>
         <div class="footer-social"><div class="social-icons">
   <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
