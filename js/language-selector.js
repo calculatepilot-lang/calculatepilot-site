@@ -35,19 +35,18 @@
     return target + query + hash;
   }
 
-  function createSelector() {
-    if (!document.querySelector('.site-header .container')) return null;
-
+  function createSelector(idSuffix) {
+    var selectId = 'cp-language-select' + (idSuffix || '');
     var wrapper = document.createElement('div');
     wrapper.className = 'cp-language-selector';
 
     var label = document.createElement('label');
     label.className = 'cp-language-label';
-    label.setAttribute('for', 'cp-language-select');
+    label.setAttribute('for', selectId);
     label.textContent = 'Language';
 
     var select = document.createElement('select');
-    select.id = 'cp-language-select';
+    select.id = selectId;
     select.setAttribute('aria-label', 'Language');
 
     locales.forEach(function (locale) {
@@ -71,7 +70,7 @@
   function mount() {
     var headerContainer = document.querySelector('.site-header .container');
     if (!headerContainer || headerContainer.querySelector('.cp-language-selector')) return;
-    var selector = createSelector();
+    var selector = createSelector('-header');
     if (!selector) return;
     var toggle = headerContainer.querySelector('.nav-toggle');
     if (toggle) headerContainer.insertBefore(selector, toggle);
@@ -81,6 +80,8 @@
   var style = document.createElement('style');
   style.textContent = [
     '.cp-language-selector{display:flex;align-items:center;gap:6px;margin-left:auto;margin-right:14px;flex-shrink:0}',
+    '.cp-language-selector--footer{margin:0}',
+    '.footer-bottom{flex-wrap:wrap;gap:12px}',
     '.cp-language-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
     '.cp-language-selector select{appearance:auto;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--paper-raised);color:var(--ink);font:500 var(--fs-sm) var(--font-body);padding:7px 26px 7px 9px;cursor:pointer}',
     '.cp-language-selector select:hover{border-color:var(--signal)}',
@@ -88,6 +89,21 @@
   ].join('');
   document.head.appendChild(style);
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
-  else mount();
+  function mountFooter() {
+    var footerBottom = document.querySelector('.site-footer .footer-bottom');
+    if (!footerBottom) return;
+    if (footerBottom.querySelector('.cp-language-selector')) return;
+    var selector = createSelector('-footer');
+    if (!selector) return;
+    selector.classList.add('cp-language-selector--footer');
+    footerBottom.appendChild(selector);
+  }
+
+  function mountAll() {
+    mount();
+    mountFooter();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountAll);
+  else mountAll();
 })();
