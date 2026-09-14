@@ -94,7 +94,21 @@
       <li><a href="/other-calculators.html">Everyday</a></li>
       <li><a href="/guides/index.html">Guides</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="Open menu">Menu</button>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button type="button" class="lang-switch-btn" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+          <span class="lang-flag">🇺🇸</span><span class="lang-code">EN</span>
+          <svg class="lang-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu">
+          <a href="/" class="lang-menu-item is-active"><span>🇺🇸</span> English</a>
+          <a href="/es/" class="lang-menu-item"><span>🇪🇸</span> Español</a>
+          <a href="/fr/" class="lang-menu-item"><span>🇫🇷</span> Français</a>
+          <a href="/de/" class="lang-menu-item"><span>🇩🇪</span> Deutsch</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu">Menu</button>
+    </div>
   </div>
 </header>
 
@@ -113,16 +127,33 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <div class="eyebrow">158 free calculators</div>
+      <div class="hero-eyebrow-badge"><span class="pulse"></span>158 free calculators</div>
       <h1>Every number you need, worked out precisely.</h1>
       <p class="lede">Mortgages, macros, matrices, and everything in between — fast, accurate calculators with no sign-up, no clutter, and clear explanations of how each answer is worked out.</p>
       <div class="search-bar" style="position:relative;">
+        <svg class="search-bar-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <input type="text" id="siteSearchInput" placeholder="Search calculators — try &ldquo;mortgage&rdquo; or &ldquo;BMI&rdquo;" aria-label="Search calculators" autocomplete="off">
         <button class="btn btn-primary" id="siteSearchButton">Search</button>
         <div id="siteSearchDropdown" class="search-dropdown"></div>
       </div>
+      <div class="hero-search-hints">
+        <span>Popular searches:</span>
+        <a href="/financial/mortgage-calculator.html">Mortgage</a>
+        <span>•</span>
+        <a href="/health/bmi-calculator.html">BMI</a>
+        <span>•</span>
+        <a href="/financial/compound-interest-calculator.html">Compound Interest</a>
+        <span>•</span>
+        <a href="/math/percentage-calculator.html">Percentage</a>
+      </div>
+      <div class="hero-trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-4z"/></svg>Client-Side Precision</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg>Zero Server Logging</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11a3 3 0 013 3v13H7a3 3 0 01-3-3V4z"/><path d="M8 8h7M8 12h7"/></svg>Open Formulas</span>
+      </div>
     </div>
 <div class="calc-widget" data-calc-root>
+  <div class="cw-head"><span class="cw-status"><span class="cw-dot"></span>Standard Engine</span></div>
   <div class="bar"></div>
   <div class="calc-display">
     <div class="calc-display-sub" data-display-sub></div>
@@ -153,6 +184,7 @@
     <button class="calc-btn" data-action="decimal">.</button>
     <button class="calc-btn calc-btn-equals" data-action="equals">=</button>
   </div>
+  <div class="cw-foot"><span>Direct client computation</span><span class="ready">Ready <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></div>
 </div>  </div>
 </section>
 
@@ -335,6 +367,18 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span>
+      <div class="lang-switch">
+        <button type="button" class="lang-switch-btn" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+          <span class="lang-flag">🇺🇸</span><span class="lang-code">EN</span>
+          <svg class="lang-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu lang-menu-up">
+          <a href="/" class="lang-menu-item is-active"><span>🇺🇸</span> English</a>
+          <a href="/es/" class="lang-menu-item"><span>🇪🇸</span> Español</a>
+          <a href="/fr/" class="lang-menu-item"><span>🇫🇷</span> Français</a>
+          <a href="/de/" class="lang-menu-item"><span>🇩🇪</span> Deutsch</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
