@@ -1,1 +1,100 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de hipoteca | CalculatePilot</title><meta name="description" content="Calcula tu pago mensual de hipoteca incluyendo capital, intereses, impuestos sobre la propiedad y seguro de vivienda."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/mortgage-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/mortgage-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/mortgage-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/mortgage-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/mortgage-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/mortgage-calculator.html"><meta property="og:title" content="Calculadora de hipoteca | CalculatePilot"><meta property="og:description" content="Calcula tu pago mensual de hipoteca incluyendo capital, intereses, impuestos y seguro."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/es/financial/mortgage-calculator.html"><link rel="stylesheet" href="https://www.calculatepilot.com/css/styles.css?v=b9fa22ed"><script src="https://www.calculatepilot.com/js/language-selector.js?v=20260903" defer></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora de hipoteca","url":"https://www.calculatepilot.com/es/financial/mortgage-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true}</script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Finanzas</a></li><li><a href="/health-calculators.html">Salud</a></li><li><a href="/math-calculators.html">Matemáticas</a></li><li><a href="/other-calculators.html">Cotidiano</a></li><li><a href="/guides/index.html">Guías</a></li></ul><button class="nav-toggle">Menú</button></div></header><main><div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / Calculadora de hipoteca</nav></div><section class="calc-page-head"><div class="container"><h1>Calculadora de hipoteca</h1><p class="lede">Estima tu pago mensual incluyendo capital, intereses, impuestos sobre la propiedad y seguro de vivienda.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="calcForm"><div class="field"><label for="homePrice">Precio de la vivienda</label><input id="homePrice" type="number" value="400000" step="1000" min="0"></div><div class="field-row"><div class="field"><label for="downPayment">Pago inicial</label><input id="downPayment" type="number" value="80000" step="1000" min="0"></div><div class="field"><label for="loanTerm">Plazo</label><select id="loanTerm"><option value="30" selected>30 años</option><option value="20">20 años</option><option value="15">15 años</option><option value="10">10 años</option></select></div></div><div class="field-row"><div class="field"><label for="interestRate">Tasa de interés (%)</label><input id="interestRate" type="number" value="6.5" step="0.01" min="0"></div><div class="field"><label for="propertyTax">Impuesto anual</label><input id="propertyTax" type="number" value="3600" step="50" min="0"></div></div><div class="field"><label for="homeInsurance">Seguro anual</label><input id="homeInsurance" type="number" value="1400" step="50" min="0"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Pago mensual estimado</div><div class="readout-value big" id="resultValue">—</div><div class="readout-breakdown"><div class="readout-row"><span>Capital + intereses</span><span id="outPrincipalInterest">—</span></div><div class="readout-row"><span>Impuestos</span><span id="outTax">—</span></div><div class="readout-row"><span>Seguro</span><span id="outInsurance">—</span></div><div class="readout-row"><span>Importe del préstamo</span><span id="outLoanAmount">—</span></div><div class="readout-row"><span>Intereses totales</span><span id="outTotalInterest">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Cómo funciona</h2><p>El cálculo usa la fórmula estándar de amortización para obtener la parte de capital e intereses y añade los impuestos y el seguro anuales convertidos a valores mensuales.</p><div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</div><h2>Qué determina tu pago</h2><p>El importe financiado, la tasa, el plazo y los costes de vivienda influyen en el pago mensual. Un plazo más corto suele reducir los intereses totales, aunque aumenta la cuota mensual.</p><h2>Preguntas frecuentes</h2><div class="faq-item"><h3>¿El cálculo incluye impuestos y seguro?</h3><p>Sí. Introduce tus estimaciones anuales y se sumarán al pago de capital e intereses.</p></div><div class="faq-item"><h3>¿Un pago inicial mayor reduce el coste?</h3><p>Sí. Reduce el importe financiado y normalmente también los intereses totales.</p></div></div></section></main><footer class="site-footer"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a></div></footer><script>(function(){function c(){var p=+homePrice.value||0,d=+downPayment.value||0,r=(+interestRate.value||0)/1200,n=(+loanTerm.value||30)*12,l=Math.max(0,p-d),m=r?l*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):(n?l/n:0),t=(+propertyTax.value||0)/12,i=(+homeInsurance.value||0)/12;function f(x){return '$'+x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}resultValue.textContent=f(m+t+i);outPrincipalInterest.textContent=f(m);outTax.textContent=f(t);outInsurance.textContent=f(i);outLoanAmount.textContent=f(l);outTotalInterest.textContent=f(Math.max(0,m*n-l))}document.querySelectorAll('#calcForm input,#calcForm select').forEach(e=>{e.addEventListener('input',c);e.addEventListener('change',c)});c()})()</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Hipoteca — Cuota Mensual, Capital e Interés | CalculatePilot</title>
+<meta name="description" content="Calculadora de hipoteca gratuita. Estima la cuota mensual incluyendo capital, interés, impuestos y seguro. Con la fórmula exacta y el desglose de amortización. Sin registro.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/mortgage-calculator.html">
+<meta property="og:title" content="Calculadora de Hipoteca — Cuota Mensual, Capital e Interés | CalculatePilot">
+<meta property="og:description" content="Calculadora de hipoteca gratuita. Estima la cuota mensual incluyendo capital, interés, impuestos y seguro. Con la fórmula exacta y el desglose de amortización. Sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/es/financial/mortgage-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de Hipoteca — Cuota Mensual, Capital e Interés | CalculatePilot">
+<meta name="twitter:description" content="Calculadora de hipoteca gratuita. Estima la cuota mensual incluyendo capital, interés, impuestos y seguro. Con la fórmula exacta y el desglose de amortización. Sin registro.">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo se calcula la cuota mensual de una hipoteca?", "acceptedAnswer": {"@type": "Answer", "text": "El capital e interés usan la fórmula de amortización a tipo fijo. Luego se suman el impuesto y el seguro mensuales. El resultado es una estimación, no una oferta del banco."}}, {"@type": "Question", "name": "¿Incluye el PMI, las cuotas de comunidad o los gastos de cierre?", "acceptedAnswer": {"@type": "Answer", "text": "No. Esta página cubre capital, interés, impuesto sobre la propiedad y seguro de hogar. El PMI, las cuotas de comunidad, los suministros y los gastos de cierre son aparte."}}, {"@type": "Question", "name": "¿Cuánta casa puedo permitirme?", "acceptedAnswer": {"@type": "Answer", "text": "Un punto de partida habitual es mantener el coste total de vivienda en torno al 28-36 % de tus ingresos brutos, y luego probar con un tipo más alto."}}, {"@type": "Question", "name": "¿Debo elegir una hipoteca a 15 o a 30 años?", "acceptedAnswer": {"@type": "Answer", "text": "Un préstamo a 15 años suele tener un tipo más bajo y mucho menos interés total, pero una cuota mensual más alta. Uno a 30 años mantiene la cuota más baja y deja más margen para otros objetivos."}}, {"@type": "Question", "name": "¿Una entrada mayor reduce mi cuota mensual?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Una entrada mayor reduce el importe del préstamo, por lo que tanto el capital e interés como a menudo el PMI bajan."}}, {"@type": "Question", "name": "¿Son estas cifras una oferta formal de préstamo?", "acceptedAnswer": {"@type": "Answer", "text": "No. Los tipos, impuestos, seguros y comisiones varían según la ubicación y la entidad. Úsalo como estimación de planificación y luego confírmalo con una oferta real."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/es/financial-calculators.html">Finanzas</a></li><li><a href="/es/health-calculators.html">Salud y fitness</a></li><li><a href="/es/math-calculators.html">Matemáticas</a></li><li><a href="/es/other-calculators.html">Vida diaria</a></li><li><a href="/guides/index.html">Guías</a></li></ul><button class="nav-toggle" aria-label="Abrir menú">Menú</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Calculadora de Hipoteca</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Calculadora de Hipoteca</h1><p class="lede">Estima tu cuota mensual de hipoteca — incluyendo capital, interés, impuesto sobre la propiedad y seguro de hogar — y ve exactamente a dónde va tu dinero.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+<div class="field"><label for="homePrice">Precio de la vivienda</label><input type="number" id="homePrice" value="400000" step="1000" min="0"></div>
+<div class="field-row"><div class="field"><label for="downPayment">Entrada</label><input type="number" id="downPayment" value="80000" step="1000" min="0"></div>
+<div class="field"><label for="loanTerm">Plazo (años)</label><select id="loanTerm"><option value="30" selected>30 años</option><option value="20">20 años</option><option value="15">15 años</option><option value="10">10 años</option></select></div></div>
+<div class="field-row"><div class="field"><label for="interestRate">Tipo de interés (%)</label><input type="number" id="interestRate" value="6.5" step="0.01" min="0"></div>
+<div class="field"><label for="propertyTax">Impuesto anual sobre la propiedad ($)</label><input type="number" id="propertyTax" value="3600" step="50" min="0"></div></div>
+<div class="field"><label for="homeInsurance">Seguro de hogar anual ($)</label><input type="number" id="homeInsurance" value="1400" step="50" min="0"><span class="hint">Una estimación aproximada está bien — ajústala después con una cotización real.</span></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="currency-picker"><label for="cpCurrencySelect">Moneda</label><select id="cpCurrencySelect" class="cp-currency-select"><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="CAD">CA$ CAD</option><option value="AUD">A$ AUD</option><option value="INR">₹ INR</option><option value="PKR">Rs PKR</option><option value="AED">AED</option><option value="SAR">SAR</option><option value="JPY">¥ JPY</option><option value="CNY">¥ CNY</option><option value="NZD">NZ$ NZD</option><option value="SGD">S$ SGD</option><option value="ZAR">R ZAR</option><option value="CHF">CHF</option><option value="MXN">MX$ MXN</option><option value="BRL">R$ BRL</option><option value="NGN">₦ NGN</option><option value="EGP">E£ EGP</option><option value="KES">KSh KES</option></select></div>
+<div class="readout-label">Cuota mensual estimada</div>
+<div class="readout-value big" id="resultValue">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Capital e interés</span><span id="outPrincipalInterest">—</span></div>
+<div class="readout-row"><span>Impuesto sobre la propiedad</span><span id="outTax">—</span></div>
+<div class="readout-row"><span>Seguro de hogar</span><span id="outInsurance">—</span></div>
+<div class="readout-row"><span>Importe del préstamo</span><span id="outLoanAmount">—</span></div>
+<div class="readout-row"><span>Interés total pagado</span><span id="outTotalInterest">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Cómo funciona esta calculadora</h2>
+<p>Esta calculadora usa la fórmula estándar de amortización a tipo fijo para capital e interés, y luego añade el impuesto sobre la propiedad y el seguro de hogar para que veas un coste mensual de vivienda realista, no solo la cuota del préstamo.</p>
+<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]<br><span style="color:var(--slate);font-family:var(--font-body);font-size:0.85rem;">M = capital e interés mensual · P = importe del préstamo · i = tipo de interés mensual · n = número de meses</span></div>
+<p>El importe del préstamo es el precio de la vivienda menos la entrada. El tipo mensual <em>i</em> es el tipo anual dividido entre 12. El impuesto sobre la propiedad y el seguro de hogar se dividen entre 12 y se suman. El PMI y las cuotas de comunidad no están incluidos aquí — añádelos por separado si aplican.</p>
+<h2>Qué incluye una cuota mensual de hipoteca</h2>
+<p>La mayoría de entidades hablan de PITI: capital, interés, impuestos y seguro.</p>
+<ul>
+<li><strong>Capital</strong> — la parte que reduce el saldo del préstamo.</li>
+<li><strong>Interés</strong> — el coste de pedir prestado. Los primeros pagos son principalmente interés.</li>
+<li><strong>Impuesto sobre la propiedad</strong> — normalmente se recauda mensualmente en una cuenta de garantía.</li>
+<li><strong>Seguro de hogar</strong> — también suele gestionarse así.</li>
+</ul>
+<p>Una entrada del 20 % suele evitar el seguro hipotecario privado (PMI). Usa la <a href="/financial/down-payment-calculator.html">Calculadora de Entrada</a> si aún estás decidiendo cuánto aportar.</p>
+<h2>Un ejemplo práctico</h2>
+<p>Precio de vivienda 400.000 $, entrada 80.000 $, plazo de 30 años al 6,5 %, impuesto anual 3.600 $, seguro 1.400 $:</p>
+<ul>
+<li>Importe del préstamo = 320.000 $</li>
+<li>Capital e interés ≈ 2.022 $/mes</li>
+<li>Impuesto ≈ 300 $/mes, seguro ≈ 117 $/mes</li>
+<li>Total estimado ≈ 2.439 $/mes</li>
+<li>El interés total a 30 años suele superar los 400.000 $ a este tipo</li>
+</ul>
+<p>El mismo préstamo a 15 años sube la cuota de capital e interés pero reduce mucho el interés total. Compara los planes con la <a href="/financial/amortization-calculator.html">Calculadora de Amortización</a>.</p>
+<h2>Cómo cambian el plazo y los pagos extra el coste</h2>
+<p>Un plazo más largo reduce la cuota mensual pero aumenta el interés total. Los pagos extra a capital acortan el plazo y reducen el interés, porque el interés posterior se calcula sobre un saldo menor. Antes de pagar extra, comprueba si hay penalizaciones por amortización anticipada y si ese dinero rendiría más en otro sitio.</p>
+<p>Si ya tienes un préstamo y los tipos han bajado, simula una nueva cuota con la <a href="/financial/refinance-calculator.html">Calculadora de Refinanciación</a> antes de pagar gastos de cierre.</p>
+<h2>Preguntas frecuentes</h2>
+<div class="faq-item"><h3>¿Cómo se calcula la cuota mensual de una hipoteca?</h3><p>El capital e interés usan la fórmula de amortización a tipo fijo anterior. Luego se suman el impuesto y el seguro mensuales. El resultado es una estimación, no una oferta del banco.</p></div>
+<div class="faq-item"><h3>¿Incluye el PMI, las cuotas de comunidad o los gastos de cierre?</h3><p>No. Esta página cubre capital, interés, impuesto sobre la propiedad y seguro de hogar. El PMI, las cuotas de comunidad, los suministros y los gastos de cierre son aparte.</p></div>
+<div class="faq-item"><h3>¿Cuánta casa puedo permitirme?</h3><p>Un punto de partida habitual es mantener el coste total de vivienda en torno al 28-36 % de tus ingresos brutos, y luego probar con un tipo más alto. Combina esta herramienta con la <a href="/financial/house-affordability-calculator.html">Calculadora de Asequibilidad de Vivienda</a> y la <a href="/financial/loan-calculator.html">Calculadora de Préstamos</a> para otras deudas.</p></div>
+<div class="faq-item"><h3>¿Debo elegir una hipoteca a 15 o a 30 años?</h3><p>Un préstamo a 15 años suele tener un tipo más bajo y mucho menos interés total, pero una cuota mensual más alta. Uno a 30 años mantiene la cuota más baja y deja más margen para ahorro u otros objetivos.</p></div>
+<div class="faq-item"><h3>¿Una entrada mayor reduce mi cuota mensual?</h3><p>Sí. Una entrada mayor reduce el importe del préstamo, por lo que tanto el capital e interés como a menudo el PMI bajan.</p></div>
+<div class="faq-item"><h3>¿Son estas cifras una oferta formal de préstamo?</h3><p>No. Los tipos, impuestos, seguros y comisiones varían según la ubicación y la entidad. Úsalo como estimación de planificación y luego confírmalo con una oferta real.</p></div>
+<h2>Calculadoras relacionadas</h2>
+<div class="tool-grid">
+<a href="/es/financial/loan-calculator.html" class="tool-link">Calculadora de Préstamos <span class="arrow">→</span></a>
+<a href="/financial/amortization-calculator.html" class="tool-link">Calculadora de Amortización <span class="arrow">→</span></a>
+<a href="/financial/house-affordability-calculator.html" class="tool-link">Calculadora de Asequibilidad de Vivienda <span class="arrow">→</span></a>
+<a href="/financial/refinance-calculator.html" class="tool-link">Calculadora de Refinanciación <span class="arrow">→</span></a>
+<a href="/financial/down-payment-calculator.html" class="tool-link">Calculadora de Entrada <span class="arrow">→</span></a>
+</div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. Solo estimaciones.</span><span><a href="/embed/mortgage-calculator.html" target="_blank">Incrustar esta calculadora</a></span></div></div></footer>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/mortgage.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

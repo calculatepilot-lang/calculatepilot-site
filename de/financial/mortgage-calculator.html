@@ -1,1 +1,100 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Baufinanzierungsrechner | CalculatePilot</title><meta name="description" content="Berechnen Sie Ihre monatliche Immobilienkreditrate inklusive Zinsen, Grundsteuer und Wohngebäudeversicherung."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/mortgage-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/mortgage-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/mortgage-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/mortgage-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/mortgage-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/mortgage-calculator.html"><link rel="stylesheet" href="https://www.calculatepilot.com/css/styles.css?v=b9fa22ed"><script src="https://www.calculatepilot.com/js/language-selector.js?v=20260903" defer></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Baufinanzierungsrechner","url":"https://www.calculatepilot.com/de/financial/mortgage-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true}</script></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Finanzen</a></li><li><a href="/health-calculators.html">Gesundheit</a></li><li><a href="/math-calculators.html">Mathe</a></li><li><a href="/other-calculators.html">Alltag</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle">Menü</button></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / Baufinanzierungsrechner</nav></div><section class="calc-page-head"><div class="container"><h1>Baufinanzierungsrechner</h1><p class="lede">Schätzen Sie Ihre monatliche Rate einschließlich Kapital, Zinsen, Grundsteuer und Versicherung.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="calcForm"><div class="field"><label for="homePrice">Kaufpreis</label><input id="homePrice" type="number" value="400000" step="1000" min="0"></div><div class="field-row"><div class="field"><label for="downPayment">Eigenkapital</label><input id="downPayment" type="number" value="80000" step="1000" min="0"></div><div class="field"><label for="loanTerm">Laufzeit</label><select id="loanTerm"><option value="30">30 Jahre</option><option value="20">20 Jahre</option><option value="15" selected>15 Jahre</option><option value="10">10 Jahre</option></select></div></div><div class="field-row"><div class="field"><label for="interestRate">Zinssatz (%)</label><input id="interestRate" type="number" value="6.5" step="0.01" min="0"></div><div class="field"><label for="propertyTax">Jährliche Grundsteuer</label><input id="propertyTax" type="number" value="3600" step="50" min="0"></div></div><div class="field"><label for="homeInsurance">Jährliche Versicherung</label><input id="homeInsurance" type="number" value="1400" step="50" min="0"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Geschätzte Monatsrate</div><div class="readout-value big" id="resultValue">—</div><div class="readout-breakdown"><div class="readout-row"><span>Kapital + Zinsen</span><span id="outPrincipalInterest">—</span></div><div class="readout-row"><span>Grundsteuer</span><span id="outTax">—</span></div><div class="readout-row"><span>Versicherung</span><span id="outInsurance">—</span></div><div class="readout-row"><span>Kreditbetrag</span><span id="outLoanAmount">—</span></div><div class="readout-row"><span>Gesamtzinsen</span><span id="outTotalInterest">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>So funktioniert der Rechner</h2><p>Die Standardformel für amortisierte Festzinsdarlehen berechnet Kapital und Zinsen. Danach werden die eingegebenen jährlichen Steuern und Versicherungen auf Monatswerte umgelegt.</p><div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</div><h2>Was beeinflusst die Rate?</h2><p>Kreditsumme, Zinssatz, Laufzeit und laufende Wohnkosten bestimmen die monatliche Belastung. Eine kürzere Laufzeit bedeutet meist eine höhere Rate, aber weniger Gesamtzinsen.</p><h2>Häufige Fragen</h2><div class="faq-item"><h3>Kann ich einen höheren Eigenkapitalanteil einsetzen?</h3><p>Ja. Ein höheres Eigenkapital reduziert den Kreditbetrag und damit in der Regel die Zinskosten.</p></div><div class="faq-item"><h3>Sind Steuern und Versicherung enthalten?</h3><p>Ja. Ihre jährlichen Schätzwerte werden zur monatlichen Kapital- und Zinsrate addiert.</p></div></div></section></main><footer class="site-footer"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a></div></footer><script>(function(){function c(){var p=+homePrice.value||0,d=+downPayment.value||0,r=(+interestRate.value||0)/1200,n=(+loanTerm.value||30)*12,l=Math.max(0,p-d),m=r?l*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):(n?l/n:0),t=(+propertyTax.value||0)/12,i=(+homeInsurance.value||0)/12;function f(x){return '$'+x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}resultValue.textContent=f(m+t+i);outPrincipalInterest.textContent=f(m);outTax.textContent=f(t);outInsurance.textContent=f(i);outLoanAmount.textContent=f(l);outTotalInterest.textContent=f(Math.max(0,m*n-l))}document.querySelectorAll('#calcForm input,#calcForm select').forEach(e=>{e.addEventListener('input',c);e.addEventListener('change',c)});c()})()</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypothekenrechner — Monatliche Rate, Zins & Tilgung | CalculatePilot</title>
+<meta name="description" content="Kostenloser Hypothekenrechner. Schätzen Sie die monatliche Rate inklusive Tilgung, Zinsen, Steuer und Versicherung. Mit exakter Formel und Tilgungsplan. Keine Anmeldung.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/mortgage-calculator.html">
+<meta property="og:title" content="Hypothekenrechner — Monatliche Rate, Zins & Tilgung | CalculatePilot">
+<meta property="og:description" content="Kostenloser Hypothekenrechner. Schätzen Sie die monatliche Rate inklusive Tilgung, Zinsen, Steuer und Versicherung. Mit exakter Formel und Tilgungsplan. Keine Anmeldung.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/mortgage-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hypothekenrechner — Monatliche Rate, Zins & Tilgung | CalculatePilot">
+<meta name="twitter:description" content="Kostenloser Hypothekenrechner. Schätzen Sie die monatliche Rate inklusive Tilgung, Zinsen, Steuer und Versicherung. Mit exakter Formel und Tilgungsplan. Keine Anmeldung.">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie wird die monatliche Hypothekenrate berechnet?", "acceptedAnswer": {"@type": "Answer", "text": "Zins und Tilgung nutzen die klassische Annuitätenformel. Danach werden monatliche Steuer und Versicherung addiert. Das Ergebnis ist eine Schätzung, kein Kreditangebot."}}, {"@type": "Question", "name": "Sind PMI, HOA-Gebühren oder Abschlusskosten enthalten?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Diese Seite deckt Zins, Tilgung, Grundsteuer und Wohngebäudeversicherung ab. PMI, HOA-Beiträge, Nebenkosten und Abschlusskosten sind separat."}}, {"@type": "Question", "name": "Wie viel Haus kann ich mir leisten?", "acceptedAnswer": {"@type": "Answer", "text": "Ein gängiger Ausgangspunkt ist, die gesamten Wohnkosten bei etwa 28–36 % des Bruttoeinkommens zu halten und dann einen höheren Zinssatz durchzurechnen."}}, {"@type": "Question", "name": "Sollte ich eine 15- oder 30-jährige Hypothek wählen?", "acceptedAnswer": {"@type": "Answer", "text": "Ein 15-Jahres-Darlehen hat meist einen niedrigeren Zins und deutlich weniger Zinskosten, aber eine höhere monatliche Rate. Ein 30-Jahres-Darlehen hält die Rate niedriger und lässt mehr Spielraum für andere Ziele."}}, {"@type": "Question", "name": "Senkt eine höhere Anzahlung meine monatliche Rate?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Eine höhere Anzahlung verringert die Darlehenssumme, wodurch sowohl Zins und Tilgung als auch oft die PMI sinken."}}, {"@type": "Question", "name": "Sind diese Zahlen ein verbindliches Kreditangebot?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Zinssätze, Steuern, Versicherung und Gebühren variieren je nach Standort und Anbieter. Nutzen Sie dies als Planungsschätzung und bestätigen Sie sie dann mit einem konkreten Angebot."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li><li><a href="/de/math-calculators.html">Mathematik</a></li><li><a href="/de/other-calculators.html">Alltag</a></li><li><a href="/guides/index.html">Ratgeber</a></li></ul><button class="nav-toggle" aria-label="Menü öffnen">Menü</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Hypothekenrechner</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Hypothekenrechner</h1><p class="lede">Schätzen Sie Ihre monatliche Hypothekenrate — inklusive Tilgung, Zinsen, Grundsteuer und Wohngebäudeversicherung — und sehen Sie genau, wohin Ihr Geld fließt.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+<div class="field"><label for="homePrice">Kaufpreis</label><input type="number" id="homePrice" value="400000" step="1000" min="0"></div>
+<div class="field-row"><div class="field"><label for="downPayment">Anzahlung</label><input type="number" id="downPayment" value="80000" step="1000" min="0"></div>
+<div class="field"><label for="loanTerm">Laufzeit (Jahre)</label><select id="loanTerm"><option value="30" selected>30 Jahre</option><option value="20">20 Jahre</option><option value="15">15 Jahre</option><option value="10">10 Jahre</option></select></div></div>
+<div class="field-row"><div class="field"><label for="interestRate">Zinssatz (%)</label><input type="number" id="interestRate" value="6.5" step="0.01" min="0"></div>
+<div class="field"><label for="propertyTax">Jährliche Grundsteuer ($)</label><input type="number" id="propertyTax" value="3600" step="50" min="0"></div></div>
+<div class="field"><label for="homeInsurance">Jährliche Wohngebäudeversicherung ($)</label><input type="number" id="homeInsurance" value="1400" step="50" min="0"><span class="hint">Eine grobe Schätzung reicht — später mit einem echten Angebot verfeinern.</span></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="currency-picker"><label for="cpCurrencySelect">Währung</label><select id="cpCurrencySelect" class="cp-currency-select"><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="CAD">CA$ CAD</option><option value="AUD">A$ AUD</option><option value="INR">₹ INR</option><option value="PKR">Rs PKR</option><option value="AED">AED</option><option value="SAR">SAR</option><option value="JPY">¥ JPY</option><option value="CNY">¥ CNY</option><option value="NZD">NZ$ NZD</option><option value="SGD">S$ SGD</option><option value="ZAR">R ZAR</option><option value="CHF">CHF</option><option value="MXN">MX$ MXN</option><option value="BRL">R$ BRL</option><option value="NGN">₦ NGN</option><option value="EGP">E£ EGP</option><option value="KES">KSh KES</option></select></div>
+<div class="readout-label">Geschätzte monatliche Rate</div>
+<div class="readout-value big" id="resultValue">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Zins &amp; Tilgung</span><span id="outPrincipalInterest">—</span></div>
+<div class="readout-row"><span>Grundsteuer</span><span id="outTax">—</span></div>
+<div class="readout-row"><span>Wohngebäudeversicherung</span><span id="outInsurance">—</span></div>
+<div class="readout-row"><span>Darlehenssumme</span><span id="outLoanAmount">—</span></div>
+<div class="readout-row"><span>Gesamte Zinskosten</span><span id="outTotalInterest">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>So funktioniert dieser Rechner</h2>
+<p>Dieser Rechner nutzt die klassische Annuitätenformel für Zins und Tilgung und addiert dann Grundsteuer und Wohngebäudeversicherung, damit Sie realistische monatliche Wohnkosten sehen — nicht nur die reine Kreditrate.</p>
+<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]<br><span style="color:var(--slate);font-family:var(--font-body);font-size:0.85rem;">M = monatliche Zins- und Tilgungsrate · P = Darlehenssumme · i = monatlicher Zinssatz · n = Anzahl der Monate</span></div>
+<p>Die Darlehenssumme ist der Kaufpreis abzüglich der Anzahlung. Der monatliche Zinssatz <em>i</em> ist der Jahreszins geteilt durch 12. Grundsteuer und Wohngebäudeversicherung werden durch 12 geteilt und aufgeschlagen. PMI und HOA-Gebühren sind hier nicht enthalten — fügen Sie diese separat hinzu, falls zutreffend.</p>
+<h2>Was in eine monatliche Hypothekenrate einfließt</h2>
+<p>Die meisten Anbieter nennen PITI: Principal (Tilgung), Interest (Zinsen), Taxes (Steuern) und Insurance (Versicherung).</p>
+<ul>
+<li><strong>Tilgung</strong> — der Anteil, der die Restschuld reduziert.</li>
+<li><strong>Zinsen</strong> — die Kosten der Kreditaufnahme. Frühe Raten bestehen überwiegend aus Zinsen.</li>
+<li><strong>Grundsteuer</strong> — meist monatlich in ein Treuhandkonto eingezahlt.</li>
+<li><strong>Wohngebäudeversicherung</strong> — häufig ebenfalls über Treuhand abgewickelt.</li>
+</ul>
+<p>Eine Anzahlung von 20 % vermeidet in der Regel eine private Hypothekenversicherung (PMI). Nutzen Sie den <a href="/financial/down-payment-calculator.html">Anzahlungsrechner</a>, falls Sie noch überlegen, wie viel Sie anzahlen sollten.</p>
+<h2>Ein Rechenbeispiel</h2>
+<p>Kaufpreis 400.000 $, Anzahlung 80.000 $, 30 Jahre Laufzeit bei 6,5 %, jährliche Steuer 3.600 $, Versicherung 1.400 $:</p>
+<ul>
+<li>Darlehenssumme = 320.000 $</li>
+<li>Zins & Tilgung ≈ 2.022 $/Monat</li>
+<li>Steuer ≈ 300 $/Monat, Versicherung ≈ 117 $/Monat</li>
+<li>Geschätzte Gesamtrate ≈ 2.439 $/Monat</li>
+<li>Die Gesamtzinsen über 30 Jahre liegen bei diesem Zinssatz typischerweise über 400.000 $</li>
+</ul>
+<p>Dasselbe Darlehen über 15 Jahre erhöht die monatliche Zins-und-Tilgungsrate, senkt aber die Gesamtzinsen deutlich. Vergleichen Sie Tilgungspläne mit dem <a href="/financial/amortization-calculator.html">Tilgungsplan-Rechner</a>.</p>
+<h2>Wie Laufzeit und Sondertilgungen die Kosten verändern</h2>
+<p>Eine längere Laufzeit senkt die monatliche Rate, erhöht aber die Gesamtzinsen. Zusätzliche Tilgungen verkürzen die Laufzeit und senken die Zinsen, weil spätere Zinsen auf eine kleinere Restschuld berechnet werden. Prüfen Sie vor Sondertilgungen, ob Vorfälligkeitsentschädigungen anfallen und ob das Geld anderswo mehr einbringen würde.</p>
+<p>Falls Sie bereits ein Darlehen haben und die Zinsen gesunken sind, berechnen Sie eine neue Rate mit dem <a href="/financial/refinance-calculator.html">Umschuldungsrechner</a>, bevor Sie Abschlusskosten zahlen.</p>
+<h2>Häufig gestellte Fragen</h2>
+<div class="faq-item"><h3>Wie wird die monatliche Hypothekenrate berechnet?</h3><p>Zins und Tilgung nutzen die oben gezeigte Annuitätenformel. Danach werden monatliche Steuer und Versicherung addiert. Das Ergebnis ist eine Schätzung, kein Kreditangebot.</p></div>
+<div class="faq-item"><h3>Sind PMI, HOA-Gebühren oder Abschlusskosten enthalten?</h3><p>Nein. Diese Seite deckt Zins, Tilgung, Grundsteuer und Wohngebäudeversicherung ab. PMI, HOA-Beiträge, Nebenkosten und Abschlusskosten sind separat.</p></div>
+<div class="faq-item"><h3>Wie viel Haus kann ich mir leisten?</h3><p>Ein gängiger Ausgangspunkt ist, die gesamten Wohnkosten bei etwa 28–36 % des Bruttoeinkommens zu halten und dann einen höheren Zinssatz durchzurechnen. Kombinieren Sie dies mit dem <a href="/financial/house-affordability-calculator.html">Rechner für leistbares Wohnen</a> und dem <a href="/financial/loan-calculator.html">Kreditrechner</a> für sonstige Schulden.</p></div>
+<div class="faq-item"><h3>Sollte ich eine 15- oder 30-jährige Hypothek wählen?</h3><p>Ein 15-Jahres-Darlehen hat meist einen niedrigeren Zins und deutlich weniger Zinskosten, aber eine höhere monatliche Rate. Ein 30-Jahres-Darlehen hält die Rate niedriger und lässt mehr Spielraum für Ersparnisse oder andere Ziele.</p></div>
+<div class="faq-item"><h3>Senkt eine höhere Anzahlung meine monatliche Rate?</h3><p>Ja. Eine höhere Anzahlung verringert die Darlehenssumme, wodurch sowohl Zins und Tilgung als auch oft die PMI sinken.</p></div>
+<div class="faq-item"><h3>Sind diese Zahlen ein verbindliches Kreditangebot?</h3><p>Nein. Zinssätze, Steuern, Versicherung und Gebühren variieren je nach Standort und Anbieter. Nutzen Sie dies als Planungsschätzung und bestätigen Sie sie dann mit einem konkreten Angebot.</p></div>
+<h2>Ähnliche Rechner</h2>
+<div class="tool-grid">
+<a href="/de/financial/loan-calculator.html" class="tool-link">Kreditrechner <span class="arrow">→</span></a>
+<a href="/financial/amortization-calculator.html" class="tool-link">Tilgungsplan-Rechner <span class="arrow">→</span></a>
+<a href="/financial/house-affordability-calculator.html" class="tool-link">Rechner für leistbares Wohnen <span class="arrow">→</span></a>
+<a href="/financial/refinance-calculator.html" class="tool-link">Umschuldungsrechner <span class="arrow">→</span></a>
+<a href="/financial/down-payment-calculator.html" class="tool-link">Anzahlungsrechner <span class="arrow">→</span></a>
+</div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. Nur Schätzungen.</span><span><a href="/embed/mortgage-calculator.html" target="_blank">Diesen Rechner einbetten</a></span></div></div></footer>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/mortgage.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>
