@@ -70,3 +70,52 @@ html.cp-dark .theme-toggle .icon-moon{display:block}
 html.cp-dark{--paper:#12161B;--paper-raised:#1B2028;--ink:#EDEFF2;--slate:#9AA1AC;--slate-light:#7D8590;--line:#2B3138;--line-soft:#232830;--signal:#2FBE8F;--signal-dark:#5FE0AF;--signal-soft:#173327;--signal-soft-hover:#1E4232;--danger:#E5837B}
 html.cp-dark .site-header{background:rgba(27,32,40,.9);border-bottom-color:var(--line)}
 html.cp-dark img{opacity:.92}
+
+/* --- Section eyebrow / subtitle / note --- */
+.eyebrow{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--signal);font-weight:700;margin-bottom:6px}
+.section-sub{color:var(--slate);font-size:var(--fs-sm);margin:4px 0 0}
+.section-head-note{color:var(--slate);font-size:var(--fs-sm);white-space:nowrap;flex-shrink:0}
+@media (max-width:720px){.section-head{flex-wrap:wrap;gap:8px}}
+
+/* --- Category cards: icon + link row --- */
+.cat-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.cat-icon{width:36px;height:36px;border-radius:8px;background:var(--line-soft);color:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-icon svg{width:18px;height:18px}
+.cat-card-link{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-soft);color:var(--signal);font-size:var(--fs-sm);font-weight:600}
+.cat-card:hover .cat-card-link{color:var(--signal-dark)}
+
+/* --- Available on: platform grid --- */
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:900px){.platform-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.platform-grid{grid-template-columns:1fr}}
+.platform-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--ink)}
+a.platform-card:hover{border-color:var(--signal);text-decoration:none}
+.platform-icon{width:36px;height:36px;border-radius:8px;background:var(--line-soft);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.platform-icon svg{width:18px;height:18px}
+.platform-name{font-weight:600;font-size:var(--fs-base);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.platform-status{font-size:var(--fs-xs);font-weight:600;padding:2px 8px;border-radius:999px}
+.platform-status.platform-available{background:var(--signal-soft);color:var(--signal-dark)}
+.platform-status.platform-soon{background:var(--line-soft);color:var(--slate)}
+
+/* --- Why/How two-column cards --- */
+.why-how-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 40px}
+@media (max-width:900px){.why-how-grid{grid-template-columns:1fr}}
+.why-how-card{background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.why-how-icon{width:40px;height:40px;border-radius:10px;background:var(--signal-soft);color:var(--signal-dark);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.why-how-icon svg{width:20px;height:20px}
+.why-how-card h2{margin-bottom:12px}
+.why-how-stats{display:flex;gap:32px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.why-how-stats strong{display:block;font-family:var(--font-display);font-size:1.4rem;color:var(--signal-dark)}
+.why-how-stats span{display:block;font-size:var(--fs-xs);color:var(--slate);margin-top:2px}
+.why-how-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft);color:var(--signal-dark);font-weight:600;font-size:var(--fs-sm)}
+.faq-head{margin:8px 0 24px}
+
+/* --- FAQ accordion (details/summary) --- */
+.faq-item{border:1px solid var(--line);border-radius:var(--radius-sm);padding:0;margin-bottom:12px;background:var(--paper-raised);transition:border-color .15s}
+.faq-item[open]{border-color:var(--signal);box-shadow:0 0 0 1px var(--signal)}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary h3{margin:0;font-size:var(--fs-base)}
+.faq-chevron{flex-shrink:0;color:var(--slate);transition:transform .15s}
+.faq-item[open] .faq-chevron{transform:rotate(180deg);color:var(--signal)}
+.faq-item p{color:var(--slate);margin:0;padding:0 20px 18px;border-top:1px solid var(--line-soft);padding-top:14px}
