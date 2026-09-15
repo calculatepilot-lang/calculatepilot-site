@@ -20,12 +20,36 @@
 <meta name="twitter:description" content="Free mortgage calculator. Estimate monthly payment including principal, interest, tax & insurance. See the exact formula and amortization breakdown. No sign-up.">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a monthly mortgage payment calculated?","acceptedAnswer":{"@type":"Answer","text":"Principal and interest use the fixed-rate amortization formula. Monthly tax and insurance are then added. The result is an estimate, not a lender quote."}},{"@type":"Question","name":"Does this include PMI, HOA fees, or closing costs?","acceptedAnswer":{"@type":"Answer","text":"No. This page covers principal, interest, property tax, and homeowners insurance. PMI, HOA dues, utilities, and closing costs are separate."}},{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common starting point is keeping total housing costs around 28-36% of gross income, then stress-testing a higher rate."}},{"@type":"Question","name":"Should I choose a 15-year or 30-year mortgage?","acceptedAnswer":{"@type":"Answer","text":"A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for other goals."}},{"@type":"Question","name":"Does a larger down payment lower my monthly payment?","acceptedAnswer":{"@type":"Answer","text":"Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down."}},{"@type":"Question","name":"Are these figures a formal loan offer?","acceptedAnswer":{"@type":"Answer","text":"No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Financial calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+        {"@type": "ListItem", "position": 3, "name": "Mortgage Calculator", "item": "https://www.calculatepilot.com/financial/mortgage-calculator.html"}
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Mortgage Calculator",
+      "url": "https://www.calculatepilot.com/financial/mortgage-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "creator": {"@type": "Person", "name": "Suhaib Hassan"}
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
 <div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Mortgage Calculator</nav></div>
-<section class="calc-page-head"><div class="container"><h1>Mortgage Calculator</h1><p class="lede">Estimate your monthly mortgage payment — including principal, interest, property tax, and home insurance — and see exactly where your money goes.</p></div></section>
+<section class="calc-page-head"><div class="container"><h1>Mortgage Calculator</h1><p class="lede">Estimate monthly principal, interest, property tax and insurance on a fixed-rate loan — then compare a 15-year term against a 30-year term on the same numbers.</p></div></section>
 <section><div class="container calc-layout">
 <form class="calc-card" id="calcForm">
 <div class="field"><label for="homePrice">Home price</label><input type="number" id="homePrice" value="400000" step="1000" min="0"></div>
@@ -61,18 +85,32 @@
 <li><strong>Homeowners insurance</strong> — also often escrowed.</li>
 </ul>
 <p>A 20% down payment typically avoids private mortgage insurance (PMI). Use the <a href="/financial/down-payment-calculator.html">Down Payment Calculator</a> if you are still deciding how much to put down.</p>
-<h2>A worked example</h2>
-<p>Home price $400,000, down payment $80,000, 30-year term at 6.5%, annual tax $3,600, insurance $1,400:</p>
+<p class="hint">By Suhaib Hassan · Formula verified 15 Sep 2026 · Method v2.1 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<h2 id="worked-example">A worked example (pre-computed)</h2>
+<p>Home price 400,000 · down payment 80,000 · loan 320,000 · rate 6.5% · annual tax 3,600 · annual insurance 1,400. Figures below use the same amortization formula as the calculator above, so you can read the answer even if JavaScript is off.</p>
+<div class="formula-box" role="region" aria-label="15 year versus 30 year">
+<p><strong>30-year term (360 payments)</strong><br>
+Principal & interest ≈ 2,022 / month<br>
+Tax ≈ 300 / month · insurance ≈ 117 / month<br>
+Estimated PITI ≈ 2,439 / month<br>
+Interest over the full term is typically more than 400,000 at this rate.</p>
+<p><strong>15-year term (180 payments)</strong><br>
+Principal & interest ≈ 2,787 / month<br>
+Tax and insurance unchanged ≈ 417 / month<br>
+Estimated PITI ≈ 3,204 / month<br>
+Interest over the full term is typically under 182,000 at the same 6.5% — a shorter term cuts total interest even before any rate discount a 15-year loan might receive.</p>
+</div>
+<p>The 15-year path raises monthly principal-and-interest by about 765 and removes on the order of 220,000 of interest across the life of this example loan. That trade-off is why this page is not the same as the generic loan calculator. Compare every period on the <a href="/financial/amortization-calculator.html">amortization schedule</a>.</p>
+<h2 id="who-should-not">Who should not treat this number as a quote</h2>
 <ul>
-<li>Loan amount = $320,000</li>
-<li>Principal & interest ≈ $2,022/month</li>
-<li>Tax ≈ $300/month, insurance ≈ $117/month</li>
-<li>Estimated total ≈ $2,439/month</li>
-<li>Total interest over 30 years is typically more than $400,000 at this rate</li>
+<li>Anyone who needs PMI, HOA dues, flood insurance or closing costs in the monthly figure — those are not in this PITI estimate.</li>
+<li>Adjustable-rate, interest-only, or balloon products. This page is fixed-rate amortization only.</li>
+<li>Buyers who will sell or refinance inside a few years and need a breakeven against today’s loan — use the <a href="/financial/refinance-calculator.html">refinance breakeven calculator</a>.</li>
+<li>Households still deciding the purchase price. Start with the <a href="/financial/house-affordability-calculator.html">house affordability calculator</a>.</li>
 </ul>
-<p>The same loan over 15 years raises the monthly principal-and-interest payment but cuts total interest sharply. Compare schedules with the <a href="/financial/amortization-calculator.html">Amortization Calculator</a>.</p>
-<h2>How loan term and extra payments change the cost</h2>
-<p>A longer term lowers the monthly payment and increases total interest. Extra principal payments shorten the term and reduce interest because later interest is calculated on a smaller balance. Before paying extra, check for prepayment penalties and whether the cash would earn more elsewhere.</p>
+<h2 id="extra-payment">What an extra 200 / month does on the 30-year example</h2>
+<p>On the 320,000 loan at 6.5% over 30 years, a scheduled payment of about 2,022 goes mostly to interest in the early years. An extra 200 applied to principal each month is the same formula with a smaller remaining balance after every period.</p>
+<p>On this example it typically cuts the calendar term by roughly 6–7 years and removes on the order of 90,000–110,000 of interest, before any prepayment penalty. If a penalty exists, read the note; do not assume extra payments are free in every contract.</p>
 <p>If you already have a loan and rates have dropped, model a new payment with the <a href="/financial/refinance-calculator.html">Refinance Calculator</a> before paying closing costs.</p>
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><h3>How is a monthly mortgage payment calculated?</h3><p>Principal and interest use the fixed-rate amortization formula above. Monthly tax and insurance are then added. The result is an estimate, not a lender quote.</p></div>
@@ -81,14 +119,16 @@
 <div class="faq-item"><h3>Should I choose a 15-year or 30-year mortgage?</h3><p>A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for savings or other goals.</p></div>
 <div class="faq-item"><h3>Does a larger down payment lower my monthly payment?</h3><p>Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down.</p></div>
 <div class="faq-item"><h3>Are these figures a formal loan offer?</h3><p>No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote.</p></div>
-<h2>Related calculators</h2>
+<h2 id="next-job">Next calculation, in order</h2>
+<p>A mortgage payment is the middle of a sequence, not a standalone page.</p>
 <div class="tool-grid">
-<a href="/financial/loan-calculator.html" class="tool-link">Loan Calculator <span class="arrow">→</span></a>
-<a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
-<a href="/financial/house-affordability-calculator.html" class="tool-link">House Affordability Calculator <span class="arrow">→</span></a>
-<a href="/financial/refinance-calculator.html" class="tool-link">Refinance Calculator <span class="arrow">→</span></a>
-<a href="/financial/down-payment-calculator.html" class="tool-link">Down Payment Calculator <span class="arrow">→</span></a>
+<a class="tool-link" href="/financial/house-affordability-calculator.html">1. Check what purchase price the income can carry <span class="arrow">→</span></a>
+<a class="tool-link" href="/financial/down-payment-calculator.html">2. Convert a percent down into a cash amount <span class="arrow">→</span></a>
+<a class="tool-link" href="/financial/amortization-calculator.html">3. Write the full principal-and-interest schedule <span class="arrow">→</span></a>
+<a class="tool-link" href="/financial/refinance-calculator.html">4. Test whether a new rate beats this loan after fees <span class="arrow">→</span></a>
 </div>
+<p>Read the judgement layer in the <a href="/guides/mortgage-calculator-guide.html">mortgage payment guide</a> only if you want the 15- vs 30-year decision explained in words. Use this page when you want the number.</p>
+<p class="hint">Estimate only. Fixed-rate amortization · method v2.1 · last verified 15 Sep 2026 · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. Estimates only.</span><span><a href="/embed/mortgage-calculator.html" target="_blank">Embed this calculator</a></span></div></div></footer>
