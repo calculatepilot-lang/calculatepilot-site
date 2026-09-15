@@ -91,41 +91,47 @@
     if (!headerContainer || headerContainer.querySelector('.cp-language-selector')) return;
     var selector = createSelector('-header');
     if (!selector) return;
+    var tools = headerContainer.querySelector('.header-tools');
     var toggle = headerContainer.querySelector('.nav-toggle');
-    if (toggle) headerContainer.insertBefore(selector, toggle);
+    if (tools) headerContainer.insertBefore(selector, tools);
+    else if (toggle) headerContainer.insertBefore(selector, toggle);
     else headerContainer.appendChild(selector);
   }
 
-  var style = document.createElement('style');
-  style.textContent = [
-    '.cp-language-selector{display:flex;align-items:center;gap:6px;margin-left:12px;flex-shrink:0}',
-    '.footer-bottom{flex-wrap:wrap;gap:16px;align-items:center}',
-    '.cp-language-chips{display:flex;align-items:center;gap:6px;background:var(--line-soft);border-radius:999px;padding:4px;flex-wrap:wrap}',
-    '.cp-language-chips-icon{display:flex;align-items:center;padding:0 6px;color:var(--slate)}',
-    '.cp-language-chip{padding:6px 10px;border-radius:999px;font-size:var(--fs-xs);font-weight:600;color:var(--slate)}',
-    '.cp-language-chip:hover{color:var(--signal-dark);text-decoration:none}',
-    '.cp-language-chip.is-active{background:var(--paper-raised);color:var(--ink);box-shadow:var(--shadow-card)}',
-    '@media (max-width:600px){.cp-language-chips{width:100%;justify-content:center}}',
-    '.footer-privacy-note{color:var(--slate-light);font-size:var(--fs-xs)}',
-    '.cp-language-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
-    '.cp-language-selector select{appearance:auto;border:1px solid var(--line);border-radius:8px;background:var(--paper-raised);color:var(--slate);font:500 var(--fs-sm) var(--font-body);padding:7px 26px 7px 9px;cursor:pointer}',
-    '.cp-language-selector select:hover{border-color:var(--signal);color:var(--signal)}',
-    '@media (max-width:720px){.cp-language-selector{margin-left:8px}.cp-language-selector select{font-size:var(--fs-xs);padding:6px 22px 6px 7px}}'
-  ].join('');
-  document.head.appendChild(style);
+  if (!document.getElementById('cp-language-style')) {
+    var style = document.createElement('style');
+    style.id = 'cp-language-style';
+    style.textContent = [
+      '.cp-language-selector{display:flex;align-items:center;gap:6px;margin-left:12px;flex-shrink:0}',
+      '.footer-bottom{flex-wrap:wrap;gap:16px;align-items:center}',
+      '.cp-language-chips{display:flex;align-items:center;gap:6px;background:var(--line-soft);border-radius:999px;padding:4px;flex-wrap:wrap}',
+      '.cp-language-chips-icon{display:flex;align-items:center;padding:0 6px;color:var(--slate)}',
+      '.cp-language-chip{padding:6px 10px;border-radius:999px;font-size:var(--fs-xs);font-weight:600;color:var(--slate)}',
+      '.cp-language-chip:hover{color:var(--signal-dark);text-decoration:none}',
+      '.cp-language-chip.is-active{background:var(--paper-raised);color:var(--ink);box-shadow:var(--shadow-card)}',
+      '@media (max-width:600px){.cp-language-chips{width:100%;justify-content:center}}',
+      '.footer-privacy-note{color:var(--slate-light);font-size:var(--fs-xs)}',
+      '.cp-language-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
+      '.cp-language-selector select{appearance:auto;border:1px solid var(--line);border-radius:8px;background:var(--paper-raised);color:var(--slate);font:500 var(--fs-sm) var(--font-body);padding:7px 26px 7px 9px;cursor:pointer}',
+      '.cp-language-selector select:hover{border-color:var(--signal);color:var(--signal)}',
+      '@media (max-width:720px){.cp-language-selector{margin-left:8px}.cp-language-selector select{font-size:var(--fs-xs);padding:6px 22px 6px 7px}}'
+    ].join('');
+    document.head.appendChild(style);
+  }
 
   function mountFooter() {
     var footerBottom = document.querySelector('.site-footer .footer-bottom');
     if (!footerBottom) return;
     if (footerBottom.querySelector('.cp-language-chips')) return;
-    var chips = createChipGroup();
-    footerBottom.appendChild(chips);
+    footerBottom.appendChild(createChipGroup());
   }
 
   function mountAll() {
     mount();
     mountFooter();
   }
+
+  window.__cpMountLanguage = mountAll;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountAll);
   else mountAll();
