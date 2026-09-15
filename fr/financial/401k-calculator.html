@@ -1,1 +1,360 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculateur 401(k) | CalculatePilot</title><meta name="description" content="Estimez la croissance de votre 401(k), vos cotisations et la contribution de l’employeur jusqu’à la retraite."><link rel="canonical" href="https://www.calculatepilot.com/fr/financial/401k-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/401k-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/401k-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/401k-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/401k-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/401k-calculator.html"><meta property="og:title" content="Calculateur 401(k) | CalculatePilot"><meta property="og:description" content="Estimez votre épargne retraite avec vos cotisations et la contribution de l’employeur."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/fr/financial/401k-calculator.html"><meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260905" defer></script></head><body><header class="site-header"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/fr/financial-calculators.html">Finance</a></li><li><a href="/health-calculators.html">Santé</a></li><li><a href="/math-calculators.html">Maths</a></li><li><a href="/other-calculators.html">Quotidien</a></li><li><a href="/guides/">Guides</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculateurs financiers</a> / Calculateur 401(k)</nav></div><section class="calc-page-head"><div class="container"><h1>Calculateur 401(k)</h1><p class="lede">Projetez votre solde de retraite en tenant compte de vos cotisations et de la contribution de votre employeur.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="f"><div class="field-row"><div class="field"><label>Âge actuel</label><input id="a" type="number" value="28" min="18"></div><div class="field"><label>Âge de retraite</label><input id="rta" type="number" value="65" min="19"></div></div><div class="field-row"><div class="field"><label>Solde actuel</label><input id="b" type="number" value="15000" min="0"></div><div class="field"><label>Salaire annuel</label><input id="s" type="number" value="70000" min="0"></div></div><div class="field-row"><div class="field"><label>Votre cotisation (%)</label><input id="c" type="number" value="6" step="0.5" min="0"></div><div class="field"><label>Contribution employeur (%)</label><input id="e" type="number" value="50" step="5" min="0"></div></div><div class="field"><label>Rendement annuel attendu (%)</label><input id="y" type="number" value="7" step="0.1" min="0"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Solde projeté à la retraite</div><div class="readout-value big" id="v">—</div><div class="readout-breakdown"><div class="readout-row"><span>Vos cotisations</span><span id="oc">—</span></div><div class="readout-row"><span>Contribution employeur</span><span id="oe">—</span></div><div class="readout-row"><span>Croissance</span><span id="og">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Comment fonctionne le calculateur ?</h2><p>Le calcul projette le solde actuel et les versements mensuels en utilisant un rendement annuel composé. La contribution employeur est modélisée comme un pourcentage de votre propre cotisation.</p><h2>Pourquoi la durée compte</h2><p>Plus votre épargne reste investie longtemps, plus les intérêts composés peuvent contribuer au solde final. Les résultats sont des estimations et ne tiennent pas compte de toutes les limites fiscales ou règles de votre régime.</p><h2>Questions fréquentes</h2><div class="faq-item"><h3>Dois-je profiter de toute la contribution de mon employeur ?</h3><p>En général, profiter de la contribution disponible peut être très avantageux, selon les règles de votre régime.</p></div><div class="faq-item"><h3>Le calculateur applique-t-il les plafonds fiscaux ?</h3><p>Non. Vérifiez les plafonds applicables à votre situation avant de planifier des cotisations importantes.</p></div><h2>Calculateurs associés</h2><div class="tool-grid"><a href="/fr/financial/amortization-calculator.html" class="tool-link">Calculateur d’amortissement <span class="arrow">→</span></a><a href="/fr/financial/annuity-calculator.html" class="tool-link">Calculateur de rente <span class="arrow">→</span></a></div></div></section></main><footer class="site-footer"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a></div></footer><script>function c(){const a=+document.getElementById('a').value||0,ra=+document.getElementById('rta').value||0,b=+document.getElementById('b').value||0,s=+document.getElementById('s').value||0,cp=(+document.getElementById('c').value||0)/100,em=(+document.getElementById('e').value||0)/100,rate=(+document.getElementById('y').value||0)/1200,n=Math.max(0,(ra-a)*12),own=s*cp/12,emp=own*em,dep=own+emp;let fv=b*Math.pow(1+rate,n),con=0;if(n>0)con=dep*((Math.pow(1+rate,n)-1)/rate||n);let total=fv+con,oc=own*n,oe=emp*n,g=total-b-oc-oe;const f=x=>'$'+x.toLocaleString(undefined,{maximumFractionDigits:0});document.getElementById('v').textContent=f(total);document.getElementById('oc').textContent=f(oc);document.getElementById('oe').textContent=f(oe);document.getElementById('og').textContent=f(Math.max(0,g))}document.querySelectorAll('#f input').forEach(x=>x.addEventListener('input',c));c();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur 401(k) | CalculatePilot</title>
+<meta name="description" content="Estimez comment votre solde 401(k) croît avec vos cotisations et l’abondement de l’employeur. Sans inscription. Avec la formule expliquée.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/financial/401k-calculator.html">
+<meta property="og:title" content="Calculateur 401(k) | CalculatePilot">
+<meta property="og:description" content="Estimez comment votre solde 401(k) croît avec vos cotisations et l’abondement de l’employeur. Sans inscription. Avec la formule expliquée.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/financial/401k-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculateur 401(k) | CalculatePilot">
+<meta name="twitter:description" content="Estimez comment votre solde 401(k) croît avec vos cotisations et l’abondement de l’employeur. Sans inscription. Avec la formule expliquée.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calculateur 401(k)",
+  "url": "https://www.calculatepilot.com/financial/401k-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Estimez comment votre solde 401(k) croît avec vos cotisations et l’abondement de l’employeur. Sans inscription. Avec la formule expliquée."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculateurs financiers", "item": "https://www.calculatepilot.com/fr/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Calculateur 401(k)", "item": "https://www.calculatepilot.com/fr/financial/401k-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Devrais-je cotiser assez pour obtenir tout l'abondement de l'employeur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En général oui — l'abondement de l'employeur est de l'argent quasi gratuit, et ne pas en profiter est l'une des façons les plus courantes de perdre de la valeur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cela tient-il compte des plafonds de cotisation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non — c'est une projection simplifiée. Vérifiez les plafonds annuels IRS du 401(k) si vous cotisez un pourcentage élevé d'un salaire important."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si je quitte mon emploi — puis-je garder mon 401(k) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui — vous pouvez généralement le laisser dans le plan de votre ancien employeur, le transférer vers le plan du nouvel employeur, ou le transférer vers un IRA, chaque option ayant ses avantages et inconvénients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un 401(k) Roth ou traditionnel est-il préférable ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les cotisations traditionnelles réduisent le revenu imposable maintenant avec des impôts dus au retrait ; les cotisations Roth sont imposées maintenant mais croissent sans impôt. Le meilleur choix dépend souvent de si vous vous attendez à une tranche d'imposition plus élevée ou plus basse à la retraite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'advient-il de l'abondement de l'employeur si je quitte mon emploi ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cela dépend du calendrier d'acquisition (vesting) de votre plan — certains employeurs exigent une ancienneté minimale avant que les sommes abondées vous appartiennent pleinement, vérifiez les documents de votre plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il une pénalité pour un retrait anticipé d'un 401(k) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les retraits avant 59 ans et demi entraînent généralement une pénalité de 10 % en plus de l'impôt sur le revenu ordinaire, avec quelques exceptions — le retrait anticipé est généralement déconseillé vu son impact sur la croissance à long terme."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/guides/index.html">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculateurs financiers</a> / Calculateur 401(k)
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Calculateur 401(k)</h1>
+    <p class="lede">Projetez votre solde 401(k) à la retraite, cotisations et abondement de l’employeur inclus.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="currentAge">Âge actuel</label>
+          <input type="number" id="currentAge" value="28" step="1" min="18">
+        </div>
+        <div class="field">
+          <label for="retirementAge">Âge de retraite</label>
+          <input type="number" id="retirementAge" value="65" step="1" min="19">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="currentBalance">Solde 401(k) actuel</label>
+          <input type="number" id="currentBalance" value="15000" step="500" min="0">
+        </div>
+        <div class="field">
+          <label for="annualSalary">Salaire annuel</label>
+          <input type="number" id="annualSalary" value="70000" step="1000" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="contributionPercent">Votre cotisation (% du salaire)</label>
+          <input type="number" id="contributionPercent" value="6" step="0.5" min="0">
+        </div>
+        <div class="field">
+          <label for="employerMatchPercent">Abondement de l’employeur (%)</label>
+          <input type="number" id="employerMatchPercent" value="50" step="5" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="annualReturn">Rendement annuel attendu (%)</label>
+        <input type="number" id="annualReturn" value="7" step="0.1" min="0">
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Devise</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Solde projeté à la retraite</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Vos cotisations totales</span><span id="outEmployeeContrib">—</span></div>
+          <div class="readout-row"><span>Abondement total de l’employeur</span><span id="outEmployerContrib">—</span></div>
+          <div class="readout-row"><span>Croissance totale</span><span id="outGrowth">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+    <h2>Comment fonctionne ce calculateur</h2>
+    <p>Votre cotisation et l’abondement de l’employeur (un pourcentage de votre cotisation, jusqu’à des limites habituelles) sont ajoutés mensuellement et capitalisés au rendement attendu, avec votre solde actuel.</p>
+    <div class="formula-box">
+      Dépôt mensuel = (Votre % + % d’abondement) × salaire mensuel<br>
+      <span style="color:var(--slate); font-family:var(--font-body); font-size:0.85rem;">L’abondement de l’employeur est modélisé comme un pourcentage de votre propre cotisation.</span>
+    </div>
+
+    <h2>Plafonds de cotisation et cotisations de rattrapage</h2>
+    <p>L’IRS fixe des plafonds annuels de cotisation au 401(k), ajustés périodiquement pour l’inflation. Les travailleurs de 50 ans et plus peuvent généralement faire des cotisations de « rattrapage » supplémentaires au-delà du plafond standard, pour accélérer l’épargne à l’approche de la retraite.</p>
+    <p>Ce calculateur ne plafonne pas les cotisations aux limites de l’IRS, vérifiez donc vos données par rapport aux plafonds actuels si vous cotisez un pourcentage élevé d’un salaire important — dépasser les plafonds peut entraîner des complications fiscales évitables.</p>
+    <h2>Un exemple concret</h2>
+    <p>Une personne de 30 ans gagnant 70 000 $, cotisant 6 % avec un abondement de 50 %, investissant jusqu’à 65 ans (35 ans) à un rendement de 7 % : vos cotisations totalisent environ 91 000 $, l’abondement ajoute environ 45 500 $, et combiné à un solde de départ de 15 000 $, le solde projeté est d’environ 520 000 $ — le reste provenant de la croissance composée.</p>
+    <p>L’abondement seul représente des dizaines de milliers de dollars sur la durée — c’est pourquoi capter l’abondement complet est souvent considéré comme l’une des décisions financières les plus rentables pour la plupart des salariés.</p>
+    <h2>Calendriers d’acquisition (vesting) et plafonds de cotisation</h2>
+    <p>Les cotisations d’abondement de l’employeur sont parfois soumises à un calendrier d’acquisition, ce qui signifie que vous ne possédez pleinement les fonds abondés qu’après une certaine durée d’emploi. Partir avant d’être pleinement acquis peut signifier perdre tout ou partie de l’abondement — vérifiez le calendrier spécifique de votre plan.</p>
+    <p>L’IRS fixe des plafonds annuels de cotisation pour les plans 401(k), ajustés périodiquement pour l’inflation. Les hauts revenus cotisant un pourcentage important de leur salaire devraient vérifier le plafond de l’année en cours pour éviter de trop cotiser, ce qui peut entraîner des complications fiscales.</p>
+
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <h3>Devrais-je cotiser assez pour obtenir tout l'abondement de l'employeur ?</h3>
+      <p>En général oui — l'abondement de l'employeur est de l'argent quasi gratuit, et ne pas en profiter est l'une des façons les plus courantes de perdre de la valeur.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Cela tient-il compte des plafonds de cotisation ?</h3>
+      <p>Non — c'est une projection simplifiée. Vérifiez les plafonds annuels IRS du 401(k) si vous cotisez un pourcentage élevé d'un salaire important.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Que se passe-t-il si je quitte mon emploi — puis-je garder mon 401(k) ?</h3>
+      <p>Oui — vous pouvez généralement le laisser dans le plan de votre ancien employeur, le transférer vers le plan du nouvel employeur, ou le transférer vers un IRA, chaque option ayant ses avantages et inconvénients.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Un 401(k) Roth ou traditionnel est-il préférable ?</h3>
+      <p>Les cotisations traditionnelles réduisent le revenu imposable maintenant avec des impôts dus au retrait ; les cotisations Roth sont imposées maintenant mais croissent sans impôt. Le meilleur choix dépend souvent de si vous vous attendez à une tranche d'imposition plus élevée ou plus basse à la retraite.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Qu'advient-il de l'abondement de l'employeur si je quitte mon emploi ?</h3>
+      <p>Cela dépend du calendrier d'acquisition (vesting) de votre plan — certains employeurs exigent une ancienneté minimale avant que les sommes abondées vous appartiennent pleinement, vérifiez les documents de votre plan.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Y a-t-il une pénalité pour un retrait anticipé d'un 401(k) ?</h3>
+      <p>Les retraits avant 59 ans et demi entraînent généralement une pénalité de 10 % en plus de l'impôt sur le revenu ordinaire, avec quelques exceptions — le retrait anticipé est généralement déconseillé vu son impact sur la croissance à long terme.</p>
+    </div>
+
+    <h2>Calculateurs associés</h2>
+    <div class="tool-grid">
+      <a href="/financial/amortization-calculator.html" class="tool-link">Calculateur d'Amortissement <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Calculateur de Rente <span class="arrow">→</span></a>
+      <a href="/fr/financial/auto-loan-calculator.html" class="tool-link">Calculateur de Prêt Auto <span class="arrow">→</span></a>
+      <a href="/financial/bond-calculator.html" class="tool-link">Calculateur de Prix d'Obligation <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot on Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul>
+          <li><a href="/financial/401k-calculator.html">401(k)</a></li>
+          <li><a href="/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/financial/annuity-calculator.html">Rente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Santé</h4>
+        <ul>
+          <li><a href="/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/health/bac-calculator.html">Alcoolémie (BAC)</a></li>
+          <li><a href="/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathématiques &amp; plus</h4>
+        <ul>
+          <li><a href="/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/math/area-calculator.html">Aire</a></li>
+          <li><a href="/other/age-calculator.html">Âge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/methodology.html">Notre méthodologie</a></li>
+          <li><a href="/guides/index.html">Guides</a></li>
+          <li><a href="/embed/">Intégrer des calculateurs</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Politique de confidentialité</a></li>
+          <li><a href="/terms.html">Conditions d'utilisation</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Plan du site</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimations uniquement — à titre indicatif, pas un conseil professionnel. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span>
+      <span><a href="/embed/401k-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer ce calculateur</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Tous les calculateurs →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/401k.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>
