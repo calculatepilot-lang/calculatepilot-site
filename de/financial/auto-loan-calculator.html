@@ -1,1 +1,358 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Autokreditrechner | CalculatePilot</title><meta name="description" content="Berechnen Sie Monatsrate, Zinsen und Gesamtkosten eines Autokredits mit dem kostenlosen Rechner von CalculatePilot."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html"><meta property="og:title" content="Autokreditrechner | CalculatePilot"><meta property="og:description" content="Schätzen Sie Monatsrate und Gesamtkosten Ihres Autokredits."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260906" defer></script></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/health-calculators.html">Gesundheit</a></li><li><a href="/math-calculators.html">Mathematik</a></li><li><a href="/other-calculators.html">Alltag</a></li><li><a href="/guides/index.html">Ratgeber</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Autokredit</nav></div><section class="calc-page-head"><div class="container"><h1>Autokreditrechner</h1><p class="lede">Schätzen Sie Monatsrate, Zinsen und Gesamtkosten einer Autofinanzierung.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Fahrzeugpreis <input id="price" type="number" value="25000" min="0"></label><label>Anzahlung <input id="down" type="number" value="5000" min="0"></label><label>Jahreszins (%) <input id="rate" type="number" value="6.5" min="0" step="0.01"></label><label>Laufzeit (Jahre) <input id="years" type="number" value="5" min="1"></label><button id="calc">Berechnen</button><div id="result" class="result" aria-live="polite"></div></div></div></section><section class="content-block"><div class="container prose"><h2>So funktioniert der Autokreditrechner</h2><p>Nach Abzug der Anzahlung wird der finanzierte Betrag mit Zinssatz und Laufzeit für ein übliches Tilgungsdarlehen berechnet. Vergleichen Sie unterschiedliche Laufzeiten und Anzahlungen, bevor Sie ein Angebot auswählen.</p><h2>Hinweis</h2><p>Die Ergebnisse sind Schätzwerte und können Gebühren, Steuern, Versicherung oder individuelle Kreditbedingungen nicht abbilden.</p></div></section></main><script>const f=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n);document.getElementById('calc').onclick=()=>{let p=+price.value||0,d=+down.value||0,r=(+rate.value||0)/1200,n=(+years.value||0)*12,L=Math.max(p-d,0),m=r?L*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):n?L/n:0;result.innerHTML='<strong>Geschätzte Monatsrate: '+f(m)+'</strong><br>Finanzierter Betrag: '+f(L)+'<br>Gesamtzinsen: '+f(m*n-L)+'<br>Gesamtkosten: '+f(m*n)};document.getElementById('calc').click();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autokreditrechner — Monatliche Autorate | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie Ihre monatliche Autorate inklusive Inzahlungnahme und Umsatzsteuer. Kostenlos und sofort. Keine Anmeldung nötig. Mit erklärter Formel.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html">
+<meta property="og:title" content="Autokreditrechner — Monatliche Autorate | CalculatePilot">
+<meta property="og:description" content="Berechnen Sie Ihre monatliche Autorate inklusive Inzahlungnahme und Umsatzsteuer. Kostenlos und sofort. Keine Anmeldung nötig. Mit erklärter Formel.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Autokreditrechner — Monatliche Autorate | CalculatePilot">
+<meta name="twitter:description" content="Berechnen Sie Ihre monatliche Autorate inklusive Inzahlungnahme und Umsatzsteuer. Kostenlos und sofort. Keine Anmeldung nötig. Mit erklärter Formel.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Autokreditrechner",
+  "url": "https://www.calculatepilot.com/financial/auto-loan-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Berechnen Sie Ihre monatliche Autorate inklusive Inzahlungnahme und Umsatzsteuer. Kostenlos und sofort. Keine Anmeldung nötig. Mit erklärter Formel."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Finanzrechner", "item": "https://www.calculatepilot.com/de/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Autokreditrechner", "item": "https://www.calculatepilot.com/de/financial/auto-loan-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Senkt der Inzahlungnahmewert die Umsatzsteuer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In den meisten US-Bundesstaaten ja — die Umsatzsteuer wird auf den Preis nach Abzug des Inzahlungnahmewerts berechnet, nicht auf den vollen Fahrzeugpreis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sollte ich Zustellungs- oder Händlergebühren einbeziehen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fügen Sie sie zum Fahrzeugpreis hinzu, um den genauesten Finanzierungsbetrag zu erhalten, da sie üblicherweise in den Kredit eingerechnet werden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist Leasing oder Finanzierung besser für ein Auto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finanzierung baut Eigenkapital auf und hat keine Kilometerbegrenzung, während Leasing meist niedrigere monatliche Raten bietet, aber am Ende kein Eigentum — die richtige Wahl hängt davon ab, wie lange Sie Fahrzeuge behalten und wie viel Sie fahren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie hoch sollte meine Anzahlung sein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "20 % sind eine gängige Richtlinie für Neuwagen und 10 % für Gebrauchtwagen, wobei jeder Betrag sinnvoll ist, der verhindert, dass Sie mit dem Fahrzeug „unter Wasser“ geraten (mehr schulden als es wert ist), sobald es an Wert verliert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sollte ich eine kürzere oder längere Autokreditlaufzeit wählen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kürzere Laufzeiten (36–48 Monate) minimieren die Gesamtzinsen und verringern das Risiko, mehr zu schulden als das Auto wert ist, während längere Laufzeiten die monatliche Rate senken, aber höhere Gesamtkosten verursachen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lohnt es sich, den Fahrzeugpreis getrennt von der Finanzierung zu verhandeln?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja — Preis und Finanzierung getrennt zu verhandeln, statt sich nur auf die monatliche Rate zu konzentrieren, führt in der Regel zu einem besseren Gesamtdeal, da Händler beide Variablen anpassen können, um eine bestimmte Monatsrate zu erreichen."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/guides/index.html">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Autokreditrechner
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Autokreditrechner</h1>
+    <p class="lede">Berechnen Sie Ihre monatliche Autorate unter Berücksichtigung von Inzahlungnahme, Anzahlung und Umsatzsteuer.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="vehiclePrice">Fahrzeugpreis</label>
+          <input type="number" id="vehiclePrice" value="32000" step="100" min="0">
+        </div>
+        <div class="field">
+          <label for="downPayment">Anzahlung</label>
+          <input type="number" id="downPayment" value="4000" step="100" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="tradeInValue">Inzahlungnahmewert</label>
+          <input type="number" id="tradeInValue" value="3000" step="100" min="0">
+        </div>
+        <div class="field">
+          <label for="salesTaxRate">Umsatzsteuersatz (%)</label>
+          <input type="number" id="salesTaxRate" value="7" step="0.1" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="interestRate">Zinssatz (% eff. Jahreszins)</label>
+          <input type="number" id="interestRate" value="6.9" step="0.01" min="0">
+        </div>
+        <div class="field">
+          <label for="loanTermMonths">Laufzeit (Monate)</label>
+          <input type="number" id="loanTermMonths" value="60" step="1" min="1">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Währung</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Monatliche Rate</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Umsatzsteuer</span><span id="outSalesTax">—</span></div>
+          <div class="readout-row"><span>Finanzierungsbetrag</span><span id="outFinanced">—</span></div>
+          <div class="readout-row"><span>Gesamtzinsen</span><span id="outTotalInterest">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+    <h2>So funktioniert dieser Rechner</h2>
+    <p>Die Umsatzsteuer wird auf den Preis abzüglich Ihres Inzahlungnahmewerts berechnet und dem Kredit hinzugefügt. Der verbleibende Betrag wird wie bei jedem Festzinskredit über die Laufzeit mit Ihrem Zinssatz getilgt.</p>
+    <div class="formula-box">
+      Finanzierungsbetrag = Preis − Anzahlung − Inzahlungnahme + Umsatzsteuer<br>
+      <span style="color:var(--slate); font-family:var(--font-body); font-size:0.85rem;">Der Finanzierungsbetrag durchläuft anschließend die übliche Kredit-Annuitätenformel.</span>
+    </div>
+
+    <h2>Inzahlungnahmewert und Umsatzsteuer</h2>
+    <p>Die meisten US-Bundesstaaten erheben Umsatzsteuer nur auf den Preis abzüglich Ihres Inzahlungnahmewerts, weshalb eine Inzahlungnahme Ihren gesamten Kreditbetrag spürbar senken kann — noch bevor die Gutschrift selbst berücksichtigt wird.</p>
+    <h2>Zinssätze für Neu- vs. Gebrauchtwagenkredite</h2>
+    <p>Gebrauchtwagenkredite haben üblicherweise höhere Zinsen als Neuwagenkredite — oft 1–3 Prozentpunkte mehr — da Kreditgeber Gebrauchtfahrzeuge wegen Wertverlust und unsicherem Zustand als riskanter einstufen.</p>
+    <p>Bei Gebrauchtfahrzeugen werden generell kürzere Laufzeiten empfohlen, da eine Streckung auf 6–7 Jahre bei einem bereits an Wert verlierenden Auto dazu führen kann, dass Sie über einen großen Teil der Laufzeit mehr schulden, als das Auto wert ist.</p>
+    <h2>Ein Rechenbeispiel</h2>
+    <p>Ein Auto für 28.000 $ mit 3.000 $ Inzahlungnahme und 2.000 $ Anzahlung, bei 7 % Umsatzsteuer und 6,5 % eff. Jahreszins über 60 Monate: Der steuerpflichtige Betrag ist 25.000 $ (Preis minus Inzahlungnahme), die Umsatzsteuer beträgt 1.750 $, und der Finanzierungsbetrag ist 28.000 $ minus 2.000 $ minus 3.000 $ plus 1.750 $, also 24.750 $.</p>
+    <p>Bei 6,5 % über 60 Monate ergibt das eine monatliche Rate von etwa 484 $, mit rund 4.290 $ Gesamtzinsen über die Laufzeit.</p>
+    <h2>Zinssätze für Neu- vs. Gebrauchtwagenkredite</h2>
+    <p>Neuwagenkredite haben üblicherweise niedrigere Zinsen als Gebrauchtwagenkredite, da Kreditgeber Neufahrzeuge als risikoärmere Sicherheit einstufen. Der Unterschied kann einen ganzen Prozentpunkt oder mehr ausmachen, was bei einem mehrjährigen Kredit relevant ist.</p>
+    <p>Auch die Laufzeit beeinflusst die Gesamtkosten stärker, als viele Käufer erwarten — eine Streckung des Autokredits auf 72 oder 84 Monate senkt die monatliche Rate, bedeutet aber oft, über einen erheblichen Teil der Laufzeit mehr zu schulden, als das Auto wert ist — ein Zustand, der als „unter Wasser“ beim Kredit bekannt ist. Wenn Sie Kauf gegen Leasing abwägen, vergleichen Sie die Zahlen mit unserem <a href="/financial/lease-calculator.html">Leasingrechner</a>.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <div class="faq-item">
+      <h3>Senkt der Inzahlungnahmewert die Umsatzsteuer?</h3>
+      <p>In den meisten US-Bundesstaaten ja — die Umsatzsteuer wird auf den Preis nach Abzug des Inzahlungnahmewerts berechnet, nicht auf den vollen Fahrzeugpreis.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Sollte ich Zustellungs- oder Händlergebühren einbeziehen?</h3>
+      <p>Fügen Sie sie zum Fahrzeugpreis hinzu, um den genauesten Finanzierungsbetrag zu erhalten, da sie üblicherweise in den Kredit eingerechnet werden.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Ist Leasing oder Finanzierung besser für ein Auto?</h3>
+      <p>Finanzierung baut Eigenkapital auf und hat keine Kilometerbegrenzung, während Leasing meist niedrigere monatliche Raten bietet, aber am Ende kein Eigentum — die richtige Wahl hängt davon ab, wie lange Sie Fahrzeuge behalten und wie viel Sie fahren.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Wie hoch sollte meine Anzahlung sein?</h3>
+      <p>20 % sind eine gängige Richtlinie für Neuwagen und 10 % für Gebrauchtwagen, wobei jeder Betrag sinnvoll ist, der verhindert, dass Sie mit dem Fahrzeug „unter Wasser“ geraten (mehr schulden als es wert ist), sobald es an Wert verliert.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Sollte ich eine kürzere oder längere Autokreditlaufzeit wählen?</h3>
+      <p>Kürzere Laufzeiten (36–48 Monate) minimieren die Gesamtzinsen und verringern das Risiko, mehr zu schulden als das Auto wert ist, während längere Laufzeiten die monatliche Rate senken, aber höhere Gesamtkosten verursachen.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Lohnt es sich, den Fahrzeugpreis getrennt von der Finanzierung zu verhandeln?</h3>
+      <p>Ja — Preis und Finanzierung getrennt zu verhandeln, statt sich nur auf die monatliche Rate zu konzentrieren, führt in der Regel zu einem besseren Gesamtdeal, da Händler beide Variablen anpassen können, um eine bestimmte Monatsrate zu erreichen.</p>
+    </div>
+
+    <h2>Ähnliche Rechner</h2>
+    <div class="tool-grid">
+      <a href="/de/financial/401k-calculator.html" class="tool-link">401(k)-Rechner <span class="arrow">→</span></a>
+      <a href="/financial/amortization-calculator.html" class="tool-link">Tilgungsplan-Rechner <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Rentenrechner <span class="arrow">→</span></a>
+      <a href="/financial/bond-calculator.html" class="tool-link">Anleihenrechner <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot on Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/financial/401k-calculator.html">401(k)</a></li>
+          <li><a href="/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/financial/annuity-calculator.html">Rente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/health/bac-calculator.html">Blutalkohol (BAC)</a></li>
+          <li><a href="/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/other/age-calculator.html">Alter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/guides/index.html">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Nur Schätzungen — als Orientierung, nicht als professionelle Beratung. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span>
+      <span><a href="/embed/auto-loan-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/auto-loan.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

@@ -1,1 +1,358 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculateur de prêt automobile | CalculatePilot</title><meta name="description" content="Calculez la mensualité, les intérêts et le coût total d'un prêt automobile avec le calculateur gratuit CalculatePilot."><link rel="canonical" href="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html"><meta property="og:title" content="Calculateur de prêt automobile | CalculatePilot"><meta property="og:description" content="Estimez vos mensualités et le coût total de votre prêt automobile."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260906" defer></script></head><body><header class="site-header"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/fr/financial-calculators.html">Finance</a></li><li><a href="/health-calculators.html">Santé</a></li><li><a href="/math-calculators.html">Maths</a></li><li><a href="/other-calculators.html">Quotidien</a></li><li><a href="/guides/index.html">Guides</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculatrices financières</a> / Prêt automobile</nav></div><section class="calc-page-head"><div class="container"><h1>Calculateur de prêt automobile</h1><p class="lede">Estimez votre mensualité, les intérêts et le coût total d'un financement automobile.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Prix du véhicule <input id="price" type="number" value="25000" min="0"></label><label>Apport <input id="down" type="number" value="5000" min="0"></label><label>Taux annuel (%) <input id="rate" type="number" value="6.5" min="0" step="0.01"></label><label>Durée (années) <input id="years" type="number" value="5" min="1" step="1"></label><button id="calc">Calculer</button><div id="result" class="result" aria-live="polite"></div></div></div></section><section class="content-block"><div class="container prose"><h2>Comment fonctionne le calculateur de prêt automobile ?</h2><p>Le calculateur estime le capital financé après l'apport, puis applique le taux annuel et la durée pour calculer une mensualité amortissable. Utilisez plusieurs scénarios pour comparer une durée plus courte ou un apport différent.</p><h2>À retenir</h2><p>Le résultat est une estimation et ne tient pas compte des taxes, frais, assurance ou conditions particulières du prêteur.</p></div></section></main><script>const f=n=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);document.getElementById('calc').onclick=()=>{let p=+price.value||0,d=+down.value||0,r=(+rate.value||0)/1200,n=(+years.value||0)*12,L=Math.max(p-d,0),m=r?L*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):n?L/n:0;result.innerHTML='<strong>Mensualité estimée : '+f(m)+'</strong><br>Capital financé : '+f(L)+'<br>Intérêts totaux : '+f(m*n-L)+'<br>Coût total : '+f(m*n)};document.getElementById('calc').click();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de Prêt Auto — Mensualité | CalculatePilot</title>
+<meta name="description" content="Calculez votre mensualité auto en incluant la reprise et la taxe de vente. Gratuit et instantané. Sans inscription. Avec la formule expliquée.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html">
+<meta property="og:title" content="Calculateur de Prêt Auto — Mensualité | CalculatePilot">
+<meta property="og:description" content="Calculez votre mensualité auto en incluant la reprise et la taxe de vente. Gratuit et instantané. Sans inscription. Avec la formule expliquée.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculateur de Prêt Auto — Mensualité | CalculatePilot">
+<meta name="twitter:description" content="Calculez votre mensualité auto en incluant la reprise et la taxe de vente. Gratuit et instantané. Sans inscription. Avec la formule expliquée.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calculateur de Prêt Auto",
+  "url": "https://www.calculatepilot.com/financial/auto-loan-calculator.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculez votre mensualité auto en incluant la reprise et la taxe de vente. Gratuit et instantané. Sans inscription. Avec la formule expliquée."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculateurs financiers", "item": "https://www.calculatepilot.com/fr/financial-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Calculateur de Prêt Auto", "item": "https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "La reprise réduit-elle la taxe de vente ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans la plupart des États américains, oui — la taxe de vente est calculée sur le prix après déduction de la valeur de reprise, pas sur le prix total du véhicule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Devrais-je inclure les frais de livraison ou de concessionnaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ajoutez-les au champ du prix du véhicule pour obtenir le montant financé le plus précis, car ils sont généralement intégrés au prêt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vaut-il mieux louer (leasing) ou financer une voiture ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le financement crée de la valeur nette et n'a pas de limite de kilométrage, tandis que le leasing offre généralement des mensualités plus basses mais aucune propriété à la fin — le bon choix dépend de la durée de conservation du véhicule et du kilométrage parcouru."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien devrait être mon apport ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "20 % est une règle courante pour les voitures neuves et 10 % pour les occasions, bien que tout montant évitant de se retrouver « sous l'eau » (devoir plus que la valeur de la voiture) à mesure qu'elle se déprécie soit raisonnable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Devrais-je choisir une durée de prêt auto plus courte ou plus longue ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les durées plus courtes (36–48 mois) minimisent les intérêts totaux et réduisent le risque de devoir plus que la valeur de la voiture, tandis que les durées plus longues réduisent la mensualité pour un coût total plus élevé."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vaut-il la peine de négocier le prix du véhicule séparément du financement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui — négocier le prix et le financement séparément, plutôt que de se concentrer uniquement sur la mensualité, mène généralement à une meilleure affaire globale, car les concessionnaires peuvent ajuster l'une ou l'autre variable pour atteindre un montant mensuel cible."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/guides/index.html">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculateurs financiers</a> / Calculateur de Prêt Auto
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Calculateur de Prêt Auto</h1>
+    <p class="lede">Calculez votre mensualité auto en tenant compte de la reprise, de l’apport et de la taxe de vente.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="vehiclePrice">Prix du véhicule</label>
+          <input type="number" id="vehiclePrice" value="32000" step="100" min="0">
+        </div>
+        <div class="field">
+          <label for="downPayment">Apport</label>
+          <input type="number" id="downPayment" value="4000" step="100" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="tradeInValue">Valeur de reprise</label>
+          <input type="number" id="tradeInValue" value="3000" step="100" min="0">
+        </div>
+        <div class="field">
+          <label for="salesTaxRate">Taux de taxe de vente (%)</label>
+          <input type="number" id="salesTaxRate" value="7" step="0.1" min="0">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="interestRate">Taux d'intérêt (% TAEG)</label>
+          <input type="number" id="interestRate" value="6.9" step="0.01" min="0">
+        </div>
+        <div class="field">
+          <label for="loanTermMonths">Durée (mois)</label>
+          <input type="number" id="loanTermMonths" value="60" step="1" min="1">
+        </div>
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="currency-picker">
+          <label for="cpCurrencySelect">Devise</label>
+          <select id="cpCurrencySelect" class="cp-currency-select">
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="CAD">CA$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="INR">₹ INR</option>
+            <option value="PKR">Rs PKR</option>
+            <option value="AED">AED</option>
+            <option value="SAR">SAR</option>
+            <option value="JPY">¥ JPY</option>
+            <option value="CNY">¥ CNY</option>
+            <option value="NZD">NZ$ NZD</option>
+            <option value="SGD">S$ SGD</option>
+            <option value="ZAR">R ZAR</option>
+            <option value="CHF">CHF</option>
+            <option value="MXN">MX$ MXN</option>
+            <option value="BRL">R$ BRL</option>
+            <option value="NGN">₦ NGN</option>
+            <option value="EGP">E£ EGP</option>
+            <option value="KES">KSh KES</option>
+          </select>
+        </div>
+        <div class="readout-label">Mensualité</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Taxe de vente</span><span id="outSalesTax">—</span></div>
+          <div class="readout-row"><span>Montant financé</span><span id="outFinanced">—</span></div>
+          <div class="readout-row"><span>Intérêts totaux</span><span id="outTotalInterest">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+    <h2>Comment fonctionne ce calculateur</h2>
+    <p>La taxe de vente s’applique au prix moins votre valeur de reprise, puis s’ajoute au prêt. Le solde restant s’amortit à votre taux d’intérêt sur la durée, comme tout prêt à taux fixe.</p>
+    <div class="formula-box">
+      Montant financé = Prix − Apport − Reprise + Taxe de vente<br>
+      <span style="color:var(--slate); font-family:var(--font-body); font-size:0.85rem;">Le montant financé passe ensuite par la formule standard d’amortissement de prêt.</span>
+    </div>
+
+    <h2>Valeur de reprise et taxe de vente</h2>
+    <p>La plupart des États américains ne taxent que le prix moins la valeur de reprise, c’est pourquoi reprendre un véhicule peut réduire sensiblement le montant total du prêt, même avant de considérer le crédit de reprise lui-même.</p>
+    <h2>Taux de prêt auto : neuf contre occasion</h2>
+    <p>Les prêts pour voitures d’occasion ont généralement des taux plus élevés que pour les voitures neuves — souvent 1 à 3 points de plus — car les prêteurs considèrent les véhicules d’occasion comme plus risqués en raison de la dépréciation et de l’état incertain.</p>
+    <p>Des durées plus courtes sont généralement recommandées pour les véhicules d’occasion, car étaler les paiements sur 6-7 ans sur une voiture qui se déprécie déjà peut vous faire devoir plus que sa valeur pendant une grande partie du prêt.</p>
+    <h2>Un exemple concret</h2>
+    <p>Une voiture à 28 000 $ avec une reprise de 3 000 $ et un apport de 2 000 $, à 7 % de taxe de vente et 6,5 % de TAEG sur 60 mois : le montant taxable est de 25 000 $ (prix moins reprise), la taxe de vente est de 1 750 $, et le montant financé est de 28 000 $ moins 2 000 $ moins 3 000 $ plus 1 750 $, soit 24 750 $.</p>
+    <p>À 6,5 % sur 60 mois, cela donne une mensualité d’environ 484 $, avec environ 4 290 $ d’intérêts totaux sur le prêt.</p>
+    <h2>Taux de prêt auto : neuf contre occasion</h2>
+    <p>Les prêts pour voitures neuves ont généralement des taux plus bas que pour l’occasion, car les prêteurs considèrent les véhicules neufs comme une garantie moins risquée. L’écart peut atteindre un point de pourcentage entier ou plus, ce qui compte sur un prêt de plusieurs années.</p>
+    <p>La durée affecte aussi le coût total plus que beaucoup d’acheteurs ne l’imaginent — étaler un prêt auto sur 72 ou 84 mois réduit la mensualité mais signifie souvent devoir plus que la valeur de la voiture pendant une grande partie du prêt, une situation dite « sous l’eau ». Si vous hésitez entre achat et leasing, comparez les chiffres avec notre <a href="/financial/lease-calculator.html">Calculateur de Leasing</a>.</p>
+
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <h3>La reprise réduit-elle la taxe de vente ?</h3>
+      <p>Dans la plupart des États américains, oui — la taxe de vente est calculée sur le prix après déduction de la valeur de reprise, pas sur le prix total du véhicule.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Devrais-je inclure les frais de livraison ou de concessionnaire ?</h3>
+      <p>Ajoutez-les au champ du prix du véhicule pour obtenir le montant financé le plus précis, car ils sont généralement intégrés au prêt.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Vaut-il mieux louer (leasing) ou financer une voiture ?</h3>
+      <p>Le financement crée de la valeur nette et n'a pas de limite de kilométrage, tandis que le leasing offre généralement des mensualités plus basses mais aucune propriété à la fin — le bon choix dépend de la durée de conservation du véhicule et du kilométrage parcouru.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Combien devrait être mon apport ?</h3>
+      <p>20 % est une règle courante pour les voitures neuves et 10 % pour les occasions, bien que tout montant évitant de se retrouver « sous l'eau » (devoir plus que la valeur de la voiture) à mesure qu'elle se déprécie soit raisonnable.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Devrais-je choisir une durée de prêt auto plus courte ou plus longue ?</h3>
+      <p>Les durées plus courtes (36–48 mois) minimisent les intérêts totaux et réduisent le risque de devoir plus que la valeur de la voiture, tandis que les durées plus longues réduisent la mensualité pour un coût total plus élevé.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Vaut-il la peine de négocier le prix du véhicule séparément du financement ?</h3>
+      <p>Oui — négocier le prix et le financement séparément, plutôt que de se concentrer uniquement sur la mensualité, mène généralement à une meilleure affaire globale, car les concessionnaires peuvent ajuster l'une ou l'autre variable pour atteindre un montant mensuel cible.</p>
+    </div>
+
+    <h2>Calculateurs associés</h2>
+    <div class="tool-grid">
+      <a href="/fr/financial/401k-calculator.html" class="tool-link">Calculateur 401(k) <span class="arrow">→</span></a>
+      <a href="/financial/amortization-calculator.html" class="tool-link">Calculateur d'Amortissement <span class="arrow">→</span></a>
+      <a href="/financial/annuity-calculator.html" class="tool-link">Calculateur de Rente <span class="arrow">→</span></a>
+      <a href="/financial/bond-calculator.html" class="tool-link">Calculateur de Prix d'Obligation <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot on Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul>
+          <li><a href="/financial/401k-calculator.html">401(k)</a></li>
+          <li><a href="/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/financial/annuity-calculator.html">Rente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Santé</h4>
+        <ul>
+          <li><a href="/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/health/bac-calculator.html">Alcoolémie (BAC)</a></li>
+          <li><a href="/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathématiques &amp; plus</h4>
+        <ul>
+          <li><a href="/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/math/area-calculator.html">Aire</a></li>
+          <li><a href="/other/age-calculator.html">Âge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/methodology.html">Notre méthodologie</a></li>
+          <li><a href="/guides/index.html">Guides</a></li>
+          <li><a href="/embed/">Intégrer des calculateurs</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Politique de confidentialité</a></li>
+          <li><a href="/terms.html">Conditions d'utilisation</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Plan du site</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimations uniquement — à titre indicatif, pas un conseil professionnel. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span>
+      <span><a href="/embed/auto-loan-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer ce calculateur</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Tous les calculateurs →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/auto-loan.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>
