@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de Moyenne Pondérée | CalculatePilot</title>
+<meta name="description" content="Calculez une moyenne pondérée à partir d’une liste de valeurs et de leurs poids correspondants. Sans inscription. Avec la formule expliquée.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/math/weighted-average-calculator.html">
+<meta property="og:title" content="Calculateur de Moyenne Pondérée | CalculatePilot">
+<meta property="og:description" content="Calculez une moyenne pondérée à partir d’une liste de valeurs et de leurs poids correspondants. Sans inscription. Avec la formule expliquée.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/math/weighted-average-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculateur de Moyenne Pondérée | CalculatePilot">
+<meta name="twitter:description" content="Calculez une moyenne pondérée à partir d’une liste de valeurs et de leurs poids correspondants. Sans inscription. Avec la formule expliquée.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calculateur de Moyenne Pondérée",
+  "url": "https://www.calculatepilot.com/math/weighted-average-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
+  "isAccessibleForFree": true,
+  "description": "Calculez une moyenne pondérée à partir d’une liste de valeurs et de leurs poids correspondants. Sans inscription. Avec la formule expliquée."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculateurs mathématiques", "item": "https://www.calculatepilot.com/fr/math-calculators.html"},
+    {"@type": "ListItem", "position": 3, "name": "Calculateur de Moyenne Pondérée", "item": "https://www.calculatepilot.com/fr/math/weighted-average-calculator.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mes poids doivent-ils totaliser 100 % ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non — ce calculateur normalise automatiquement en divisant par le poids total, donc des poids proportionnels (comme 2, 3, 5) fonctionnent comme leurs équivalents en pourcentage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si j’entre un nombre différent de valeurs et de poids ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le calculateur n’utilise que le nombre de paires correspondantes (la plus courte des deux listes), assurez-vous donc que vos listes de valeurs et de poids ont le même nombre d’entrées, dans le même ordre, pour un résultat précis."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/guides/index.html">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/math-calculators.html">Calculateurs mathématiques</a> / Calculateur de Moyenne Pondérée
+  </nav>
+</div>
+
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Calculateur de Moyenne Pondérée</h1>
+    <p class="lede">Calculez une moyenne pondérée à partir d’une liste de valeurs et de leurs poids correspondants — utile pour les notes, scores et portefeuilles.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="valuesList">Valeurs (séparées par des virgules)</label>
+        <input type="text" id="valuesList" value="85, 90, 78, 92"  >
+      </div>
+      <div class="field">
+        <label for="weightsList">Poids (séparés par des virgules, même ordre)</label>
+        <input type="text" id="weightsList" value="0.2, 0.3, 0.2, 0.3"  >
+      </div>
+    </form>
+
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Moyenne pondérée</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Moyenne simple (non pondérée)</span><span id="outSimpleAverage">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="content-block">
+  <div class="container prose">
+
+    <h2>Pourquoi la moyenne pondérée diffère d’une moyenne simple</h2>
+    <p>Une moyenne simple traite chaque valeur également, mais une moyenne pondérée permet à certaines valeurs de compter plus que d’autres — cela importe dès que différents éléments ont réellement une importance différente, comme un examen final qui vaut plus qu’un contrôle hebdomadaire, ou un gros achat qui pèse plus sur le prix global d’un portefeuille qu’un petit.</p>
+    <p>Les poids n’ont pas besoin de totaliser exactement 1 ou 100 % pour que ce calculateur fonctionne — puisque la formule divise par le poids total, des poids proportionnels (comme 2, 3, 2, 3) produisent le même résultat que leurs pourcentages équivalents (20 %, 30 %, 20 %, 30 %).</p>
+    <h2>Utilisations courantes des moyennes pondérées</h2>
+    <p>Les moyennes pondérées apparaissent constamment : calculer une note de cours à partir de devoirs valant des pourcentages différents, calculer le coût moyen d’actions achetées à des prix et quantités différents, fusionner des résultats de sondage provenant de groupes de tailles différentes, et faire la moyenne des rendements d’investissement pondérés par le montant investi.</p>
+    <p>Bien définir les poids est la partie la plus importante de ce calcul — un schéma de pondération incorrect (comme traiter accidentellement tous les éléments également) est l’une des sources d’erreur les plus courantes lors du calcul manuel de notes ou de scores combinés.</p>
+
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <h3>Mes poids doivent-ils totaliser 100 % ?</h3>
+      <p>Non — ce calculateur normalise automatiquement en divisant par le poids total, donc des poids proportionnels (comme 2, 3, 5) fonctionnent comme leurs équivalents en pourcentage.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Que se passe-t-il si j’entre un nombre différent de valeurs et de poids ?</h3>
+      <p>Le calculateur n’utilise que le nombre de paires correspondantes (la plus courte des deux listes), assurez-vous donc que vos listes de valeurs et de poids ont le même nombre d’entrées, dans le même ordre, pour un résultat précis.</p>
+    </div>
+
+    <h2>Calculateurs associés</h2>
+    <div class="tool-grid">
+      <a href="/fr/math/area-calculator.html" class="tool-link">Calculateur d'Aire <span class="arrow">→</span></a>
+      <a href="/math/binary-calculator.html" class="tool-link">Calculateur Binaire <span class="arrow">→</span></a>
+      <a href="/math/binomial-probability-calculator.html" class="tool-link">Calculateur de Probabilité Binomiale <span class="arrow">→</span></a>
+      <a href="/math/circle-calculator.html" class="tool-link">Calculateur de Cercle <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot on Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul>
+          <li><a href="/financial/401k-calculator.html">401(k)</a></li>
+          <li><a href="/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/financial/annuity-calculator.html">Rente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Santé</h4>
+        <ul>
+          <li><a href="/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/health/bac-calculator.html">Alcoolémie (BAC)</a></li>
+          <li><a href="/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathématiques &amp; plus</h4>
+        <ul>
+          <li><a href="/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/math/area-calculator.html">Aire</a></li>
+          <li><a href="/other/age-calculator.html">Âge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/methodology.html">Notre méthodologie</a></li>
+          <li><a href="/guides/index.html">Guides</a></li>
+          <li><a href="/embed/">Intégrer des calculateurs</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Politique de confidentialité</a></li>
+          <li><a href="/terms.html">Conditions d'utilisation</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Plan du site</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimations uniquement — à titre indicatif, pas un conseil professionnel. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span>
+      <span><a href="/embed/weighted-average-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer ce calculateur</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Tous les calculateurs →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/weighted-average.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>
