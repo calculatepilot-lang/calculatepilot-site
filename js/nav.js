@@ -41,7 +41,7 @@
       const wrap=document.createElement('div');
       wrap.className='header-tools';
       wrap.innerHTML=
-        '<button type="button" class="quick-search-btn" aria-label="Quick search">'+searchIcon+'<span class="quick-search-kbd">Ctrl K</span></button>'+
+        '<button type="button" class="quick-search-btn" aria-label="Quick search">'+searchIcon+'<span class="qs-label">Quick jump</span><span class="quick-search-kbd">Ctrl K</span></button>'+
         '<a href="/embed/" class="embed-pill">'+embedIcon+'<span>Embed Tools</span></a>'+
         '<button type="button" class="theme-toggle" aria-label="Toggle dark mode">'+sunIcon+moonIcon+'</button>';
       if(toggle){container.insertBefore(wrap,toggle);} else {container.appendChild(wrap);}
