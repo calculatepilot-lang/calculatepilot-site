@@ -311,8 +311,14 @@
   </div>
 </section>
 
-<section class="content-block">
-  <div class="container prose">
+<style>
+.why-how-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 28px;width:100%;max-width:100%}
+.why-how-card{padding:20px 22px}
+.content-block.why-how-section{padding:28px 0 16px}
+@media (max-width:900px){.why-how-grid{grid-template-columns:1fr}}
+</style>
+<section class="content-block why-how-section">
+  <div class="container">
     <div class="why-how-grid">
       <div class="why-how-card">
         <div class="why-how-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-4z"/></svg></div>
@@ -332,7 +338,11 @@
         <a href="/methodology.html" class="why-how-link">Read our complete peer-reviewed methodology <span class="arrow">→</span></a>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="content-block">
+  <div class="container prose">
     <div class="faq-head">
       <div class="eyebrow" style="text-align:center;">Common Inquiries</div>
       <h2 style="text-align:center;">Frequently asked questions</h2>
