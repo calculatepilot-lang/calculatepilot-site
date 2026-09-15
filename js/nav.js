@@ -133,25 +133,54 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const toggle=document.querySelector('.nav-toggle');
   const links=document.querySelector('.nav-links');
-  if(!toggle||!links)return;
+  const headerContainer=document.querySelector('.site-header .container');
+  if(!toggle||!links||!headerContainer)return;
+
+  // Build a mobile-only utility row (search / embed / language / theme) that lives
+  // inside the full-screen menu, separate from the always-visible desktop header-tools.
+  const mobileUtility=document.createElement('div');
+  mobileUtility.className='mobile-menu-utility';
+  links.appendChild(mobileUtility);
+
+  function relocateForMobile(open){
+    if(open){
+      const headerTools=headerContainer.querySelector('.header-tools');
+      const langSelector=headerContainer.querySelector('.cp-language-selector');
+      if(headerTools) mobileUtility.appendChild(headerTools);
+      if(langSelector) mobileUtility.appendChild(langSelector);
+    } else {
+      const headerTools=mobileUtility.querySelector('.header-tools');
+      const langSelector=mobileUtility.querySelector('.cp-language-selector');
+      if(headerTools) headerContainer.insertBefore(headerTools,toggle);
+      if(langSelector) headerContainer.insertBefore(langSelector,toggle);
+    }
+  }
+
+  function openMenu(){
+    links.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded','true');
+    toggle.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    document.body.style.overflow='hidden';
+    relocateForMobile(true);
+  }
+  function closeMenu(){
+    links.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+    document.body.style.overflow='';
+    relocateForMobile(false);
+  }
+
+  toggle.setAttribute('aria-label','Open menu');
+  toggle.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+
   toggle.addEventListener('click',()=>{
-    const isOpen=links.classList.toggle('nav-open');
-    toggle.setAttribute('aria-expanded',isOpen?'true':'false');
-    toggle.textContent=isOpen?'Close':'Menu';
+    if(links.classList.contains('nav-open')) closeMenu(); else openMenu();
   });
   links.addEventListener('click',(e)=>{
-    if(e.target.tagName==='A'){
-      links.classList.remove('nav-open');
-      toggle.textContent='Menu';
-      toggle.setAttribute('aria-expanded','false');
-    }
+    if(e.target.tagName==='A') closeMenu();
   });
-  document.addEventListener('click',(e)=>{
-    if(!links.classList.contains('nav-open'))return;
-    if(!links.contains(e.target)&&!toggle.contains(e.target)){
-      links.classList.remove('nav-open');
-      toggle.textContent='Menu';
-      toggle.setAttribute('aria-expanded','false');
-    }
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth>720 && links.classList.contains('nav-open')) closeMenu();
   });
 });
