@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur d’IMC — Calculez votre Indice de Masse Corporelle | CalculatePilot</title>
+<meta name="description" content="Calculez votre Indice de Masse Corporelle (IMC) à partir de votre taille et de votre poids, en unités métriques ou impériales. Gratuit et instantané, avec une explication claire des catégories.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/health/bmi-calculator.html">
+<meta property="og:title" content="Calculateur d’IMC — Calculez votre Indice de Masse Corporelle | CalculatePilot">
+<meta property="og:description" content="Calculez votre Indice de Masse Corporelle (IMC) à partir de votre taille et de votre poids, en unités métriques ou impériales. Gratuit et instantané, avec une explication claire des catégories.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/health/bmi-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculateur d’IMC — Calculez votre Indice de Masse Corporelle | CalculatePilot">
+<meta name="twitter:description" content="Calculez votre Indice de Masse Corporelle (IMC) à partir de votre taille et de votre poids, en unités métriques ou impériales. Gratuit et instantané, avec une explication claire des catégories.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<script src="/js/language-selector.js?v=20260914" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculateur d’IMC","url":"https://www.calculatepilot.com/health/bmi-calculator.html","applicationCategory":"HealthApplication","operatingSystem":"Web","browserRequirements":"Requires a modern web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},"isAccessibleForFree":true,"description":"Calculez votre Indice de Masse Corporelle (IMC) à partir de votre taille et de votre poids, en unités métriques ou impériales. Gratuit et instantané, avec une explication claire des catégories."}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/guides/index.html">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/health-calculators.html">Calculateurs de santé et fitness</a> / Calculateur d’IMC
+  </nav>
+</div>
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Calculateur d’IMC</h1>
+    <p class="lede">Calculez votre Indice de Masse Corporelle (IMC) à partir de votre taille et de votre poids, et découvrez dans quelle catégorie de poids il se situe.</p>
+  </div>
+</section>
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm">
+      <div class="field">
+        <label for="units">Unités</label>
+        <select id="units">
+          <option value="imperial" selected>Impérial (lb / in)</option>
+          <option value="metric">Métrique (kg / cm)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="weight">Poids</label>
+          <input type="number" id="weight" value="160" step="1" min="0">
+        </div>
+        <div class="field">
+          <label for="height">Taille (pouces)</label>
+          <input type="number" id="height" value="67" step="1" min="0">
+        </div>
+      </div>
+    </form>
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Votre IMC</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Catégorie</span><span id="outCategory">—</span></div>
+          <div class="readout-row"><span>Fourchette de poids santé</span><span id="outHealthyRange">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="content-block">
+  <div class="container prose">
+    <h2>Comment fonctionne ce calculateur</h2>
+    <p>L’IMC se calcule en divisant le poids par le carré de la taille. C’est un outil de dépistage rapide, pas un diagnostic — il ne distingue pas le muscle de la graisse.</p>
+    <div class="formula-box">IMC = poids(kg) / taille(m)²<br><span style="color:var(--slate); font-family:var(--font-body); font-size:0.85rem;">Les valeurs en impérial sont converties automatiquement en métrique avant le calcul.</span></div>
+    <h2>Comment interpréter votre IMC</h2>
+    <p>En dessous de 18,5, on parle d’insuffisance pondérale, entre 18,5 et 24,9 d’une fourchette saine, entre 25 et 29,9 de surpoids, et à partir de 30 d’obésité, selon les catégories standard d’IMC pour adultes utilisées par les grandes organisations de santé dans le monde.</p>
+    <p>L’IMC ne tient pas compte de la masse musculaire, de la densité osseuse ni de la composition corporelle, c’est pourquoi les athlètes et les personnes très musclées obtiennent souvent des scores plus élevés que ne le suggérerait leur véritable taux de graisse corporelle.</p>
+    <h2>Un exemple concret</h2>
+    <p>Prenons une personne mesurant 1,70 m (67 pouces) et pesant 72,6 kg (160 lb). En utilisant la formule impériale — poids en livres divisé par la taille en pouces au carré, multiplié par 703 — on obtient (160 ÷ 4489) × 703 ≈ 25,1, ce qui tombe tout juste dans la catégorie « surpoids ».</p>
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item"><h3>L’IMC est-il précis pour tout le monde ?</h3><p>L’IMC est un outil de dépistage utile pour la plupart des adultes, mais peut être trompeur pour les athlètes, les personnes âgées et celles ayant une masse musculaire inhabituellement élevée ou faible. Il ne mesure pas directement la graisse corporelle.</p></div>
+    <div class="faq-item"><h3>Quelle est une fourchette d’IMC saine ?</h3><p>Pour la plupart des adultes, un IMC entre 18,5 et 24,9 est considéré comme une fourchette de poids saine.</p></div>
+    <h2>Calculateurs associés</h2>
+    <div class="tool-grid">
+      <a href="/health/body-fat-calculator.html" class="tool-link">Calculateur de Masse Grasse <span class="arrow">→</span></a>
+      <a href="/fr/health/bmr-calculator.html" class="tool-link">Calculateur de Métabolisme de Base <span class="arrow">→</span></a>
+      <a href="/fr/health/calorie-calculator.html" class="tool-link">Calculateur de Calories <span class="arrow">→</span></a>
+      <a href="/fr/health/macro-calculator.html" class="tool-link">Calculateur de Macros <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Estimations uniquement — à titre indicatif, pas un conseil professionnel. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span>
+      <span><a href="/embed/bmi-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">Intégrer ce calculateur</a>  ·  <a href="/fr/" style="color:var(--slate);">Tous les calculateurs →</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/js/bmi.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>
