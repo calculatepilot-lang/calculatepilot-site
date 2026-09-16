@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mortgage Calculator — Monthly Payment, Principal & Interest | CalculatePilot</title>
-<meta name="description" content="Free mortgage calculator. Estimate monthly payment including principal, interest, tax & insurance. See the exact formula and amortization breakdown. No.">
+<meta name="description" content="Free mortgage calculator with PMI, HOA, and biweekly payment breakdowns. Estimate your monthly payment including principal, interest, tax & insurance.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
 <link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/mortgage-calculator.html">
@@ -15,16 +15,16 @@
 <link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/mortgage-calculator.html">
 <link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
 <meta property="og:title" content="Mortgage Calculator — Monthly Payment, Principal & Interest | CalculatePilot">
-<meta property="og:description" content="Free mortgage calculator. Estimate monthly payment including principal, interest, tax & insurance. See the exact formula and amortization breakdown. No.">
+<meta property="og:description" content="Free mortgage calculator with PMI, HOA, and biweekly payment breakdowns. Estimate your monthly payment including principal, interest, tax & insurance.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/mortgage-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mortgage Calculator — Monthly Payment, Principal & Interest | CalculatePilot">
-<meta name="twitter:description" content="Free mortgage calculator. Estimate monthly payment including principal, interest, tax & insurance. See the exact formula and amortization breakdown. No.">
+<meta name="twitter:description" content="Free mortgage calculator with PMI, HOA, and biweekly payment breakdowns. Estimate your monthly payment including principal, interest, tax & insurance.">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a monthly mortgage payment calculated?","acceptedAnswer":{"@type":"Answer","text":"Principal and interest use the fixed-rate amortization formula. Monthly tax and insurance are then added. The result is an estimate, not a lender quote."}},{"@type":"Question","name":"Does this include PMI, HOA fees, or closing costs?","acceptedAnswer":{"@type":"Answer","text":"No. This page covers principal, interest, property tax, and homeowners insurance. PMI, HOA dues, utilities, and closing costs are separate."}},{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common starting point is keeping total housing costs around 28-36% of gross income, then stress-testing a higher rate."}},{"@type":"Question","name":"Should I choose a 15-year or 30-year mortgage?","acceptedAnswer":{"@type":"Answer","text":"A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for other goals."}},{"@type":"Question","name":"Does a larger down payment lower my monthly payment?","acceptedAnswer":{"@type":"Answer","text":"Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down."}},{"@type":"Question","name":"Are these figures a formal loan offer?","acceptedAnswer":{"@type":"Answer","text":"No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a monthly mortgage payment calculated?","acceptedAnswer":{"@type":"Answer","text":"Principal and interest use the fixed-rate amortization formula. Monthly tax and insurance are then added. The result is an estimate, not a lender quote."}},{"@type":"Question","name":"Does this include PMI, HOA fees, or closing costs?","acceptedAnswer":{"@type":"Answer","text":"No. This page covers principal, interest, property tax, and homeowners insurance. PMI, HOA dues, utilities, and closing costs are separate."}},{"@type":"Question","name":"How much house can I afford?","acceptedAnswer":{"@type":"Answer","text":"A common starting point is keeping total housing costs around 28-36% of gross income, then stress-testing a higher rate."}},{"@type":"Question","name":"Should I choose a 15-year or 30-year mortgage?","acceptedAnswer":{"@type":"Answer","text":"A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for other goals."}},{"@type":"Question","name":"Does a larger down payment lower my monthly payment?","acceptedAnswer":{"@type":"Answer","text":"Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down."}},{"@type":"Question","name":"Are these figures a formal loan offer?","acceptedAnswer":{"@type":"Answer","text":"No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote."}},{"@type":"Question","name":"How much does PMI add to my mortgage payment?","acceptedAnswer":{"@type":"Answer","text":"PMI on a conventional loan below 20% down typically runs 0.3-1.5% of the loan balance per year, about 80-375 a month on a 320,000 loan, and cancels once you reach 20-22% equity."}},{"@type":"Question","name":"Does paying biweekly actually save money on a mortgage?","acceptedAnswer":{"@type":"Answer","text":"Yes. Splitting your monthly payment into 26 biweekly half-payments adds one extra full payment per year, which can shorten a 30-year loan by 4-6 years and cut total interest by tens of thousands of dollars."}}]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -90,6 +90,13 @@
 <li><strong>Homeowners insurance</strong> — also often escrowed.</li>
 </ul>
 <p>A 20% down payment typically avoids private mortgage insurance (PMI). Use the <a href="/financial/down-payment-calculator.html">Down Payment Calculator</a> if you are still deciding how much to put down.</p>
+<h2 id="pmi-hoa-biweekly">PMI, HOA fees, and biweekly payments</h2>
+<p>These three items are the most common reasons a real payment differs from the PITI estimate above.</p>
+<ul>
+<li><strong>PMI</strong> — required on conventional loans below 20% down. Typically 0.3–1.5% of the loan balance per year, or roughly 80–375 a month on a 320,000 loan. It cancels automatically once the balance hits 78% of the original home value, or you can request cancellation at 80%.</li>
+<li><strong>HOA fees</strong> — set by the property, not the lender, and not part of PITI. They range from 0 to several hundred a month; add your community's figure on top of the readout above.</li>
+<li><strong>Biweekly payments</strong> — splitting the monthly payment into 26 half-payments a year equals 13 full monthly payments instead of 12. On this example loan that alone can cut roughly 4–6 years off a 30-year term and remove tens of thousands in interest, with no rate change. Confirm your servicer applies extra payments immediately — some hold them until a full payment accrues, which cancels the benefit.</li>
+</ul>
 <p class="hint">By Suhaib Hassan · Formula verified 15 Sep 2026 · Method v2.1 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 <h2 id="worked-example">A worked example (pre-computed)</h2>
 <p>Home price 400,000 · down payment 80,000 · loan 320,000 · rate 6.5% · annual tax 3,600 · annual insurance 1,400. Figures below use the same amortization formula as the calculator above, so you can read the answer even if JavaScript is off.</p>
@@ -124,6 +131,8 @@ Interest over the full term is typically under 182,000 at the same 6.5% — a sh
 <div class="faq-item"><h3>Should I choose a 15-year or 30-year mortgage?</h3><p>A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for savings or other goals.</p></div>
 <div class="faq-item"><h3>Does a larger down payment lower my monthly payment?</h3><p>Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down.</p></div>
 <div class="faq-item"><h3>Are these figures a formal loan offer?</h3><p>No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote.</p></div>
+<div class="faq-item"><h3>How much does PMI add to my mortgage payment?</h3><p>PMI on a conventional loan below 20% down typically runs 0.3–1.5% of the loan balance per year — about 80–375 a month on a 320,000 loan — and cancels once you reach 20–22% equity.</p></div>
+<div class="faq-item"><h3>Does paying biweekly actually save money on a mortgage?</h3><p>Yes. Splitting your monthly payment into 26 biweekly half-payments adds one extra full payment per year, which can shorten a 30-year loan by 4–6 years and cut total interest by tens of thousands of dollars — confirm your servicer applies payments immediately rather than holding them.</p></div>
 <h2 id="next-job">Next calculation, in order</h2>
 <p>A mortgage payment is the middle of a sequence, not a standalone page.</p>
 <div class="tool-grid">
