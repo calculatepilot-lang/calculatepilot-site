@@ -88,6 +88,10 @@
       "@type": "Question",
       "name": "Is it worth negotiating the vehicle price separately from financing?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes \u2014 negotiating price and financing separately, rather than focusing only on the monthly payment, generally leads to a better overall deal since dealers can adjust either variable to hit a target monthly number." }
+    },    {
+      "@type": "Question",
+      "name": "Does a manufacturer rebate lower my sales tax too?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on your state. Most states tax the vehicle's full pre-rebate price, so a rebate lowers your loan amount but not your tax bill. A handful of states (including Arizona, Iowa, Kansas, Minnesota, Missouri, Nebraska, Texas, and Wyoming) tax the post-rebate price instead." }
     }  ]
 }
 </script>
@@ -209,10 +213,15 @@
 
     <h2>Trade-in value and sales tax</h2>
     <p>Most US states only charge sales tax on the price minus your trade-in value, which is why trading in a vehicle can meaningfully lower your total loan amount even before considering the trade-in credit itself.</p>
-    <h2>New vs. used car loan rates</h2>
-    <p>Used car loans typically carry higher interest rates than new car loans — often 1-3 percentage points more — since lenders view used vehicles as higher risk due to depreciation and uncertain condition.</p>
-    <p>Shorter loan terms are generally recommended for used vehicles, since stretching payments over 6-7 years on a car that's already depreciating can leave you owing more than the car is worth for a large part of the loan.</p>
-    <h2>A worked example</h2>
+    <h2 id="rebates">Manufacturer rebates and incentives</h2>
+<p>Cash rebates from manufacturers reduce what you finance, but whether they also reduce your sales tax depends entirely on your state.</p>
+<ul>
+<li><strong>Rebate taxed on full price</strong> — most states calculate sales tax on the vehicle's price before the rebate is applied. A $2,000 rebate on a $40,000 car still means tax is charged on $40,000, not $38,000.</li>
+<li><strong>Rebate not taxed</strong> — a smaller group of states (including Arizona, Iowa, Kansas, Minnesota, Missouri, Nebraska, Texas, and Wyoming) tax the post-rebate price, so the rebate lowers your tax bill too.</li>
+<li>Trade-in credit is a separate question from rebate taxability — check your own state's rule for each before assuming this calculator's default trade-in tax treatment matches a rebate.</li>
+</ul>
+<p>To model a rebate here, subtract it from the vehicle price before entering it, then adjust the sales tax rate manually if your state taxes the pre-rebate amount.</p>
+<h2>A worked example</h2>
     <p>A $28,000 car with a $3,000 trade-in and $2,000 down, at 7% sales tax and 6.5% APR over 60 months: taxable amount is $25,000 (price minus trade-in), sales tax is $1,750, and the amount financed is $28,000 minus $2,000 minus $3,000 plus $1,750, or $24,750.</p>
     <p>At 6.5% over 60 months, that works out to a monthly payment of about $484, with roughly $4,290 in total interest over the loan.</p>
     <h2>New vs. used car loan rates</h2>
@@ -245,7 +254,8 @@
       <p>Yes — negotiating price and financing separately, rather than focusing only on the monthly payment, generally leads to a better overall deal since dealers can adjust either variable to hit a target monthly number.</p>
     </div>
 
-    <h2>Related calculators</h2>
+        <div class="faq-item"><h3>Does a manufacturer rebate lower my sales tax too?</h3><p>It depends on your state. Most states tax the vehicle's full pre-rebate price, so a rebate lowers your loan amount but not your tax bill. A handful of states (including Arizona, Iowa, Kansas, Minnesota, Missouri, Nebraska, Texas, and Wyoming) tax the post-rebate price instead — check your state's rule before assuming either way.</p></div>
+<h2>Related calculators</h2>
     <div class="tool-grid">
       <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
       <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
