@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK Mortgage Calculator — 25-Year Repayment vs Interest-Only | CalculatePilot</title>
+<meta name="description" content="UK mortgage repayment calculator. Compare a 25-year repayment mortgage with interest-only on the same loan, in pounds. Stamp Duty is treated as a purchase cost, not a monthly line.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/uk-mortgage-repayment-calculator.html">
+<meta property="og:title" content="UK Mortgage Calculator — 25-Year Repayment vs Interest-Only | CalculatePilot">
+<meta property="og:description" content="Compare UK repayment and interest-only mortgages on a 25-year term. Worked sterling example. SDLT is a purchase cost, not a monthly payment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/uk-mortgage-repayment-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Financial calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+        {"@type": "ListItem", "position": 3, "name": "UK Mortgage Repayment Calculator", "item": "https://www.calculatepilot.com/financial/uk-mortgage-repayment-calculator.html"}
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "UK Mortgage Repayment Calculator",
+      "url": "https://www.calculatepilot.com/financial/uk-mortgage-repayment-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+      "creator": {"@type": "Person", "name": "Suhaib Hassan"}
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Why is the default term 25 years, not 30?", "acceptedAnswer": {"@type": "Answer", "text": "A 25-year term is still a common UK planning default. Many UK lenders also offer 30, 35 or 40 years depending on age and affordability. This page lets you change the term. The US PITI calculator on this site defaults to 30 years because that is the common US product, not because 30 years is universal."}},
+    {"@type": "Question", "name": "What is the difference between repayment and interest-only?", "acceptedAnswer": {"@type": "Answer", "text": "A repayment (capital-and-interest) mortgage pays down the loan each month. An interest-only mortgage pays only the interest; the original loan is still due at the end unless you have a separate repayment vehicle. This calculator shows both on the same inputs."}},
+    {"@type": "Question", "name": "Does this include Stamp Duty Land Tax?", "acceptedAnswer": {"@type": "Answer", "text": "No. SDLT in England and Northern Ireland is a one-off purchase cost, not a monthly mortgage line. Check current GOV.UK bands for your price and buyer type. This page does not invent or freeze those bands."}},
+    {"@type": "Question", "name": "Is PMI part of a UK mortgage payment?", "acceptedAnswer": {"@type": "Answer", "text": "Private mortgage insurance is a US product. In the UK, a high loan-to-value ratio usually means a higher interest rate, not a separate PMI line. Council tax, buildings insurance and ground rent are also separate from the lender repayment."}},
+    {"@type": "Question", "name": "Are these figures a lender offer?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate using the standard amortisation formula. Use MoneyHelper and a regulated adviser or lender quote before you commit."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / UK Mortgage Repayment Calculator</nav></div>
+<section class="calc-page-head"><div class="container">
+  <h1>UK Mortgage Repayment Calculator</h1>
+  <p class="lede">Compare a capital-repayment mortgage with interest-only on the same sterling loan. Default term is 25 years — the common UK planning period — not the 30-year US product on our <a href="/financial/mortgage-calculator.html">PITI mortgage calculator</a>.</p>
+</div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+  <div class="field"><label for="price">Property price (£)</label><input type="number" id="price" value="300000" step="1000" min="0"></div>
+  <div class="field-row">
+    <div class="field"><label for="deposit">Deposit (£)</label><input type="number" id="deposit" value="30000" step="1000" min="0"></div>
+    <div class="field"><label for="term">Term (years)</label>
+      <select id="term">
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25" selected>25</option>
+        <option value="30">30</option>
+        <option value="35">35</option>
+        <option value="40">40</option>
+      </select>
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label for="rate">Interest rate (%)</label><input type="number" id="rate" value="4.5" step="0.01" min="0"></div>
+    <div class="field"><label for="type">Product</label>
+      <select id="type">
+        <option value="repayment" selected>Repayment (capital & interest)</option>
+        <option value="interest">Interest-only</option>
+      </select>
+    </div>
+  </div>
+  <p class="hint">Rate is whatever you type — this is not a live lender quote. Fees, product rate type (fixed, tracker, SVR) and overpayments are outside this estimate.</p>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+  <div class="readout-label">Estimated monthly payment</div>
+  <div class="readout-value big" id="resultValue">—</div>
+  <div class="readout-breakdown">
+    <div class="readout-row"><span>Loan amount</span><span id="outLoan">—</span></div>
+    <div class="readout-row"><span>Loan-to-value</span><span id="outLtv">—</span></div>
+    <div class="readout-row"><span>Product</span><span id="outType">—</span></div>
+    <div class="readout-row"><span>Total repaid over term</span><span id="outTotal">—</span></div>
+    <div class="readout-row"><span>Interest over term</span><span id="outInterest">—</span></div>
+    <div class="readout-row"><span>Balance still due at end</span><span id="outBalance">—</span></div>
+  </div>
+</div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>How this calculator differs from the US PITI page</h2>
+<p>The job on this page is a UK capital-repayment or interest-only estimate. The job on the <a href="/financial/mortgage-calculator.html">US mortgage calculator</a> is principal, interest, property tax and homeowners insurance (PITI), with a 30-year default and a PMI discussion. Those are different products. Merging them would hide the answer that actually changes.</p>
+<ul>
+  <li><strong>Term.</strong> 25 years is the default here. UK lenders also offer longer terms; use the selector. Do not assume 30 years.</li>
+  <li><strong>Repayment vs interest-only.</strong> Switching the product changes whether the balance falls to zero.</li>
+  <li><strong>No PMI line.</strong> UK high-LTV cost usually sits in the rate, not a separate US-style PMI premium.</li>
+  <li><strong>Purchase costs sit outside the monthly figure.</strong> Stamp Duty Land Tax, conveyancing, and broker fees are not mortgage instalments.</li>
+</ul>
+
+<h2>Formula</h2>
+<p>Capital repayment uses standard fixed-rate amortisation, the same mathematics banks use for a repayment mortgage:</p>
+<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]<br><span style="color:var(--slate);font-family:var(--font-body);font-size:0.85rem;">M = monthly repayment · P = loan · i = monthly rate · n = number of months</span></div>
+<p>Interest-only is <code>M = P × (annual rate / 12)</code>. The original loan is still due at the end unless you have a separate repayment vehicle. This page does not model that vehicle.</p>
+<p class="hint">By Suhaib Hassan · Formula verified 18 Sep 2026 · Method v2.2-UK · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+<h2 id="worked-example">A worked sterling example (pre-computed)</h2>
+<p>Property £300,000 · deposit £30,000 (10%) · loan £270,000 · rate 4.5% · term 25 years (300 payments). Figures use the same formula as the calculator, so the answer is readable if JavaScript is off.</p>
+<div class="formula-box" role="region" aria-label="Repayment versus interest-only">
+<p><strong>Repayment, 25 years</strong><br>
+Monthly payment ≈ £1,500.75<br>
+Total repaid ≈ £450,224<br>
+Interest ≈ £180,224<br>
+Balance at the end = £0</p>
+<p><strong>Interest-only, same loan</strong><br>
+Monthly payment ≈ £1,012.50<br>
+Interest over 25 years ≈ £303,750 if the rate never changes<br>
+Balance still due at the end = £270,000</p>
+</div>
+<p>Interest-only is cheaper each month and more expensive as a lifetime cost unless the £270,000 is repaid some other way. That trade-off is why this page is not a currency overlay of the US calculator.</p>
+
+<h2>What this monthly figure does not include</h2>
+<ul>
+  <li><strong>Stamp Duty Land Tax</strong> (England and Northern Ireland) — a one-off purchase cost. Bands and reliefs change; use <a href="https://www.gov.uk/stamp-duty-land-tax" rel="noopener noreferrer">GOV.UK SDLT</a> for the current rules. This page does not freeze a band table.</li>
+  <li><strong>Land Transaction Tax / Land and Buildings Transaction Tax</strong> — Wales and Scotland use different regimes.</li>
+  <li><strong>Council tax, buildings insurance, ground rent, service charge</strong> — household costs, not lender repayment.</li>
+  <li><strong>Product fees</strong> added to the loan, early-repayment charges, or a rate switch from fixed to SVR.</li>
+</ul>
+<p>For a regulated view of affordability, start with <a href="https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-calculator" rel="noopener noreferrer">MoneyHelper’s mortgage calculators</a>, then confirm with a lender quote.</p>
+
+<h2>Who should use the other mortgage page instead</h2>
+<ul>
+  <li>Anyone modelling US property tax plus homeowners insurance inside the monthly housing cost — that is the <a href="/financial/mortgage-calculator.html">PITI calculator</a>.</li>
+  <li>Anyone who needs a full principal schedule — <a href="/financial/amortization-calculator.html">amortisation</a>.</li>
+  <li>Anyone testing whether a new rate beats the current loan after fees — <a href="/financial/refinance-calculator.html">refinance breakeven</a>.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>Why is the default term 25 years, not 30?</h3><p>A 25-year term is still a common UK planning default. Many UK lenders also offer 30, 35 or 40 years depending on age and affordability. Change the selector. The US PITI calculator defaults to 30 years because that is the common US product.</p></div>
+<div class="faq-item"><h3>What is the difference between repayment and interest-only?</h3><p>Repayment pays down the loan each month. Interest-only pays only interest; the original loan is still due at the end unless you have a separate repayment vehicle.</p></div>
+<div class="faq-item"><h3>Does this include Stamp Duty Land Tax?</h3><p>No. SDLT is a one-off purchase cost. Check current GOV.UK bands for your price and buyer type. This page does not invent those bands.</p></div>
+<div class="faq-item"><h3>Is PMI part of a UK mortgage payment?</h3><p>No. PMI is a US product. In the UK a high loan-to-value ratio usually means a higher interest rate, not a separate PMI line.</p></div>
+<div class="faq-item"><h3>Are these figures a lender offer?</h3><p>No. This is a planning estimate. Confirm with a regulated adviser or lender.</p></div>
+
+<h2 id="next-job">Next calculation</h2>
+<div class="tool-grid">
+  <a class="tool-link" href="/financial/house-affordability-calculator.html">1. Check a purchase price against income <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/down-payment-calculator.html">2. Convert a deposit percent into cash <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/mortgage-calculator.html">3. Model US-style PITI if that is the product <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/refinance-calculator.html">4. Test a remortgage after fees <span class="arrow">→</span></a>
+</div>
+<p>Read the judgement layer in the <a href="/guides/mortgage-calculator-guide.html">mortgage payment guide</a> if you want the term decision in words.</p>
+<p class="hint">Estimate only. UK repayment / interest-only · method v2.2-UK · last verified 18 Sep 2026 · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+(function () {
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+  const price = document.getElementById("price");
+  const deposit = document.getElementById("deposit");
+  const term = document.getElementById("term");
+  const rate = document.getElementById("rate");
+  const type = document.getElementById("type");
+  function payment(P, annual, years, product) {
+    const n = years * 12;
+    const i = annual / 100 / 12;
+    if (product === "interest") {
+      const m = P * (annual / 100 / 12);
+      return { m: m, total: m * n, interest: m * n, balance: P };
+    }
+    if (i === 0) {
+      const m = P / n;
+      return { m: m, total: P, interest: 0, balance: 0 };
+    }
+    const pow = Math.pow(1 + i, n);
+    const m = P * (i * pow) / (pow - 1);
+    return { m: m, total: m * n, interest: m * n - P, balance: 0 };
+  }
+  function render() {
+    const P = Math.max(0, (+price.value || 0) - (+deposit.value || 0));
+    const years = +term.value || 25;
+    const annual = +rate.value || 0;
+    const product = type.value;
+    const home = +price.value || 0;
+    const out = payment(P, annual, years, product);
+    document.getElementById("resultValue").textContent = gbp.format(out.m);
+    document.getElementById("outLoan").textContent = gbp.format(P);
+    document.getElementById("outLtv").textContent = home > 0 ? Math.round((P / home) * 100) + "%" : "—";
+    document.getElementById("outType").textContent = product === "interest" ? "Interest-only" : "Repayment";
+    document.getElementById("outTotal").textContent = gbp.format(out.total);
+    document.getElementById("outInterest").textContent = gbp.format(out.interest);
+    document.getElementById("outBalance").textContent = gbp.format(out.balance);
+  }
+  ["price", "deposit", "term", "rate", "type"].forEach((id) => {
+    document.getElementById(id).addEventListener("input", render);
+    document.getElementById(id).addEventListener("change", render);
+  });
+  render();
+})();
+</script>
+</body>
+</html>
