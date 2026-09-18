@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Calculators | CalculatePilot</title>
+<meta name="description" content="Find a CalculatePilot calculator by name or job. Results are a filtered list of real tools — not generated keyword pages.">
+<link rel="canonical" href="https://www.calculatepilot.com/search.html">
+<meta property="og:title" content="Search Calculators | CalculatePilot">
+<meta property="og:description" content="Search the CalculatePilot library of 158+ free calculators. Every result is a real, formula-backed tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/search.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CalculatePilot",
+  "url": "https://www.calculatepilot.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.calculatepilot.com/search.html?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / Search</nav></div>
+<section class="calc-page-head"><div class="container">
+  <h1>Search calculators</h1>
+  <p class="lede">This page returns matching tools from the live CalculatePilot inventory. It does not invent a new URL for every query — if nothing matches, the honest result is no match.</p>
+</div></section>
+<section class="section" style="padding-top:8px;"><div class="container">
+  <form class="search-bar" method="get" action="/search.html" role="search">
+    <input type="text" name="q" id="q" placeholder="Try mortgage, BMI, VAT, UK…" aria-label="Search calculators" autocomplete="off">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+  <p class="hint" id="status" style="margin-top:14px;"></p>
+  <div class="tool-grid" id="results" style="margin-top:18px;"></div>
+  <div class="prose" style="margin-top:36px;">
+    <h2>How this search works</h2>
+    <p>Each result is an existing calculator with a named formula, not a generated landing page. Queries map onto the <a href="/calculators.json">calculator index</a> by name. Related jobs (for example a UK repayment mortgage versus US PITI) are separate pages only when the answer actually changes.</p>
+    <h2>Start from a category instead</h2>
+    <div class="tool-grid">
+      <a class="tool-link" href="/financial-calculators.html">Financial calculators <span class="arrow">→</span></a>
+      <a class="tool-link" href="/health-calculators.html">Health &amp; fitness <span class="arrow">→</span></a>
+      <a class="tool-link" href="/math-calculators.html">Math <span class="arrow">→</span></a>
+      <a class="tool-link" href="/other-calculators.html">Everyday tools <span class="arrow">→</span></a>
+      <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">UK mortgage repayment vs interest-only <span class="arrow">→</span></a>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  const q = (params.get("q") || "").trim();
+  const input = document.getElementById("q");
+  const status = document.getElementById("status");
+  const results = document.getElementById("results");
+  input.value = q;
+  fetch("/calculators.json").then((r) => r.json()).then((list) => {
+    if (!q) {
+      status.textContent = list.length + " calculators in the index. Type a job or tool name.";
+      results.innerHTML = list.slice(0, 24).map((c) =>
+        '<a class="tool-link" href="' + c.href + '">' + c.name + ' <span class="arrow">→</span></a>'
+      ).join("");
+      return;
+    }
+    const needle = q.toLowerCase();
+    const matches = list.filter((c) => c.name.toLowerCase().includes(needle) || (c.href || "").toLowerCase().includes(needle));
+    if (!matches.length) {
+      status.textContent = "No calculator matches \u201c" + q + "\u201d. Nothing was generated to fill the gap.";
+      return;
+    }
+    status.textContent = matches.length + " match" + (matches.length === 1 ? "" : "es") + " for \u201c" + q + "\u201d.";
+    results.innerHTML = matches.map((c) =>
+      '<a class="tool-link" href="' + c.href + '">' + c.name + ' <span class="arrow">→</span></a>'
+    ).join("");
+  }).catch(() => {
+    status.textContent = "The calculator index could not be loaded. Browse categories instead.";
+  });
+})();
+</script>
+</body>
+</html>
