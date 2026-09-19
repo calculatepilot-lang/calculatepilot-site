@@ -1,0 +1,22 @@
+/* Homepage-only redesign. Does not restyle .site-header or .site-footer. */
+body.home-redesign{background:#f7f8f6}
+body.home-redesign main{overflow-x:hidden}
+.home-hero{position:relative;padding:56px 0 72px;border-bottom:1px solid var(--line);background:radial-gradient(720px 280px at 78% -10%,rgba(26,122,94,.10),transparent 60%),#f7f8f6}
+.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:48px;align-items:center}
+.home-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--signal-soft);border:1px solid rgba(26,122,94,.18);color:var(--signal-dark);font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.home-eyebrow-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.16)}
+.home-hero h1{font-size:clamp(2.1rem,4.6vw,3.25rem);letter-spacing:-.03em;line-height:1.08;margin:0 0 16px;color:var(--ink)}
+.home-hero .lede{max-width:36rem;font-size:1.125rem;line-height:1.6;margin-bottom:22px}
+.home-search{position:relative;max-width:36rem}
+.home-trust{display:flex;flex-wrap:wrap;gap:18px 22px;margin-top:22px;font-size:12.5px;font-weight:500;color:var(--slate)}
+.home-trust span{display:inline-flex;align-items:center;gap:6px}
+.home-platforms{padding:36px 0;background:#fff;border-bottom:1px solid var(--line)}
+.platform-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px}
+.home-cats{padding:64px 0 48px;background:#f7f8f6}
+.home-popular{padding:56px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.home-editorial{padding:72px 0;background:#f7f8f6}
+.home-editorial-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.home-faq{padding:64px 0 80px;background:#fff;border-top:1px solid var(--line)}
+@media (max-width:1020px){.platform-grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:900px){.home-hero-grid,.home-editorial-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.platform-grid{grid-template-columns:repeat(2,1fr)}}
