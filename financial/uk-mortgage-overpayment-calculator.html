@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK Mortgage Overpayment Calculator — Months and Interest Saved | CalculatePilot</title>
+<meta name="description" content="See how a monthly overpayment shortens a UK repayment mortgage and how much interest you save. Uses your outstanding balance, rate and remaining term — not a new-purchase quote.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/uk-mortgage-overpayment-calculator.html">
+<meta property="og:title" content="UK Mortgage Overpayment Calculator — Months and Interest Saved | CalculatePilot">
+<meta property="og:description" content="Model a regular overpayment on a UK repayment mortgage. See months saved, interest saved and the new payoff date.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/uk-mortgage-overpayment-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Financial calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+        {"@type": "ListItem", "position": 3, "name": "UK Mortgage Overpayment Calculator", "item": "https://www.calculatepilot.com/financial/uk-mortgage-overpayment-calculator.html"}
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "UK Mortgage Overpayment Calculator",
+      "url": "https://www.calculatepilot.com/financial/uk-mortgage-overpayment-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+      "creator": {"@type": "Person", "name": "Suhaib Hassan"}
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is this the same as the UK repayment vs interest-only calculator?", "acceptedAnswer": {"@type": "Answer", "text": "No. That page compares two products on a new or remaining loan. This page answers a different job: given an existing repayment mortgage, how many months and how much interest does a regular overpayment save."}},
+    {"@type": "Question", "name": "Do UK lenders allow overpayments?", "acceptedAnswer": {"@type": "Answer", "text": "Most UK repayment mortgages allow overpayments, often up to 10% of the outstanding balance each year without an early-repayment charge. Limits, ERC windows and whether extra payments cut the term or the monthly amount depend on the product. Check the offer document."}},
+    {"@type": "Question", "name": "Does this include early repayment charges?", "acceptedAnswer": {"@type": "Answer", "text": "No. An ERC is a product fee, not part of the amortisation formula. If your extra payment would breach the annual overpayment allowance, the charge can wipe out the interest you hoped to save."}},
+    {"@type": "Question", "name": "Should I overpay or remortgage?", "acceptedAnswer": {"@type": "Answer", "text": "Overpaying keeps the current rate and shortens the term. Remortgaging changes the rate and often resets fees. Use this page for the extra-payment job, and the refinance calculator if the question is whether a new rate beats the current loan after fees."}},
+    {"@type": "Question", "name": "Are these figures a lender illustration?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate using standard amortisation. Confirm with your lender or a regulated adviser, especially around ERC limits."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / UK Mortgage Overpayment Calculator</nav></div>
+<section class="calc-page-head"><div class="container">
+  <h1>UK Mortgage Overpayment Calculator</h1>
+  <p class="lede">See how a regular extra payment shortens an existing UK repayment mortgage. This is not a new-purchase quote and not a repayment-versus-interest-only comparison — those jobs live on the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a>.</p>
+</div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+  <div class="field"><label for="balance">Outstanding balance (£)</label><input type="number" id="balance" value="200000" step="1000" min="0"></div>
+  <div class="field-row">
+    <div class="field"><label for="rate">Interest rate (%)</label><input type="number" id="rate" value="4.5" step="0.01" min="0"></div>
+    <div class="field"><label for="years">Years remaining</label>
+      <select id="years">
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20" selected>20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="35">35</option>
+      </select>
+    </div>
+  </div>
+  <div class="field"><label for="extra">Extra monthly overpayment (£)</label><input type="number" id="extra" value="200" step="10" min="0"></div>
+  <p class="hint">Scheduled monthly payment is calculated from the balance, rate and remaining term. The extra amount is added on top. Early-repayment charges are outside this estimate.</p>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+  <div class="readout-label">Interest saved by overpaying</div>
+  <div class="readout-value big" id="resultValue">—</div>
+  <div class="readout-breakdown">
+    <div class="readout-row"><span>Scheduled monthly payment</span><span id="outSched">—</span></div>
+    <div class="readout-row"><span>Payment with overpayment</span><span id="outNew">—</span></div>
+    <div class="readout-row"><span>Months remaining (no extra)</span><span id="outMonthsOld">—</span></div>
+    <div class="readout-row"><span>Months remaining (with extra)</span><span id="outMonthsNew">—</span></div>
+    <div class="readout-row"><span>Time saved</span><span id="outSaved">—</span></div>
+    <div class="readout-row"><span>Interest without extra</span><span id="outIntOld">—</span></div>
+    <div class="readout-row"><span>Interest with extra</span><span id="outIntNew">—</span></div>
+  </div>
+</div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Why this is its own page</h2>
+<p>The user job here is “I already have a repayment mortgage — what does an extra £X a month do?” That is not the same job as choosing repayment versus interest-only on a purchase, and not the same job as a US PITI quote. Publishing those as one URL would hide the number that actually changes.</p>
+
+<h2>Formula</h2>
+<p>The contractual monthly payment is standard amortisation on the outstanding balance:</p>
+<div class="formula-box">M = P × [ i(1+i)<sup>n</sup> ] / [ (1+i)<sup>n</sup> − 1 ]<br><span style="color:var(--slate);font-family:var(--font-body);font-size:0.85rem;">P = outstanding balance · i = monthly rate · n = months remaining</span></div>
+<p>Each month, interest is <code>balance × i</code>. The rest of the payment (scheduled + extra) reduces the balance. We count months until the balance hits zero, then compare interest paid with and without the extra amount. This page does not model overpayment annual allowances, ERC bands, or a switch from cutting the term to cutting the monthly payment.</p>
+<p class="hint">By Suhaib Hassan · Formula verified 19 Sep 2026 · Method v1.0-UK-overpay · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+<h2 id="worked-example">A worked sterling example (pre-computed)</h2>
+<p>Outstanding balance £200,000 · rate 4.5% · 20 years remaining (240 months) · extra £200 each month. Figures use the same amortisation as the calculator, so the answer is readable if JavaScript is off.</p>
+<div class="formula-box" role="region" aria-label="Overpayment comparison">
+<p><strong>No overpayment</strong><br>
+Scheduled payment ≈ £1,265.30<br>
+Months remaining = 240 (20 years)<br>
+Interest ≈ £103,672</p>
+<p><strong>Plus £200 a month</strong><br>
+New payment ≈ £1,465.30<br>
+Months remaining = 192 (16 years)<br>
+Interest ≈ £80,735<br>
+Time saved = 48 months (4 years)<br>
+Interest saved ≈ £22,936</p>
+</div>
+<p>The extra £200 does not just knock four years off the calendar. It also avoids four years of interest on a shrinking balance. That is the unique output of this page.</p>
+
+<h2>What this figure does not include</h2>
+<ul>
+  <li><strong>Early repayment charges.</strong> Many fixed deals cap penalty-free overpayments (often around 10% of the outstanding balance per year). Breach the cap and the ERC can erase the interest you modelled.</li>
+  <li><strong>Offset accounts.</strong> Savings held against the loan reduce interest a different way. This page models a cash extra payment, not an offset balance.</li>
+  <li><strong>Rate switches.</strong> A remortgage to a lower rate is a different job — use the <a href="/financial/refinance-calculator.html">refinance breakeven calculator</a>.</li>
+  <li><strong>A new purchase.</strong> For repayment versus interest-only on a sterling loan, use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a>.</li>
+</ul>
+<p>MoneyHelper explains overpayments and ERC limits in plain language — start with their <a href="https://www.moneyhelper.org.uk/en/homes/buying-a-home/should-i-overpay-my-mortgage" rel="noopener noreferrer">overpayment guidance</a> before you instruct the lender.</p>
+
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>Is this the same as the UK repayment vs interest-only calculator?</h3><p>No. That page compares two products. This page takes an existing repayment mortgage and measures the effect of a regular extra payment.</p></div>
+<div class="faq-item"><h3>Do UK lenders allow overpayments?</h3><p>Most repayment mortgages allow them, often up to a yearly percentage of the balance without an ERC. Check your offer document for the cap and whether extra payments cut the term or the instalment.</p></div>
+<div class="faq-item"><h3>Does this include early repayment charges?</h3><p>No. An ERC is a product fee, not part of the amortisation formula.</p></div>
+<div class="faq-item"><h3>Should I overpay or remortgage?</h3><p>Overpaying keeps the current rate and shortens the term. Remortgaging changes the rate and usually adds fees. Use this page for extra payments; use refinance breakeven if the question is a new rate.</p></div>
+<div class="faq-item"><h3>Are these figures a lender illustration?</h3><p>No. Confirm with your lender or a regulated adviser, especially around ERC limits.</p></div>
+
+<h2 id="next-job">Next calculation</h2>
+<div class="tool-grid">
+  <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">1. Compare repayment vs interest-only on a purchase <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/refinance-calculator.html">2. Test a remortgage after fees <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/mortgage-calculator.html">3. Model US-style PITI if that is the product <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/amortization-calculator.html">4. See the full principal schedule <span class="arrow">→</span></a>
+</div>
+<p class="hint">Estimate only. UK overpayment · method v1.0-UK-overpay · last verified 19 Sep 2026 · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+(function () {
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+  const balance = document.getElementById("balance");
+  const rate = document.getElementById("rate");
+  const years = document.getElementById("years");
+  const extra = document.getElementById("extra");
+
+  function scheduledPayment(P, annual, n) {
+    const i = annual / 100 / 12;
+    if (n <= 0) return 0;
+    if (i === 0) return P / n;
+    const pow = Math.pow(1 + i, n);
+    return P * (i * pow) / (pow - 1);
+  }
+
+  function simulate(P, annual, payment) {
+    const i = annual / 100 / 12;
+    let bal = P;
+    let months = 0;
+    let interest = 0;
+    if (payment <= 0) return { months: Infinity, interest: Infinity };
+    while (bal > 0.005 && months < 1200) {
+      const interestAmt = bal * i;
+      if (payment >= bal + interestAmt) {
+        interest += interestAmt;
+        months += 1;
+        bal = 0;
+        break;
+      }
+      const principal = payment - interestAmt;
+      if (principal <= 0) return { months: Infinity, interest: Infinity };
+      bal -= principal;
+      interest += interestAmt;
+      months += 1;
+    }
+    return { months: months, interest: interest };
+  }
+
+  function fmtMonths(m) {
+    if (!isFinite(m)) return "Does not clear";
+    const y = Math.floor(m / 12);
+    const r = m % 12;
+    if (y && r) return m + " (" + y + "y " + r + "m)";
+    if (y) return m + " (" + y + " years)";
+    return m + " months";
+  }
+
+  function render() {
+    const P = Math.max(0, +balance.value || 0);
+    const annual = +rate.value || 0;
+    const n = (+years.value || 20) * 12;
+    const extraAmt = Math.max(0, +extra.value || 0);
+    const sched = scheduledPayment(P, annual, n);
+    const base = simulate(P, annual, sched);
+    const withExtra = simulate(P, annual, sched + extraAmt);
+    const savedInterest = (isFinite(base.interest) && isFinite(withExtra.interest)) ? Math.max(0, base.interest - withExtra.interest) : 0;
+    const savedMonths = (isFinite(base.months) && isFinite(withExtra.months)) ? Math.max(0, base.months - withExtra.months) : 0;
+    document.getElementById("resultValue").textContent = isFinite(savedInterest) ? gbp.format(savedInterest) : "—";
+    document.getElementById("outSched").textContent = gbp.format(sched);
+    document.getElementById("outNew").textContent = gbp.format(sched + extraAmt);
+    document.getElementById("outMonthsOld").textContent = fmtMonths(base.months);
+    document.getElementById("outMonthsNew").textContent = fmtMonths(withExtra.months);
+    document.getElementById("outSaved").textContent = extraAmt === 0 ? "Add an extra payment" : fmtMonths(savedMonths);
+    document.getElementById("outIntOld").textContent = isFinite(base.interest) ? gbp.format(base.interest) : "—";
+    document.getElementById("outIntNew").textContent = isFinite(withExtra.interest) ? gbp.format(withExtra.interest) : "—";
+  }
+
+  ["balance", "rate", "years", "extra"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", render);
+    document.getElementById(id).addEventListener("change", render);
+  });
+  render();
+})();
+</script>
+</body>
+</html>
