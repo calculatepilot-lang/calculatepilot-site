@@ -1,21 +1,18 @@
 /* CalculatePilot language selector
  * Compatibility wrapper used by English and /es /fr /de pages.
- * Delegates to js/language-switcher.js so header + footer stay in sync.
  */
 (function () {
-  function ready(fn) {
-    if (typeof window.__cpMountLanguage === 'function') {
-      window.__cpMountLanguage();
-      return;
-    }
-    if (fn) fn();
+  function load(src) {
+    if (document.querySelector('script[src*="' + src.split('?')[0].split('/').pop() + '"]')) return;
+    var script = document.createElement('script');
+    script.src = src;
+    document.head.appendChild(script);
   }
-
+  load('/js/favicon.js?v=20260919');
   if (window.__cpLangInit || document.querySelector('script[src*="language-switcher.js"]')) {
-    ready();
+    if (typeof window.__cpMountLanguage === 'function') window.__cpMountLanguage();
     return;
   }
-
   var script = document.createElement('script');
   script.src = '/js/language-switcher.js?v=20260919';
   script.onload = function () {
