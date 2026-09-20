@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK Stamp Duty Calculator — SDLT England & NI (2026 rates) | CalculatePilot</title>
+<meta name="description" content="Work out Stamp Duty Land Tax on a home in England or Northern Ireland. Uses the 1 April 2025 residential bands, first-time buyer relief and the 5% additional-property surcharge. Not a monthly mortgage line.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/uk-stamp-duty-calculator.html">
+<meta property="og:title" content="UK Stamp Duty Calculator — SDLT England & NI (2026 rates) | CalculatePilot">
+<meta property="og:description" content="Band-by-band SDLT for England and Northern Ireland. First-time buyer relief, additional-property surcharge, non-UK resident surcharge. Rates from 1 April 2025.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/uk-stamp-duty-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Financial calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
+        {"@type": "ListItem", "position": 3, "name": "UK Stamp Duty Calculator", "item": "https://www.calculatepilot.com/financial/uk-stamp-duty-calculator.html"}
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "UK Stamp Duty Calculator",
+      "url": "https://www.calculatepilot.com/financial/uk-stamp-duty-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+      "creator": {"@type": "Person", "name": "Suhaib Hassan"},
+      "description": "Residential Stamp Duty Land Tax calculator for England and Northern Ireland using the 1 April 2025 bands, first-time buyer relief and additional-property surcharge."
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is stamp duty the same as a monthly mortgage payment?", "acceptedAnswer": {"@type": "Answer", "text": "No. Stamp Duty Land Tax is a one-off purchase cost paid to HMRC. The UK repayment calculator estimates monthly instalments. Mixing them into one URL would hide the number that actually changes."}},
+    {"@type": "Question", "name": "Does this cover Scotland or Wales?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses Land and Buildings Transaction Tax and Wales uses Land Transaction Tax. Those are different band tables, so they are not token-swapped copies of this page."}},
+    {"@type": "Question", "name": "When did these SDLT rates start?", "acceptedAnswer": {"@type": "Answer", "text": "The current residential bands, first-time buyer relief (£300,000 nil-rate up to a £500,000 price cap) and the 5% additional-property surcharge apply to purchases completing on or after 1 April 2025."}},
+    {"@type": "Question", "name": "What if I replace my main home?", "acceptedAnswer": {"@type": "Answer", "text": "If the purchase replaces your only main residence and you sell the previous main home within the GOV.UK replacement window, the extra 5% usually does not apply. Leave Additional property unchecked in that case."}},
+    {"@type": "Question", "name": "Are these figures an HMRC assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published GOV.UK residential bands. Confirm the return with a conveyancer. Company purchases, mixed-use, shared ownership and linked transactions are out of scope."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / UK Stamp Duty Calculator</nav></div>
+<section class="calc-page-head"><div class="container">
+  <h1>UK Stamp Duty Calculator</h1>
+  <p class="lede">Work out Stamp Duty Land Tax on a residential purchase in England or Northern Ireland. This is a one-off purchase cost — not a monthly line on the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a>, and not a token-swap of US sales tax.</p>
+</div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+  <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="295000" step="1000" min="0"></div>
+  <div class="field"><label for="buyer">Buyer type</label>
+    <select id="buyer">
+      <option value="std" selected>Replacing / only home</option>
+      <option value="ftb">First-time buyer</option>
+    </select>
+  </div>
+  <div class="field">
+    <label><input type="checkbox" id="additional"> Additional residential property (usually +5%)</label>
+  </div>
+  <div class="field">
+    <label><input type="checkbox" id="nonresident"> Non-UK resident surcharge (+2%)</label>
+  </div>
+  <p class="hint">Residential freehold / lease premium only. Rates in force from 1 April 2025. Additional-property surcharge is skipped below £40,000. First-time buyer relief is skipped above £500,000.</p>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+  <div class="readout-label">SDLT due</div>
+  <div class="readout-value big" id="resultValue">—</div>
+  <div class="readout-breakdown">
+    <div class="readout-row"><span>Band tax</span><span id="outBase">—</span></div>
+    <div class="readout-row"><span>Additional-property surcharge</span><span id="outAdd">—</span></div>
+    <div class="readout-row"><span>Non-resident surcharge</span><span id="outNr">—</span></div>
+    <div class="readout-row"><span>Effective rate</span><span id="outRate">—</span></div>
+    <div class="readout-row"><span>Price plus SDLT</span><span id="outTotal">—</span></div>
+  </div>
+  <p class="hint" id="outNote" style="margin-top:12px;"></p>
+</div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Why this is its own page</h2>
+<p>The user job here is “how much tax do I pay HMRC on this purchase price?” That number is a function of <strong>price × buyer type × surcharges</strong>, not of the mortgage term. Putting SDLT on the repayment calculator would either freeze stale bands inside a monthly tool or hide a distinct answer. The bands below are published GOV.UK residential rates, not invented figures.</p>
+
+<h2>Residential bands from 1 April 2025</h2>
+<p>SDLT is charged on slices of the price, not on the whole amount at the top rate.</p>
+<div class="formula-box" role="region" aria-label="Standard SDLT bands">
+<p><strong>Standard residential (only or replacement main home)</strong><br>
+£0–£125,000 → 0%<br>
+£125,001–£250,000 → 2%<br>
+£250,001–£925,000 → 5%<br>
+£925,001–£1.5 million → 10%<br>
+Above £1.5 million → 12%</p>
+<p><strong>First-time buyers</strong> (price £500,000 or less)<br>
+£0–£300,000 → 0%<br>
+£300,001–£500,000 → 5%<br>
+If the price is over £500,000, first-time buyer relief does not apply — standard bands are used on the whole price.</p>
+<p><strong>Surcharges</strong><br>
+Additional residential property, usually +5% of the whole price (from £40,000).<br>
+Non-UK resident, +2% of the whole price, on top of any other rate.</p>
+</div>
+<p>Source: <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK residential SDLT rates</a> and the <a href="https://www.gov.uk/guidance/stamp-duty-land-tax-buying-an-additional-residential-property" rel="noopener noreferrer">higher rates for additional properties</a>. Re-check those pages before you complete — HMRC, not this calculator, is the authority.</p>
+<p class="hint">By Suhaib Hassan · Bands verified 20 Sep 2026 against GOV.UK · Method v1.0-UK-SDLT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+<h2 id="worked-example">Worked examples (pre-computed)</h2>
+<p>These use the same slices as the calculator, so the answer is readable if JavaScript is off. They match the published GOV.UK examples where GOV.UK published one.</p>
+<div class="formula-box" role="region" aria-label="SDLT worked examples">
+<p><strong>1. Replacing a main home at £295,000</strong> (GOV.UK example)<br>
+0% on £125,000 = £0<br>
+2% on the next £125,000 = £2,500<br>
+5% on the last £45,000 = £2,250<br>
+<strong>SDLT = £4,750</strong></p>
+<p><strong>2. First-time buyer at £500,000</strong> (GOV.UK example)<br>
+0% on £300,000 = £0<br>
+5% on the remaining £200,000 = £10,000<br>
+<strong>SDLT = £10,000</strong></p>
+<p><strong>3. Same £300,000, three buyer types</strong><br>
+First-time buyer → £0<br>
+Only / replacement home → £5,000<br>
+Additional property → £20,000 (£5,000 bands + £15,000 surcharge)<br>
+The buyer type changes the tax by £20,000 on the same price. That is why this is not a currency overlay of a generic sales-tax page.</p>
+</div>
+
+<h2>What this figure does not include</h2>
+<ul>
+  <li><strong>Scotland or Wales.</strong> LBTT and LTT are different statutes with different bands. This page does not mint a city or nation token-swap.</li>
+  <li><strong>Monthly mortgage cost.</strong> Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment vs interest-only calculator</a> for instalments.</li>
+  <li><strong>Company, mixed-use, shared ownership or linked transactions.</strong> Those have separate HMRC rules. Unknown stays unknown.</li>
+  <li><strong>Lease net present value on rent.</strong> New leases can owe extra SDLT on the rent NPV; this tool prices the premium / purchase price only.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>Is stamp duty the same as a monthly mortgage payment?</h3><p>No. SDLT is paid once, to HMRC, when you buy. The mortgage calculator answers a different job.</p></div>
+<div class="faq-item"><h3>Does this cover Scotland or Wales?</h3><p>No. Scotland uses LBTT and Wales uses LTT. Different bands mean a different page would be required — not a renamed copy of this one.</p></div>
+<div class="faq-item"><h3>When did these SDLT rates start?</h3><p>1 April 2025 for the current residential nil-rate band, first-time buyer relief and additional-property higher rates.</p></div>
+<div class="faq-item"><h3>What if I replace my main home?</h3><p>If you are replacing your only main residence, leave Additional property unchecked. Higher rates can apply temporarily if you still own the old home on completion day; refunds are a separate HMRC process.</p></div>
+<div class="faq-item"><h3>Are these figures an HMRC assessment?</h3><p>No. Confirm with a conveyancer. This page is a planning estimate from published bands.</p></div>
+
+<h2 id="next-job">Next calculation</h2>
+<div class="tool-grid">
+  <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">1. Compare 25-year repayment vs interest-only <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/uk-mortgage-overpayment-calculator.html">2. Model an overpayment on the loan you take <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/house-affordability-calculator.html">3. Check the purchase price against income <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/down-payment-calculator.html">4. Size the deposit <span class="arrow">→</span></a>
+</div>
+<p class="hint">Estimate only. England & NI residential SDLT · method v1.0-UK-SDLT · last verified 20 Sep 2026 · <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+(function () {
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+  const priceEl = document.getElementById("price");
+  const buyerEl = document.getElementById("buyer");
+  const addEl = document.getElementById("additional");
+  const nrEl = document.getElementById("nonresident");
+  const STD = [[125000, 0], [250000, 0.02], [925000, 0.05], [1500000, 0.10], [Infinity, 0.12]];
+  const FTB = [[300000, 0], [500000, 0.05]];
+
+  function taxOn(price, table) {
+    let rem = price, prev = 0, total = 0;
+    for (let i = 0; i < table.length; i++) {
+      const up = table[i][0];
+      const rate = table[i][1];
+      const width = (up === Infinity ? rem : up - prev);
+      const taxable = Math.max(0, Math.min(rem, width));
+      total += taxable * rate;
+      rem -= taxable;
+      prev = up;
+      if (rem <= 0) break;
+    }
+    return total;
+  }
+
+  function render() {
+    const price = Math.max(0, +priceEl.value || 0);
+    const ftbEligible = buyerEl.value === "ftb" && price <= 500000 && !addEl.checked;
+    const base = taxOn(price, ftbEligible ? FTB : STD);
+    const add = (addEl.checked && price >= 40000) ? price * 0.05 : 0;
+    const nr = nrEl.checked ? price * 0.02 : 0;
+    const due = base + add + nr;
+    document.getElementById("resultValue").textContent = gbp.format(due);
+    document.getElementById("outBase").textContent = gbp.format(base);
+    document.getElementById("outAdd").textContent = gbp.format(add);
+    document.getElementById("outNr").textContent = gbp.format(nr);
+    document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
+    document.getElementById("outTotal").textContent = gbp.format(price + due);
+    let note = "";
+    if (buyerEl.value === "ftb" && addEl.checked) note = "First-time buyer relief is not combined with the additional-property surcharge. Standard bands plus 5% are used.";
+    else if (buyerEl.value === "ftb" && price > 500000) note = "Price is over £500,000, so first-time buyer relief does not apply. Standard bands are used.";
+    else if (addEl.checked && price < 40000) note = "Additional-property higher rates usually start at £40,000. No surcharge applied.";
+    document.getElementById("outNote").textContent = note;
+  }
+
+  ["price", "buyer", "additional", "nonresident"].forEach(function (id) {
+    const el = document.getElementById(id);
+    el.addEventListener("input", render);
+    el.addEventListener("change", render);
+  });
+  render();
+})();
+</script>
+</body>
+</html>
