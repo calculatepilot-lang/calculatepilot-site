@@ -135,3 +135,17 @@ a.platform-card:hover{border-color:var(--signal);text-decoration:none}
 .faq-chevron{flex-shrink:0;color:var(--slate);transition:transform .15s}
 .faq-item[open] .faq-chevron{transform:rotate(180deg);color:var(--signal)}
 .faq-item p{color:var(--slate);margin:0;padding:0 20px 18px;border-top:1px solid var(--line-soft);padding-top:14px}
+
+/* --- Health trust component (P0 rollout, Sep 2026 audit) --- */
+.trust-box{background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.trust-box h3{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-bottom:12px;font-family:var(--font-mono);font-weight:700}
+.trust-box .trust-scope{font-size:var(--fs-sm);color:var(--ink);margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.trust-box .trust-scope strong{color:var(--signal-dark)}
+.trust-box .trust-section{margin-bottom:18px}
+.trust-box .trust-section:last-of-type{margin-bottom:0}
+.trust-box ul{margin:0;padding-left:20px}
+.trust-box li{margin-bottom:6px;font-size:var(--fs-sm);color:var(--ink)}
+.trust-box .trust-sources a{color:var(--signal);font-weight:500}
+.trust-ymyl{background:var(--signal-soft);border:1px solid var(--signal-soft-hover);border-radius:var(--radius-sm);padding:14px 16px;font-size:var(--fs-sm);color:var(--signal-dark);margin-bottom:18px}
+.trust-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:var(--fs-xs);color:var(--slate-light);margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft)}
+@media (max-width:520px){.trust-meta{flex-direction:column;gap:4px}}
