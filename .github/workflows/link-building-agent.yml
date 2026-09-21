@@ -2,7 +2,7 @@ name: Link Building Agent
 
 on:
   schedule:
-    - cron: '0 9 * * 1'  # every Monday 09:00 UTC
+    - cron: '0 9 * * *'  # every day 09:00 UTC
   workflow_dispatch: {}
 
 permissions:
@@ -41,5 +41,5 @@ jobs:
             echo 'No log changes.'
             exit 0
           fi
-          git commit -m 'Weekly link-building agent run'
+          git commit -m 'Daily link-building agent run'
           git push origin main
