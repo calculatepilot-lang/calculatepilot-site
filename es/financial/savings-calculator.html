@@ -1,1 +1,88 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de ahorro | CalculatePilot</title><meta name="description" content="Calcula gratis el crecimiento estimado de tus ahorros con interés compuesto y aportaciones periódicas."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/savings-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/savings-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/savings-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/savings-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/savings-calculator.html"><link rel="stylesheet" href="/css/styles.css"><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a></div></header><main><section class="calc-page-head"><div class="container"><h1>Calculadora de ahorro</h1><p class="lede">Estima cuánto pueden crecer tus ahorros mediante interés compuesto y aportaciones mensuales.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Ahorro inicial <input id="p" type="number" value="5000"></label><label>Aportación mensual <input id="c" type="number" value="300"></label><label>Interés anual (%) <input id="r" type="number" value="4"></label><label>Plazo (años) <input id="y" type="number" value="10"></label><button onclick="calc()">Calcular</button><div id="o"></div></div><div class="prose"><h2>Cómo funciona</h2><p>La proyección supone una rentabilidad anual constante con capitalización mensual. El resultado es una estimación y no garantiza una rentabilidad futura.</p></div></div></section></main><script>function calc(){let b=+p.value,c0=+c.value,r=+r.value/100/12,n=+y.value*12;for(let i=0;i<n;i++)b=b*(1+r)+c0;o.innerHTML='<h2>Ahorro estimado: '+b.toLocaleString('es-ES',{style:'currency',currency:'EUR'})+'</h2>';}</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de ahorro | CalculatePilot</title>
+<meta name="description" content="Crecimiento con saldo inicial, cuota y tipo.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/savings-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/savings-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/savings-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/savings-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/savings-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/savings-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260922" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+<ul class="nav-links">
+<li><a href="/es/financial-calculators.html">Finanzas</a></li>
+<li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+<li><a href="/es/math-calculators.html">Matemáticas</a></li>
+<li><a href="/es/other-calculators.html">Día a día</a></li>
+<li><a href="/es/guides/index.html">Guías</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+</div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Finanzas</a> / Calculadora de ahorro</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Calculadora de ahorro</h1><p class="lede">Saldo inicial más cuota mensual, capitalizado cada mes.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+<div class="field"><label for="p">Saldo inicial</label><input type="number" id="p" value="5000" min="0" step="any"></div>
+<div class="field"><label for="c">Aportación mensual</label><input type="number" id="c" value="300" min="0" step="any"></div>
+<div class="field"><label for="r">Tipo anual (%)</label><input type="number" id="r" value="4" min="0" step="any"></div>
+<div class="field"><label for="y">Plazo (años)</label><input type="number" id="y" value="10" min="0" step="any"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="readout-label">Saldo estimado</div>
+<div class="readout-value big" id="o1">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Aportaciones</span><span id="o2">—</span></div>
+<div class="readout-row"><span>Intereses</span><span id="o3">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Qué calcula</h2>
+<p>Fija un saldo inicial y una cuota mensual. La calculadora capitaliza ambos cada mes.</p>
+<p>El tipo no cambia. Comisiones e impuestos no entran.</p>
+<p>Sin cuota use la <a href="/es/financial/compound-interest-calculator.html">calculadora de interés compuesto</a>. Un plazo fijo está en la <a href="/es/financial/cd-calculator.html">calculadora de depósito</a>. La jubilación está en la <a href="/es/financial/retirement-calculator.html">calculadora de jubilación</a>.</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+<p style="color:var(--slate);font-size:0.88rem;margin-top:10px;max-width:260px;">Calculadoras gratis y precisas para decidir sin ruido.</p></div>
+<div><h4>Finanzas</h4><ul>
+<li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+<li><a href="/es/financial/loan-calculator.html">Préstamo</a></li>
+</ul></div>
+<div><h4>Guías</h4><ul>
+<li><a href="/es/guides/index.html">Guías</a></li>
+<li><a href="/methodology.html">Metodología</a></li>
+</ul></div>
+<div><h4>Empresa</h4><ul>
+<li><a href="/about.html">Sobre nosotros</a></li>
+<li><a href="/privacy.html">Privacidad</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 CalculatePilot. <a href="/methodology.html">Metodología →</a></span>
+<span><a href="/es/">Todas las calculadoras →</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script src="/js/locale-chrome.js?v=20260922"></script>
+<script>
+function g(id){return document.getElementById(id).value}
+function o(id,v){document.getElementById(id).textContent=v}
+function money(id,v){o(id,new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v))}
+function calc(){
+const P=+g('p')||0,c=+g('c')||0,r=(+g('r')||0)/100/12,n=(+g('y')||0)*12;
+let fv=P;
+if(r) fv=P*Math.pow(1+r,n)+c*((Math.pow(1+r,n)-1)/r);
+else fv=P+c*n;
+const paid=P+c*n;
+money('o1',fv); money('o2',paid); money('o3',Math.max(0,fv-paid));
+}
+calc();
+</script>
+</body></html>
