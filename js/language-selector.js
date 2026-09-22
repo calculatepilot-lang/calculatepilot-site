@@ -9,6 +9,7 @@
     document.head.appendChild(script);
   }
   load('/js/favicon.js?v=20260919');
+  load('/js/locale-chrome.js?v=20260922');
   if (window.__cpLangInit || document.querySelector('script[src*="language-switcher.js"]')) {
     if (typeof window.__cpMountLanguage === 'function') window.__cpMountLanguage();
     return;
