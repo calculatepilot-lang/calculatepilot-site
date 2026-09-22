@@ -1,1 +1,58 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculateur de CD | CalculatePilot</title><meta name="description" content="Estimez la valeur future d'un certificat de dépôt selon le capital, le taux annuel, la durée et la fréquence de capitalisation."><link rel="canonical" href="https://www.calculatepilot.com/fr/financial/cd-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/cd-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/cd-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/cd-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/cd-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/cd-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/fr/financial-calculators.html">Finance</a></li><li><a href="/health-calculators.html">Santé</a></li><li><a href="/math-calculators.html">Maths</a></li><li><a href="/other-calculators.html">Quotidien</a></li><li><a href="/guides/">Guides</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculatrices financières</a> / CD</nav></div><section class="calc-page-head"><div class="container"><h1>Calculateur de CD</h1><p class="lede">Estimez les intérêts et la valeur finale d'un certificat de dépôt.</p></div></section><section><div class="container calc-layout"><form class="calc-card"><div class="field"><label>Dépôt initial</label><input id="p" type="number" value="10000" min="0"></div><div class="field-row"><div class="field"><label>Taux annuel (%)</label><input id="r" type="number" value="4.5" step="0.1"></div><div class="field"><label>Durée (années)</label><input id="t" type="number" value="3" step="0.5" min="0"></div></div><div class="field"><label>Capitalisations par an</label><input id="m" type="number" value="12" min="1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Valeur finale</div><div class="readout-value big" id="out">—</div><div class="readout-breakdown"><div class="readout-row"><span>Intérêts gagnés</span><span id="interest">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Comment fonctionne le calculateur de CD ?</h2><p>Le calcul applique la capitalisation composée au dépôt initial. Les résultats sont des estimations et les conditions réelles d'un certificat de dépôt peuvent varier selon l'établissement.</p></div></section></main><script>function calc(){let P=+p.value||0,R=(+r.value||0)/100,T=+t.value||0,M=+m.value||1;let v=P*Math.pow(1+R/M,M*T);out.textContent=v.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2});interest.textContent=(v-P).toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})}document.querySelectorAll('input').forEach(x=>x.addEventListener('input',calc));calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de dépôt à terme | CalculatePilot</title>
+<meta name="description" content="Calculez le capital final d’un dépôt à terme.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/financial/cd-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/cd-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/cd-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/cd-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/cd-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/cd-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260919" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+<ul class="nav-links">
+<li><a href="/fr/financial-calculators.html">Finance</a></li>
+<li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+<li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+<li><a href="/fr/other-calculators.html">Quotidien</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+</div></header>
+<main>
+<section class="calc-page-head"><div class="container"><h1>Calculateur de dépôt à terme</h1><p class="lede">Capital final d’un dépôt à terme à intérêts annuels.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+<div class="field"><label for="p">Montant</label><input type="number" id="p" value="10000" step="100" min="0"></div>
+<div class="field"><label for="r">Taux annuel (%)</label><input type="number" id="r" value="3.2" step="0.1" min="0"></div>
+<div class="field"><label for="y">Durée (ans)</label><input type="number" id="y" value="2" step="0.5" min="0"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="readout-label">Capital final</div>
+<div class="readout-value big" id="o1">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Intérêts</span><span id="o2">—</span></div>
+<div class="readout-row"><span>Placement</span><span id="o3">—</span></div>
+</div></div></aside>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot.</span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+function g(id){return document.getElementById(id).value}
+function o(id,v){document.getElementById(id).textContent=v}
+function money(id,v){o(id,new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v))}
+function calc(){
+const P=+g('p')||0,r=(+g('r')||0)/100,y=+g('y')||0;
+const fv=P*Math.pow(1+r,y);
+money('o1',fv); money('o2',fv-P); money('o3',P);
+}
+calc();
+</script>
+</body></html>
