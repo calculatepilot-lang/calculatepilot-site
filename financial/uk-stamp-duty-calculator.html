@@ -48,7 +48,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "Is stamp duty the same as a monthly mortgage payment?", "acceptedAnswer": {"@type": "Answer", "text": "No. Stamp Duty Land Tax is a one-off purchase cost paid to HMRC. The UK repayment calculator estimates monthly instalments. Mixing them into one URL would hide the number that actually changes."}},
-    {"@type": "Question", "name": "Does this cover Scotland or Wales?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses Land and Buildings Transaction Tax and Wales uses Land Transaction Tax. Those are different band tables, so they are not token-swapped copies of this page."}},
+    {"@type": "Question", "name": "Does this cover Scotland or Wales?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses the Scotland LBTT Calculator (different bands, 8% Additional Dwelling Supplement). Wales uses the Wales LTT Calculator (separate higher-rate table, no first-time buyer relief). Those are different statutes, not token-swapped copies of this page."}},
     {"@type": "Question", "name": "When did these SDLT rates start?", "acceptedAnswer": {"@type": "Answer", "text": "The current residential bands, first-time buyer relief (£300,000 nil-rate up to a £500,000 price cap) and the 5% additional-property surcharge apply to purchases completing on or after 1 April 2025."}},
     {"@type": "Question", "name": "What if I replace my main home?", "acceptedAnswer": {"@type": "Answer", "text": "If the purchase replaces your only main residence and you sell the previous main home within the GOV.UK replacement window, the extra 5% usually does not apply. Leave Additional property unchecked in that case."}},
     {"@type": "Question", "name": "Are these figures an HMRC assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published GOV.UK residential bands. Confirm the return with a conveyancer. Company purchases, mixed-use, shared ownership and linked transactions are out of scope."}}
@@ -139,7 +139,7 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
 
 <h2>What this figure does not include</h2>
 <ul>
-  <li><strong>Scotland or Wales.</strong> LBTT and LTT are different statutes with different bands. This page does not mint a city or nation token-swap.</li>
+  <li><strong>Scotland or Wales.</strong> Use the <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT Calculator</a> or the <a href="/financial/wales-ltt-calculator.html">Wales LTT Calculator</a>. Different statutes, not token-swaps of this page.</li>
   <li><strong>Monthly mortgage cost.</strong> Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment vs interest-only calculator</a> for instalments.</li>
   <li><strong>Company, mixed-use, shared ownership or linked transactions.</strong> Those have separate HMRC rules. Unknown stays unknown.</li>
   <li><strong>Lease net present value on rent.</strong> New leases can owe extra SDLT on the rent NPV; this tool prices the premium / purchase price only.</li>
@@ -147,17 +147,17 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
 
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><h3>Is stamp duty the same as a monthly mortgage payment?</h3><p>No. SDLT is paid once, to HMRC, when you buy. The mortgage calculator answers a different job.</p></div>
-<div class="faq-item"><h3>Does this cover Scotland or Wales?</h3><p>No. Scotland uses LBTT and Wales uses LTT. Different bands mean a different page would be required — not a renamed copy of this one.</p></div>
+<div class="faq-item"><h3>Does this cover Scotland or Wales?</h3><p>No. Scotland is the <a href="/financial/scotland-lbtt-calculator.html">LBTT calculator</a> (nil-rate £145,000, 8% ADS). Wales is the <a href="/financial/wales-ltt-calculator.html">LTT calculator</a> (£225,000 nil-rate, no first-time buyer relief, separate higher-rate table).</p></div>
 <div class="faq-item"><h3>When did these SDLT rates start?</h3><p>1 April 2025 for the current residential nil-rate band, first-time buyer relief and additional-property higher rates.</p></div>
 <div class="faq-item"><h3>What if I replace my main home?</h3><p>If you are replacing your only main residence, leave Additional property unchecked. Higher rates can apply temporarily if you still own the old home on completion day; refunds are a separate HMRC process.</p></div>
 <div class="faq-item"><h3>Are these figures an HMRC assessment?</h3><p>No. Confirm with a conveyancer. This page is a planning estimate from published bands.</p></div>
 
 <h2 id="next-job">Next calculation</h2>
 <div class="tool-grid">
-  <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">1. Compare 25-year repayment vs interest-only <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/uk-mortgage-overpayment-calculator.html">2. Model an overpayment on the loan you take <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/house-affordability-calculator.html">3. Check the purchase price against income <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/down-payment-calculator.html">4. Size the deposit <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/scotland-lbtt-calculator.html">1. Same price under Scottish LBTT <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/wales-ltt-calculator.html">2. Same price under Welsh LTT <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">3. Compare 25-year repayment vs interest-only <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/uk-mortgage-overpayment-calculator.html">4. Model an overpayment on the loan you take <span class="arrow">→</span></a>
 </div>
 <p class="hint">Estimate only. England & NI residential SDLT · method v1.0-UK-SDLT · last verified 20 Sep 2026 · <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
 </div></section>
