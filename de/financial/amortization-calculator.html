@@ -1,1 +1,68 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tilgungsrechner | CalculatePilot</title><meta name="description" content="Berechnen Sie Monatsrate, Tilgung, Zinsen und Gesamtkosten eines Darlehens."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/amortization-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/amortization-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/amortization-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/amortization-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/amortization-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/amortization-calculator.html"><meta property="og:title" content="Tilgungsrechner | CalculatePilot"><meta property="og:description" content="Monatsrate, Tilgung, Zinsen und Gesamtkosten berechnen."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/de/financial/amortization-calculator.html"><meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260905" defer></script><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/health-calculators.html">Gesundheit</a></li><li><a href="/math-calculators.html">Mathematik</a></li><li><a href="/other-calculators.html">Alltag</a></li><li><a href="/guides/">Ratgeber</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Tilgungsrechner</nav></div><section class="calc-page-head"><div class="container"><h1>Tilgungsrechner</h1><p class="lede">Berechnen Sie Monatsrate und Aufteilung zwischen Tilgung und Zinsen.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="f"><div class="field"><label>Darlehensbetrag</label><input id="p" type="number" value="300000" min="0"></div><div class="field-row"><div class="field"><label>Zinssatz (%)</label><input id="r" type="number" value="6.5" step="0.1" min="0"></div><div class="field"><label>Laufzeit (Jahre)</label><input id="n" type="number" value="30" min="1"></div></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Monatsrate</div><div class="readout-value big" id="m">—</div><div class="readout-breakdown"><div class="readout-row"><span>Tilgung im 1. Monat</span><span id="cp">—</span></div><div class="readout-row"><span>Zinsen im 1. Monat</span><span id="ci">—</span></div><div class="readout-row"><span>Gesamtzinsen</span><span id="ti">—</span></div><div class="readout-row"><span>Gesamtzahlung</span><span id="tp">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>So funktioniert die Tilgung</h2><p>Bei einem Darlehen mit festem Zinssatz enthält jede Monatsrate Zinsen und Tilgung. Zu Beginn ist der Zinsanteil höher, weil die Restschuld am größten ist.</p><h2>Zusätzliche Tilgung</h2><p>Eine frühere Reduzierung der Restschuld kann die künftig anfallenden Zinsen verringern. Prüfen Sie mögliche Bedingungen für Sondertilgungen in Ihrem Vertrag.</p><h2>Häufige Fragen</h2><div class="faq-item"><h3>Warum sind die Zinsen am Anfang so hoch?</h3><p>Die Zinsen werden auf die verbleibende Darlehensschuld berechnet, die zu Beginn am höchsten ist.</p></div><div class="faq-item"><h3>Ist dies ein vollständiger Tilgungsplan?</h3><p>Der Rechner zeigt Monatsrate, erste Aufteilung und Gesamtsummen, aber keinen vollständigen monatlichen Bank-Tilgungsplan.</p></div></div></section></main><footer class="site-footer"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a></div></footer><script>function c(){let p=+document.getElementById('p').value||0,r=(+document.getElementById('r').value||0)/1200,n=(+document.getElementById('n').value||1)*12,m=r?p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):p/n,interest=p*r,principal=m-interest,total=m*n;const f=x=>'$'+x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});document.getElementById('m').textContent=f(m);document.getElementById('cp').textContent=f(principal);document.getElementById('ci').textContent=f(interest);document.getElementById('ti').textContent=f(Math.max(0,total-p));document.getElementById('tp').textContent=f(total)}document.querySelectorAll('#f input').forEach(x=>x.addEventListener('input',c));c();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tilgungsplanrechner | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie Rate und Gesamtzinsen eines Annuitätendarlehens.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/amortization-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260919" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+<ul class="nav-links">
+<li><a href="/de/financial-calculators.html">Finanzen</a></li>
+<li><a href="/de/health-calculators.html">Gesundheit & Fitness</a></li>
+<li><a href="/de/math-calculators.html">Mathematik</a></li>
+<li><a href="/de/other-calculators.html">Alltag</a></li>
+<li><a href="/guides/index.html">Ratgeber</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+</div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Tilgungsplanrechner</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Tilgungsplanrechner</h1><p class="lede">Monatliche Rate, Zinsen und Tilgung eines Annuitätendarlehens.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+<div class="field-row">
+<div class="field"><label for="a">Darlehenssumme</label><input type="number" id="a" value="200000" step="100" min="0"></div>
+<div class="field"><label for="b">Sollzins (% p. a.)</label><input type="number" id="b" value="3.5" step="0.1" min="0"></div>
+</div>
+<div class="field"><label for="c">Laufzeit (Jahre)</label><input type="number" id="c" value="25" step="1" min="1"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="readout-label">Monatsrate</div>
+<div class="readout-value big" id="o1">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Zinsen gesamt</span><span id="o2">—</span></div>
+<div class="readout-row"><span>Gesamtzahlung</span><span id="o3">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Annuität</h2><p>Feste Rate, anfangs mehr Zins, später mehr Tilgung. Sondertilgungen sind hier nicht modelliert.</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot.</span><a href="/de/">Alle Rechner →</a></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+function calc(){
+  const P=+document.getElementById('a').value||0;
+  const r=(+document.getElementById('b').value||0)/100/12;
+  const n=(+document.getElementById('c').value||0)*12;
+  const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+  if(!n||!P){document.getElementById('o1').textContent='—';return;}
+  const m=r?P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):P/n;
+  document.getElementById('o1').textContent=fmt(m);
+  document.getElementById('o3').textContent=fmt(m*n);
+  document.getElementById('o2').textContent=fmt(Math.max(0,m*n-P));
+}
+calc();
+</script>
+</body></html>
