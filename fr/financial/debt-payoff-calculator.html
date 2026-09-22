@@ -1,1 +1,86 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculateur de remboursement de dette | CalculatePilot</title><meta name="description" content="Estimez le temps nécessaire pour rembourser une dette et le total des intérêts avec des paiements mensuels fixes."><link rel="canonical" href="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html"><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/fr/financial-calculators.html">Finance</a></li><li><a href="/fr/health-calculators.html">Santé</a></li><li><a href="/fr/math-calculators.html">Maths</a></li><li><a href="/fr/other-calculators.html">Quotidien</a></li><li><a href="/fr/guides/">Guides</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculatrices financières</a> / Remboursement de dette</nav><section class="calc-page-head"><h1>Calculateur de remboursement de dette</h1><p class="lede">Estimez le nombre de mois et les intérêts nécessaires pour rembourser une dette.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Solde de la dette</label><input id="p" type="number" value="10000" min="0"></div><div class="field"><label>Taux annuel (%)</label><input id="r" type="number" value="18" step="0.1" min="0"></div><div class="field"><label>Paiement mensuel</label><input id="m" type="number" value="300" min="1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Durée estimée</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Total payé</span><span id="paid">—</span></div><div class="readout-row"><span>Intérêts</span><span id="interest">—</span></div></div></aside></div><section class="content-block prose"><h2>Comment fonctionne le calcul ?</h2><p>Le calcul applique un taux mensuel au solde restant avant chaque paiement. Il suppose un taux constant et des paiements réguliers.</p><h2>Réduire le coût de la dette</h2><p>Un paiement mensuel plus élevé réduit généralement la durée et les intérêts. Comparez plusieurs scénarios avant de modifier votre plan de remboursement.</p></section></div></main><script>function calc(){const p=+document.getElementById('p').value||0,r=(+document.getElementById('r').value||0)/100/12,m=+document.getElementById('m').value||0;if(!p||!m){return}let n;if(!r)n=Math.ceil(p/m);else if(m<=p*r){document.getElementById('out').textContent='Paiement insuffisant';document.getElementById('paid').textContent='—';document.getElementById('interest').textContent='—';return}else n=Math.ceil(-Math.log(1-p*r/m)/Math.log(1+r));const bal=p;const total=m*n;const fmt=v=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=Math.floor(n/12)+' an(s) '+n%12+' mois';document.getElementById('paid').textContent=fmt(total);document.getElementById('interest').textContent=fmt(Math.max(0,total-bal))}calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de remboursement de dettes | CalculatePilot</title>
+<meta name="description" content="Calculez le délai de remboursement d’une dette et les intérêts payés selon votre mensualité. Gratuit, formule expliquée, sans inscription.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html">
+<meta property="og:title" content="Calculateur de remboursement de dettes | CalculatePilot">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260919" defer></script>
+<script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé & fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/guides/index.html">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculateurs financiers</a> / Remboursement de dettes</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Calculateur de remboursement de dettes</h1><p class="lede">Voyez en combien de mois la dette est soldée et combien d’intérêts vous payez.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+  <div class="field-row">
+    <div class="field"><label for="balance">Solde actuel</label><input type="number" id="balance" value="6000" step="100" min="0"></div>
+    <div class="field"><label for="apr">Taux annuel (%)</label><input type="number" id="apr" value="21.9" step="0.1" min="0"></div>
+  </div>
+  <div class="field"><label for="monthlyPayment">Mensualité</label><input type="number" id="monthlyPayment" value="250" step="10" min="1"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+  <div class="readout-label">Durée de remboursement</div>
+  <div class="readout-value big" id="resultValue">—</div>
+  <div class="readout-breakdown">
+    <div class="readout-row"><span>Intérêts totaux</span><span id="outTotalInterest">—</span></div>
+    <div class="readout-row"><span>Total versé</span><span id="outTotalPaid">—</span></div>
+  </div>
+</div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Comment fonctionne le calcul</h2>
+<p>Le calculateur applique le taux mensuel au solde restant, puis retranche la mensualité jusqu’à solde nul.</p>
+<div class="formula-box">n = −ln(1 − P·r / M) / ln(1 + r)</div>
+<h2>Pourquoi la mensualité compte</h2>
+<p>Sur une carte de crédit, un paiement proche du minimum peut durer des années. Augmenter un peu la mensualité réduit souvent fortement le délai et le coût.</p>
+<h2>Un exemple</h2>
+<p>6 000 € à 21,9 % et 250 €/mois : environ 32 mois. À 350 €/mois, le délai passe à environ 21 mois.</p>
+<div class="tool-grid">
+<a href="/fr/financial/loan-calculator.html" class="tool-link">Calculateur de prêt <span class="arrow">→</span></a>
+<a href="/guides/debt-payoff-calculator-guide.html" class="tool-link">Guide (EN) <span class="arrow">→</span></a>
+</div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot.</span><a href="/fr/">Tous les calculateurs →</a></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+function calc(){
+  const p=+document.getElementById('balance').value||0;
+  const r=(+document.getElementById('apr').value||0)/100/12;
+  const m=+document.getElementById('monthlyPayment').value||0;
+  const fmt=v=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+  if(!p||!m){document.getElementById('resultValue').textContent='—';return;}
+  if(r&&m<=p*r){document.getElementById('resultValue').textContent='Mensualité trop faible';document.getElementById('outTotalInterest').textContent='—';document.getElementById('outTotalPaid').textContent='—';return;}
+  const n=r?Math.ceil(-Math.log(1-p*r/m)/Math.log(1+r)):Math.ceil(p/m);
+  document.getElementById('resultValue').textContent=Math.floor(n/12)+' ans '+(n%12)+' mois';
+  document.getElementById('outTotalPaid').textContent=fmt(m*n);
+  document.getElementById('outTotalInterest').textContent=fmt(Math.max(0,m*n-p));
+}
+calc();
+</script>
+</body></html>
