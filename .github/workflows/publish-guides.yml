@@ -21,58 +21,85 @@ jobs:
           fetch-depth: 0
 
       - name: Validate and publish guide metadata
-        env:
-          GUIDE_ID: cp-guide-debt-payoff-payment-strategy-20260902
-          GUIDE_SLUG: debt-payoff-calculator-guide.html
-          GUIDE_URL: https://www.calculatepilot.com/guides/debt-payoff-calculator-guide.html
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re, sys
+          from datetime import date
+          import re
 
           root = Path('.')
-          guide = root / 'guides' / 'debt-payoff-calculator-guide.html'
           index = root / 'guides' / 'index.html'
-          sitemap = root / 'sitemap.xml'
-          guide_id = 'cp-guide-debt-payoff-payment-strategy-20260902'
-          guide_url = 'https://www.calculatepilot.com/guides/debt-payoff-calculator-guide.html'
+          sitemap = root / 'sitemap-guides.xml'
+          today = date.today().isoformat()
 
-          if not guide.exists():
-              raise SystemExit('Guide file not found')
-
-          ids = []
-          for p in sorted((root / 'guides').glob('*.html')):
-              text = p.read_text(encoding='utf-8', errors='strict')
-              ids.extend(re.findall(r'^id:\s*([^\s]+)', text, flags=re.M))
-          if ids.count(guide_id) != 1:
-              raise SystemExit(f'Duplicate-publication check failed: {guide_id!r} occurs {ids.count(guide_id)} times')
-
-          idx = index.read_text(encoding='utf-8')
-          link = '<a href="/guides/debt-payoff-calculator-guide.html" class="tool-link">Debt Payoff Calculator Guide <span class="arrow">→</span></a>'
-          if 'href="/guides/debt-payoff-calculator-guide.html"' not in idx:
-              marker = '</div>\n<h2>Money &amp; health explainers</h2>'
-              if marker not in idx:
-                  raise SystemExit('Guides index insertion marker not found; refusing to rewrite index')
-              idx = idx.replace(marker, link + '\n' + marker, 1)
-              index.write_text(idx, encoding='utf-8')
+          if not sitemap.exists():
+              raise SystemExit('sitemap-guides.xml not found')
+          if not index.exists():
+              raise SystemExit('guides/index.html not found')
 
           sm = sitemap.read_text(encoding='utf-8')
-          if f'<loc>{guide_url}</loc>' not in sm:
-              marker = '</urlset>'
-              if marker not in sm:
-                  raise SystemExit('Sitemap closing marker not found; refusing to rewrite sitemap')
-              sm = sm.replace(marker, f'  <url><loc>{guide_url}</loc></url>\n{marker}', 1)
+          if '</urlset>' not in sm:
+              raise SystemExit('sitemap-guides.xml is missing </urlset>; refusing to rewrite')
+
+          ids = []
+          changed = False
+          for p in sorted((root / 'guides').glob('*.html')):
+              if p.name == 'index.html':
+                  continue
+              text = p.read_text(encoding='utf-8', errors='strict')
+              ids.extend(re.findall(r'^id:\s*([^\s]+)', text, flags=re.M))
+              slug = p.name
+              href = f'/guides/{slug}'
+              url = f'https://www.calculatepilot.com/guides/{slug}'
+
+              idx = index.read_text(encoding='utf-8')
+              if f'href="{href}"' not in idx:
+                  # Prefer the first finance grid; fall back to first tool-grid.
+                  inserted = False
+                  for marker in (
+                      '<div class="tool-grid">\n',
+                  ):
+                      if marker in idx:
+                          title = re.search(r'<title>([^<]+)</title>', text, flags=re.I)
+                          label = title.group(1).split('|')[0].strip() if title else slug.replace('-', ' ').replace('.html', '')
+                          link = f'<a href="{href}" class="tool-link">{label} <span class="arrow">→</span></a>\n'
+                          index.write_text(idx.replace(marker, marker + link, 1), encoding='utf-8')
+                          inserted = True
+                          changed = True
+                          break
+                  if not inserted:
+                      print(f'WARN: no index insertion marker for {slug}; leaving guides/index.html unchanged')
+
+              if f'<loc>{url}</loc>' not in sm:
+                  entry = (
+                      f'  <url>\n'
+                      f'    <loc>{url}</loc>\n'
+                      f'    <lastmod>{today}</lastmod>\n'
+                      f'    <changefreq>weekly</changefreq>\n'
+                      f'  </url>\n'
+                  )
+                  sm = sm.replace('</urlset>', entry + '</urlset>', 1)
+                  changed = True
+                  print(f'Added {url} to sitemap-guides.xml')
+
+          dupes = sorted({i for i in ids if ids.count(i) > 1})
+          if dupes:
+              raise SystemExit(f'Duplicate-publication check failed: {dupes}')
+
+          if changed:
               sitemap.write_text(sm, encoding='utf-8')
+          else:
+              print('Guides already present in index/sitemap; nothing to rewrite')
           PY
 
       - name: Commit generated publication updates
         run: |
           git config user.name 'calculatepilot-guides-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add guides/index.html sitemap.xml
+          git add guides/index.html sitemap-guides.xml
           if git diff --cached --quiet; then
             echo 'No publication index changes required.'
             exit 0
           fi
-          git commit -m 'Publish Debt Payoff Calculator Guide to Guides index and sitemap'
+          git commit -m 'Publish new guides to Guides index and sitemap-guides.xml'
           git push origin main
