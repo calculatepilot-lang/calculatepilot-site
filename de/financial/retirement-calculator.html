@@ -1,1 +1,103 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rentenrechner | CalculatePilot</title><meta name="description" content="Schätzen Sie Ihre mögliche Altersvorsorge anhand von Alter, aktuellem Guthaben, Einzahlungen und Rendite."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/retirement-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/retirement-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/retirement-calculator.html"><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Rentenrechner</nav><section class="calc-page-head"><h1>Rentenrechner</h1><p class="lede">Projizieren Sie Ihr mögliches Sparguthaben bis zum Ruhestand.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Aktuelles Alter</label><input id="a" type="number" value="30" min="18"></div><div class="field"><label>Rentenalter</label><input id="t" type="number" value="65" min="19"></div><div class="field"><label>Aktuelles Guthaben</label><input id="p" type="number" value="20000" min="0"></div><div class="field"><label>Monatliche Einzahlung</label><input id="m" type="number" value="500" min="0"></div><div class="field"><label>Jährliche Rendite (%)</label><input id="r" type="number" value="7" step="0.1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Prognostiziertes Guthaben</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Einzahlungen</span><span id="inv">—</span></div><div class="readout-row"><span>Wachstum</span><span id="gain">—</span></div></div></aside></div><section class="content-block prose"><h2>So funktioniert der Rechner</h2><p>Das Modell wendet monatlichen Zinseszinseffekt auf Ihr aktuelles Guthaben und regelmäßige Einzahlungen bis zum gewählten Rentenalter an.</p><h2>Eine Projektion, keine Garantie</h2><p>Tatsächliche Renditen schwanken. Inflation, Gebühren, Steuern und Marktbewegungen können das Ergebnis deutlich verändern. Vergleichen Sie mehrere Annahmen.</p><h2>Verwandte Rechner</h2><p>Vergleichen Sie auch den <a href="/de/financial/401k-calculator.html">401(k)-Rechner</a> und den <a href="/de/financial/investment-calculator.html">Investmentrechner</a>.</p></section></div></main><script>function calc(){const a=+document.getElementById('a').value||30,t=+document.getElementById('t').value||65,p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,n=Math.max(0,t-a)*12;const f=r?p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n,i=p+m*n;const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=fmt(f);document.getElementById('inv').textContent=fmt(i);document.getElementById('gain').textContent=fmt(f-i)}calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentenrechner | CalculatePilot</title>
+<meta name="description" content="Schätzen Sie Ihre Altersvorsorge anhand von Alter, Guthaben, Einzahlung und Rendite.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260919" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+<ul class="nav-links">
+<li><a href="/de/financial-calculators.html">Finanzen</a></li>
+<li><a href="/de/health-calculators.html">Gesundheit & Fitness</a></li>
+<li><a href="/de/math-calculators.html">Mathematik</a></li>
+<li><a href="/de/other-calculators.html">Alltag</a></li>
+<li><a href="/guides/index.html">Ratgeber</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+</div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Rentenrechner</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Rentenrechner</h1><p class="lede">Projizieren Sie Ihr Sparguthaben bis zum Ruhestand.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+<div class="field"><label for="a">Aktuelles Alter</label><input id="a" type="number" value="30" min="18"></div>
+<div class="field"><label for="t">Rentenalter</label><input id="t" type="number" value="65" min="19"></div>
+<div class="field"><label for="p">Aktuelles Guthaben</label><input id="p" type="number" value="20000" min="0"></div>
+<div class="field"><label for="m">Monatliche Einzahlung</label><input id="m" type="number" value="500" min="0"></div>
+<div class="field"><label for="r">Jährliche Rendite (%)</label><input id="r" type="number" value="7" step="0.1"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="readout-label">Prognostiziertes Guthaben</div>
+<div class="readout-value big" id="out">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Einzahlungen</span><span id="inv">—</span></div>
+<div class="readout-row"><span>Wachstum</span><span id="gain">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Was der Rechner zeigt</h2>
+<p>Sie hinterlegen Alter, heutiges Guthaben und eine monatliche Rate. Der Rechner zinst beides monatlich bis zum gewählten Rentenalter auf.</p>
+<p>Das Ergebnis ist eine Projektion, keine Zusage. Gebühren, Steuern und schwankende Renditen ändern die Zahl.</p>
+<p>Vergleichen Sie den <a href="/de/financial/401k-calculator.html">401(k)-Rechner</a>, den <a href="/de/financial/investment-calculator.html">Anlagerechner</a> und den <a href="/de/financial/compound-interest-calculator.html">Zinseszinsrechner</a>.</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+<p style="color:var(--slate);font-size:0.88rem;margin-top:10px;max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+<div class="footer-social"><div class="social-icons">
+<a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" class="social-icon" aria-label="X">X</a>
+<a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" class="social-icon" aria-label="Pinterest">P</a>
+<a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">T</a>
+<a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">I</a>
+<a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">Y</a>
+<a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">F</a>
+</div></div></div>
+<div><h4>Finanzen</h4><ul>
+<li><a href="/de/financial/401k-calculator.html">401(k)</a></li>
+<li><a href="/de/financial/compound-interest-calculator.html">Zinseszins</a></li>
+<li><a href="/de/financial/loan-calculator.html">Kredit</a></li>
+</ul></div>
+<div><h4>Gesundheit</h4><ul>
+<li><a href="/de/health/bmi-calculator.html">BMI</a></li>
+<li><a href="/de/health/bmr-calculator.html">Grundumsatz</a></li>
+<li><a href="/de/health/calorie-calculator.html">Kalorien</a></li>
+</ul></div>
+<div><h4>Mathematik & mehr</h4><ul>
+<li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+<li><a href="/de/math/percentage-calculator.html">Prozent</a></li>
+<li><a href="/de/other/age-calculator.html">Alter</a></li>
+</ul></div>
+<div><h4>Unternehmen</h4><ul>
+<li><a href="/about.html">Über uns</a></li>
+<li><a href="/methodology.html">Unsere Methodik</a></li>
+<li><a href="/guides/index.html">Ratgeber</a></li>
+<li><a href="/privacy.html">Datenschutz</a></li>
+<li><a href="/terms.html">Nutzungsbedingungen</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen. <a href="/methodology.html">Unsere Methodik →</a></span>
+<span><a href="/de/">Alle Rechner →</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+function calc(){
+const a=+document.getElementById('a').value||30,t=+document.getElementById('t').value||65,p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,n=Math.max(0,t-a)*12;
+const f=r?p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n,i=p+m*n;
+const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+document.getElementById('out').textContent=fmt(f);
+document.getElementById('inv').textContent=fmt(i);
+document.getElementById('gain').textContent=fmt(f-i);
+}
+calc();
+</script>
+</body></html>
