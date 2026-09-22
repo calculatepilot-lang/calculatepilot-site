@@ -1,1 +1,90 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de jubilación | CalculatePilot</title><meta name="description" content="Estime sus ahorros potenciales para la jubilación según su edad, ahorro actual, aportaciones y rendimiento."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/retirement-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/retirement-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/retirement-calculator.html"><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a></div></header><main><div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Jubilación</nav><section class="calc-page-head"><h1>Calculadora de jubilación</h1><p class="lede">Proyecte cuánto podría ahorrar para su jubilación.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Edad actual</label><input id="a" type="number" value="30" min="18"></div><div class="field"><label>Edad de jubilación</label><input id="t" type="number" value="65" min="19"></div><div class="field"><label>Ahorro actual</label><input id="p" type="number" value="20000" min="0"></div><div class="field"><label>Aportación mensual</label><input id="m" type="number" value="500" min="0"></div><div class="field"><label>Rendimiento anual (%)</label><input id="r" type="number" value="7" step="0.1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Ahorro proyectado</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Total aportado</span><span id="inv">—</span></div><div class="readout-row"><span>Crecimiento</span><span id="gain">—</span></div></div></aside></div><section class="content-block prose"><h2>¿Cómo funciona?</h2><p>El cálculo aplica crecimiento compuesto mensual al ahorro actual y a las aportaciones periódicas hasta la edad de jubilación indicada.</p><h2>Una proyección, no una garantía</h2><p>Los rendimientos reales varían. La inflación, las comisiones, los impuestos y la volatilidad del mercado pueden cambiar el resultado.</p><h2>Calculadoras relacionadas</h2><p>Compare con la <a href="/es/financial/401k-calculator.html">calculadora 401(k)</a> y la <a href="/es/financial/investment-calculator.html">calculadora de inversión</a>.</p></section></div></main><script>function calc(){const a=+document.getElementById('a').value||30,t=+document.getElementById('t').value||65,p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,n=Math.max(0,t-a)*12;const f=r?p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n,i=p+m*n;const fmt=v=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=fmt(f);document.getElementById('inv').textContent=fmt(i);document.getElementById('gain').textContent=fmt(f-i)}calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de jubilación | CalculatePilot</title>
+<meta name="description" content="Estime el ahorro a la jubilación según edad, capital, aportaciones y rendimiento.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260922" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+<ul class="nav-links">
+<li><a href="/es/financial-calculators.html">Finanzas</a></li>
+<li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+<li><a href="/es/math-calculators.html">Matemáticas</a></li>
+<li><a href="/es/other-calculators.html">Día a día</a></li>
+<li><a href="/guides/index.html">Guías</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+</div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Jubilación</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Calculadora de jubilación</h1><p class="lede">Proyecte cuánto podría ahorrar para la jubilación.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+<div class="field"><label for="a">Edad actual</label><input id="a" type="number" value="30" min="18"></div>
+<div class="field"><label for="t">Edad de jubilación</label><input id="t" type="number" value="65" min="19"></div>
+<div class="field"><label for="p">Ahorro actual</label><input id="p" type="number" value="20000" min="0"></div>
+<div class="field"><label for="m">Aportación mensual</label><input id="m" type="number" value="500" min="0"></div>
+<div class="field"><label for="r">Rendimiento anual (%)</label><input id="r" type="number" value="7" step="0.1"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="readout-label">Ahorro proyectado</div>
+<div class="readout-value big" id="out">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Total aportado</span><span id="inv">—</span></div>
+<div class="readout-row"><span>Crecimiento</span><span id="gain">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Qué muestra el cálculo</h2>
+<p>Introduce edad, capital actual y una cuota mensual. La calculadora capitaliza ambos cada mes hasta la edad de jubilación.</p>
+<p>La cifra es una proyección. Comisiones, impuestos y rendimientos variables la mueven.</p>
+<p>Compare con la <a href="/es/financial/401k-calculator.html">calculadora 401(k)</a>, la <a href="/es/financial/investment-calculator.html">calculadora de inversión</a> y la <a href="/es/financial/compound-interest-calculator.html">calculadora de interés compuesto</a>.</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+<p style="color:var(--slate);font-size:0.88rem;margin-top:10px;max-width:260px;">Calculadoras gratis y precisas para decidir sin ruido.</p></div>
+<div><h4>Finanzas</h4><ul>
+<li><a href="/es/financial/401k-calculator.html">401(k)</a></li>
+<li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+<li><a href="/es/financial/loan-calculator.html">Préstamo</a></li>
+</ul></div>
+<div><h4>Salud</h4><ul>
+<li><a href="/es/health/bmi-calculator.html">IMC</a></li>
+<li><a href="/es/health/calorie-calculator.html">Calorías</a></li>
+<li><a href="/es/health/bmr-calculator.html">Metabolismo basal</a></li>
+</ul></div>
+<div><h4>Empresa</h4><ul>
+<li><a href="/about.html">Sobre nosotros</a></li>
+<li><a href="/methodology.html">Metodología</a></li>
+<li><a href="/guides/index.html">Guías</a></li>
+<li><a href="/privacy.html">Privacidad</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 CalculatePilot. <a href="/methodology.html">Metodología →</a></span>
+<span><a href="/es/">Todas las calculadoras →</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script src="/js/locale-chrome.js?v=20260922"></script>
+<script>
+function calc(){
+const a=+document.getElementById('a').value||30,t=+document.getElementById('t').value||65,p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,n=Math.max(0,t-a)*12;
+const f=r?p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n,i=p+m*n;
+const fmt=v=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+document.getElementById('out').textContent=fmt(f);
+document.getElementById('inv').textContent=fmt(i);
+document.getElementById('gain').textContent=fmt(f-i);
+}
+calc();
+</script>
+</body></html>
