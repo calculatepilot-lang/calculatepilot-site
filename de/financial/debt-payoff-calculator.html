@@ -1,1 +1,117 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Schulden-Tilgungsrechner | CalculatePilot</title><meta name="description" content="Schätzen Sie die benötigte Zeit, Gesamtzahlung und Zinsen zur Tilgung einer Schuld bei festen Monatsraten."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/debt-payoff-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html"><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/de/health-calculators.html">Gesundheit</a></li><li><a href="/de/math-calculators.html">Mathematik</a></li><li><a href="/de/other-calculators.html">Alltag</a></li><li><a href="/de/guides/">Guides</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Schuldentilgung</nav><section class="calc-page-head"><h1>Schulden-Tilgungsrechner</h1><p class="lede">Schätzen Sie Dauer und Zinskosten für die Rückzahlung einer Schuld.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Schuldsaldo</label><input id="p" type="number" value="10000" min="0"></div><div class="field"><label>Jahreszins (%)</label><input id="r" type="number" value="18" step="0.1" min="0"></div><div class="field"><label>Monatliche Zahlung</label><input id="m" type="number" value="300" min="1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Geschätzte Dauer</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Gesamtzahlung</span><span id="paid">—</span></div><div class="readout-row"><span>Zinsen</span><span id="interest">—</span></div></div></aside></div><section class="content-block prose"><h2>So funktioniert die Berechnung</h2><p>Der Rechner wendet den monatlichen Zinssatz auf den verbleibenden Saldo an und geht von einem konstanten Zinssatz und regelmäßigen Zahlungen aus.</p><h2>Schulden schneller tilgen</h2><p>Eine höhere Monatszahlung kann die Laufzeit und die gesamten Zinsen reduzieren. Vergleichen Sie verschiedene Szenarien.</p></section></div></main><script>function calc(){const p=+document.getElementById('p').value||0,r=(+document.getElementById('r').value||0)/100/12,m=+document.getElementById('m').value||0;if(!p||!m)return;let n;if(!r)n=Math.ceil(p/m);else if(m<=p*r){document.getElementById('out').textContent='Zahlung zu niedrig';document.getElementById('paid').textContent='—';document.getElementById('interest').textContent='—';return}else n=Math.ceil(-Math.log(1-p*r/m)/Math.log(1+r));const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=Math.floor(n/12)+' Jahr(e) '+n%12+' Monate';document.getElementById('paid').textContent=fmt(m*n);document.getElementById('interest').textContent=fmt(Math.max(0,m*n-p))}calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schulden-Tilgungsrechner | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie, wie lange die Tilgung einer Schuld dauert und wie viel Zinsen Sie bei Ihrer Monatsrate zahlen. Kostenlos, Formel erklärt, ohne Anmeldung.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/debt-payoff-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html">
+<meta property="og:title" content="Schulden-Tilgungsrechner | CalculatePilot">
+<meta property="og:description" content="Berechnen Sie Tilgungsdauer und Zinskosten anhand Ihrer monatlichen Rate. Kostenlos, Formel erklärt.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:site_name" content="CalculatePilot">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260919" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Schulden-Tilgungsrechner","url":"https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/OnlineOnly"},"isAccessibleForFree":true,"description":"Berechnen Sie Tilgungsdauer und Zinskosten einer Schuld bei fester Monatsrate."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.calculatepilot.com/de/"},{"@type":"ListItem","position":2,"name":"Finanzrechner","item":"https://www.calculatepilot.com/de/financial-calculators.html"},{"@type":"ListItem","position":3,"name":"Schulden-Tilgungsrechner","item":"https://www.calculatepilot.com/de/financial/debt-payoff-calculator.html"}]}
+</script>
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit & Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/guides/index.html">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Schulden-Tilgungsrechner
+  </nav>
+</div>
+<section class="calc-page-head">
+  <div class="container">
+    <h1>Schulden-Tilgungsrechner</h1>
+    <p class="lede">Sehen Sie, wie viele Monate die Tilgung dauert und wie viel Zinsen Sie unterwegs zahlen.</p>
+  </div>
+</section>
+<section>
+  <div class="container calc-layout">
+    <form class="calc-card" id="calcForm" oninput="calc()">
+      <div class="field-row">
+        <div class="field"><label for="balance">Aktueller Saldo</label><input type="number" id="balance" value="6000" step="100" min="0"></div>
+        <div class="field"><label for="apr">Zinssatz (% p. a.)</label><input type="number" id="apr" value="21.9" step="0.1" min="0"></div>
+      </div>
+      <div class="field"><label for="monthlyPayment">Monatliche Zahlung</label><input type="number" id="monthlyPayment" value="250" step="10" min="1"></div>
+    </form>
+    <aside class="readout">
+      <div class="bar"></div>
+      <div class="readout-body">
+        <div class="readout-label">Tilgungsdauer</div>
+        <div class="readout-value big" id="resultValue">—</div>
+        <div class="readout-breakdown">
+          <div class="readout-row"><span>Zinsen gesamt</span><span id="outTotalInterest">—</span></div>
+          <div class="readout-row"><span>Gesamtzahlung</span><span id="outTotalPaid">—</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="content-block">
+  <div class="container prose">
+    <h2>So funktioniert die Berechnung</h2>
+    <p>Der Rechner wendet den monatlichen Zinssatz auf den Restsaldo an und zieht dann die Rate ab. Das wiederholt sich, bis der Saldo null ist — bei festem Zinssatz und konstanter Rate.</p>
+    <div class="formula-box">n = −ln(1 − P·r / M) / ln(1 + r)<br><span style="color:var(--slate);font-size:0.85rem;">n = Monate · P = Saldo · r = Monatszins · M = Monatsrate</span></div>
+    <h2>Warum die Rate so stark wirkt</h2>
+    <p>Bei hochverzinslichen Schulden kann eine Rate nahe dem Minimum Jahre dauern und mehr Zinsen kosten als der Ursprungssaldo. Schon eine moderate Erhöhung verkürzt oft Dauer und Zinsen deutlich.</p>
+    <h2>Schneeball oder Lawine</h2>
+    <p>Die Lawine zahlt Extra auf den höchsten Zins. Der Schneeball tilgt den kleinsten Saldo zuerst. Dieser Rechner modelliert eine einzelne Schuld.</p>
+    <h2>Ein Rechenbeispiel</h2>
+    <p>6.000 € bei 21,9 % p. a. und 250 €/Monat: etwa 32 Monate, rund 1.900 € Zinsen. Bei 350 €/Monat sinkt die Dauer auf etwa 21 Monate.</p>
+    <h2>Ähnliche Rechner</h2>
+    <div class="tool-grid">
+      <a href="/de/financial/loan-calculator.html" class="tool-link">Kreditrechner <span class="arrow">→</span></a>
+      <a href="/de/financial/credit-card-calculator.html" class="tool-link">Kreditkartenrechner <span class="arrow">→</span></a>
+      <a href="/guides/debt-payoff-calculator-guide.html" class="tool-link">Tilgungs-Ratgeber (EN) <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen.</span><a href="/de/">Alle Rechner →</a></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script>
+function calc(){
+  const p=+document.getElementById('balance').value||0;
+  const r=(+document.getElementById('apr').value||0)/100/12;
+  const m=+document.getElementById('monthlyPayment').value||0;
+  const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+  if(!p||!m){document.getElementById('resultValue').textContent='—';return;}
+  if(r&&m<=p*r){document.getElementById('resultValue').textContent='Rate zu niedrig';document.getElementById('outTotalInterest').textContent='—';document.getElementById('outTotalPaid').textContent='—';return;}
+  const n=r?Math.ceil(-Math.log(1-p*r/m)/Math.log(1+r)):Math.ceil(p/m);
+  document.getElementById('resultValue').textContent=Math.floor(n/12)+' Jahre '+(n%12)+' Monate';
+  document.getElementById('outTotalPaid').textContent=fmt(m*n);
+  document.getElementById('outTotalInterest').textContent=fmt(Math.max(0,m*n-p));
+}
+calc();
+</script>
+</body>
+</html>
