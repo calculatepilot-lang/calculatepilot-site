@@ -33,6 +33,7 @@
 <meta name="twitter:description" content="Calculate adult BMI in metric or imperial units, view your category and healthy-weight range, and learn what BMI can and cannot tell you.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/bmi-gauge.css?v=1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BMI Calculator","url":"https://www.calculatepilot.com/health/bmi-calculator.html","applicationCategory":"HealthApplication","operatingSystem":"Web","browserRequirements":"Requires a modern web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},"isAccessibleForFree":true,"description":"Free adult BMI calculator using height and weight in metric or imperial units, with category and healthy-weight range guidance."}</script>
 
 <script type="application/ld+json">
@@ -86,42 +87,59 @@
     <p class="lede">Calculate your Body Mass Index (BMI) from height and weight, then see the standard adult BMI category and an estimated healthy-weight range.</p>
   </div>
 </section>
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm" novalidate>
-      <div class="field">
-        <label for="units">Units</label>
-        <select id="units" aria-label="BMI calculator units">
-          <option value="imperial" selected>Imperial (lb / in)</option>
-          <option value="metric">Metric (kg / cm)</option>
-        </select>
+<section><div class="container" style="padding:8px 0 0;max-width:560px;margin:0 auto;">
+<div class="bmi-gauge" role="group" aria-label="BMI calculator">
+  <div class="bmi-gauge__result">
+    <p class="bmi-gauge__title">Your BMI</p>
+    <div class="bmi-gauge__wrap">
+      <svg class="bmi-gauge__svg" viewBox="0 0 340 200" role="img" aria-label="BMI gauge from 15 to 40, colour-coded by category">
+        <g class="bmi-gauge__ticks"></g>
+        <g class="bmi-gauge__segs"></g>
+        <g class="bmi-gauge__labels"></g>
+        <g class="bmi-gauge__marker">
+          <circle class="bmi-gauge__marker-ring" cx="36" cy="176" r="13"></circle>
+          <circle class="bmi-gauge__marker-dot" cx="36" cy="176" r="5.5"></circle>
+        </g>
+      </svg>
+      <div class="bmi-gauge__readout" aria-live="polite">
+        <div class="bmi-gauge__value">23.0</div>
+        <div class="bmi-gauge__cat">Healthy weight</div>
       </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="weight">Weight</label>
-          <input type="number" id="weight" value="160" step="0.1" min="1" inputmode="decimal" autocomplete="off" required>
-        </div>
-        <div class="field">
-          <label for="height">Height (inches)</label>
-          <input type="number" id="height" value="67" step="0.1" min="1" inputmode="decimal" autocomplete="off" required>
-        </div>
-      </div>
-      <p id="inputHelp" class="field-help" aria-live="polite">For adults. BMI is a screening measure, not a diagnosis.</p>
-    </form>
-    <aside class="readout" aria-live="polite">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Your BMI</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Category</span><span id="outCategory">—</span></div>
-          <div class="readout-row"><span>Healthy weight range</span><span id="outHealthyRange">—</span></div>
-        </div>
-        <p id="validationMessage" class="field-help" role="status"></p>
-      </div>
-    </aside>
+    </div>
   </div>
-</section>
+  <dl class="bmi-gauge__insight">
+    <div class="bmi-gauge__stat">
+      <dt>Healthy weight for your height</dt>
+      <dd class="js-range">129–174 lb</dd>
+    </div>
+    <div class="bmi-gauge__stat">
+      <dt>BMI Prime</dt>
+      <dd class="js-prime">0.92</dd>
+    </div>
+  </dl>
+  <p class="bmi-gauge__advice js-advice">You're within the healthy range for your height.</p>
+  <div class="bmi-gauge__controls">
+    <div class="bmi-gauge__units" role="group" aria-label="Measurement system">
+      <button type="button" data-unit="imperial" aria-pressed="true">Imperial</button>
+      <button type="button" data-unit="metric" aria-pressed="false">Metric</button>
+    </div>
+    <div class="bmi-gauge__field">
+      <div class="bmi-gauge__row">
+        <label>Height</label>
+        <div class="bmi-gauge__inputs js-h-inputs"></div>
+      </div>
+      <input type="range" class="js-h-range" aria-label="Height slider">
+    </div>
+    <div class="bmi-gauge__field">
+      <div class="bmi-gauge__row">
+        <label>Weight</label>
+        <div class="bmi-gauge__inputs js-w-inputs"></div>
+      </div>
+      <input type="range" class="js-w-range" aria-label="Weight slider">
+    </div>
+  </div>
+</div>
+</div></section>
 <section class="content-block">
   <div class="container prose">
     <h2>What is BMI?</h2>
@@ -234,7 +252,7 @@
     </div>
   </div>
 </footer>
-<script src="/js/bmi.js?v=healthseo1"></script>
+<script src="/js/bmi-gauge.js?v=1"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
