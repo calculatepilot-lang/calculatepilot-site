@@ -21,20 +21,68 @@
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
 <meta property="og:site_name" content="CalculatePilot">
 <link rel="stylesheet" href="/css/styles.css?v=1f9ae755">
+<link rel="stylesheet" href="/css/calc-workspace.css?v=20260923a">
 <script src="/js/language-selector.js?v=20260914" defer></script>
 <script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head>
 <body>
-<header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li><li><a href="/de/math-calculators.html">Mathematik</a></li><li><a href="/de/other-calculators.html">Alltag</a></li><li><a href="/guides/index.html">Ratgeber</a></li></ul><button class="nav-toggle" aria-label="Menü öffnen">Menü</button></div></header>
+<header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/de/health-calculators.html">Gesundheit & Fitness</a></li><li><a href="/de/math-calculators.html">Mathematik</a></li><li><a href="/de/other-calculators.html">Alltag</a></li><li><a href="/guides/index.html">Ratgeber</a></li></ul><button class="nav-toggle" aria-label="Menü öffnen">Menü</button></div></header>
 <main>
 <div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Kreditrechner</nav></div>
 <section class="calc-page-head"><div class="container"><h1>Kreditrechner</h1><p class="lede">Berechnen Sie Ihre monatliche Rate, die Gesamtzinsen und die Gesamtrückzahlung für jeden Festzinskredit.</p></div></section>
-<section><div class="container calc-layout">
-<form class="calc-card" id="calcForm">
-<div class="field-row"><div class="field"><label for="loanAmount">Kreditbetrag</label><input type="number" id="loanAmount" value="15000" step="100" min="0"></div><div class="field"><label for="interestRate">Zinssatz (% eff. Jahreszins)</label><input type="number" id="interestRate" value="7.5" step="0.01" min="0"></div></div>
-<div class="field"><label for="loanTermMonths">Laufzeit (Monate)</label><input type="number" id="loanTermMonths" value="60" step="1" min="1"></div>
+<section>
+<div class="container">
+<form class="calc-workspace" id="calcForm" autocomplete="off">
+<div class="calc-workspace__result">
+<p class="calc-workspace__kicker">Monatliche Rate</p>
+<div class="calc-workspace__hero" id="resultValue">—</div>
+<div class="calc-workspace__chip" id="loanChip">Festzinskredit</div>
+<div class="calc-workspace__stats">
+<div class="calc-workspace__stat">
+<div class="calc-workspace__stat-label">Gesamtzinsen</div>
+<div class="calc-workspace__stat-value" id="outTotalInterest">—</div>
+</div>
+<div class="calc-workspace__stat">
+<div class="calc-workspace__stat-label">Gesamtrückzahlung</div>
+<div class="calc-workspace__stat-value" id="outTotalRepayment">—</div>
+</div>
+</div>
+<p class="calc-workspace__advice" id="loanAdvice">Geben Sie Betrag, Zinssatz und Laufzeit ein, um die Rate zu sehen.</p>
+</div>
+<div class="calc-workspace__controls">
+<div class="calc-workspace__field">
+<div class="calc-workspace__row">
+<label for="loanAmount">Kreditbetrag</label>
+<div class="calc-workspace__num">
+<input type="number" id="loanAmount" value="15000" step="100" min="0">
+<span>Betr.</span>
+</div>
+</div>
+<input type="range" id="loanAmountRange" min="1000" max="250000" step="100" value="15000" aria-label="Kreditbetrag">
+</div>
+<div class="calc-workspace__field">
+<div class="calc-workspace__row">
+<label for="interestRate">Zinssatz</label>
+<div class="calc-workspace__num">
+<input type="number" id="interestRate" value="7.5" step="0.01" min="0">
+<span>%</span>
+</div>
+</div>
+<input type="range" id="interestRateRange" min="0" max="25" step="0.05" value="7.5" aria-label="Zinssatz">
+</div>
+<div class="calc-workspace__field">
+<div class="calc-workspace__row">
+<label for="loanTermMonths">Laufzeit</label>
+<div class="calc-workspace__num">
+<input type="number" id="loanTermMonths" value="60" step="1" min="1">
+<span>Mon.</span>
+</div>
+</div>
+<input type="range" id="loanTermRange" min="6" max="360" step="1" value="60" aria-label="Laufzeit">
+</div>
+</div>
 </form>
-<aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Monatliche Rate</div><div class="readout-value big" id="resultValue">—</div><div class="readout-breakdown"><div class="readout-row"><span>Gesamtzinsen</span><span id="outTotalInterest">—</span></div><div class="readout-row"><span>Gesamtrückzahlung</span><span id="outTotalRepayment">—</span></div></div></div></aside>
-</div></section>
+</div>
+</section>
 <section class="content-block"><div class="container prose">
 <h2>So funktioniert dieser Rechner</h2>
 <p>Dies nutzt dieselbe Annuitätenformel, die Banken für Privat-, Auto- und Geschäftskredite verwenden. Siehe auch den <a href="/financial/amortization-calculator.html">Tilgungsplan-Rechner</a> und den <a href="/financial/student-loan-calculator.html">Studienkredit-Rechner</a>.</p>
@@ -58,6 +106,7 @@
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — konsultieren Sie für finanzielle oder medizinische Entscheidungen eine Fachperson.</span><span><a href="/embed/loan-calculator.html" target="_blank" style="color:var(--signal);text-decoration:none;font-weight:600;">Diesen Rechner einbetten</a></span></div></div></footer>
 <script src="/js/currency-format.js?v=3d1747f9"></script>
 <script src="/js/loan.js?v=3d1747f9"></script>
+<script src="/js/loan-workspace.js?v=20260923b"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
