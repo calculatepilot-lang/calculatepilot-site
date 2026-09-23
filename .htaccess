@@ -21,12 +21,19 @@ RewriteCond %{HTTP_HOST} ^calculatepilot\.com$ [NC]
 RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
 
 # Privacy-first analytics consent and site-wide language selector.
+# Also rewrite invalid SoftwareApplication rating fields that Semrush flags.
 <IfModule mod_substitute.c>
   AddOutputFilterByType SUBSTITUTE text/html
   SubstituteMaxLineLength 2m
   Substitute "s|<script async src=\"https://www.googletagmanager.com/gtag/js\?id=G-YFZBQ0VRQS\"></script>||i"
   Substitute "s|<script src=\"https://analytics.ahrefs.com/analytics.js\" data-key=\"HAKNwRlvdHsSgoa1o6fIfA\" async></script>||i"
   Substitute "s|</head>|<script src=\"/js/consent.js?v=20260908\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260903\" defer></script>\n</head>|i"
+  Substitute "s|\"@type\": \"SoftwareApplication\"|\"@type\": \"WebApplication\"|"
+  Substitute "s|\"@type\":\"SoftwareApplication\"|\"@type\":\"WebApplication\"|"
+  Substitute "s| *\"browserRequirements\": \"Requires a modern web browser\",||"
+  Substitute "s| *\"browserRequirements\":\"Requires a modern web browser\",||"
+  Substitute "s|<li><a href=\"/guides/index.html\">Guides</a></li>|<li><a href=\"/guides/index.html\">Guides</a></li>\n      <li><a href=\"/pricing.html\">Pricing</a></li>|"
+  Substitute "s|<li><a href=\"/embed/\">Embed Calculators</a></li>|<li><a href=\"/embed/\">Embed Calculators</a></li>\n          <li><a href=\"/pricing.html\">Pricing</a></li>|"
 </IfModule>
 
 # Cache static assets
@@ -40,6 +47,7 @@ RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
 </IfModule>
 
 <IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   <FilesMatch "\.css$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
