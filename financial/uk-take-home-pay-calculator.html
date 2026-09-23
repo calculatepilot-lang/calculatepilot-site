@@ -48,7 +48,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "Is this the same as the paycheck calculator?", "acceptedAnswer": {"@type": "Answer", "text": "No. The paycheck calculator asks for a US-style effective tax rate you type in. This page applies published 2026/27 UK PAYE bands, employee National Insurance and optional student-loan thresholds. Switching the paycheck page to pounds does not produce a UK payslip."}},
-    {"@type": "Question", "name": "Does this cover Scotland?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses different income-tax rates and bands. This page models England, Wales and Northern Ireland only. A Scotland token-swap would be the wrong answer."}},
+    {"@type": "Question", "name": "Does this cover Scotland?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses six different income-tax bands. Use the Scotland take-home pay calculator for that statute. This page models England, Wales and Northern Ireland only."}},
     {"@type": "Question", "name": "Which tax code is assumed?", "acceptedAnswer": {"@type": "Answer", "text": "A full £12,570 personal allowance (1257L). The allowance is tapered by £1 for every £2 of income above £100,000 and is zero from £125,140. Other codes, marriage allowance and the blind person's allowance are not invented here."}},
     {"@type": "Question", "name": "How is the student-loan line calculated?", "acceptedAnswer": {"@type": "Answer", "text": "The same PAYE rule as our UK student loan calculator: 9% (or 6% postgraduate) of monthly pay above the 2026/27 plan threshold, rounded down to the nearest pound, then multiplied by 12 for the annual figure."}},
     {"@type": "Question", "name": "Is this exactly what PAYE will take this month?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is an annualised estimate using the published yearly bands. Real PAYE uses tax tables, cumulative pay to date and per-period rounding, so a single month can differ by a few pounds."}}
@@ -146,7 +146,7 @@ At the personal allowance and NI primary threshold. Tax £0, NI £0. Take-home <
 
 <h2>What this figure does not include</h2>
 <ul>
-  <li><strong>Scotland.</strong> Different income-tax rates and bands. Not a token-swap of this page.</li>
+  <li><strong>Scotland.</strong> Different income-tax bands (19% to 48%). Use the <a href="/financial/scotland-take-home-pay-calculator.html">Scotland take-home pay calculator</a>. Not a token-swap of this page.</li>
   <li><strong>Self-employed Class 4 NI, dividends, savings interest.</strong> This is an employed salary on PAYE.</li>
   <li><strong>Tax codes other than a full personal allowance.</strong> Unknown codes stay unknown.</li>
   <li><strong>Net-pay pension, marriage allowance, Blind Person’s Allowance, High Income Child Benefit Charge.</strong> Each changes the answer; none is invented here.</li>
@@ -156,14 +156,15 @@ At the personal allowance and NI primary threshold. Tax £0, NI £0. Take-home <
 
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><h3>Is this the same as the paycheck calculator?</h3><p>No. That page uses a tax rate you type. This page uses published 2026/27 UK bands.</p></div>
-<div class="faq-item"><h3>Does this cover Scotland?</h3><p>No. Scottish income tax is a different rate table. This page is England, Wales and Northern Ireland.</p></div>
+<div class="faq-item"><h3>Does this cover Scotland?</h3><p>No. Use the <a href="/financial/scotland-take-home-pay-calculator.html">Scotland take-home pay calculator</a>. This page is England, Wales and Northern Ireland.</p></div>
 <div class="faq-item"><h3>Which tax code is assumed?</h3><p>A full £12,570 personal allowance, tapered above £100,000. Other codes are not guessed.</p></div>
 <div class="faq-item"><h3>How is the student-loan line calculated?</h3><p>The same monthly PAYE round-down as the UK student loan calculator, then × 12 for the year.</p></div>
 <div class="faq-item"><h3>Is this exactly what PAYE will take this month?</h3><p>No. Annualised bands, not a cumulative payroll run. A real month can differ by a few pounds.</p></div>
 
 <h2 id="next-job">Next calculation</h2>
 <div class="tool-grid">
-  <a class="tool-link" href="/financial/uk-student-loan-repayment-calculator.html">1. UK student loan PAYE line only (Plan 1–5) <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/scotland-take-home-pay-calculator.html">1. Same salary under Scottish income tax <span class="arrow">→</span></a>
+  <a class="tool-link" href="/financial/uk-student-loan-repayment-calculator.html">2. UK student loan PAYE line only (Plan 1–5) <span class="arrow">→</span></a>
   <a class="tool-link" href="/financial/salary-calculator.html">2. Split a salary into monthly / weekly / hourly <span class="arrow">→</span></a>
   <a class="tool-link" href="/financial/paycheck-calculator.html">3. US-style net pay from an effective tax rate <span class="arrow">→</span></a>
   <a class="tool-link" href="/financial/tax-calculator.html">4. US federal income tax estimate <span class="arrow">→</span></a>
