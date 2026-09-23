@@ -34,6 +34,8 @@ RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
   Substitute "s| *\"browserRequirements\":\"Requires a modern web browser\",||"
   Substitute "s|<li><a href=\"/guides/index.html\">Guides</a></li>|<li><a href=\"/guides/index.html\">Guides</a></li>\n      <li><a href=\"/pricing.html\">Pricing</a></li>|"
   Substitute "s|<li><a href=\"/embed/\">Embed Calculators</a></li>|<li><a href=\"/embed/\">Embed Calculators</a></li>\n          <li><a href=\"/pricing.html\">Pricing</a></li>|"
+  Substitute "s|None of those is a currency overlay of a US page.</p>|None of those is a currency overlay of a US page. Start with mortgage, loan, or UK take-home pay, then open amortization or refinance when you need the payment split.</p>|"
+  Substitute "s|<title>Trigonometry Calculator — Sin, Cos, Tan & Inverse Functions \| CalculatePilot</title>|<title>Trigonometry Calculator — Sin, Cos & Tan \| CalculatePilot</title>|"
 </IfModule>
 
 # Cache static assets
