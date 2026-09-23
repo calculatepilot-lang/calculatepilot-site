@@ -1,1 +1,88 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de tarjeta de crédito | CalculatePilot</title><meta name="description" content="Calcula el tiempo y los intereses necesarios para pagar el saldo de una tarjeta de crédito con CalculatePilot."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/credit-card-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/credit-card-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/credit-card-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/credit-card-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/credit-card-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/credit-card-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260906" defer></script><script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/es/financial-calculators.html">Finanzas</a></li><li><a href="/health-calculators.html">Salud</a></li><li><a href="/math-calculators.html">Matemáticas</a></li><li><a href="/other-calculators.html">Vida diaria</a></li><li><a href="/guides/index.html">Guías</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Tarjeta de crédito</nav></div><section class="calc-page-head"><div class="container"><h1>Calculadora de tarjeta de crédito</h1><p class="lede">Calcula cuánto tiempo y cuánto interés necesitas para pagar un saldo.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Saldo actual <input id="bal" type="number" value="5000" min="0"></label><label>Interés anual (%) <input id="apr" type="number" value="20" min="0" step="0.01"></label><label>Pago mensual <input id="pay" type="number" value="200" min="1"></label><button id="calc">Calcular</button><div id="result" class="result" aria-live="polite"></div></div></div></section><section class="content-block"><div class="container prose"><h2>Cómo funciona</h2><p>El cálculo aplica los intereses mensuales al saldo restante y después resta el pago mensual para estimar la duración y los intereses acumulados.</p><p>Si el pago mensual no supera los intereses del primer mes, no será suficiente para reducir el saldo.</p></div></section></main><script>const f=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n);document.getElementById('calc').onclick=()=>{let b=+bal.value||0,r=(+apr.value||0)/1200,p=+pay.value||0,m=0,i=0;if(r&&p<=b*r){result.textContent='Aumenta el pago mensual para que supere los intereses mensuales.';return}while(b>0&&m<1200){let x=b*r;b=Math.max(0,b+x-p);i+=x;m++}result.innerHTML='<strong>Duración estimada: '+m+' meses</strong><br>Intereses estimados: '+f(i)+'<br>Pagos totales: '+f((+bal.value||0)+i)};document.getElementById('calc').click();</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de tarjeta | CalculatePilot</title>
+<meta name="description" content="Plazo e intereses de un saldo con cuota fija.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/credit-card-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/credit-card-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/credit-card-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/credit-card-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/credit-card-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/credit-card-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="/js/language-selector.js?v=20260922" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container">
+<a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+<ul class="nav-links">
+<li><a href="/es/financial-calculators.html">Finanzas</a></li>
+<li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+<li><a href="/es/math-calculators.html">Matemáticas</a></li>
+<li><a href="/es/other-calculators.html">Día a día</a></li>
+<li><a href="/es/guides/index.html">Guías</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+</div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Finanzas</a> / Tarjeta</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Calculadora de tarjeta</h1><p class="lede">Meses para dejar el saldo a cero con una cuota fija.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" oninput="calc()">
+<div class="field"><label for="b">Saldo</label><input type="number" id="b" value="4000" min="0" step="any"></div>
+<div class="field"><label for="r">Tipo anual (%)</label><input type="number" id="r" value="19.9" min="0" step="any"></div>
+<div class="field"><label for="p">Cuota mensual</label><input type="number" id="p" value="150" min="0" step="any"></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="readout-label">Meses restantes</div>
+<div class="readout-value big" id="o1">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Intereses totales</span><span id="o2">—</span></div>
+<div class="readout-row"><span>Total pagado</span><span id="o3">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>Lo que cuesta la cuota</h2>
+<p>Un saldo y una cuota fija. La calculadora da el plazo y los intereses hasta cero.</p>
+<p>Si la cuota solo cubre intereses, el saldo no baja.</p>
+<p>Varias deudas: <a href="/es/financial/debt-payoff-calculator.html">pago de deudas</a>. Ratio: <a href="/es/financial/debt-to-income-ratio-calculator.html">deuda-ingresos</a>. Préstamo: <a href="/es/financial/loan-calculator.html">préstamos</a>.</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+<p style="color:var(--slate);font-size:0.88rem;margin-top:10px;max-width:260px;">Calculadoras gratis y precisas para decidir sin ruido.</p></div>
+<div><h4>Finanzas</h4><ul>
+<li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+<li><a href="/es/financial/loan-calculator.html">Préstamo</a></li>
+</ul></div>
+<div><h4>Guías</h4><ul>
+<li><a href="/es/guides/index.html">Guías</a></li>
+<li><a href="/methodology.html">Metodología</a></li>
+</ul></div>
+<div><h4>Empresa</h4><ul>
+<li><a href="/about.html">Sobre nosotros</a></li>
+<li><a href="/privacy.html">Privacidad</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 CalculatePilot. <a href="/methodology.html">Metodología →</a></span>
+<span><a href="/es/">Todas las calculadoras →</a></span></div></div></footer>
+<script src="/js/nav.js?v=ed5961c9"></script>
+<script src="/js/locale-chrome.js?v=20260922"></script>
+<script>
+function g(id){return document.getElementById(id).value}
+function o(id,v){document.getElementById(id).textContent=v}
+function money(id,v){o(id,new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v))}
+function calc(){
+const b=+g('b')||0,apr=(+g('r')||0)/100/12,p=+g('p')||0;
+if(!p||p<=b*apr){o('o1','—');o('o2','—');o('o3','—');return;}
+let bal=b,months=0,intTot=0;
+while(bal>0.5 && months<600){
+  const interest=bal*apr; intTot+=interest; bal=bal+interest-p; months++;
+}
+o('o1',String(months)); money('o2',intTot); money('o3',b+intTot);
+}
+calc();
+</script>
+</body></html>
