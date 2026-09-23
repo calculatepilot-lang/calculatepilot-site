@@ -1,0 +1,163 @@
+/* Additive BMI-shell workspace. Uses existing brand tokens only.
+   Safe: no overrides of :root colours. Opt-in via .calc-workspace. */
+.calc-workspace{
+  max-width:560px;
+  margin:0 auto;
+  background:var(--paper-raised);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow-card);
+  overflow:hidden;
+}
+.calc-workspace__result{
+  padding:28px 32px 8px;
+  text-align:center;
+}
+.calc-workspace__kicker{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin:0 0 10px;
+}
+.calc-workspace__hero{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem,6vw,3.4rem);
+  font-weight:600;
+  letter-spacing:-.04em;
+  color:var(--ink);
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+  margin:8px 0 14px;
+}
+.calc-workspace__chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--signal-soft);
+  color:var(--signal-dark);
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:var(--fs-sm);
+  font-weight:600;
+}
+.calc-workspace__chip::before{
+  content:"";
+  width:7px;height:7px;border-radius:50%;
+  background:var(--signal);
+}
+.calc-workspace__stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line-soft);
+  margin-top:22px;
+}
+.calc-workspace__stat{
+  padding:16px 24px 18px;
+  text-align:left;
+}
+.calc-workspace__stat + .calc-workspace__stat{
+  border-left:1px solid var(--line-soft);
+}
+.calc-workspace__stat-label{
+  font-size:var(--fs-sm);
+  color:var(--slate);
+  margin-bottom:4px;
+}
+.calc-workspace__stat-value{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.15rem;
+  color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.calc-workspace__advice{
+  padding:12px 24px 18px;
+  border-top:1px solid var(--line-soft);
+  font-size:var(--fs-sm);
+  color:var(--slate);
+  text-align:left;
+}
+.calc-workspace__advice strong{color:var(--ink);font-weight:600}
+.calc-workspace__controls{
+  padding:8px 24px 28px;
+  border-top:1px solid var(--line-soft);
+}
+.calc-workspace__field{margin:16px 0 0}
+.calc-workspace__row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+.calc-workspace__row label{
+  font-size:var(--fs-sm);
+  font-weight:700;
+  color:var(--ink);
+}
+.calc-workspace__num{
+  display:inline-flex;
+  align-items:baseline;
+  gap:4px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:5px 9px;
+  background:var(--paper);
+}
+.calc-workspace__num:focus-within{border-color:var(--signal)}
+.calc-workspace__num input{
+  font-family:var(--font-mono);
+  font-size:var(--fs-md);
+  font-weight:600;
+  color:var(--ink);
+  background:transparent;
+  border:0;outline:0;
+  width:7ch;
+  text-align:right;
+  padding:0;
+  font-variant-numeric:tabular-nums;
+  -moz-appearance:textfield;
+}
+.calc-workspace__num input::-webkit-outer-spin-button,
+.calc-workspace__num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.calc-workspace__num span{
+  font-family:var(--font-mono);
+  font-size:var(--fs-xs);
+  color:var(--slate-light);
+}
+.calc-workspace input[type="range"]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:26px;margin:0;
+  background:transparent;cursor:pointer;
+}
+.calc-workspace input[type="range"]::-webkit-slider-runnable-track{
+  height:5px;border-radius:3px;background:var(--line);
+}
+.calc-workspace input[type="range"]::-moz-range-track{
+  height:5px;border-radius:3px;background:var(--line);
+}
+.calc-workspace input[type="range"]::-moz-range-progress{
+  height:5px;border-radius:3px;background:var(--signal);
+}
+.calc-workspace input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:20px;height:20px;margin-top:-8px;border-radius:50%;
+  background:var(--paper-raised);
+  border:3px solid var(--signal);
+  box-shadow:0 1px 4px rgba(20,23,26,.18);
+}
+.calc-workspace input[type="range"]::-moz-range-thumb{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--paper-raised);
+  border:3px solid var(--signal);
+}
+@media(max-width:480px){
+  .calc-workspace__result,.calc-workspace__controls,.calc-workspace__stat,.calc-workspace__advice{
+    padding-left:20px;padding-right:20px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .calc-workspace *{transition:none!important}
+}

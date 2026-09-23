@@ -21,6 +21,7 @@
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
 <meta property="og:site_name" content="CalculatePilot">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/calc-workspace.css?v=20260923a">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"}, {"@type": "ListItem", "position": 2, "name": "Financial calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"}, {"@type": "ListItem", "position": 3, "name": "Loan Calculator", "item": "https://www.calculatepilot.com/financial/loan-calculator.html"}]}, {"@type": "SoftwareApplication", "name": "Loan Calculator", "url": "https://www.calculatepilot.com/financial/loan-calculator.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires a modern web browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly"}, "isAccessibleForFree": true, "description": "Free loan calculator: monthly payment, total interest, and true cost including origination fees. Instant results with the formula explained. No signup."}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between APR and interest rate?", "acceptedAnswer": {"@type": "Answer", "text": "The interest rate is the cost of borrowing the principal. APR usually includes additional fees."}}, {"@type": "Question", "name": "Does paying extra each month reduce total interest?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — extra payments go toward principal and can shorten the loan term."}}, {"@type": "Question", "name": "How does an origination fee affect my loan payment?", "acceptedAnswer": {"@type": "Answer", "text": "The fee is usually deducted from your loan proceeds up front, so you receive less cash than the loan amount but still repay the full amount plus interest, raising your effective APR above the stated rate."}}, {"@type": "Question", "name": "Is there a penalty for paying off a loan early?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the lender. Most personal loans have no prepayment penalty, but some auto, business, and specialty loans do — check your agreement."}}]}</script>
 <script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head>
@@ -29,13 +30,60 @@
 <main>
 <div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Loan Calculator</nav></div>
 <section class="calc-page-head"><div class="container"><h1>Loan Calculator</h1><p class="lede">Work out your monthly payment, total interest, and total repayment on any fixed-rate loan.</p></div></section>
-<section><div class="container calc-layout">
-<form class="calc-card" id="calcForm">
-<div class="field-row"><div class="field"><label for="loanAmount">Loan amount</label><input type="number" id="loanAmount" value="15000" step="100" min="0"></div><div class="field"><label for="interestRate">Interest rate (% APR)</label><input type="number" id="interestRate" value="7.5" step="0.01" min="0"></div></div>
-<div class="field"><label for="loanTermMonths">Loan term (months)</label><input type="number" id="loanTermMonths" value="60" step="1" min="1"></div>
+<section>
+<div class="container">
+<form class="calc-workspace" id="calcForm" autocomplete="off">
+<div class="calc-workspace__result">
+<p class="calc-workspace__kicker">Monthly payment</p>
+<div class="calc-workspace__hero" id="resultValue">—</div>
+<div class="calc-workspace__chip" id="loanChip">Fixed-rate loan</div>
+<div class="calc-workspace__stats">
+<div class="calc-workspace__stat">
+<div class="calc-workspace__stat-label">Total interest</div>
+<div class="calc-workspace__stat-value" id="outTotalInterest">—</div>
+</div>
+<div class="calc-workspace__stat">
+<div class="calc-workspace__stat-label">Total repayment</div>
+<div class="calc-workspace__stat-value" id="outTotalRepayment">—</div>
+</div>
+</div>
+<p class="calc-workspace__advice" id="loanAdvice">Enter the loan amount, rate, and term to see the payment.</p>
+</div>
+<div class="calc-workspace__controls">
+<div class="calc-workspace__field">
+<div class="calc-workspace__row">
+<label for="loanAmount">Loan amount</label>
+<div class="calc-workspace__num">
+<input type="number" id="loanAmount" value="15000" step="100" min="0">
+<span>amt</span>
+</div>
+</div>
+<input type="range" id="loanAmountRange" min="1000" max="250000" step="100" value="15000" aria-label="Loan amount">
+</div>
+<div class="calc-workspace__field">
+<div class="calc-workspace__row">
+<label for="interestRate">Interest rate</label>
+<div class="calc-workspace__num">
+<input type="number" id="interestRate" value="7.5" step="0.01" min="0">
+<span>%</span>
+</div>
+</div>
+<input type="range" id="interestRateRange" min="0" max="25" step="0.05" value="7.5" aria-label="Interest rate">
+</div>
+<div class="calc-workspace__field">
+<div class="calc-workspace__row">
+<label for="loanTermMonths">Loan term</label>
+<div class="calc-workspace__num">
+<input type="number" id="loanTermMonths" value="60" step="1" min="1">
+<span>mo</span>
+</div>
+</div>
+<input type="range" id="loanTermRange" min="6" max="360" step="1" value="60" aria-label="Loan term">
+</div>
+</div>
 </form>
-<aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Monthly payment</div><div class="readout-value big" id="resultValue">—</div><div class="readout-breakdown"><div class="readout-row"><span>Total interest</span><span id="outTotalInterest">—</span></div><div class="readout-row"><span>Total repayment</span><span id="outTotalRepayment">—</span></div></div></div></aside>
-</div></section>
+</div>
+</section>
 <section class="content-block"><div class="container prose">
 <h2>How this calculator works</h2>
 <p>This uses the same amortization formula banks use for personal, auto, and business loans. See also the <a href="/financial/amortization-calculator.html">Amortization Calculator</a> and <a href="/financial/student-loan-calculator.html">Student Loan Calculator</a>.</p>
@@ -70,6 +118,7 @@
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/embed/loan-calculator.html" target="_blank" style="color:var(--signal);text-decoration:none;font-weight:600;">Embed this calculator</a></span></div></div></footer>
 <script src="/js/currency-format.js?v=3d1747f9"></script>
 <script src="/js/loan.js?v=3d1747f9"></script>
+<script src="/js/loan-workspace.js?v=20260923a"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
