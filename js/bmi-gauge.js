@@ -17,19 +17,87 @@
     return n;
   };
 
-  const CATS = [
-    { key: 'under',  label: 'Underweight',    from: 15,   to: 18.5, advice: d => `You're about <strong>${d}</strong> below the healthy range for your height.` },
-    { key: 'normal', label: 'Healthy weight', from: 18.5, to: 25,   advice: () => `You're <strong>within the healthy range</strong> for your height.` },
-    { key: 'over',   label: 'Overweight',     from: 25,   to: 30,   advice: d => `You're about <strong>${d}</strong> above the healthy range for your height.` },
-    { key: 'obese',  label: 'Obese',          from: 30,   to: 40,   advice: d => `You're about <strong>${d}</strong> above the healthy range for your height.` }
-  ];
+  const T = {
+    en: {
+      title: 'Your BMI', units: { imperial: 'Imperial', metric: 'Metric' },
+      height: 'Height', weight: 'Weight', heightAria: 'Height slider', weightAria: 'Weight slider',
+      feetAria: 'Feet', inchesAria: 'Inches', lbAria: 'Weight in pounds', cmAria: 'Height in centimetres', kgAria: 'Weight in kilograms',
+      range: 'Healthy weight for your height', prime: 'BMI Prime',
+      cats: [
+        { key: 'under', label: 'Underweight', advice: d => `You're about <strong>${d}</strong> below the healthy range for your height.` },
+        { key: 'normal', label: 'Healthy weight', advice: () => `You're <strong>within the healthy range</strong> for your height.` },
+        { key: 'over', label: 'Overweight', advice: d => `You're about <strong>${d}</strong> above the healthy range for your height.` },
+        { key: 'obese', label: 'Obese', advice: d => `You're about <strong>${d}</strong> above the healthy range for your height.` }
+      ]
+    },
+    de: {
+      title: 'Ihr BMI', units: { imperial: 'Imperial', metric: 'Metrisch' },
+      height: 'Größe', weight: 'Gewicht', heightAria: 'Größenregler', weightAria: 'Gewichtsregler',
+      feetAria: 'Fuß', inchesAria: 'Zoll', lbAria: 'Gewicht in Pfund', cmAria: 'Größe in Zentimetern', kgAria: 'Gewicht in Kilogramm',
+      range: 'Gesundes Gewicht für Ihre Größe', prime: 'BMI-Prime',
+      cats: [
+        { key: 'under', label: 'Untergewicht', advice: d => `Sie liegen etwa <strong>${d}</strong> unter dem gesunden Bereich für Ihre Größe.` },
+        { key: 'normal', label: 'Gesundes Gewicht', advice: () => `Sie liegen <strong>im gesunden Bereich</strong> für Ihre Größe.` },
+        { key: 'over', label: 'Übergewicht', advice: d => `Sie liegen etwa <strong>${d}</strong> über dem gesunden Bereich für Ihre Größe.` },
+        { key: 'obese', label: 'Adipositas', advice: d => `Sie liegen etwa <strong>${d}</strong> über dem gesunden Bereich für Ihre Größe.` }
+      ]
+    },
+    es: {
+      title: 'Tu IMC', units: { imperial: 'Imperial', metric: 'Métrico' },
+      height: 'Estatura', weight: 'Peso', heightAria: 'Control de estatura', weightAria: 'Control de peso',
+      feetAria: 'Pies', inchesAria: 'Pulgadas', lbAria: 'Peso en libras', cmAria: 'Estatura en centímetros', kgAria: 'Peso en kilogramos',
+      range: 'Peso saludable para tu estatura', prime: 'IMC Prime',
+      cats: [
+        { key: 'under', label: 'Bajo peso', advice: d => `Estás aproximadamente <strong>${d}</strong> por debajo del rango saludable para tu estatura.` },
+        { key: 'normal', label: 'Peso saludable', advice: () => `Estás <strong>dentro del rango saludable</strong> para tu estatura.` },
+        { key: 'over', label: 'Sobrepeso', advice: d => `Estás aproximadamente <strong>${d}</strong> por encima del rango saludable para tu estatura.` },
+        { key: 'obese', label: 'Obesidad', advice: d => `Estás aproximadamente <strong>${d}</strong> por encima del rango saludable para tu estatura.` }
+      ]
+    },
+    fr: {
+      title: 'Votre IMC', units: { imperial: 'Impérial', metric: 'Métrique' },
+      height: 'Taille', weight: 'Poids', heightAria: 'Curseur de taille', weightAria: 'Curseur de poids',
+      feetAria: 'Pieds', inchesAria: 'Pouces', lbAria: 'Poids en livres', cmAria: 'Taille en centimètres', kgAria: 'Poids en kilogrammes',
+      range: 'Poids santé pour votre taille', prime: 'IMC Prime',
+      cats: [
+        { key: 'under', label: 'Insuffisance pondérale', advice: d => `Vous êtes environ <strong>${d}</strong> en dessous de la fourchette saine pour votre taille.` },
+        { key: 'normal', label: 'Poids santé', advice: () => `Vous êtes <strong>dans la fourchette saine</strong> pour votre taille.` },
+        { key: 'over', label: 'Surpoids', advice: d => `Vous êtes environ <strong>${d}</strong> au-dessus de la fourchette saine pour votre taille.` },
+        { key: 'obese', label: 'Obésité', advice: d => `Vous êtes environ <strong>${d}</strong> au-dessus de la fourchette saine pour votre taille.` }
+      ]
+    }
+  };
+  const RANGES = [[15, 18.5], [18.5, 25], [25, 30], [30, 40]];
 
   function initWidget(root) {
+    const lang = root.getAttribute('data-lang') || 'en';
+    const t = T[lang] || T.en;
+    const CATS = t.cats.map((c, i) => ({ ...c, from: RANGES[i][0], to: RANGES[i][1] }));
+
     const svg = root.querySelector('.bmi-gauge__svg');
     const segG = svg.querySelector('.bmi-gauge__segs');
     const tickG = svg.querySelector('.bmi-gauge__ticks');
     const labG = svg.querySelector('.bmi-gauge__labels');
     const marker = svg.querySelector('.bmi-gauge__marker');
+
+    const titleEl = root.querySelector('.bmi-gauge__title');
+    if (titleEl) titleEl.textContent = t.title;
+    const rangeDt = root.querySelector('.js-range-label');
+    if (rangeDt) rangeDt.textContent = t.range;
+    const primeDt = root.querySelector('.js-prime-label');
+    if (primeDt) primeDt.textContent = t.prime;
+    const hLabel = root.querySelector('.js-height-label');
+    if (hLabel) hLabel.textContent = t.height;
+    const wLabel = root.querySelector('.js-weight-label');
+    if (wLabel) wLabel.textContent = t.weight;
+    const impBtn = root.querySelector('[data-unit="imperial"]');
+    if (impBtn) impBtn.textContent = t.units.imperial;
+    const metBtn = root.querySelector('[data-unit="metric"]');
+    if (metBtn) metBtn.textContent = t.units.metric;
+    const hRangeElAria = root.querySelector('.js-h-range');
+    if (hRangeElAria) hRangeElAria.setAttribute('aria-label', t.heightAria);
+    const wRangeElAria = root.querySelector('.js-w-range');
+    if (wRangeElAria) wRangeElAria.setAttribute('aria-label', t.weightAria);
 
     const GAP = 0.18;
     CATS.forEach((c, i) => {
@@ -45,12 +113,12 @@
     }
     [[18.5], [25], [30]].forEach(([v]) => {
       const [x, y] = pt(v, R + 20);
-      const t = el('text', { x, y, class: 'bmi-gauge__label', 'text-anchor': 'middle', 'dominant-baseline': 'middle' });
-      t.textContent = v; labG.appendChild(t);
+      const tx = el('text', { x, y, class: 'bmi-gauge__label', 'text-anchor': 'middle', 'dominant-baseline': 'middle' });
+      tx.textContent = v; labG.appendChild(tx);
     });
     [[MIN, CX - R], [MAX, CX + R]].forEach(([v, x]) => {
-      const t = el('text', { x, y: CY + 20, class: 'bmi-gauge__label', 'text-anchor': 'middle' });
-      t.textContent = v === MAX ? '40+' : v; labG.appendChild(t);
+      const tx = el('text', { x, y: CY + 20, class: 'bmi-gauge__label', 'text-anchor': 'middle' });
+      tx.textContent = v === MAX ? '40+' : v; labG.appendChild(tx);
     });
 
     const state = { unit: 'imperial', cm: 177.8, kg: 72.6 };
@@ -58,20 +126,19 @@
     const wRange = root.querySelector('.js-w-range');
     const hBox = root.querySelector('.js-h-inputs');
     const wBox = root.querySelector('.js-w-inputs');
-    const uid = Math.random().toString(36).slice(2, 8);
 
     const numField = (cls, unit, wide, label) =>
       `<span class="bmi-gauge__num"><input type="number" inputmode="decimal" class="${cls}" aria-label="${label}"${wide ? ' class="w-wide"' : ''}><span>${unit}</span></span>`;
 
     function buildInputs() {
       if (state.unit === 'imperial') {
-        hBox.innerHTML = numField('js-ft', 'ft', false, 'Feet') + numField('js-in', 'in', false, 'Inches');
-        wBox.innerHTML = numField('js-lb w-wide', 'lb', true, 'Weight in pounds');
+        hBox.innerHTML = numField('js-ft', 'ft', false, t.feetAria) + numField('js-in', 'in', false, t.inchesAria);
+        wBox.innerHTML = numField('js-lb w-wide', 'lb', true, t.lbAria);
         Object.assign(hRange, { min: 48, max: 90, step: 1 });
         Object.assign(wRange, { min: 66, max: 440, step: 1 });
       } else {
-        hBox.innerHTML = numField('js-cm w-wide', 'cm', true, 'Height in centimetres');
-        wBox.innerHTML = numField('js-kg w-wide', 'kg', true, 'Weight in kilograms');
+        hBox.innerHTML = numField('js-cm w-wide', 'cm', true, t.cmAria);
+        wBox.innerHTML = numField('js-kg w-wide', 'kg', true, t.kgAria);
         Object.assign(hRange, { min: 122, max: 229, step: 1 });
         Object.assign(wRange, { min: 30, max: 200, step: 0.5 });
       }
@@ -149,10 +216,10 @@
       if (reduceMotion) { shown = target; valueEl.textContent = target.toFixed(1); return; }
       const from = shown, start = performance.now(), dur = 420;
       const step = now => {
-        const t = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - t, 3);
+        const tt = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - tt, 3);
         shown = from + (target - from) * e;
         valueEl.textContent = shown.toFixed(1);
-        if (t < 1) raf = requestAnimationFrame(step);
+        if (tt < 1) raf = requestAnimationFrame(step);
       };
       raf = requestAnimationFrame(step);
     }
