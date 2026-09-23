@@ -1,6 +1,7 @@
 /* CalculatePilot language switcher
  * Injects the same header dropdown + footer pills on every page
  * (English root and /es /fr /de). Does not auto-redirect.
+ * Only links to locale URLs that actually exist; otherwise the locale home.
  */
 (function () {
   'use strict';
@@ -14,6 +15,56 @@
     { code: 'de', label: 'Deutsch', short: 'DE', flag: '\uD83C\uDDE9\uD83C\uDDEA', prefix: '/de' }
   ];
 
+  var TRANSLATED = {
+    '/': 1,
+    '/index.html': 1,
+    '/financial-calculators.html': 1,
+    '/health-calculators.html': 1,
+    '/math-calculators.html': 1,
+    '/other-calculators.html': 1,
+    '/financial/401k-calculator.html': 1,
+    '/financial/amortization-calculator.html': 1,
+    '/financial/annuity-calculator.html': 1,
+    '/financial/auto-loan-calculator.html': 1,
+    '/financial/bond-calculator.html': 1,
+    '/financial/budget-calculator.html': 1,
+    '/financial/car-affordability-calculator.html': 1,
+    '/financial/cd-calculator.html': 1,
+    '/financial/college-savings-calculator.html': 1,
+    '/financial/commission-calculator.html': 1,
+    '/financial/compound-interest-calculator.html': 1,
+    '/financial/credit-card-calculator.html': 1,
+    '/financial/credit-utilization-calculator.html': 1,
+    '/financial/debt-payoff-calculator.html': 1,
+    '/financial/debt-to-income-ratio-calculator.html': 1,
+    '/financial/investment-calculator.html': 1,
+    '/financial/lease-calculator.html': 1,
+    '/financial/loan-calculator.html': 1,
+    '/financial/mortgage-calculator.html': 1,
+    '/financial/net-worth-calculator.html': 1,
+    '/financial/retirement-calculator.html': 1,
+    '/financial/savings-calculator.html': 1,
+    '/guides/': 1,
+    '/guides/index.html': 1,
+    '/guides/bmi-calculator-guide.html': 1,
+    '/guides/mortgage-calculator-guide.html': 1,
+    '/health/bac-calculator.html': 1,
+    '/health/bmi-calculator.html': 1,
+    '/health/bmr-calculator.html': 1,
+    '/health/calorie-calculator.html': 1,
+    '/health/macro-calculator.html': 1,
+    '/math/area-calculator.html': 1,
+    '/math/basic-calculator.html': 1,
+    '/math/percentage-calculator.html': 1,
+    '/math/quadratic-formula-calculator.html': 1,
+    '/math/weighted-average-calculator.html': 1,
+    '/other/age-calculator.html': 1,
+    '/other/date-calculator.html': 1,
+    '/other/flight-time-calculator.html': 1,
+    '/other/gpa-calculator.html': 1,
+    '/other/tip-calculator.html': 1
+  };
+
   var path = window.location.pathname || '/';
   var current = locales[0];
   locales.slice(1).some(function (locale) {
@@ -24,15 +75,46 @@
     return false;
   });
 
-  function localizedUrl(locale) {
+  function englishPath() {
     var cleanPath = path;
     if (current.prefix && (cleanPath === current.prefix || cleanPath.indexOf(current.prefix + '/') === 0)) {
       cleanPath = cleanPath.slice(current.prefix.length) || '/';
     }
     if (cleanPath.charAt(0) !== '/') cleanPath = '/' + cleanPath;
-    var target = locale.prefix + cleanPath;
+    return cleanPath;
+  }
+
+  function hasTranslation(cleanPath) {
+    if (TRANSLATED[cleanPath]) return true;
+    if (cleanPath.length > 1 && cleanPath.slice(-1) === '/') {
+      return !!(TRANSLATED[cleanPath] || TRANSLATED[cleanPath + 'index.html']);
+    }
+    return false;
+  }
+
+  function localizedUrl(locale) {
+    var cleanPath = englishPath();
+    var target;
+    if (!locale.prefix) {
+      target = cleanPath;
+    } else if (hasTranslation(cleanPath)) {
+      target = locale.prefix + (cleanPath === '/' ? '/' : cleanPath);
+    } else {
+      target = locale.prefix + '/';
+    }
     if (target === '') target = '/';
     return target + (window.location.search || '') + (window.location.hash || '');
+  }
+
+  function pruneBrokenHreflang() {
+    var tags = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    if (!tags.length) return;
+    var cleanPath = englishPath();
+    tags.forEach(function (tag) {
+      var lang = (tag.getAttribute('hreflang') || '').toLowerCase();
+      if (lang === 'x-default' || lang === 'en') return;
+      if (!hasTranslation(cleanPath)) tag.parentNode && tag.parentNode.removeChild(tag);
+    });
   }
 
   function injectStyles() {
@@ -100,7 +182,7 @@
       else if (toggle) container.insertBefore(root, toggle);
       else container.appendChild(root);
     }
-    if (!root.querySelector('.lang-switch-btn')) root.innerHTML = headerHTML();
+    root.innerHTML = headerHTML();
     var label = root.querySelector('.lang-current');
     if (label) label.textContent = current.short;
     return root;
@@ -131,10 +213,6 @@
     var btn = root.querySelector('.lang-switch-btn');
     var menu = root.querySelector('.lang-menu');
     if (!btn || !menu) return;
-    menu.querySelectorAll('a[data-lang]').forEach(function (link) {
-      var locale = locales.find(function (item) { return item.code === link.getAttribute('data-lang'); });
-      if (locale) link.setAttribute('href', localizedUrl(locale));
-    });
     function close() {
       menu.hidden = true;
       btn.setAttribute('aria-expanded', 'false');
@@ -160,6 +238,7 @@
 
   function init() {
     injectStyles();
+    pruneBrokenHreflang();
     bindHeader(ensureHeader());
     ensureFooter();
   }
