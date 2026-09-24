@@ -1,17 +1,29 @@
-/* Active green chips must stay white; header menu stays ink */
+/* Beat #id button { color: inherit } on selected chips */
+button.preset-chip.active,
+button.preset-chip.active *,
+button.term-btn.active,
+button.term-btn.active *,
+.preset-chip.active,
+.term-btn.active,
 #cp-house-affordability button.preset-chip.active,
-#cp-house-affordability button.preset-chip.active *,
 #cp-house-affordability button.term-btn.active,
-#cp-house-affordability button.term-btn.active *,
 #cp-mortgage button.bg-primary,
-#cp-mortgage button.bg-primary *{color:#fff!important}
-#cp-house-affordability button.preset-chip:not(.active),
-#cp-house-affordability button.term-btn:not(.active){color:var(--ink)!important}
-.site-header .nav-links a{color:var(--ink)!important}
-.site-header .nav-toggle{color:var(--ink)!important}
+#cp-mortgage button.bg-primary *,
+#cp-mortgage .down-chip.bg-primary,
+#cp-mortgage .term-chip.bg-primary{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+}
+button.preset-chip:not(.active),
+button.term-btn:not(.active){
+  color:var(--ink) !important;
+  -webkit-text-fill-color:var(--ink) !important;
+}
+.site-header .nav-links a,
+.site-header .nav-toggle{
+  color:var(--ink) !important;
+  -webkit-text-fill-color:var(--ink) !important;
+}
 .site-header .nav-links a:hover{color:var(--signal)!important}
 .nav-links.nav-open{z-index:120;background:var(--paper-raised)!important}
 .nav-links.nav-open a{color:var(--ink)!important}
-html.cp-dark .site-header .nav-links a,
-html.cp-dark .site-header .nav-toggle,
-html.cp-dark .nav-links.nav-open a{color:var(--ink)!important}
