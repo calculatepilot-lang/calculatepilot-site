@@ -1,8 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Mortgage Calculator — CalculatePilot</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator — Monthly Payment, Principal & Interest | CalculatePilot</title>
+<meta name="description" content="Free mortgage calculator with PMI, HOA, and biweekly payment breakdowns. Estimate your monthly payment including principal, interest, tax & insurance.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
+<meta property="og:title" content="Mortgage Calculator — Monthly Payment, Principal & Interest | CalculatePilot">
+<meta property="og:url" content="https://www.calculatepilot.com/financial/mortgage-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script>
 </head>
-<body>PLACEHOLDER_SEE_NEXT</body>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Mortgage Calculator</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Mortgage Calculator</h1><p class="lede">Estimate monthly principal, interest, property tax and insurance on a fixed-rate loan — then compare a 15-year term against a 30-year term on the same numbers.</p></div></section>
+<section><div class="container calc-layout">
+<form class="calc-card" id="calcForm">
+<div class="field"><label for="homePrice">Home price</label><input type="number" id="homePrice" value="400000" step="1000" min="0"></div>
+<div class="field-row"><div class="field"><label for="downPayment">Down payment</label><input type="number" id="downPayment" value="80000" step="1000" min="0"></div>
+<div class="field"><label for="loanTerm">Loan term (years)</label><select id="loanTerm"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div></div>
+<div class="field-row"><div class="field"><label for="interestRate">Interest rate (%)</label><input type="number" id="interestRate" value="6.5" step="0.01" min="0"></div>
+<div class="field"><label for="propertyTax">Annual property tax ($)</label><input type="number" id="propertyTax" value="3600" step="50" min="0"></div></div>
+<div class="field"><label for="homeInsurance">Annual home insurance ($)</label><input type="number" id="homeInsurance" value="1400" step="50" min="0"><span class="hint">A rough estimate is fine — refine it later with a real quote.</span></div>
+</form>
+<aside class="readout"><div class="bar"></div><div class="readout-body">
+<div class="currency-picker"><label for="cpCurrencySelect">Currency</label><select id="cpCurrencySelect" class="cp-currency-select"><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="CAD">CA$ CAD</option><option value="AUD">A$ AUD</option><option value="INR">₹ INR</option><option value="PKR">Rs PKR</option><option value="AED">AED</option><option value="SAR">SAR</option><option value="JPY">¥ JPY</option><option value="CNY">¥ CNY</option><option value="NZD">NZ$ NZD</option><option value="SGD">S$ SGD</option><option value="ZAR">R ZAR</option><option value="CHF">CHF</option><option value="MXN">MX$ MXN</option><option value="BRL">R$ BRL</option><option value="NGN">₦ NGN</option><option value="EGP">E£ EGP</option><option value="KES">KSh KES</option></select></div>
+<div class="readout-label">Estimated monthly payment</div>
+<div class="readout-value big" id="resultValue">—</div>
+<div class="readout-breakdown">
+<div class="readout-row"><span>Principal & interest</span><span id="outPrincipalInterest">—</span></div>
+<div class="readout-row"><span>Property tax</span><span id="outTax">—</span></div>
+<div class="readout-row"><span>Home insurance</span><span id="outInsurance">—</span></div>
+<div class="readout-row"><span>Loan amount</span><span id="outLoanAmount">—</span></div>
+<div class="readout-row"><span>Total interest paid</span><span id="outTotalInterest">—</span></div>
+</div></div></aside>
+</div></section>
+<section class="content-block"><div class="container prose">
+<h2>How this calculator works</h2>
+<p>This calculator uses the standard fixed-rate amortization formula for principal and interest, then adds property tax and home insurance so you can see a realistic monthly housing cost.</p>
+<div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</div>
+<p>By Suhaib Hassan · Formula verified 15 Sep 2026 · Method v2.1 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/embed/mortgage-calculator.html" target="_blank">Embed this calculator</a></span></div></div></footer>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/mortgage.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
 </html>
