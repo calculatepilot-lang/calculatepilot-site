@@ -11,8 +11,24 @@
 <link rel="canonical" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#137456','emerald-deep':'#0F5B44','emerald-light':'#E8F5F0','slate-bg':'#F8FAFC','border-subtle':'#E2E8F0','piti-principal':'#137456','piti-tax':'#0D9488','piti-insurance':'#F59E0B','piti-hoa':'#6366F1','chip-idle':'#F1F5F9'}}}}</script>
-<style>.tabular{font-variant-numeric:tabular-nums}#cp-mortgage input[type=range]{-webkit-appearance:none;width:100%;height:8px;background:transparent}#cp-mortgage input[type=range]::-webkit-slider-runnable-track{height:8px;background:#E2E8F0;border-radius:9999px}#cp-mortgage input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;height:20px;width:20px;border-radius:9999px;background:#137456;border:2px solid #fff;margin-top:-6px}.piti-seg{transition:width .24s}.acc-body{display:none}.acc.open .acc-body{display:block}#amort-modal{display:none}#amort-modal.open{display:flex}@media(max-width:639px){body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}}</style>
+<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{primary:'#137456','emerald-deep':'#0F5B44','emerald-light':'#E8F5F0','slate-bg':'#F8FAFC','border-subtle':'#E2E8F0','piti-principal':'#137456','piti-tax':'#0D9488','piti-insurance':'#F59E0B','piti-hoa':'#6366F1','chip-idle':'#F1F5F9'}}}}</script>
+<style>
+h1,.calc-page-head h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important;line-height:1.2!important;margin:0 0 .5rem!important}
+.content-block h2,.prose h2{font-size:clamp(1.35rem,2.4vw,1.75rem)!important;font-weight:700!important;line-height:1.3!important;margin:1.75rem 0 .65rem!important}
+.tabular{font-variant-numeric:tabular-nums}
+#cp-mortgage input[type=range]{-webkit-appearance:none;width:100%;height:8px;background:transparent}
+#cp-mortgage input[type=range]::-webkit-slider-runnable-track{height:8px;background:#E2E8F0;border-radius:9999px}
+#cp-mortgage input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;height:20px;width:20px;border-radius:9999px;background:#137456;border:2px solid #fff;margin-top:-6px}
+.piti-seg{transition:width .24s}.acc-body{display:none}.acc.open .acc-body{display:block}
+#amort-modal{display:none}#amort-modal.open{display:flex}
+.faq-acc{border:1px solid #E2E8F0;border-radius:12px;margin:0 0 .6rem;background:#fff}
+.faq-acc>summary{list-style:none;cursor:pointer;padding:.9rem 1rem;font-weight:650;display:flex;justify-content:space-between;gap:.75rem;align-items:center}
+.faq-acc>summary::-webkit-details-marker{display:none}
+.faq-acc>summary:after{content:"+";color:#137456;font-weight:700}
+.faq-acc[open]>summary:after{content:"\2013"}
+.faq-acc>p{padding:0 1rem 1rem;margin:0}
+@media(max-width:639px){body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
+</style>
 <script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script>
 </head>
 <body>
@@ -49,29 +65,27 @@
 <p>A 20% down payment typically avoids private mortgage insurance (PMI). Use the <a href="/financial/down-payment-calculator.html">Down Payment Calculator</a> if you are still deciding how much to put down.</p>
 <h2 id="pmi-hoa-biweekly">PMI, HOA fees, and biweekly payments</h2>
 <p>These three items are the most common reasons a real payment differs from the PITI estimate above.</p>
-<ul><li><strong>PMI</strong> — required on conventional loans below 20% down. Typically 0.3–1.5% of the loan balance per year, or roughly 80–375 a month on a 320,000 loan. It cancels automatically once the balance hits 78% of the original home value.</li><li><strong>HOA fees</strong> — set by the property, not the lender. Add your community's figure in the calculator above.</li><li><strong>Biweekly payments</strong> — 26 half-payments a year equals 13 full payments and can cut 4–6 years off a 30-year term. Confirm your servicer applies extra payments immediately.</li></ul>
+<ul><li><strong>PMI</strong> — required on conventional loans below 20% down. Typically 0.3–1.5% of the loan balance per year.</li><li><strong>HOA fees</strong> — set by the property, not the lender. Add your community's figure in the calculator above.</li><li><strong>Biweekly payments</strong> — 26 half-payments a year equals 13 full payments. Confirm your servicer applies extra payments immediately.</li></ul>
 <p class="hint">By Suhaib Hassan · Formula verified 15 Sep 2026 · Method v2.1 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 <h2 id="worked-example">A worked example (pre-computed)</h2>
-<p>Home price 400,000 · down payment 80,000 · loan 320,000 · rate 6.5% · annual tax 3,600 · annual insurance 1,400. Figures below use the same formula as the calculator, so you can read the answer even if JavaScript is off.</p>
-<div class="formula-box"><p><strong>30-year term (360 payments)</strong><br>Principal &amp; interest ≈ 2,022 / month<br>Tax ≈ 300 / month · insurance ≈ 117 / month<br>Estimated PITI ≈ 2,439 / month<br>Interest over the full term is typically more than 400,000 at this rate.</p><p><strong>15-year term (180 payments)</strong><br>Principal &amp; interest ≈ 2,787 / month<br>Tax and insurance unchanged ≈ 417 / month<br>Estimated PITI ≈ 3,204 / month<br>Interest over the full term is typically under 182,000 at the same 6.5%.</p></div>
-<p>The 15-year path raises monthly principal-and-interest by about 765 and removes on the order of 220,000 of interest on this example loan. Compare every period on the <a href="/financial/amortization-calculator.html">amortization schedule</a>.</p>
+<p>Home price 400,000 · down payment 80,000 · loan 320,000 · rate 6.5% · annual tax 3,600 · annual insurance 1,400.</p>
+<div class="formula-box"><p><strong>30-year term (360 payments)</strong><br>Principal &amp; interest ≈ 2,022 / month · Estimated PITI ≈ 2,439 / month</p><p><strong>15-year term (180 payments)</strong><br>Principal &amp; interest ≈ 2,787 / month · Estimated PITI ≈ 3,204 / month</p></div>
+<p>Compare every period on the <a href="/financial/amortization-calculator.html">amortization schedule</a>.</p>
 <h2 id="who-should-not">Who should not treat this number as a quote</h2>
-<ul><li>Anyone who needs flood insurance or closing costs in the monthly figure.</li><li>Adjustable-rate, interest-only, or balloon products. This page is fixed-rate amortization only.</li><li>Buyers who will sell or refinance soon — use the <a href="/financial/refinance-calculator.html">refinance breakeven calculator</a>.</li><li>Households still deciding the purchase price — start with the <a href="/financial/house-affordability-calculator.html">house affordability calculator</a>.</li><li>UK buyers comparing a 25-year repayment mortgage with interest-only — use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK mortgage repayment calculator</a>. Do not treat a currency switch on this PITI page as a UK quote.</li></ul>
+<ul><li>Flood insurance or closing costs are not in this PITI estimate.</li><li>Adjustable-rate, interest-only, or balloon products.</li><li>Use the <a href="/financial/refinance-calculator.html">refinance calculator</a> or <a href="/financial/house-affordability-calculator.html">house affordability calculator</a> when those are the real question.</li><li>UK 25-year repayment vs interest-only — use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK mortgage repayment calculator</a>.</li></ul>
 <h2 id="uk-vs-piti">UK repayment vs this PITI page</h2>
-<p>This page answers a US-style housing-cost question: principal, interest, property tax and homeowners insurance, with a 30-year default and a PMI discussion. A UK capital-and-interest mortgage is usually quoted on a 25-year term, has no PMI line, and treats Stamp Duty as a purchase cost rather than a monthly escrow.</p>
-<p>Worked UK example on that page: a £300,000 property, £30,000 deposit, 4.5% rate, 25 years — repayment ≈ £1,500.75 / month versus interest-only ≈ £1,012.50 / month with the £270,000 still due at the end.</p>
+<p>This page is US-style PITI with a 30-year default. A UK repayment mortgage is usually 25 years, has no PMI line, and treats Stamp Duty as a purchase cost. Worked UK example: £300,000 property, £30,000 deposit, 4.5%, 25 years — repayment ≈ £1,500.75 / month.</p>
 <h2 id="extra-payment">What an extra 200 / month does on the 30-year example</h2>
-<p>On the 320,000 loan at 6.5% over 30 years, a scheduled payment of about 2,022 goes mostly to interest early on. An extra 200 applied to principal each month typically cuts the term by roughly 6–7 years and removes on the order of 90,000–110,000 of interest.</p>
-<p>If you already have a loan and rates have dropped, model a new payment with the <a href="/financial/refinance-calculator.html">Refinance Calculator</a> before paying closing costs.</p>
+<p>On the 320,000 loan at 6.5% over 30 years, an extra 200 to principal typically cuts about 6–7 years and 90,000–110,000 of interest. Model a refinance with the <a href="/financial/refinance-calculator.html">Refinance Calculator</a> before paying closing costs.</p>
 <h2>Frequently asked questions</h2>
-<div class="faq-item"><h3>How is a monthly mortgage payment calculated?</h3><p>Principal and interest use the fixed-rate amortization formula above. Monthly tax and insurance are then added, plus optional HOA and estimated PMI when applicable. The result is an estimate, not a lender quote.</p></div>
-<div class="faq-item"><h3>Does this include PMI, HOA fees, or closing costs?</h3><p>HOA is optional in the calculator. Estimated PMI appears automatically below 20% down. Closing costs, points, and utilities are not included.</p></div>
-<div class="faq-item"><h3>How much house can I afford?</h3><p>A common starting point is keeping total housing costs around 28–36% of gross income. Pair this tool with the <a href="/financial/house-affordability-calculator.html">House Affordability Calculator</a> and the <a href="/financial/loan-calculator.html">Loan Calculator</a>.</p></div>
-<div class="faq-item"><h3>Should I choose a 15-year or 30-year mortgage?</h3><p>A 15-year loan usually has a lower rate and far less interest, but a higher monthly payment. A 30-year loan keeps payments lower and leaves more cash for other goals.</p></div>
-<div class="faq-item"><h3>Does a larger down payment lower my monthly payment?</h3><p>Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down.</p></div>
-<div class="faq-item"><h3>Are these figures a formal loan offer?</h3><p>No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote.</p></div>
-<div class="faq-item"><h3>How much does PMI add to my mortgage payment?</h3><p>PMI on a conventional loan below 20% down typically runs 0.3–1.5% of the loan per year — about 80–375 a month on a 320,000 loan. This page estimates 0.50% / year.</p></div>
-<div class="faq-item"><h3>Does paying biweekly actually save money on a mortgage?</h3><p>Yes. Twenty-six half-payments a year equals 13 full payments and can shorten a 30-year loan by 4–6 years — confirm your servicer applies payments immediately.</p></div>
+<details class="faq-acc" open><summary>How is a monthly mortgage payment calculated?</summary><p>Principal and interest use the fixed-rate amortization formula above. Monthly tax and insurance are then added, plus optional HOA and estimated PMI. The result is an estimate, not a lender quote.</p></details>
+<details class="faq-acc"><summary>Does this include PMI, HOA fees, or closing costs?</summary><p>HOA is optional in the calculator. Estimated PMI appears automatically below 20% down. Closing costs, points, and utilities are not included.</p></details>
+<details class="faq-acc"><summary>How much house can I afford?</summary><p>A common starting point is keeping total housing costs around 28–36% of gross income. Pair this tool with the <a href="/financial/house-affordability-calculator.html">House Affordability Calculator</a>.</p></details>
+<details class="faq-acc"><summary>Should I choose a 15-year or 30-year mortgage?</summary><p>A 15-year loan usually has far less interest and a higher monthly payment. A 30-year loan keeps payments lower.</p></details>
+<details class="faq-acc"><summary>Does a larger down payment lower my monthly payment?</summary><p>Yes. A larger down payment reduces the loan amount, so both principal-and-interest and often PMI go down.</p></details>
+<details class="faq-acc"><summary>Are these figures a formal loan offer?</summary><p>No. Rates, taxes, insurance, and fees vary by location and lender. Use this as a planning estimate, then confirm with a quote.</p></details>
+<details class="faq-acc"><summary>How much does PMI add to my mortgage payment?</summary><p>PMI typically runs 0.3–1.5% of the loan per year below 20% down. This page estimates 0.50% / year.</p></details>
+<details class="faq-acc"><summary>Does paying biweekly actually save money on a mortgage?</summary><p>Yes. Twenty-six half-payments a year equals 13 full payments and can shorten a 30-year loan by 4–6 years if the servicer applies payments immediately.</p></details>
 <h2 id="next-job">Next calculation, in order</h2>
 <p>A mortgage payment is the middle of a sequence, not a standalone page.</p>
 <div class="tool-grid">
@@ -82,7 +96,7 @@
 <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">5. UK repayment vs interest-only (25-year, £) <span class="arrow">→</span></a>
 <a class="tool-link" href="/financial/uk-stamp-duty-calculator.html">6. UK stamp duty (England &amp; NI purchase tax) <span class="arrow">→</span></a>
 </div>
-<p>Read the <a href="/guides/mortgage-calculator-guide.html">mortgage payment guide</a> for the 15- vs 30-year decision in words. For a hand-worked formula see <a href="/guides/how-to-calculate-mortgage-payment.html">how to calculate a mortgage payment</a>.</p>
+<p>Read the <a href="/guides/mortgage-calculator-guide.html">mortgage payment guide</a> or <a href="/guides/how-to-calculate-mortgage-payment.html">how to calculate a mortgage payment</a>.</p>
 <p class="hint">Estimate only. Fixed-rate amortization · method v2.1 · last verified 15 Sep 2026 · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
 </div></section>
 </main>
