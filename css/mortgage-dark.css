@@ -1,4 +1,4 @@
-/* Mortgage calculator dark-mode contrast + sticky aside */
+/* Mortgage calculator dark-mode + sticky right column */
 #cp-mortgage,#cp-mortgage label,#cp-mortgage p,#cp-mortgage span,#cp-mortgage button,#cp-mortgage strong{color:var(--ink)}
 #cp-mortgage .bg-white,#amort-modal .bg-white,#mobile-dock,#cp-pay-card,#pmi-notice{background:var(--paper-raised)!important;color:var(--ink)!important;border-color:var(--line)!important}
 #cp-mortgage input,#cp-mortgage select{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important}
@@ -14,3 +14,23 @@ html.cp-dark #cp-mortgage .bg-primary,html.cp-dark #cp-mortgage .bg-primary *{ba
 html.cp-dark #amort-modal{background:rgba(0,0,0,.65)}
 html.cp-dark #mobile-dock{border-top-color:var(--line)}
 html.cp-dark #cp-pay-card .piti-pill{background:var(--signal-soft);color:var(--signal-dark);border-color:var(--signal-soft-hover)}
+
+/* Right column: sticky while the calculator grid is on screen.
+   Inner scroll if the card is taller than the viewport.
+   Sticky releases when #cp-mortgage ends (before the essay). */
+#cp-mortgage{position:relative}
+#cp-mortgage>#cp-mortgage-grid,#cp-mortgage>.grid{align-items:start}
+@media(min-width:1024px){
+  #cp-mortgage aside,#cp-mortgage-aside{
+    position:sticky;
+    top:84px;
+    align-self:start;
+    max-height:calc(100vh - 100px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+@media(max-width:1023px){
+  #cp-mortgage aside,#cp-mortgage-aside{position:static;max-height:none;overflow:visible}
+}
