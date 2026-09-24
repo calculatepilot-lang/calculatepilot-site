@@ -10,8 +10,14 @@
     const link=document.createElement('link');
     link.id='cp-chip-contrast';
     link.rel='stylesheet';
-    link.href='/css/chip-contrast.css?v=20260924';
+    link.href='/css/chip-contrast.css?v=20260924c';
     document.head.appendChild(link);
+  }
+  if(!document.getElementById('cp-chip-contrast-inline')){
+    const s=document.createElement('style');
+    s.id='cp-chip-contrast-inline';
+    s.textContent='button.preset-chip.active,button.term-btn.active,.preset-chip.active,.term-btn.active{color:#fff!important;-webkit-text-fill-color:#fff!important}';
+    document.head.appendChild(s);
   }
   const logoHTML='<span class="logo-mark" aria-hidden="true"><span class="logo-mark-letters">C<span class="logo-p">P<span class="logo-p-dot"></span></span></span></span><span class="logo-word"><span class="logo-calculate">Calculate</span><span class="logo-pilot">Pilot</span></span>';
   const applyLogos=()=>{
