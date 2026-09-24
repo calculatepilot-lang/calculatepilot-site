@@ -1,1 +1,169 @@
-PLACEHOLDER_DO_NOT_USE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mortgage Calculator — PITI, Tax, Insurance & Extra Pay</title>
+<meta name="description" content="Estimate monthly principal, interest, tax and insurance. Compare 15- vs 30-year terms, extra payments and PMI. Not a lender quote.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/mortgage-dark.css?v=20260924f">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{primary:'#137456','emerald-deep':'#0F5B44','emerald-light':'#E8F5F0','slate-bg':'#F8FAFC','piti-principal':'#137456','piti-tax':'#0D9488','piti-insurance':'#F59E0B','piti-hoa':'#6366F1','chip-idle':'#F1F5F9'}}}}</script>
+<style>
+h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
+.tabular{font-variant-numeric:tabular-nums}
+#cp-mortgage input[type=range]{-webkit-appearance:none;width:100%;height:8px}
+#cp-mortgage input[type=range]::-webkit-slider-runnable-track{height:8px;background:#E2E8F0;border-radius:99px}
+#cp-mortgage input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;height:20px;width:20px;border-radius:99px;background:#137456;border:2px solid #fff;margin-top:-6px}
+.piti-seg{transition:width .24s}.acc-body{display:none}.acc.open .acc-body{display:block}
+#amort-modal{display:none}#amort-modal.open{display:flex}
+.faq-acc{border:1px solid var(--line);border-radius:12px;margin:0 0 .6rem;background:var(--paper-raised,#fff)}
+.faq-acc>summary{list-style:none;cursor:pointer;padding:.9rem 1rem;font-weight:650;display:flex;justify-content:space-between}
+.faq-acc>summary::-webkit-details-marker{display:none}
+.faq-acc>summary:after{content:"+";color:#137456;font-weight:700}
+.faq-acc[open]>summary:after{content:"\2013"}
+.faq-acc>p{padding:0 1rem 1rem;margin:0;color:var(--slate)}
+#cp-pay-card{background:var(--paper-raised,#fff);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:10px}
+#cp-pay-card .pay-kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+#cp-pay-card .piti-pill{font-size:11px;font-weight:700;color:#137456;background:#E8F5F0;border-radius:99px;padding:3px 8px}
+#cp-pay-card .pay-hero{font-size:2.15rem;font-weight:700;color:#137456;margin:.35rem 0 .2rem}
+#cp-pay-card .pay-hero em{font-style:normal;font-size:1rem;font-weight:600;color:var(--ink)}
+#cp-pay-card .pay-sub,.cp-term-sub{font-size:12px;color:var(--slate);margin:0 0 14px}
+#cp-pay-card .prop-row{display:flex;justify-content:space-between;font-size:11px;font-weight:650;color:var(--slate);margin-bottom:6px}
+#cp-pay-card .legend-dot{width:8px;height:8px;border-radius:99px;display:inline-block;margin-right:8px}
+#cp-pay-card .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+#cp-pay-card .stat-grid .lbl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+#cp-pay-card .stat-grid .val{font-size:1.05rem;font-weight:700;margin-top:2px}
+#cp-aside-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+#cp-aside-actions .ghost,.ghost-btn{border:1px solid var(--line);background:var(--paper-raised,#fff);border-radius:12px;padding:11px 8px;font-weight:650;font-size:13px;cursor:pointer}
+#pmi-notice{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:12.5px;color:var(--slate)}
+.cp-term-title,.cp-meth-h{font-size:1.35rem;font-weight:700;color:#137456;margin:0 0 .35rem}
+.cp-save-pill{display:inline-block;margin-left:.4rem;font-size:10px;font-weight:700;background:#E8F5F0;color:#137456;border-radius:99px;padding:3px 8px}
+.cp-term-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cp-term-link{font-size:.9rem;font-weight:650;color:#137456}
+.cp-term-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cp-term-card,.cp-panel,.cp-prepay{background:var(--paper-raised,#fff);border:1px solid var(--line);border-radius:16px;padding:18px}
+.cp-term-card.rec{border-color:#B7E0D2;background:#F3FAF7;position:relative}
+.rec-ribbon{position:absolute;top:-10px;right:16px;background:#137456;color:#fff;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:99px;padding:4px 10px}
+.cp-term-card-top{display:flex;justify-content:space-between;gap:8px;margin-bottom:10px}
+.cp-chip{font-size:10px;font-weight:700;border:1px solid var(--line);border-radius:99px;padding:3px 8px;color:var(--slate)}
+.cp-term-amt{font-size:1.85rem;font-weight:800;margin:.15rem 0 .8rem}
+.cp-term-amt.green{color:#137456}
+.cp-term-rows{list-style:none;margin:0;padding:0}
+.cp-term-rows li{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid var(--line-soft,#EFF1F3);font-size:.92rem}
+.interest-hi{color:#B3261E;font-weight:700}.interest-lo{color:#137456;font-weight:700}
+.cp-term-note{margin:12px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:.85rem;color:var(--slate)}
+.cp-saved-row{display:flex;justify-content:space-between;margin-top:12px;padding:10px 12px;border-radius:10px;background:#E8F5F0;color:#137456}
+.cp-prepay{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:14px}
+.cp-prepay p{margin:.25rem 0 0;color:var(--slate)}
+.cp-meth-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin:14px 0}
+.piti-item{background:var(--paper,#FBFBFA);border:1px solid var(--line-soft);border-radius:10px;padding:10px 12px;margin:8px 0}
+.piti-item p{margin:.2rem 0 0;color:var(--slate);font-size:.9rem}
+.cp-info-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 22px}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+@media(max-width:900px){.cp-term-grid,.cp-meth-grid,.cp-info-3,.faq-grid{grid-template-columns:1fr}.cp-prepay{flex-direction:column;align-items:flex-start}}
+@media(max-width:639px){body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Mortgage Calculator</nav></div>
+<section class="calc-page-head"><div class="container"><h1>Mortgage Calculator</h1><p class="lede">Estimate monthly principal, interest, property tax and insurance on a fixed-rate loan.</p></div></section>
+<div id="cp-mortgage" class="max-w-6xl mx-auto px-4 pb-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+<section class="lg:col-span-7 space-y-3 order-2 lg:order-1">
+<div class="bg-white rounded-2xl p-4 border"><label class="text-sm font-semibold" for="homePrice">Home price</label><input id="homePrice" class="w-full mt-1 px-3 py-2.5 border rounded-lg font-semibold tabular" value="400000"><input id="homePriceRange" type="range" min="50000" max="2500000" step="5000" value="400000" class="mt-3"></div>
+<div class="bg-white rounded-2xl p-4 border"><div class="flex justify-between"><label class="text-sm font-semibold" for="downPayment">Down payment</label><span id="down-badge" class="text-[11px] font-bold text-emerald-deep bg-emerald-light px-2 py-0.5 rounded-full">20% no PMI</span></div><input id="downPayment" class="w-full mt-1 px-3 py-2.5 border rounded-lg font-semibold tabular" value="80000"><div class="grid grid-cols-4 gap-1.5 mt-2"><button type="button" data-pct="10" class="down-chip py-2 rounded-full bg-chip-idle text-sm font-semibold">10%</button><button type="button" data-pct="15" class="down-chip py-2 rounded-full bg-chip-idle text-sm font-semibold">15%</button><button type="button" data-pct="20" class="down-chip py-2 rounded-full bg-primary text-white text-sm font-bold">20%</button><button type="button" data-pct="25" class="down-chip py-2 rounded-full bg-chip-idle text-sm font-semibold">25%</button></div><input id="downRange" type="range" min="0" max="80" value="20" class="mt-3"><p class="text-xs mt-2">Financed <strong id="loan-amount-label">$320,000</strong></p></div>
+<div class="bg-white rounded-2xl p-4 border"><p class="text-sm font-semibold mb-2">Loan term</p><input type="hidden" id="loanTerm" value="30"><div class="grid grid-cols-4 gap-2"><button type="button" data-term="10" class="term-chip py-2.5 rounded-full bg-chip-idle text-sm font-semibold">10 yr</button><button type="button" data-term="15" class="term-chip py-2.5 rounded-full bg-chip-idle text-sm font-semibold">15 yr</button><button type="button" data-term="20" class="term-chip py-2.5 rounded-full bg-chip-idle text-sm font-semibold">20 yr</button><button type="button" data-term="30" class="term-chip py-2.5 rounded-full bg-primary text-white text-sm font-bold">30 yr</button></div></div>
+<div class="bg-white rounded-2xl p-4 border"><label class="text-sm font-semibold" for="interestRate">Interest rate (%)</label><input id="interestRate" class="w-full mt-1 px-3 py-2.5 border rounded-lg font-semibold tabular" value="6.5"><input id="rateRange" type="range" min="2.5" max="11" step="0.125" value="6.5" class="mt-3"></div>
+<div class="bg-white rounded-2xl p-4 border grid sm:grid-cols-2 gap-3"><div><label class="text-sm font-semibold" for="propertyTax">Annual property tax</label><input id="propertyTax" class="w-full mt-1 px-3 py-2 border rounded-lg tabular" value="3600"></div><div><label class="text-sm font-semibold" for="homeInsurance">Annual home insurance</label><input id="homeInsurance" class="w-full mt-1 px-3 py-2 border rounded-lg tabular" value="1400"></div><div class="sm:col-span-2"><label class="text-sm font-semibold" for="hoaMonthly">HOA / month</label><input id="hoaMonthly" class="w-full mt-1 px-3 py-2 border rounded-lg tabular" value="0"></div></div>
+<div class="bg-white rounded-2xl p-4 border acc open" id="extra-acc"><button type="button" id="extra-toggle" class="w-full flex justify-between text-sm font-semibold">Extra payments <span id="extra-badge" class="text-[11px] bg-emerald-light text-emerald-deep px-2 rounded-full">+$200</span></button><div class="acc-body mt-3"><input id="extraPayment" class="w-full px-3 py-2 border rounded-lg tabular" value="200"><input id="extraRange" type="range" min="0" max="2000" step="25" value="200" class="mt-2"></div></div>
+</section>
+<aside id="cp-mortgage-aside" class="lg:col-span-5 order-1 lg:order-2">
+<div id="cp-pay-card">
+<div class="flex justify-between items-center gap-2"><span class="pay-kicker">Estimated monthly payment</span><div class="flex items-center gap-2"><span class="piti-pill">Fixed PITI</span>
+<select id="cpCurrencySelect" class="cp-currency-select text-sm border rounded-lg px-2 py-1"><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="CAD">CA$ CAD</option><option value="AUD">A$ AUD</option><option value="INR">₹ INR</option><option value="PKR">Rs PKR</option><option value="AED">AED</option><option value="SAR">SAR</option><option value="JPY">¥ JPY</option><option value="CNY">¥ CNY</option><option value="NZD">NZ$ NZD</option><option value="SGD">S$ SGD</option><option value="ZAR">R ZAR</option><option value="CHF">CHF</option><option value="MXN">MX$ MXN</option><option value="BRL">R$ BRL</option><option value="NGN">₦ NGN</option><option value="EGP">E£ EGP</option><option value="KES">KSh KES</option></select></div></div>
+<div class="pay-hero tabular" id="resultValue">—</div>
+<p class="pay-sub">Reflects full monthly housing escrow (Principal, Interest, Tax, Insurance).</p>
+<div class="prop-row"><span>Payment Breakdown Proportions</span><span>100% PITI</span></div>
+<div class="h-2.5 bg-slate-bg rounded-full flex overflow-hidden mb-3"><div id="bar-pi" class="piti-seg bg-piti-principal" style="width:83%"></div><div id="bar-tax" class="piti-seg bg-piti-tax" style="width:12%"></div><div id="bar-ins" class="piti-seg bg-piti-insurance" style="width:5%"></div><div id="bar-hoa" class="piti-seg bg-piti-hoa" style="width:0"></div></div>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between"><span><span class="legend-dot" style="background:#137456"></span>Principal &amp; Interest</span><span class="tabular"><span id="outPrincipalInterest">—</span> <span id="pct-pi">(82.9%)</span></span></div>
+<div class="flex justify-between"><span><span class="legend-dot" style="background:#0D9488"></span>Property Taxes</span><span class="tabular"><span id="outTax">—</span> <span id="pct-tax">(12.3%)</span></span></div>
+<div class="flex justify-between"><span><span class="legend-dot" style="background:#F59E0B"></span>Homeowners Insurance</span><span class="tabular"><span id="outInsurance">—</span> <span id="pct-ins">(4.8%)</span></span></div>
+<div id="hoa-row" class="hidden flex justify-between"><span>HOA</span><span id="outHoa">—</span></div>
+<div id="pmi-row" class="hidden flex justify-between"><span>Est. PMI</span><span id="outPmi">—</span></div>
+</div>
+<div class="stat-grid"><div><div class="lbl">Loan amount</div><div class="val tabular" id="outLoanAmount">—</div></div><div><div class="lbl">Total interest</div><div class="val tabular text-emerald-deep" id="outTotalInterest">—</div></div><div><div class="lbl">Payoff year</div><div class="val tabular" id="outPayoffYear">—</div></div></div>
+</div>
+<button type="button" id="btn-amort" class="w-full py-3 rounded-xl bg-primary text-white font-semibold">View Complete Amortization Schedule</button>
+<div id="cp-aside-actions"><button type="button" id="btn-save" class="ghost">Save Scenario</button><button type="button" id="btn-print" class="ghost">Print Summary</button></div>
+<p id="pmi-notice">No PMI required with this 20% down payment.</p>
+</aside></div>
+<section class="cp-term mt-8">
+<div class="cp-term-head"><div><h2 class="cp-term-title">Term Comparison &amp; Prepayment Strategy <span class="cp-save-pill" id="cmp-saved-pill">SAVES INTEREST</span></h2><p class="cp-term-sub">Evaluate how term length and extra monthly principal change lifetime interest.</p></div><a class="cp-term-link" href="/financial/amortization-calculator.html">Full period-by-period comparison →</a></div>
+<div class="cp-term-grid">
+<article class="cp-term-card"><div class="cp-term-card-top"><strong>30-Year Fixed Amortization</strong><span class="cp-chip">360 PAYMENTS</span></div><p>Estimated PITI</p><p class="cp-term-amt tabular" id="cmp30-piti">—</p><ul class="cp-term-rows"><li><span>Principal &amp; Interest</span><span class="tabular" id="cmp30-pi">—</span></li><li><span>Taxes &amp; Insurance</span><span class="tabular" id="cmp30-esc">—</span></li><li><span>Lifetime Interest Paid</span><span class="tabular interest-hi" id="cmp30-int">—</span></li><li><span>Total 30-Year Outlay</span><span class="tabular" id="cmp30-out">—</span></li></ul><p class="cp-term-note">Keeps payments lower and preserves cash for savings or an emergency fund.</p></article>
+<article class="cp-term-card rec"><div class="rec-ribbon">Recommended for minimum interest</div><div class="cp-term-card-top"><strong>15-Year Fixed Amortization</strong><span class="cp-chip">180 PAYMENTS</span></div><p>Estimated PITI</p><p class="cp-term-amt green tabular" id="cmp15-piti">—</p><ul class="cp-term-rows"><li><span>Principal &amp; Interest</span><span class="tabular" id="cmp15-pi">—</span></li><li><span>Taxes &amp; Insurance</span><span class="tabular" id="cmp15-esc">—</span></li><li><span>Lifetime Interest Paid</span><span class="tabular interest-lo" id="cmp15-int">—</span></li><li><span>Total 15-Year Outlay</span><span class="tabular" id="cmp15-out">—</span></li></ul><div class="cp-saved-row"><span>Lifetime Net Interest Saved</span><strong class="tabular" id="cmp-saved">—</strong></div></article>
+</div>
+<div class="cp-prepay"><div><strong>What extra payments do on the 30-year loan</strong><p id="prepay-insight"></p></div><a class="ghost-btn" href="/guides/mortgage-calculator-guide.html">Prepayment Guide</a></div>
+</section></div>
+<section class="content-block"><div class="container">
+<h2 class="cp-meth-h">Methodology, Rules &amp; Calculations</h2>
+<p class="cp-term-sub">Mathematical transparency audited by CalculatePilot research desk.</p>
+<div class="cp-meth-grid">
+<article class="cp-panel"><div class="cp-term-card-top"><strong>How this calculator works</strong><span class="cp-chip">FIXED-RATE AMORTIZATION</span></div><p>Standard fixed-rate amortization for principal and interest, then monthly tax and insurance so you see a housing cost — not only the loan payment.</p><div class="formula-box">M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</div><p>Loan amount is home price minus down payment. Estimated PMI of 0.50%/year appears only below 20% down.</p><p class="hint">By Suhaib Hassan · Method v2.2 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p></article>
+<article class="cp-panel"><strong>What goes into a monthly mortgage payment</strong><p>Most lenders quote PITI: principal, interest, taxes, and insurance.</p><div class="piti-item"><strong>Principal</strong><p>The slice that reduces the outstanding balance.</p></div><div class="piti-item"><strong>Interest</strong><p>The cost of the remaining balance. Early 30-year payments are mostly interest.</p></div><div class="piti-item"><strong>Property Tax</strong><p>Usually collected monthly into escrow.</p></div><div class="piti-item"><strong>Homeowners Insurance</strong><p>Hazard coverage, often escrowed with taxes.</p></div></article>
+</div>
+<div class="cp-info-3">
+<article class="cp-panel"><strong>PMI Considerations</strong><p>Required below 20% down. Typically 0.3–1.5% of the loan per year. This page estimates 0.50%/year.</p></article>
+<article class="cp-panel"><strong>HOA Dues &amp; Fees</strong><p>Set by the association, not the lender. Enter monthly HOA above. Not rolled into PITI unless the servicer collects it.</p></article>
+<article class="cp-panel"><strong>Biweekly Payment Power</strong><p>26 half-payments equal 13 full payments and can shorten a 30-year loan by about 4–6 years if applied immediately.</p></article>
+</div>
+<h2 class="cp-meth-h">Frequently Asked Questions</h2>
+<div class="faq-grid">
+<details class="faq-acc" open><summary>How is a monthly mortgage payment calculated?</summary><p>Fixed-rate amortization for principal and interest, then monthly tax, insurance, optional HOA and estimated PMI. Estimate only.</p></details>
+<details class="faq-acc"><summary>Does this include PMI, HOA fees, or closing costs?</summary><p>HOA is optional. Estimated PMI appears below 20% down. Closing costs are not included.</p></details>
+<details class="faq-acc"><summary>How much house can I afford?</summary><p>A common starting point is 28–36% of gross income. Use the <a href="/financial/house-affordability-calculator.html">House Affordability Calculator</a>.</p></details>
+<details class="faq-acc"><summary>Should I choose a 15-year or 30-year mortgage?</summary><p>15-year usually costs less interest and more per month. 30-year keeps the payment lower.</p></details>
+<details class="faq-acc"><summary>Does a larger down payment lower my monthly payment?</summary><p>Yes. It reduces the loan amount and often removes PMI at 20% down.</p></details>
+<details class="faq-acc"><summary>Are these figures a formal loan offer?</summary><p>No. Confirm rates and fees with a lender quote.</p></details>
+</div></div></section>
+</main>
+<div id="mobile-dock" class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white border-t px-4 py-3 flex justify-between items-center"><div><div class="text-[11px] font-bold text-slate-500">MONTHLY PITI</div><div id="dock-piti" class="text-lg font-bold text-emerald-deep tabular">—</div></div><button type="button" id="dock-amort" class="px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold">Schedule</button></div>
+<div id="amort-modal" class="fixed inset-0 z-[60] bg-black/40 items-end sm:items-center justify-center p-0 sm:p-6"><div class="bg-white w-full sm:max-w-2xl sm:rounded-2xl max-h-[88vh] flex flex-col"><div class="flex justify-between p-4 border-b"><strong>Amortization</strong><button type="button" id="amort-close" class="px-3 py-1 border rounded-lg">Close</button></div><div class="overflow-auto p-4"><table class="w-full text-sm"><thead><tr><th class="text-left">Year</th><th class="text-right">Principal</th><th class="text-right">Interest</th><th class="text-right">Balance</th></tr></thead><tbody id="amort-body" class="tabular"></tbody></table></div></div></div>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates.</span><span><a href="/embed/mortgage-calculator.html" target="_blank">Embed this calculator</a></span></div></div></footer>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const num=s=>{const n=parseFloat(String(s).replace(/[^0-9.]/g,''));return isFinite(n)?n:0};
+function money(v,d){d=d===undefined?0:d;if(typeof cpFormatMoney==='function')return cpFormatMoney(v,{minimumFractionDigits:d,maximumFractionDigits:d});return '$'+(Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
+function pi(P,r,y){const n=y*12,i=r/100/12;if(P<=0)return 0;if(!i)return P/n;const p=Math.pow(1+i,n);return P*(i*p)/(p-1);}
+function sim(P,r,y,ex){const nMax=y*12,i=r/100/12,base=pi(P,r,y);let bal=P,interest=0,months=0,years=[],yP=0,yI=0;while(bal>0.005&&months<nMax+1){const ip=bal*i;let pr=base-ip+ex;if(pr>bal)pr=bal;if(pr<0)pr=0;bal-=pr;interest+=ip;yP+=pr;yI+=ip;months++;if(months%12===0||bal<=0.005){years.push({year:Math.ceil(months/12),principal:yP,interest:yI,balance:Math.max(0,bal)});yP=0;yI=0;}}return{base,months,interest,years};}
+function recalc(){const home=Math.min(2500000,Math.max(0,num($('homePrice').value)));let down=Math.min(home,Math.max(0,num($('downPayment').value)));const rate=Math.min(11,Math.max(0,num($('interestRate').value)));const tax=Math.max(0,num($('propertyTax').value))/12;const ins=Math.max(0,num($('homeInsurance').value))/12;const hoa=Math.max(0,num($('hoaMonthly').value));const extra=Math.max(0,num($('extraPayment').value));const term=num($('loanTerm').value)||30;const loan=Math.max(0,home-down);const downPct=home?down/home*100:0;const pmi=downPct<19.999?(loan*0.005)/12:0;const s=sim(loan,rate,term,extra);const piti=s.base+tax+ins+hoa+pmi;const sum=piti||1;$('resultValue').innerHTML=money(piti,2)+' <em>/ month</em>';$('dock-piti').textContent=money(piti,2);$('outPrincipalInterest').textContent=money(s.base,2);$('outTax').textContent=money(tax,2);$('outInsurance').textContent=money(ins,2);$('outLoanAmount').textContent=money(loan,0);$('outTotalInterest').textContent=money(s.interest,0);$('loan-amount-label').textContent=money(loan,0);$('pct-pi').textContent='('+(s.base/sum*100).toFixed(1)+'%)';$('pct-tax').textContent='('+(tax/sum*100).toFixed(1)+'%)';$('pct-ins').textContent='('+(ins/sum*100).toFixed(1)+'%)';$('bar-pi').style.width=(s.base/sum*100).toFixed(1)+'%';$('bar-tax').style.width=(tax/sum*100).toFixed(1)+'%';$('bar-ins').style.width=(ins/sum*100).toFixed(1)+'%';$('bar-hoa').style.width=(hoa/sum*100).toFixed(1)+'%';$('outPayoffYear').textContent=String(new Date().getFullYear()+Math.ceil((s.months||term*12)/12));if(hoa>0){$('hoa-row').classList.remove('hidden');$('hoa-row').classList.add('flex');$('outHoa').textContent=money(hoa,2);}else $('hoa-row').classList.add('hidden');if(pmi>0){$('pmi-row').classList.remove('hidden');$('pmi-row').classList.add('flex');$('outPmi').textContent=money(pmi,2);$('pmi-notice').textContent='Down under 20%. Estimated PMI '+money(pmi,0)+'/mo included.';$('down-badge').textContent=Math.round(downPct)+'% PMI';}else{$('pmi-row').classList.add('hidden');$('pmi-notice').textContent='No PMI required with this '+Math.round(downPct)+'% down payment.';$('down-badge').textContent=Math.round(downPct)+'% no PMI';}$('extra-badge').textContent=extra>0?('+'+money(extra,0)):'Off';const s30=sim(loan,rate,30,0),s15=sim(loan,rate,15,0),esc=tax+ins+hoa+pmi;const p30=s30.base+esc,p15=s15.base+esc;$('cmp30-piti').innerHTML=money(p30,0)+' <small>/ month</small>';$('cmp15-piti').innerHTML=money(p15,0)+' <small>/ month (+'+money(p15-p30,0)+'/mo)</small>';$('cmp30-pi').textContent=money(s30.base,0)+' / mo';$('cmp15-pi').textContent=money(s15.base,0)+' / mo';$('cmp30-esc').textContent=money(esc,0)+' / mo';$('cmp15-esc').textContent=money(esc,0)+' / mo';$('cmp30-int').textContent=money(s30.interest,0);$('cmp15-int').textContent=money(s15.interest,0);$('cmp30-out').textContent=money(loan+s30.interest,0);$('cmp15-out').textContent=money(loan+s15.interest,0);$('cmp-saved').textContent=money(s30.interest-s15.interest,0);if($('cmp-saved-pill'))$('cmp-saved-pill').textContent='SAVES '+money(s30.interest-s15.interest,0)+'+ INTEREST';const sx=sim(loan,rate,30,extra);$('prepay-insight').textContent=extra>0?('An extra '+money(extra,0)+' applied to principal each month cuts the term by ~'+((s30.months-sx.months)/12).toFixed(1)+' years and erases '+money(s30.interest-sx.interest,0)+' in lifetime interest.'):'Add extra principal to shorten the 30-year loan.';window.__sim=s;}
+function paint(){const s=window.__sim;if(!s)return;$('amort-body').innerHTML=s.years.map(y=>'<tr><td>'+y.year+'</td><td class="text-right">'+money(y.principal,0)+'</td><td class="text-right">'+money(y.interest,0)+'</td><td class="text-right">'+money(y.balance,0)+'</td></tr>').join('');}
+['homePrice','downPayment','interestRate','propertyTax','homeInsurance','hoaMonthly','extraPayment'].forEach(id=>$(id).addEventListener('input',recalc));
+$('homePriceRange').addEventListener('input',()=>{$('homePrice').value=$('homePriceRange').value;const p=num($('downRange').value);$('downPayment').value=Math.round(num($('homePrice').value)*p/100);recalc();});
+$('downRange').addEventListener('input',()=>{const p=num($('downRange').value);$('downPayment').value=Math.round(num($('homePrice').value)*p/100);recalc();});
+$('rateRange').addEventListener('input',()=>{$('interestRate').value=$('rateRange').value;recalc();});
+$('extraRange').addEventListener('input',()=>{$('extraPayment').value=$('extraRange').value;recalc();});
+document.querySelectorAll('.down-chip').forEach(b=>b.addEventListener('click',()=>{const p=+b.dataset.pct;$('downRange').value=p;$('downPayment').value=Math.round(num($('homePrice').value)*p/100);document.querySelectorAll('.down-chip').forEach(x=>{x.className='down-chip py-2 rounded-full text-sm '+(+x.dataset.pct===p?'bg-primary text-white font-bold':'bg-chip-idle font-semibold');});recalc();}));
+document.querySelectorAll('.term-chip').forEach(b=>b.addEventListener('click',()=>{const t=+b.dataset.term;$('loanTerm').value=t;document.querySelectorAll('.term-chip').forEach(x=>{x.className='term-chip py-2.5 rounded-full text-sm '+(+x.dataset.term===t?'bg-primary text-white font-bold':'bg-chip-idle font-semibold');});recalc();}));
+$('extra-toggle').addEventListener('click',()=>$('extra-acc').classList.toggle('open'));
+function openA(){paint();$('amort-modal').classList.add('open');}
+$('btn-amort').addEventListener('click',openA);$('dock-amort').addEventListener('click',openA);
+$('amort-close').addEventListener('click',()=>$('amort-modal').classList.remove('open'));
+$('btn-print').addEventListener('click',()=>window.print());
+$('btn-save').addEventListener('click',()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('resultValue').innerText],{type:'text/plain'}));a.download='mortgage-scenario.txt';a.click();});
+$('cpCurrencySelect').addEventListener('change',()=>{if(typeof cpSetCurrency==='function')cpSetCurrency($('cpCurrencySelect').value);recalc();});
+document.addEventListener('DOMContentLoaded',recalc);recalc();
+})();
+</script>
+</body></html>
