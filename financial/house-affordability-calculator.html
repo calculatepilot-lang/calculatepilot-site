@@ -1,2 +1,87 @@
 <!DOCTYPE html>
-<!-- Restored from production snapshot; full page follows in next commit if truncated -->
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YFZBQ0VRQS');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House Affordability Calculator — Max Home Price | CalculatePilot</title>
+<meta name="description" content="Estimate the maximum home price you can afford based on your income, debts, down payment, and interest rate.">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/house-affordability-calculator.html">
+<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/chip-contrast.css?v=20260924c">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={corePlugins:{preflight:false}}</script>
+<style>
+h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
+#cp-house-affordability button.preset-chip.active,
+#cp-house-affordability button.term-btn.active{color:#fff!important;-webkit-text-fill-color:#fff!important}
+.preset-chip{font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.preset-chip.active{background:#137456;border-color:#137456;color:#fff!important}
+.term-btn{padding:10px 4px;font-size:.86rem;font-weight:700;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer}
+.term-btn.active{background:#137456;border-color:#137456;color:#fff!important}
+.console-card,#cp-pay-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.pay-hero{font-size:2.15rem;font-weight:700;color:#137456}
+.chip-row,.term-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.term-group{display:grid;grid-template-columns:repeat(4,1fr)}
+.dollar-field{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px}
+.dollar-field input{border:0;width:100%;padding:12px;font-weight:700}
+.step-btn{width:32px;height:32px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.field-block{margin-bottom:18px}
+.btn-primary{display:block;text-align:center;padding:13px;border-radius:12px;background:#0F5B44;color:#fff;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health &amp; Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
+<main>
+<div class="container"><nav class="breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / House Affordability Calculator</nav></div>
+<section class="calc-page-head"><div class="container"><h1>House Affordability Calculator</h1><p class="lede">Estimate how much house you can afford from income, debts, down payment and DTI limits.</p></div></section>
+<div id="cp-house-affordability" class="max-w-6xl mx-auto px-4 pb-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+<section class="lg:col-span-7">
+<form id="calcForm" class="console-card">
+<div class="field-block"><label>Annual Gross Income ($)</label>
+<div class="dollar-field"><span>$</span><input id="annualIncome" value="95000"><button type="button" class="step-btn" data-target="annualIncome" data-step="-1000">−</button><button type="button" class="step-btn" data-target="annualIncome" data-step="1000">+</button></div>
+<div class="chip-row"><button type="button" class="preset-chip" data-target="annualIncome" data-value="75000">$75k</button><button type="button" class="preset-chip" data-target="annualIncome" data-value="95000">$95k</button><button type="button" class="preset-chip" data-target="annualIncome" data-value="120000">$120k</button><button type="button" class="preset-chip" data-target="annualIncome" data-value="150000">$150k</button></div></div>
+<div class="field-block"><label>Monthly Debt Payments ($)</label>
+<div class="dollar-field"><span>$</span><input id="monthlyDebts" value="400"></div></div>
+<div class="field-block"><label>Down Payment ($)</label>
+<div class="dollar-field"><span>$</span><input id="downPayment" value="40000"></div>
+<div class="chip-row"><button type="button" class="preset-chip" data-target="downPayment" data-value="25000">$25,000</button><button type="button" class="preset-chip" data-target="downPayment" data-value="40000">$40,000</button><button type="button" class="preset-chip" data-target="downPayment" data-value="60000">$60,000</button></div></div>
+<div class="field-block"><label>Interest Rate (%)</label><input id="interestRate" value="6.5"><input id="rateSlider" type="range" min="2.5" max="11" step="0.125" value="6.5"></div>
+<div class="field-block"><label>Loan Term (Years)</label><input type="hidden" id="loanTerm" value="30">
+<div class="term-group"><button type="button" class="term-btn" data-term="10">10 yr</button><button type="button" class="term-btn" data-term="15">15 yr</button><button type="button" class="term-btn" data-term="20">20 yr</button><button type="button" class="term-btn active" data-term="30">30 yr</button></div></div>
+</form>
+</section>
+<aside class="lg:col-span-5"><div id="cp-pay-card"><div class="pay-kicker">Estimated max home price</div><div class="pay-hero" id="resultValue">—</div><p id="constrainedByText"></p><p>Max loan <span id="outMaxLoan">—</span></p><p>Max payment <span id="outMaxPayment">—</span></p><a class="btn-primary" href="/financial/amortization-calculator.html">View Loan Amortization Schedule</a></div></aside>
+</div>
+</div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot.</span></div></div></footer>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/nav.js?v=20260924c"></script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+function fmt(v){if(typeof cpFormatMoney==='function')return cpFormatMoney(v,{maximumFractionDigits:0});return '$'+Math.round(v).toLocaleString('en-US');}
+function recompute(){
+var AI=parseFloat($('annualIncome').value)||0,MD=parseFloat($('monthlyDebts').value)||0,DP=parseFloat($('downPayment').value)||0,R=parseFloat($('interestRate').value)||0,Y=parseFloat($('loanTerm').value)||30;
+var gross=AI/12,maxFront=gross*0.28,maxBack=gross*0.36-MD,pay=Math.max(0,Math.min(maxFront,maxBack)),pi=pay*0.85,r=(R/100)/12,n=Y*12;
+var loan=r===0?pi*n:pi*(Math.pow(1+r,n)-1)/(r*Math.pow(1+r,n));
+$('resultValue').textContent=fmt(loan+DP);
+$('outMaxLoan').textContent=fmt(loan);
+$('outMaxPayment').textContent=fmt(pay);
+$('constrainedByText').textContent=maxFront<=maxBack?'Constrained by 28% front-end limit':'Constrained by 36% back-end limit';
+document.querySelectorAll('.term-btn').forEach(function(b){b.classList.toggle('active',parseFloat(b.dataset.term)===Y);});
+document.querySelectorAll('.preset-chip').forEach(function(b){var t=b.dataset.target,val=parseFloat(b.dataset.value);b.classList.toggle('active',t==='annualIncome'?val===AI:val===DP);});
+}
+document.querySelectorAll('.preset-chip').forEach(function(b){b.addEventListener('click',function(){$(b.dataset.target).value=b.dataset.value;recompute();});});
+document.querySelectorAll('.term-btn').forEach(function(b){b.addEventListener('click',function(){$('loanTerm').value=b.dataset.term;recompute();});});
+document.querySelectorAll('.step-btn').forEach(function(b){b.addEventListener('click',function(){var i=$(b.dataset.target);i.value=Math.max(0,(parseFloat(i.value)||0)+parseFloat(b.dataset.step));recompute();});});
+$('rateSlider').addEventListener('input',function(){$('interestRate').value=this.value;recompute();});
+['annualIncome','monthlyDebts','downPayment','interestRate'].forEach(function(id){$(id).addEventListener('input',recompute);});
+recompute();
+})();
+</script>
+</body></html>
