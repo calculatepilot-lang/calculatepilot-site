@@ -29,6 +29,47 @@
 <meta name="twitter:description" content="Estimate the maximum home price you can afford based on your income, debts, down payment, and interest rate. Free, instant, formula shown. No signup.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{primary:'#137456','emerald-deep':'#0F5B44','emerald-light':'#E8F5F0','slate-bg':'#F8FAFC'}}}}</script>
+<style>
+h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
+.tabular{font-variant-numeric:tabular-nums}
+#cp-house-affordability{color:var(--ink)}
+#cp-house-affordability label,#cp-house-affordability p,#cp-house-affordability span,#cp-house-affordability button,#cp-house-affordability strong{color:inherit}
+#cp-house-affordability .bg-white{background:var(--paper-raised,#fff)!important;border-color:var(--line)!important}
+#cp-house-affordability input{background:var(--paper,#fff)!important;color:var(--ink)!important;border-color:var(--line)!important}
+.dollar-field{position:relative;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--paper,#fff);transition:border-color .15s}
+.dollar-field:focus-within{border-color:#137456;box-shadow:0 0 0 3px rgba(19,116,86,.12)}
+.dollar-field .prefix{padding:0 0 0 14px;font-weight:700;font-size:1.15rem;color:var(--slate);user-select:none}
+.dollar-field input{border:0!important;background:transparent!important;padding:12px 8px;font-weight:700;font-size:1.15rem;width:100%;min-width:0}
+.dollar-field input:focus{outline:0}
+.dollar-field .steps{display:flex;gap:4px;padding-right:6px}
+.step-btn{width:32px;height:32px;flex-shrink:0;border:1px solid var(--line);background:var(--paper-raised,#fff);border-radius:8px;font-size:1.1rem;font-weight:700;cursor:pointer;color:var(--ink)}
+.step-btn:hover{background:var(--signal-soft)}
+.cp-chip{font-size:10px;font-weight:700;letter-spacing:.05em;border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:var(--slate);text-transform:uppercase}
+.piti-pill{font-size:11px;font-weight:700;color:#137456;background:#E8F5F0;border-radius:99px;padding:3px 8px}
+.field-help{font-size:12px;color:var(--slate);margin:6px 0 0}
+#cp-pay-card{position:sticky;top:84px;background:var(--paper-raised,#fff);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:10px}
+#cp-pay-card .pay-kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+#cp-pay-card .pay-hero{font-size:2.15rem;font-weight:700;color:#137456;margin:.35rem 0 .2rem}
+#cp-pay-card .pay-sub{font-size:12px;color:var(--slate);margin:0 0 14px}
+#cp-pay-card .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+#cp-pay-card .stat-grid .lbl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+#cp-pay-card .stat-grid .val{font-size:1.05rem;font-weight:700;margin-top:2px}
+@media(max-width:1023px){#cp-pay-card{position:static}}
+.faq-acc{border:1px solid var(--line);border-radius:12px;margin:0 0 .6rem;background:var(--paper-raised,#fff)}
+.faq-acc>summary{list-style:none;cursor:pointer;padding:.9rem 1rem;font-weight:650;display:flex;justify-content:space-between;color:var(--ink)}
+.faq-acc>summary::-webkit-details-marker{display:none}
+.faq-acc>summary:after{content:"+";color:#137456;font-weight:700}
+.faq-acc[open]>summary:after{content:"\2013"}
+.faq-acc>p{padding:0 1rem 1rem;margin:0;color:var(--slate)}
+.cp-next-kicker{font-size:.85rem;color:var(--slate);margin:0 0 10px}
+.cp-next-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cp-next-card{display:block;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--paper-raised,#fff);color:var(--ink);text-decoration:none;font-weight:650}
+.cp-next-card span{display:block;font-size:10px;letter-spacing:.06em;color:var(--slate);margin-bottom:4px}
+@media(max-width:900px){.cp-next-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:639px){.cp-next-grid{grid-template-columns:1fr}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -66,7 +107,7 @@
     },    {
       "@type": "Question",
       "name": "Does this account for property taxes and insurance?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes, approximately \u2014 the calculator assumes taxes and insurance take up about 15% of your total housing budget, though actual rates vary significantly by location." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, approximately — the calculator assumes taxes and insurance take up about 15% of your total housing budget, though actual rates vary significantly by location." }
     }  ]
 }
 </script>
@@ -96,81 +137,115 @@
 </div>
 
 <section class="calc-page-head">
-  <div class="container">
-    <h1>House Affordability Calculator</h1>
-    <p class="lede">Estimate how much house you can afford based on your income, existing debts, and down payment.</p>
+  <div class="container flex flex-wrap items-start justify-between gap-3">
+    <div>
+      <h1>House Affordability Calculator</h1>
+      <p class="lede">Estimate how much house you can afford based on your income, existing debts, and down payment.</p>
+    </div>
+    <span class="piti-pill" style="margin-top:8px">US 28/36 DTI STANDARD</span>
   </div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="annualIncome">Annual gross income ($)</label>
-        <input type="number" id="annualIncome" value="95000" step="1000" min="0">
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="monthlyDebts">Monthly debt payments ($)</label>
-          <input type="number" id="monthlyDebts" value="400" step="10" min="0">
-        </div>
-        <div class="field">
-          <label for="downPayment">Down payment ($)</label>
-          <input type="number" id="downPayment" value="40000" step="1000" min="0">
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="interestRate">Interest rate (%)</label>
-          <input type="number" id="interestRate" value="6.5" step="0.1" min="0">
-        </div>
-        <div class="field">
-          <label for="loanTerm">Loan term (years)</label>
-          <input type="number" id="loanTerm" value="30" step="1" min="1">
-        </div>
-      </div>
-    </form>
+<div id="cp-house-affordability" class="max-w-6xl mx-auto px-4 pb-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
 
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Estimated max home price</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Estimated max loan amount</span><span id="outMaxLoan">—</span></div>
-          <div class="readout-row"><span>Max monthly housing payment</span><span id="outMaxPayment">—</span></div>
-          <div class="readout-row"><span>28% front-end limit</span><span id="outFrontEnd">—</span></div>
-          <div class="readout-row"><span>36% back-end limit</span><span id="outBackEnd">—</span></div>
-        </div>
-      </div>
-    </aside>
+<section class="lg:col-span-7 space-y-3 order-2 lg:order-1">
+<form id="calcForm" class="space-y-3">
+
+  <div class="bg-white rounded-2xl p-4 border">
+    <div class="flex justify-between items-center mb-2">
+      <label class="text-sm font-semibold" for="annualIncome">Annual gross income ($)</label>
+      <span class="cp-chip">Gross income</span>
+    </div>
+    <div class="dollar-field">
+      <span class="prefix">$</span>
+      <input type="number" id="annualIncome" value="95000" step="1000" min="0" class="tabular">
+      <span class="steps">
+        <button type="button" class="step-btn" data-target="annualIncome" data-step="-1000" aria-label="Decrease income">−</button>
+        <button type="button" class="step-btn" data-target="annualIncome" data-step="1000" aria-label="Increase income">+</button>
+      </span>
+    </div>
   </div>
+
+  <div class="bg-white rounded-2xl p-4 border">
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div>
+        <label class="text-sm font-semibold" for="monthlyDebts">Monthly debt payments ($)</label>
+        <div class="dollar-field mt-1">
+          <span class="prefix">$</span>
+          <input type="number" id="monthlyDebts" value="400" step="10" min="0" class="tabular">
+        </div>
+        <p class="field-help">Car, student loan and credit card minimums.</p>
+      </div>
+      <div>
+        <label class="text-sm font-semibold" for="downPayment">Down payment ($)</label>
+        <div class="dollar-field mt-1">
+          <span class="prefix">$</span>
+          <input type="number" id="downPayment" value="40000" step="1000" min="0" class="tabular">
+        </div>
+        <p class="field-help">Cash you plan to put down upfront.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl p-4 border">
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div>
+        <label class="text-sm font-semibold" for="interestRate">Interest rate (%)</label>
+        <input type="number" id="interestRate" value="6.5" step="0.1" min="0" class="w-full mt-1 px-3 py-2.5 border rounded-lg tabular font-semibold">
+        <p class="field-help">30Y national benchmark: 6.50%</p>
+      </div>
+      <div>
+        <label class="text-sm font-semibold" for="loanTerm">Loan term (years)</label>
+        <input type="number" id="loanTerm" value="30" step="1" min="1" class="w-full mt-1 px-3 py-2.5 border rounded-lg tabular font-semibold">
+        <p class="field-help">Standard fixed-rate mortgage length.</p>
+      </div>
+    </div>
+  </div>
+
+</form>
 </section>
+
+<aside id="cp-house-aside" class="lg:col-span-5 order-1 lg:order-2">
+  <div id="cp-pay-card">
+    <div class="flex justify-between items-center gap-2 flex-wrap">
+      <span class="pay-kicker">Estimated max home price</span>
+      <select id="cpCurrencySelect" class="cp-currency-select text-sm border rounded-lg px-2 py-1">
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="EUR">€ EUR</option>
+        <option value="CAD">CA$ CAD</option>
+        <option value="AUD">A$ AUD</option>
+        <option value="INR">₹ INR</option>
+        <option value="PKR">Rs PKR</option>
+        <option value="AED">AED</option>
+        <option value="SAR">SAR</option>
+        <option value="JPY">¥ JPY</option>
+        <option value="CNY">¥ CNY</option>
+        <option value="NZD">NZ$ NZD</option>
+        <option value="SGD">S$ SGD</option>
+        <option value="ZAR">R ZAR</option>
+        <option value="CHF">CHF</option>
+        <option value="MXN">MX$ MXN</option>
+        <option value="BRL">R$ BRL</option>
+        <option value="NGN">₦ NGN</option>
+        <option value="EGP">E£ EGP</option>
+        <option value="KES">KSh KES</option>
+      </select>
+    </div>
+    <div class="pay-hero tabular" id="resultValue">—</div>
+    <p class="pay-sub">Uses whichever is more restrictive: the 28% front-end or 36% back-end debt-to-income limit.</p>
+    <div class="stat-grid">
+      <div><div class="lbl">Max loan amount</div><div class="val tabular" id="outMaxLoan">—</div></div>
+      <div><div class="lbl">Max monthly payment</div><div class="val tabular" id="outMaxPayment">—</div></div>
+      <div><div class="lbl">28% front-end limit</div><div class="val tabular" id="outFrontEnd">—</div></div>
+      <div><div class="lbl">36% back-end limit</div><div class="val tabular" id="outBackEnd">—</div></div>
+    </div>
+  </div>
+</aside>
+
+</div>
+</div>
 
 <section class="content-block">
   <div class="container prose">
@@ -183,21 +258,23 @@
     <p>It also doesn't account for HOA fees, PMI (private mortgage insurance, often required with less than 20% down), or your personal comfort level with a given payment — getting pre-approved by an actual lender remains the most accurate way to know your real number.</p>
 
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Why is my back-end ratio lower than my front-end limit?</h3>
+    <details class="faq-acc">
+      <summary>Why is my back-end ratio lower than my front-end limit?</summary>
       <p>The back-end ratio subtracts your existing monthly debts (car payments, student loans, credit cards) from your total allowed debt load, which often makes it the more restrictive limit if you carry other debt.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Does this account for property taxes and insurance?</h3>
+    </details>
+    <details class="faq-acc">
+      <summary>Does this account for property taxes and insurance?</summary>
       <p>Yes, approximately — the calculator assumes taxes and insurance take up about 15% of your total housing budget, though actual rates vary significantly by location.</p>
-    </div>
+    </details>
 
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
-      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
-      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
-      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
+    <div class="cp-next" style="margin-top:28px">
+      <p class="cp-next-kicker">Related calculators</p>
+      <div class="cp-next-grid">
+        <a href="/financial/401k-calculator.html" class="cp-next-card"><span>FINANCIAL</span>401K Calculator</a>
+        <a href="/financial/amortization-calculator.html" class="cp-next-card"><span>FINANCIAL</span>Amortization Calculator</a>
+        <a href="/financial/annuity-calculator.html" class="cp-next-card"><span>FINANCIAL</span>Annuity Calculator</a>
+        <a href="/financial/auto-loan-calculator.html" class="cp-next-card"><span>FINANCIAL</span>Auto Loan Calculator</a>
+      </div>
     </div>
   </div>
 </section>
@@ -281,5 +358,19 @@
 <script src="/js/currency-format.js?v=3d1747f9"></script>
 <script src="/js/house-affordability.js?v=3d1747f9"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('#cp-house-affordability .step-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var input = document.getElementById(btn.dataset.target);
+      if (!input) return;
+      var step = parseFloat(btn.dataset.step) || 0;
+      var next = (parseFloat(input.value) || 0) + step;
+      input.value = Math.max(0, next);
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+  });
+});
+</script>
 </body>
 </html>
