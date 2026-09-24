@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wales LTT Calculator | CalculatePilot</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/wales-ltt-calculator.html">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #FBFBFA; --ink: #14171A; --slate: #6B7280; --line: #E5E7EB;
+  --signal: #0F6B5C; --mono: 'Courier New', 'Lucida Console', monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+}
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+.embed-wrap { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.embed-header { border-bottom: 2px solid var(--signal); padding-bottom: 10px; }
+.embed-title { font-size: 1rem; font-weight: 700; }
+.embed-lede { font-size: 0.8rem; color: var(--slate); margin-top: 4px; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.field label { font-size: 0.75rem; font-weight: 600; }
+.field input, .field select { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 0.9rem; background: #fff; color: var(--ink); width: 100%; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--signal); }
+.field input[type="checkbox"] { width: auto; margin-right: 6px; }
+.readout { border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: hidden; }
+.bar { height: 4px; background: var(--signal); }
+.readout-body { padding: 12px 14px; }
+.readout-label { font-size: 0.72rem; color: var(--slate); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.readout-value { font-size: 1.55rem; font-weight: 800; margin: 4px 0 8px; }
+.readout-row { display: flex; justify-content: space-between; gap: 12px; font-size: 0.82rem; padding: 5px 0; border-top: 1px solid var(--line); }
+.hint { font-size: 0.75rem; color: var(--slate); margin-top: 8px; }
+.embed-footer { padding: 10px 16px 14px; border-top: 1px solid var(--line); font-size: 0.75rem; display: flex; justify-content: space-between; gap: 10px; }
+.embed-footer a { color: var(--signal); font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="embed-wrap">
+  <div class="embed-header">
+    <div class="embed-title">Wales LTT Calculator</div>
+    <p class="embed-lede">Residential Land Transaction Tax. Main table or higher-rate table. Not English SDLT.</p>
+  </div>
+  <form id="calcForm">
+  <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="280000" step="1000" min="0"></div>
+  <div class="field"><label for="buyer">Rate table</label>
+    <select id="buyer">
+      <option value="main" selected>Main residential rates (only / replacement home)</option>
+      <option value="higher">Higher residential rates (additional property)</option>
+    </select>
+  </div>
+  <p class="hint">Residential freehold / lease premium only. Main rates from 10 October 2022. Higher rates from 11 December 2024. Wales has no first-time buyer relief — the £225,000 nil-rate band is the standard threshold for every main-rate buyer.</p>
+</form>
+  <aside class="readout"><div class="bar"></div><div class="readout-body">
+  <div class="readout-label">LTT due</div>
+  <div class="readout-value" id="resultValue">—</div>
+  <div class="readout-row"><span>Rate table</span><span id="outTable">—</span></div>
+  <div class="readout-row"><span>Effective rate</span><span id="outRate">—</span></div>
+  <div class="readout-row"><span>Price plus LTT</span><span id="outTotal">—</span></div>
+  <p class="hint" id="outNote"></p>
+</div></aside>
+</div>
+<footer class="embed-footer">
+  <span>Estimate only. Not tax advice.</span>
+  <a href="https://www.calculatepilot.com/financial/wales-ltt-calculator.html">Open full calculator</a>
+</footer>
+<script>
+
+(function () {
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+  const priceEl = document.getElementById("price");
+  const buyerEl = document.getElementById("buyer");
+  const MAIN = [[225000, 0], [400000, 0.06], [750000, 0.075], [1500000, 0.10], [Infinity, 0.12]];
+  const HIGH = [[180000, 0.05], [250000, 0.085], [400000, 0.10], [750000, 0.125], [1500000, 0.15], [Infinity, 0.17]];
+
+  function taxOn(price, table) {
+    let rem = price, prev = 0, total = 0;
+    for (let i = 0; i < table.length; i++) {
+      const up = table[i][0];
+      const rate = table[i][1];
+      const width = (up === Infinity ? rem : up - prev);
+      const taxable = Math.max(0, Math.min(rem, width));
+      total += taxable * rate;
+      rem -= taxable;
+      prev = up;
+      if (rem <= 0) break;
+    }
+    return total;
+  }
+
+  function render() {
+    const price = Math.max(0, +priceEl.value || 0);
+    const higher = buyerEl.value === "higher";
+    const due = taxOn(price, higher ? HIGH : MAIN);
+    document.getElementById("resultValue").textContent = gbp.format(due);
+    document.getElementById("outTable").textContent = higher ? "Higher residential" : "Main residential";
+    document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
+    document.getElementById("outTotal").textContent = gbp.format(price + due);
+    document.getElementById("outNote").textContent = higher
+      ? "Higher rates apply to additional residential properties. Replacing a main residence usually uses the main table."
+      : "Wales has no first-time buyer relief. The £225,000 nil-rate band is the standard main-rate threshold.";
+  }
+
+  ["price", "buyer"].forEach(function (id) {
+    const el = document.getElementById(id);
+    el.addEventListener("input", render);
+    el.addEventListener("change", render);
+  });
+  render();
+})();
+
+</script>
+</body>
+</html>

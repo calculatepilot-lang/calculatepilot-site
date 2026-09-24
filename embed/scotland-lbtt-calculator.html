@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scotland LBTT Calculator | CalculatePilot</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.calculatepilot.com/financial/scotland-lbtt-calculator.html">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #FBFBFA; --ink: #14171A; --slate: #6B7280; --line: #E5E7EB;
+  --signal: #0F6B5C; --mono: 'Courier New', 'Lucida Console', monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+}
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+.embed-wrap { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.embed-header { border-bottom: 2px solid var(--signal); padding-bottom: 10px; }
+.embed-title { font-size: 1rem; font-weight: 700; }
+.embed-lede { font-size: 0.8rem; color: var(--slate); margin-top: 4px; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.field label { font-size: 0.75rem; font-weight: 600; }
+.field input, .field select { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 0.9rem; background: #fff; color: var(--ink); width: 100%; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--signal); }
+.field input[type="checkbox"] { width: auto; margin-right: 6px; }
+.readout { border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: hidden; }
+.bar { height: 4px; background: var(--signal); }
+.readout-body { padding: 12px 14px; }
+.readout-label { font-size: 0.72rem; color: var(--slate); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.readout-value { font-size: 1.55rem; font-weight: 800; margin: 4px 0 8px; }
+.readout-row { display: flex; justify-content: space-between; gap: 12px; font-size: 0.82rem; padding: 5px 0; border-top: 1px solid var(--line); }
+.hint { font-size: 0.75rem; color: var(--slate); margin-top: 8px; }
+.embed-footer { padding: 10px 16px 14px; border-top: 1px solid var(--line); font-size: 0.75rem; display: flex; justify-content: space-between; gap: 10px; }
+.embed-footer a { color: var(--signal); font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="embed-wrap">
+  <div class="embed-header">
+    <div class="embed-title">Scotland LBTT Calculator</div>
+    <p class="embed-lede">Residential Land and Buildings Transaction Tax. Same bands as the full page. Not English SDLT.</p>
+  </div>
+  <form id="calcForm">
+  <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="250000" step="1000" min="0"></div>
+  <div class="field"><label for="buyer">Buyer type</label>
+    <select id="buyer">
+      <option value="std" selected>Replacing / only home</option>
+      <option value="ftb">First-time buyer</option>
+    </select>
+  </div>
+  <div class="field">
+    <label><input type="checkbox" id="ads"> Additional dwelling (ADS, usually +8% of the whole price)</label>
+  </div>
+  <p class="hint">Residential freehold / lease premium only. Bands in force from 1 April 2021. ADS is 8% from 5 December 2024 and is skipped below £40,000. First-time buyer relief is not combined with ADS.</p>
+</form>
+  <aside class="readout"><div class="bar"></div><div class="readout-body">
+  <div class="readout-label">LBTT due</div>
+  <div class="readout-value" id="resultValue">—</div>
+  <div class="readout-row"><span>Band tax</span><span id="outBase">—</span></div>
+  <div class="readout-row"><span>Additional Dwelling Supplement</span><span id="outAds">—</span></div>
+  <div class="readout-row"><span>Effective rate</span><span id="outRate">—</span></div>
+  <div class="readout-row"><span>Price plus LBTT</span><span id="outTotal">—</span></div>
+  <p class="hint" id="outNote"></p>
+</div></aside>
+</div>
+<footer class="embed-footer">
+  <span>Estimate only. Not tax advice.</span>
+  <a href="https://www.calculatepilot.com/financial/scotland-lbtt-calculator.html">Open full calculator</a>
+</footer>
+<script>
+
+(function () {
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
+  const priceEl = document.getElementById("price");
+  const buyerEl = document.getElementById("buyer");
+  const adsEl = document.getElementById("ads");
+  const STD = [[145000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
+  const FTB = [[175000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
+
+  function taxOn(price, table) {
+    let rem = price, prev = 0, total = 0;
+    for (let i = 0; i < table.length; i++) {
+      const up = table[i][0];
+      const rate = table[i][1];
+      const width = (up === Infinity ? rem : up - prev);
+      const taxable = Math.max(0, Math.min(rem, width));
+      total += taxable * rate;
+      rem -= taxable;
+      prev = up;
+      if (rem <= 0) break;
+    }
+    return total;
+  }
+
+  function render() {
+    const price = Math.max(0, +priceEl.value || 0);
+    const ftbEligible = buyerEl.value === "ftb" && !adsEl.checked;
+    const base = taxOn(price, ftbEligible ? FTB : STD);
+    const ads = (adsEl.checked && price >= 40000) ? price * 0.08 : 0;
+    const due = base + ads;
+    document.getElementById("resultValue").textContent = gbp.format(due);
+    document.getElementById("outBase").textContent = gbp.format(base);
+    document.getElementById("outAds").textContent = gbp.format(ads);
+    document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
+    document.getElementById("outTotal").textContent = gbp.format(price + due);
+    let note = "";
+    if (buyerEl.value === "ftb" && adsEl.checked) note = "First-time buyer relief is not combined with ADS. Standard bands plus 8% are used.";
+    else if (adsEl.checked && price < 40000) note = "ADS usually starts at £40,000. No supplement applied.";
+    document.getElementById("outNote").textContent = note;
+  }
+
+  ["price", "buyer", "ads"].forEach(function (id) {
+    const el = document.getElementById(id);
+    el.addEventListener("input", render);
+    el.addEventListener("change", render);
+  });
+  render();
+})();
+
+</script>
+</body>
+</html>
