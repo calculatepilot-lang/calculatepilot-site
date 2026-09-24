@@ -30,33 +30,116 @@
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{primary:'#137456','emerald-deep':'#0F5B44','emerald-light':'#E8F5F0','slate-bg':'#F8FAFC'}}}}</script>
+<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{primary:'#137456','emerald-deep':'#0F5B44','emerald-light':'#E8F5F0','slate-bg':'#F8FAFC','piti-principal':'#137456','piti-tax':'#0D9488','piti-insurance':'#F59E0B'}}}}</script>
 <style>
 h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
 .tabular{font-variant-numeric:tabular-nums}
 #cp-house-affordability{color:var(--ink)}
-#cp-house-affordability label,#cp-house-affordability p,#cp-house-affordability span,#cp-house-affordability button,#cp-house-affordability strong{color:inherit}
+#cp-house-affordability label,#cp-house-affordability p,#cp-house-affordability span,#cp-house-affordability button,#cp-house-affordability strong,#cp-house-affordability div{color:inherit}
 #cp-house-affordability .bg-white{background:var(--paper-raised,#fff)!important;border-color:var(--line)!important}
 #cp-house-affordability input{background:var(--paper,#fff)!important;color:var(--ink)!important;border-color:var(--line)!important}
+.icon{width:16px;height:16px;flex-shrink:0}
+.icon-sm{width:14px;height:14px;flex-shrink:0}
+
+/* ---- input console (left card) ---- */
+.console-card{background:var(--paper-raised,#fff);border:1px solid var(--line);border-radius:18px;padding:20px 22px 24px}
+.console-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px}
+.console-head h2{margin:0;font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:8px;color:#137456}
+#resetFormBtn{display:flex;align-items:center;gap:5px;font-size:.82rem;font-weight:600;color:var(--slate);background:none;border:0;cursor:pointer}
+#resetFormBtn:hover{color:#137456}
+.field-block{margin-bottom:22px}
+.field-block:last-child{margin-bottom:0}
+.field-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.field-label{font-size:.88rem;font-weight:700;display:flex;align-items:center;gap:5px}
+.field-label .icon-sm{color:var(--slate);cursor:help}
+.field-badge{font-size:.72rem;font-weight:700;color:#137456;background:#E8F5F0;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.field-note-inline{font-size:.78rem;color:var(--slate)}
 .dollar-field{position:relative;display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--paper,#fff);transition:border-color .15s}
 .dollar-field:focus-within{border-color:#137456;box-shadow:0 0 0 3px rgba(19,116,86,.12)}
 .dollar-field .prefix{padding:0 0 0 14px;font-weight:700;font-size:1.15rem;color:var(--slate);user-select:none}
 .dollar-field input{border:0!important;background:transparent!important;padding:12px 8px;font-weight:700;font-size:1.15rem;width:100%;min-width:0}
 .dollar-field input:focus{outline:0}
 .dollar-field .steps{display:flex;gap:4px;padding-right:6px}
-.step-btn{width:32px;height:32px;flex-shrink:0;border:1px solid var(--line);background:var(--paper-raised,#fff);border-radius:8px;font-size:1.1rem;font-weight:700;cursor:pointer;color:var(--ink)}
+.step-btn{width:32px;height:32px;flex-shrink:0;border:1px solid var(--line);background:var(--paper-raised,#fff);border-radius:8px;font-size:1.1rem;font-weight:700;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center}
 .step-btn:hover{background:var(--signal-soft)}
-.cp-chip{font-size:10px;font-weight:700;letter-spacing:.05em;border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:var(--slate);text-transform:uppercase}
-.piti-pill{font-size:11px;font-weight:700;color:#137456;background:#E8F5F0;border-radius:99px;padding:3px 8px}
-.field-help{font-size:12px;color:var(--slate);margin:6px 0 0}
-#cp-pay-card{position:sticky;top:84px;background:var(--paper-raised,#fff);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:10px}
+.field-help{font-size:12px;color:var(--slate);margin:8px 0 0}
+.chip-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.chip-row-label{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--slate);margin-right:2px}
+.preset-chip{font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:var(--paper,#fff);color:var(--ink);cursor:pointer}
+.preset-chip:hover{background:var(--signal-soft)}
+.preset-chip.active{background:#137456;border-color:#137456;color:#fff;font-weight:700}
+.badge-chip{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--signal-soft-hover,#B7E0D2);background:#E8F5F0;color:#0F5B44;cursor:pointer}
+.badge-chip:hover{background:#D0EDE4}
+.rate-slider-wrap{padding:6px 2px 0}
+#rateSlider{-webkit-appearance:none;width:100%;height:8px;background:#E2E8F0;border-radius:99px;outline:0}
+#rateSlider::-webkit-slider-runnable-track{height:8px;background:#E2E8F0;border-radius:99px}
+#rateSlider::-webkit-slider-thumb{-webkit-appearance:none;height:20px;width:20px;border-radius:99px;background:#137456;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25);margin-top:-6px;cursor:pointer}
+#rateSlider::-moz-range-track{height:8px;background:#E2E8F0;border-radius:99px}
+#rateSlider::-moz-range-thumb{height:20px;width:20px;border-radius:99px;background:#137456;border:3px solid #fff;cursor:pointer}
+.rate-scale{display:flex;justify-content:space-between;font-size:.75rem;color:var(--slate);margin-top:8px}
+.rate-scale .mid{font-weight:700;color:#137456}
+.term-group{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.term-btn{padding:10px 4px;text-align:center;font-size:.86rem;font-weight:700;border:1px solid var(--line);border-radius:10px;background:var(--paper,#fff);color:var(--ink);cursor:pointer}
+.term-btn:hover{background:var(--signal-soft)}
+.term-btn.active{background:#137456;border-color:#137456;color:#fff}
+
+/* ---- results card (right) ---- */
+#cp-pay-card{position:sticky;top:84px;background:var(--paper-raised,#fff);border:1px solid var(--line);border-radius:18px;padding:0;margin-bottom:10px;overflow:hidden}
+#cp-pay-card .accent-bar{height:5px;background:linear-gradient(90deg,#0F5B44,#81d7b3)}
+#cp-pay-card .card-inner{padding:22px}
 #cp-pay-card .pay-kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 #cp-pay-card .pay-hero{font-size:2.15rem;font-weight:700;color:#137456;margin:.35rem 0 .2rem}
-#cp-pay-card .pay-sub{font-size:12px;color:var(--slate);margin:0 0 14px}
-#cp-pay-card .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
-#cp-pay-card .stat-grid .lbl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
-#cp-pay-card .stat-grid .val{font-size:1.05rem;font-weight:700;margin-top:2px}
+.constrained-line{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--slate);margin:0 0 16px}
+.constrained-line .icon-sm{color:#137456}
+.constrained-line b{color:var(--ink)}
+.dti-head{display:flex;justify-content:space-between;align-items:baseline;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.dti-head span:last-child{color:var(--slate);font-weight:600}
+.dti-bar{height:10px;border-radius:99px;overflow:hidden;display:flex;background:var(--line-soft,#EFF1F3);margin-bottom:8px}
+.dti-bar span{height:100%;transition:width .25s}
+.dti-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--slate);margin-bottom:16px}
+.dti-legend .dot{width:8px;height:8px;border-radius:99px;display:inline-block;margin-right:5px}
+.pay-row{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;padding:10px 0;border-top:1px solid var(--line-soft,#EFF1F3)}
+.pay-row.highlight{background:#E8F5F0;margin:0 -22px;padding:10px 22px;border-top:1px solid #B7E0D2;border-bottom:1px solid #B7E0D2;color:#0F5B44;font-weight:700}
+.mini-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.mini-stat{border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
+.mini-stat .lbl{font-size:.62rem;font-weight:700;letter-spacing:.05em;color:var(--slate);text-transform:uppercase;margin-bottom:4px}
+.mini-stat .val{font-size:.95rem;font-weight:700}
+.mini-stat .sub{font-size:.68rem;color:var(--slate);margin-top:2px}
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:12px;background:#0F5B44;color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;border:0;cursor:pointer;margin-top:6px}
+.btn-primary:hover{background:#0a4433}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--paper-raised,#fff);color:var(--ink);font-weight:600;font-size:.82rem;cursor:pointer}
+.btn-ghost:hover{background:var(--signal-soft)}
+.footnote{display:flex;gap:8px;font-size:.76rem;color:var(--slate);margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft,#EFF1F3)}
+.footnote .icon-sm{color:var(--slate);flex-shrink:0;margin-top:1px}
 @media(max-width:1023px){#cp-pay-card{position:static}}
+
+/* ---- guideline comparison section ---- */
+.guideline-section{margin:36px 0}
+.guideline-section h2{margin-bottom:4px}
+.guideline-sub{color:var(--slate);font-size:.92rem;margin:0 0 18px}
+.guideline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.guideline-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--paper-raised,#fff);position:relative}
+.guideline-card.active{border-color:#137456;box-shadow:0 0 0 2px rgba(19,116,86,.15)}
+.gl-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:8px}
+.gl-kicker{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--slate);text-transform:uppercase}
+.gl-ratio-badge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--slate);white-space:nowrap}
+.gl-current-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#0F5B44;color:#fff;font-size:.64rem;font-weight:700;letter-spacing:.05em;padding:4px 12px;border-radius:99px}
+.gl-title{font-weight:700;font-size:1rem;margin:0 0 6px}
+.gl-price{font-size:1.6rem;font-weight:700;color:#137456;margin:0 0 2px}
+.gl-monthly{font-size:.8rem;color:var(--slate);margin:0 0 12px}
+.gl-desc{font-size:.82rem;color:var(--slate);border-top:1px solid var(--line-soft,#EFF1F3);padding-top:10px;margin:0 0 14px;min-height:64px}
+.gl-apply{width:100%;padding:10px;border-radius:10px;font-size:.85rem;font-weight:700;cursor:pointer;border:1px solid var(--line);background:var(--paper,#fff);color:var(--ink)}
+.gl-apply:hover{background:var(--signal-soft)}
+.gl-apply.is-active{background:#E8F5F0;border-color:#B7E0D2;color:#0F5B44;cursor:default}
+.zero-debt-box{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:16px;background:var(--paper,#fff)}
+.zero-debt-box .icon{color:#137456;margin-top:2px}
+.zero-debt-box strong{display:block;margin-bottom:3px}
+.zero-debt-box p{margin:0;font-size:.86rem;color:var(--slate)}
+#simulateZeroDebtBtn{background:none;border:0;color:#137456;font-weight:700;font-size:.86rem;cursor:pointer;white-space:nowrap;margin-left:auto;padding-left:12px}
+#simulateZeroDebtBtn:hover{text-decoration:underline}
+@media(max-width:900px){.guideline-grid{grid-template-columns:1fr}.zero-debt-box{flex-direction:column}#simulateZeroDebtBtn{margin-left:0}}
+
 .faq-acc{border:1px solid var(--line);border-radius:12px;margin:0 0 .6rem;background:var(--paper-raised,#fff)}
 .faq-acc>summary{list-style:none;cursor:pointer;padding:.9rem 1rem;font-weight:650;display:flex;justify-content:space-between;color:var(--ink)}
 .faq-acc>summary::-webkit-details-marker{display:none}
@@ -140,76 +223,9 @@ h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
   <div class="container flex flex-wrap items-start justify-between gap-3">
     <div>
       <h1>House Affordability Calculator</h1>
-      <p class="lede">Estimate how much house you can afford based on your income, existing debts, and down payment.</p>
+      <p class="lede">Estimate how much house you can afford based on your income, existing debts, down payment, and standard debt-to-income qualification limits.</p>
     </div>
-    <span class="piti-pill" style="margin-top:8px">US 28/36 DTI STANDARD</span>
-  </div>
-</section>
-
-<div id="cp-house-affordability" class="max-w-6xl mx-auto px-4 pb-8">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-
-<section class="lg:col-span-7 space-y-3 order-2 lg:order-1">
-<form id="calcForm" class="space-y-3">
-
-  <div class="bg-white rounded-2xl p-4 border">
-    <div class="flex justify-between items-center mb-2">
-      <label class="text-sm font-semibold" for="annualIncome">Annual gross income ($)</label>
-      <span class="cp-chip">Gross income</span>
-    </div>
-    <div class="dollar-field">
-      <span class="prefix">$</span>
-      <input type="number" id="annualIncome" value="95000" step="1000" min="0" class="tabular">
-      <span class="steps">
-        <button type="button" class="step-btn" data-target="annualIncome" data-step="-1000" aria-label="Decrease income">−</button>
-        <button type="button" class="step-btn" data-target="annualIncome" data-step="1000" aria-label="Increase income">+</button>
-      </span>
-    </div>
-  </div>
-
-  <div class="bg-white rounded-2xl p-4 border">
-    <div class="grid sm:grid-cols-2 gap-3">
-      <div>
-        <label class="text-sm font-semibold" for="monthlyDebts">Monthly debt payments ($)</label>
-        <div class="dollar-field mt-1">
-          <span class="prefix">$</span>
-          <input type="number" id="monthlyDebts" value="400" step="10" min="0" class="tabular">
-        </div>
-        <p class="field-help">Car, student loan and credit card minimums.</p>
-      </div>
-      <div>
-        <label class="text-sm font-semibold" for="downPayment">Down payment ($)</label>
-        <div class="dollar-field mt-1">
-          <span class="prefix">$</span>
-          <input type="number" id="downPayment" value="40000" step="1000" min="0" class="tabular">
-        </div>
-        <p class="field-help">Cash you plan to put down upfront.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-white rounded-2xl p-4 border">
-    <div class="grid sm:grid-cols-2 gap-3">
-      <div>
-        <label class="text-sm font-semibold" for="interestRate">Interest rate (%)</label>
-        <input type="number" id="interestRate" value="6.5" step="0.1" min="0" class="w-full mt-1 px-3 py-2.5 border rounded-lg tabular font-semibold">
-        <p class="field-help">30Y national benchmark: 6.50%</p>
-      </div>
-      <div>
-        <label class="text-sm font-semibold" for="loanTerm">Loan term (years)</label>
-        <input type="number" id="loanTerm" value="30" step="1" min="1" class="w-full mt-1 px-3 py-2.5 border rounded-lg tabular font-semibold">
-        <p class="field-help">Standard fixed-rate mortgage length.</p>
-      </div>
-    </div>
-  </div>
-
-</form>
-</section>
-
-<aside id="cp-house-aside" class="lg:col-span-5 order-1 lg:order-2">
-  <div id="cp-pay-card">
-    <div class="flex justify-between items-center gap-2 flex-wrap">
-      <span class="pay-kicker">Estimated max home price</span>
+    <div class="flex items-center gap-2">
       <select id="cpCurrencySelect" class="cp-currency-select text-sm border rounded-lg px-2 py-1">
         <option value="USD">$ USD</option>
         <option value="GBP">£ GBP</option>
@@ -233,17 +249,263 @@ h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
         <option value="KES">KSh KES</option>
       </select>
     </div>
-    <div class="pay-hero tabular" id="resultValue">—</div>
-    <p class="pay-sub">Uses whichever is more restrictive: the 28% front-end or 36% back-end debt-to-income limit.</p>
-    <div class="stat-grid">
-      <div><div class="lbl">Max loan amount</div><div class="val tabular" id="outMaxLoan">—</div></div>
-      <div><div class="lbl">Max monthly payment</div><div class="val tabular" id="outMaxPayment">—</div></div>
-      <div><div class="lbl">28% front-end limit</div><div class="val tabular" id="outFrontEnd">—</div></div>
-      <div><div class="lbl">36% back-end limit</div><div class="val tabular" id="outBackEnd">—</div></div>
+  </div>
+</section>
+
+<div id="cp-house-affordability" class="max-w-6xl mx-auto px-4 pb-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+
+<section class="lg:col-span-7 order-2 lg:order-1">
+<form id="calcForm" class="console-card">
+
+  <div class="console-head">
+    <h2>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+      Household Financial Inputs
+    </h2>
+    <button type="button" id="resetFormBtn">
+      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Reset
+    </button>
+  </div>
+
+  <div class="field-block">
+    <div class="field-top">
+      <span class="field-label">Annual Gross Income ($)
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="Pre-tax total household yearly earnings"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </span>
+      <span class="field-badge" id="incomeMonthlyBadge">≈ $7,917 / month gross</span>
+    </div>
+    <div class="dollar-field">
+      <span class="prefix">$</span>
+      <input type="number" id="annualIncome" value="95000" step="1000" min="0" class="tabular">
+      <span class="steps">
+        <button type="button" class="step-btn" data-target="annualIncome" data-step="-1000" aria-label="Decrease income">−</button>
+        <button type="button" class="step-btn" data-target="annualIncome" data-step="1000" aria-label="Increase income">+</button>
+      </span>
+    </div>
+    <div class="chip-row">
+      <span class="chip-row-label">PRESETS:</span>
+      <button type="button" class="preset-chip" data-target="annualIncome" data-value="75000">$75k</button>
+      <button type="button" class="preset-chip" data-target="annualIncome" data-value="95000">$95k</button>
+      <button type="button" class="preset-chip" data-target="annualIncome" data-value="120000">$120k</button>
+      <button type="button" class="preset-chip" data-target="annualIncome" data-value="150000">$150k</button>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-top">
+      <span class="field-label">Monthly Debt Payments ($)
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="Minimum monthly payments on auto loans, student loans, credit cards, etc."><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </span>
+      <span class="field-note-inline">Car, student, cards minimums</span>
+    </div>
+    <div class="dollar-field">
+      <span class="prefix">$</span>
+      <input type="number" id="monthlyDebts" value="400" step="10" min="0" class="tabular">
+      <span class="steps">
+        <button type="button" class="step-btn" data-target="monthlyDebts" data-step="-50" aria-label="Decrease debts">−</button>
+        <button type="button" class="step-btn" data-target="monthlyDebts" data-step="50" aria-label="Increase debts">+</button>
+      </span>
+    </div>
+    <p class="field-help">Include recurring monthly obligations: auto leases, minimum revolving credit cards, personal and student debts.</p>
+  </div>
+
+  <div class="field-block">
+    <div class="field-top">
+      <span class="field-label">Down Payment ($)
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="Total liquid cash you plan to invest directly toward purchase"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </span>
+      <span class="field-badge" id="downPaymentPctBadge">11.8% of Max Purchase</span>
+    </div>
+    <div class="dollar-field">
+      <span class="prefix">$</span>
+      <input type="number" id="downPayment" value="40000" step="1000" min="0" class="tabular">
+      <span class="steps">
+        <button type="button" class="step-btn" data-target="downPayment" data-step="-5000" aria-label="Decrease down payment">−</button>
+        <button type="button" class="step-btn" data-target="downPayment" data-step="5000" aria-label="Increase down payment">+</button>
+      </span>
+    </div>
+    <div class="chip-row">
+      <span class="chip-row-label">TARGETS:</span>
+      <button type="button" class="preset-chip" data-target="downPayment" data-value="25000">$25,000</button>
+      <button type="button" class="preset-chip" data-target="downPayment" data-value="40000">$40,000</button>
+      <button type="button" class="preset-chip" data-target="downPayment" data-value="60000">$60,000</button>
+      <button type="button" class="badge-chip" id="dp20Chip">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/></svg>
+        20% Conventional
+      </button>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-top">
+      <span class="field-label">Interest Rate (%)
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" title="Current 30-year fixed mortgage rate"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </span>
+      <span class="flex items-center gap-2">
+        <span class="field-badge">30Y NATL AVG: 6.50%</span>
+        <strong id="rateSliderVal" class="tabular" style="color:#137456">6.50%</strong>
+      </span>
+    </div>
+    <input type="hidden" id="interestRate" value="6.5">
+    <div class="rate-slider-wrap">
+      <input type="range" id="rateSlider" min="2.5" max="11" step="0.125" value="6.5">
+      <div class="rate-scale">
+        <span>2.5%</span>
+        <span class="mid" id="rateCenterLabel">6.50% Standard</span>
+        <span>11.0%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-top">
+      <span class="field-label">Loan Term (Years)</span>
+    </div>
+    <input type="hidden" id="loanTerm" value="30">
+    <div class="term-group">
+      <button type="button" class="term-btn" data-term="10">10 yr</button>
+      <button type="button" class="term-btn" data-term="15">15 yr</button>
+      <button type="button" class="term-btn" data-term="20">20 yr</button>
+      <button type="button" class="term-btn active" data-term="30">30 yr</button>
+    </div>
+  </div>
+
+</form>
+</section>
+
+<aside id="cp-house-aside" class="lg:col-span-5 order-1 lg:order-2">
+  <div id="cp-pay-card">
+    <div class="accent-bar"></div>
+    <div class="card-inner">
+      <div class="flex justify-between items-center gap-2 flex-wrap">
+        <span class="pay-kicker">Estimated max home price</span>
+        <span class="piti-pill">PURCHASE BUDGET</span>
+      </div>
+      <div class="pay-hero tabular" id="resultValue">—</div>
+      <p class="constrained-line">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span id="constrainedByText">Constrained by <b>28% front-end</b> debt ratio limit</span>
+      </p>
+
+      <div class="dti-head">
+        <span>Monthly Debt-To-Income Allocation</span>
+        <span id="dtiRatioLabel">28.0% / 36.0%</span>
+      </div>
+      <div class="dti-bar">
+        <span id="dtiBarHousing" style="background:#137456;width:0%"></span>
+        <span id="dtiBarDebts" style="background:#F59E0B;width:0%"></span>
+        <span id="dtiBarBuffer" style="background:var(--line);width:0%"></span>
+      </div>
+      <div class="dti-legend">
+        <span><i class="dot" style="background:#137456"></i>Housing (<span id="dtiHousingAmt" class="tabular">—</span>)</span>
+        <span><i class="dot" style="background:#F59E0B"></i>Debts (<span id="dtiDebtsAmt" class="tabular">—</span>)</span>
+        <span><i class="dot" style="background:var(--line)"></i>Buffer (<span id="dtiBufferAmt" class="tabular">—</span>)</span>
+      </div>
+
+      <div class="pay-row"><span>Estimated max loan amount</span><span id="outMaxLoan" class="tabular font-semibold">—</span></div>
+      <div class="pay-row"><span>Max monthly housing payment</span><span id="outMaxPayment" class="tabular font-semibold">—</span></div>
+      <div class="pay-row highlight"><span id="frontLimitLabel">28% front-end limit (Housing)</span><span id="outFrontEnd" class="tabular">—</span></div>
+      <div class="pay-row"><span id="backLimitLabel">36% back-end limit (Total Debts)</span><span id="outBackEnd" class="tabular">—</span></div>
+
+      <div class="mini-stat-grid">
+        <div class="mini-stat">
+          <div class="lbl">Down payment</div>
+          <div class="val tabular" id="miniDownPayment">—</div>
+          <div class="sub" id="miniDownPaymentPct">—</div>
+        </div>
+        <div class="mini-stat">
+          <div class="lbl">Est. P&amp;I</div>
+          <div class="val tabular" id="estPI">—</div>
+          <div class="sub">Principal &amp; Int</div>
+        </div>
+        <div class="mini-stat">
+          <div class="lbl">Est. tax &amp; ins.</div>
+          <div class="val tabular" id="estTaxIns">—</div>
+          <div class="sub">~15% reserve</div>
+        </div>
+      </div>
+
+      <a href="/financial/amortization-calculator.html" class="btn-primary">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        View Loan Amortization Schedule
+      </a>
+      <div class="btn-row">
+        <button type="button" class="btn-ghost" id="dpScenariosBtn">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          Down Payment Scenarios
+        </button>
+        <button type="button" class="btn-ghost" id="printSummaryBtn">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Summary
+        </button>
+      </div>
+
+      <p class="footnote">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span id="footnoteText">The 28% front-end rule is the limiting factor here. Carrying less than $633/mo in non-housing debt makes front-end income the primary threshold.</span>
+      </p>
     </div>
   </div>
 </aside>
 
+</div>
+
+<div class="guideline-section">
+  <h2>Affordability Guidelines Comparison</h2>
+  <p class="guideline-sub">Explore how different lender underwriting thresholds and personal risk tolerances shift your purchasing power.</p>
+  <div class="guideline-grid">
+
+    <div class="guideline-card" data-key="conservative">
+      <span class="gl-current-badge" style="display:none">Current Selection</span>
+      <div class="gl-top">
+        <span class="gl-kicker">Conservative benchmark</span>
+        <span class="gl-ratio-badge">25% Front-End</span>
+      </div>
+      <p class="gl-title">Peace-of-Mind Budget</p>
+      <p class="gl-price tabular"><span class="gl-price-val">—</span></p>
+      <p class="gl-monthly">Estimated monthly: <span class="gl-monthly-val tabular">—</span></p>
+      <p class="gl-desc">Leaves ample margin for 401(k) contributions, emergency repairs, and family investments without stretching cash reserves.</p>
+      <button type="button" class="gl-apply" data-key="conservative">Apply 25% Rule</button>
+    </div>
+
+    <div class="guideline-card active" data-key="standard">
+      <span class="gl-current-badge">Current Selection</span>
+      <div class="gl-top">
+        <span class="gl-kicker">Conventional underwriting</span>
+        <span class="gl-ratio-badge">28/36 Rule</span>
+      </div>
+      <p class="gl-title">Industry Standard Limit</p>
+      <p class="gl-price tabular"><span class="gl-price-val">—</span></p>
+      <p class="gl-monthly">Estimated monthly: <span class="gl-monthly-val tabular">—</span></p>
+      <p class="gl-desc">Standard qualification formula used by Fannie Mae, Freddie Mac, and institutional conforming lenders nationwide.</p>
+      <button type="button" class="gl-apply is-active" data-key="standard">Active Baseline</button>
+    </div>
+
+    <div class="guideline-card" data-key="fha">
+      <span class="gl-current-badge" style="display:none">Current Selection</span>
+      <div class="gl-top">
+        <span class="gl-kicker">Maximum leverage</span>
+        <span class="gl-ratio-badge">31/43 FHA Cap</span>
+      </div>
+      <p class="gl-title">High-Capacity Stretch</p>
+      <p class="gl-price tabular"><span class="gl-price-val">—</span></p>
+      <p class="gl-monthly">Estimated monthly: <span class="gl-monthly-val tabular">—</span></p>
+      <p class="gl-desc">Requires higher credit score verification and pristine cash flow documentation. Susceptible to market volatility.</p>
+      <button type="button" class="gl-apply" data-key="fha">Apply FHA Guideline</button>
+    </div>
+
+  </div>
+
+  <div class="zero-debt-box">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+    <div>
+      <strong>What paying off your <span id="zeroDebtMd" class="tabular">$400</span>/month recurring debt would do:</strong>
+      <p id="zeroDebtText">Eliminating your recurring monthly debt could expand your potential purchasing budget on this guideline.</p>
+    </div>
+    <button type="button" id="simulateZeroDebtBtn">Simulate Zero Debt →</button>
+  </div>
 </div>
 </div>
 
@@ -359,18 +621,225 @@ h1{font-size:clamp(1.75rem,4vw,2.35rem)!important;font-weight:700!important}
 <script src="/js/house-affordability.js?v=3d1747f9"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('#cp-house-affordability .step-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var input = document.getElementById(btn.dataset.target);
-      if (!input) return;
-      var step = parseFloat(btn.dataset.step) || 0;
-      var next = (parseFloat(input.value) || 0) + step;
-      input.value = Math.max(0, next);
-      input.dispatchEvent(new Event('input', { bubbles: true }));
+(function () {
+  var GUIDELINES = {
+    conservative: { front: 0.25, back: Infinity, label: '25%', key: 'conservative' },
+    standard:     { front: 0.28, back: 0.36,     label: '28/36', key: 'standard' },
+    fha:          { front: 0.31, back: 0.43,     label: '31/43', key: 'fha' }
+  };
+  var activeKey = 'standard';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('calcForm');
+
+  function fmt(v) {
+    if (typeof window.cpFormatMoney === 'function') return cpFormatMoney(v, { maximumFractionDigits: 0 });
+    return '$' + Math.round(v).toLocaleString('en-US');
+  }
+
+  function readInputs() {
+    return {
+      AI: parseFloat($('annualIncome').value) || 0,
+      MD: parseFloat($('monthlyDebts').value) || 0,
+      DP: parseFloat($('downPayment').value) || 0,
+      R: parseFloat($('interestRate').value) || 0,
+      Y: parseFloat($('loanTerm').value) || 30
+    };
+  }
+
+  function computeFor(g, AI, MD, DP, R, Y) {
+    var grossMonthly = AI / 12;
+    var maxFrontEnd = grossMonthly * g.front;
+    var maxBackEnd = g.back === Infinity ? Infinity : (grossMonthly * g.back - MD);
+    var maxHousingPayment = Math.max(0, Math.min(maxFrontEnd, maxBackEnd));
+    var maxPI = maxHousingPayment * 0.85;
+    var taxIns = maxHousingPayment - maxPI;
+    var r = (R / 100) / 12;
+    var n = Y * 12;
+    var maxLoan = r === 0 ? maxPI * n : maxPI * (Math.pow(1 + r, n) - 1) / (r * Math.pow(1 + r, n));
+    var maxHomePrice = maxLoan + DP;
+    return { grossMonthly: grossMonthly, maxFrontEnd: maxFrontEnd, maxBackEnd: maxBackEnd, maxHousingPayment: maxHousingPayment, maxPI: maxPI, taxIns: taxIns, maxLoan: maxLoan, maxHomePrice: maxHomePrice };
+  }
+
+  function recomputeAll() {
+    var inp = readInputs();
+    var g = GUIDELINES[activeKey];
+    var res = computeFor(g, inp.AI, inp.MD, inp.DP, inp.R, inp.Y);
+
+    $('resultValue').textContent = fmt(res.maxHomePrice);
+    $('outMaxLoan').textContent = fmt(res.maxLoan);
+    $('outMaxPayment').textContent = fmt(res.maxHousingPayment);
+    $('outFrontEnd').textContent = fmt(res.maxFrontEnd);
+    $('outBackEnd').textContent = res.maxBackEnd === Infinity ? '—' : fmt(res.maxBackEnd);
+
+    $('frontLimitLabel').textContent = Math.round(g.front * 100) + '% front-end limit (Housing)';
+    $('backLimitLabel').textContent = g.back === Infinity ? 'No back-end cap on this guideline' : Math.round(g.back * 100) + '% back-end limit (Total Debts)';
+
+    $('incomeMonthlyBadge').textContent = '≈ ' + fmt(res.grossMonthly) + ' / month gross';
+
+    var dpPct = res.maxHomePrice > 0 ? (inp.DP / res.maxHomePrice * 100) : 0;
+    $('downPaymentPctBadge').textContent = dpPct.toFixed(1) + '% of Max Purchase';
+    $('miniDownPayment').textContent = fmt(inp.DP);
+    $('miniDownPaymentPct').textContent = dpPct.toFixed(1) + '%';
+
+    var frontBinds = res.maxFrontEnd <= res.maxBackEnd;
+    $('constrainedByText').innerHTML = 'Constrained by <b>' + Math.round((frontBinds ? g.front : g.back) * 100) + '% ' + (frontBinds ? 'front-end' : 'back-end') + '</b> debt ratio limit';
+
+    $('estPI').textContent = fmt(res.maxPI);
+    $('estTaxIns').textContent = fmt(res.taxIns);
+
+    var totalBudget = g.back === Infinity ? (res.maxHousingPayment + inp.MD) : (res.grossMonthly * g.back);
+    if (totalBudget <= 0) totalBudget = 1;
+    var housingPct = Math.min(100, res.maxHousingPayment / totalBudget * 100);
+    var debtsPct = Math.min(100 - housingPct, inp.MD / totalBudget * 100);
+    var bufferPct = Math.max(0, 100 - housingPct - debtsPct);
+    $('dtiBarHousing').style.width = housingPct + '%';
+    $('dtiBarDebts').style.width = debtsPct + '%';
+    $('dtiBarBuffer').style.width = bufferPct + '%';
+    $('dtiRatioLabel').textContent = g.back === Infinity ? (Math.round(g.front * 100) + '.0%') : (Math.round(g.front * 100) + '.0% / ' + Math.round(g.back * 100) + '.0%');
+    $('dtiHousingAmt').textContent = fmt(res.maxHousingPayment);
+    $('dtiDebtsAmt').textContent = fmt(inp.MD);
+    $('dtiBufferAmt').textContent = fmt(Math.max(0, totalBudget - res.maxHousingPayment - inp.MD));
+
+    var footnote = frontBinds
+      ? 'The ' + Math.round(g.front * 100) + '% front-end rule is the limiting factor here. Reducing non-housing debt will not raise your budget under this guideline.'
+      : 'Your existing monthly debts are the limiting factor here. Paying them down would raise your budget under this guideline.';
+    $('footnoteText').textContent = footnote;
+
+    // Guideline comparison cards (each independent of the active guideline)
+    Object.keys(GUIDELINES).forEach(function (key) {
+      var gg = GUIDELINES[key];
+      var r2 = computeFor(gg, inp.AI, inp.MD, inp.DP, inp.R, inp.Y);
+      var card = document.querySelector('.guideline-card[data-key="' + key + '"]');
+      if (!card) return;
+      card.querySelector('.gl-price-val').textContent = fmt(r2.maxHomePrice);
+      card.querySelector('.gl-monthly-val').textContent = fmt(r2.maxHousingPayment) + ' / mo';
+      card.classList.toggle('active', key === activeKey);
+      var badge = card.querySelector('.gl-current-badge');
+      if (badge) badge.style.display = key === activeKey ? '' : 'none';
+      var btn = card.querySelector('.gl-apply');
+      if (btn) {
+        btn.classList.toggle('is-active', key === activeKey);
+        btn.textContent = key === activeKey ? 'Active Baseline' : btn.getAttribute('data-label');
+      }
     });
+
+    // Zero-debt simulation, computed against the active guideline
+    var res0 = computeFor(g, inp.AI, 0, inp.DP, inp.R, inp.Y);
+    var gain = res0.maxHomePrice - res.maxHomePrice;
+    $('zeroDebtMd').textContent = fmt(inp.MD);
+    if (g.back === Infinity) {
+      $('zeroDebtText').textContent = 'This guideline has no back-end debt cap, so your monthly debts do not affect this budget.';
+    } else if (gain <= 1) {
+      $('zeroDebtText').textContent = 'Your front-end ratio already limits this budget — paying off this debt would not increase what you can borrow under this guideline.';
+    } else {
+      $('zeroDebtText').textContent = 'Eliminating this recurring debt drops your back-end liability, expanding your potential purchasing budget by up to +' + fmt(gain) + ' on a ' + inp.Y + '-year term.';
+    }
+
+    // sync slider + term buttons + presets active state
+    $('rateSlider').value = inp.R;
+    $('rateSliderVal').textContent = inp.R.toFixed(2) + '%';
+    $('rateCenterLabel').textContent = inp.R.toFixed(2) + '%' + (inp.R === 6.5 ? ' Standard' : '');
+    document.querySelectorAll('.term-btn').forEach(function (b) {
+      b.classList.toggle('active', parseFloat(b.dataset.term) === inp.Y);
+    });
+    document.querySelectorAll('.preset-chip[data-target="annualIncome"]').forEach(function (b) {
+      b.classList.toggle('active', parseFloat(b.dataset.value) === inp.AI);
+    });
+    document.querySelectorAll('.preset-chip[data-target="downPayment"]').forEach(function (b) {
+      b.classList.toggle('active', parseFloat(b.dataset.value) === inp.DP);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // apply-label bookkeeping for guideline buttons
+    document.querySelectorAll('.gl-apply').forEach(function (btn) {
+      btn.setAttribute('data-label', btn.textContent);
+      btn.addEventListener('click', function () {
+        activeKey = btn.getAttribute('data-key');
+        recomputeAll();
+      });
+    });
+
+    // step buttons ($ fields)
+    document.querySelectorAll('#cp-house-affordability .step-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = $(btn.dataset.target);
+        if (!input) return;
+        var step = parseFloat(btn.dataset.step) || 0;
+        var next = (parseFloat(input.value) || 0) + step;
+        input.value = Math.max(0, next);
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+
+    // preset / target chips
+    document.querySelectorAll('.preset-chip[data-target][data-value]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = $(btn.dataset.target);
+        if (!input) return;
+        input.value = btn.dataset.value;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+
+    // 20% conventional down payment target: DP = 0.25 * maxLoan (so DP / (maxLoan+DP) = 20%)
+    $('dp20Chip').addEventListener('click', function () {
+      var inp = readInputs();
+      var g = GUIDELINES[activeKey];
+      var res = computeFor(g, inp.AI, inp.MD, 0, inp.R, inp.Y);
+      var target = Math.round(res.maxLoan * 0.25 / 100) * 100;
+      $('downPayment').value = Math.max(0, target);
+      $('downPayment').dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // interest rate slider <-> hidden input
+    $('rateSlider').addEventListener('input', function () {
+      $('interestRate').value = this.value;
+      $('interestRate').dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // loan term segmented buttons
+    document.querySelectorAll('.term-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $('loanTerm').value = btn.dataset.term;
+        $('loanTerm').dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+
+    // reset
+    $('resetFormBtn').addEventListener('click', function () {
+      $('annualIncome').value = 95000;
+      $('monthlyDebts').value = 400;
+      $('downPayment').value = 40000;
+      $('interestRate').value = 6.5;
+      $('loanTerm').value = 30;
+      activeKey = 'standard';
+      form.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // down payment scenarios: scroll to + focus the down payment field
+    $('dpScenariosBtn').addEventListener('click', function () {
+      var input = $('downPayment');
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      input.focus();
+    });
+
+    // print summary
+    $('printSummaryBtn').addEventListener('click', function () {
+      window.print();
+    });
+
+    // simulate zero debt: actually zero out the debt field
+    $('simulateZeroDebtBtn').addEventListener('click', function () {
+      $('monthlyDebts').value = 0;
+      $('monthlyDebts').dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    form.addEventListener('input', recomputeAll);
+    recomputeAll();
   });
-});
+})();
 </script>
 </body>
 </html>
