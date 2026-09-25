@@ -46,9 +46,10 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); fo
     <select id="buyer">
       <option value="main" selected>Main residential rates (only / replacement home)</option>
       <option value="higher">Higher residential rates (additional property)</option>
+      <option value="nonres">Non-residential freehold / lease premium</option>
     </select>
   </div>
-  <p class="hint">Residential freehold / lease premium only. Main rates from 10 October 2022. Higher rates from 11 December 2024. Wales has no first-time buyer relief — the £225,000 nil-rate band is the standard threshold for every main-rate buyer.</p>
+  <p class="hint">Includes non-residential freehold rates from 22 December 2020. Lease rent is not calculated.</p>
 </form>
   <aside class="readout"><div class="bar"></div><div class="readout-body">
   <div class="readout-label">LTT due</div>
@@ -71,6 +72,7 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); fo
   const buyerEl = document.getElementById("buyer");
   const MAIN = [[225000, 0], [400000, 0.06], [750000, 0.075], [1500000, 0.10], [Infinity, 0.12]];
   const HIGH = [[180000, 0.05], [250000, 0.085], [400000, 0.10], [750000, 0.125], [1500000, 0.15], [Infinity, 0.17]];
+  const NONRES = [[225000, 0], [250000, 0.01], [1000000, 0.05], [Infinity, 0.06]];
 
   function taxOn(price, table) {
     let rem = price, prev = 0, total = 0;
@@ -89,14 +91,18 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); fo
 
   function render() {
     const price = Math.max(0, +priceEl.value || 0);
-    const higher = buyerEl.value === "higher";
-    const due = taxOn(price, higher ? HIGH : MAIN);
+    const mode = buyerEl.value;
+    const table = mode === "higher" ? HIGH : mode === "nonres" ? NONRES : MAIN;
+    const due = taxOn(price, table);
+    const label = mode === "higher" ? "Higher residential" : mode === "nonres" ? "Non-residential" : "Main residential";
     document.getElementById("resultValue").textContent = gbp.format(due);
-    document.getElementById("outTable").textContent = higher ? "Higher residential" : "Main residential";
+    document.getElementById("outTable").textContent = label;
     document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
     document.getElementById("outTotal").textContent = gbp.format(price + due);
-    document.getElementById("outNote").textContent = higher
+    document.getElementById("outNote").textContent = mode === "higher"
       ? "Higher rates apply to additional residential properties. Replacing a main residence usually uses the main table."
+      : mode === "nonres"
+      ? "Non-residential freehold or lease premium from 22 December 2020. Lease rent is not calculated."
       : "Wales has no first-time buyer relief. The £225,000 nil-rate band is the standard main-rate threshold.";
   }
 

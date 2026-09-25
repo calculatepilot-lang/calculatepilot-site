@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wales Stamp Duty Calculator — LTT rates 2026 | CalculatePilot</title>
-<meta name="description" content="Work out Land Transaction Tax on a Welsh home. Uses Welsh Revenue Authority main residential bands and the separate higher-rate table from 11 December 2024. No first-time buyer relief. Not English SDLT or Scottish LBTT.">
+<meta name="description" content="Welsh LTT for a home or a non-residential freehold. Main rates, the higher residential table, and the 0/1/5/6% commercial table. Not English SDLT.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/wales-ltt-calculator.html">
 <meta property="og:title" content="Wales Stamp Duty Calculator — LTT rates 2026 | CalculatePilot">
-<meta property="og:description" content="Band-by-band LTT for Wales. Main rates and higher residential rates. Wales has no first-time buyer relief. Not a renamed English stamp-duty page.">
+<meta property="og:description" content="Main residential LTT, the higher-rate table, and non-residential freehold rates. No first-time buyer relief. Not English stamp duty.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/wales-ltt-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -37,7 +37,7 @@
       "operatingSystem": "Any",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
       "creator": {"@type": "Person", "name": "Suhaib Hassan"},
-      "description": "Residential Land Transaction Tax calculator for Wales using Welsh Revenue Authority main rates and the separate higher residential rate table."
+      "description": "Land Transaction Tax calculator for Wales. Main residential rates, the higher residential table, and non-residential freehold rates. Lease rent is not calculated."
     }
   ]
 }
@@ -51,7 +51,8 @@
     {"@type": "Question", "name": "How do higher rates work in Wales?", "acceptedAnswer": {"@type": "Answer", "text": "From 11 December 2024 Wales uses a separate higher-rate table for additional residential properties — not a flat 5% or 8% surcharge on top of the main rates. The first slice is 5% up to £180,000, then 8.5%, 10%, 12.5%, 15% and 17%."}},
     {"@type": "Question", "name": "Is LTT the same as stamp duty in England?", "acceptedAnswer": {"@type": "Answer", "text": "No. Wales replaced Stamp Duty Land Tax with Land Transaction Tax. The nil-rate band is £225,000 (not £125,000), there is no first-time buyer relief, and additional homes use a different rate table rather than England's 5% surcharge."}},
     {"@type": "Question", "name": "Does this calculator cover Scotland or England?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses Land and Buildings Transaction Tax and England and Northern Ireland use Stamp Duty Land Tax. Those are different statutes with different bands, so they are separate pages — not city or nation token-swaps of this one."}},
-    {"@type": "Question", "name": "Is this a Welsh Revenue Authority assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published residential bands. Confirm the return with a solicitor. Non-residential, mixed-use, multiple dwellings and linked transactions are out of scope."}}
+    {"@type": "Question", "name": "Does this cover a shop or office?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for a non-residential freehold or lease premium, using the table in force since 22 December 2020: 0% to £225,000, 1% to £250,000, 5% to £1,000,000 and 6% above that. A £300,000 premises is £2,750. Lease rent (NPV) and mixed property are not calculated."}},
+    {"@type": "Question", "name": "Is this a Welsh Revenue Authority assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published bands. Confirm the return with a solicitor. Lease rent, mixed property, multiple dwellings and linked transactions are not calculated."}}
   ]
 }
 </script>
@@ -62,7 +63,7 @@
 <div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Wales LTT Calculator</nav></div>
 <section class="calc-page-head"><div class="container">
   <h1>Wales LTT Calculator</h1>
-  <p class="lede">Work out Land Transaction Tax on a residential purchase in Wales. This is a one-off purchase cost — not English <a href="/financial/uk-stamp-duty-calculator.html">Stamp Duty Land Tax</a>, and not Scottish <a href="/financial/scotland-lbtt-calculator.html">LBTT</a>.</p>
+  <p class="lede">Work out Land Transaction Tax on a purchase in Wales — a home, or a non-residential freehold. This is a one-off purchase cost — not English <a href="/financial/uk-stamp-duty-calculator.html">Stamp Duty Land Tax</a>, and not Scottish <a href="/financial/scotland-lbtt-calculator.html">LBTT</a>.</p>
 </div></section>
 <section><div class="container calc-layout">
 <form class="calc-card" id="calcForm">
@@ -71,9 +72,10 @@
     <select id="buyer">
       <option value="main" selected>Main residential rates (only / replacement home)</option>
       <option value="higher">Higher residential rates (additional property)</option>
+      <option value="nonres">Non-residential freehold / lease premium</option>
     </select>
   </div>
-  <p class="hint">Residential freehold / lease premium only. Main rates from 10 October 2022. Higher rates from 11 December 2024. Wales has no first-time buyer relief — the £225,000 nil-rate band is the standard threshold for every main-rate buyer.</p>
+  <p class="hint">Main residential rates from 10 October 2022. Higher residential rates from 11 December 2024. Non-residential freehold rates from 22 December 2020. Wales has no first-time buyer relief. Lease rent is not calculated.</p>
 </form>
 <aside class="readout"><div class="bar"></div><div class="readout-body">
   <div class="readout-label">LTT due</div>
@@ -110,7 +112,18 @@ Above £1.5 million → 17%</p>
 No separate relief. The £225,000 nil-rate band is the standard main-rate threshold for everyone.</p>
 </div>
 <p>Source: <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES Land Transaction Tax rates and bands</a>. Re-check that page before you complete — the Welsh Revenue Authority, not this calculator, is the authority.</p>
-<p class="hint">By Suhaib Hassan · Bands verified 22 Sep 2026 against GOV.WALES · Method v1.0-UK-LTT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<p class="hint">By Suhaib Hassan · Residential bands verified 22 Sep 2026, non-residential table verified 25 Sep 2026 · Method v1.1-UK-LTT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+<h2>Non-residential freehold and lease premium</h2>
+<p>Shops, offices and agricultural land use a third table. It is not the higher residential table, and it is not a surcharge on the main rates. These slices have applied since 22 December 2020.</p>
+<div class="formula-box" role="region" aria-label="Non-residential LTT bands">
+<p><strong>Non-residential property</strong><br>
+£0–£225,000 → 0%<br>
+£225,001–£250,000 → 1%<br>
+£250,001–£1,000,000 → 5%<br>
+Above £1,000,000 → 6%</p>
+</div>
+<p>Source: <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES Land Transaction Tax rates and bands</a>, non-residential property tax rates. Lease rent (NPV) and mixed property are not calculated here.</p>
 
 <h2 id="worked-example">Worked examples (pre-computed)</h2>
 <p>These use the same slices as the calculator, so the answer is readable if JavaScript is off.</p>
@@ -129,6 +142,11 @@ No separate relief. The £225,000 nil-rate band is the standard main-rate thresh
 10% on the last £50,000 = £5,000<br>
 <strong>LTT = £19,950</strong></p>
 <p>On £300,000 the higher-rate table costs £15,450 more than the main table. That is why additional-property LTT is not a 5% token-swap of English SDLT.</p>
+<p><strong>4. Non-residential premises at £300,000</strong> (rates from 22 December 2020)<br>
+0% on £225,000 = £0<br>
+1% on the next £25,000 = £250<br>
+5% on the remaining £50,000 = £2,500<br>
+<strong>LTT = £2,750</strong></p>
 </div>
 
 <h2>How LTT differs from English SDLT and Scottish LBTT</h2>
@@ -142,7 +160,7 @@ No separate relief. The £225,000 nil-rate band is the standard main-rate thresh
 <ul>
   <li><strong>England, Northern Ireland or Scotland.</strong> Use the <a href="/financial/uk-stamp-duty-calculator.html">UK Stamp Duty Calculator</a> or the <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT Calculator</a>.</li>
   <li><strong>Monthly mortgage cost.</strong> Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment vs interest-only calculator</a>.</li>
-  <li><strong>Non-residential, mixed-use, multiple dwellings or linked transactions.</strong> Those have separate WRA rules. Unknown stays unknown.</li>
+  <li><strong>Lease rent, mixed property, multiple dwellings or linked transactions.</strong> The non-residential option is only the freehold / premium table. Rent (NPV) and those reliefs stay unknown.</li>
 </ul>
 
 <h2>Frequently asked questions</h2>
@@ -150,6 +168,7 @@ No separate relief. The £225,000 nil-rate band is the standard main-rate thresh
 <div class="faq-item"><h3>How do higher rates work in Wales?</h3><p>A separate table from 11 December 2024, starting at 5% on the first £180,000 — not a flat surcharge on the main rates.</p></div>
 <div class="faq-item"><h3>Is LTT the same as stamp duty in England?</h3><p>No. Different statute, different bands. England & NI is the <a href="/financial/uk-stamp-duty-calculator.html">UK Stamp Duty Calculator</a>.</p></div>
 <div class="faq-item"><h3>Does this calculator cover Scotland or England?</h3><p>No. Scotland is the <a href="/financial/scotland-lbtt-calculator.html">LBTT calculator</a>. England and NI are the SDLT calculator.</p></div>
+<div class="faq-item"><h3>Does this cover a shop or office?</h3><p>Yes, if it is a non-residential freehold or lease premium. From 22 December 2020 the slices are 0% to £225,000, 1% to £250,000, 5% to £1,000,000 and 6% above that. A £300,000 premises is £2,750. Lease rent is not calculated.</p></div>
 <div class="faq-item"><h3>Is this a Welsh Revenue Authority assessment?</h3><p>No. Confirm with a solicitor. This page is a planning estimate from published bands.</p></div>
 
 <h2 id="next-job">Next calculation</h2>
@@ -160,7 +179,7 @@ No separate relief. The £225,000 nil-rate band is the standard main-rate thresh
   <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">3. Compare 25-year repayment vs interest-only <span class="arrow">→</span></a>
   <a class="tool-link" href="/financial/uk-mortgage-overpayment-calculator.html">4. Model an overpayment on the loan you take <span class="arrow">→</span></a>
 </div>
-<p class="hint">Estimate only. Wales residential LTT · method v1.0-UK-LTT · last verified 22 Sep 2026 · <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a> · <a href="/embed/wales-ltt-calculator.html" target="_blank" rel="noopener">Embed this calculator</a></p>
+<p class="hint">Estimate only. Wales LTT, residential and non-residential freehold · method v1.1-UK-LTT · last verified 25 Sep 2026 · <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a> · <a href="/embed/wales-ltt-calculator.html" target="_blank" rel="noopener">Embed this calculator</a></p>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/embed/wales-ltt-calculator.html" target="_blank" rel="noopener">Embed this calculator</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
@@ -172,6 +191,7 @@ No separate relief. The £225,000 nil-rate band is the standard main-rate thresh
   const buyerEl = document.getElementById("buyer");
   const MAIN = [[225000, 0], [400000, 0.06], [750000, 0.075], [1500000, 0.10], [Infinity, 0.12]];
   const HIGH = [[180000, 0.05], [250000, 0.085], [400000, 0.10], [750000, 0.125], [1500000, 0.15], [Infinity, 0.17]];
+  const NONRES = [[225000, 0], [250000, 0.01], [1000000, 0.05], [Infinity, 0.06]];
 
   function taxOn(price, table) {
     let rem = price, prev = 0, total = 0;
@@ -190,14 +210,18 @@ No separate relief. The £225,000 nil-rate band is the standard main-rate thresh
 
   function render() {
     const price = Math.max(0, +priceEl.value || 0);
-    const higher = buyerEl.value === "higher";
-    const due = taxOn(price, higher ? HIGH : MAIN);
+    const mode = buyerEl.value;
+    const table = mode === "higher" ? HIGH : mode === "nonres" ? NONRES : MAIN;
+    const due = taxOn(price, table);
+    const label = mode === "higher" ? "Higher residential" : mode === "nonres" ? "Non-residential" : "Main residential";
     document.getElementById("resultValue").textContent = gbp.format(due);
-    document.getElementById("outTable").textContent = higher ? "Higher residential" : "Main residential";
+    document.getElementById("outTable").textContent = label;
     document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
     document.getElementById("outTotal").textContent = gbp.format(price + due);
-    document.getElementById("outNote").textContent = higher
+    document.getElementById("outNote").textContent = mode === "higher"
       ? "Higher rates apply to additional residential properties. Replacing a main residence usually uses the main table."
+      : mode === "nonres"
+      ? "Non-residential freehold or lease premium from 22 December 2020. Lease rent is not calculated."
       : "Wales has no first-time buyer relief. The £225,000 nil-rate band is the standard main-rate threshold.";
   }
 

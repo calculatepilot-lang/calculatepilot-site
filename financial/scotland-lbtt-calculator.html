@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scotland Stamp Duty Calculator — LBTT rates 2026 | CalculatePilot</title>
-<meta name="description" content="Work out Land and Buildings Transaction Tax on a Scottish home. Uses Revenue Scotland residential bands, first-time buyer relief to £175,000, and the 8% Additional Dwelling Supplement. Not English SDLT.">
+<meta name="description" content="Scottish LBTT for a home or a non-residential freehold. Residential bands, first-time buyer relief, 8% ADS, and the 0/1/5% commercial table. Not English SDLT.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/scotland-lbtt-calculator.html">
 <meta property="og:title" content="Scotland Stamp Duty Calculator — LBTT rates 2026 | CalculatePilot">
-<meta property="og:description" content="Band-by-band LBTT for Scotland. First-time buyer relief, 8% Additional Dwelling Supplement. Not a renamed English stamp-duty page.">
+<meta property="og:description" content="Residential LBTT plus the non-residential freehold table. First-time buyer relief and 8% ADS stay on homes only. Not English stamp duty.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/scotland-lbtt-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -37,7 +37,7 @@
       "operatingSystem": "Any",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
       "creator": {"@type": "Person", "name": "Suhaib Hassan"},
-      "description": "Residential Land and Buildings Transaction Tax calculator for Scotland using Revenue Scotland bands, first-time buyer relief and the 8% Additional Dwelling Supplement."
+      "description": "Land and Buildings Transaction Tax calculator for Scotland. Residential bands, first-time buyer relief, 8% ADS, and non-residential freehold rates. Lease rent is not calculated."
     }
   ]
 }
@@ -51,7 +51,8 @@
     {"@type": "Question", "name": "How much is first-time buyer relief in Scotland?", "acceptedAnswer": {"@type": "Answer", "text": "First-time buyer relief raises the residential nil-rate band from £145,000 to £175,000. That saves up to £600. Unlike England, the relief is not withdrawn just because the price is over £500,000 — the first £175,000 still sits in the nil-rate band."}},
     {"@type": "Question", "name": "What is the Additional Dwelling Supplement?", "acceptedAnswer": {"@type": "Answer", "text": "ADS is 8% of the whole purchase price for additional dwellings of £40,000 or more on transactions from 5 December 2024. It is added to the ordinary LBTT, not substituted for it. Replacing a main residence usually means ADS is not due."}},
     {"@type": "Question", "name": "Does this calculator cover Wales or England?", "acceptedAnswer": {"@type": "Answer", "text": "No. Wales uses Land Transaction Tax and England and Northern Ireland use Stamp Duty Land Tax. Those are different statutes with different bands, so they are separate pages — not city or nation token-swaps of this one."}},
-    {"@type": "Question", "name": "Is this a Revenue Scotland assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published residential bands. Confirm the return with a solicitor. Non-residential, mixed-use, linked transactions and multiple dwellings relief are out of scope."}}
+    {"@type": "Question", "name": "Does this cover a shop or office?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for a non-residential freehold or lease premium. The slices are 0% to £150,000, 1% from £150,001 to £250,000 and 5% above £250,000. ADS is not added. Revenue Scotland’s published £872,000 office example is £32,100. Lease rent, mixed property, linked deals and multiple dwellings relief are not calculated."}},
+    {"@type": "Question", "name": "Is this a Revenue Scotland assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published bands. Confirm the return with a solicitor."}}
   ]
 }
 </script>
@@ -62,11 +63,17 @@
 <div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Scotland LBTT Calculator</nav></div>
 <section class="calc-page-head"><div class="container">
   <h1>Scotland LBTT Calculator</h1>
-  <p class="lede">Work out Land and Buildings Transaction Tax on a residential purchase in Scotland. This is a one-off purchase cost — not English <a href="/financial/uk-stamp-duty-calculator.html">Stamp Duty Land Tax</a>, and not Welsh <a href="/financial/wales-ltt-calculator.html">Land Transaction Tax</a>.</p>
+  <p class="lede">Work out Land and Buildings Transaction Tax on a purchase in Scotland — a home, or a non-residential freehold. This is a one-off purchase cost — not English <a href="/financial/uk-stamp-duty-calculator.html">Stamp Duty Land Tax</a>, and not Welsh <a href="/financial/wales-ltt-calculator.html">Land Transaction Tax</a>.</p>
 </div></section>
 <section><div class="container calc-layout">
 <form class="calc-card" id="calcForm">
   <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="250000" step="1000" min="0"></div>
+  <div class="field"><label for="propertyType">Property</label>
+    <select id="propertyType">
+      <option value="res" selected>Residential</option>
+      <option value="nonres">Non-residential freehold / lease premium</option>
+    </select>
+  </div>
   <div class="field"><label for="buyer">Buyer type</label>
     <select id="buyer">
       <option value="std" selected>Replacing / only home</option>
@@ -76,7 +83,7 @@
   <div class="field">
     <label><input type="checkbox" id="ads"> Additional dwelling (ADS, usually +8% of the whole price)</label>
   </div>
-  <p class="hint">Residential freehold / lease premium only. Bands in force from 1 April 2021. ADS is 8% from 5 December 2024 and is skipped below £40,000. First-time buyer relief is not combined with ADS.</p>
+  <p class="hint">Residential bands from 1 April 2021. ADS is 8% from 5 December 2024 and is skipped below £40,000. First-time buyer relief is not combined with ADS. Non-residential freehold uses 0% / 1% / 5% and does not add ADS. Lease rent is not calculated.</p>
 </form>
 <aside class="readout"><div class="bar"></div><div class="readout-body">
   <div class="readout-label">LBTT due</div>
@@ -109,7 +116,17 @@ The nil-rate band rises from £145,000 to £175,000 — a maximum saving of £60
 8% of the whole purchase price for additional dwellings of £40,000 or more, on transactions from 5 December 2024. Added to band tax, not instead of it.</p>
 </div>
 <p>Source: <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/residential-property" rel="noopener noreferrer">Revenue Scotland residential LBTT rates</a> and the <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/additional-dwelling-supplement-ads" rel="noopener noreferrer">Additional Dwelling Supplement</a> page (8% from 5 December 2024). Re-check those pages before you complete — Revenue Scotland, not this calculator, is the authority.</p>
-<p class="hint">By Suhaib Hassan · Bands verified 22 Sep 2026 against Revenue Scotland · Method v1.0-UK-LBTT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<p class="hint">By Suhaib Hassan · Residential bands verified 22 Sep 2026, non-residential table verified 25 Sep 2026 · Method v1.1-UK-LBTT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+<h2>Non-residential freehold and lease premium</h2>
+<p>A shop, office or piece of non-residential land does not use the residential table, and ADS is not added. Scottish Budget 2026-27 kept this table unchanged. The tax is still charged on slices of the price.</p>
+<div class="formula-box" role="region" aria-label="Non-residential LBTT bands">
+<p><strong>Non-residential conveyance</strong><br>
+£0–£150,000 → 0%<br>
+£150,001–£250,000 → 1%<br>
+Above £250,000 → 5%</p>
+</div>
+<p>Source: <a href="https://www.gov.scot/publications/scottish-budget-2026-2027/" rel="noopener noreferrer">Scottish Budget 2026-27</a>, table 2.04, and <a href="https://revenue.scot/taxes/land-buildings-transaction-tax/lbtt-legislation-guidance/residentialnon-residential-technical-guidance/lbtt4012-non-residential-transactions" rel="noopener noreferrer">Revenue Scotland LBTT4012</a>. Mixed property, lease rent, linked transactions and multiple dwellings relief stay out of scope.</p>
 
 <h2 id="worked-example">Worked examples (pre-computed)</h2>
 <p>These use the same slices as the calculator, so the answer is readable if JavaScript is off. The £197,000 ADS case matches Revenue Scotland’s published worked example.</p>
@@ -131,6 +148,11 @@ The buyer type changes the tax by £24,600 on the same price. That is why this i
 2% on £52,000 above the nil-rate band = £1,040<br>
 ADS 8% × £197,000 = £15,760<br>
 <strong>LBTT = £16,800</strong></p>
+<p><strong>5. Non-residential office at £872,000</strong> (Revenue Scotland LBTT4012)<br>
+0% on £150,000 = £0<br>
+1% on the next £100,000 = £1,000<br>
+5% on the remaining £622,000 = £31,100<br>
+<strong>LBTT = £32,100</strong>. ADS is not added.</p>
 </div>
 
 <h2 id="price-table">LBTT at common prices</h2><p>Same slices as the calculator, so the table still answers the question if JavaScript is off. First-time buyer relief is not combined with ADS. ADS is 8% of the whole price from 5 December 2024, on top of standard bands.</p><div style="overflow:auto;margin:12px 0 18px"><table style="width:100%;border-collapse:collapse;font-size:14.5px"><thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Price</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Only / replacement home</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">First-time buyer</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Additional dwelling</th></tr></thead><tbody><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£150,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£12,100</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£200,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£17,100</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£250,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£22,100</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£300,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,600</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£28,600</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£400,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£13,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£12,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£45,350</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£23,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£22,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£63,350</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£600,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£33,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£32,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£81,350</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£750,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£48,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£47,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£108,350</td></tr></tbody></table></div><p class="hint">£250,000 standard is £2,100. £300,000 additional dwelling is £28,600. The £197,000 ADS case in the worked example stays £16,800.</p>
@@ -146,7 +168,7 @@ ADS 8% × £197,000 = £15,760<br>
 <ul>
   <li><strong>England, Northern Ireland or Wales.</strong> Use the <a href="/financial/uk-stamp-duty-calculator.html">UK Stamp Duty Calculator</a> or the <a href="/financial/wales-ltt-calculator.html">Wales LTT Calculator</a>.</li>
   <li><strong>Monthly mortgage cost.</strong> Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment vs interest-only calculator</a> for instalments.</li>
-  <li><strong>Non-residential, mixed-use, linked transactions or multiple dwellings relief.</strong> Those have separate Revenue Scotland rules. Unknown stays unknown.</li>
+  <li><strong>Lease rent, mixed property, linked transactions or multiple dwellings relief.</strong> The non-residential option is only the freehold / premium table. Rent (NPV) and those reliefs stay unknown.</li>
 </ul>
 
 <h2>Frequently asked questions</h2>
@@ -154,6 +176,7 @@ ADS 8% × £197,000 = £15,760<br>
 <div class="faq-item"><h3>How much is first-time buyer relief in Scotland?</h3><p>It raises the nil-rate band from £145,000 to £175,000 — up to £600. There is no £500,000 price cap.</p></div>
 <div class="faq-item"><h3>What is the Additional Dwelling Supplement?</h3><p>8% of the whole price from 5 December 2024 on additional dwellings of £40,000 or more, added on top of band tax.</p></div>
 <div class="faq-item"><h3>Does this calculator cover Wales or England?</h3><p>No. Wales is the <a href="/financial/wales-ltt-calculator.html">LTT calculator</a>. England and NI are the <a href="/financial/uk-stamp-duty-calculator.html">SDLT calculator</a>.</p></div>
+<div class="faq-item"><h3>Does this cover a shop or office?</h3><p>Yes, if it is a non-residential freehold or lease premium. Slices are 0% to £150,000, 1% to £250,000 and 5% above that. ADS is not added. The published £872,000 office example is £32,100. Lease rent and mixed property are not calculated.</p></div>
 <div class="faq-item"><h3>Is this a Revenue Scotland assessment?</h3><p>No. Confirm with a solicitor. This page is a planning estimate from published bands.</p></div>
 
 <h2 id="next-job">Next calculation</h2>
@@ -164,7 +187,7 @@ ADS 8% × £197,000 = £15,760<br>
   <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">3. Compare 25-year repayment vs interest-only <span class="arrow">→</span></a>
   <a class="tool-link" href="/financial/uk-mortgage-overpayment-calculator.html">4. Model an overpayment on the loan you take <span class="arrow">→</span></a>
 </div>
-<p class="hint">Estimate only. Scotland residential LBTT · method v1.0-UK-LBTT · last verified 22 Sep 2026 · <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/residential-property" rel="noopener noreferrer">Revenue Scotland bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a> · <a href="/embed/scotland-lbtt-calculator.html" target="_blank" rel="noopener">Embed this calculator</a></p>
+<p class="hint">Estimate only. Scotland LBTT, residential and non-residential freehold · method v1.1-UK-LBTT · last verified 25 Sep 2026 · <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/residential-property" rel="noopener noreferrer">Revenue Scotland bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a> · <a href="/embed/scotland-lbtt-calculator.html" target="_blank" rel="noopener">Embed this calculator</a></p>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/embed/scotland-lbtt-calculator.html" target="_blank" rel="noopener">Embed this calculator</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
@@ -173,10 +196,12 @@ ADS 8% × £197,000 = £15,760<br>
 (function () {
   const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
   const priceEl = document.getElementById("price");
+  const typeEl = document.getElementById("propertyType");
   const buyerEl = document.getElementById("buyer");
   const adsEl = document.getElementById("ads");
   const STD = [[145000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
   const FTB = [[175000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
+  const NONRES = [[150000, 0], [250000, 0.01], [Infinity, 0.05]];
 
   function taxOn(price, table) {
     let rem = price, prev = 0, total = 0;
@@ -195,22 +220,31 @@ ADS 8% × £197,000 = £15,760<br>
 
   function render() {
     const price = Math.max(0, +priceEl.value || 0);
-    const ftbEligible = buyerEl.value === "ftb" && !adsEl.checked;
-    const base = taxOn(price, ftbEligible ? FTB : STD);
-    const ads = (adsEl.checked && price >= 40000) ? price * 0.08 : 0;
+    const nonres = typeEl.value === "nonres";
+    buyerEl.disabled = nonres;
+    adsEl.disabled = nonres;
+    let base, ads, note = "";
+    if (nonres) {
+      base = taxOn(price, NONRES);
+      ads = 0;
+      note = "Non-residential freehold or lease premium. ADS and first-time buyer relief do not apply. Lease rent is not calculated.";
+    } else {
+      const ftbEligible = buyerEl.value === "ftb" && !adsEl.checked;
+      base = taxOn(price, ftbEligible ? FTB : STD);
+      ads = (adsEl.checked && price >= 40000) ? price * 0.08 : 0;
+      if (buyerEl.value === "ftb" && adsEl.checked) note = "First-time buyer relief is not combined with ADS. Standard bands plus 8% are used.";
+      else if (adsEl.checked && price < 40000) note = "ADS usually starts at £40,000. No supplement applied.";
+    }
     const due = base + ads;
     document.getElementById("resultValue").textContent = gbp.format(due);
     document.getElementById("outBase").textContent = gbp.format(base);
     document.getElementById("outAds").textContent = gbp.format(ads);
     document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
     document.getElementById("outTotal").textContent = gbp.format(price + due);
-    let note = "";
-    if (buyerEl.value === "ftb" && adsEl.checked) note = "First-time buyer relief is not combined with ADS. Standard bands plus 8% are used.";
-    else if (adsEl.checked && price < 40000) note = "ADS usually starts at £40,000. No supplement applied.";
     document.getElementById("outNote").textContent = note;
   }
 
-  ["price", "buyer", "ads"].forEach(function (id) {
+  ["price", "propertyType", "buyer", "ads"].forEach(function (id) {
     const el = document.getElementById(id);
     el.addEventListener("input", render);
     el.addEventListener("change", render);
