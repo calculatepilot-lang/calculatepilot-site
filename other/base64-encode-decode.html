@@ -29,6 +29,7 @@
 <meta name="twitter:description" content="Encode text to Base64 or decode Base64 back to plain text, instantly in your browser. Free, no signup — instant results with the formula explained.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/calc-workspace.css?v=20260923a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,28 +112,27 @@
 </section>
 
 <section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="mode">Mode</label>
-        <select id="mode">
-          <option value="encode" selected>Encode (text → Base64)</option>
-          <option value="decode" >Decode (Base64 → text)</option>
-        </select>
+  <div class="container">
+    <form class="calc-workspace" id="calcForm">
+      <div class="calc-workspace__result">
+        <p class="calc-workspace__kicker">Output</p>
+        <div class="calc-workspace__output" id="resultValue">—</div>
+        <button type="button" class="calc-workspace__copy-btn" data-copy-target="resultValue">Copy</button>
       </div>
-      <div class="field">
-        <label for="inputText">Input</label>
-        <input type="text" id="inputText" value="Hello, CalculatePilot!"  >
+      <div class="calc-workspace__controls">
+        <div class="calc-workspace__field calc-workspace__field--plain">
+          <div class="calc-workspace__row"><label for="mode">Mode</label></div>
+          <select id="mode">
+            <option value="encode" selected>Encode (text → Base64)</option>
+            <option value="decode" >Decode (Base64 → text)</option>
+          </select>
+        </div>
+        <div class="calc-workspace__field calc-workspace__field--plain">
+          <div class="calc-workspace__row"><label for="inputText">Input</label></div>
+          <input type="text" id="inputText" value="Hello, CalculatePilot!" class="calc-workspace__text-input">
+        </div>
       </div>
     </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Output</div>
-        <div class="readout-value big" id="resultValue">—</div>
-      </div>
-    </aside>
   </div>
 </section>
 

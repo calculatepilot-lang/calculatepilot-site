@@ -57,7 +57,7 @@
   padding:16px 24px 18px;
   text-align:left;
 }
-.calc-workspace__stat + .calc-workspace__stat{
+.calc-workspace__stat:nth-child(2n){
   border-left:1px solid var(--line-soft);
 }
 .calc-workspace__stat-label{
@@ -215,3 +215,71 @@
 @media(max-width:480px){
   .calc-workspace__line{padding-left:20px;padding-right:20px}
 }
+
+/* ---- Generalized field/output variants for non-slider inputs (text, select, textarea, generated output) ---- */
+.calc-workspace__field--plain .calc-workspace__row{
+  margin-bottom:6px;
+}
+.calc-workspace__field--plain select{
+  width:100%;
+}
+.calc-workspace__text-input{
+  width:100%;
+  font-family:var(--font-mono);
+  font-size:var(--fs-md);
+  font-weight:600;
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:9px 12px;
+  box-sizing:border-box;
+}
+.calc-workspace__text-input:focus{outline:none;border-color:var(--signal)}
+.calc-workspace__textarea{
+  width:100%;
+  min-height:180px;
+  resize:vertical;
+  font-family:var(--font-body);
+  font-size:var(--fs-md);
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:12px 14px;
+  box-sizing:border-box;
+  line-height:1.5;
+}
+.calc-workspace__textarea:focus{outline:none;border-color:var(--signal)}
+.calc-workspace__output{
+  font-family:var(--font-mono);
+  font-size:clamp(1.05rem,3vw,1.4rem);
+  font-weight:600;
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:14px 16px;
+  margin:8px 0 14px;
+  text-align:left;
+  word-break:break-all;
+  max-height:220px;
+  overflow-y:auto;
+}
+.calc-workspace__copy-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--signal-soft);
+  color:var(--signal-dark);
+  border:0;
+  border-radius:999px;
+  padding:7px 16px;
+  font-size:var(--fs-sm);
+  font-weight:600;
+  font-family:var(--font-body);
+  cursor:pointer;
+  margin:0 0 14px;
+}
+.calc-workspace__copy-btn:hover{background:var(--signal);color:#fff}
+.calc-workspace__copy-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}

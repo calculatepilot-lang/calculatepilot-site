@@ -29,6 +29,7 @@
 <meta name="twitter:description" content="Count words, characters, sentences, and paragraphs in your text instantly as you type. Free, no signup — instant results with the formula explained.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/calc-workspace.css?v=20260923a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -103,27 +104,25 @@
 </section>
 
 <section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="textInput">Paste or type your text</label>
-        <textarea id="textInput" rows="10" placeholder="">Type or paste your text here to see live word and character counts.</textarea>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Word count</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Characters (with spaces)</span><span id="outCharacters">—</span></div>
-          <div class="readout-row"><span>Characters (no spaces)</span><span id="outCharactersNoSpaces">—</span></div>
-          <div class="readout-row"><span>Sentences</span><span id="outSentences">—</span></div>
-          <div class="readout-row"><span>Paragraphs</span><span id="outParagraphs">—</span></div>
+  <div class="container">
+    <form class="calc-workspace" id="calcForm">
+      <div class="calc-workspace__result">
+        <p class="calc-workspace__kicker">Word count</p>
+        <div class="calc-workspace__hero" id="resultValue">—</div>
+        <div class="calc-workspace__stats">
+          <div class="calc-workspace__stat"><div class="calc-workspace__stat-label">Characters (with spaces)</div><div class="calc-workspace__stat-value" id="outCharacters">—</div></div>
+          <div class="calc-workspace__stat"><div class="calc-workspace__stat-label">Characters (no spaces)</div><div class="calc-workspace__stat-value" id="outCharactersNoSpaces">—</div></div>
+          <div class="calc-workspace__stat"><div class="calc-workspace__stat-label">Sentences</div><div class="calc-workspace__stat-value" id="outSentences">—</div></div>
+          <div class="calc-workspace__stat"><div class="calc-workspace__stat-label">Paragraphs</div><div class="calc-workspace__stat-value" id="outParagraphs">—</div></div>
         </div>
       </div>
-    </aside>
+      <div class="calc-workspace__controls">
+        <div class="calc-workspace__field">
+          <div class="calc-workspace__row"><label for="textInput">Paste or type your text</label></div>
+          <textarea id="textInput" rows="10" class="calc-workspace__textarea" placeholder="">Type or paste your text here to see live word and character counts.</textarea>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 

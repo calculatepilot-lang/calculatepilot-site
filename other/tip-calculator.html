@@ -28,6 +28,7 @@
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/calc-workspace.css?v=20260923a">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"}, {"@type": "ListItem", "position": 2, "name": "Everyday calculators", "item": "https://www.calculatepilot.com/other-calculators.html"}, {"@type": "ListItem", "position": 3, "name": "Tip Calculator", "item": "https://www.calculatepilot.com/other/tip-calculator.html"}]}, {"@type": "SoftwareApplication", "name": "Tip Calculator", "url": "https://www.calculatepilot.com/other/tip-calculator.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "browserRequirements": "Requires a modern web browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly"}, "isAccessibleForFree": true, "description": "Calculate the tip amount and total bill, and split it evenly between any number of people. Free, no signup — instant results with the formula explained."}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I tip on the pre-tax or post-tax amount?", "acceptedAnswer": {"@type": "Answer", "text": "Either is acceptable; tipping on the pre-tax amount is slightly more common and is what most people mean by the bill total."}}, {"@type": "Question", "name": "How is the per-person amount calculated?", "acceptedAnswer": {"@type": "Answer", "text": "The total bill plus tip is divided evenly by the number of people entered."}}]}</script>
 <script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head>
@@ -58,34 +59,46 @@
   </div>
 </section>
 <section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field-row">
-        <div class="field">
-          <label for="billAmount">Bill amount</label>
-          <input type="number" id="billAmount" value="85" step="1" min="0">
-        </div>
-        <div class="field">
-          <label for="tipPercent">Tip (%)</label>
-          <input type="number" id="tipPercent" value="18" step="1" min="0">
+  <div class="container">
+    <form class="calc-workspace" id="calcForm">
+      <div class="calc-workspace__result">
+        <p class="calc-workspace__kicker">Total per person</p>
+        <div class="calc-workspace__hero" id="resultValue">—</div>
+        <div class="calc-workspace__stats">
+          <div class="calc-workspace__stat">
+            <div class="calc-workspace__stat-label">Tip amount</div>
+            <div class="calc-workspace__stat-value" id="outTipAmount">—</div>
+          </div>
+          <div class="calc-workspace__stat">
+            <div class="calc-workspace__stat-label">Total bill</div>
+            <div class="calc-workspace__stat-value" id="outTotalBill">—</div>
+          </div>
         </div>
       </div>
-      <div class="field">
-        <label for="numPeople">Number of people</label>
-        <input type="number" id="numPeople" value="2" step="1" min="1">
+      <div class="calc-workspace__controls">
+        <div class="calc-workspace__field">
+          <div class="calc-workspace__row">
+            <label for="billAmount">Bill amount</label>
+            <div class="calc-workspace__num"><span>$</span><input type="number" id="billAmount" value="85" step="1" min="0" data-pair-range="billAmountRange"></div>
+          </div>
+          <input type="range" id="billAmountRange" min="0" max="500" step="1" value="85" aria-label="Bill amount">
+        </div>
+        <div class="calc-workspace__field">
+          <div class="calc-workspace__row">
+            <label for="tipPercent">Tip</label>
+            <div class="calc-workspace__num"><input type="number" id="tipPercent" value="18" step="1" min="0" data-pair-range="tipPercentRange"><span>%</span></div>
+          </div>
+          <input type="range" id="tipPercentRange" min="0" max="40" step="1" value="18" aria-label="Tip percent">
+        </div>
+        <div class="calc-workspace__field">
+          <div class="calc-workspace__row">
+            <label for="numPeople">Number of people</label>
+            <div class="calc-workspace__num"><input type="number" id="numPeople" value="2" step="1" min="1" data-pair-range="numPeopleRange"></div>
+          </div>
+          <input type="range" id="numPeopleRange" min="1" max="10" step="1" value="2" aria-label="Number of people">
+        </div>
       </div>
     </form>
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Total per person</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Tip amount</span><span id="outTipAmount">—</span></div>
-          <div class="readout-row"><span>Total bill</span><span id="outTotalBill">—</span></div>
-        </div>
-      </div>
-    </aside>
   </div>
 </section>
 <section class="content-block">
@@ -116,6 +129,7 @@
 </footer>
 <script src="/js/currency-format.js?v=3d1747f9"></script>
 <script src="/js/tip.js?v=3d1747f9"></script>
+<script src="/js/workspace-sync.js?v=20260923a"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
