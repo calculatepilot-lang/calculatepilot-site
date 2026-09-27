@@ -1,0 +1,143 @@
+<div class="sx" id="txCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Income Tax Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">2026 IRS Brackets</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Federal + State + FICA</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Marginal vs Effective Rate</span></div>
+    <h1>Income Tax Calculator 2026: Federal, State &amp; FICA</h1>
+    <p>Estimate your US federal income tax for tax year 2026 from your income and filing status — with the standard or itemized deduction, pre-tax 401(k) and HSA contributions, Social Security and Medicare, and an optional state estimate.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">account_balance_wallet</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Tax Profile &amp; Earnings</h2><p>Tax year 2026 (returns filed in 2027)</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Filing Status</span></div>
+      <input type="hidden" id="filingStatus" value="s1">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(2,minmax(0,1fr))" role="group" aria-label="Filing status"><button type="button" data-for="filingStatus" data-value="s1">Single</button><button type="button" data-for="filingStatus" data-value="s2">Married Jointly</button><button type="button" data-for="filingStatus" data-value="s3">Married Separately</button><button type="button" data-for="filingStatus" data-value="s4">Head of Household</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>What You're Entering</span></div>
+      <input type="hidden" id="mode" value="s1">
+      <div class="sx-seg" role="group" aria-label="Income type" style="display:flex"><button type="button" data-for="mode" data-value="s1" style="flex:1">Gross Wages</button><button type="button" data-for="mode" data-value="s2" style="flex:1">Taxable Income</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="taxableIncome" id="incL">Gross Annual Wages</label><em style="color:var(--sx-muted);font-weight:500" id="incN">Salary &amp; bonuses (W-2)</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="taxableIncome" type="number" inputmode="decimal" min="0" step="500" value="95000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="taxableIncome" data-value="50000">$50k</button><button type="button" data-for="taxableIncome" data-value="75000">$75k</button><button type="button" data-for="taxableIncome" data-value="95000">$95k</button><button type="button" data-for="taxableIncome" data-value="130000">$130k</button><button type="button" data-for="taxableIncome" data-value="200000">$200k</button></div>
+    </div>
+    <div id="grossBox" style="display:flex;flex-direction:column;gap:18px">
+      <div>
+        <div class="sx-au-l"><label for="st">State Income Tax</label><em style="color:var(--sx-muted);font-weight:500">Estimate</em></div>
+        <div class="sx-au-sel"><select id="st"><option value="0" selected>No state income tax (TX, FL, WA, NV, TN, SD, WY, AK, NH)</option><option value="5">Massachusetts — flat 5.00%</option><option value="4.95">Illinois — flat 4.95%</option><option value="3.07">Pennsylvania — flat 3.07%</option><option value="c">Other state — enter your effective rate</option></select></div>
+        <div class="sx-vt-in" id="stRow"><label for="stR">Your effective state rate (e.g. CA, NY — progressive states):</label><div class="sx-au-in sm np pc" style="max-width:120px"><input id="stR" type="number" inputmode="decimal" min="0" max="15" step="0.1" value="5"><span class="suf">%</span></div></div>
+      </div>
+      <div>
+        <div class="sx-au-l"><span>Deduction</span></div>
+        <input type="hidden" id="ded" value="s1">
+        <div class="sx-au-cat nr" role="group" aria-label="Deduction"><button type="button" data-for="ded" data-value="s1"><span><b id="sdL">Standard Deduction</b><small id="sdN">—</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button><button type="button" data-for="ded" data-value="s2"><span><b>Itemized Deductions</b><small>Mortgage interest, SALT, charity</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button></div>
+        <div class="sx-vt-in" id="itRow"><label for="itm">Total itemized deductions:</label><div class="sx-au-in sm" style="max-width:160px"><span class="pre">$</span><input id="itm" type="number" inputmode="decimal" min="0" step="100" value="21500"></div></div>
+      </div>
+      <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+        <div class="sx-au-l" style="margin-bottom:6px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">shield</span>Pre-Tax Payroll Contributions</span><em class="ok" id="shT">—</em></div>
+        <p class="sx-au-help" style="margin:0 0 8px">These come out of pay before income tax. HSA and Section 125 payroll deductions also avoid Social Security and Medicare; 401(k) deferrals don't.</p>
+        <div class="sx-au-g2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div><label for="k401" style="font-size:11px;color:var(--sx-muted)">Traditional 401(k)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="k401" type="number" inputmode="decimal" min="0" step="500" value="8000"></div></div>
+          <div><label for="hsa" style="font-size:11px;color:var(--sx-muted)">HSA (payroll)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="hsa" type="number" inputmode="decimal" min="0" step="50" value="3850"></div></div>
+          <div><label for="s125" style="font-size:11px;color:var(--sx-muted)">Section 125 premiums</label><div class="sx-au-in sm"><span class="pre">$</span><input id="s125" type="number" inputmode="decimal" min="0" step="100" value="2400"></div></div>
+        </div>
+        <p class="sx-au-help" id="limN" style="margin:8px 0 0">2026 limits: 401(k) $24,500 (under 50); HSA $4,400 self-only / $8,750 family.</p>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">refresh</span>Calculate Income Tax</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em id="setT">Net Tax Settlement</em><span id="statT">—</span></div>
+    <div class="k" id="totL">Total Estimated Tax</div>
+    <div class="big"><span id="totTax">—</span></div>
+    <p><b id="outEffective">—</b> effective rate · federal income tax <b id="resultValue">—</b> · top bracket <b id="outBracket">—</b></p>
+    <span class="msym wm" aria-hidden="true">account_balance</span>
+  </section>
+  <div class="sx-in-t4 c3" id="t3">
+    <div class="sx-card"><div class="k">Federal Income Tax<span class="msym" aria-hidden="true">account_balance</span></div><b id="fed">—</b><p id="fedN">—</p></div>
+    <div class="sx-card" id="ficaC"><div class="k">FICA Payroll Tax<span class="msym" aria-hidden="true">badge</span></div><b id="fica">—</b><p id="ficaN">—</p></div>
+    <div class="sx-card" id="stC"><div class="k">State Income Tax<span class="msym" aria-hidden="true">location_city</span></div><b id="stt">—</b><p id="sttN">—</p></div>
+  </div>
+  <section class="sx-card sx-hy-stack" id="netC">
+    <div class="hd"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:17px;color:var(--sx-primary)">savings</span>Net Take-Home Pay: <b id="net" style="margin-left:4px">—</b></span><span id="netN">—</span></div>
+    <div class="bar" id="alBar"></div>
+    <div class="lg" id="alLg"></div>
+  </section>
+  <section class="sx-card" style="padding:16px 18px" id="shC">
+    <div style="display:flex;gap:10px"><span class="msym" aria-hidden="true" style="color:var(--sx-primary)">verified_user</span><div><b style="display:block;font-size:13px;color:var(--sx-on)">Pre-Tax Contribution Savings</b><p style="margin:4px 0 0;font-size:12px;line-height:18px;color:var(--sx-onv)" id="shTxt">—</p></div></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Tax Summary PDF</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Bracket Breakdown (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="brk">
+  <div class="hd"><div><h2>Federal Marginal Bracket Progression</h2><p id="brN">—</p></div><span class="sx-au-tag" id="brT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Bracket</th><th scope="col">Taxable Income Range</th><th scope="col">Income Taxed at Rate</th><th scope="col">Tax in Bracket</th><th scope="col">Cumulative Tax</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*2026 brackets and standard deductions from IRS Revenue Procedure 2025-32. Credits, the additional standard deduction for age 65+/blind, capital gains and self-employment tax are not modeled.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">balance</span></span><h3>The Marginal vs Effective Rate Myth</h3><p>A raise can't lower your take-home pay by pushing you into a higher bracket. Only the dollars <b>above</b> each bracket threshold are taxed at the higher rate — everything below keeps its lower rate. That's why your effective rate is always well below your top marginal bracket.</p><div class="sx-sg-take" id="myth">—</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">shield_with_heart</span></span><h3>Above-the-Line vs Below-the-Line Deductions</h3><p>Pre-tax 401(k) deferrals, HSA contributions and Section 125 premiums reduce your income <b>before</b> the standard or itemized deduction is applied — so each dollar is sheltered at your top marginal rate. You get them whether or not you itemize.</p><div class="sx-sg-take" id="atl">—</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>US federal income tax is progressive — different portions of your income are taxed at different marginal rates, based on 2026 IRS tax brackets.</p>
+    <p><strong>Tax = sum of (income in each bracket × that bracket's rate)</strong></p>
+    <p>Enter gross wages to have the calculator subtract pre-tax contributions and your deduction, or switch to taxable income if you already know your final taxable figure. State tax is an optional estimate; the federal brackets are modeled exactly.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · 2026 brackets verified 27 Sep 2026 against IRS Rev. Proc. 2025-32 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Marginal vs. effective tax rate</h2>
+    <p>Your marginal rate is the rate applied to your last dollar earned. Your effective rate — the number that actually matters for your total tax bill — is your total tax divided by total income, and is always lower than your top marginal bracket.</p>
+
+    <h2>Federal tax is only part of the picture</h2>
+    <p>Most states also levy their own income tax (with rates and structures that vary widely, and a handful of states charging none at all), and you may also owe FICA taxes (Social Security and Medicare) on top of income tax. For 2026, Social Security tax is 6.2% on wages up to $184,500 and Medicare is 1.45% on all wages, plus 0.9% above $200,000 ($250,000 married filing jointly).</p>
+
+    <h2>A worked example</h2>
+    <p>A single filer with $60,000 in taxable income in 2026: the first $12,400 is taxed at 10% ($1,240), the next portion up to $50,400 at 12% ($4,560), and the remaining $9,600 up to $60,000 at 22% ($2,112) — totaling $7,912 in federal tax, an effective rate of about 13.2% despite a 22% marginal bracket.</p>
+    <p>This gap between the 22% marginal rate and 13.2% effective rate directly illustrates how progressive taxation works — only income within each bracket is taxed at that bracket's rate, not your entire income.</p>
+
+    <h2>How the standard deduction affects your tax</h2>
+    <p>Most filers reduce their taxable income first by claiming either the standard deduction or itemized deductions before tax brackets are applied. For 2026 the standard deduction is $16,100 for single filers and married filing separately, $32,200 for married filing jointly, and $24,150 for heads of household.</p>
+    <p>Tax credits, unlike deductions, reduce your tax bill directly rather than reducing taxable income, and can have a larger impact on your final amount owed — this calculator doesn't model credits, so your actual tax liability may be lower if you qualify for any. To see how this affects your actual take-home pay, use the <a href="/financial/paycheck-calculator.html">Paycheck Calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Does this include state income tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Optionally. Choose a state with no income tax, a flat-rate state, or enter your own effective state rate. Federal tax is modeled with the exact 2026 brackets; the state figure is an estimate.</p></details>
+    <details class="sx-faq"><summary>Does this account for deductions or credits?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It models the standard or itemized deduction and pre-tax 401(k), HSA and Section 125 contributions. It doesn't model tax credits, so your actual tax may be lower if you qualify for any.</p></details>
+    <details class="sx-faq"><summary>What's the difference between taxable income and gross income?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Gross income is total earnings before any adjustments; taxable income is what remains after subtracting deductions (standard or itemized) and other adjustments — it's the taxable income figure that tax brackets actually apply to.</p></details>
+    <details class="sx-faq"><summary>Why did my tax bill differ from this estimate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>This is a simplified estimate — actual tax bills are affected by credits, other income types, state tax rules, and deduction specifics not modeled here.</p></details>
+    <details class="sx-faq"><summary>What's the difference between a tax deduction and a tax credit?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A deduction reduces your taxable income before tax is calculated. A credit reduces your final tax bill dollar-for-dollar, making credits generally more valuable than deductions of the same size.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Calculators</h2><p>Take-home pay, retirement and self-employment tools.</p></div>
+  <a href="/financial-calculators.html">View All Financial Tools<span class="msym" aria-hidden="true">chevron_right</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Paycheck Calculator</b><span class="d">Take-home pay per paycheck after withholding.</span><span class="f">Simulate Paycheck<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>401(k) Calculator</b><span class="d">Compound growth with employer matching.</span><span class="f">Calculate 401(k)<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/roth-ira-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">currency_exchange</span></span><b>Roth IRA Calculator</b><span class="d">Tax-free growth vs pre-tax saving.</span><span class="f">Compare<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">work</span></span><b>Freelance Rate &amp; SE Tax</b><span class="d">Rates that cover 15.3% self-employment tax.</span><span class="f">Compute Rates<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
