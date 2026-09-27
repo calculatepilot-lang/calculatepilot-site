@@ -1,0 +1,159 @@
+<div class="sx" id="ciCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b style="font-weight:500">Compound Interest Calculator</b></nav>
+
+<header class="sx-cihead">
+  <div>
+    <div class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot"></span>Mathematical Model: Exponential Wealth Growth</div>
+    <h1>Compound Interest Calculator</h1>
+    <p>Simulate compound investment growth with regular deposits, compounding frequency variations, and inflation-adjusted real purchasing power.</p>
+  </div>
+  <div class="sx-qb"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-pc)">verified_user</span>Client-side precision · Zero data stored</div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:32px">
+<form id="calcForm" class="sx-card sx-params sx-left" novalidate>
+  <div class="sx-params-head" style="padding-bottom:12px">
+    <div><span class="msym" aria-hidden="true" style="color:var(--sx-primary)">tune</span><h2 class="sx-h-md">Simulation Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="principal">Initial Principal Investment</label><span class="sx-sm sx-muted">One-time balance</span></div>
+    <div class="sx-field w cur"><span class="pre">$</span><input id="principal" type="number" inputmode="decimal" min="0" step="500" value="25000" style="padding-right:14px"></div>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="contribution">Regular Contribution</label><span class="sx-sm sx-muted">Ongoing deposits</span></div>
+    <div class="sx-crow">
+      <div class="sx-field w cur"><span class="pre">$</span><input id="contribution" type="number" inputmode="decimal" min="0" step="50" value="500" style="padding-right:14px"></div>
+      <div class="sx-sel md"><select id="contribFreq" aria-label="Contribution frequency"><option value="52">Weekly</option><option value="26">Bi-weekly</option><option value="12" selected>Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option></select><span class="msym" aria-hidden="true">expand_more</span></div>
+    </div>
+  </div>
+
+  <div>
+    <span class="sx-lbl-md" style="display:block;margin-bottom:8px">Contribution Timing</span>
+    <input type="hidden" id="timing" value="end">
+    <div class="sx-seg full" role="group" aria-label="Contribution timing"><button type="button" data-for="timing" data-value="end">End of Period</button><button type="button" data-for="timing" data-value="start">Beginning of Period</button></div>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="years">Time Horizon</label><span class="sx-tagb" style="font-size:14px;padding:2px 8px"><b id="yearsVal">20</b> <small style="font-weight:500;font-size:12px">Years</small></span></div>
+    <input class="sx-range2" id="years" type="range" min="1" max="50" step="1" value="20" aria-label="Time horizon in years" style="margin:12px 0 6px">
+    <div class="sx-scale"><span>1 yr</span><span>10 yrs</span><span>25 yrs</span><span>50 yrs</span></div>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="rate">Estimated Annual Return Rate</label><span class="sx-sm sx-muted">Nominal rate before compounding</span></div>
+    <div class="sx-field w pct"><input id="rate" type="number" inputmode="decimal" min="-20" max="30" step="0.1" value="8.0"><span class="suf">%</span></div>
+    <div class="sx-presets3"><button type="button" data-for="rate" data-value="5">5.0%<small>Conservative</small></button><button type="button" data-for="rate" data-value="8">8.0%<small>Balanced</small></button><button type="button" data-for="rate" data-value="10">10.0%<small>Aggressive</small></button></div>
+  </div>
+
+  <div>
+    <label class="sx-lbl-md" for="compound" style="display:block;margin-bottom:8px">Compounding Frequency</label>
+    <div class="sx-sel md"><select id="compound"><option value="365">Daily (365/yr)</option><option value="52">Weekly (52/yr)</option><option value="12" selected>Monthly (12/yr)</option><option value="4">Quarterly (4/yr)</option><option value="1">Annually (1/yr)</option><option value="inf">Continuously</option></select><span class="msym" aria-hidden="true">expand_more</span></div>
+  </div>
+
+  <div class="sx-infl">
+    <div><b><span class="msym" aria-hidden="true">price_change</span>Adjust for Inflation</b><p>Calculates real purchasing power at <input id="inflation" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="2.5" aria-label="Inflation rate">% a year</p></div>
+    <label class="sx-toggle"><input type="checkbox" id="inflOn" checked aria-label="Adjust for inflation"><i></i></label>
+  </div>
+</form>
+
+<div class="sx-right" id="results">
+  <section class="sx-card sx-cihero" aria-live="polite">
+    <div class="blob"></div>
+    <div class="top">
+      <div><span class="sx-kick">Projected Portfolio Value</span><div class="vv"><b id="resultValue">—</b><span id="multTag">—</span></div></div>
+      <div class="meta"><span>Estimated at year <span id="yearTarget">20</span></span><b><span class="msym" aria-hidden="true">trending_up</span><span id="modeLbl">Monthly Compounding</span></b></div>
+    </div>
+    <div class="sx-ci3">
+      <div><div class="l"><i style="background:var(--sx-onv)"></i>Total Principal Invested</div><div class="v" id="outPrincipal">—</div><div class="s" id="outPrincipalPct">—</div></div>
+      <div class="g"><div class="l"><i style="background:var(--sx-pc)"></i>Total Interest Earned</div><div class="v" id="outInterest">—</div><div class="s" id="outInterestPct">—</div></div>
+      <div><div class="l"><span class="msym" aria-hidden="true">water_loss</span>Real Purchasing Power</div><div class="v" id="outReal">—</div><div class="s" id="outRealSub">—</div></div>
+    </div>
+    <div class="sx-cibar">
+      <div class="tb"><span id="barP" style="background:var(--sx-onv)"></span><span id="barI" style="background:var(--sx-pc)"></span></div>
+      <div class="lg"><span><i style="background:var(--sx-onv)"></i>Contributed Capital</span><span><i style="background:var(--sx-pc)"></i>Compounded Growth</span></div>
+    </div>
+  </section>
+
+  <section class="sx-card sx-chartcard">
+    <div class="sx-between" style="margin-bottom:16px">
+      <div><h3 class="sx-h-md">Wealth Growth Trajectory</h3><p class="sx-sm sx-muted" style="margin:0">Compounding acceleration vs invested capital curve</p></div>
+      <div class="sx-legend2"><span><i style="width:12px;height:2px;background:var(--sx-onv)"></i>Contributions</span><span style="color:var(--sx-primary);font-weight:600"><i style="width:12px;height:4px;border-radius:2px;background:var(--sx-pc)"></i>Total Wealth</span></div>
+    </div>
+    <div class="sx-cichart" id="ciChart" role="img" aria-label="Total wealth versus contributions over time"></div>
+  </section>
+
+  <div>
+    <h3 class="sx-lbl-md" style="margin:0 0 12px;font-family:var(--font-body)">Compounding Speed Milestones</h3>
+    <div class="sx-m3" id="miles"></div>
+  </div>
+</div>
+</div>
+
+<section class="sx-card sx-cisched" id="schedule">
+  <div class="hd">
+    <div><h3 class="sx-h-md">Annual Amortization &amp; Compounding Schedule</h3><p>Year-by-year accumulation ledger displaying principal equity vs interest accretion</p></div>
+    <button type="button" class="sx-btn" id="csvBtn" style="background:var(--sx-card)"><span class="msym" aria-hidden="true">download</span>Export CSV</button>
+  </div>
+  <div class="sx-scroll"><table class="sx-t9">
+    <thead><tr><th scope="col">Year</th><th scope="col">Starting Amount</th><th scope="col">Yearly Contribution</th><th scope="col">Annual Interest Earned</th><th scope="col">Total Cumulative Interest</th><th scope="col">End of Year Balance</th></tr></thead>
+    <tbody id="schedBody"></tbody>
+  </table></div>
+  <div class="ft"><span id="schedNote">—</span><button type="button" id="schedMore" aria-controls="schedBody">Show all years</button></div>
+</section>
+
+<section class="sx-card sx-cispec" id="formula">
+  <div class="hh"><span class="ib"><span class="msym" aria-hidden="true">functions</span></span><div><h3 class="sx-h-md">Compound Interest Mathematical Specification</h3><p>The model governing constant-contribution exponential accumulation</p></div></div>
+  <div class="fx"><b>A = P · (1 + r/n)<sup>nt</sup> + PMT · [ ((1 + r/n)<sup>nt</sup> − 1) / (r/n) ]</b><p>Where payments occur at the end of each compounding period. Multiply the contribution term by (1 + r/n) for beginning-of-period deposits.</p></div>
+  <div class="sx-vars5">
+    <div><b>A</b><strong>Future Portfolio Value</strong><span>The terminal balance after interest compounding.</span></div>
+    <div><b>P</b><strong>Initial Principal</strong><span id="varP">The starting capital deposited at inception.</span></div>
+    <div><b>PMT</b><strong>Periodic Contribution</strong><span id="varPmt">Recurrent cash addition.</span></div>
+    <div><b>r &amp; n</b><strong>Rate &amp; Compounding</strong><span>Annual interest rate (r) divided by annual frequency (n).</span></div>
+    <div><b>t</b><strong>Tenure / Horizon</strong><span>Total number of years the balance multiplies.</span></div>
+  </div>
+  <div class="mech">
+    <p><strong>The Compounding Mechanism:</strong> Unlike simple interest, where returns are calculated only on the principal (P × r × t), compounding adds each period's interest back to the balance, so later interest is earned on earlier interest.</p>
+    <p id="mechTxt">—</p>
+    <p style="font-size:13px;line-height:18px;color:var(--sx-muted);margin:0">When the contribution frequency differs from the compounding frequency, the calculator converts the rate to the equivalent rate per contribution period, (1 + r/n)<sup>n/p</sup> − 1. Continuous compounding uses A = Pe<sup>rt</sup>.</p>
+  </div>
+</section>
+
+<section class="sx-card sx-method" style="margin-bottom:32px">
+  <div class="sx-guide">
+    <h2>APY vs. interest rate — which number to enter</h2>
+    <p>Banks usually advertise APY (annual percentage yield), which already includes compounding. This calculator expects the nominal annual rate before compounding — entering an APY with monthly compounding would count compounding twice and slightly overstate the result. If your bank only quotes an APY, enter it as the rate and choose <em>Annually</em> compounding.</p>
+
+    <h2>The power of starting early</h2>
+    <p>$300 a month at 7% compounded monthly grows to about <strong>$366,000</strong> over 30 years, but only about <strong>$156,000</strong> over 20 years. A 10-year head start more than doubles the result while adding just $36,000 of contributions — time is usually the biggest lever in compounding.</p>
+
+    <h2>A worked example</h2>
+    <p>Start with $8,000, add $250 at the end of each month and earn 7% compounded monthly for 15 years. The balance reaches about <strong>$102,000</strong>: $53,000 from contributions ($8,000 + $45,000) and roughly $49,000 from compound growth. Stretch it to 25 years and the balance becomes about <strong>$248,000</strong> — more than double — even though contributions rise by only $30,000.</p>
+
+    <h2>The Rule of 72</h2>
+    <p>Divide 72 by the annual rate to estimate how many years money takes to double: at 6% that is about 12 years, at 9% about 8. To model a whole portfolio with fees, see the <a href="/financial/investment-calculator.html">Investment Calculator</a>; for a fixed savings target, try the <a href="/financial/savings-goal-calculator.html">Savings Goal Calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What's the difference between simple and compound interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Simple interest is calculated only on the original principal. Compound interest is calculated on the principal plus any interest already earned, so it grows faster over time.</p></details>
+    <details class="sx-faq"><summary>How often should interest compound for the best results?<span class="msym" aria-hidden="true">expand_more</span></summary><p>More frequent compounding (daily or monthly) produces slightly higher returns than annual compounding at the same nominal rate, though the difference is usually small.</p></details>
+    <details class="sx-faq"><summary>Should I enter my bank's APY or interest rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Enter the interest rate before compounding. If only an APY is listed, enter it as the rate with annual compounding so compounding isn't counted twice.</p></details>
+    <details class="sx-faq"><summary>What's a realistic compound growth rate to assume?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Historical long-term stock market averages run around 7-10% before inflation, though returns vary significantly year to year and aren't guaranteed. Savings accounts pay a variable rate that follows central-bank rates.</p></details>
+    <details class="sx-faq"><summary>Does this calculator account for inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes, optionally. With Adjust for Inflation on, the Real Purchasing Power figure divides the final balance by (1 + inflation)<sup>years</sup> to show its value in today's money.</p></details>
+    <details class="sx-faq"><summary>Does compounding frequency matter much?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Less than most people think. At 5% for 10 years, $10,000 grows to $16,289 compounded annually, $16,470 monthly and $16,487 daily — the rate and time invested matter far more.</p></details>
+    <details class="sx-faq"><summary>What is the Rule of 72?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A quick mental shortcut: divide 72 by your annual growth rate to estimate how many years it takes an investment to double. At 8% growth, that's about 9 years.</p></details>
+    <p class="sx-trust">Formulas checked against standard time-value-of-money methods · <a href="/methodology.html">Our methodology</a> · Last updated September 2026</p>
+  </div>
+</section>
+
+<section class="sx-related" style="margin-bottom:48px">
+  <div class="sx-rel-head"><h3 class="sx-h-md">Complementary Financial Modeling Calculators</h3><a class="lg" href="/financial-calculators.html">Explore all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+  <div class="sx-rel2grid">
+    <a class="sx-card sx-rel3" href="/financial/investment-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">query_stats</span></div><h3 style="font-size:16px;line-height:24px">Investment Calculator</h3><p>Model portfolio growth with returns, fees and regular contributions.</p><div class="go" style="color:var(--sx-primary)">Simulate ROI<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+    <a class="sx-card sx-rel3" href="/financial/401k-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">account_balance</span></div><h3 style="font-size:16px;line-height:24px">401(k) Planner</h3><p>Factor in employer matches and 2026 IRS contribution limits.</p><div class="go" style="color:var(--sx-primary)">Calculate Match<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+    <a class="sx-card sx-rel3" href="/financial/roth-ira-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">savings</span></div><h3 style="font-size:16px;line-height:24px">Roth IRA Calculator</h3><p>Tax-free compounding compared with a Traditional IRA.</p><div class="go" style="color:var(--sx-primary)">View Tax Savings<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+    <a class="sx-card sx-rel3" href="/financial/inflation-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">monetization_on</span></div><h3 style="font-size:16px;line-height:24px">Inflation Calculator</h3><p>See how rising prices erode purchasing power over time.</p><div class="go" style="color:var(--sx-primary)">Model CPI<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+  </div>
+</section>
+</div>
