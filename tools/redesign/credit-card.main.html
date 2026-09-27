@@ -1,0 +1,132 @@
+<div class="sx" id="ccCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Credit Card Payoff Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>Amortization Engine</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">warning</span>Minimum Payment Trap Audit</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Zero Data Retained</span></div>
+    <h1>Credit Card Payoff &amp; Interest Minimizer Calculator</h1>
+    <p>See how long it will take to pay off your credit card balance and how much interest you'll pay — and how much faster and cheaper a fixed payment is than paying only the minimum.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Balance &amp; Interest Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">refresh</span>Reset Defaults</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="bal">Current Card Balance ($)</label><em class="mu">Revolving principal</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="bal" type="number" inputmode="decimal" min="0" step="100" value="7500"></div>
+      <div class="sx-au-chips"><button type="button" data-for="bal" data-value="2500">$2,500</button><button type="button" data-for="bal" data-value="5000">$5,000</button><button type="button" data-for="bal" data-value="7500">$7,500</button><button type="button" data-for="bal" data-value="12000">$12,000</button><button type="button" data-for="bal" data-value="20000">$20,000</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="apr">Card APR (%)</label><em class="mu">Nominal annual rate</em></div>
+      <div class="sx-au-in np pc"><input id="apr" type="number" inputmode="decimal" min="0" max="40" step="0.01" value="24.99"><span class="suf">%</span></div>
+      <div class="sx-au-chips">Quick set: <button type="button" data-for="apr" data-value="21.5">21.5%</button><button type="button" data-for="apr" data-value="24.99">24.99%</button><button type="button" data-for="apr" data-value="29.99">29.99% (penalty-level)</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="minf">Minimum Payment Formula</label><em class="mu">Check your statement</em></div>
+      <div class="sx-au-sel"><select id="minf"><option value="std" selected>1% of Balance + Interest, or $25</option><option value="flat">2.5% of Balance, or $25</option><option value="tier">3% of Balance, or $35</option></select></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Payoff Strategy Mode</span></div>
+      <input type="hidden" id="mode" value="pay">
+      <div class="sx-seg" role="group" aria-label="Payoff strategy" style="display:flex"><button type="button" data-for="mode" data-value="pay" style="flex:1">Target Monthly</button><button type="button" data-for="mode" data-value="hz" style="flex:1">Target Horizon</button><button type="button" data-for="mode" data-value="min" style="flex:1">Minimum Only</button></div>
+      <div id="payRow" style="margin-top:12px"><div class="sx-au-l" style="font-weight:500"><label for="pay">Fixed Monthly Budget:</label><b id="payOut">$350 / mo</b></div><input type="hidden" id="pay" value="350"><input class="sx-range2" type="range" min="25" max="2000" step="5" value="350" data-sync="pay" aria-label="Monthly payment"></div>
+      <div id="hzRow" hidden style="margin-top:12px"><div class="sx-au-l" style="font-weight:500"><label for="hz">Desired Payoff Timeline:</label><b id="hzOut">18 Months</b></div><input type="hidden" id="hz" value="18"><input class="sx-range2" type="range" min="3" max="120" step="1" value="18" data-sync="hz" aria-label="Payoff months"></div>
+      <div id="minRow" hidden class="sx-au-warn" style="margin-top:12px"><span class="msym" aria-hidden="true">report</span><span><b>Minimum-only baseline:</b> simulates paying just the card's required minimum. The payment shrinks as the balance falls, which stretches payoff out.</span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="extra">Accelerated Extra Principal</label><em id="extraOut">+$50 / month</em></div>
+      <p class="sx-au-help" style="margin:0 0 8px">Added on top of the chosen strategy.</p>
+      <input type="hidden" id="extra" value="50"><input class="sx-range2" type="range" min="0" max="1000" step="10" value="50" data-sync="extra" aria-label="Extra payment">
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">bolt</span>Compute Debt Elimination Schedule</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-rf-ver sx-cc-ver" aria-live="polite">
+    <div class="hd"><div><small>Debt Elimination Verdict</small><h2 id="resultValue">—</h2></div><span class="sx-cc-save"><span class="msym" aria-hidden="true">savings</span><span id="saved">—</span></span></div>
+    <div class="sx-au-tiles c4 card">
+      <div><span>Total Interest Paid</span><b id="int">—</b><s id="intMin">—</s></div>
+      <div><span>Total Capital Outlay</span><b id="out">—</b><small>Principal + Interest</small></div>
+      <div><span>Months Saved</span><b class="g" id="msav">—</b><small id="ysav">—</small></div>
+      <div><span>Freedom Date</span><b id="date">—</b><small>Zero balance target</small></div>
+    </div>
+  </section>
+
+  <div class="sx-cc-trap"><span class="ic"><span class="msym" aria-hidden="true">warning</span></span><div><h3>The Minimum Payment Trap Audit</h3><p id="trap">—</p></div></div>
+
+  <section class="sx-card r2 sx-ry-wf sx-cc-cmp">
+    <div class="hd"><div><b style="font-family:var(--font-display);font-size:18px">Payoff Trajectory Comparison</b><div style="font-size:12px;color:var(--sx-muted)">Time to reach a zero balance</div></div><span class="sx-hl-lg" style="display:flex;gap:12px"><span><i style="background:var(--sx-primary)"></i>Your Plan</span><span><i style="background:#dc4b4b"></i>Minimum Payment Trap</span></span></div>
+    <div class="row"><div class="r"><span>Your Payoff Strategy</span><span id="b1">—</span></div><div class="t"><span id="b1b"></span></div></div>
+    <div class="row bad"><div class="r"><span>Minimum Payments Only (Baseline)</span><span id="b2">—</span></div><div class="t"><span id="b2b"></span></div></div>
+    <div class="sx-cc-ms" id="ms"></div>
+    <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Plan</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Save as PDF</button><a href="/financial/debt-payoff-calculator.html" style="margin-left:0"><span class="msym" aria-hidden="true">stacks</span>Snowball Matrix</a></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 style="display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">table_chart</span>The Minimum Payment Trap Ledger</h2><p>Four payoff speeds compared on the same balance and APR.</p></div><div class="hbt"><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export CSV</button></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Payoff Strategy</th><th scope="col">Monthly Payment</th><th scope="col">Payoff Horizon</th><th scope="col">Total Interest Paid</th><th scope="col">Total Capital Outlay</th><th scope="col">Interest Saved vs Minimum</th></tr></thead>
+    <tbody id="lg"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">functions</span>The Mathematics of the Daily Periodic Rate</h3>
+    <p>Unlike most installment loans, card issuers charge interest daily on your average daily balance:</p>
+    <div class="sx-ha-fbox" style="margin-bottom:12px"><code style="margin:0">DPR = APR ÷ 365
+Daily Interest = Average Daily Balance × DPR</code></div>
+    <p style="font-size:13px" id="dprTxt">—</p>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">swap_horiz</span>Balance Transfer &amp; 0% APR Benchmark</h3>
+    <p>A 0% intro balance transfer trades interest for an upfront fee. Compare the two over an 18-month promo:</p>
+    <ul class="sx-ef-rows" id="bt"></ul>
+    <p style="font-size:12px;color:var(--sx-muted);margin-top:12px">A transfer only pays off if you clear the balance before the promo ends; any remaining balance reverts to the card's regular APR.</p>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Why credit card interest is so costly</h2>
+    <p>Credit cards typically carry among the highest interest rates of any common consumer debt, often 18-29% APR, compared to single-digit rates for many mortgages or auto loans. Interest also usually compounds daily, meaning balances can grow faster than borrowers expect if only minimum payments are made.</p>
+    <p>Because of this, credit card debt is generally considered a top priority to pay off aggressively before focusing on lower-interest debt or even some investing goals, since few guaranteed investment returns can outpace typical credit card APRs.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A $3,000 balance at 22% APR with $120/month payments takes 34 months to pay off, with about $1,050 in total interest.</p>
+    <p>Raise the payment to $200/month instead, and payoff time drops to 18 months with about $540 in interest — roughly half the time and half the interest cost from an $80/month increase.</p>
+
+    <h2>Balance transfer as an alternative strategy</h2>
+    <p>Some credit cards offer promotional 0% APR balance transfer periods, which can dramatically reduce the total interest paid if you can pay off the balance within the promotional window — though transfer fees (often 3-5% of the balance) and the rate that applies after the promo period both need to be factored in.</p>
+    <p>Whether a balance transfer makes sense depends on the transfer fee versus the interest you'd otherwise pay, and your realistic ability to pay down the balance before the promotional rate expires.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Should I pay more than the minimum?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Generally yes — paying only the minimum on a high-APR card can take many years and cost substantially more in interest than the original balance.</p></details>
+    <details class="sx-faq"><summary>What is a good strategy for paying off credit card debt fast?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Paying more than the minimum, avoiding new charges while paying down the balance, and considering a balance transfer to a lower-rate card (if available) are all common strategies to accelerate payoff.</p></details>
+    <details class="sx-faq"><summary>Does carrying a balance help my credit score?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — this is a common misconception. Paying your balance in full each month (or keeping utilization low) is better for your credit score than carrying a balance, which only costs you interest.</p></details>
+    <details class="sx-faq"><summary>Is a balance transfer worth it?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It can be, if the transfer fee is smaller than the interest you'd save and you have a realistic plan to pay off the balance before the promotional rate ends — otherwise the remaining balance often reverts to a high standard rate.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Financial Optimization Tools</h2><p>Complementary calculators for paying down consumer debt.</p></div>
+  <span class="sx-au-tag">4 Engine Suites</span>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">waterfall_chart</span></span><b>Debt Snowball vs Avalanche</b><span class="d">Plan payoff order across several cards and loans.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Personal Loan Consolidation</b><span class="d">Compare a fixed-rate loan payment with your card balances.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/credit-utilization-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">speed</span></span><b>Credit Utilization Calculator</b><span class="d">See how paying down balances changes your utilization ratio.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/debt-to-income-ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>Debt-to-Income (DTI) Calculator</b><span class="d">Check front-end and back-end DTI before applying for credit.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
