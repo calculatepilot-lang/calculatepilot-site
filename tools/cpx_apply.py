@@ -13,7 +13,7 @@ Reads:  tools/redesign/<slug>.main.html   (required, the new <main> inner HTML)
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VER = "20260927c"
+CSS_VER = "20260927d"
 
 
 def main(rel):
@@ -24,6 +24,12 @@ def main(rel):
     if not os.path.exists(os.path.join(ROOT, "js", "calc", slug + ".js")):
         sys.exit("missing js/calc/%s.js" % slug)
     html = open(path, encoding="utf-8").read()
+
+    # 0. optional per-page cleanup of legacy assets (regexes in head.json "strip")
+    hp0 = os.path.join(red, slug + ".head.json")
+    if os.path.exists(hp0):
+        for pat in json.load(open(hp0, encoding="utf-8")).get("strip", []):
+            html = re.sub(pat, "", html, flags=re.S)
 
     # 1. main
     html, n = re.subn(r"<main>.*?</main>", "<main>\n" + main_html + "\n</main>", html, flags=re.S)
