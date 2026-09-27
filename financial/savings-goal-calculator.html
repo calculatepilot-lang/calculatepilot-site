@@ -31,6 +31,7 @@
 <meta name="twitter:description" content="Calculate how long it will take to reach a specific savings goal based on your monthly contribution and interest rate. Free, instant, formula shown. No signup.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,6 +73,10 @@
     }  ]
 }
 </script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,autorenew,bolt,calculate,calendar_month,chevron_right,download,expand_more,lock,picture_as_pdf,pie_chart,receipt_long,restart_alt,shield,show_chart,speed,stacked_line_chart,table_chart,timelapse,timeline,trending_up,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
 </head>
 <body>
 
@@ -90,111 +95,143 @@
 </header>
 
 <main>
+<div class="sx" id="sgCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Savings Goal Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Savings Goal Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <h1>Savings Goal Calculator &amp; Timeline Forecaster</h1>
+    <p>Work out the monthly savings needed to hit any goal by a target date — or how long it will take at the amount you can save — including the interest your savings earn along the way.</p>
+  </div>
+  <div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Cash Accumulation Model</span><span class="sx-badge"><span class="msym" aria-hidden="true">timeline</span>Milestone Pace Analysis</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Zero Data Stored</span></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Target Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Savings Goal Objective</span></div>
+      <div class="sx-sg-chips" id="goalChips"><button type="button" data-g="60000">Home Down Payment ($60,000)</button><button type="button" data-g="15000">New Vehicle ($15,000)</button><button type="button" data-g="30000">Wedding ($30,000)</button><button type="button" data-g="25000">Sabbatical ($25,000)</button><button type="button" data-g="custom">Custom</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="goal">Target Savings Amount</label><em class="mu">Goal target</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="goal" type="number" inputmode="decimal" min="0" step="500" value="50000"></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="start">Starting Current Savings</label><em class="mu">Liquid principal</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="start" type="number" inputmode="decimal" min="0" step="500" value="12000"></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Target Horizon Mode</span></div>
+      <input type="hidden" id="mode" value="time">
+      <div class="sx-seg" role="group" aria-label="Horizon mode" style="display:flex"><button type="button" data-for="mode" data-value="time" style="flex:1" id="mT">Fixed Timeframe</button><button type="button" data-for="mode" data-value="budget" style="flex:1" id="mB">Fixed Monthly Budget</button></div>
+    </div>
+    <div id="timeRow">
+      <div class="sx-au-l"><label for="monR">Target Timeframe</label><em id="monOut">36 Months (3.0 Years)</em></div>
+      <input type="hidden" id="mon" value="36">
+      <input id="monR" class="sx-range2" type="range" min="3" max="120" step="1" value="36" data-sync="mon" aria-label="Months to goal">
+      <div class="sx-au-opts" role="group" aria-label="Timeframe presets" style="margin-top:10px"><button type="button" data-for="mon" data-value="12">1 Yr</button><button type="button" data-for="mon" data-value="24">2 Yr</button><button type="button" data-for="mon" data-value="36">3 Yr</button><button type="button" data-for="mon" data-value="60">5 Yr</button></div>
+    </div>
+    <div id="budRow" hidden>
+      <div class="sx-au-l"><label for="bud">Monthly Contribution</label></div>
+      <div class="sx-au-in pc"><span class="pre">$</span><input id="bud" type="number" inputmode="decimal" min="0" step="25" value="800"><span class="suf">/ mo</span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="apy">Expected Annual Yield (APY)</label><em class="mu">Compounds monthly</em></div>
+      <div class="sx-au-in np pc"><input id="apy" type="number" inputmode="decimal" min="0" max="20" step="0.05" value="4.50"><span class="suf">%</span></div>
+      <div class="sx-au-opts c2" role="group" aria-label="Yield examples" style="margin-top:8px"><button type="button" data-for="apy" data-value="4.5" style="justify-content:space-between;padding:0 10px"><span>High-yield example</span><b>4.50%</b></button><button type="button" data-for="apy" data-value="0.5" style="justify-content:space-between;padding:0 10px"><span>Traditional example</span><b>0.50%</b></button></div>
+      <p class="sx-au-help">Use your account's actual APY — rates change often. Set 0% for a non-interest account.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Deposit Timing</span></div>
+      <input type="hidden" id="due" value="1">
+      <div class="sx-au-cat" role="group" aria-label="Deposit timing"><button type="button" data-for="due" data-value="1"><i></i><span><b>Beginning of Month</b><small>Annuity due (+yield)</small></span></button><button type="button" data-for="due" data-value="0"><i></i><span><b>End of Month</b><small>Ordinary annuity</small></span></button></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span><span id="ctaTxt">Calculate Required Monthly Savings</span></button>
+  </div>
+</form>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Savings Goal Calculator</h1>
-    <p class="lede">Calculate how long it will take to reach any savings goal, based on your monthly contribution and expected growth rate.</p>
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-sg-hero" aria-live="polite">
+    <div class="hd"><span class="sx-kick" id="heroK">Prescribed Savings Velocity</span><span class="sx-ef-grade" id="hit">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small id="heroU">/ month</small></div>
+    <p class="note" id="heroNote">—</p>
+    <div class="sx-au-tiles c4 card">
+      <div><span>Net Capital Needed</span><b id="need">—</b><small id="needN">—</small></div>
+      <div><span>Personal Deposits</span><b id="dep">—</b><small id="depN">—</small></div>
+      <div class="hl"><span>Interest Earned</span><b class="g" id="int">—</b><small id="intN">—</small></div>
+      <div><span>Interest Cushion</span><b id="cush">—</b><small>Share of goal funded by interest</small></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-ry-wf sx-sg-comp">
+    <div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px"><span class="msym" aria-hidden="true">stacked_line_chart</span>Target Funding Composition</b><b id="goalLbl">—</b></div>
+    <div class="bar" id="cBar"></div>
+    <div class="lg" id="cLg"></div>
+  </section>
+
+  <section class="sx-card r2 sx-ry-wf">
+    <div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px"><span class="msym" aria-hidden="true">speed</span>Pace Sensitivity Scenarios</b></div>
+    <p style="margin:-4px 0 14px;font-size:12px;color:var(--sx-muted)">How saving more or less each month moves your finish date.</p>
+    <div class="sx-sg-pace" id="pace"></div>
+    <div class="sx-in-acts"><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Download Milestone Roadmap</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export Schedule PDF</button><button type="button" id="bwBtn"><span class="msym" aria-hidden="true">calendar_month</span>Bi-Weekly Equivalent</button></div>
+    <p class="sx-sg-bw" id="bwTxt" hidden>—</p>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 style="display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">table_chart</span>Itemized Milestone Progression Ledger</h2><p>Principal growth, interest and progress toward your goal.</p></div>
+    <input type="hidden" id="view" value="key"><div class="sx-seg md" role="group" aria-label="Ledger view"><button type="button" data-for="view" data-value="key">Key Milestones</button><button type="button" data-for="view" data-value="all" id="allBtn">Monthly View</button></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Period</th><th scope="col">Monthly Deposit</th><th scope="col">Interest Earned</th><th scope="col">Cumulative Interest</th><th scope="col">Total Saved</th><th scope="col">% Goal Reached</th><th scope="col">Status</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-au-plain" style="border:0;padding-top:0">
+  <h2>Behavioral Savings Science &amp; Optimization</h2>
+  <p class="lead">Simple habits that keep your savings on track.</p>
+  <div class="sx-au-2c" style="margin-bottom:0">
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">autorenew</span></span><h3>The "Pay Yourself First" Principle</h3><p>Automating a transfer to savings right after each payday means you save before you spend, instead of relying on whatever is left at the end of the month — which often turns out to be very little.</p><div class="sx-sg-take"><b>Takeaway:</b> schedule an automatic transfer for the day after payday so saving happens without a decision.</div></div>
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">trending_up</span></span><h3>The Deposit Timing Advantage</h3><p>Depositing at the start of each month instead of the end gives every contribution an extra month of interest. The effect is small but free.</p><div class="sx-sg-take" id="dueTake">—</div></div>
   </div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="goalAmount">Savings goal ($)</label>
-        <input type="number" id="goalAmount" value="20000" step="500" min="0">
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="currentSavings">Current savings ($)</label>
-          <input type="number" id="currentSavings" value="3000" step="100" min="0">
-        </div>
-        <div class="field">
-          <label for="monthlyContribution">Monthly contribution ($)</label>
-          <input type="number" id="monthlyContribution" value="500" step="25" min="0">
-        </div>
-      </div>
-      <div class="field">
-        <label for="annualReturn">Expected annual return (%)</label>
-        <input type="number" id="annualReturn" value="3" step="0.1" min="0">
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Time to reach your goal</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Total months needed</span><span id="outTotalMonths">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
+<section class="sx-card sx-method">
+  <div class="sx-guide">
     <h2>A flexible tool for any savings goal</h2>
-    <p>Unlike calculators built around a specific purpose (retirement, a house down payment, college), this one works for any savings target — a wedding, a vacation, a new car, a business investment, or simply a general savings milestone. Enter your goal, what you're starting with, and your monthly contribution to see a realistic timeline.</p>
-    <p>The annual return field is optional in effect — set it to 0% if your savings are sitting in a non-interest-bearing account, or use a modest rate if it's in a high-yield savings account or similar low-risk vehicle.</p>
+    <p>Unlike calculators built around a specific purpose (retirement, a house down payment, college), this one works for any savings target — a wedding, a vacation, a new car, a business investment, or simply a general savings milestone. Choose a timeframe to see the monthly amount you need, or switch to a fixed monthly budget to see how long it will take.</p>
+    <p>The yield field is optional in effect — set it to 0% if your savings are sitting in a non-interest-bearing account, or use your account's APY if it's in a high-yield savings account or similar low-risk vehicle.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
     <h2>How increasing your contribution changes the timeline</h2>
-    <p>Because this calculation compounds monthly, even modest increases to your monthly contribution can meaningfully shorten your timeline, especially for longer-term goals — it's worth experimenting with a few different contribution amounts to see the trade-off between saving more aggressively now versus a longer, more comfortable timeline.</p>
+    <p>Because this calculation compounds monthly, even modest increases to your monthly contribution can meaningfully shorten your timeline, especially for longer-term goals — the pace scenarios above show the trade-off between saving more aggressively now versus a longer, more comfortable timeline.</p>
     <p>If reaching your goal feels too slow at your current contribution rate, this calculator makes it concrete exactly how much increasing your monthly amount would speed things up, which can help make a decision to save more feel more motivating than abstract.</p>
 
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>What if I don't earn any interest on my savings?</h3>
-      <p>Set the annual return field to 0% — the calculator will then simply project based on your contributions alone, without any compounding growth added.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What does it mean if the calculator says my goal isn't reachable?</h3>
-      <p>This appears if your monthly contribution and return rate combined wouldn't reach the goal within 50 years — in that case, consider increasing your monthly contribution or adjusting your goal amount or timeline expectations.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/financial/savings-calculator.html" class="tool-link">Savings Calculator — future value of deposits <span class="arrow">→</span></a>
-      <a href="/financial/emergency-fund-calculator.html" class="tool-link">Emergency Fund Calculator <span class="arrow">→</span></a>
-      <a href="/financial/retirement-calculator.html" class="tool-link">Retirement Calculator <span class="arrow">→</span></a>
-      <a href="/financial/compound-interest-calculator.html" class="tool-link">Compound Interest Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>What if I don't earn any interest on my savings?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Set the annual return field to 0% — the calculator will then simply project based on your contributions alone, without any compounding growth added.</p></details>
+    <details class="sx-faq"><summary>What does it mean if the calculator says my goal isn't reachable?<span class="msym" aria-hidden="true">expand_more</span></summary><p>This appears if your monthly contribution and return rate combined wouldn't reach the goal within 50 years — in that case, consider increasing your monthly contribution or adjusting your goal amount or timeline expectations.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Related Budgeting &amp; Capital Calculators</h2><p>Tools to set your savings rate and grow your wealth.</p></div>
+  <a href="/financial-calculators.html">View all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>50/30/20 Budget</b><span class="d">Split take-home pay between needs, wants and savings.</span><span class="f">Budgeting Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shield</span></span><b>Emergency Fund</b><span class="d">Size a 3 to 12-month cash cushion for your essentials.</span><span class="f">Liquidity Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Paycheck Calculator</b><span class="d">Net pay after federal, state and FICA taxes.</span><span class="f">Income Tax Model<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">show_chart</span></span><b>Compound Interest</b><span class="d">Long-term growth with regular deposits.</span><span class="f">Wealth Accumulator<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -272,7 +309,8 @@
 </footer>
 
 <script src="/js/currency-format.js?v=3d1747f9"></script>
-<script src="/js/savings-goal.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260928a"></script>
+<script src="/js/calc/savings-goal.js?v=20260928a"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
