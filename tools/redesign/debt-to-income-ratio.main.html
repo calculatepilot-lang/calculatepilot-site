@@ -1,0 +1,162 @@
+<div class="sx" id="dtCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Debt-to-Income Ratio Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <h1>Debt-to-Income (DTI) Ratio &amp; Underwriting Calculator</h1>
+    <p>Calculate your front-end and back-end debt-to-income ratios — the key figures lenders use for mortgage and loan applications — and compare them with conventional, FHA, VA and jumbo guidelines.</p>
+  </div>
+  <div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Mortgage Underwriting Guidelines</span><span class="sx-badge"><span class="msym" aria-hidden="true">account_balance</span>Front-End &amp; Back-End DTI</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Zero Tracking</span></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><h2 class="sx-h-md" style="margin:0">Household Income &amp; Debt Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-dt-inc">
+      <div class="sx-au-lr"><div class="sx-au-l"><label for="inc">Gross Pre-Tax Income</label></div><input type="hidden" id="mode" value="month"><div class="sx-seg xs" role="group" aria-label="Income entered as"><button type="button" data-for="mode" data-value="month">Monthly</button><button type="button" data-for="mode" data-value="year" id="yrBtn">Annual</button></div></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="inc" type="number" inputmode="decimal" min="0" step="100" value="8500" style="font-size:17px;font-weight:600"></div>
+      <div class="f"><span>Gross (before tax), as lenders use it</span><b id="incAlt">$102,000 / year</b></div>
+    </div>
+
+    <div class="sx-dt-grp">
+      <div class="h"><span>Housing Expense Schedule (Front-End Obligations)</span><b id="hTot">—</b></div>
+      <div class="sx-au-g2" style="gap:12px">
+        <div><label class="sub" for="pi">Proposed Principal &amp; Interest</label><div class="sx-au-in sm"><span class="pre">$</span><input id="pi" type="number" inputmode="decimal" min="0" step="25" value="1750"></div></div>
+        <div><label class="sub" for="ptax">Property Taxes</label><div class="sx-au-in sm"><span class="pre">$</span><input id="ptax" type="number" inputmode="decimal" min="0" step="10" value="350"></div></div>
+        <div><label class="sub" for="hins">Homeowners Insurance</label><div class="sx-au-in sm"><span class="pre">$</span><input id="hins" type="number" inputmode="decimal" min="0" step="10" value="120"></div></div>
+        <div><label class="sub" for="hoa">HOA / Condo Dues (&amp; PMI)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="hoa" type="number" inputmode="decimal" min="0" step="10" value="80"></div></div>
+      </div>
+    </div>
+
+    <div class="sx-dt-grp">
+      <div class="h"><span>Recurring Monthly Debt Obligations (Back-End)</span><b id="dTot">—</b></div>
+      <div class="sx-au-g2" style="gap:12px">
+        <div><label class="sub" for="auto">Auto Loan Payments</label><div class="sx-au-in sm"><span class="pre">$</span><input id="auto" type="number" inputmode="decimal" min="0" step="10" value="420"></div></div>
+        <div><label class="sub" for="stu">Student Loans</label><div class="sx-au-in sm"><span class="pre">$</span><input id="stu" type="number" inputmode="decimal" min="0" step="10" value="280"></div></div>
+        <div><label class="sub" for="cc">Credit Card Minimum Payments</label><div class="sx-au-in sm"><span class="pre">$</span><input id="cc" type="number" inputmode="decimal" min="0" step="10" value="150"></div></div>
+        <div><label class="sub" for="oth">Personal Loans &amp; Other Debt</label><div class="sx-au-in sm"><span class="pre">$</span><input id="oth" type="number" inputmode="decimal" min="0" step="10" value="100"></div></div>
+        <div style="grid-column:1/-1"><label class="sub" for="cs">Child Support / Alimony</label><div class="sx-au-in sm"><span class="pre">$</span><input id="cs" type="number" inputmode="decimal" min="0" step="10" value="0"></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><span>Target Loan Underwriting Benchmark</span></div>
+      <input type="hidden" id="prog" value="conv">
+      <div class="sx-au-cat" role="group" aria-label="Loan program">
+        <button type="button" data-for="prog" data-value="conv"><i></i><span><b>Conventional Conforming</b><small>Traditional 28% / 36% guideline</small></span></button>
+        <button type="button" data-for="prog" data-value="fha"><i></i><span><b>FHA Insured Loan</b><small>31% / 43% standard guideline</small></span></button>
+        <button type="button" data-for="prog" data-value="va"><i></i><span><b>VA Loan</b><small>41% back-end + residual income</small></span></button>
+        <button type="button" data-for="prog" data-value="jumbo"><i></i><span><b>Jumbo Mortgage</b><small>Lender-specific, often ~43%</small></span></button>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">fact_check</span>Audit Underwriting Approval Odds</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-ry-eng" aria-live="polite">
+    <div class="hd"><span>Underwriting Status Audit</span><span class="sx-ef-grade" id="pill">—</span></div>
+    <div class="sx-dt-grade" id="grade"><b id="resultValue">—</b><p id="gradeTxt">—</p></div>
+    <div class="sx-dt-two">
+      <div><div class="k">Front-End DTI<i id="feDot"></i></div><b id="fe">—</b><span class="s" id="feS">—</span></div>
+      <div><div class="k">Back-End DTI<i id="beDot"></i></div><b id="be">—</b><span class="s" id="beS">—</span></div>
+    </div>
+    <div class="sx-dt-sc"><div class="r">Front-End (Housing Ratio)<span>Scale 0% – 50%</span></div><div class="t" id="feT"></div><div class="mk"><i id="feM"></i></div><div class="lb" id="feL"></div></div>
+    <div class="sx-dt-sc"><div class="r">Back-End (Total Debt Ratio)<span>Scale 0% – 60%</span></div><div class="t" id="beT"></div><div class="mk"><i id="beM"></i></div><div class="lb" id="beL"></div></div>
+    <div class="sx-dt-cush"><span id="cushL">Monthly cushion before a 43% back-end limit:</span><b id="cush">—</b></div>
+    <div class="sx-dt-tip"><b><span class="msym" aria-hidden="true">lightbulb</span>Underwriting Optimization Strategy</b><p id="tip">—</p></div>
+    <div class="sx-au-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">download</span>Report</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Export CSV</button><a href="#guide"><span class="msym" aria-hidden="true">menu_book</span>Guide</a></div>
+  </section>
+  <section class="sx-card r2 sx-dt-out"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><div><b id="outT">—</b><span id="outN">—</span></div></section>
+</div>
+</div>
+
+<section class="sx-card r2 sx-au-sec" id="matrix">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="font-size:22px;line-height:30px">DTI Guidelines by Loan Program</h2><p class="lead" style="margin-bottom:20px">Typical debt-to-income guidelines for automated and manual underwriting. Individual lenders may set stricter limits.</p></div><span class="sx-au-tag">Guideline Overview</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Loan Program</th><th scope="col">Front-End Guideline</th><th scope="col">Back-End Guideline</th><th scope="col">With Compensating Factors</th><th scope="col">Underwriting Notes</th></tr></thead>
+    <tbody id="mxBody">
+      <tr data-p="conv"><td><span class="dot g"></span>Conventional (Fannie / Freddie)</td><td>28%</td><td>36%</td><td class="g">Up to 45%–50%</td><td style="color:var(--sx-muted);white-space:normal">Automated underwriting can approve up to 50% with strong credit and cash reserves.</td></tr>
+      <tr data-p="fha"><td><span class="dot g"></span>FHA Insured Loan</td><td>31%</td><td>43%</td><td class="g">Higher with AUS approval</td><td style="color:var(--sx-muted);white-space:normal">Ratios above 31/43 generally need automated approval or documented compensating factors.</td></tr>
+      <tr data-p="va"><td><span class="dot g"></span>VA Loan</td><td>No front-end ratio</td><td>41%</td><td class="g">Higher with residual income</td><td style="color:var(--sx-muted);white-space:normal">41% can be exceeded when residual income meets VA guidelines for household size and region.</td></tr>
+      <tr data-p="usda"><td><span class="dot"></span>USDA Rural Housing</td><td>29%</td><td>41%</td><td class="g">Higher with compensating factors</td><td style="color:var(--sx-muted);white-space:normal">Income and location eligibility limits apply.</td></tr>
+      <tr data-p="jumbo"><td><span class="dot"></span>Jumbo / Non-Conforming</td><td>Lender-specific</td><td>Often ~43%</td><td>Lender-specific</td><td style="color:var(--sx-muted);white-space:normal">Portfolio lenders set their own limits and often require larger cash reserves.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">account_balance_wallet</span>The 28/36 Rule Explained</h3>
+    <p>Underwriters look at your housing costs on their own and at your total debt load. Under the classic 28/36 benchmark:</p>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Front-end (≤ 28%):</b> gross monthly income going to principal, interest, taxes and insurance (PITI), plus HOA dues and mortgage insurance.</span></li>
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Back-end (≤ 36%):</b> housing costs plus all recurring debt payments — student loans, car loans, minimum credit card payments, child support.</span></li>
+    </ul>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">trending_down</span>How to Lower Your DTI Before Applying</h3>
+    <p>Before a mortgage application, a few targeted moves can improve your ratios:</p>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">bolt</span><span><b>Pay off nearly-finished installment loans:</b> under Fannie Mae rules, installment debts with 10 or fewer payments left can often be left out of DTI.</span></li>
+      <li><span class="msym" aria-hidden="true">bolt</span><span><b>Consolidate card balances:</b> a single fixed payment can be lower than several separate minimums.</span></li>
+      <li><span class="msym" aria-hidden="true">bolt</span><span><b>Add a co-borrower:</b> documented income from a co-borrower increases the income side of the ratio.</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sx-card sx-method" id="guide">
+  <div class="sx-guide">
+<h2>What counts as debt for this calculation</h2>
+    <p>Include recurring debt obligations: mortgage or rent, car loans, student loans, minimum credit card payments, and any other loan payments. Don't include everyday living expenses like groceries, utilities, or insurance — DTI specifically measures debt obligations relative to income, not total spending.</p>
+    <p>This is 'gross' income (before taxes), not take-home pay — lenders use gross income as the standard basis for this calculation, so make sure you're using pre-tax figures for an accurate comparison to typical lending thresholds.</p>
+    <h2>Why lenders care about DTI</h2>
+    <p>DTI is one of the primary factors lenders use to assess whether you can comfortably take on additional debt — a lower DTI suggests more available income relative to existing obligations, generally translating to easier loan approval and potentially better rates.</p>
+    <p>Different loan types have different DTI thresholds — conventional mortgages often prefer DTI under 36-43%, though some loan programs allow higher ratios for well-qualified borrowers with strong credit or larger down payments.</p>
+
+    <h2>Front-end vs. back-end DTI — the number mortgage lenders actually quote</h2>
+    <p>The calculator above shows both ratios, because mortgage lenders typically look at them side by side:</p>
+    <p><strong>Front-end DTI</strong> counts only housing costs — mortgage or rent, property tax, and homeowners insurance — divided by gross income. <strong>Back-end DTI</strong> counts every monthly debt obligation, including housing. Lenders commonly reference the <strong>"28/36 rule"</strong>: front-end at or below 28%, back-end at or below 36%. If your loan officer says your DTI "looks fine" but you're being asked for a smaller mortgage than expected, it's often because your front-end ratio is the binding constraint rather than the back-end number.</p>
+
+    <h2>A worked example</h2>
+    <p>Say you earn $6,500/month gross. Your monthly obligations: a $1,800 mortgage payment, a $450 car loan, $200 in minimum credit card payments, and a $150 student loan payment — $2,600 total.</p>
+    <p>DTI = $2,600 ÷ $6,500 = <strong>40%</strong>. That lands in the "moderate" 36-43% band — some conventional loan programs would still approve this, others would ask for a lower ratio or a larger down payment to offset it. Now suppose that same borrower pays off the $450 car loan entirely: monthly debt drops to $2,150, and DTI falls to $2,150 ÷ $6,500 = <strong>33%</strong> — a 7 percentage point drop from clearing a single loan, enough to move from "moderate" into the "healthy" band most lenders prefer.</p>
+
+    <h2>Common mistakes when calculating DTI</h2>
+    <p>The most frequent error is entering a credit card's <strong>full outstanding balance</strong> instead of the minimum monthly payment. A $8,000 balance with a $160 minimum payment should contribute $160 to your monthly debt total, not $8,000 — using the full balance produces a wildly inflated ratio that doesn't reflect how lenders actually calculate it.</p>
+    <p>The second common mistake is using <strong>take-home (net) pay</strong> instead of gross income in the denominator. Since take-home pay is always lower than gross, this makes your DTI look worse than it actually is by lending standards — always use your pre-tax income for a comparison that matches lender thresholds.</p>
+    <p>People also sometimes forget to include obligations that don't feel like "debt" in the everyday sense — court-ordered child support or alimony payments count toward DTI, while expenses like groceries, utilities, subscriptions, and insurance premiums (other than what's bundled into a mortgage escrow) do not.</p>
+
+    <h2>How to lower your DTI ratio</h2>
+    <p>You have exactly two levers: reduce monthly debt payments, or increase gross monthly income. In practice, paying down debt moves the number faster, because it's the more directly controllable variable — as the worked example above shows, eliminating one $450/month obligation cut this borrower's DTI by 7 percentage points instantly, while growing income by an equivalent amount typically takes much longer.</p>
+    <p>If you're preparing for a mortgage application specifically, prioritize paying off installment loans with the highest monthly payment relative to their remaining balance — small-balance, high-payment loans (like a near-payoff car loan) give the best DTI improvement per dollar spent, since eliminating the monthly obligation matters more here than the total amount paid off. Use the <a href="/financial/debt-payoff-calculator.html">Debt Payoff Calculator</a> to plan exactly how fast you can clear one of those obligations.</p>
+
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What's a good debt-to-income ratio?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Generally, 36% or below is considered healthy by most lenders, 36-43% is moderate and may still qualify depending on the loan type, and above 43% often makes approval more difficult, though thresholds vary by lender and loan program.</p></details>
+    <details class="sx-faq"><summary>Should I use gross or net income for this calculation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Gross (pre-tax) income is the standard basis lenders use for DTI calculations — using net income would understate your ratio compared to how lenders actually evaluate it.</p></details>
+    <details class="sx-faq"><summary>What's the difference between front-end and back-end DTI?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Front-end DTI only counts housing costs — mortgage or rent, property tax, and insurance — divided by gross income. Back-end DTI counts all monthly debt obligations, including housing. Mortgage lenders commonly reference both using the "28/36 rule": front-end at or below 28%, back-end at or below 36%.</p></details>
+    <details class="sx-faq"><summary>Does DTI include my full credit card balance or just the minimum payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Just the minimum required monthly payment, not the full balance. Using the full balance would badly overstate your ratio — lenders look at what you're obligated to pay this month, not your total outstanding debt.</p></details>
+    <details class="sx-faq"><summary>What's the fastest way to lower my DTI?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Two levers move it: increasing gross income or reducing monthly debt payments. Paying off a single high-payment debt, like a car loan, usually moves the ratio faster than growing income, since debt payments are the more directly controllable variable in the short term.</p></details>
+
+    
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Financial Decision Tools</h2></div>
+  <a href="/financial-calculators.html">View All Financial Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">real_estate_agent</span></span><b>House Affordability Calculator</b><span class="d">Maximum home price under front-end and back-end DTI limits.</span><span class="f">Calculate Purchasing Power<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home</span></span><b>Mortgage Payment Calculator</b><span class="d">30-year vs 15-year payments with taxes, insurance and PMI.</span><span class="f">Estimate Monthly PITI<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/credit-card-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">credit_card</span></span><b>Credit Card Payoff Calculator</b><span class="d">Clear card balances faster and cut your minimum payments.</span><span class="f">Optimize Payoff Timeline<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/credit-utilization-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">speed</span></span><b>Credit Utilization Calculator</b><span class="d">Per-card and overall utilization for your credit score.</span><span class="f">Analyze Utilization<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
