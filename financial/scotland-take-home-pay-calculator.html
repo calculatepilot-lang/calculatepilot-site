@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928s">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,56 +58,106 @@
   ]
 }
 </script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance_wallet,arrow_forward,chevron_right,compare_arrows,download,expand_more,gavel,landscape,layers,lock,payments,restart_alt,savings,schedule,school,shield_lock,table_view,trending_up,tune&display=block">
+<!-- /cpx-head-extra -->
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
-<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Scotland Take-Home Pay Calculator</nav></div>
-<section class="calc-page-head"><div class="container">
-  <h1>Scottish Income Tax Calculator</h1>
-  <p class="lede">Estimate what a Scottish employee keeps after Scottish income tax, UK National Insurance and optional student-loan PAYE for 6 April 2026 to 5 April 2027. This is not a renamed copy of the <a href="/financial/uk-take-home-pay-calculator.html">England, Wales and Northern Ireland take-home calculator</a> — the income-tax table is a different statute.</p>
-</div></section>
-<section><div class="container calc-layout">
-<form class="calc-card" id="calcForm">
-  <div class="field"><label for="salary">Annual salary before tax (£)</label><input type="number" id="salary" value="35000" step="500" min="0"></div>
-  <div class="field"><label for="pension">Salary-sacrifice pension (%)</label><input type="number" id="pension" value="0" step="0.5" min="0" max="40"></div>
-  <div class="field"><label for="plan">Student loan plan</label>
-    <select id="plan">
-      <option value="none">None</option>
-      <option value="plan4" selected>Plan 4 — Scotland</option>
-      <option value="plan5">Plan 5 — England & Wales from Aug 2023</option>
-      <option value="plan2">Plan 2 — England & Wales 2012–2023</option>
-      <option value="plan1">Plan 1 — earlier England/Wales & NI</option>
-    </select>
+<div class="sx" id="spCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Scotland Take-Home Pay Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Scottish Rates 2026/27 (HMRC)</span><span class="sx-badge"><span class="msym" aria-hidden="true">layers</span>6-Band Scottish Income Tax</span><span class="sx-badge"><span class="msym" aria-hidden="true">shield_lock</span>UK National Insurance (8%)</span></div>
+    <h1>Scottish Income Tax Calculator: Take-Home Pay 2026/27</h1>
+    <p>Estimate what a Scottish employee keeps after Scottish income tax, UK National Insurance, pension and optional student-loan PAYE for 6 April 2026 to 5 April 2027 — and how it compares with England, Wales and Northern Ireland.</p>
   </div>
-  <div class="field" id="pglWrap">
-    <label><input type="checkbox" id="alsoPgl"> Also repay a postgraduate loan (extra 6%)</label>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Scottish Gross Earnings &amp; Payroll</h2><p>Tax year 2026/27</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
   </div>
-  <p class="hint">Scottish non-savings income tax. Standard personal allowance £12,570, tapered above £100,000. Class 1 category A employee NI is UK-wide, not a Scottish rate. Pension is salary sacrifice. An S tax code identifies a Scottish taxpayer; other codes are not guessed.</p>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="salary">Gross Annual Salary</label><em style="color:var(--sx-muted);font-weight:500">Scottish (S) tax code</em></div>
+      <div class="sx-au-in"><span class="pre">£</span><input id="salary" type="number" inputmode="decimal" min="0" step="500" value="45000" style="font-size:17px;font-weight:600"><span class="suf">GBP/yr</span></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="salary" data-value="25000">£25k</button><button type="button" data-for="salary" data-value="35000">£35k</button><button type="button" data-for="salary" data-value="45000">£45k</button><button type="button" data-for="salary" data-value="60000">£60k</button><button type="button" data-for="salary" data-value="85000">£85k</button><button type="button" data-for="salary" data-value="125000">£125k</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Payment Frequency View</span></div><input type="hidden" id="freq" value="12"><div class="sx-seg" role="group" aria-label="Frequency" style="display:flex"><button type="button" data-for="freq" data-value="1" style="flex:1">Annual</button><button type="button" data-for="freq" data-value="12" style="flex:1">Monthly</button><button type="button" data-for="freq" data-value="52" style="flex:1">Weekly</button></div></div>
+      <div><div class="sx-au-l"><span>Scottish Tax Code</span></div><div class="sx-ur-ltv"><span>1257S</span><em><span class="msym" aria-hidden="true" style="font-size:13px;vertical-align:-2px">lock</span> Standard</em></div></div>
+    </div>
+    <p class="sx-au-help" style="margin:-8px 0 0" id="paNote">Standard personal allowance £12,570 (0%), tapered above £100,000.</p>
+    <div>
+      <div class="sx-au-l"><label for="plan">Student Loan Plan</label><em style="color:var(--sx-muted);font-weight:500">SAAS / SLC</em></div>
+      <div class="sx-au-sel"><select id="plan"><option value="none" selected>No student loan repayment</option><option value="plan4">Plan 4 — Scotland (9% over £2,816/mo)</option><option value="plan5">Plan 5 — England &amp; Wales from Aug 2023</option><option value="plan2">Plan 2 — England &amp; Wales 2012–2023</option><option value="plan1">Plan 1 — earlier England/Wales &amp; NI</option></select></div>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12px;color:var(--sx-onv)"><input type="checkbox" id="alsoPgl"> Also repay a postgraduate loan (extra 6% over £1,750/mo)</label>
+    </div>
+    <div class="sx-card" style="padding:16px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">savings</span>Workplace Pension Scheme</span><em class="ok">Tax efficient</em></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><span>Contribution Mechanism</span></div><input type="hidden" id="pm" value="s1"><div class="sx-seg" role="group" aria-label="Pension mechanism" style="display:flex"><button type="button" data-for="pm" data-value="s1" style="flex:1">Salary Sacrifice</button><button type="button" data-for="pm" data-value="s2" style="flex:1">Relief at Source</button></div></div>
+        <div><div class="sx-au-l"><label for="pension">Employee Contribution</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="penOut">—</em></div><div class="sx-au-in np pc"><input id="pension" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="5"><span class="suf">%</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="bik">Taxable Benefits in Kind (P11D)</label><em style="color:var(--sx-muted);font-weight:500">Company car, medical insurance</em></div>
+      <div class="sx-au-in"><span class="pre">£</span><input id="bik" type="number" inputmode="decimal" min="0" step="100" value="0"></div>
+    </div>
+  </div>
 </form>
-<aside class="readout"><div class="bar"></div><div class="readout-body">
-  <div class="readout-label">Monthly take-home</div>
-  <div class="readout-value big" id="resultValue">—</div>
-  <div class="readout-breakdown">
-    <div class="readout-row"><span>Annual take-home</span><span id="outNet">—</span></div>
-    <div class="readout-row"><span>Scottish income tax</span><span id="outTax">—</span></div>
-    <div class="readout-row"><span>National Insurance (UK)</span><span id="outNi">—</span></div>
-    <div class="readout-row"><span>Same salary, rUK income tax</span><span id="outRuk">—</span></div>
-    <div class="readout-row"><span>Scottish tax vs rUK</span><span id="outDelta">—</span></div>
-    <div class="readout-row"><span>Student loan (PAYE × 12)</span><span id="outSl">—</span></div>
-    <div class="readout-row"><span>Pension sacrificed</span><span id="outPen">—</span></div>
-    <div class="readout-row"><span>Personal allowance used</span><span id="outPa">—</span></div>
-  </div>
-  <p class="hint" id="outNote" style="margin-top:12px;"></p>
-</div></aside>
-</div></section>
-<section class="content-block"><div class="container prose">
+</div>
+
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em>Scottish Net Take-Home Pay</em><span id="retTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small style="font-size:16px;font-weight:500;opacity:.8;margin-left:4px" id="perT">/ month</small></div>
+    <p id="altP">—</p>
+    <span class="msym wm" aria-hidden="true">account_balance_wallet</span>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h">Annual Deductions Audit<span>2026/27</span></div>
+    <div class="l"><span>Scottish Income Tax (PAYE) <small id="taxE" style="color:var(--sx-muted)"></small></span><b class="r" id="outTax">—</b></div>
+    <div class="l"><span>National Insurance (Class 1)</span><b class="r" id="outNi">—</b></div>
+    <div class="l"><span id="penL">Pension contribution</span><b class="r" id="outPen">—</b></div>
+    <div class="l"><span id="slL">Student loan</span><b class="r" id="outSl">—</b></div>
+    <div class="l t"><span>Total Deductions</span><b id="outDed">—</b></div>
+  </section>
+  <section class="sx-card" style="padding:16px 18px">
+    <div style="display:flex;gap:10px"><span class="msym" aria-hidden="true" style="color:var(--sx-primary)">compare_arrows</span><div><b style="display:block;font-size:13px;color:var(--sx-on)">Cross-Border Variance vs England, Wales &amp; NI: <span id="outDelta">—</span></b><p style="margin:4px 0 0;font-size:12px;line-height:18px;color:var(--sx-onv)" id="outNote">—</p></div></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">download</span>Export Scottish Tax PDF</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Compare UK Jurisdictions (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="bands">
+  <div class="hd"><div><h2>Scottish 6-Band Marginal Tax Progression (2026/27)</h2><p id="bandN">—</p></div><span class="sx-au-tag">Holyrood rates</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Tax Band</th><th scope="col">Income Range</th><th scope="col">Rate</th><th scope="col">Tax in Band</th><th scope="col">Cumulative Tax</th><th scope="col">Status</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">gavel</span></span><h3>The Scottish Devolved Tax Framework</h3><p>Under the Scotland Act 2016, the Scottish Parliament sets the rates and bands of income tax on non-savings, non-dividend income for Scottish taxpayers. National Insurance, the personal allowance, and tax on savings and dividends remain UK-wide. Scotland uses six bands — from a 19% starter rate to a 48% top rate — against three in the rest of the UK.</p><div class="sx-sg-take">Scottish income tax is collected by HMRC through PAYE, using an S tax code — not by Revenue Scotland.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">trending_up</span></span><h3>Salary Sacrifice &amp; Pension Relief in Scotland</h3><p>Scotland's 42% higher rate starts at £43,663, well below the £50,271 higher-rate point in England, Wales and NI — so from there to £50,270 a Scottish employee's marginal deduction is 42% tax + 8% NI = 50%.</p><p>Salary sacrifice saves both income tax and National Insurance on the amount sacrificed. Relief at source adds 20% basic-rate relief to the pension automatically; Scottish taxpayers paying 21% or more can claim the extra relief from HMRC.</p></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
 <h2>Why this is its own page</h2>
 <p>The user job is “what do I take home if I pay <strong>Scottish</strong> income tax?” Removing Scotland from the question changes the tax. The <a href="/financial/uk-take-home-pay-calculator.html">UK take-home calculator</a> applies the England, Wales and Northern Ireland 20% / 40% / 45% table and says so. National Insurance does not justify a second page — it is the same Class 1 schedule — but the six Scottish bands do. A city name pasted onto the rUK page would be a doorway. This page is not that.</p>
 
 <h2>2026/27 rates this page uses</h2>
 <p>Tax year 6 April 2026 to 5 April 2027. Bands below are the gross-income ranges published for someone with the full £12,570 personal allowance. The calculator applies those same slice widths to taxable income after the allowance, including when the allowance tapers.</p>
-<div class="formula-box" role="region" aria-label="Scottish income tax and UK NI 2026/27">
+<div class="sx-box" role="region" aria-label="Scottish income tax and UK NI 2026/27">
 <p><strong>Personal allowance</strong><br>
 £12,570. Reduced by £1 for every £2 of income above £100,000. Zero from £125,140.</p>
 <p><strong>Scottish income tax — non-savings, non-dividend income</strong><br>
@@ -123,11 +174,11 @@ Plan 4 is the usual Scottish undergraduate plan: 9% of monthly pay above £2,816
 Plan 1 £2,241 · Plan 2 £2,448 · Plan 5 £2,083 · postgraduate £1,750 at 6%.</p>
 </div>
 <p>Sources: <a href="https://www.gov.uk/scottish-income-tax" rel="noopener noreferrer">GOV.UK — Income Tax in Scotland</a>, <a href="https://www.mygov.scot/scottish-income-tax/current-income-tax-rates" rel="noopener noreferrer">mygov.scot current rates</a>, and <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027" rel="noopener noreferrer">GOV.UK employer rates 2026 to 2027</a>. Re-check those pages before you rely on a figure. Revenue Scotland does not collect this tax — Scottish income tax is collected by HMRC.</p>
-<p class="hint">By Suhaib Hassan · Bands verified 23 Sep 2026 against GOV.UK and mygov.scot · Method v1.0-SCOT-TAKEHOME · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Bands verified 23 Sep 2026 against GOV.UK and mygov.scot · Method v1.0-SCOT-TAKEHOME · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 
 <h2 id="worked-example">Worked examples (pre-computed)</h2>
 <p>No pension and no student loan, so the only difference versus England, Wales and Northern Ireland is income tax. National Insurance is identical. Figures use the same slices as the calculator.</p>
-<div class="formula-box" role="region" aria-label="Scotland versus rest of UK worked examples">
+<div class="sx-box" role="region" aria-label="Scotland versus rest of UK worked examples">
 <p><strong>1. £20,000 — Scotland pays less</strong><br>
 Taxable £7,430. Starter £3,967 × 19% = £753.73. Basic £3,463 × 20% = £692.60. Scottish tax <strong>£1,446.33</strong>.<br>
 Rest of UK: £7,430 × 20% = £1,486.00. Scotland pays <strong>£39.67 less</strong>.<br>
@@ -145,132 +196,41 @@ NI: 8% × £37,700 + 2% × £9,730 = £3,210.60.<br>
 Scottish take-home <strong>£43,607.35 a year / £3,633.95 a month</strong>.</p>
 </div>
 
-<h2 id="salary-table">Scottish income tax at common salaries</h2><p>No pension and no student loan. The difference column is income tax only — National Insurance is the same UK Class 1 schedule. Take-home is salary minus Scottish income tax minus NI. These rows use the same slices as the calculator.</p><div style="overflow:auto;margin:12px 0 18px"><table style="width:100%;border-collapse:collapse;font-size:14.5px"><thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Salary</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scottish tax</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">rUK tax</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scotland vs rUK</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">NI</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Take-home / year</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Take-home / month</th></tr></thead><tbody><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£20,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,446.33</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,486</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£39.67 less</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£594.40</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£17,959.27</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,496.61</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£25,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,446.33</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,486</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£39.67 less</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£994.40</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£21,559.27</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,796.61</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£30,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,451.07</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,486</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£34.93 less</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,394.40</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£25,154.53</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,096.21</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£35,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,501.07</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,486</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£15.07 more</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,794.40</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£28,704.53</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,392.04</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£45,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£6,882.05</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£6,486</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£396.05 more</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,594.40</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£35,523.55</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,960.30</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£60,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£13,182.05</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£11,432</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,750.05 more</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,210.60</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£43,607.35</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,633.95</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£80,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£21,732.05</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£19,432</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,300.05 more</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,610.60</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£54,657.35</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,554.78</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£100,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£30,732.05</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£27,432</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,300.05 more</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,010.60</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£65,257.35</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£5,438.11</td></tr></tbody></table></div><p class="hint">At £20,000 Scotland pays £39.67 less income tax. At £35,000 it pays £15.07 more. At £60,000 it pays £1,750.05 more. Dividends, savings interest and Class 4 NI are not in this table.</p>
+<h2 id="salary-table">Scottish income tax at common salaries</h2><p>No pension and no student loan. The difference column is income tax only — National Insurance is the same UK Class 1 schedule. Take-home is salary minus Scottish income tax minus NI. These rows use the same slices as the calculator.</p><div class="sx-scroll"><table><thead><tr><th>Salary</th><th>Scottish tax</th><th>rUK tax</th><th>Scotland vs rUK</th><th>NI</th><th>Take-home / year</th><th>Take-home / month</th></tr></thead><tbody><tr><td>£20,000</td><td>£1,446.33</td><td>£1,486</td><td>£39.67 less</td><td>£594.40</td><td>£17,959.27</td><td>£1,496.61</td></tr><tr><td>£25,000</td><td>£2,446.33</td><td>£2,486</td><td>£39.67 less</td><td>£994.40</td><td>£21,559.27</td><td>£1,796.61</td></tr><tr><td>£30,000</td><td>£3,451.07</td><td>£3,486</td><td>£34.93 less</td><td>£1,394.40</td><td>£25,154.53</td><td>£2,096.21</td></tr><tr><td>£35,000</td><td>£4,501.07</td><td>£4,486</td><td>£15.07 more</td><td>£1,794.40</td><td>£28,704.53</td><td>£2,392.04</td></tr><tr><td>£45,000</td><td>£6,882.05</td><td>£6,486</td><td>£396.05 more</td><td>£2,594.40</td><td>£35,523.55</td><td>£2,960.30</td></tr><tr><td>£60,000</td><td>£13,182.05</td><td>£11,432</td><td>£1,750.05 more</td><td>£3,210.60</td><td>£43,607.35</td><td>£3,633.95</td></tr><tr><td>£80,000</td><td>£21,732.05</td><td>£19,432</td><td>£2,300.05 more</td><td>£3,610.60</td><td>£54,657.35</td><td>£4,554.78</td></tr><tr><td>£100,000</td><td>£30,732.05</td><td>£27,432</td><td>£3,300.05 more</td><td>£4,010.60</td><td>£65,257.35</td><td>£5,438.11</td></tr></tbody></table></div><p class="sx-trust" style="margin:0 0 8px">At £20,000 Scotland pays £39.67 less income tax. At £35,000 it pays £15.07 more. At £60,000 it pays £1,750.05 more. Dividends, savings interest and Class 4 NI are not in this table.</p>
 <h2>What this figure does not include</h2>
 <ul>
   <li><strong>England, Wales or Northern Ireland income tax.</strong> Use the <a href="/financial/uk-take-home-pay-calculator.html">UK take-home pay calculator</a>.</li>
   <li><strong>Dividends and savings interest.</strong> Scottish taxpayers pay the same UK rates on those. They are not forced through the starter-to-top table.</li>
   <li><strong>Self-employed Class 4 National Insurance.</strong> This is an employed salary on PAYE.</li>
   <li><strong>Tax codes other than a full personal allowance.</strong> Marriage allowance and Blind Person’s Allowance are not invented.</li>
-  <li><strong>High Income Child Benefit Charge, net-pay pensions, benefits in kind.</strong> Each changes the answer.</li>
+  <li><strong>High Income Child Benefit Charge and net-pay pensions.</strong> Each changes the answer. (Relief-at-source pensions and benefits in kind are modelled above.)</li>
   <li><strong>LBTT on a house purchase.</strong> That is a different tax. The <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT calculator</a> does not belong inside a payslip.</li>
 </ul>
 
 <h2>Frequently asked questions</h2>
-<div class="faq-item"><h3>Is Scottish income tax the same as the rest of the UK?</h3><p>No. Six bands from 19% to 48%, against three bands of 20%, 40% and 45% in England, Wales and Northern Ireland.</p></div>
-<div class="faq-item"><h3>Does National Insurance change in Scotland?</h3><p>No. Employee Class 1 NI is a UK rate. Only the income-tax line changes.</p></div>
-<div class="faq-item"><h3>Which student loan plan should a Scottish employee pick?</h3><p>Plan 4 is the usual Scottish undergraduate plan. The threshold is still a UK PAYE figure. Check your Student Finance account.</p></div>
-<div class="faq-item"><h3>Who pays less tax, Scotland or the rest of the UK?</h3><p>At £20,000 Scotland pays £39.67 less income tax. At £35,000 Scotland pays £15.07 more. At £60,000 Scotland pays £1,750.05 more. Those three cases are worked above with no pension and no student loan.</p></div>
-<div class="faq-item"><h3>Is this exactly what PAYE will take this month?</h3><p>No. Annualised bands, not a cumulative payroll run.</p></div>
+<details class="sx-faq"><summary>Is Scottish income tax the same as the rest of the UK?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. For 2026/27 Scotland uses six bands on non-savings, non-dividend income: starter 19%, basic 20%, intermediate 21%, higher 42%, advanced 45% and top 48%. England, Wales and Northern Ireland use 20%, 40% and 45%. National Insurance is the same across the UK.</p></details>
+<details class="sx-faq"><summary>Does National Insurance change in Scotland?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Employee Class 1 National Insurance is reserved to the UK. This page uses 0% up to £12,570, 8% to £50,270 and 2% above that — the same rates as the England, Wales and NI take-home calculator.</p></details>
+<details class="sx-faq"><summary>Which student loan plan should a Scottish employee pick?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Most Scottish undergraduates are on Plan 4. The deduction is still the UK PAYE rule: 9% of monthly pay above the published Plan 4 threshold, rounded down to the nearest pound. Confirm the plan in your Student Finance account.</p></details>
+<details class="sx-faq"><summary>Who pays less tax, Scotland or the rest of the UK?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On employment income with a full personal allowance and no pension, a Scottish taxpayer pays less income tax than England, Wales and NI at £20,000 (by £39.67) and more at £35,000 (by £15.07) and at £60,000 (by £1,750.05). The crossover is inside the intermediate band. Dividends and savings interest stay on UK rates and are not in this comparison.</p></details>
+<details class="sx-faq"><summary>Is this exactly what PAYE will take this month?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. This is an annualised estimate on an S1257L-style full personal allowance. Real PAYE uses cumulative tables and per-period rounding, so a single month can differ by a few pounds.</p></details>
+  </div>
+</section>
 
-<h2 id="next-job">Next calculation</h2>
-<div class="tool-grid">
-  <a class="tool-link" href="/financial/uk-take-home-pay-calculator.html">1. Same salary under England, Wales & NI tax <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/uk-student-loan-repayment-calculator.html">2. Student-loan PAYE line only (Plan 4 and the others) <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/scotland-lbtt-calculator.html">3. Buying in Scotland? LBTT is a separate purchase tax <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/salary-calculator.html">4. Split a salary into monthly / weekly / hourly <span class="arrow">→</span></a>
+<div class="sx-au-relh">
+  <div><h2>Next Calculation</h2><p>Compare, split or extend this salary.</p></div>
+  <a href="/financial-calculators.html">All Financial Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
 </div>
-<p class="hint">Estimate only. Scottish PAYE take-home · method v1.0-SCOT-TAKEHOME · last verified 23 Sep 2026 · <a href="https://www.gov.uk/scottish-income-tax" rel="noopener noreferrer">GOV.UK Scottish Income Tax</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a> · <a href="/embed/scotland-take-home-pay-calculator.html" target="_blank" rel="noopener">Embed this calculator</a></p>
-</div></section>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>UK Take-Home Pay</b><span class="d">Same salary under England, Wales &amp; NI tax.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/uk-student-loan-repayment-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">school</span></span><b>UK Student Loan Repayment</b><span class="d">The student-loan PAYE line on its own.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/scotland-lbtt-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">landscape</span></span><b>Scotland LBTT</b><span class="d">Buying in Scotland? A separate purchase tax.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/salary-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">schedule</span></span><b>Salary Calculator</b><span class="d">Split a salary into monthly, weekly and hourly.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/embed/scotland-take-home-pay-calculator.html" target="_blank" rel="noopener">Embed this calculator</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/cp-calc.js?v=20260928s"></script>
+<script src="/js/calc/scotland-take-home-pay.js?v=20260928s"></script>
 <script src="/js/nav.js?v=ed5961c9"></script>
-<script>
-(function () {
-  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
-  const salaryEl = document.getElementById("salary");
-  const pensionEl = document.getElementById("pension");
-  const planEl = document.getElementById("plan");
-  const pglEl = document.getElementById("alsoPgl");
-  const PA = 12570, TAPER_FROM = 100000, BASIC_WIDTH = 37700, ADDITIONAL_FROM = 125140;
-  const NI_PT = 12570, NI_UEL = 50270;
-  const STARTER = 3967, BASIC = 12989, INTER = 14136, HIGHER = 31338;
-  const PLANS = {
-    plan1: { monthly: 2241, rate: 0.09 },
-    plan2: { monthly: 2448, rate: 0.09 },
-    plan4: { monthly: 2816, rate: 0.09 },
-    plan5: { monthly: 2083, rate: 0.09 }
-  };
-  const PGL = { monthly: 1750, rate: 0.06 };
-
-  function pence(n) { return Math.round(n * 100) / 100; }
-  function personalAllowance(income) {
-    if (income <= TAPER_FROM) return PA;
-    return Math.max(0, PA - Math.floor((income - TAPER_FROM) / 2));
-  }
-  function scottishTax(income) {
-    const taxable = Math.max(0, income - personalAllowance(income));
-    const starter = Math.min(taxable, STARTER);
-    const basic = Math.min(Math.max(0, taxable - STARTER), BASIC);
-    const inter = Math.min(Math.max(0, taxable - STARTER - BASIC), INTER);
-    const higher = Math.min(Math.max(0, taxable - STARTER - BASIC - INTER), HIGHER);
-    const used = STARTER + BASIC + INTER + HIGHER;
-    const advanced = Math.min(Math.max(0, taxable - used), Math.max(0, ADDITIONAL_FROM - used));
-    const top = Math.max(0, taxable - ADDITIONAL_FROM);
-    return pence(starter * 0.19 + basic * 0.20 + inter * 0.21 + higher * 0.42 + advanced * 0.45 + top * 0.48);
-  }
-  function rukTax(income) {
-    const allow = personalAllowance(income);
-    const taxable = Math.max(0, income - allow);
-    const addFrom = ADDITIONAL_FROM - allow;
-    const basic = Math.min(taxable, BASIC_WIDTH);
-    const higher = Math.min(Math.max(0, taxable - BASIC_WIDTH), Math.max(0, addFrom - BASIC_WIDTH));
-    const additional = Math.max(0, taxable - Math.max(BASIC_WIDTH, addFrom));
-    return pence(basic * 0.20 + higher * 0.40 + additional * 0.45);
-  }
-  function nationalInsurance(income) {
-    const main = 0.08 * Math.max(0, Math.min(income, NI_UEL) - NI_PT);
-    const add = 0.02 * Math.max(0, income - NI_UEL);
-    return pence(main + add);
-  }
-  function loanSlice(monthlyPay, plan) {
-    const excess = Math.max(0, pence(monthlyPay - plan.monthly));
-    return Math.floor(pence(excess * plan.rate));
-  }
-
-  function render() {
-    const gross = Math.max(0, +salaryEl.value || 0);
-    const pct = Math.max(0, Math.min(40, +pensionEl.value || 0));
-    const sacrifice = pence(gross * pct / 100);
-    const chargeable = Math.max(0, pence(gross - sacrifice));
-    const tax = scottishTax(chargeable);
-    const ruk = rukTax(chargeable);
-    const delta = pence(tax - ruk);
-    const ni = nationalInsurance(chargeable);
-    const monthlyPay = pence(chargeable / 12);
-    const key = planEl.value;
-    const ug = key === "none" ? null : PLANS[key];
-    const slMonth = (ug ? loanSlice(monthlyPay, ug) : 0) + (pglEl.checked ? loanSlice(monthlyPay, PGL) : 0);
-    const slYear = slMonth * 12;
-    const net = pence(gross - sacrifice - tax - ni - slYear);
-
-    document.getElementById("resultValue").textContent = gbp.format(pence(net / 12));
-    document.getElementById("outNet").textContent = gbp.format(net);
-    document.getElementById("outTax").textContent = gbp.format(tax);
-    document.getElementById("outNi").textContent = gbp.format(ni);
-    document.getElementById("outRuk").textContent = gbp.format(ruk);
-    const sign = delta > 0 ? "more" : delta < 0 ? "less" : "the same";
-    document.getElementById("outDelta").textContent = delta === 0 ? "£0.00" : (gbp.format(Math.abs(delta)) + " " + sign);
-    document.getElementById("outSl").textContent = slYear ? gbp.format(slYear) : "—";
-    document.getElementById("outPen").textContent = sacrifice ? gbp.format(sacrifice) : "—";
-    document.getElementById("outPa").textContent = gbp.format(personalAllowance(chargeable));
-
-    let note = "Annualised 2026/27 Scottish estimate. Real PAYE can differ by a few pounds in any one month.";
-    if (delta > 0) note = "Scottish income tax is higher than England, Wales and NI on this salary. " + note;
-    else if (delta < 0) note = "Scottish income tax is lower than England, Wales and NI on this salary. " + note;
-    if (chargeable > TAPER_FROM && personalAllowance(chargeable) < PA) {
-      note = "Personal allowance is tapered above £100,000. " + note;
-    }
-    document.getElementById("outNote").textContent = note;
-  }
-
-  ["salary", "pension", "plan", "alsoPgl"].forEach(function (id) {
-    const el = document.getElementById(id);
-    el.addEventListener("input", render);
-    el.addEventListener("change", render);
-  });
-  render();
-})();
-</script>
 </body>
 </html>
