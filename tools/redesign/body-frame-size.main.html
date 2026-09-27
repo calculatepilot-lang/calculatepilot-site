@@ -1,0 +1,121 @@
+<div class="sx" id="bfsCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Body Frame Size Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Height ÷ Wrist Ratio</span><span class="sx-badge"><span class="msym" aria-hidden="true">table_chart</span>MedlinePlus Wrist Chart</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Body Frame Size Calculator — Wrist Method</h1>
+    <p>Find out whether you have a small, medium or large frame from your height and wrist circumference using two published methods, and see how frame size shifts a reference ideal weight.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Measurements</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s1"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">in</button><button type="button" data-for="u" data-value="s2" style="flex:1">cm</button></div></div>
+      <div><div class="sx-au-l"><span>Sex</span></div><input type="hidden" id="sex" value="s2"><div class="sx-seg" role="group" aria-label="Sex" style="display:flex"><button type="button" data-for="sex" data-value="s1" style="flex:1">Male</button><button type="button" data-for="sex" data-value="s2" style="flex:1">Female</button></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Height</span><em style="color:var(--sx-muted);font-weight:500" id="hAlt">—</em></div>
+      <div class="sx-au-in np" id="hMet" hidden><input id="cm" type="number" inputmode="decimal" min="120" max="230" step="0.5" value="165" aria-label="Height in centimetres"><span class="suf">cm</span></div>
+      <div class="sx-au-g2" id="hImp"><div class="sx-au-in np"><input id="ft" type="number" inputmode="numeric" min="4" max="7" step="1" value="5" aria-label="Height in feet"><span class="suf">ft</span></div><div class="sx-au-in np"><input id="inch" type="number" inputmode="decimal" min="0" max="11.9" step="0.5" value="5" aria-label="Height in inches"><span class="suf">in</span></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="wr">Wrist Circumference</label></div>
+      <div class="sx-au-in np"><input id="wr" type="number" inputmode="decimal" min="3" max="30" step="0.05" value="6.25"><span class="suf" id="wU">in</span></div>
+      <p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Around the narrowest point just below the wrist bone, where a watch strap sits.</p>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Find Frame Size</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Frame size (height ÷ wrist)</span><span class="sx-ef-grade" id="agree">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="sx-cu-spec" style="margin-top:14px">
+      <div class="r"><span id="specT">Height ÷ wrist ratio</span><span>You: <b class="c" id="specV">—</b></span></div>
+      <div class="t" id="specBar"></div>
+      <div class="lb" id="specLb"></div>
+    </div>
+    <div class="g2" style="margin-top:14px"><div><span>MedlinePlus wrist chart</span><b id="mlp">—</b></div><div><span>Medium-frame wrist at your height</span><b id="medW">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">monitor_weight</span>Reference Ideal Weight (Hamwi)</span><span id="ibwTag">—</span></div>
+    <div class="l"><span>Small frame (−10%)</span><b id="i1">—</b></div>
+    <div class="l"><span>Medium frame</span><b id="i2">—</b></div>
+    <div class="l"><span>Large frame (+10%)</span><b id="i3">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/ideal-weight-calculator.html"><span class="msym" aria-hidden="true">monitor_weight</span>Ideal Weight</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Wrist Size Bands at Your Height</h2><p>Wrist circumferences for each frame size under the height ÷ wrist ratio method.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Height</th><th scope="col">Small</th><th scope="col">Medium</th><th scope="col">Large</th></tr></thead>
+    <tbody id="bandTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p><strong>Method 1 — height ÷ wrist ratio (r).</strong> Divide your height by your wrist circumference (same unit), then classify (Grant, 1980):</p>
+    <ul>
+      <li><strong>Men:</strong> r above 10.4 = small · 9.6–10.4 = medium · below 9.6 = large</li>
+      <li><strong>Women:</strong> r above 11.0 = small · 10.1–11.0 = medium · below 10.1 = large</li>
+    </ul>
+    <p><strong>Method 2 — MedlinePlus wrist chart</strong> (U.S. National Library of Medicine), by height band:</p>
+    <ul>
+      <li><strong>Women under 5′2″:</strong> small under 5.5″ · medium 5.5–5.75″ · large over 5.75″</li>
+      <li><strong>Women 5′2″–5′5″:</strong> small under 6″ · medium 6–6.25″ · large over 6.25″</li>
+      <li><strong>Women over 5′5″:</strong> small under 6.25″ · medium 6.25–6.5″ · large over 6.5″</li>
+      <li><strong>Men over 5′5″:</strong> small 5.5–6.5″ · medium 6.5–7.5″ · large over 7.5″ (the chart doesn't cover men 5′5″ and under)</li>
+    </ul>
+    <p>The ideal-weight panel uses the Hamwi formula with the common ±10% frame adjustment, as a reference only.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the published charts · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Why frame size matters for weight goals</h2>
+    <p>Ideal weight charts and BMI categories are based on averages that don't account for skeletal frame size — someone with a larger bone structure will naturally weigh more at the same body fat percentage than someone with a smaller frame. That's why frame size is sometimes used to adjust weight targets.</p>
+
+    <h2>A worked example</h2>
+    <p>A woman 5′5″ (65 in) tall with a 6.25″ wrist: 65 ÷ 6.25 = <strong>10.4</strong>, which is a medium frame for women (10.1–11.0). On the MedlinePlus chart she falls in the 5′2″–5′5″ band, where 6–6.25″ is also medium, so both methods agree.</p>
+
+    <h2>Measuring your wrist correctly</h2>
+    <p>Measure around the wrist at the narrowest point, just below the wrist bone, using a flexible tape measure snug but not compressing the skin. Elbow breadth, measured with calipers, is another frame-size method used in research, but it needs equipment most people don't have. Like other simple anthropometric methods, the wrist method is a general estimate, not a clinical measurement.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://medlineplus.gov/ency/imagepages/17182.htm" rel="noopener noreferrer">MedlinePlus Medical Encyclopedia — Calculating body frame size</a></li>
+      <li>Grant JP. Handbook of Total Parenteral Nutrition. Philadelphia: WB Saunders, 1980.</li>
+      <li>Hamwi GJ. Therapy: changing dietary concepts. In: Diabetes Mellitus: Diagnosis and Treatment. American Diabetes Association, 1964.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Does frame size change how much I should weigh?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's one factor some ideal-weight frameworks consider — a larger frame generally supports a somewhat higher healthy weight than a smaller frame at the same height, commonly by about 10% either way, though it's just one of many relevant factors.</p></details>
+    <details class="sx-faq"><summary>Where exactly should I measure my wrist?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At the narrowest point of the wrist, just below the wrist bone — roughly where a watch strap would sit — using a flexible tape measure snug against the skin.</p></details>
+    <details class="sx-faq"><summary>Why do the two methods sometimes disagree?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The ratio method scales smoothly with height, while the MedlinePlus chart uses broad height bands with fixed wrist ranges. Near a band edge they can land in neighbouring categories; if they differ, you're likely near the border between the two sizes.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Use your frame size.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/ideal-weight-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_weight</span></span><b>Ideal Weight Calculator</b><span class="d">Four formulas with a frame-size option.</span><span class="f">Find ideal weight<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/healthy-weight-range-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Healthy Weight Range</b><span class="d">Weight range for a healthy BMI.</span><span class="f">Check range<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/lean-body-mass-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">fitness_center</span></span><b>Lean Body Mass</b><span class="d">Fat-free mass and FFMI.</span><span class="f">Estimate lean mass<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">straighten</span></span><b>BMI Calculator</b><span class="d">Weight relative to height.</span><span class="f">Check BMI<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
