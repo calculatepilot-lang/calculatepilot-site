@@ -13,12 +13,12 @@ Reads:  tools/redesign/<slug>.main.html   (required, the new <main> inner HTML)
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VER = "20260927k"
+CSS_VER = "20260927l"
 
 
 def main(rel):
     path = os.path.join(ROOT, rel)
-    slug = os.path.splitext(os.path.basename(rel))[0].replace("-calculator", "")
+    slug = re.sub(r"-calculator$", "", os.path.splitext(os.path.basename(rel))[0])
     red = os.path.join(ROOT, "tools", "redesign")
     main_html = open(os.path.join(red, slug + ".main.html"), encoding="utf-8").read().strip()
     if not os.path.exists(os.path.join(ROOT, "js", "calc", slug + ".js")):
