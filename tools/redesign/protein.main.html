@@ -1,0 +1,122 @@
+<div class="sx" id="ptCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Protein Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>RDA · ISSN · PROT-AGE Ranges</span><span class="sx-badge"><span class="msym" aria-hidden="true">restaurant</span>Per-Meal &amp; Food Targets</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Protein Calculator — How Much Protein Do You Need a Day?</h1>
+    <p>Estimate your daily protein target from your body weight and activity level or life stage, split it across your meals, and see what it looks like in everyday foods.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="wt">Body Weight</label></div><div class="sx-au-in np"><input id="wt" type="number" inputmode="decimal" min="20" max="700" step="0.5" value="75" style="font-size:17px;font-weight:600"><span class="suf" id="wU">kg</span></div></div>
+      <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s2"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">lb</button><button type="button" data-for="u" data-value="s2" style="flex:1">kg</button></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Activity Level or Life Stage</span></div>
+      <input type="hidden" id="lvl" value="s3">
+      <div class="sx-au-cat nr" style="grid-template-columns:1fr" role="group" aria-label="Activity or life stage">
+        <button type="button" data-for="lvl" data-value="s1"><span><b>Sedentary adult</b><small>0.8–1.0 g/kg · RDA minimum for healthy adults</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="lvl" data-value="s2"><span><b>Adult 65+</b><small>1.0–1.2 g/kg · PROT-AGE recommendation for healthy older adults</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="lvl" data-value="s3"><span><b>Moderately active</b><small>1.2–1.6 g/kg · regular exercise a few days a week</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="lvl" data-value="s4"><span><b>Athlete / strength training</b><small>1.6–2.2 g/kg · building or keeping muscle</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="lvl" data-value="s5"><span><b>Pregnant (2nd–3rd trimester)</b><small>1.1 g/kg · RDA for pregnancy</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+      </div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Meals per Day</span></div>
+      <input type="hidden" id="meals" value="4">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(4,minmax(0,1fr))" role="group" aria-label="Meals per day"><button type="button" data-for="meals" data-value="3">3</button><button type="button" data-for="meals" data-value="4">4</button><button type="button" data-for="meals" data-value="5">5</button><button type="button" data-for="meals" data-value="6">6</button></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Protein</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Daily protein target</span><span class="sx-ef-grade" id="lvTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>grams / day</small></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Middle of range</span><b id="mid">—</b></div><div><span id="pmL">Per meal</span><b id="pm">—</b></div></div>
+    <div class="gain neg"><span>Protein calories at the middle of the range</span><b id="kc">—</b></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Target</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/macro-calculator.html"><span class="msym" aria-hidden="true">pie_chart</span>Macro Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>What Your Target Looks Like in Food</h2><p id="fdN">Servings of a single food needed to reach the middle of your range.</p></div><span class="sx-au-tag">USDA FoodData Central</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Food</th><th scope="col">Serving</th><th scope="col">Protein per Serving</th><th scope="col">Servings for Your Target</th></tr></thead>
+    <tbody id="fdTbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Approximate values; brands and preparation vary. In practice most people combine several foods across the day.</span></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Protein Ranges at Your Weight</h2><p>Daily grams for each activity level and life stage.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Group</th><th scope="col">g per kg</th><th scope="col">Daily Protein</th><th scope="col">Source</th></tr></thead>
+    <tbody id="rgTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Protein needs scale with body weight and activity level — people doing regular strength training or intense exercise need substantially more than sedentary individuals.</p>
+    <p><strong>Protein (g) = weight (kg) × factor</strong> — Sedentary ≈ 0.8–1.0 g/kg · Adults 65+ ≈ 1.0–1.2 g/kg · Moderately active ≈ 1.2–1.6 g/kg · Athletes ≈ 1.6–2.2 g/kg · Pregnancy (2nd–3rd trimester) 1.1 g/kg</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the sources below · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Protein timing and distribution</h2>
+    <p>Beyond total daily amount, how protein is distributed across meals may matter for muscle protein synthesis — many guidelines suggest spreading intake across 3-4 meals with 20-40g of protein each (roughly 0.4 g per kg of body weight per meal), rather than consuming it all in one large meal.</p>
+    <p>Protein needs also typically increase during periods of calorie restriction (dieting) to help preserve muscle mass, which is why the higher end of activity-based ranges is often recommended during active fat-loss phases.</p>
+
+    <h2>A worked example</h2>
+    <p>An 82kg moderately active person: protein range is 82 times 1.2 to 82 times 1.6, or roughly 98-131g per day.</p>
+    <p>The same person training seriously as an athlete would see a range of 82 times 1.6 to 82 times 2.2, or roughly 131-180g per day — nearly 50g/day higher at the top end than the moderately active estimate.</p>
+
+    <h2>Protein quality</h2>
+    <p>Complete protein sources containing all essential amino acids (found in most animal products, soy, and some plant combinations like rice and beans) are generally considered more effective for muscle maintenance than incomplete sources alone. <strong>Medical information, not medical advice:</strong> people with kidney disease should follow their doctor's protein guidance.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li>Institute of Medicine. Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. 2005 (RDA 0.8 g/kg; 1.1 g/kg in pregnancy).</li>
+      <li>Jäger R, et al. International Society of Sports Nutrition position stand: protein and exercise. J Int Soc Sports Nutr 2017;14:20.</li>
+      <li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. Br J Sports Med 2018;52:376–384.</li>
+      <li>Bauer J, et al. Evidence-based recommendations for optimal dietary protein intake in older people: a position paper from the PROT-AGE Study Group. J Am Med Dir Assoc 2013;14:542–559.</li>
+      <li>Schoenfeld BJ, Aragon AA. How much protein can the body use in a single meal for muscle-building? J Int Soc Sports Nutr 2018;15:10.</li>
+      <li><a href="https://fdc.nal.usda.gov/" rel="noopener noreferrer">USDA FoodData Central</a> (food protein values)</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Can eating too much protein be harmful?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For most healthy people, higher protein intakes within these ranges are considered safe, though people with certain kidney conditions should consult a doctor about appropriate protein levels.</p></details>
+    <details class="sx-faq"><summary>Does this factor in muscle-building goals?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The athlete/strength training range already reflects typical recommendations for building or maintaining muscle mass during resistance training.</p></details>
+    <details class="sx-faq"><summary>Do I need protein supplements to hit my target?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not necessarily — whole foods like meat, fish, eggs, dairy, and legumes can meet most people's protein needs, though supplements like whey protein can be a convenient way to fill gaps.</p></details>
+    <details class="sx-faq"><summary>Is it better to spread protein throughout the day?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many nutrition guidelines suggest distributing protein across 3-4 meals rather than one large serving, since the body can only use a limited amount for muscle synthesis at a time.</p></details>
+    <details class="sx-faq"><summary>Do older adults need more protein?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Often, yes. The PROT-AGE Study Group recommends 1.0–1.2 g per kg of body weight a day for healthy adults over 65 — more than the 0.8 g/kg RDA — to help maintain muscle.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Nutrition Calculators</h2><p>Fit protein into your full daily plan.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/macro-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>Macro Calculator</b><span class="d">Split calories into protein, fat and carbs.</span><span class="f">Plan your macros<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calorie Calculator</b><span class="d">Daily calories to lose or gain weight.</span><span class="f">Set calories<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/lean-body-mass-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">fitness_center</span></span><b>Lean Body Mass</b><span class="d">Your fat-free mass.</span><span class="f">Check lean mass<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/one-rep-max-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">exercise</span></span><b>One Rep Max</b><span class="d">Estimate strength for your training plan.</span><span class="f">Calculate 1RM<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
