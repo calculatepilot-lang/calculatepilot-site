@@ -1,0 +1,114 @@
+<div class="sx" id="whrCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Waist-to-Hip Ratio Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>WHO 2008 Cut-offs</span><span class="sx-badge"><span class="msym" aria-hidden="true">straighten</span>Waist Circumference Risk</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Waist-to-Hip Ratio Calculator — WHO Risk Thresholds</h1>
+    <p>Calculate your waist-to-hip ratio (WHR), compare it with the World Health Organization thresholds for men and women, and check your waist circumference against the WHO risk levels at the same time.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Measurements</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s2"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">in</button><button type="button" data-for="u" data-value="s2" style="flex:1">cm</button></div></div>
+      <div><div class="sx-au-l"><span>Sex</span></div><input type="hidden" id="sex" value="s1"><div class="sx-seg" role="group" aria-label="Sex" style="display:flex"><button type="button" data-for="sex" data-value="s1" style="flex:1">Male</button><button type="button" data-for="sex" data-value="s2" style="flex:1">Female</button></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="waist">Waist Circumference</label></div>
+      <div class="sx-au-in np"><input id="waist" type="number" inputmode="decimal" min="40" max="250" step="0.5" value="90"><span class="suf" id="wU">cm</span></div>
+      <p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Midway between your lowest rib and the top of your hip bone, after breathing out normally.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="hip">Hip Circumference</label></div>
+      <div class="sx-au-in np"><input id="hip" type="number" inputmode="decimal" min="40" max="250" step="0.5" value="100"><span class="suf" id="hU">cm</span></div>
+      <p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Around the widest part of your buttocks, tape parallel to the floor.</p>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Ratio</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Waist-to-hip ratio</span><span class="sx-ef-grade" id="catTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="sx-cu-spec" style="margin-top:14px">
+      <div class="r"><span id="specT">WHR scale</span><span>You: <b class="c" id="specV">—</b></span></div>
+      <div class="t" id="specBar"></div>
+      <div class="lb" id="specLb"></div>
+    </div>
+    <div class="g2" style="margin-top:14px"><div><span id="cutL">WHO threshold</span><b id="cut">—</b></div><div><span>Waist to stay under it</span><b id="maxW">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">straighten</span>Waist Circumference (WHO)</span><span id="wcTag">—</span></div>
+    <div class="l"><span>Your waist</span><b id="wcV">—</b></div>
+    <div class="l"><span>Increased risk from</span><b id="wc1">—</b></div>
+    <div class="l"><span>Substantially increased from</span><b id="wc2">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/waist-to-height-ratio-calculator.html"><span class="msym" aria-hidden="true">height</span>Waist-to-Height Ratio</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Waist Limit by Hip Size</h2><p>The largest waist that keeps your WHR under the WHO threshold, for hip sizes near yours.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Hip</th><th scope="col">Waist Under</th><th scope="col">WHR at Your Waist</th></tr></thead>
+    <tbody id="hpTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p><strong>WHR = waist circumference ÷ hip circumference</strong>, both in the same unit. The World Health Organization's 2008 expert consultation uses these cut-offs for a <strong>substantially increased risk of metabolic complications</strong>:</p>
+    <ul>
+      <li><strong>Men:</strong> WHR of 0.90 or more · waist above 102 cm (40 in); increased risk from a waist above 94 cm (37 in)</li>
+      <li><strong>Women:</strong> WHR of 0.85 or more · waist above 88 cm (35 in); increased risk from a waist above 80 cm (31.5 in)</li>
+    </ul>
+    <p>The WHO report notes that ideal cut-offs may differ between populations. The International Diabetes Federation, for example, uses a lower waist threshold of 90 cm for South Asian, Chinese and Japanese men.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the WHO expert consultation report · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Why waist-to-hip ratio matters</h2>
+    <p>Where the body stores fat matters as much as how much fat is stored. Fat carried around the abdomen ("apple-shaped") is more strongly associated with cardiovascular and metabolic health risk than fat carried around the hips and thighs ("pear-shaped") — which is what makes WHR a useful complement to BMI. The thresholds differ by sex because typical fat distribution differs between men and women.</p>
+
+    <h2>Measuring waist and hip correctly</h2>
+    <p>The WHO protocol measures the waist midway between the lower edge of the lowest rib and the top of the hip bone (iliac crest), and the hips around the widest part of the buttocks. Stand relaxed with feet together, keep the tape snug but not tight, and read it at the end of a normal breath out. Measuring at the same landmarks and time of day each time makes changes more meaningful.</p>
+
+    <h2>A worked example</h2>
+    <p>A man with a 96 cm waist and 100 cm hips: 96 ÷ 100 = <strong>0.96</strong>, above the WHO threshold of 0.90. With the same hips, a waist under 90 cm would bring the ratio below 0.90. His waist of 96 cm is also above the 94 cm "increased risk" level.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.who.int/publications/i/item/9789241501491" rel="noopener noreferrer">World Health Organization. Waist circumference and waist–hip ratio: report of a WHO expert consultation. Geneva, 8–11 December 2008.</a></li>
+      <li>International Diabetes Federation. The IDF consensus worldwide definition of the metabolic syndrome. 2006.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is waist-to-hip ratio better than BMI?<span class="msym" aria-hidden="true">expand_more</span></summary><p>They measure different things — BMI reflects overall weight relative to height, while WHR reflects fat distribution. Many health professionals consider them complementary rather than one replacing the other.</p></details>
+    <details class="sx-faq"><summary>Why do risk thresholds differ between men and women?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Natural body fat distribution differs by sex on average, so WHO sets separate thresholds: a WHR of 0.90 or more for men and 0.85 or more for women indicates substantially increased risk.</p></details>
+    <details class="sx-faq"><summary>What is a healthy waist-to-hip ratio?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Using the WHO cut-offs, a ratio below 0.90 for men or below 0.85 for women is below the level linked to substantially increased risk of metabolic complications.</p></details>
+    <details class="sx-faq"><summary>Should I use waist-to-hip or waist-to-height ratio?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Both describe fat around the middle. Waist-to-height ratio needs only one tape measurement and is recommended by NICE in the UK; waist-to-hip ratio is the measure used in the WHO report. Checking both, alongside BMI, gives a fuller picture.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Other views of body shape and composition.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/waist-to-height-ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">height</span></span><b>Waist-to-Height Ratio</b><span class="d">NICE categories and target waist.</span><span class="f">Check WHtR<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Overall weight relative to height.</span><span class="f">Check BMI<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/body-fat-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">accessibility_new</span></span><b>Body Fat Calculator</b><span class="d">The Navy method uses waist and hip too.</span><span class="f">Estimate body fat<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/blood-pressure-category-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">favorite</span></span><b>Blood Pressure Category</b><span class="d">Another key cardiometabolic check.</span><span class="f">Check reading<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
