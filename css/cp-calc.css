@@ -3042,3 +3042,22 @@ html.cp-dark .sx-dt-grade.mid b{color:#fcd34d}html.cp-dark .sx-dt-grade.hi b{col
 .sx-dt-out .ic{width:40px;height:40px;border-radius:10px;background:var(--sx-sc);color:var(--sx-emt);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sx-dt-out b{display:block;font-size:14px;color:var(--sx-on)}
 .sx-dt-out span{font-size:12px;color:var(--sx-muted)}
+/* ---- Stitch layer: down payment ---- */
+.sx-dp-strat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media(max-width:479px){.sx-dp-strat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sx-dp-strat button{text-align:left;padding:10px 12px;border:1px solid var(--sx-border);border-radius:8px;background:var(--sx-card);font:inherit;cursor:pointer;color:var(--sx-on);position:relative}
+.sx-dp-strat button small{display:block;font-size:11px;color:var(--sx-muted)}
+.sx-dp-strat button b{font-size:13px}
+.sx-dp-strat button[aria-pressed="true"]{border:2px solid var(--sx-primary);background:var(--sx-emb)}
+.sx-dp-strat button[aria-pressed="true"] small{color:var(--sx-emt)}
+.sx-dp-strat button.wide{grid-column:span 2}
+@media(max-width:479px){.sx-dp-strat button.wide{grid-column:auto}}
+.sx-dp-prog{display:flex;align-items:center;gap:8px}
+.sx-dp-prog i{flex:1;max-width:80px;height:6px;border-radius:99px;background:var(--sx-hi2);overflow:hidden;display:block}
+.sx-dp-prog i span{display:block;height:100%;background:var(--sx-primary)}
+.sx-dp-tag{display:inline-block;font-family:var(--font-body,inherit);font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid var(--sx-border);color:var(--sx-onv)}
+.sx-dp-tag.ok{border-color:var(--sx-hover);background:var(--sx-emb);color:var(--sx-emt)}
+.sx-dp-tag.done{background:var(--sx-primary);border-color:var(--sx-primary);color:#fff}
+.sx-dp-note{display:flex;gap:10px;padding:12px 14px;border-radius:10px;border:1px solid var(--sx-sch);background:var(--sx-low);font-size:12px;line-height:18px;color:var(--sx-onv)}
+.sx .sx-dp-note .msym{font-size:18px;color:var(--sx-pc)}
+.sx-dp-note b{color:var(--sx-on)}

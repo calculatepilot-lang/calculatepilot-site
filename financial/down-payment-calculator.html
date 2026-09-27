@@ -31,6 +31,7 @@
 <meta name="twitter:description" content="Calculate how much you need for a down payment and the resulting loan amount based on home price and down payment percentage.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928e">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,6 +81,10 @@
     }  ]
 }
 </script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,calculate,calendar_month,check,check_circle,chevron_right,event_repeat,expand_more,home_work,hourglass_top,payments,picture_as_pdf,pie_chart,policy,query_stats,restart_alt,savings,security,shield_with_heart,speed,table_chart,tune&display=block">
+<!-- /cpx-head-extra -->
 </head>
 <body>
 
@@ -98,116 +103,172 @@
 </header>
 
 <main>
+<div class="sx" id="dpCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Down Payment Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Down Payment Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>PMI Elimination Modeling</span><span class="sx-badge">Closing Cost Cushion</span><span class="sx-badge">High-Yield Reserve Pacing</span></div>
+    <h1>Down Payment Calculator &amp; Homebuyer Reserve Planner</h1>
+    <p>Calculate your down payment and loan amount, the total cash you need to close, mortgage insurance trade-offs from 3% to 20% down, and how much to save each month to get there.</p>
+  </div>
+</header>
+
+<div class="sx-grid half">
+<div>
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Purchase Target &amp; Savings Parameters</h2><p>Down payment, closing costs and reserves</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset Defaults</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="price">Target Home Purchase Price</label></div>
+      <div class="sx-au-in pc"><span class="pre">$</span><input id="price" type="number" inputmode="decimal" min="0" step="5000" value="400000" style="font-size:17px;font-weight:600"><span class="suf">USD</span></div>
+      <div class="sx-au-chips"><button type="button" data-for="price" data-value="250000">$250k</button><button type="button" data-for="price" data-value="400000">$400k</button><button type="button" data-for="price" data-value="550000">$550k</button><button type="button" data-for="price" data-value="750000">$750k</button><button type="button" data-for="price" data-value="1000000">$1M</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Down Payment Strategy</span></div>
+      <div class="sx-dp-strat" id="strat">
+        <button type="button" data-p="3"><small>First-Time Conv.</small><b>3.0% Down</b></button>
+        <button type="button" data-p="3.5"><small>FHA Minimum</small><b>3.5% Down</b></button>
+        <button type="button" data-p="5"><small>Conventional</small><b>5.0% Down</b></button>
+        <button type="button" data-p="10"><small>Balanced Equity</small><b>10.0% Down</b></button>
+        <button type="button" data-p="20" class="wide"><small>PMI Elimination Goal</small><b>20.0% Down</b></button>
+      </div>
+      <input type="hidden" id="dpMode" value="pct">
+      <div class="sx-au-g2" style="gap:12px;margin-top:12px">
+        <div><label class="sub" for="down" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Calculated Down Payment</label><div class="sx-au-in sm"><span class="pre">$</span><input id="down" type="number" inputmode="decimal" min="0" step="1000" value="80000"></div></div>
+        <div><label class="sub" for="pct" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Down Payment Ratio</label><div class="sx-au-in sm np pc"><input id="pct" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="20"><span class="suf">%</span></div></div>
+      </div>
+    </div>
+    <div class="sx-fr-sec">
+      <div class="sx-au-l"><span style="display:flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">shield_with_heart</span>Upfront Closing Costs &amp; Moving Cushion</span></div>
+      <div class="sx-au-l" style="font-weight:500;margin-top:8px"><label for="ccR">Estimated Closing Costs (Escrow, Lender, Title)</label><b id="ccOut">3.0% ($12,000)</b></div>
+      <input type="hidden" id="cc" value="3"><input id="ccR" class="sx-range2" type="range" min="1" max="6" step="0.1" value="3" data-sync="cc" aria-label="Closing costs percent">
+      <div class="sx-scale"><span>1%</span><b>Typical: about 2%–5%</b><span>6%</span></div>
+      <div class="sx-au-g2" style="gap:12px;margin-top:12px">
+        <div><label for="mov" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Inspection, Appraisal &amp; Moving</label><div class="sx-au-in sm"><span class="pre">$</span><input id="mov" type="number" inputmode="decimal" min="0" step="250" value="5000"></div></div>
+        <div><label for="res" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Post-Closing Reserve (~3 Mo. PITI)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="res" type="number" inputmode="decimal" min="0" step="250" value="8500"></div></div>
+      </div>
+    </div>
+    <div class="sx-fr-sec">
+      <div class="sx-au-l"><span style="display:flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">hourglass_top</span>Current Saved Capital &amp; Timeline</span></div>
+      <div class="sx-au-g2" style="gap:12px;margin-top:8px">
+        <div><label for="sav" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Dedicated Home Savings Today</label><div class="sx-au-in sm"><span class="pre">$</span><input id="sav" type="number" inputmode="decimal" min="0" step="500" value="35000"></div></div>
+        <div><label for="apy" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Savings Account APY</label><div class="sx-au-in sm np pc"><input id="apy" type="number" inputmode="decimal" min="0" max="15" step="0.05" value="4.50"><span class="suf">%</span></div></div>
+      </div>
+      <div class="sx-au-l" style="margin-top:12px"><span style="font-size:12px;font-weight:500;color:var(--sx-muted)">Target Acquisition Horizon</span></div>
+      <input type="hidden" id="hz" value="24">
+      <div class="sx-au-opts" role="group" aria-label="Months until purchase"><button type="button" data-for="hz" data-value="12">12 Mo</button><button type="button" data-for="hz" data-value="18">18 Mo</button><button type="button" data-for="hz" data-value="24">24 Mo</button><button type="button" data-for="hz" data-value="36">36 Mo</button></div>
+      <div class="sx-au-g2" style="gap:12px;margin-top:12px">
+        <div><label for="rate" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Expected Mortgage Rate</label><div class="sx-au-in sm np pc"><input id="rate" type="number" inputmode="decimal" min="0" max="15" step="0.125" value="6.5"><span class="suf">%</span></div></div>
+        <div><label for="appr" style="display:block;font-size:12px;color:var(--sx-muted);margin-bottom:4px">Home Price Growth (assumed)</label><div class="sx-au-in sm np pc"><input id="appr" type="number" inputmode="decimal" min="-10" max="20" step="0.1" value="3.5"><span class="suf">%/yr</span></div></div>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Compute Required Down Payment &amp; Pace</button>
+  </div>
+</form>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Down Payment Calculator</h1>
-    <p class="lede">Calculate your down payment amount and remaining loan balance based on home price and down payment percentage.</p>
-  </div>
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-sg-hero" aria-live="polite">
+    <div class="hd"><span class="sx-kick">Total Cash-to-Close Assessment</span><span class="sx-ef-grade" id="ready">—</span></div>
+    <div class="big" id="resultValue">—</div>
+    <p class="note" id="struct" style="border:0;padding:0">—</p>
+    <div class="sx-au-tiles card">
+      <div><span>Existing Capital</span><b id="have">—</b><small id="haveN">—</small></div>
+      <div style="border-color:var(--sx-hover);background:var(--sx-emb)"><span>Net Additional Capital</span><b class="g" id="gap">—</b><small id="gapN">—</small></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-sg-hero">
+    <div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px;color:var(--sx-on)"><span class="msym" aria-hidden="true">speed</span>Monthly Savings Required</b><span style="font-size:11px;color:var(--sx-muted)" id="hzL">24-Month Target</span></div>
+    <div class="big" style="color:var(--sx-on)"><span id="need">—</span><small>/ month</small></div>
+    <div class="sx-dp-note"><span class="msym" aria-hidden="true">savings</span><span id="intNote">—</span></div>
+  </section>
+
+  <section class="sx-card r2 sx-ry-wf sx-fr-dec">
+    <div class="hd"><b style="font-size:14px">Capital Allocation Stack</b><span id="stTot">—</span></div>
+    <div class="bar" id="stBar"></div>
+    <ul id="stList" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px"></ul>
+    <div class="sx-in-acts" style="margin-top:14px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export Savings Roadmap (PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">event_repeat</span>Download Monthly Plan (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card r2 sx-au-sec" id="matrix">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="font-size:22px;line-height:30px;display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">table_chart</span>Down Payment Tier &amp; Mortgage Insurance Matrix</h2><p class="lead" id="mxSub" style="margin-bottom:20px">—</p></div><span class="sx-au-tag">Illustrative PMI rates</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Down Payment Tier</th><th scope="col">Equity Capital</th><th scope="col">Est. Monthly PMI / MIP</th><th scope="col">5-Year Insurance Cost</th><th scope="col">Total Cash to Close</th><th scope="col">LTV &amp; Insurance Status</th></tr></thead>
+    <tbody id="mx"></tbody>
+  </table></div>
+  <p class="sx-au-cmpn">Conventional PMI modeled at 0.60%/0.50%/0.35%/0.25% of the loan a year by LTV band and dropped at 78% LTV on schedule; actual rates depend on your credit score and insurer. FHA shown with the 0.55% annual MIP that applies to most 30-year loans (life of loan below 10% down), excluding the 1.75% upfront premium.</p>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field-row">
-        <div class="field">
-          <label for="homePrice">Home price</label>
-          <input type="number" id="homePrice" value="350000" step="1000" min="0">
-        </div>
-        <div class="field">
-          <label for="downPaymentPercent">Down payment (%)</label>
-          <input type="number" id="downPaymentPercent" value="20" step="1" min="0">
-        </div>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Down payment needed</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Loan amount</span><span id="outLoanAmount">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 style="display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">calendar_month</span><span id="lgH">24-Month Milestone Progression Ledger</span></h2><p id="lgSub">—</p></div><span style="display:flex;align-items:center;gap:6px;font-size:12px"><span class="sx-dp-tag" id="lgBase">—</span><span class="msym" aria-hidden="true" style="font-size:14px">arrow_forward</span><span class="sx-dp-tag ok" id="lgTgt">—</span></span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Milestone Horizon</th><th scope="col">Monthly Deposit</th><th scope="col">Cumulative Interest</th><th scope="col">Total Accumulated Balance</th><th scope="col">Target Completion</th><th scope="col">Readiness Milestone</th></tr></thead>
+    <tbody id="lg"></tbody>
+  </table></div>
 </section>
 
-<section class="content-block">
-  <div class="container prose">
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">query_stats</span>The True Cost of PMI: Is Waiting for 20% Worth It?</h3>
+    <p id="waitTxt">—</p>
+    <ul class="sx-ef-rows" id="waitRows" style="background:var(--sx-low);border-radius:10px;padding:4px 14px"></ul>
+    <p style="font-size:11px;color:var(--sx-muted);margin-top:10px">Home price growth is an assumption — prices can also fall. Compare with your local market.</p>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">policy</span>Lender Reserve Requirements &amp; Sourcing Rules</h3>
+    <p>Lenders check that your down payment funds are yours, documented and still available after closing:</p>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Cash reserves:</b> depending on the loan and your profile, lenders may require about 2–6 months of mortgage payments (PITI) left in the bank after closing.</span></li>
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Seasoned funds:</b> lenders typically review two months of bank statements; large, unexplained deposits need a paper trail.</span></li>
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Gift letters:</b> money from family usually needs a signed letter confirming it's a gift, not a loan, plus proof of the transfer.</span></li>
+    </ul>
+  </div>
+</div>
 
+<section class="sx-card sx-method">
+  <div class="sx-guide">
     <h2>Why 20% is a common target</h2>
     <p>Putting down 20% typically avoids private mortgage insurance (PMI) on a conventional loan, which can save a meaningful amount over the life of the loan — though many programs allow lower down payments.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
     <h2>How down payment size affects your options</h2>
     <p>Beyond the loan amount itself, down payment size affects which loan programs you qualify for and whether you'll pay for mortgage insurance. Conventional loans typically require PMI below 20% down, while some government-backed programs (FHA, VA) have different down payment and insurance structures entirely.</p>
     <p>A larger down payment also strengthens your offer in competitive housing markets, since sellers often view buyers with more cash down as lower-risk, better-financed purchasers.</p>
+
     <h2>A worked example</h2>
     <p>On a $425,000 home at 15% down: the down payment is $63,750, leaving a loan amount of $361,250.</p>
     <p>Compare that to 20% down on the same home: $85,000 down, $340,000 loan — a $21,250 larger upfront payment, but a loan $21,250 smaller, which likely also avoids PMI, potentially saving more over time than the extra upfront cash.</p>
+
     <h2>Down payment assistance options</h2>
     <p>Beyond saving independently, many buyers use down payment assistance programs, gift funds from family, or low-down-payment loan programs (some allow as little as 3-5% down) to reach homeownership sooner rather than waiting to save a full 20%.</p>
     <p>The trade-off for a smaller down payment is usually private mortgage insurance (PMI) and a larger loan balance, both of which increase the monthly payment — worth weighing against the value of buying sooner rather than continuing to save while home prices and rates may change. Once you've settled on a down payment amount, run the numbers through the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> to see your full monthly payment.</p>
 
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Can I buy a home with less than 20% down?</h3>
-      <p>Yes — many conventional and government-backed loan programs allow down payments as low as 3-5%, though you'll typically pay for mortgage insurance until you build enough equity.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do I need 20% down to buy a home?</h3>
-      <p>No — many loan programs allow down payments as low as 3-5%, though anything below 20% on a conventional loan typically requires paying for private mortgage insurance (PMI).</p>
-    </div>
-    <div class="faq-item">
-      <h3>Where should down payment savings be kept?</h3>
-      <p>Since it's typically needed within a few years, many people keep down payment savings in lower-risk accounts like high-yield savings rather than volatile investments, to avoid the risk of a market downturn right before buying.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Are there loan programs that allow less than 20% down?</h3>
-      <p>Yes — many conventional and government-backed programs (FHA, VA, USDA where applicable) allow down payments well below 20%, sometimes as low as 3%, typically with mortgage insurance required until sufficient equity is reached.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
-      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
-      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
-      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>Can I buy a home with less than 20% down?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — many conventional and government-backed loan programs allow down payments as low as 3-5%, though you'll typically pay for mortgage insurance until you build enough equity.</p></details>
+    <details class="sx-faq"><summary>Do I need 20% down to buy a home?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — many loan programs allow down payments as low as 3-5%, though anything below 20% on a conventional loan typically requires paying for private mortgage insurance (PMI).</p></details>
+    <details class="sx-faq"><summary>Where should down payment savings be kept?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Since it's typically needed within a few years, many people keep down payment savings in lower-risk accounts like high-yield savings rather than volatile investments, to avoid the risk of a market downturn right before buying.</p></details>
+    <details class="sx-faq"><summary>Are there loan programs that allow less than 20% down?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — many conventional and government-backed programs (FHA, VA, USDA where applicable) allow down payments well below 20%, sometimes as low as 3%, typically with mortgage insurance required until sufficient equity is reached.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Complementary Mortgage &amp; Cash Flow Tools</h2><p>Check your borrowing capacity and long-term cash cushion.</p></div>
+  <span class="sx-au-tag">4 Core Calculators</span>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home_work</span></span><b>House Affordability Calculator</b><span class="d">Maximum purchase price under 28/36 debt-to-income limits.</span><span class="f">Compute Limit<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Mortgage &amp; Amortization</b><span class="d">Full amortization schedule with extra principal payments.</span><span class="f">View Schedule<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>50/30/20 Budget Calculator</b><span class="d">Make room in your take-home pay for down payment savings.</span><span class="f">Structure Budget<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">security</span></span><b>Emergency Fund Calculator</b><span class="d">Keep a cash cushion separate from your home equity.</span><span class="f">Calculate Runway<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -285,7 +346,8 @@
 </footer>
 
 <script src="/js/currency-format.js?v=3d1747f9"></script>
-<script src="/js/down-payment.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260928e"></script>
+<script src="/js/calc/down-payment.js?v=20260928e"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
