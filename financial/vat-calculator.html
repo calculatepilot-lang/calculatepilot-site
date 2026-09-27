@@ -15,10 +15,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAT Calculator — Add or Remove VAT (UK & EU) | CalculatePilot</title>
+<title>VAT Calculator — Add or Remove VAT (UK, EU &amp; International) | CalculatePilot</title>
 <meta name="description" content="Add or remove VAT from any price. Calculate how much VAT is included in a price, or what price is ex-VAT. Standard UK rate is 20%. Free, instant, no signup.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/vat-calculator.html">
-<meta property="og:title" content="VAT Calculator — Add or Remove VAT (UK & EU) | CalculatePilot">
+<meta property="og:title" content="VAT Calculator — Add or Remove VAT (UK, EU &amp; International) | CalculatePilot">
 <meta property="og:description" content="Add or remove VAT from any price. Calculate how much VAT is included in a price, or what price is ex-VAT. Standard UK rate is 20%. Free, instant, no signup.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/vat-calculator.html">
@@ -27,10 +27,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VAT Calculator — Add or Remove VAT (UK & EU) | CalculatePilot">
+<meta name="twitter:title" content="VAT Calculator — Add or Remove VAT (UK, EU &amp; International) | CalculatePilot">
 <meta name="twitter:description" content="Add or remove VAT from any price. Calculate how much VAT is included in a price, or what price is ex-VAT. Standard UK rate is 20%. Free, instant, no signup.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928n">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,6 +81,10 @@
     }  ]
 }
 </script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance_wallet,arrow_forward,badge,check_circle,chevron_right,east,expand_more,functions,info,language,payments,picture_as_pdf,point_of_sale,receipt_long,restart_alt,sell,sync_alt,table_view,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
 </head>
 <body>
 
@@ -98,119 +103,131 @@
 </header>
 
 <main>
+<div class="sx" id="vtCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">VAT Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / VAT Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Standard &amp; Reduced Rates</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Reverse Charge (B2B)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Input vs Output Tax Offset</span></div>
+    <h1>VAT Calculator: Add or Remove VAT (UK, EU &amp; International)</h1>
+    <p>Add VAT to a net price, or work out how much VAT is included in a gross price — with UK, EU and international rates, and an input-tax offset for VAT-registered businesses.</p>
+  </div>
+  <div class="sx-au-badges" style="flex-direction:column;align-items:flex-end;gap:4px"><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Rates checked Sep 2026</span></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">VAT Calculation Parameters</h2><p>Jurisdiction, calculation direction and transaction type</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Calculation Direction &amp; Mode</span></div>
+      <input type="hidden" id="mode" value="s2">
+      <div class="sx-seg" role="group" aria-label="Calculation mode" style="display:flex"><button type="button" data-for="mode" data-value="s1" style="flex:1">Gross to Net (Extract VAT)</button><button type="button" data-for="mode" data-value="s2" style="flex:1">Net to Gross (Add VAT)</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="amt" id="amtL">Net Amount (Before VAT)</label><em style="color:var(--sx-muted);font-weight:500" id="curL">Currency: GBP (£)</em></div>
+      <div class="sx-au-in"><span class="pre" id="sym">£</span><input id="amt" type="number" inputmode="decimal" min="0" step="0.01" value="2500" style="font-size:17px;font-weight:600"><span class="suf" id="iso">GBP</span></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="amt" data-value="250">250</button><button type="button" data-for="amt" data-value="1000">1,000</button><button type="button" data-for="amt" data-value="2500">2,500</button><button type="button" data-for="amt" data-value="5000">5,000</button><button type="button" data-for="amt" data-value="10000">10,000</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="ctry">Jurisdiction &amp; Tax Authority</label></div>
+      <div class="sx-au-sel"><select id="ctry">
+        <option value="GB" selected>United Kingdom (Standard 20%, Reduced 5%, Zero 0%)</option>
+        <option value="DE">Germany (Standard 19%, Reduced 7%)</option>
+        <option value="FR">France (Standard 20%, Intermediate 10%, Reduced 5.5%)</option>
+        <option value="IE">Ireland (Standard 23%, Reduced 13.5%, Second reduced 9%)</option>
+        <option value="ES">Spain (Standard 21%, Reduced 10%, Super-reduced 4%)</option>
+        <option value="IT">Italy (Standard 22%, Reduced 10%, Super-reduced 4%)</option>
+        <option value="AU">Australia (GST 10%)</option>
+        <option value="NZ">New Zealand (GST 15%)</option>
+        <option value="AE">United Arab Emirates (VAT 5%)</option>
+      </select></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="rate">Rate Tier Applied</label><div class="sx-au-in sm np pc" style="width:110px"><input id="rate" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="20" aria-label="VAT rate"><span class="suf">%</span></div></div>
+      <div class="sx-vt-tier" id="tiers" role="group" aria-label="Rate tier"></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Transaction Profile &amp; Tax Treatment</span></div>
+      <input type="hidden" id="prof" value="s1">
+      <div class="sx-au-cat nr" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Transaction profile">
+        <button type="button" data-for="prof" data-value="s1"><span><b>B2C Domestic Retail</b><small>VAT charged at the point of sale</small></span></button>
+        <button type="button" data-for="prof" data-value="s2"><span><b>B2B Registered</b><small>Input VAT on purchases offsets output VAT</small></span></button>
+        <button type="button" data-for="prof" data-value="s3"><span><b>Cross-Border B2B</b><small>Reverse charge — customer accounts for VAT</small></span></button>
+      </div>
+      <div class="sx-vt-in" id="inRow"><label for="inV">Known input VAT on business purchases (optional offset):</label><div class="sx-au-in sm" style="max-width:160px"><span class="pre" id="sym2">£</span><input id="inV" type="number" inputmode="decimal" min="0" step="0.01" value="185"></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">sync_alt</span>Compute VAT &amp; Reconcile</button>
+  </div>
+</form>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>VAT Calculator</h1>
-    <p class="lede">Add VAT to a net price, or work out how much VAT is included in a gross price.</p>
-  </div>
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-vt-set" aria-live="polite">
+    <div class="hd"><div><b><span class="msym" aria-hidden="true">receipt_long</span>VAT Settlement Assessment</b><small>Liability and settlement breakdown</small></div><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="sx-vt-gross"><span>Total Gross Invoiced Amount (Customer Pays)</span><div class="big" id="resultValue">—</div>
+      <div class="r"><span>Net Value: <b id="net">—</b></span><span>VAT: <b id="vat">—</b></span></div></div>
+    <div class="sx-vt-led" id="led">
+      <div class="h">Input vs Output Tax Offset Ledger<span id="ledSrc">—</span></div>
+      <div class="l"><span>Output VAT (collected on this sale)</span><b id="oV">—</b></div>
+      <div class="l"><span>Input VAT (reclaimable on business purchases)</span><b class="r" id="iV">—</b></div>
+      <div class="l t"><span id="remL">Net VAT Payable</span><b id="rem">—</b></div>
+    </div>
+    <div class="sx-vt-f"><b style="display:flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">functions</span>Reverse Formula &amp; Factor Check</b><code id="fx">—</code><span id="fac">—</span></div>
+    <div class="sx-vt-note"><span class="msym" aria-hidden="true">info</span><span id="note">—</span></div>
+    <div class="sx-in-acts" style="margin-top:16px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Export Ledger (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="bench">
+  <div class="hd"><div><span class="sx-kick">Benchmark Matrix</span><h2>UK, EU &amp; International VAT Rate Benchmark (2026)</h2><p>Headline rates by country. Which goods qualify for reduced rates varies — check the tax authority's guidance.</p></div>
+    <div class="hbt" style="align-items:center;gap:8px"><span style="font-size:12px;color:var(--sx-muted)">Filter:</span><input type="hidden" id="flt" value="s1"><div class="sx-seg" role="group" aria-label="Filter"><button type="button" data-for="flt" data-value="s1">All</button><button type="button" data-for="flt" data-value="s2">EU Members</button><button type="button" data-for="flt" data-value="s3">Non-EU</button></div></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Jurisdiction</th><th scope="col">ISO Code</th><th scope="col">Standard Rate</th><th scope="col">Reduced Rate(s)</th><th scope="col">Super-Reduced / Zero</th><th scope="col">B2B Reverse Charge</th></tr></thead>
+    <tbody id="bTbl"></tbody>
+  </table></div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="mode">Calculation</label>
-        <select id="mode">
-          <option value="add" selected>Add VAT to a net (pre-VAT) price</option>
-          <option value="extract" >Extract VAT from a gross (VAT-included) price</option>
-        </select>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="amount">Amount ($)</label>
-          <input type="number" id="amount" value="100" step="1" min="0">
-        </div>
-        <div class="field">
-          <label for="vatRate">VAT rate (%)</label>
-          <input type="number" id="vatRate" value="20" step="0.5" min="0">
-        </div>
-      </div>
-    </form>
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">account_balance_wallet</span></span><h3>The Mechanics of Input Tax Credits (Reclaimable VAT)</h3><p>VAT is a multi-stage consumption tax designed to fall on the final consumer. VAT-registered businesses avoid tax on tax by deducting the <b>input VAT</b> paid on business purchases from the <b>output VAT</b> charged to customers, and paying (or reclaiming) the difference.</p><p><b>Valid invoices:</b> to reclaim input VAT you normally need a proper VAT invoice showing the supplier's VAT registration number.</p><p><b>Exempt supplies:</b> businesses that also make VAT-exempt sales may only be able to reclaim part of their input VAT (partial exemption).</p></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">language</span></span><h3>B2B Reverse Charge on Cross-Border Services</h3><p>For many cross-border business-to-business services, the <b>reverse charge</b> shifts the obligation to account for VAT from the supplier to the business customer. The supplier invoices without VAT and notes that the reverse charge applies; the customer records both output and input VAT on its own return.</p><p><b>Check the VAT number:</b> suppliers should verify an EU customer's VAT number through the EU VIES system before invoicing without VAT.</p><p><b>UK returns:</b> the reverse-charged VAT goes in Box 1 (output) and, where recoverable, Box 4 (input), so the net effect is usually nil.</p></div>
+</div>
 
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Gross amount</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Net (pre-VAT) amount</span><span id="outNet">—</span></div>
-          <div class="readout-row"><span>VAT amount</span><span id="outVATAmount">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
+<section class="sx-card sx-method">
+  <div class="sx-guide">
     <h2>Adding vs. extracting VAT</h2>
     <p>These are two different calculations that people often mix up. If you have a price before VAT and want to know the final price, you're adding VAT — multiply the net price by (1 + VAT rate). If you have a final price that already includes VAT and want to know the pre-VAT amount, you're extracting VAT — dividing by (1 + VAT rate), not simply subtracting the VAT percentage from the total.</p>
     <p>This distinction matters because naively subtracting the VAT percentage from a gross price gives an incorrect (too low) net amount — the correct extraction requires dividing, since the VAT percentage in extraction mode applies to the net amount, not the gross amount.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Rates verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
     <h2>VAT rates vary by country and category</h2>
     <p>Standard VAT rates differ significantly by country — for example, the UK standard rate is 20%, while other countries use different standard and reduced rates for specific categories like food, children's items, or books. Some goods and services may be zero-rated or exempt entirely.</p>
-    <p>Always verify the correct VAT rate for your specific product category and country, since applying the wrong rate is one of the most common invoicing errors for businesses working across borders.</p>
+    <p>Always verify the correct VAT rate for your specific product category and country, since applying the wrong rate is one of the most common invoicing errors for businesses working across borders. For US sales tax, use the <a href="/financial/sales-tax-calculator.html">Sales Tax Calculator</a>.</p>
 
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Can I just subtract the VAT percentage from a gross price to get the net price?</h3>
-      <p>No — that gives an incorrect result. To correctly extract VAT from a gross price, divide by (1 + VAT rate) rather than subtracting the percentage directly, since the VAT rate applies to the net amount, not the gross total.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do all products have the same VAT rate?</h3>
-      <p>No — many countries apply reduced rates or exemptions to specific categories like food, children's clothing, or books, alongside a standard rate for most other goods and services.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How much is VAT in the UK?</h3>
-      <p>The standard UK VAT rate is 20%. A reduced rate of 5% applies to some goods like domestic energy and children's car seats. Some goods are zero-rated (0%) including most food and children's clothing.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How do I calculate VAT?</h3>
-      <p>To add VAT: multiply the price by 1.20 (for 20% VAT). To find the VAT amount in a VAT-inclusive price: multiply the gross price by 1/6 (for 20% VAT). This calculator handles both automatically — just enter the price and select whether to add or remove VAT.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/financial/sales-tax-calculator.html" class="tool-link">Sales Tax Calculator (add tax to a price) <span class="arrow">→</span></a>
-      <a href="/financial/discount-calculator.html" class="tool-link">Discount Calculator <span class="arrow">→</span></a>
-      <a href="/other/markup-margin-calculator.html" class="tool-link">Markup & Margin Calculator <span class="arrow">→</span></a>
-      <a href="/math/percentage-calculator.html" class="tool-link">Percentage Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>Can I just subtract the VAT percentage from a gross price to get the net price?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — that gives an incorrect result. To correctly extract VAT from a gross price, divide by (1 + VAT rate) rather than subtracting the percentage directly, since the VAT rate applies to the net amount, not the gross total.</p></details>
+    <details class="sx-faq"><summary>Do all products have the same VAT rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — many countries apply reduced rates or exemptions to specific categories like food, children's clothing, or books, alongside a standard rate for most other goods and services.</p></details>
+    <details class="sx-faq"><summary>How much is VAT in the UK?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The standard UK VAT rate is 20%. A reduced rate of 5% applies to some goods like domestic energy and children's car seats. Some goods are zero-rated (0%) including most food and children's clothing.</p></details>
+    <details class="sx-faq"><summary>How do I calculate VAT?<span class="msym" aria-hidden="true">expand_more</span></summary><p>To add VAT: multiply the price by 1.20 (for 20% VAT). To find the VAT amount in a VAT-inclusive price: multiply the gross price by 1/6 (for 20% VAT). This calculator handles both automatically — just enter the price and select whether to add or remove VAT.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Calculators</h2><p>Tax and pricing tools for businesses and freelancers.</p></div>
+  <a href="/financial-calculators.html">View all tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/sales-tax-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">point_of_sale</span></span><b>Sales Tax Calculator</b><span class="d">Add US state and local sales tax to a price.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">east</span></span></a>
+  <a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>UK Take-Home Pay Calculator</b><span class="d">Income tax, National Insurance and pension.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">east</span></span></a>
+  <a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">badge</span></span><b>Freelance Rate Calculator</b><span class="d">Day rates that cover downtime and overheads.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">east</span></span></a>
+  <a class="sx-card" href="/financial/discount-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">sell</span></span><b>Discount Calculator</b><span class="d">Sale price and savings from a percentage off.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">east</span></span></a>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -288,7 +305,8 @@
 </footer>
 
 <script src="/js/currency-format.js?v=3d1747f9"></script>
-<script src="/js/vat.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260928n"></script>
+<script src="/js/calc/vat.js?v=20260928n"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
