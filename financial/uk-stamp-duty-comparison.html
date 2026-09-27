@@ -9,10 +9,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stamp Duty Comparison — England, Scotland & Wales (2026) | CalculatePilot</title>
-<meta name="description" content="Compare Stamp Duty Land Tax, Scottish LBTT and Welsh LTT on the same purchase price. Main home, first-time buyer and additional property. Three statutes, not one renamed calculator.">
+<meta name="description" content="Compare SDLT, Scottish LBTT and Welsh LTT on one price. Main home, first-time buyer, additional property, and non-residential freehold. Three statutes, not one renamed calculator.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/uk-stamp-duty-comparison.html">
 <meta property="og:title" content="Stamp Duty Comparison — England, Scotland & Wales (2026) | CalculatePilot">
-<meta property="og:description" content="One price, three property taxes. England and NI SDLT, Scotland LBTT, Wales LTT — including first-time buyers and additional homes.">
+<meta property="og:description" content="One price under SDLT, LBTT and LTT. Homes and a non-residential freehold. GOV.UK’s £275,000 shop is £3,250 in England, £2,250 in Scotland and £1,500 in Wales.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/uk-stamp-duty-comparison.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -39,7 +39,7 @@
       "operatingSystem": "Any",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
       "creator": {"@type": "Person", "name": "Suhaib Hassan"},
-      "description": "Compares residential SDLT for England and Northern Ireland, LBTT for Scotland and LTT for Wales on one purchase price."
+      "description": "Compares SDLT, LBTT and LTT on one purchase price for a main home, a first-time buyer, an additional dwelling, or a non-residential freehold."
     }
   ]
 }
@@ -53,6 +53,7 @@
     {"@type": "Question", "name": "Which nation is cheapest for a main home?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the price. At £250,000 a main home is £2,500 in England and Northern Ireland, £2,100 in Scotland and £1,500 in Wales. At £150,000 England and Northern Ireland charge £500, Scotland charges £100 and Wales charges £0. Use the table for the price you are actually paying."}},
     {"@type": "Question", "name": "Do first-time buyers get relief in every nation?", "acceptedAnswer": {"@type": "Answer", "text": "England and Northern Ireland: nil-rate to £300,000 if the price is £500,000 or less, otherwise no relief. Scotland: nil-rate to £175,000 with no £500,000 cap, saving up to £600. Wales: no separate first-time buyer relief. The Welsh £225,000 nil-rate band is the standard main-rate threshold."}},
     {"@type": "Question", "name": "How do additional homes differ?", "acceptedAnswer": {"@type": "Answer", "text": "England and Northern Ireland add 5% of the whole price on top of standard bands. Scotland adds an 8% Additional Dwelling Supplement on the whole price. Wales does not add a flat surcharge. It uses a separate higher-rate table."}},
+    {"@type": "Question", "name": "Does this compare a shop or office?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for a non-residential freehold or lease premium. On GOV.UK’s £275,000 commercial example England and Northern Ireland charge £3,250, Scotland charges £2,250 and Wales charges £1,500. Revenue Scotland’s £465,000 case is £12,750 in England, £11,750 in Scotland and £11,000 in Wales. A £300,000 premises is £4,500, £3,500 and £2,750. ADS, the English 5% surcharge and first-time buyer relief do not apply. Lease rent is not calculated."}},
     {"@type": "Question", "name": "Does this replace the nation calculators?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page answers which statute applies and what each one charges on the same price. The England, Scotland and Wales calculators are the pages that apply one statute in full, including notes those tools already publish."}}
   ]
 }
@@ -74,9 +75,10 @@
       <option value="main" selected>Only or replacement main home</option>
       <option value="ftb">First-time buyer, main home</option>
       <option value="extra">Additional dwelling</option>
+      <option value="nonres">Non-residential freehold / lease premium</option>
     </select>
   </div>
-  <p class="hint">Residential freehold or lease premium. England and NI SDLT from 1 April 2025. Scotland LBTT residential bands from 1 April 2021, ADS 8% from 5 December 2024. Wales LTT main rates from 10 October 2022, higher rates from 11 December 2024. Non-resident 2% SDLT surcharge is not in this comparison — use the England calculator if that applies.</p>
+  <p class="hint">Residential freehold, or a non-residential freehold / lease premium. England and NI residential SDLT from 1 April 2025; non-residential freehold is 0% / 2% / 5%. Scotland residential bands from 1 April 2021, ADS 8% from 5 December 2024; non-residential freehold is 0% / 1% / 5%. Wales main rates from 10 October 2022, higher rates from 11 December 2024; non-residential freehold from 22 December 2020. The non-resident 2% SDLT surcharge is residential-only and is not in this comparison.</p>
 </form>
 <aside class="readout"><div class="bar"></div><div class="readout-body">
   <div class="readout-label">Lowest of the three on this price</div>
@@ -112,20 +114,31 @@ England & NI £20,000 · Scotland £28,600 · Wales £19,950</p>
 </div>
 <p>At £300,000 a first-time buyer in England pays nothing and a first-time buyer in Wales pays the same £4,500 as any other main-home buyer. An additional dwelling costs more in Scotland than in England because ADS is 8%, not 5%. Those are the differences a single “UK stamp duty” token cannot show.</p>
 
+<h2 id="nonres-table">Non-residential freehold</h2>
+<p>A shop or office uses a different table in each nation. Additional-dwelling charges are not added. These rows are the freehold or lease premium only.</p>
+<div style="overflow:auto;margin:12px 0 18px"><table style="width:100%;border-collapse:collapse;font-size:14.5px"><thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Price</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">England & NI</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scotland</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Wales</th></tr></thead><tbody><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£200,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£275,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,250</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,250</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£300,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,750</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£465,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£12,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£11,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£11,000</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£872,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£33,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£32,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£31,350</td></tr></tbody></table></div>
+<div class="formula-box" role="region" aria-label="Non-residential comparison checks">
+<p><strong>£275,000 shop</strong> — GOV.UK’s commercial example is £3,250 in England and Northern Ireland (0% on £150,000, 2% on £100,000, 5% on £25,000). The same price is £2,250 in Scotland and £1,500 in Wales.</p>
+<p><strong>£465,000</strong> — Revenue Scotland’s published non-residential case is £11,750. England and Northern Ireland charge £12,750. Wales charges £11,000.</p>
+<p><strong>£300,000 premises</strong> — Wales is £2,750 on the current non-residential table. Scotland is £3,500. England and Northern Ireland are £4,500.</p>
+<p><strong>£872,000 office</strong> — Revenue Scotland LBTT4012 is £32,100. England and Northern Ireland are £33,100. Wales is £31,350.</p>
+</div>
+
 <h2>What this comparison leaves out</h2>
 <ul>
-  <li><strong>Non-resident SDLT surcharge (2%).</strong> It applies only to England and Northern Ireland. The <a href="/financial/uk-stamp-duty-calculator.html">England calculator</a> has that switch. It is not guessed onto Scotland or Wales.</li>
-  <li><strong>Non-residential, mixed-use, linked transactions, multiple dwellings relief, leases.</strong> Not modelled. Unknown stays unknown.</li>
+  <li><strong>Non-resident SDLT surcharge (2%).</strong> It applies to residential purchases in England and Northern Ireland. The <a href="/financial/uk-stamp-duty-calculator.html">England calculator</a> has that switch. It is not added to a non-residential freehold, and it is not guessed onto Scotland or Wales.</li>
+  <li><strong>Lease rent, linked transactions and multiple dwellings relief.</strong> The non-residential option is the freehold / premium table only. Rent (NPV) stays unknown.</li>
   <li><strong>The mortgage instalment.</strong> Purchase tax is not a monthly payment. Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a> for that.</li>
 </ul>
-<p>Sources: <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK SDLT rates</a>, <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/residential-property" rel="noopener noreferrer">Revenue Scotland LBTT</a>, <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES LTT rates</a>. Re-check those pages before you complete. HMRC, Revenue Scotland and the Welsh Revenue Authority are the authorities — not this comparison.</p>
-<p class="hint">By Suhaib Hassan · Bands verified 23 Sep 2026 · Method v1.0-UK-COMPARE · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<p>Sources: <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK residential SDLT</a>, <a href="https://www.gov.uk/stamp-duty-land-tax/nonresidential-and-mixed-rates" rel="noopener noreferrer">GOV.UK non-residential SDLT</a>, <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/non-residential-property" rel="noopener noreferrer">Revenue Scotland non-residential LBTT</a>, <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES LTT rates</a>. Re-check those pages before you complete. HMRC, Revenue Scotland and the Welsh Revenue Authority are the authorities — not this comparison.</p>
+<p class="hint">By Suhaib Hassan · Residential bands verified 23 Sep 2026, non-residential comparison verified 27 Sep 2026 · Method v1.1-UK-COMPARE · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><h3>Is stamp duty the same in England, Scotland and Wales?</h3><p>No. Three statutes: SDLT, LBTT and LTT. Bands, first-time buyer rules and additional-home rules all differ.</p></div>
 <div class="faq-item"><h3>Which nation is cheapest for a main home?</h3><p>It depends on the price. At £250,000 a main home is £2,500 in England and Northern Ireland, £2,100 in Scotland and £1,500 in Wales. At £150,000 England and Northern Ireland charge £500, Scotland charges £100 and Wales charges £0.</p></div>
 <div class="faq-item"><h3>Do first-time buyers get relief in every nation?</h3><p>England and Northern Ireland: yes, if the price is £500,000 or less. Scotland: a higher nil-rate band, up to £600, with no £500,000 cap. Wales: no separate relief.</p></div>
 <div class="faq-item"><h3>How do additional homes differ?</h3><p>England adds 5% of the price. Scotland adds 8% ADS. Wales uses a different rate table, not a flat surcharge.</p></div>
+<div class="faq-item"><h3>Does this compare a shop or office?</h3><p>Yes, for a non-residential freehold or lease premium. £275,000 is £3,250 in England and Northern Ireland, £2,250 in Scotland and £1,500 in Wales. £465,000 is £12,750, £11,750 and £11,000. Lease rent is not calculated.</p></div>
 <div class="faq-item"><h3>Does this replace the nation calculators?</h3><p>No. Open the <a href="/financial/uk-stamp-duty-calculator.html">England & NI calculator</a>, the <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT calculator</a> or the <a href="/financial/wales-ltt-calculator.html">Wales LTT calculator</a> for the statute that covers the purchase.</p></div>
 
 <h2 id="next-job">Next calculation</h2>
@@ -151,6 +164,9 @@ England & NI £20,000 · Scotland £28,600 · Wales £19,950</p>
   const SCO_FTB = [[175000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
   const WAL_MAIN = [[225000, 0], [400000, 0.06], [750000, 0.075], [1500000, 0.10], [Infinity, 0.12]];
   const WAL_HIGH = [[180000, 0.05], [250000, 0.085], [400000, 0.10], [750000, 0.125], [1500000, 0.15], [Infinity, 0.17]];
+  const ENG_NR = [[150000, 0], [250000, 0.02], [Infinity, 0.05]];
+  const SCO_NR = [[150000, 0], [250000, 0.01], [Infinity, 0.05]];
+  const WAL_NR = [[225000, 0], [250000, 0.01], [1000000, 0.05], [Infinity, 0.06]];
   function taxOn(price, table) {
     let rem = price, prev = 0, total = 0;
     for (let i = 0; i < table.length; i++) {
@@ -168,7 +184,12 @@ England & NI £20,000 · Scotland £28,600 · Wales £19,950</p>
     const price = Math.max(0, +priceEl.value || 0);
     const mode = buyerEl.value;
     let e, s, w, note = "";
-    if (mode === "extra") {
+    if (mode === "nonres") {
+      e = taxOn(price, ENG_NR);
+      s = taxOn(price, SCO_NR);
+      w = taxOn(price, WAL_NR);
+      note = "Non-residential freehold or lease premium. No ADS, no English 5% surcharge, no first-time buyer relief. Lease rent is not calculated.";
+    } else if (mode === "extra") {
       e = taxOn(price, ENG_STD) + (price >= 40000 ? price * 0.05 : 0);
       s = taxOn(price, SCO_STD) + (price >= 40000 ? price * 0.08 : 0);
       w = taxOn(price, WAL_HIGH);

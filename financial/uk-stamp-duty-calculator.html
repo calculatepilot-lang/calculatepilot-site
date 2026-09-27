@@ -9,10 +9,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UK Stamp Duty Calculator — SDLT England & NI (2026 rates) | CalculatePilot</title>
-<meta name="description" content="Work out Stamp Duty Land Tax on a home in England or Northern Ireland. Uses the 1 April 2025 residential bands, first-time buyer relief and the 5% additional-property surcharge. Not a monthly mortgage line.">
+<meta name="description" content="Stamp Duty Land Tax for England and Northern Ireland: a home, or a non-residential freehold. Residential bands from 1 April 2025, plus the commercial table (GOV.UK £275,000 = £3,250). Not Scotland or Wales.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/uk-stamp-duty-calculator.html">
 <meta property="og:title" content="UK Stamp Duty Calculator — SDLT England & NI (2026 rates) | CalculatePilot">
-<meta property="og:description" content="Band-by-band SDLT for England and Northern Ireland. First-time buyer relief, additional-property surcharge, non-UK resident surcharge. Rates from 1 April 2025.">
+<meta property="og:description" content="Residential SDLT from 1 April 2025, and non-residential freehold at 0% / 2% / 5%. GOV.UK’s £275,000 commercial example is £3,250. Lease rent is not calculated.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/uk-stamp-duty-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -39,7 +39,7 @@
       "operatingSystem": "Any",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
       "creator": {"@type": "Person", "name": "Suhaib Hassan"},
-      "description": "Residential Stamp Duty Land Tax calculator for England and Northern Ireland using the 1 April 2025 bands, first-time buyer relief and additional-property surcharge."
+      "description": "Stamp Duty Land Tax for England and Northern Ireland. Residential bands from 1 April 2025, first-time buyer relief, additional-property and non-resident surcharges, plus non-residential or mixed-use freehold at 0/2/5 percent."
     }
   ]
 }
@@ -53,7 +53,8 @@
     {"@type": "Question", "name": "Does this cover Scotland or Wales?", "acceptedAnswer": {"@type": "Answer", "text": "No. Scotland uses the Scotland LBTT Calculator (different bands, 8% Additional Dwelling Supplement). Wales uses the Wales LTT Calculator (separate higher-rate table, no first-time buyer relief). Those are different statutes, not token-swapped copies of this page."}},
     {"@type": "Question", "name": "When did these SDLT rates start?", "acceptedAnswer": {"@type": "Answer", "text": "The current residential bands, first-time buyer relief (£300,000 nil-rate up to a £500,000 price cap) and the 5% additional-property surcharge apply to purchases completing on or after 1 April 2025."}},
     {"@type": "Question", "name": "What if I replace my main home?", "acceptedAnswer": {"@type": "Answer", "text": "If the purchase replaces your only main residence and you sell the previous main home within the GOV.UK replacement window, the extra 5% usually does not apply. Leave Additional property unchecked in that case."}},
-    {"@type": "Question", "name": "Are these figures an HMRC assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published GOV.UK residential bands. Confirm the return with a conveyancer. Company purchases, mixed-use, shared ownership and linked transactions are out of scope."}}
+    {"@type": "Question", "name": "Does this cover a shop or office?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for a non-residential or mixed-use freehold or lease premium. Slices are 0% to £150,000, 2% from £150,001 to £250,000 and 5% above £250,000. GOV.UK’s published example is £275,000 = £3,250. The 5% additional-property surcharge, first-time buyer relief and the 2% non-resident surcharge are not added. Lease rent (NPV), the company 17% residential rate, shared ownership and linked transactions are not calculated."}},
+    {"@type": "Question", "name": "Are these figures an HMRC assessment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate from published GOV.UK bands. Confirm the return with a conveyancer. The company residential higher rate, shared ownership and linked transactions stay out of scope."}}
   ]
 }
 </script>
@@ -64,11 +65,17 @@
 <div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / UK Stamp Duty Calculator</nav></div>
 <section class="calc-page-head"><div class="container">
   <h1>UK Stamp Duty Calculator</h1>
-  <p class="lede">Work out Stamp Duty Land Tax on a residential purchase in England or Northern Ireland. This is a one-off purchase cost — not a monthly line on the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a>, and not a token-swap of US sales tax.</p>
+  <p class="lede">Work out Stamp Duty Land Tax on a purchase in England or Northern Ireland — a home, or a non-residential freehold. This is a one-off purchase cost — not a monthly line on the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a>, and not Scottish <a href="/financial/scotland-lbtt-calculator.html">LBTT</a> or Welsh <a href="/financial/wales-ltt-calculator.html">LTT</a>.</p>
 </div></section>
 <section><div class="container calc-layout">
 <form class="calc-card" id="calcForm">
   <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="295000" step="1000" min="0"></div>
+  <div class="field"><label for="propertyType">Property</label>
+    <select id="propertyType">
+      <option value="res" selected>Residential</option>
+      <option value="nonres">Non-residential or mixed-use freehold / lease premium</option>
+    </select>
+  </div>
   <div class="field"><label for="buyer">Buyer type</label>
     <select id="buyer">
       <option value="std" selected>Replacing / only home</option>
@@ -81,7 +88,7 @@
   <div class="field">
     <label><input type="checkbox" id="nonresident"> Non-UK resident surcharge (+2%)</label>
   </div>
-  <p class="hint">Residential freehold / lease premium only. Rates in force from 1 April 2025. Additional-property surcharge is skipped below £40,000. First-time buyer relief is skipped above £500,000.</p>
+  <p class="hint">Residential rates from 1 April 2025. Additional-property surcharge is skipped below £40,000. First-time buyer relief is skipped above £500,000. Non-residential freehold uses 0% / 2% / 5% and does not add those surcharges. Lease rent is not calculated.</p>
 </form>
 <aside class="readout"><div class="bar"></div><div class="readout-body">
   <div class="readout-label">SDLT due</div>
@@ -118,7 +125,17 @@ Additional residential property, usually +5% of the whole price (from £40,000).
 Non-UK resident, +2% of the whole price, on top of any other rate.</p>
 </div>
 <p>Source: <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK residential SDLT rates</a> and the <a href="https://www.gov.uk/guidance/stamp-duty-land-tax-buying-an-additional-residential-property" rel="noopener noreferrer">higher rates for additional properties</a>. Re-check those pages before you complete — HMRC, not this calculator, is the authority.</p>
-<p class="hint">By Suhaib Hassan · Bands verified 20 Sep 2026 against GOV.UK · Method v1.0-UK-SDLT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+<h2>Non-residential and mixed-use freehold</h2>
+<p>A shop, office, mixed-use building or piece of non-residential land does not use the residential table. The 5% additional-property surcharge, first-time buyer relief and the 2% non-resident surcharge are not added. Six or more dwellings bought in one transaction also use this table in England. This page does not split that price across the dwellings.</p>
+<div class="formula-box" role="region" aria-label="Non-residential SDLT bands">
+<p><strong>Non-residential or mixed freehold and lease premium</strong><br>
+£0–£150,000 → 0%<br>
+£150,001–£250,000 → 2%<br>
+Above £250,000 → 5%</p>
+</div>
+<p>Source: <a href="https://www.gov.uk/stamp-duty-land-tax/nonresidential-and-mixed-rates" rel="noopener noreferrer">GOV.UK rates for non-residential and mixed land and property</a>. The residential threshold change on 1 April 2025 did not replace this table. Lease rent is a separate NPV calculation and is not done here.</p>
+<p class="hint">By Suhaib Hassan · Residential bands verified 20 Sep 2026, non-residential table verified 27 Sep 2026 against GOV.UK · Method v1.1-UK-SDLT · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 
 <h2 id="worked-example">Worked examples (pre-computed)</h2>
 <p>These use the same slices as the calculator, so the answer is readable if JavaScript is off. They match the published GOV.UK examples where GOV.UK published one.</p>
@@ -137,14 +154,19 @@ First-time buyer → £0<br>
 Only / replacement home → £5,000<br>
 Additional property → £20,000 (£5,000 bands + £15,000 surcharge)<br>
 The buyer type changes the tax by £20,000 on the same price. That is why this is not a currency overlay of a generic sales-tax page.</p>
+<p><strong>4. Non-residential freehold at £275,000</strong> (GOV.UK example)<br>
+0% on £150,000 = £0<br>
+2% on the next £100,000 = £2,000<br>
+5% on the last £25,000 = £1,250<br>
+<strong>SDLT = £3,250</strong>. The residential surcharges are not added.</p>
 </div>
 
 <h2>What this figure does not include</h2>
 <ul>
   <li><strong>Scotland or Wales.</strong> Use the <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT Calculator</a> or the <a href="/financial/wales-ltt-calculator.html">Wales LTT Calculator</a>. Different statutes, not token-swaps of this page.</li>
   <li><strong>Monthly mortgage cost.</strong> Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment vs interest-only calculator</a> for instalments.</li>
-  <li><strong>Company, mixed-use, shared ownership or linked transactions.</strong> Those have separate HMRC rules. Unknown stays unknown.</li>
-  <li><strong>Lease net present value on rent.</strong> New leases can owe extra SDLT on the rent NPV; this tool prices the premium / purchase price only.</li>
+  <li><strong>Company residential higher rate, shared ownership or linked transactions.</strong> Those have separate HMRC rules. Unknown stays unknown. A mixed-use freehold uses the non-residential table above, not a guessed hybrid of the two.</li>
+  <li><strong>Lease net present value on rent.</strong> New non-residential leases can owe extra SDLT on the rent NPV. This tool prices the freehold or the lease premium only.</li>
 </ul>
 
 <h2>Frequently asked questions</h2>
@@ -152,6 +174,7 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
 <div class="faq-item"><h3>Does this cover Scotland or Wales?</h3><p>No. Scotland is the <a href="/financial/scotland-lbtt-calculator.html">LBTT calculator</a> (nil-rate £145,000, 8% ADS). Wales is the <a href="/financial/wales-ltt-calculator.html">LTT calculator</a> (£225,000 nil-rate, no first-time buyer relief, separate higher-rate table).</p></div>
 <div class="faq-item"><h3>When did these SDLT rates start?</h3><p>1 April 2025 for the current residential nil-rate band, first-time buyer relief and additional-property higher rates.</p></div>
 <div class="faq-item"><h3>What if I replace my main home?</h3><p>If you are replacing your only main residence, leave Additional property unchecked. Higher rates can apply temporarily if you still own the old home on completion day; refunds are a separate HMRC process.</p></div>
+<div class="faq-item"><h3>Does this cover a shop or office?</h3><p>Yes, if it is a non-residential or mixed-use freehold or lease premium. Slices are 0% to £150,000, 2% to £250,000 and 5% above that. GOV.UK’s published case is £275,000 = £3,250. Residential surcharges are not added. Lease rent is not calculated.</p></div>
 <div class="faq-item"><h3>Are these figures an HMRC assessment?</h3><p>No. Confirm with a conveyancer. This page is a planning estimate from published bands.</p></div>
 
 <h2 id="next-job">Next calculation</h2>
@@ -162,7 +185,7 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
   <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">3. Compare 25-year repayment vs interest-only <span class="arrow">→</span></a>
   <a class="tool-link" href="/financial/uk-mortgage-overpayment-calculator.html">4. Model an overpayment on the loan you take <span class="arrow">→</span></a>
 </div>
-<p class="hint">Estimate only. England & NI residential SDLT · method v1.0-UK-SDLT · last verified 20 Sep 2026 · <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
+<p class="hint">Estimate only. England & NI SDLT, residential and non-residential freehold · method v1.1-UK-SDLT · non-residential table verified 27 Sep 2026 · <a href="https://www.gov.uk/stamp-duty-land-tax/nonresidential-and-mixed-rates" rel="noopener noreferrer">GOV.UK non-residential bands</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
@@ -171,11 +194,13 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
 (function () {
   const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
   const priceEl = document.getElementById("price");
+  const typeEl = document.getElementById("propertyType");
   const buyerEl = document.getElementById("buyer");
   const addEl = document.getElementById("additional");
   const nrEl = document.getElementById("nonresident");
   const STD = [[125000, 0], [250000, 0.02], [925000, 0.05], [1500000, 0.10], [Infinity, 0.12]];
   const FTB = [[300000, 0], [500000, 0.05]];
+  const NONRES = [[150000, 0], [250000, 0.02], [Infinity, 0.05]];
 
   function taxOn(price, table) {
     let rem = price, prev = 0, total = 0;
@@ -194,10 +219,25 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
 
   function render() {
     const price = Math.max(0, +priceEl.value || 0);
-    const ftbEligible = buyerEl.value === "ftb" && price <= 500000 && !addEl.checked;
-    const base = taxOn(price, ftbEligible ? FTB : STD);
-    const add = (addEl.checked && price >= 40000) ? price * 0.05 : 0;
-    const nr = nrEl.checked ? price * 0.02 : 0;
+    const nonres = typeEl.value === "nonres";
+    buyerEl.disabled = nonres;
+    addEl.disabled = nonres;
+    nrEl.disabled = nonres;
+    let base, add, nr, note = "";
+    if (nonres) {
+      base = taxOn(price, NONRES);
+      add = 0;
+      nr = 0;
+      note = "Non-residential or mixed-use freehold / lease premium. Additional-property, first-time buyer and non-resident surcharges do not apply. Lease rent is not calculated.";
+    } else {
+      const ftbEligible = buyerEl.value === "ftb" && price <= 500000 && !addEl.checked;
+      base = taxOn(price, ftbEligible ? FTB : STD);
+      add = (addEl.checked && price >= 40000) ? price * 0.05 : 0;
+      nr = nrEl.checked ? price * 0.02 : 0;
+      if (buyerEl.value === "ftb" && addEl.checked) note = "First-time buyer relief is not combined with the additional-property surcharge. Standard bands plus 5% are used.";
+      else if (buyerEl.value === "ftb" && price > 500000) note = "Price is over £500,000, so first-time buyer relief does not apply. Standard bands are used.";
+      else if (addEl.checked && price < 40000) note = "Additional-property higher rates usually start at £40,000. No surcharge applied.";
+    }
     const due = base + add + nr;
     document.getElementById("resultValue").textContent = gbp.format(due);
     document.getElementById("outBase").textContent = gbp.format(base);
@@ -205,14 +245,10 @@ The buyer type changes the tax by £20,000 on the same price. That is why this i
     document.getElementById("outNr").textContent = gbp.format(nr);
     document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
     document.getElementById("outTotal").textContent = gbp.format(price + due);
-    let note = "";
-    if (buyerEl.value === "ftb" && addEl.checked) note = "First-time buyer relief is not combined with the additional-property surcharge. Standard bands plus 5% are used.";
-    else if (buyerEl.value === "ftb" && price > 500000) note = "Price is over £500,000, so first-time buyer relief does not apply. Standard bands are used.";
-    else if (addEl.checked && price < 40000) note = "Additional-property higher rates usually start at £40,000. No surcharge applied.";
     document.getElementById("outNote").textContent = note;
   }
 
-  ["price", "buyer", "additional", "nonresident"].forEach(function (id) {
+  ["price", "propertyType", "buyer", "additional", "nonresident"].forEach(function (id) {
     const el = document.getElementById(id);
     el.addEventListener("input", render);
     el.addEventListener("change", render);
