@@ -1,0 +1,160 @@
+<div class="sx" id="frCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Freelance Rate Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Self-Employment Tax Model</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">schedule</span>Billable Hours &amp; Overhead Realization</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified</span>Deterministic Financial Engine</span></div>
+    <h1>Freelance Rate &amp; Contractor Hourly Calculator</h1>
+    <p>Calculate the hourly rate you need to charge to hit your take-home income goal — after self-employment tax, income tax, business expenses, health insurance, retirement savings, time off and non-billable hours.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Earnings Target &amp; Professional Overhead</h2><p>Your personal income goal and business costs</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">refresh</span>Reset Defaults</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="net">Desired Net Annual Personal Income</label><em>Take-home after all taxes &amp; expenses</em></div>
+      <div class="sx-au-in pc"><span class="pre">$</span><input id="net" type="number" inputmode="decimal" min="0" step="1000" value="100000"><span class="suf">/ year</span></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="net" data-value="60000">$60k</button><button type="button" data-for="net" data-value="80000">$80k</button><button type="button" data-for="net" data-value="100000">$100k</button><button type="button" data-for="net" data-value="130000">$130k</button><button type="button" data-for="net" data-value="160000">$160k</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="exp">Annual Business Expenses &amp; Overhead</label></div><div class="sx-au-in"><span class="pre">$</span><input id="exp" type="number" inputmode="decimal" min="0" step="250" value="8500"></div><p class="sx-au-help">Software, laptop, co-working, legal</p></div>
+      <div><div class="sx-au-l"><label for="health">Self-Employed Health Insurance</label></div><div class="sx-au-in"><span class="pre">$</span><input id="health" type="number" inputmode="decimal" min="0" step="250" value="6000"></div><p class="sx-au-help">Usually deductible for income tax, not SE tax</p></div>
+    </div>
+    <div><div class="sx-au-l"><label for="ret">Retirement Funding Goal (Solo 401k / SEP-IRA)</label></div><div class="sx-au-in"><span class="pre">$</span><input id="ret" type="number" inputmode="decimal" min="0" step="500" value="12000"></div><p class="sx-au-help">Pre-tax contributions reduce income tax (not SE tax)</p></div>
+
+    <div class="sx-fr-sec">
+      <div class="h"><h3>Billable Capacity &amp; Working Hours</h3><span class="sx-au-tag" id="bhTag">—</span></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="weeks">Working Weeks per Year</label></div><div class="sx-au-in np"><input id="weeks" type="number" inputmode="numeric" min="1" max="52" step="1" value="46"></div><p class="sx-au-help" id="wkNote">6 weeks unpaid (vacation, holidays, sick)</p></div>
+        <div><div class="sx-au-l"><label for="hrs">Total Working Hours / Week</label></div><div class="sx-au-in np"><input id="hrs" type="number" inputmode="numeric" min="1" max="100" step="1" value="40"></div><p class="sx-au-help">All work, billable or not</p></div>
+      </div>
+      <div class="sx-fr-real" style="margin-top:14px">
+        <div class="r"><label for="realR">Billable Realization Rate</label><b id="realOut">65% Billable</b></div>
+        <input type="hidden" id="real" value="65">
+        <input id="realR" class="sx-range2" type="range" min="30" max="95" step="1" value="65" data-sync="real" aria-label="Billable percentage of working hours">
+        <div class="sx-scale"><span>30% (Heavy BD/Admin)</span><b id="realMid">26 hrs billable, 14 hrs overhead</b><span>95% (Retainers)</span></div>
+      </div>
+    </div>
+
+    <div class="sx-fr-sec">
+      <div class="h"><h3>Taxes &amp; Business Profit Cushion</h3></div>
+      <div class="sx-au-g3">
+        <div><div class="sx-au-l"><span>SE Tax (SECA)</span></div><div class="sx-au-in np pc"><input type="text" value="15.3" readonly aria-label="Self-employment tax rate" style="background:var(--sx-low)"><span class="suf">%</span></div><p class="sx-au-help">On 92.35% of net profit</p></div>
+        <div><div class="sx-au-l"><label for="itax">Effective Income Tax</label></div><div class="sx-au-in np pc"><input id="itax" type="number" inputmode="decimal" min="0" max="60" step="0.5" value="22"><span class="suf">%</span></div><p class="sx-au-help">Federal + state, effective</p></div>
+        <div><div class="sx-au-l"><label for="margin">Business Margin Buffer</label></div><div class="sx-au-in np pc"><input id="margin" type="number" inputmode="decimal" min="0" max="60" step="1" value="15"><span class="suf">%</span></div><p class="sx-au-help">Reinvestment &amp; safety pool</p></div>
+      </div>
+    </div>
+
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">functions</span>Calculate Billable Hourly &amp; Project Rates</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-fr-hero" aria-live="polite">
+    <span class="corner">Recommended Quote</span>
+    <span class="sx-kick">Minimum Viable Billable Rate</span>
+    <div class="big"><span id="resultValue">—</span><small>/ billable hour</small></div>
+    <div class="sx-au-tiles card">
+      <div><span>Day Rate (8h equivalent)</span><b id="day">—</b></div>
+      <div><span>Monthly Retainer (100h)</span><b id="ret100">—</b></div>
+    </div>
+    <div class="sx-fr-gross"><div><span>Gross Annual Revenue Required</span><b id="gross">—</b></div><span class="msym" aria-hidden="true">account_balance</span></div>
+  </section>
+
+  <section class="sx-card r2 sx-ry-wf sx-fr-dec">
+    <div class="hd"><b style="font-family:var(--font-display);font-size:18px">Revenue Deconstruction</b><span id="decTot">—</span></div>
+    <div class="bar" id="decBar"></div>
+    <ul id="decList"></ul>
+  </section>
+
+  <section class="sx-card r2 sx-ry-wf">
+    <div class="hd"><b style="font-family:var(--font-display);font-size:18px">Rate Sensitivity Tier Matrix</b></div>
+    <ul class="sx-fr-tier">
+      <li><div><b>Bare Minimum Break-Even</b><span>No margin buffer — nothing left for slow months</span></div><div class="v"><b id="t1">—</b><span id="t1g">—</span></div></li>
+      <li class="on"><div><b>Target Sustainable Standard</b><span id="t2d">Your inputs</span></div><div class="v"><b id="t2">—</b><span id="t2g">—</span></div></li>
+      <li><div><b>Premium High-Demand Value</b><span id="t3d">+15 points of margin</span></div><div class="v"><b id="t3">—</b><span id="t3g">—</span></div></li>
+    </ul>
+    <div class="sx-au-acts">
+      <button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export PDF</button>
+      <a href="/embed/freelance-rate-calculator.html" target="_blank" rel="noopener"><span class="msym" aria-hidden="true">code</span>Embed Widget</a>
+      <button type="button" data-action="copy" data-target="quoteTxt"><span class="msym" aria-hidden="true">content_copy</span>Quote Matrix</button>
+    </div>
+    <pre id="quoteTxt" hidden></pre>
+  </section>
+</div>
+</div>
+
+<section class="sx-card r2 sx-au-sec" id="ledger">
+  <span class="sx-badge" style="margin-bottom:10px"><span class="msym" aria-hidden="true">data_exploration</span>The Mathematical Reality of Independent Work</span>
+  <h2>The Freelancer's Billable Realization Ledger</h2>
+  <p class="lead">The most common reason freelancers undercharge is treating total working hours as invoiced hours. Your realization rate accounts for outreach, proposals, invoicing, bookkeeping and unpaid time off.</p>
+  <div class="sx-fr-eq">
+    <div><span>Annual Baseline</span><b>52 Weeks</b><span>Calendar year</span></div>
+    <div><span class="op" id="eqOff">− 6</span><span>Weeks non-working</span></div>
+    <div><span class="op" id="eqHrs">× 40</span><span id="eqTot">= 1,840 total working hrs</span></div>
+    <div class="trap"><span>The Billable Trap</span><b id="eqTrue">—</b><span id="eqReal">—</span></div>
+  </div>
+  <div class="sx-scroll"><table class="sx-au-cmp">
+    <thead><tr><th scope="col">Billable Realization Rate</th><th scope="col">Weekly Invoiced Hours</th><th scope="col">Annual Invoiced Hours</th><th scope="col" id="lgH">Required Hourly Rate</th><th scope="col">Operational Viability</th></tr></thead>
+    <tbody id="lgBody"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">receipt_long</span>Self-Employment Tax &amp; Schedule C Deductions</h3>
+    <p>Employees split FICA with their employer. As a 1099 contractor or single-member LLC, you pay both halves — 15.3% self-employment (SECA) tax:</p>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">check_circle</span><span><b>12.4% Social Security:</b> on net self-employment earnings up to the $184,500 wage base for 2026.</span></li>
+      <li><span class="msym" aria-hidden="true">check_circle</span><span><b>2.9% Medicare:</b> no cap, plus an additional 0.9% above $200,000 (single filers).</span></li>
+      <li><span class="msym" aria-hidden="true">check_circle</span><span><b>92.35% rule &amp; half deduction:</b> SE tax applies to 92.35% of net profit, and you deduct half of it when figuring income tax.</span></li>
+    </ul>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">pie_chart</span>Pricing Models: Hourly vs Daily vs Retainers</h3>
+    <p id="pmIntro">Your hourly rate is the floor. Pure hourly billing can penalize you for working faster, so consider packaging time differently:</p>
+    <div class="sx-fr-pm">
+      <div><b id="pmDay">Day Rates</b><p>Good for sprint-based design, technical audits and advisory blocks — no minute-by-minute time tracking.</p></div>
+      <div><b id="pmRet">Monthly Retainers</b><p>Predictable revenue for ongoing work, such as embedded engineering or product strategy support.</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>It works backwards from your take-home goal. Net profit is revenue minus your margin buffer and business expenses. Self-employment tax is 15.3% of 92.35% of that profit (Social Security capped at the 2026 wage base of $184,500). Income tax is your effective rate applied to profit minus half the SE tax, health insurance premiums and pre-tax retirement contributions. The calculator finds the revenue that leaves exactly your target after all of that, then divides it by your billable hours.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Why billable hours are lower than total working hours</h2>
+    <p>This is the single biggest mistake freelancers make when setting rates — assuming all working hours are billable. In reality, time spent on invoicing, marketing, client communication, admin, and finding new work isn't billable, which is why this calculator applies a billable realization rate to your total working hours.</p>
+    <p>Many freelancers find that only 50-70% of their total working time ends up being billable once non-client work is accounted for — using your total working hours instead of realistic billable hours will significantly undercharge you.</p>
+
+    <h2>Why taxes and expenses both matter here</h2>
+    <p>As a freelancer, you're typically responsible for self-employment tax and income tax that an employer would otherwise partially cover or withhold automatically — factoring them in ensures your target 'take-home' income is actually achievable after taxes, not before.</p>
+    <p>Business expenses (software subscriptions, equipment, home office costs, insurance) also need to be covered by your rate — since these come out of revenue before you see any personal income, forgetting to include them means your actual take-home will fall short of your goal.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why isn't my hourly rate just my income goal divided by total hours worked?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because not all working hours are billable to clients — time spent on admin, marketing, and finding new work reduces your actual billable hours below your total working hours, so your rate needs to be higher to compensate.</p></details>
+    <details class="sx-faq"><summary>Should I include taxes in my rate calculation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — freelancers are typically responsible for self-employment and income tax that isn't withheld automatically, so your target take-home income needs to be grossed up to account for taxes you'll owe.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Financial Planning Engines</h2><p>Connected calculators for tax, budgeting and resilience.</p></div>
+  <span class="sx-au-tag">4 Available Tools</span>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Paycheck Calculator</b><span class="d">Compare with W-2 take-home pay after federal, state and FICA taxes.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">donut_small</span></span><b>50/30/20 Budget Calculator</b><span class="d">Allocate irregular freelance income into needs, wants and savings.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Emergency Fund Calculator</b><span class="d">Build runway for late-paying clients and slow months.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>401(k) Calculator</b><span class="d">Project retirement growth from your Solo 401(k) contributions.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+</div>
+</div>
