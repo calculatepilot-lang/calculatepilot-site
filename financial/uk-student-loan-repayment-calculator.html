@@ -19,90 +19,203 @@
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928y">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_tree,arrow_forward,calendar_month,check_circle,chevron_right,compare_arrows,expand_more,gavel,info,insights,landscape,payments,picture_as_pdf,psychology,query_stats,restart_alt,savings,schedule,school,stacked_bar_chart,table_view,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
     {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Financial calculators", "item": "https://www.calculatepilot.com/financial-calculators.html"},
-        {"@type": "ListItem", "position": 3, "name": "UK Student Loan Repayment Calculator", "item": "https://www.calculatepilot.com/financial/uk-student-loan-repayment-calculator.html"}
-      ]
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
     },
     {
-      "@type": "WebApplication",
-      "name": "UK Student Loan Repayment Calculator",
-      "url": "https://www.calculatepilot.com/financial/uk-student-loan-repayment-calculator.html",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
-      "creator": {"@type": "Person", "name": "Suhaib Hassan"},
-      "description": "Income-contingent UK student loan PAYE calculator using GOV.UK 2026/27 Plan 1, 2, 4, 5 and postgraduate thresholds."
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Financial calculators",
+     "item": "https://www.calculatepilot.com/financial-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "UK Student Loan Repayment Calculator",
+     "item": "https://www.calculatepilot.com/financial/uk-student-loan-repayment-calculator.html"
     }
-  ]
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "UK Student Loan Repayment Calculator",
+   "url": "https://www.calculatepilot.com/financial/uk-student-loan-repayment-calculator.html",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+   },
+   "creator": {
+    "@type": "Person",
+    "name": "Suhaib Hassan"
+   },
+   "description": "Income-contingent UK student loan PAYE calculator using GOV.UK 2026/27 Plan 1, 2, 4, 5 and postgraduate thresholds."
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Is this the same as a US student loan calculator?", "acceptedAnswer": {"@type": "Answer", "text": "No. UK undergraduate and postgraduate loans repay a percentage of income above a plan threshold. The US student loan calculator on this site models a fixed amortising monthly payment. Switching the currency on that page does not produce a UK payslip deduction."}},
-    {"@type": "Question", "name": "Which plan am I on?", "acceptedAnswer": {"@type": "Answer", "text": "Plan 5 covers England and Wales courses that started on or after 1 August 2023. Plan 2 covers England and Wales 1 September 2012 to 31 July 2023. Plan 1 is earlier England/Wales and most Northern Ireland loans. Plan 4 is Scotland. Postgraduate loans use a separate 6% rate. Confirm on GOV.UK or your Student Finance account."}},
-    {"@type": "Question", "name": "What if I have a postgraduate loan as well?", "acceptedAnswer": {"@type": "Answer", "text": "GOV.UK says you repay 6% of income over the postgraduate threshold and 9% of income over the lowest undergraduate plan threshold you have. Tick the postgraduate box on this page to add both."}},
-    {"@type": "Question", "name": "Why might PAYE take a pound less than 9% of the excess?", "acceptedAnswer": {"@type": "Answer", "text": "Payroll rounds the deduction down to the nearest pound. This page shows the unrounded pence and the PAYE amount."}},
-    {"@type": "Question", "name": "Does this show when the loan is paid off?", "acceptedAnswer": {"@type": "Answer", "text": "No. Remaining balance, interest and write-off dates are a different job and need figures this page does not invent. This calculator answers how much comes off a UK payslip at a given salary and plan."}}
-  ]
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is this the same as a US student loan calculator?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. UK undergraduate and postgraduate loans repay a percentage of income above a plan threshold. The US student loan calculator on this site models a fixed amortising monthly payment. Switching the currency on that page does not produce a UK payslip deduction."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which plan am I on?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Plan 5 covers England and Wales courses that started on or after 1 August 2023. Plan 2 covers England and Wales 1 September 2012 to 31 July 2023. Plan 1 is earlier England/Wales and most Northern Ireland loans. Plan 4 is Scotland. Postgraduate loans use a separate 6% rate. Confirm on GOV.UK or your Student Finance account."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if I have a postgraduate loan as well?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "GOV.UK says you repay 6% of income over the postgraduate threshold and 9% of income over the lowest undergraduate plan threshold you have. Tick the postgraduate box on this page to add both."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why might PAYE take a pound less than 9% of the excess?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Payroll rounds the deduction down to the nearest pound. This page shows the unrounded pence and the PAYE amount."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does this show when the loan is paid off?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It projects it. The payslip deduction uses the published 2026/27 thresholds exactly. The payoff projection is an estimate: it depends on your salary growth, the interest rate you enter, and thresholds staying at today's levels."
+   }
+  }
+ ]
 }
 </script>
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
-<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / UK Student Loan Repayment Calculator</nav></div>
-<section class="calc-page-head"><div class="container">
-  <h1>UK Student Loan Repayment Calculator</h1>
-  <p class="lede">Estimate the PAYE deduction from a UK salary using the published 2026/27 plan thresholds. This is income-contingent — 9% (or 6% postgraduate) of income above a threshold — not a token-swap of the <a href="/financial/student-loan-calculator.html">US amortising student loan calculator</a>.</p>
-</div></section>
-<section><div class="container calc-layout">
-<form class="calc-card" id="calcForm">
-  <div class="field"><label for="salary">Annual salary before tax (£)</label><input type="number" id="salary" value="35000" step="500" min="0"></div>
-  <div class="field"><label for="plan">Loan plan</label>
-    <select id="plan">
-      <option value="plan5" selected>Plan 5 — England & Wales from Aug 2023</option>
-      <option value="plan2">Plan 2 — England & Wales 2012–2023</option>
-      <option value="plan1">Plan 1 — earlier England/Wales & NI</option>
-      <option value="plan4">Plan 4 — Scotland</option>
-      <option value="pgl">Postgraduate loan only</option>
-    </select>
+<div class="sx" id="ukCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">UK Student Loan Repayment Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>2026/27 SLC Thresholds</span><span class="sx-badge"><span class="msym" aria-hidden="true">account_tree</span>Plan 1, 2, 4, 5 &amp; Postgraduate</span><span class="sx-badge"><span class="msym" aria-hidden="true">query_stats</span>Write-Off &amp; Overpayment Check</span></div>
+    <h1>UK Student Loan Repayment Calculator &amp; Payoff Forecaster</h1>
+    <p>See exactly how much Student Finance takes from your pay for Plan 1, 2, 4, 5 and postgraduate loans in 2026/27 — then project your balance, total repayments and write-off, and whether voluntary overpayments make sense.</p>
   </div>
-  <div class="field" id="pglWrap">
-    <label><input type="checkbox" id="alsoPgl"> Also repay a postgraduate loan (extra 6%)</label>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Loan &amp; Earnings Profile</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
   </div>
-  <p class="hint">Tax year 6 April 2026 to 5 April 2027. Thresholds are the GOV.UK monthly figures. PAYE rounds the deduction down to the nearest pound.</p>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Student Loan Plan</span><em style="color:var(--sx-muted);font-weight:500">Thresholds 2026/27</em></div>
+      <input type="hidden" id="plan" value="plan2">
+      <div class="sx-au-cat nr" role="group" aria-label="Plan">
+        <button type="button" data-for="plan" data-value="plan1"><span><b>Plan 1 (earlier E&amp;W / NI)</b><small>£26,900 threshold @ 9%</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="plan" data-value="plan2"><span><b>Plan 2 (E&amp;W 2012–2023)</b><small>£29,385 threshold @ 9%</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="plan" data-value="plan4"><span><b>Plan 4 (Scotland)</b><small>£33,795 threshold @ 9%</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="plan" data-value="plan5"><span><b>Plan 5 (E&amp;W from Aug 2023)</b><small>£25,000 threshold @ 9%</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="plan" data-value="pgl" style="grid-column:1/-1"><span><b>Postgraduate Loan only (Master's / PhD)</b><small>£21,000 threshold @ 6%</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+      </div>
+      <label id="pglWrap" style="display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12px;color:var(--sx-onv)"><input type="checkbox" id="alsoPgl"> Also repay a postgraduate loan (extra 6% over £21,000)</label>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="salary">Annual Salary Before Tax</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="aboveT">—</em></div>
+      <div class="sx-au-in"><span class="pre">£</span><input id="salary" type="number" inputmode="decimal" min="0" step="500" value="42000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="salary" data-value="30000">£30k</button><button type="button" data-for="salary" data-value="42000">£42k</button><button type="button" data-for="salary" data-value="55000">£55k</button><button type="button" data-for="salary" data-value="75000">£75k</button><button type="button" data-for="salary" data-value="100000">£100k</button></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:6px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">insights</span>Payoff Projection (optional)</span><em style="color:var(--sx-muted);font-weight:500">Estimate</em></div>
+      <div class="sx-au-g2">
+        <div><label for="bal" style="font-size:11px;color:var(--sx-muted)">Current balance (incl. interest)</label><div class="sx-au-in sm"><span class="pre">£</span><input id="bal" type="number" inputmode="decimal" min="0" step="500" value="48500"></div></div>
+        <div><label for="gr" style="font-size:11px;color:var(--sx-muted)">Salary growth / year</label><div class="sx-au-in sm np pc"><input id="gr" type="number" inputmode="decimal" min="-5" max="15" step="0.5" value="3.5"><span class="suf">%</span></div></div>
+        <div><label for="ir" style="font-size:11px;color:var(--sx-muted)">Loan interest rate</label><div class="sx-au-in sm np pc"><input id="ir" type="number" inputmode="decimal" min="0" max="15" step="0.1" value="6.2"><span class="suf">%</span></div></div>
+        <div><label for="yl" style="font-size:11px;color:var(--sx-muted)">Years until write-off</label><div class="sx-au-in sm np"><input id="yl" type="number" inputmode="numeric" min="1" max="40" step="1" value="25"><span class="suf">yrs</span></div></div>
+      </div>
+      <p class="sx-au-help" id="irHelp" style="margin:8px 0 0">—</p>
+    </div>
+  </div>
 </form>
-<aside class="readout"><div class="bar"></div><div class="readout-body">
-  <div class="readout-label">Monthly PAYE deduction</div>
-  <div class="readout-value big" id="resultValue">—</div>
-  <div class="readout-breakdown">
-    <div class="readout-row"><span>Unrounded (pence)</span><span id="outRaw">—</span></div>
-    <div class="readout-row"><span>Undergraduate 9%</span><span id="outUg">—</span></div>
-    <div class="readout-row"><span>Postgraduate 6%</span><span id="outPg">—</span></div>
-    <div class="readout-row"><span>Income above threshold / month</span><span id="outExcess">—</span></div>
-    <div class="readout-row"><span>Implied per year (PAYE × 12)</span><span id="outYear">—</span></div>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em>PAYE Student Loan Deduction</em><span id="planT">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small style="font-size:16px;font-weight:500;opacity:.8;margin-left:4px">/ month</small></div>
+    <p id="outDetail">—</p>
+    <span class="msym wm" aria-hidden="true">school</span>
+  </section>
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k">Annual Deduction<span class="msym" aria-hidden="true">calendar_month</span></div><b id="outAnnual">—</b><p>PAYE amount × 12</p></div>
+    <div class="sx-card"><div class="k">Marginal Deduction on Next £1<span class="msym" aria-hidden="true">stacked_bar_chart</span></div><b class="r" id="marg">—</b><p id="margN">—</p></div>
+    <div class="sx-card"><div class="k">Projected Total Repaid<span class="msym" aria-hidden="true">payments</span></div><b id="totR">—</b><p id="totRN">—</p></div>
+    <div class="sx-card"><div class="k">Projected Write-Off<span class="msym" aria-hidden="true">gavel</span></div><b class="g" id="wo">—</b><p id="woN">—</p></div>
   </div>
-  <p class="hint" id="outNote" style="margin-top:12px;"></p>
-</div></aside>
-</div></section>
-<section class="content-block"><div class="container prose">
+  <section class="sx-card" style="padding:16px 18px" id="advC">
+    <div style="display:flex;gap:10px"><span class="msym" aria-hidden="true" style="color:var(--sx-primary)" id="advI">gavel</span><div><b style="display:block;font-size:13px;color:var(--sx-on)" id="advH">—</b><p style="margin:4px 0 0;font-size:12px;line-height:18px;color:var(--sx-onv)" id="advT">—</p></div></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Report (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Projection (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 id="ledH">Career Salary vs Loan Balance Projection</h2><p id="ledN">—</p></div><span class="sx-au-tag" id="ledT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Year</th><th scope="col">Gross Salary</th><th scope="col">Annual Repayment</th><th scope="col">Interest Added</th><th scope="col">Ending Balance</th><th scope="col">Cumulative Repaid</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Projection: thresholds held at 2026/27 levels, one interest rate for the whole period, salary rising each year. Real thresholds, rates and your career will differ.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">psychology</span></span><h3>Think of It Like a Graduate Tax</h3><p>UK income-contingent student loans don't work like a mortgage or credit card. What you repay depends only on what you earn above your plan's threshold — never on the balance. If your pay drops below the threshold, repayments stop. Any balance left at the end of the term is written off.</p><div class="sx-sg-take"><b>Key point:</b> for many graduates the balance mostly determines whether anything is written off, not what they pay each month.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">compare_arrows</span></span><h3>Plan 2 vs Plan 5</h3><p>For students starting in England from August 2023 (Plan 5), the write-off period rose from 30 to 40 years and the threshold fell to £25,000, while interest dropped to RPI only — no extra 3%. The result is that many more Plan 5 borrowers are expected to repay in full than on Plan 2.</p><div class="sx-sg-take"><b>Write-off terms:</b> Plan 1 — 25 years (most loans); Plan 2 — 30 years; Plan 4 — 30 years; Plan 5 — 40 years; postgraduate — 30 years.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
 <h2>Why this is its own page</h2>
 <p>The user job here is “how much will Student Finance take from this UK salary?” The answer is a function of <strong>plan × threshold × rate</strong>, not of a loan balance and a 10-year term. The <a href="/financial/student-loan-calculator.html">US student loan calculator</a> uses standard amortisation. Changing that page to pounds would still be the wrong formula. GOV.UK publishes the bands; this page does not invent them.</p>
 
 <h2>2026/27 thresholds (from 6 April 2026)</h2>
 <p>You repay a percentage of income <em>above</em> the threshold for your plan. Below the threshold the deduction is £0.</p>
-<div class="formula-box" role="region" aria-label="UK student loan 2026/27 thresholds">
+<div class="sx-box" role="region" aria-label="UK student loan 2026/27 thresholds">
 <p><strong>Undergraduate plans — 9% of income over the threshold</strong><br>
 Plan 1: £26,900 a year / £2,241 a month / £517 a week<br>
 Plan 2: £29,385 a year / £2,448 a month / £565 a week<br>
@@ -116,11 +229,11 @@ excess = max(0, monthly pay − published monthly threshold)<br>
 deduction = 9% or 6% of excess, then rounded <em>down</em> to the nearest pound</p>
 </div>
 <p>Source: <a href="https://www.gov.uk/repaying-your-student-loan/what-you-pay" rel="noopener noreferrer">GOV.UK — how much you repay</a>. Re-check that page before you rely on a figure — Student Finance, not this calculator, is the authority. Overseas thresholds are different and are not modelled here.</p>
-<p class="hint">By Suhaib Hassan · Thresholds verified 21 Sep 2026 against GOV.UK · Method v1.0-UK-SLC · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Thresholds verified 21 Sep 2026 against GOV.UK · Method v1.0-UK-SLC · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 
 <h2 id="worked-example">Worked examples (pre-computed)</h2>
 <p>These use the same monthly thresholds and round-down rule as the calculator, so the answer is readable if JavaScript is off.</p>
-<div class="formula-box" role="region" aria-label="UK student loan worked examples">
+<div class="sx-box" role="region" aria-label="UK student loan worked examples">
 <p><strong>1. Plan 5, £35,000 salary</strong><br>
 £35,000 ÷ 12 = £2,916.67 a month<br>
 minus Plan 5 monthly threshold £2,083 = £833.67 over the line<br>
@@ -142,90 +255,35 @@ Monthly pay is under £2,083. Excess = £0. Deduction = <strong>£0</strong>.</p
 <h2>What this figure does not include</h2>
 <ul>
   <li><strong>A US-style fixed instalment.</strong> Use the <a href="/financial/student-loan-calculator.html">student loan calculator</a> only if the loan amortises on a term and rate.</li>
-  <li><strong>Interest, remaining balance or write-off date.</strong> Those need the current SLC balance and the interest rules for your plan. Unknown stays unknown.</li>
+  <li><strong>An exact payoff date.</strong> The projection above is an estimate from the balance, rate and salary growth you enter. Your Student Finance account is the authority on your balance and interest.</li>
   <li><strong>Overseas repayment thresholds.</strong> Different country bands. This page does not mint a country × plan doorway URL.</li>
   <li><strong>Income tax or National Insurance.</strong> This is the student-loan line only. Combine it with PAYE tax and NI on the <a href="/financial/uk-take-home-pay-calculator.html">UK take-home pay calculator</a>. Do not treat a currency switch on the US paycheck page as PAYE.</li>
 </ul>
 
 <h2>Frequently asked questions</h2>
-<div class="faq-item"><h3>Is this the same as a US student loan calculator?</h3><p>No. UK ICR loans take a slice of income above a threshold. US standard repayment takes a fixed amount from a balance, rate and term.</p></div>
-<div class="faq-item"><h3>Which plan am I on?</h3><p>Plan 5: England and Wales, course started on or after 1 August 2023. Plan 2: England and Wales 1 September 2012 to 31 July 2023. Plan 1: earlier England/Wales and most NI loans. Plan 4: Scotland. Postgraduate loans are 6%. Confirm in your Student Finance account.</p></div>
-<div class="faq-item"><h3>What if I have a postgraduate loan as well?</h3><p>Tick the box. GOV.UK charges 6% above £21,000 and 9% above your undergraduate plan threshold.</p></div>
-<div class="faq-item"><h3>Why might PAYE take a pound less than 9% of the excess?</h3><p>Payroll rounds the deduction down to the nearest pound. The readout shows both the pence figure and the PAYE amount.</p></div>
-<div class="faq-item"><h3>Does this show when the loan is paid off?</h3><p>No. That is a different user job. This page answers the payslip deduction at a salary and plan.</p></div>
+<details class="sx-faq"><summary>Is this the same as a US student loan calculator?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. UK undergraduate and postgraduate loans repay a percentage of income above a plan threshold. The US student loan calculator on this site models a fixed amortising monthly payment. Switching the currency on that page does not produce a UK payslip deduction.</p></details>
+<details class="sx-faq"><summary>Which plan am I on?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Plan 5 covers England and Wales courses that started on or after 1 August 2023. Plan 2 covers England and Wales 1 September 2012 to 31 July 2023. Plan 1 is earlier England/Wales and most Northern Ireland loans. Plan 4 is Scotland. Postgraduate loans use a separate 6% rate. Confirm on GOV.UK or your Student Finance account.</p></details>
+<details class="sx-faq"><summary>What if I have a postgraduate loan as well?<span class="msym" aria-hidden="true">expand_more</span></summary><p>GOV.UK says you repay 6% of income over the postgraduate threshold and 9% of income over the lowest undergraduate plan threshold you have. Tick the postgraduate box on this page to add both.</p></details>
+<details class="sx-faq"><summary>Why might PAYE take a pound less than 9% of the excess?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Payroll rounds the deduction down to the nearest pound. This page shows the unrounded pence and the PAYE amount.</p></details>
+<details class="sx-faq"><summary>Does this show when the loan is paid off?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It projects it. The payslip deduction uses the published 2026/27 thresholds exactly. The payoff projection is an estimate: it depends on your salary growth, the interest rate you enter, and thresholds staying at today's levels.</p></details>
+  </div>
+</section>
 
-<h2 id="next-job">Next calculation</h2>
-<div class="tool-grid">
-  <a class="tool-link" href="/financial/student-loan-calculator.html">1. US-style amortising student loan (term × rate) <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/salary-calculator.html">2. Convert a salary into monthly / hourly pay <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/uk-take-home-pay-calculator.html">3. UK take-home pay (tax + NI + this loan) <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/paycheck-calculator.html">4. US-style net pay from an effective tax rate <span class="arrow">→</span></a>
+<div class="sx-au-relh">
+  <div><h2>Next Calculation</h2><p>Put the deduction in context.</p></div>
+  <a href="/financial-calculators.html">All Financial Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
 </div>
-<p class="hint">Estimate only. UK PAYE student loan · method v1.0-UK-SLC · last verified 21 Sep 2026 · <a href="https://www.gov.uk/repaying-your-student-loan/what-you-pay" rel="noopener noreferrer">GOV.UK what you pay</a> · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
-</div></section>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>UK Take-Home Pay</b><span class="d">Tax + NI + this loan in one payslip.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/scotland-take-home-pay-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">landscape</span></span><b>Scotland Take-Home Pay</b><span class="d">Scottish income tax with Plan 4.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/student-loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">school</span></span><b>US Student Loan Calculator</b><span class="d">Amortising loans on a term and rate.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/salary-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">schedule</span></span><b>Salary Calculator</b><span class="d">Split a salary into monthly and hourly pay.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/cp-calc.js?v=20260928y"></script>
+<script src="/js/calc/uk-student-loan-repayment.js?v=20260928y"></script>
 <script src="/js/nav.js?v=ed5961c9"></script>
-<script>
-(function () {
-  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
-  const salaryEl = document.getElementById("salary");
-  const planEl = document.getElementById("plan");
-  const pglEl = document.getElementById("alsoPgl");
-  const pglWrap = document.getElementById("pglWrap");
-  const PLANS = {
-    plan1: { label: "Plan 1", annual: 26900, monthly: 2241, rate: 0.09 },
-    plan2: { label: "Plan 2", annual: 29385, monthly: 2448, rate: 0.09 },
-    plan4: { label: "Plan 4", annual: 33795, monthly: 2816, rate: 0.09 },
-    plan5: { label: "Plan 5", annual: 25000, monthly: 2083, rate: 0.09 },
-    pgl:   { label: "Postgraduate", annual: 21000, monthly: 1750, rate: 0.06 }
-  };
-  const PGL = PLANS.pgl;
-
-  function pence(n) { return Math.round(n * 100) / 100; }
-  function slice(monthlyPay, plan) {
-    const excess = Math.max(0, pence(monthlyPay - plan.monthly));
-    const raw = pence(excess * plan.rate);
-    return { excess: excess, raw: raw, paye: Math.floor(raw) };
-  }
-
-  function render() {
-    const annual = Math.max(0, +salaryEl.value || 0);
-    const monthlyPay = pence(annual / 12);
-    const key = planEl.value;
-    const ug = key === "pgl" ? null : PLANS[key];
-    const wantPgl = key === "pgl" || pglEl.checked;
-    pglWrap.style.display = key === "pgl" ? "none" : "";
-
-    const ugSlice = ug ? slice(monthlyPay, ug) : { excess: 0, raw: 0, paye: 0 };
-    const pgSlice = wantPgl ? slice(monthlyPay, PGL) : { excess: 0, raw: 0, paye: 0 };
-    const paye = ugSlice.paye + pgSlice.paye;
-    const raw = pence(ugSlice.raw + pgSlice.raw);
-
-    document.getElementById("resultValue").textContent = gbp.format(paye);
-    document.getElementById("outRaw").textContent = gbp.format(raw);
-    document.getElementById("outUg").textContent = ug ? gbp.format(ugSlice.paye) : "—";
-    document.getElementById("outPg").textContent = wantPgl ? gbp.format(pgSlice.paye) : "—";
-    document.getElementById("outExcess").textContent = gbp.format(ug ? ugSlice.excess : pgSlice.excess);
-    document.getElementById("outYear").textContent = gbp.format(paye * 12);
-
-    let note = "";
-    if (ug && monthlyPay <= ug.monthly && !(wantPgl && monthlyPay > PGL.monthly)) {
-      note = "Salary is at or under the monthly threshold, so PAYE takes £0 for this plan.";
-    } else if (raw - paye >= 0.01) {
-      note = "PAYE rounds down. Unrounded pence " + gbp.format(raw) + " becomes " + gbp.format(paye) + " on the payslip.";
-    }
-    if (key === "pgl") note = (note ? note + " " : "") + "Postgraduate-only: 6% above £1,750 a month.";
-    document.getElementById("outNote").textContent = note;
-  }
-
-  ["salary", "plan", "alsoPgl"].forEach(function (id) {
-    const el = document.getElementById(id);
-    el.addEventListener("input", render);
-    el.addEventListener("change", render);
-  });
-  render();
-})();
-</script>
 </body>
 </html>
