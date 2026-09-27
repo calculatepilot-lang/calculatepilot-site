@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928p">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,53 +59,100 @@
   ]
 }
 </script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,castle,check_circle,chevron_right,expand_more,family_home,gavel,home,insights,landscape,north_east,picture_as_pdf,public,refresh,table_chart,tune,verified&display=block">
+<!-- /cpx-head-extra -->
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
-<div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / UK stamp duty comparison</nav></div>
-<section class="calc-page-head"><div class="container">
-  <h1>Stamp Duty Comparison: England, Scotland and Wales</h1>
-  <p class="lede">One purchase price, three different taxes. England and Northern Ireland use <a href="/financial/uk-stamp-duty-calculator.html">Stamp Duty Land Tax</a>. Scotland uses <a href="/financial/scotland-lbtt-calculator.html">Land and Buildings Transaction Tax</a>. Wales uses <a href="/financial/wales-ltt-calculator.html">Land Transaction Tax</a>. This page does not rename one calculator three times — each column is a different statute.</p>
-</div></section>
-<section><div class="container calc-layout">
-<form class="calc-card" id="calcForm">
-  <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="300000" step="1000" min="0"></div>
-  <div class="field"><label for="buyer">What you are buying</label>
-    <select id="buyer">
-      <option value="main" selected>Only or replacement main home</option>
-      <option value="ftb">First-time buyer, main home</option>
-      <option value="extra">Additional dwelling</option>
-      <option value="nonres">Non-residential freehold / lease premium</option>
-    </select>
+<div class="sx" id="scCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">UK Stamp Duty Comparison</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">3-Nation UK Property Tax Engine</span><span class="sx-badge">HMRC (SDLT) vs Revenue Scotland (LBTT) vs WRA (LTT)</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified</span>Post-April 2025 Thresholds</span></div>
+    <h1>Stamp Duty Comparison: England, Scotland and Wales</h1>
+    <p>One purchase price, three different taxes. England and Northern Ireland use Stamp Duty Land Tax, Scotland uses Land and Buildings Transaction Tax, and Wales uses Land Transaction Tax — compared side by side for main homes, first-time buyers, additional homes and non-residential purchases.</p>
   </div>
-  <p class="hint">Residential freehold, or a non-residential freehold / lease premium. England and NI residential SDLT from 1 April 2025; non-residential freehold is 0% / 2% / 5%. Scotland residential bands from 1 April 2021, ADS 8% from 5 December 2024; non-residential freehold is 0% / 1% / 5%. Wales main rates from 10 October 2022, higher rates from 11 December 2024; non-residential freehold from 22 December 2020. The non-resident 2% SDLT surcharge is residential-only and is not in this comparison.</p>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Property Transaction &amp; Buyer Profile</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">refresh</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="price">Agreed Purchase Price</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="priceOut">—</em></div>
+      <div class="sx-au-in"><span class="pre">£</span><input id="price" type="number" inputmode="decimal" min="0" step="1000" value="425000" style="font-size:17px;font-weight:600"></div>
+      <input id="priceR" class="sx-range2" type="range" min="50000" max="2000000" step="5000" value="425000" data-sync="price" aria-label="Purchase price" style="margin-top:10px">
+      <div class="sx-au-chips"><button type="button" data-for="price" data-value="250000">£250k</button><button type="button" data-for="price" data-value="350000">£350k</button><button type="button" data-for="price" data-value="425000">£425k</button><button type="button" data-for="price" data-value="600000">£600k</button><button type="button" data-for="price" data-value="850000">£850k</button><button type="button" data-for="price" data-value="1250000">£1.25M</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Buyer Classification</span></div>
+      <input type="hidden" id="kind" value="s1">
+      <div class="sx-au-cat nr" style="grid-template-columns:1fr" role="group" aria-label="Buyer classification">
+        <button type="button" data-for="kind" data-value="s1"><span><b>Only or Replacement Main Home</b><small>Buying your main residence, including when replacing your previous main home.</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="kind" data-value="s2"><span><b>First-Time Buyer</b><small>Never owned a home anywhere in the world; buying to live in (relief rules differ by nation).</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="kind" data-value="s3"><span><b>Additional Property / Second Home</b><small>Buy-to-let or second home: SDLT +5%, Scotland ADS 8%, Wales higher-rate table.</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="kind" data-value="s4"><span><b>Non-Residential Freehold / Lease Premium</b><small>Shop, office or land — each nation's non-residential table.</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+      </div>
+    </div>
+    <div class="sx-an-cola" id="nrRow"><span class="msym" aria-hidden="true">public</span><div><b>Non-UK Resident Surcharge</b><small>+2% on residential SDLT in England &amp; NI only — Scotland and Wales have no equivalent</small></div><label class="sx-toggle"><input type="checkbox" id="nonres" aria-label="Non-UK resident surcharge"><i></i></label></div>
+  </div>
 </form>
-<aside class="readout"><div class="bar"></div><div class="readout-body">
-  <div class="readout-label">Lowest of the three on this price</div>
-  <div class="readout-value big" id="resultValue">—</div>
-  <div class="readout-breakdown">
-    <div class="readout-row"><span>England & NI</span><span id="outEng">—</span></div>
-    <div class="readout-row"><span>Scotland</span><span id="outSco">—</span></div>
-    <div class="readout-row"><span>Wales</span><span id="outWal">—</span></div>
-  </div>
-  <p class="hint" id="outNote" style="margin-top:12px;"></p>
-</div></aside>
-</div></section>
-<section class="content-block"><div class="container prose">
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-sc-spread" aria-live="polite">
+    <div class="hd"><span id="spH">Regional Tax Burden Spread</span><em id="spE">—</em></div>
+    <p><span class="msym" aria-hidden="true">insights</span><span id="spT">—</span></p>
+  </section>
+  <div class="sx-sc-cards" id="cards"></div>
+  <div class="sx-in-acts" style="margin-top:16px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export 3-Nation Comparison (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_chart</span>Download Band Breakdown (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="bands">
+  <div class="hd"><div><h2>Statutory Rate Banding Across UK Nations</h2><p>Side-by-side marginal bands for a main residential purchase.</p></div><span class="sx-au-tag"><span class="msym" aria-hidden="true" style="font-size:14px;vertical-align:-2px">verified</span> Current legislation</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Tier</th><th scope="col">England &amp; NI (SDLT)</th><th scope="col">Scotland (LBTT)</th><th scope="col">Wales (LTT)</th><th scope="col">Cross-Border Observation</th></tr></thead>
+    <tbody>
+      <tr><td style="font-family:inherit;font-weight:600">Nil-rate band</td><td>Up to £125,000</td><td>Up to £145,000</td><td>Up to £225,000</td><td style="white-space:normal;font-family:inherit">England starts taxing at the lowest price (£125k)</td></tr>
+      <tr><td style="font-family:inherit;font-weight:600">First band</td><td>2% (£125k–£250k)</td><td>2% (£145k–£250k)</td><td>6% (£225k–£400k)</td><td style="white-space:normal;font-family:inherit">Wales's 6% band starts at £225,000</td></tr>
+      <tr><td style="font-family:inherit;font-weight:600">Middle band</td><td>5% (£250k–£925k)</td><td>5% (£250k–£325k)</td><td>7.5% (£400k–£750k)</td><td style="white-space:normal;font-family:inherit">Scotland moves to 10% from £325,000</td></tr>
+      <tr><td style="font-family:inherit;font-weight:600">Upper band</td><td>10% (£925k–£1.5M)</td><td>10% (£325k–£750k)</td><td>10% (£750k–£1.5M)</td><td style="white-space:normal;font-family:inherit">Scotland's 10% starts £600,000 lower than England's</td></tr>
+      <tr><td style="font-family:inherit;font-weight:600">Top band</td><td>12% (over £1.5M)</td><td>12% (over £750k)</td><td>12% (over £1.5M)</td><td style="white-space:normal;font-family:inherit">Scotland's 12% starts at £750,000</td></tr>
+      <tr><td style="font-family:inherit;font-weight:600">Additional home</td><td>+5% on every band</td><td>+8% ADS on whole price</td><td>Higher-rate table (5%–17%)</td><td style="white-space:normal;font-family:inherit">Scotland's ADS is the highest flat surcharge</td></tr>
+      <tr><td style="font-family:inherit;font-weight:600">First-time buyer</td><td>0% to £300k, 5% to £500k (cap £500k)</td><td>Nil band raised to £175k (max £600)</td><td>No separate relief</td><td style="white-space:normal;font-family:inherit">England's relief is withdrawn above £500,000</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">family_home</span></span><h3>First-Time Buyer Relief Differs by Nation</h3><p>First-time buyers get very different treatment depending on where the home is.</p><ul style="margin:0;padding-left:18px;font-size:14px;line-height:22px;color:var(--sx-onv)"><li><b>England &amp; NI:</b> 0% up to £300,000 and 5% from £300,001 to £500,000 — no relief at all above £500,000 (maximum saving £5,000).</li><li><b>Scotland:</b> nil-rate band raised to £175,000, worth up to £600, with no price cap.</li><li><b>Wales:</b> no separate first-time buyer relief; the standard £225,000 nil-rate band applies.</li></ul></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">account_balance</span></span><h3>How UK Property Tax Was Devolved</h3><p>Stamp Duty Land Tax once applied across Great Britain. The Scotland Act 2012 devolved it, and Land and Buildings Transaction Tax replaced SDLT in Scotland on 1 April 2015, administered by Revenue Scotland.</p><p>The Wales Act 2014 followed, and Land Transaction Tax — collected by the Welsh Revenue Authority — replaced SDLT in Wales in April 2018. Northern Ireland still uses SDLT, administered by HMRC.</p></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
 <h2>Why one comparison page, not three copies</h2>
 <p>The user job here is “what would this price cost in each nation, and which rule actually applies to me?” The nation calculators answer “how much do I pay under the statute that covers my purchase?” Both jobs are real. Publishing a city page for every town would not change the tax. Publishing England, Scotland and Wales separately does, because the statutes differ. This page only exists to put those three answers next to each other.</p>
 
 <h2 id="main-table">Main home, including first-time buyers</h2>
 <p>England first-time buyer relief is withdrawn entirely above £500,000. Scotland keeps a £175,000 nil-rate band with no price cap. Wales has no first-time buyer relief, so the Wales column does not change for a first-time buyer.</p>
-<div style="overflow:auto;margin:12px 0 18px"><table style="width:100%;border-collapse:collapse;font-size:14.5px"><thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Price</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">England standard</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">England first-time buyer</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scotland standard</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scotland first-time buyer</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Wales main</th></tr></thead><tbody><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£150,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£200,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£250,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£300,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£5,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,600</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£400,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£10,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£5,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£13,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£12,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£10,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£15,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£10,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£23,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£22,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£18,000</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£600,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£20,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">Relief withdrawn</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£33,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£32,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£25,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£750,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£27,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">Relief withdrawn</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£48,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£47,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£36,750</td></tr></tbody></table></div>
+<div class="sx-scroll"><table><thead><tr><th>Price</th><th>England standard</th><th>England first-time buyer</th><th>Scotland standard</th><th>Scotland first-time buyer</th><th>Wales main</th></tr></thead><tbody><tr><td>£150,000</td><td>£500</td><td>£0</td><td>£100</td><td>£0</td><td>£0</td></tr><tr><td>£200,000</td><td>£1,500</td><td>£0</td><td>£1,100</td><td>£500</td><td>£0</td></tr><tr><td>£250,000</td><td>£2,500</td><td>£0</td><td>£2,100</td><td>£1,500</td><td>£1,500</td></tr><tr><td>£300,000</td><td>£5,000</td><td>£0</td><td>£4,600</td><td>£4,000</td><td>£4,500</td></tr><tr><td>£400,000</td><td>£10,000</td><td>£5,000</td><td>£13,350</td><td>£12,750</td><td>£10,500</td></tr><tr><td>£500,000</td><td>£15,000</td><td>£10,000</td><td>£23,350</td><td>£22,750</td><td>£18,000</td></tr><tr><td>£600,000</td><td>£20,000</td><td>Relief withdrawn</td><td>£33,350</td><td>£32,750</td><td>£25,500</td></tr><tr><td>£750,000</td><td>£27,500</td><td>Relief withdrawn</td><td>£48,350</td><td>£47,750</td><td>£36,750</td></tr></tbody></table></div>
 
 <h2 id="extra-table">Additional residential property</h2>
 <p>England adds 5% of the whole price to standard bands. Scotland adds 8% ADS to standard bands and does not also give first-time buyer relief. Wales switches to the higher-rate table instead of adding a flat percent.</p>
-<div style="overflow:auto;margin:12px 0 18px"><table style="width:100%;border-collapse:collapse;font-size:14.5px"><thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Price</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">England & NI + 5%</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scotland + 8% ADS</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Wales higher rates</th></tr></thead><tbody><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£150,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£8,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£12,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£7,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£200,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£11,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£17,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£10,700</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£250,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£15,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£22,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£14,950</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£300,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£20,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£28,600</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£19,950</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£400,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£30,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£45,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£29,950</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£40,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£63,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£42,450</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£600,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£50,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£81,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£54,950</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£750,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£65,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£108,350</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£73,700</td></tr></tbody></table></div>
+<div class="sx-scroll"><table><thead><tr><th>Price</th><th>England & NI + 5%</th><th>Scotland + 8% ADS</th><th>Wales higher rates</th></tr></thead><tbody><tr><td>£150,000</td><td>£8,000</td><td>£12,100</td><td>£7,500</td></tr><tr><td>£200,000</td><td>£11,500</td><td>£17,100</td><td>£10,700</td></tr><tr><td>£250,000</td><td>£15,000</td><td>£22,100</td><td>£14,950</td></tr><tr><td>£300,000</td><td>£20,000</td><td>£28,600</td><td>£19,950</td></tr><tr><td>£400,000</td><td>£30,000</td><td>£45,350</td><td>£29,950</td></tr><tr><td>£500,000</td><td>£40,000</td><td>£63,350</td><td>£42,450</td></tr><tr><td>£600,000</td><td>£50,000</td><td>£81,350</td><td>£54,950</td></tr><tr><td>£750,000</td><td>£65,000</td><td>£108,350</td><td>£73,700</td></tr></tbody></table></div>
 
 <h2>Worked check at £300,000</h2>
-<div class="formula-box" role="region" aria-label="300000 comparison">
+<div class="sx-box" role="region" aria-label="300000 comparison">
 <p><strong>Main home</strong><br>
 England & NI £5,000 · Scotland £4,600 · Wales £4,500</p>
 <p><strong>First-time buyer</strong><br>
@@ -116,8 +164,8 @@ England & NI £20,000 · Scotland £28,600 · Wales £19,950</p>
 
 <h2 id="nonres-table">Non-residential freehold</h2>
 <p>A shop or office uses a different table in each nation. Additional-dwelling charges are not added. These rows are the freehold or lease premium only.</p>
-<div style="overflow:auto;margin:12px 0 18px"><table style="width:100%;border-collapse:collapse;font-size:14.5px"><thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Price</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">England & NI</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Scotland</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700">Wales</th></tr></thead><tbody><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£200,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£0</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£275,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,250</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,250</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£1,500</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£300,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£4,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£3,500</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£2,750</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£465,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£12,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£11,750</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£11,000</td></tr><tr><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£872,000</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£33,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£32,100</td><td style="padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);white-space:nowrap">£31,350</td></tr></tbody></table></div>
-<div class="formula-box" role="region" aria-label="Non-residential comparison checks">
+<div class="sx-scroll"><table><thead><tr><th>Price</th><th>England & NI</th><th>Scotland</th><th>Wales</th></tr></thead><tbody><tr><td>£200,000</td><td>£1,000</td><td>£500</td><td>£0</td></tr><tr><td>£275,000</td><td>£3,250</td><td>£2,250</td><td>£1,500</td></tr><tr><td>£300,000</td><td>£4,500</td><td>£3,500</td><td>£2,750</td></tr><tr><td>£465,000</td><td>£12,750</td><td>£11,750</td><td>£11,000</td></tr><tr><td>£872,000</td><td>£33,100</td><td>£32,100</td><td>£31,350</td></tr></tbody></table></div>
+<div class="sx-box" role="region" aria-label="Non-residential comparison checks">
 <p><strong>£275,000 shop</strong> — GOV.UK’s commercial example is £3,250 in England and Northern Ireland (0% on £150,000, 2% on £100,000, 5% on £25,000). The same price is £2,250 in Scotland and £1,500 in Wales.</p>
 <p><strong>£465,000</strong> — Revenue Scotland’s published non-residential case is £11,750. England and Northern Ireland charge £12,750. Wales charges £11,000.</p>
 <p><strong>£300,000 premises</strong> — Wales is £2,750 on the current non-residential table. Scotland is £3,500. England and Northern Ireland are £4,500.</p>
@@ -126,102 +174,38 @@ England & NI £20,000 · Scotland £28,600 · Wales £19,950</p>
 
 <h2>What this comparison leaves out</h2>
 <ul>
-  <li><strong>Non-resident SDLT surcharge (2%).</strong> It applies to residential purchases in England and Northern Ireland. The <a href="/financial/uk-stamp-duty-calculator.html">England calculator</a> has that switch. It is not added to a non-residential freehold, and it is not guessed onto Scotland or Wales.</li>
+  <li><strong>Non-resident SDLT surcharge (2%).</strong> Tick the toggle above to add it. It applies to residential purchases in England and Northern Ireland only; it is not added to a non-residential freehold, and Scotland and Wales have no equivalent.</li>
   <li><strong>Lease rent, linked transactions and multiple dwellings relief.</strong> The non-residential option is the freehold / premium table only. Rent (NPV) stays unknown.</li>
   <li><strong>The mortgage instalment.</strong> Purchase tax is not a monthly payment. Use the <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment calculator</a> for that.</li>
 </ul>
 <p>Sources: <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK residential SDLT</a>, <a href="https://www.gov.uk/stamp-duty-land-tax/nonresidential-and-mixed-rates" rel="noopener noreferrer">GOV.UK non-residential SDLT</a>, <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/non-residential-property" rel="noopener noreferrer">Revenue Scotland non-residential LBTT</a>, <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener noreferrer">GOV.WALES LTT rates</a>. Re-check those pages before you complete. HMRC, Revenue Scotland and the Welsh Revenue Authority are the authorities — not this comparison.</p>
-<p class="hint">By Suhaib Hassan · Residential bands verified 23 Sep 2026, non-residential comparison verified 27 Sep 2026 · Method v1.1-UK-COMPARE · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Residential bands verified 23 Sep 2026, non-residential comparison verified 27 Sep 2026 · Method v1.1-UK-COMPARE · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
 
 <h2>Frequently asked questions</h2>
-<div class="faq-item"><h3>Is stamp duty the same in England, Scotland and Wales?</h3><p>No. Three statutes: SDLT, LBTT and LTT. Bands, first-time buyer rules and additional-home rules all differ.</p></div>
-<div class="faq-item"><h3>Which nation is cheapest for a main home?</h3><p>It depends on the price. At £250,000 a main home is £2,500 in England and Northern Ireland, £2,100 in Scotland and £1,500 in Wales. At £150,000 England and Northern Ireland charge £500, Scotland charges £100 and Wales charges £0.</p></div>
-<div class="faq-item"><h3>Do first-time buyers get relief in every nation?</h3><p>England and Northern Ireland: yes, if the price is £500,000 or less. Scotland: a higher nil-rate band, up to £600, with no £500,000 cap. Wales: no separate relief.</p></div>
-<div class="faq-item"><h3>How do additional homes differ?</h3><p>England adds 5% of the price. Scotland adds 8% ADS. Wales uses a different rate table, not a flat surcharge.</p></div>
-<div class="faq-item"><h3>Does this compare a shop or office?</h3><p>Yes, for a non-residential freehold or lease premium. £275,000 is £3,250 in England and Northern Ireland, £2,250 in Scotland and £1,500 in Wales. £465,000 is £12,750, £11,750 and £11,000. Lease rent is not calculated.</p></div>
-<div class="faq-item"><h3>Does this replace the nation calculators?</h3><p>No. Open the <a href="/financial/uk-stamp-duty-calculator.html">England & NI calculator</a>, the <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT calculator</a> or the <a href="/financial/wales-ltt-calculator.html">Wales LTT calculator</a> for the statute that covers the purchase.</p></div>
+<details class="sx-faq"><summary>Is stamp duty the same in England, Scotland and Wales?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. England and Northern Ireland charge Stamp Duty Land Tax. Scotland charges Land and Buildings Transaction Tax. Wales charges Land Transaction Tax. The bands, first-time buyer rules and additional-home rules are different statutes.</p></details>
+<details class="sx-faq"><summary>Which nation is cheapest for a main home?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on the price. At £250,000 a main home is £2,500 in England and Northern Ireland, £2,100 in Scotland and £1,500 in Wales. At £150,000 England and Northern Ireland charge £500, Scotland charges £100 and Wales charges £0. Use the table for the price you are actually paying.</p></details>
+<details class="sx-faq"><summary>Do first-time buyers get relief in every nation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>England and Northern Ireland: nil-rate to £300,000 if the price is £500,000 or less, otherwise no relief. Scotland: nil-rate to £175,000 with no £500,000 cap, saving up to £600. Wales: no separate first-time buyer relief. The Welsh £225,000 nil-rate band is the standard main-rate threshold.</p></details>
+<details class="sx-faq"><summary>How do additional homes differ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>England and Northern Ireland add 5% of the whole price on top of standard bands. Scotland adds an 8% Additional Dwelling Supplement on the whole price. Wales does not add a flat surcharge. It uses a separate higher-rate table.</p></details>
+<details class="sx-faq"><summary>Does this compare a shop or office?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes, for a non-residential freehold or lease premium. On GOV.UK’s £275,000 commercial example England and Northern Ireland charge £3,250, Scotland charges £2,250 and Wales charges £1,500. Revenue Scotland’s £465,000 case is £12,750 in England, £11,750 in Scotland and £11,000 in Wales. A £300,000 premises is £4,500, £3,500 and £2,750. ADS, the English 5% surcharge and first-time buyer relief do not apply. Lease rent is not calculated.</p></details>
+<details class="sx-faq"><summary>Does this replace the nation calculators?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. This page answers which statute applies and what each one charges on the same price. The England, Scotland and Wales calculators are the pages that apply one statute in full, including notes those tools already publish.</p></details>
+  </div>
+</section>
 
-<h2 id="next-job">Next calculation</h2>
-<div class="tool-grid">
-  <a class="tool-link" href="/financial/uk-stamp-duty-calculator.html">1. England & NI SDLT, including the non-resident surcharge <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/scotland-lbtt-calculator.html">2. Scotland LBTT with ADS worked through <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/wales-ltt-calculator.html">3. Wales LTT main and higher tables <span class="arrow">→</span></a>
-  <a class="tool-link" href="/financial/uk-mortgage-repayment-calculator.html">4. Monthly repayment on the loan itself <span class="arrow">→</span></a>
+<div class="sx-au-relh">
+  <div><h2>Next Calculation</h2><p>Work through the statute that covers your purchase.</p></div>
+  <a href="/financial-calculators.html">All Financial Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
 </div>
-<p class="hint">Estimate only. Not a tax return.</p>
-</div></section>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/uk-stamp-duty-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">gavel</span></span><b>England &amp; NI SDLT</b><span class="d">Including the non-resident surcharge.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/scotland-lbtt-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">landscape</span></span><b>Scotland LBTT</b><span class="d">LBTT with ADS worked through.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/wales-ltt-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">castle</span></span><b>Wales LTT</b><span class="d">Main and higher-rate tables.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/uk-mortgage-repayment-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home</span></span><b>UK Mortgage Repayment</b><span class="d">Monthly repayment on the loan itself.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-bottom"><span>© 2026 CalculatePilot. All calculations are estimates — consult a professional for financial or medical decisions.</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></div></footer>
+<script src="/js/cp-calc.js?v=20260928p"></script>
+<script src="/js/calc/uk-stamp-duty-comparison.js?v=20260928p"></script>
 <script src="/js/nav.js?v=ed5961c9"></script>
-<script>
-(function () {
-  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
-  const priceEl = document.getElementById("price");
-  const buyerEl = document.getElementById("buyer");
-  const ENG_STD = [[125000, 0], [250000, 0.02], [925000, 0.05], [1500000, 0.10], [Infinity, 0.12]];
-  const ENG_FTB = [[300000, 0], [500000, 0.05]];
-  const SCO_STD = [[145000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
-  const SCO_FTB = [[175000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
-  const WAL_MAIN = [[225000, 0], [400000, 0.06], [750000, 0.075], [1500000, 0.10], [Infinity, 0.12]];
-  const WAL_HIGH = [[180000, 0.05], [250000, 0.085], [400000, 0.10], [750000, 0.125], [1500000, 0.15], [Infinity, 0.17]];
-  const ENG_NR = [[150000, 0], [250000, 0.02], [Infinity, 0.05]];
-  const SCO_NR = [[150000, 0], [250000, 0.01], [Infinity, 0.05]];
-  const WAL_NR = [[225000, 0], [250000, 0.01], [1000000, 0.05], [Infinity, 0.06]];
-  function taxOn(price, table) {
-    let rem = price, prev = 0, total = 0;
-    for (let i = 0; i < table.length; i++) {
-      const up = table[i][0], rate = table[i][1];
-      const width = (up === Infinity ? rem : up - prev);
-      const taxable = Math.max(0, Math.min(rem, width));
-      total += taxable * rate;
-      rem -= taxable;
-      prev = up;
-      if (rem <= 0) break;
-    }
-    return total;
-  }
-  function render() {
-    const price = Math.max(0, +priceEl.value || 0);
-    const mode = buyerEl.value;
-    let e, s, w, note = "";
-    if (mode === "nonres") {
-      e = taxOn(price, ENG_NR);
-      s = taxOn(price, SCO_NR);
-      w = taxOn(price, WAL_NR);
-      note = "Non-residential freehold or lease premium. No ADS, no English 5% surcharge, no first-time buyer relief. Lease rent is not calculated.";
-    } else if (mode === "extra") {
-      e = taxOn(price, ENG_STD) + (price >= 40000 ? price * 0.05 : 0);
-      s = taxOn(price, SCO_STD) + (price >= 40000 ? price * 0.08 : 0);
-      w = taxOn(price, WAL_HIGH);
-      note = "Additional dwelling. England +5% on the whole price. Scotland +8% ADS. Wales uses the higher-rate table, not a surcharge.";
-    } else if (mode === "ftb") {
-      e = price <= 500000 ? taxOn(price, ENG_FTB) : taxOn(price, ENG_STD);
-      s = taxOn(price, SCO_FTB);
-      w = taxOn(price, WAL_MAIN);
-      note = price > 500000
-        ? "England first-time buyer relief is withdrawn above £500,000, so standard SDLT is used. Scotland still uses the £175,000 nil-rate band. Wales has no first-time buyer relief."
-        : "England nil-rate to £300,000 inside the £500,000 cap. Scotland nil-rate to £175,000. Wales: standard main rates, no separate relief.";
-    } else {
-      e = taxOn(price, ENG_STD);
-      s = taxOn(price, SCO_STD);
-      w = taxOn(price, WAL_MAIN);
-      note = "Only or replacement main home. No additional-property charge.";
-    }
-    const vals = [["England & NI", e], ["Scotland", s], ["Wales", w]];
-    vals.sort(function (a, b) { return a[1] - b[1]; });
-    document.getElementById("resultValue").textContent = vals[0][0] + " · " + gbp.format(vals[0][1]);
-    document.getElementById("outEng").textContent = gbp.format(e);
-    document.getElementById("outSco").textContent = gbp.format(s);
-    document.getElementById("outWal").textContent = gbp.format(w);
-    document.getElementById("outNote").textContent = note;
-  }
-  ["price", "buyer"].forEach(function (id) {
-    const el = document.getElementById(id);
-    el.addEventListener("input", render);
-    el.addEventListener("change", render);
-  });
-  render();
-})();
-</script>
 </body>
 </html>
