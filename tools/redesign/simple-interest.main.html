@@ -1,0 +1,129 @@
+<div class="sx" id="siCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Simple Interest Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Linear Interest Engine</span><span class="sx-badge"><span class="msym" aria-hidden="true">functions</span>I = P × r × t</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in Your Browser</span></div>
+    <h1>Simple Interest Calculator &amp; Accrual Schedule</h1>
+    <p>Calculate simple interest — interest earned or owed only on the original principal, with no compounding — for promissory notes, personal loans, bridge financing and short-term deposits, with day-count conventions and an accrual schedule.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Contract Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="principal">Principal Amount (<i>P</i>)</label><em style="color:var(--sx-muted);font-weight:500">Face value</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="principal" type="number" inputmode="decimal" min="0" step="100" value="10000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="principal" data-value="1000">$1,000</button><button type="button" data-for="principal" data-value="5000">$5,000</button><button type="button" data-for="principal" data-value="10000">$10,000</button><button type="button" data-for="principal" data-value="25000">$25,000</button><button type="button" data-for="principal" data-value="50000">$50,000</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="rate">Annual Interest Rate (<i>r</i>)</label><em style="color:var(--sx-muted);font-weight:500">Uncompounded</em></div>
+      <div class="sx-au-in np pc"><input id="rate" type="number" inputmode="decimal" min="0" max="100" step="0.05" value="7.5"><span class="suf">%</span></div>
+      <div class="sx-au-chips">Examples: <button type="button" data-for="rate" data-value="4.3">4.30%</button><button type="button" data-for="rate" data-value="7.5">7.50%</button><button type="button" data-for="rate" data-value="8.5">8.50%</button><button type="button" data-for="rate" data-value="11">11.00%</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="years">Time Horizon (<i>t</i>)</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="tOut">—</em></div>
+      <input type="hidden" id="unit" value="s1">
+      <div class="sx-seg" role="group" aria-label="Time unit" style="display:flex;margin-bottom:8px"><button type="button" data-for="unit" data-value="s1" style="flex:1">Years</button><button type="button" data-for="unit" data-value="s2" style="flex:1">Months</button><button type="button" data-for="unit" data-value="s3" style="flex:1">Exact Days</button></div>
+      <div class="sx-au-in np"><input id="years" type="number" inputmode="decimal" min="0" step="0.5" value="3" aria-label="Time"><span class="suf" id="unitSuf">Years</span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Day-Count Convention</span></div>
+      <input type="hidden" id="dc" value="s1">
+      <div class="sx-au-cat nr" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Day-count convention"><button type="button" data-for="dc" data-value="s1"><span><b>Actual / 365</b><small>Standard bank / US</small></span></button><button type="button" data-for="dc" data-value="s2"><span><b>30 / 360</b><small>Bonds &amp; commercial notes</small></span></button><button type="button" data-for="dc" data-value="s3"><span><b>Actual / 360</b><small>Money market / T-bills</small></span></button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="pr">Monthly Principal Reduction (optional)</label></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="pr" type="number" inputmode="decimal" min="0" step="50" value="0"></div>
+      <p class="sx-au-help">A pure simple-interest note repays the whole principal at maturity. Enter a monthly principal payment to accrue interest on the declining balance instead.</p>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px">Compute Simple Interest &amp; Maturity Value<span class="msym" aria-hidden="true">arrow_forward</span></button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em><span class="msym" aria-hidden="true">verified</span>Maturity Settlement</em><span>Linear</span></div>
+    <div class="k">Total Interest Accrued (<i>I</i>)</div>
+    <div class="big" id="resultValue">—</div>
+    <p>Total repayment (maturity value <i>A</i>): <b id="outTotal">—</b></p>
+    <span class="msym wm" aria-hidden="true">functions</span>
+  </section>
+  <div class="sx-in-t4" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+    <div class="sx-card"><div class="k">Daily Accrual<span class="msym" aria-hidden="true">today</span></div><b id="day">—</b><p>per day (initial balance)</p></div>
+    <div class="sx-card"><div class="k">Monthly Cost<span class="msym" aria-hidden="true">calendar_month</span></div><b id="mon">—</b><p>per month (initial balance)</p></div>
+    <div class="sx-card"><div class="k">Time to Double<span class="msym" aria-hidden="true">hourglass_top</span></div><b id="dbl">—</b><p>100 ÷ rate</p></div>
+  </div>
+  <section class="sx-card sx-hy-stack">
+    <div class="hd">Capital Allocation Ratio<span id="ratN">—</span></div>
+    <div class="bar" id="ratBar"></div>
+    <div class="lg" id="ratLg"></div>
+  </section>
+  <section class="sx-card" style="padding:18px">
+    <h3 style="display:flex;align-items:center;gap:6px;margin:0 0 6px;font-size:14px;color:var(--sx-on)"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">compare_arrows</span>Simple vs Compound Interest</h3>
+    <p style="margin:0;font-size:13px;line-height:20px;color:var(--sx-onv)" id="cmp">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Schedule</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export CSV</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Accrual Schedule</h2><p>Cumulative simple interest and balance at checkpoints through maturity.</p></div><span class="sx-au-tag" id="ledTag">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Checkpoint</th><th scope="col">Days Elapsed</th><th scope="col">Principal Outstanding</th><th scope="col">Cumulative Interest</th><th scope="col">Accrued Total Balance</th><th scope="col">Simple Rate / Equivalent Compound Rate</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Equivalent compound rate is the annual compound rate that would produce the same total by that date — it falls over time because simple interest never earns interest on interest.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">functions</span></span><h3>The Simple Interest Formula</h3><p><b>I = P · r · t</b> and the maturity value <b>A = P(1 + r · t)</b>. Simple interest accrues as a straight-line fraction of the original principal:</p><ul style="margin:0 0 10px;padding-left:18px;font-size:14px;line-height:22px;color:var(--sx-onv)"><li><b>P</b> — principal, the amount lent or deposited.</li><li><b>r</b> — annual rate as a decimal (7.5% = 0.075).</li><li><b>t</b> — time in years; for days, a day-count fraction such as days ÷ 365 (Actual/365) or days ÷ 360 (Actual/360).</li></ul><div class="sx-sg-take">Because interest is never added to the principal, the balance grows in a straight line rather than a curve.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">gavel</span></span><h3>Where Simple Interest Is Used in Practice</h3><ul style="margin:0 0 10px;padding-left:18px;font-size:14px;line-height:22px;color:var(--sx-onv)"><li><b>Auto loans:</b> many US car loans accrue simple interest daily on the outstanding balance, so paying early reduces interest.</li><li><b>Private promissory notes:</b> loans between individuals or businesses often state a simple annual rate.</li><li><b>Court judgments:</b> statutory pre- and post-judgment interest is frequently simple interest at a rate set by state law.</li><li><b>Treasury bills and money markets:</b> quoted using simple-interest day-count conventions.</li></ul><div class="sx-sg-take">Always check the agreement or the relevant statute — it defines whether interest compounds.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Unlike compound interest, simple interest is calculated only on the original principal — it doesn't earn interest on previously accumulated interest.</p>
+    <p><strong>I = P × r × t</strong> — I = interest · P = principal · r = annual rate (decimal) · t = time in years</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>When simple interest is actually used</h2>
+    <p>Most everyday financial products — mortgages, credit cards, most savings accounts — use compound interest, not simple interest. Simple interest shows up more often in specific contexts: some short-term or add-on loans, certain bonds, and basic educational examples of how interest works.</p>
+    <p>Because compound interest almost always results in more total interest (or growth) than simple interest over the same period, it's worth checking which method actually applies to any real financial product you're evaluating. For compounding, use the <a href="/financial/compound-interest-calculator.html">Compound Interest Calculator</a>.</p>
+
+    <h2>A worked example</h2>
+    <p>$8,000 at 4% simple interest for 5 years: interest is 8,000 times 0.04 times 5, or $1,600, for a total amount of $9,600.</p>
+    <p>Compare that to the same $8,000 at 4% compounded annually for 5 years, which would grow to roughly $9,733 — about $133 more, illustrating the gap between simple and compound interest even at a modest rate over a short period.</p>
+
+    <h2>Where simple interest is actually used</h2>
+    <p>While most everyday borrowing and saving compounds, simple interest still shows up in specific contexts: some short-term personal loans, certain promissory notes, add-on interest auto loans, and basic bond interest calculations all use simple interest structures.</p>
+    <p>Understanding the difference matters when comparing loan offers — a simple-interest loan and a compound-interest loan with the same stated rate can have meaningfully different total costs, especially over longer terms.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What's the difference between simple and compound interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Simple interest only accrues on the original principal. Compound interest accrues on the principal plus previously earned interest, so it grows faster over time.</p></details>
+    <details class="sx-faq"><summary>Where is simple interest commonly used?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Some short-term loans, certain bonds, and basic savings calculations use simple interest, though most bank accounts and investments compound.</p></details>
+    <details class="sx-faq"><summary>Does simple interest ever result in more money than compound interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — for the same principal, rate, and time period, compound interest always produces equal or greater growth than simple interest, since it earns returns on previously accumulated interest.</p></details>
+    <details class="sx-faq"><summary>How do I know if my loan uses simple or compound interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Check your loan agreement or ask your lender directly — most consumer loans, especially mortgages and credit cards, use some form of compound interest, but it's always worth confirming.</p></details>
+    <details class="sx-faq"><summary>Is simple interest better or worse for borrowers?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For loans, simple interest is generally better for the borrower than compound interest at the same rate, since it doesn't accumulate interest on previously accrued interest.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Financial Precision Tools</h2><p>Compounding, lending and saving calculators.</p></div>
+  <a href="/financial-calculators.html">Explore All Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>Compound Interest</b><span class="d">Daily, monthly and annual compounding growth.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Personal Loan</b><span class="d">Fixed installments, fees and amortization.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>CD Calculator</b><span class="d">Fixed-term deposit returns and APY.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/savings-goal-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">track_changes</span></span><b>Savings Goal</b><span class="d">Deposits needed to reach a target.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+</div>
+</div>
