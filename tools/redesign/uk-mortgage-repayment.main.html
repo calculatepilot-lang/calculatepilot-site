@@ -1,0 +1,147 @@
+<div class="sx" id="urCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">UK Mortgage Repayment Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>UK Mortgage Engine</span><span class="sx-badge"><span class="msym" aria-hidden="true">balance</span>Capital &amp; Interest vs Interest-Only</span><span class="sx-badge"><span class="msym" aria-hidden="true">account_balance</span>Fixed-Rate &amp; SVR Reversion</span></div>
+    <h1>UK Mortgage Repayment &amp; Interest-Only Calculator</h1>amp; Interest-Only Calculator</h1>
+    <p>Compare a capital-repayment mortgage with interest-only on the same sterling loan. Default term is 25 years — the common UK planning period — not the 30-year US product on our <a href="/financial/mortgage-calculator.html">PITI mortgage calculator</a>.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">UK Mortgage &amp; Borrowing Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset Defaults</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="price">Property Value</label><em style="color:var(--sx-muted);font-weight:500">Purchase price</em></div>
+      <div class="sx-au-in"><span class="pre">£</span><input id="price" type="number" inputmode="decimal" min="0" step="1000" value="375000"><span class="suf">GBP</span></div>
+      <div class="sx-au-chips"><button type="button" data-for="price" data-value="250000">£250k</button><button type="button" data-for="price" data-value="375000">£375k</button><button type="button" data-for="price" data-value="500000">£500k</button><button type="button" data-for="price" data-value="750000">£750k</button><button type="button" data-for="price" data-value="1000000">£1M</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="dep">Cash Deposit</label></div><div class="sx-au-in"><span class="pre">£</span><input id="dep" type="number" inputmode="decimal" min="0" step="1000" value="75000"></div></div>
+      <div><div class="sx-au-l"><span>Loan-to-Value (LTV)</span></div><div class="sx-ur-ltv"><span id="ltv">—</span><em id="depPct">—</em></div></div>
+    </div>
+    <div class="sx-ur-net"><div><span>Net Advance Borrowing</span><b id="loanOut">—</b></div><div class="rt"><span>LTV Pricing Band</span><b id="band">—</b></div></div>
+    <div>
+      <div class="sx-au-l"><label for="rate">Initial Fixed / Tracker Rate</label><em style="color:var(--sx-muted);font-weight:500">Your quoted rate</em></div>
+      <div class="sx-au-in np pc"><input id="rate" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="4.45"><span class="suf">%</span></div>
+      <div class="sx-au-chips"><button type="button" data-for="rate" data-value="3.99">3.99%</button><button type="button" data-for="rate" data-value="4.45">4.45%</button><button type="button" data-for="rate" data-value="5.25">5.25%</button><button type="button" data-for="rate" data-value="5.75">5.75%</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Mortgage Term</span><em style="color:var(--sx-on);font-family:var(--font-mono)" id="termOut">25 Years</em></div>
+      <input type="hidden" id="term" value="25">
+      <div class="sx-au-opts c6" role="group" aria-label="Mortgage term"><button type="button" data-for="term" data-value="15">15y</button><button type="button" data-for="term" data-value="20">20y</button><button type="button" data-for="term" data-value="25">25y</button><button type="button" data-for="term" data-value="30">30y</button><button type="button" data-for="term" data-value="35">35y</button><button type="button" data-for="term" data-value="40">40y</button></div>
+    </div>
+    <div class="sx-ur-fee">
+      <div><label for="fee"><b>Lender Product Fee</b></label><small>Booking &amp; arrangement cost</small><div class="sx-au-in sm" style="max-width:150px;margin-top:6px"><span class="pre">£</span><input id="fee" type="number" inputmode="decimal" min="0" step="1" value="999"></div></div>
+      <input type="hidden" id="feeMode" value="s1">
+      <div class="sx-seg" role="group" aria-label="How the fee is paid"><button type="button" data-for="feeMode" data-value="s1">Pay Upfront</button><button type="button" data-for="feeMode" data-value="s2">Add to Loan</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="fix">Initial Rate Period</label></div><div class="sx-au-sel"><select id="fix"><option value="2">2-year fix</option><option value="3">3-year fix</option><option value="5" selected>5-year fix</option><option value="10">10-year fix</option></select></div></div>
+      <div><div class="sx-au-l"><label for="svr">Follow-on SVR</label></div><div class="sx-au-in np pc"><input id="svr" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="7.75"><span class="suf">%</span></div></div>
+    </div>
+    <p class="sx-au-help" style="margin:-8px 0 0">Rate is whatever you type — this is not a live lender quote. The Standard Variable Rate applies if you don't remortgage when the initial period ends.</p>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2" style="padding:20px" aria-live="polite">
+    <div class="sx-au-l" style="margin-bottom:14px;align-items:flex-start"><div><span class="sx-kick">Monthly Mortgage Commitment</span><h2 class="sx-h-md" style="margin:4px 0 0">Capital &amp; Interest Repayment vs Interest-Only</h2></div><span class="sx-ef-grade"><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:5px;vertical-align:1px"></span>Live Model</span></div>
+    <div class="sx-ur-cards">
+      <div class="sx-ur-card pri"><span class="rib">Recommended Residential</span><h3><span class="msym" aria-hidden="true">account_balance_wallet</span>Capital &amp; Interest</h3><div class="v" id="resultValue">—</div><div class="n">Per month (principal + interest)</div>
+        <dl><dt id="ciIntL">Total Interest:</dt><dd id="ciInt">—</dd><dt>Capital Repaid:</dt><dd class="g" id="ciCap">—</dd><dt>Total Lifetime Cost:</dt><dd id="ciTot">—</dd></dl></div>
+      <div class="sx-ur-card io"><h3><span class="msym" aria-hidden="true">trending_up</span>Interest-Only Facility</h3><div class="v" id="io">—</div><div class="n g" id="ioAdv">—</div>
+        <dl><dt id="ioIntL">Total Interest:</dt><dd class="r" id="ioInt">—</dd><dt>Maturity Balance:</dt><dd class="r" id="ioBal">—</dd><dt>Total Lifetime Cost:</dt><dd id="ioTot">—</dd></dl></div>
+    </div>
+    <div class="sx-ur-anat">
+      <div class="r"><b id="anatH">Year 1 Monthly Repayment Anatomy</b><span><i style="background:var(--sx-primary)"></i><span id="anP">—</span></span><span><i style="background:var(--sx-hi2,#cbd5e1)"></i><span id="anI">—</span></span></div>
+      <div class="t"><span id="anBar" style="width:0"></span></div>
+      <p>As the loan matures, more of each payment goes to capital and less to interest.</p>
+    </div>
+    <div class="sx-ur-stress"><span class="msym" aria-hidden="true">security</span><div><b id="stH">+3.0% Rate Stress Test</b><p id="stP">—</p><p id="svrP" style="margin-top:6px">—</p></div></div>
+    <div class="sx-in-acts" style="margin-top:16px"><button type="button" class="pri" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print / Save Illustration (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Export Repayment Table (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Term Horizon &amp; Equity Accretion Ledger (Capital Repayment vs Interest-Only)</h2><p id="ledN">Forecast capital balance and equity, assuming the property value stays flat.</p></div><span style="font-size:12px;color:var(--sx-muted)">Balances at year end</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Year Milestone</th><th scope="col">Capital Monthly Pmt</th><th scope="col">Interest-Only Pmt</th><th scope="col">Remaining Capital Balance</th><th scope="col">Equity Accumulated</th><th scope="col">Remaining Interest-Only Balance</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Rate held at the initial rate for the whole term (as if you remortgage onto a similar rate at each expiry). Monthly amortisation; lenders may calculate interest daily.</span></div>
+</section>
+
+<div class="sx-ur-guide">
+  <div class="sx-card"><div class="k"><span class="msym" aria-hidden="true">real_estate_agent</span>Strategic Structuring</div><h3>When Does Interest-Only Make Sense in the UK?</h3><p>Since the 2014 Mortgage Market Review, residential interest-only lending has been much tighter: lenders typically want a large deposit and a credible, evidenced repayment strategy — such as investments, pension lump sum or sale of another property. Interest-only remains common for buy-to-let, where rent covers the interest and the property sale is the planned repayment.</p><a href="/financial/rental-yield-calculator.html">Check buy-to-let rental yield<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+  <div class="sx-card"><div class="k"><span class="msym" aria-hidden="true">trending_down</span>Refinancing Prudence</div><h3>Remortgaging &amp; SVR Cliffs: Protecting Your Margin</h3><p>When an initial fixed or tracker deal ends, most lenders move you onto their Standard Variable Rate, which is usually well above new-deal rates. Many lenders let you secure a new product several months before your deal expires, so you can switch without an early-repayment charge. The SVR line in the stress box above shows what drifting onto the SVR would cost.</p><a href="/financial/refinance-calculator.html">Test a remortgage after fees<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator differs from the US PITI page</h2>
+    <p>The job on this page is a UK capital-repayment or interest-only estimate. The job on the <a href="/financial/mortgage-calculator.html">US mortgage calculator</a> is principal, interest, property tax and homeowners insurance (PITI), with a 30-year default and a PMI discussion. Those are different products. Merging them would hide the answer that actually changes.</p>
+    <ul>
+      <li><strong>Term.</strong> 25 years is the default here. UK lenders also offer longer terms; use the selector. Do not assume 30 years.</li>
+      <li><strong>Repayment vs interest-only.</strong> Switching the product changes whether the balance falls to zero.</li>
+      <li><strong>No PMI line.</strong> UK high-LTV cost usually sits in the rate, not a separate US-style PMI premium.</li>
+      <li><strong>Purchase costs sit outside the monthly figure.</strong> Stamp Duty Land Tax, conveyancing, and broker fees are not mortgage instalments.</li>
+    </ul>
+
+    <h2>Formula</h2>
+    <p>Capital repayment uses standard fixed-rate amortisation, the same mathematics banks use for a repayment mortgage:</p>
+    <p><strong>M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</strong> — M = monthly repayment · P = loan · i = monthly rate · n = number of months</p>
+    <p>Interest-only is <code>M = P × (annual rate / 12)</code>. The original loan is still due at the end unless you have a separate repayment vehicle. This page does not model that vehicle.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · Method v2.2-UK · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2 id="worked-example">A worked sterling example (pre-computed)</h2>
+    <p>Property £300,000 · deposit £30,000 (10%) · loan £270,000 · rate 4.5% · term 25 years (300 payments). Figures use the same formula as the calculator, so the answer is readable if JavaScript is off.</p>
+    <p><strong>Repayment, 25 years</strong> — monthly payment ≈ £1,500.75 · total repaid ≈ £450,224 · interest ≈ £180,224 · balance at the end = £0.</p>
+    <p><strong>Interest-only, same loan</strong> — monthly payment ≈ £1,012.50 · interest over 25 years ≈ £303,750 if the rate never changes · balance still due at the end = £270,000.</p>
+    <p>Interest-only is cheaper each month and more expensive as a lifetime cost unless the £270,000 is repaid some other way. That trade-off is why this page is not a currency overlay of the US calculator.</p>
+
+    <h2>What this monthly figure does not include</h2>
+    <ul>
+      <li><strong>Stamp Duty Land Tax</strong> (England and Northern Ireland) — a one-off purchase cost. Use the <a href="/financial/uk-stamp-duty-calculator.html">UK Stamp Duty Calculator</a> for the 1 April 2025 residential bands, then confirm on <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener noreferrer">GOV.UK</a>.</li>
+      <li><strong>Land Transaction Tax / Land and Buildings Transaction Tax</strong> — Wales and Scotland use different regimes: <a href="/financial/wales-ltt-calculator.html">Wales LTT</a> and <a href="/financial/scotland-lbtt-calculator.html">Scotland LBTT</a>.</li>
+      <li><strong>Council tax, buildings insurance, ground rent, service charge</strong> — household costs, not lender repayment.</li>
+      <li><strong>Early-repayment charges</strong> and broker fees. (Product fees and the fixed-to-SVR switch are modelled above.)</li>
+    </ul>
+    <p>For a regulated view of affordability, start with <a href="https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-calculator" rel="noopener noreferrer">MoneyHelper’s mortgage calculators</a>, then confirm with a lender quote.</p>
+
+    <h2>Who should use the other mortgage page instead</h2>
+    <ul>
+      <li>Anyone modelling US property tax plus homeowners insurance inside the monthly housing cost — that is the <a href="/financial/mortgage-calculator.html">PITI calculator</a>.</li>
+      <li>Anyone who needs a full principal schedule — <a href="/financial/amortization-calculator.html">amortisation</a>.</li>
+      <li>Anyone modelling a monthly overpayment — <a href="/financial/uk-mortgage-overpayment-calculator.html">UK mortgage overpayment</a>.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why is the default term 25 years, not 30?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A 25-year term is still a common UK planning default. Many UK lenders also offer 30, 35 or 40 years depending on age and affordability. This page lets you change the term. The US PITI calculator on this site defaults to 30 years because that is the common US product, not because 30 years is universal.</p></details>
+    <details class="sx-faq"><summary>What is the difference between repayment and interest-only?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A repayment (capital-and-interest) mortgage pays down the loan each month. An interest-only mortgage pays only the interest; the original loan is still due at the end unless you have a separate repayment vehicle. This calculator shows both on the same inputs.</p></details>
+    <details class="sx-faq"><summary>Does this include Stamp Duty Land Tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. SDLT in England and Northern Ireland is a one-off purchase cost, not a monthly mortgage line. Use the <a href="/financial/uk-stamp-duty-calculator.html">UK Stamp Duty Calculator</a> for the 1 April 2025 residential bands, first-time buyer relief and additional-property surcharge.</p></details>
+    <details class="sx-faq"><summary>Is PMI part of a UK mortgage payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Private mortgage insurance is a US product. In the UK, a high loan-to-value ratio usually means a higher interest rate, not a separate PMI line. Council tax, buildings insurance and ground rent are also separate from the lender repayment.</p></details>
+    <details class="sx-faq"><summary>Are these figures a lender offer?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. This is a planning estimate using the standard amortisation formula. Use MoneyHelper and a regulated adviser or lender quote before you commit.</p></details>
+    <p class="sx-trust" style="margin-top:16px">Estimate only. UK repayment / interest-only · method v2.2-UK · last verified 27 Sep 2026 · <a href="/methodology.html">sources and verification</a> · <a href="/about.html">who builds CalculatePilot</a></p>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Next Calculation</h2><p>Purchase taxes and mortgage tools for UK buyers.</p></div>
+  <a href="/financial-calculators.html">View all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/uk-stamp-duty-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">gavel</span></span><b>UK Stamp Duty Calculator</b><span class="d">SDLT for England &amp; Northern Ireland.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/scotland-lbtt-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">landscape</span></span><b>Scotland LBTT Calculator</b><span class="d">Land and Buildings Transaction Tax.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/wales-ltt-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">castle</span></span><b>Wales LTT Calculator</b><span class="d">Land Transaction Tax for Welsh homes.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/uk-mortgage-overpayment-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>UK Mortgage Overpayment</b><span class="d">Interest and years saved by overpaying.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
