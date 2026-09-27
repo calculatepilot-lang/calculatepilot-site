@@ -1,0 +1,122 @@
+<div class="sx" id="iwCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Ideal Weight Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Devine · Robinson · Miller · Hamwi</span><span class="sx-badge"><span class="msym" aria-hidden="true">monitor_weight</span>BMI Healthy Range</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Ideal Weight Calculator — 4 Formulas &amp; Healthy Range</h1>
+    <p>Estimate a reference ideal body weight from your height and sex using the Devine, Robinson, Miller and Hamwi formulas side by side, adjusted for frame size, and compare it with the healthy BMI range for your height.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s2"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">Imperial</button><button type="button" data-for="u" data-value="s2" style="flex:1">Metric</button></div></div>
+      <div><div class="sx-au-l"><span>Sex</span></div><input type="hidden" id="sex" value="s1"><div class="sx-seg" role="group" aria-label="Sex" style="display:flex"><button type="button" data-for="sex" data-value="s1" style="flex:1">Male</button><button type="button" data-for="sex" data-value="s2" style="flex:1">Female</button></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Height</span><em style="color:var(--sx-muted);font-weight:500" id="hAlt">—</em></div>
+      <div class="sx-au-in np" id="hMet"><input id="cm" type="number" inputmode="decimal" min="120" max="230" step="0.5" value="175" aria-label="Height in centimetres"><span class="suf">cm</span></div>
+      <div class="sx-au-g2" id="hImp" hidden><div class="sx-au-in np"><input id="ft" type="number" inputmode="numeric" min="4" max="7" step="1" value="5" aria-label="Height in feet"><span class="suf">ft</span></div><div class="sx-au-in np"><input id="inch" type="number" inputmode="decimal" min="0" max="11.9" step="0.5" value="9" aria-label="Height in inches"><span class="suf">in</span></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Body Frame</span><a href="/health/body-frame-size-calculator.html" style="font-size:12px;font-weight:600">Find your frame →</a></div>
+      <input type="hidden" id="frame" value="0">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Body frame"><button type="button" data-for="frame" data-value="-10">Small (−10%)</button><button type="button" data-for="frame" data-value="0">Medium</button><button type="button" data-for="frame" data-value="10">Large (+10%)</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cw">Current Weight (optional)</label></div>
+      <div class="sx-au-in np"><input id="cw" type="number" inputmode="decimal" min="0" max="700" step="0.5" value="" placeholder="To compare"><span class="suf" id="wU">kg</span></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Ideal Weight</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Ideal body weight (Devine)</span><span class="sx-ef-grade" id="frTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Range across 4 formulas</span><b id="rg">—</b></div><div><span>Healthy BMI range (18.5–24.9)</span><b id="bmi">—</b></div></div>
+    <div class="gain neg" id="cmpBox"><span id="cmpL">Add your current weight to compare</span><b id="cmpV">—</b></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">science</span>By Formula</span><span id="frN">Medium frame</span></div>
+    <div class="l"><span>Devine (1974)</span><b id="f1">—</b></div>
+    <div class="l"><span>Robinson (1983)</span><b id="f2">—</b></div>
+    <div class="l"><span>Miller (1983)</span><b id="f3">—</b></div>
+    <div class="l"><span>Hamwi (1964)</span><b id="f4">—</b></div>
+    <div class="l t"><span>Average of the four</span><b id="fa">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/bmi-calculator.html"><span class="msym" aria-hidden="true">monitor_weight</span>BMI Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Ideal Weight by Height</h2><p id="tbN">Devine formula and healthy BMI range at nearby heights.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Height</th><th scope="col">Devine</th><th scope="col">Formula Range</th><th scope="col">Healthy BMI Range</th></tr></thead>
+    <tbody id="htTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>The Devine formula, originally developed for medication dosing, is one of the most commonly cited reference formulas for ideal body weight. Each formula starts from a base weight at 5 feet (152.4 cm) and adds a fixed amount per inch above that:</p>
+    <ul>
+      <li><strong>Devine (1974):</strong> men 50 kg + 2.3 kg per inch over 5 ft · women 45.5 kg + 2.3 kg per inch</li>
+      <li><strong>Robinson (1983):</strong> men 52 kg + 1.9 kg per inch · women 49 kg + 1.7 kg per inch</li>
+      <li><strong>Miller (1983):</strong> men 56.2 kg + 1.41 kg per inch · women 53.1 kg + 1.36 kg per inch</li>
+      <li><strong>Hamwi (1964):</strong> men 48 kg + 2.7 kg per inch · women 45.5 kg + 2.2 kg per inch</li>
+    </ul>
+    <p>The frame option applies the common ±10% convention (originally used with the Hamwi method). This is a population reference, not a personal target — body composition and frame size vary widely.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the original published formulas · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Limitations of ideal weight formulas</h2>
+    <p>These formulas don't account for muscle mass, bone structure, or individual body composition, so they're best treated as a general reference point rather than a personal goal. They were designed for adults around 5 ft and taller; below that they are less reliable.</p>
+
+    <h2>A worked example</h2>
+    <p>A man who is 180 cm tall: that's about 70.9 inches, or 10.9 inches over 5 feet. Using the Devine formula: 50 plus (2.3 times 10.9) equals about 75.0 kg, about 165 lb.</p>
+    <p>For a woman at the same height: 45.5 plus (2.3 times 10.9) equals about 70.5 kg, about 155 lb — illustrating the roughly 10 lb (4.5 kg) difference the formula applies between sexes at the same height.</p>
+
+    <h2>Ideal weight in clinical use</h2>
+    <p>Clinicians use ideal body weight — usually the Devine formula — for some medication doses and ventilator settings. When someone's actual weight is well above their ideal weight, an <strong>adjusted body weight</strong> (ideal weight + 0.4 × (actual − ideal)) is sometimes used instead. <strong>Medical information, not medical advice:</strong> dosing decisions are made by your healthcare team.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li>Devine BJ. Gentamicin therapy. Drug Intell Clin Pharm 1974;8:650–655.</li>
+      <li>Robinson JD, Lupkiewicz SM, Palenik L, et al. Determination of ideal body weight for drug dosage calculations. Am J Hosp Pharm 1983;40:1016–1019.</li>
+      <li>Miller DR, Carlson JD, Loyd BJ, Day BJ. Determining ideal body weight. Drug Intell Clin Pharm 1983;17:673.</li>
+      <li>Hamwi GJ. Therapy: changing dietary concepts. In: Diabetes Mellitus: Diagnosis and Treatment. American Diabetes Association, 1964.</li>
+      <li><a href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html" rel="noopener noreferrer">CDC — Adult BMI categories</a></li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is this formula still considered accurate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's a commonly used clinical reference, particularly for medication dosing, but it's a population average and doesn't account for individual differences in build or muscle mass.</p></details>
+    <details class="sx-faq"><summary>Why do different ideal weight formulas give different results?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Each formula (Devine, Robinson, Miller, Hamwi) was derived from different population data and uses slightly different constants, so results typically vary by a few kilograms between formulas for the same height. None is definitively 'correct' — treat them as general reference points rather than precise targets.</p></details>
+    <details class="sx-faq"><summary>Is BMI or ideal weight formula more useful?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Both have similar limitations — neither accounts for muscle mass or individual body composition, so pairing either with other measures like body fat percentage gives a fuller picture.</p></details>
+    <details class="sx-faq"><summary>How does body frame size change ideal weight?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common convention subtracts 10% for a small frame and adds 10% for a large frame. You can estimate your frame from your wrist circumference and height with the body frame size calculator.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Other ways to look at a healthy weight.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/healthy-weight-range-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_weight</span></span><b>Healthy Weight Range</b><span class="d">Weight range for a healthy BMI.</span><span class="f">Check range<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/body-frame-size-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">accessibility_new</span></span><b>Body Frame Size</b><span class="d">Small, medium or large frame from your wrist.</span><span class="f">Find your frame<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/body-fat-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">straighten</span></span><b>Body Fat Calculator</b><span class="d">Body composition beyond scale weight.</span><span class="f">Estimate body fat<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calorie Calculator</b><span class="d">Calories and a timeline to reach a goal weight.</span><span class="f">Plan your goal<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
