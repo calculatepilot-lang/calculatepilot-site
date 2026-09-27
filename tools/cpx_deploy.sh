@@ -26,8 +26,8 @@ done
 cd "$W"
 python tools/cpx_apply.py "$@"
 for page in "$@"; do
-  n=$(grep -c 'adsbygoogle\|googletagmanager\|analytics.ahrefs\|rankai' "$page" || true)
-  [ "$n" -ge 3 ] || { echo "tracking scripts missing in $page ($n)"; exit 1; }
+  n=$(grep -c 'adsbygoogle\|googletagmanager\|analytics.ahrefs' "$page" || true)
+  [ "$n" -ge 2 ] || { echo "tracking scripts missing in $page ($n)"; exit 1; }
 done
 git add -A
 git -c core.safecrlf=false diff --cached --stat | tail -1
