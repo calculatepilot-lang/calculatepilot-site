@@ -33,6 +33,7 @@
 <meta name="twitter:description" content="Calculate a suggested monthly budget split between needs, wants, and savings using the popular 50/30/20 rule. Free, instant, formula shown. No signup.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260927v">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,7 +87,11 @@
     }  ]
 }
 </script>
-<script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script></head>
+<script src="https://rankai.ai/apply.js" data-rankai-id="cmuatpvmp000214wzocy8ihac" crossorigin="anonymous" defer></script><!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,cancel,celebration,check_circle,chevron_right,compare_arrows,credit_card_off,download,expand_more,health_and_safety,home,info,lock,menu_book,payments,pie_chart,print,query_stats,restart_alt,share,shield,sync,table_chart,trending_up,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+</head>
 <body>
 
 <header class="site-header">
@@ -104,119 +109,148 @@
 </header>
 
 <main>
+<div class="sx" id="bdCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">50/30/20 Budget Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / Budget Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Needs · Wants · Savings Framework</span><span class="sx-badge" style="background:var(--sx-sc);color:var(--sx-emt)"><span class="msym" aria-hidden="true">menu_book</span>Warren 50/30/20 Rule</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Privacy</span></div>
+    <h1>50/30/20 Budget Calculator</h1>
+    <p>See a suggested budget for needs (50%), wants (30%), and savings &amp; debt payoff (20%) from your take-home pay — then compare it with what you actually spend.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Household Income &amp; Cashflow</h2><p>After-tax (take-home) earnings</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-lr"><div class="sx-au-l"><label for="inc">Net Take-Home Pay</label></div><input type="hidden" id="mode" value="month"><div class="sx-seg xs" role="group" aria-label="Income entered as"><button type="button" data-for="mode" data-value="month">Monthly</button><button type="button" data-for="mode" data-value="year">Annual</button></div></div>
+      <div class="sx-au-in pc"><span class="pre">$</span><input id="inc" type="number" inputmode="decimal" min="0" step="100" value="4800" style="font-size:18px;font-weight:600"><span class="suf" id="incUnit">/ month</span></div>
+      <div class="sx-au-chips">Presets: <button type="button" class="mp" data-m="3500">$3,500</button><button type="button" class="mp" data-m="4800">$4,800</button><button type="button" class="mp" data-m="6500">$6,500</button><button type="button" class="mp" data-m="8000">$8,000</button><button type="button" class="mp" data-m="10000">$10,000</button></div>
+      <div class="sx-bd-freq"><div><span>Bi-weekly</span><b id="fBi">—</b></div><div><span>Semi-monthly</span><b id="fSemi">—</b></div><div><span>Weekly</span><b id="fWk">—</b></div></div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><span>Budgeting Methodology Variant</span><em id="varNote">Warren Standard</em></div>
+      <input type="hidden" id="split" value="s50-30-20">
+      <div class="sx-au-cat" role="group" aria-label="Budget split">
+        <button type="button" data-for="split" data-value="s50-30-20"><i></i><span><b>Classic 50/30/20</b><small>Balanced benchmark baseline</small></span></button>
+        <button type="button" data-for="split" data-value="s60-20-20"><i></i><span><b>HCOL 60/20/20</b><small>High rent / mortgage metro</small></span></button>
+        <button type="button" data-for="split" data-value="s40-15-45"><i></i><span><b>FIRE 40/15/45</b><small>Aggressive early retirement</small></span></button>
+        <button type="button" data-for="split" data-value="s50-10-40"><i></i><span><b>Debt Payoff 50/10/40</b><small>Snowball / avalanche sprint</small></span></button>
+      </div>
+    </div>
+
+    <div class="sx-bd-sp">
+      <div class="h"><span><span class="msym" aria-hidden="true">tune</span>Your Actual Monthly Spending</span><span id="spSum">Sum: —</span></div>
+      <div class="row"><div class="r"><label for="aN">Needs (Fixed &amp; Survival)</label><span class="sx-au-in"><span class="pre">$</span><input id="aN" type="number" inputmode="decimal" min="0" step="25" value="2350"></span></div><input class="sx-range2" type="range" min="0" max="10000" step="25" value="2350" data-sync="aN" aria-label="Needs spending"><p>Rent or mortgage, utilities, groceries, insurance, minimum debt payments · target <b id="tN">—</b></p></div>
+      <div class="row"><div class="r"><label for="aW">Wants (Lifestyle &amp; Dining)</label><span class="sx-au-in"><span class="pre">$</span><input id="aW" type="number" inputmode="decimal" min="0" step="25" value="1500"></span></div><input class="sx-range2" type="range" min="0" max="10000" step="25" value="1500" data-sync="aW" aria-label="Wants spending"><p>Dining out, travel, subscriptions, hobbies · target <b id="tW">—</b></p></div>
+      <div class="row"><div class="r"><label for="aS">Savings &amp; Extra Debt Payoff</label><span class="sx-au-in"><span class="pre">$</span><input id="aS" type="number" inputmode="decimal" min="0" step="25" value="950"></span></div><input class="sx-range2" type="range" min="0" max="10000" step="25" value="950" data-sync="aS" aria-label="Savings"><p>Retirement, emergency fund, payments above the minimum · target <b id="tS">—</b></p></div>
+    </div>
+
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">sync</span>Compute Cashflow Allocation</button>
+  </div>
+</form>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Budget Calculator</h1>
-    <p class="lede">See a suggested budget breakdown for needs, wants, and savings using the popular 50/30/20 rule.</p>
-  </div>
-</section>
-
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="monthlyIncome">Monthly take-home income</label>
-        <input type="number" id="monthlyIncome" value="4500" step="100" min="0">
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Needs budget (50%)</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Wants (30%)</span><span id="outWants">—</span></div>
-          <div class="readout-row"><span>Savings & debt payoff (20%)</span><span id="outSavings">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-    <h2>How this calculator works</h2>
-    <p>The 50/30/20 rule is a simple budgeting guideline: 50% of after-tax income toward needs, 30% toward wants, and 20% toward savings and extra debt payments.</p>
-    <div class="formula-box">
-      Needs = 50% · Wants = 30% · Savings = 20%<br>
-      <span style="color:var(--slate); font-family:var(--font-body); font-size:0.85rem;">Based on monthly take-home (after-tax) pay.</span>
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-bd-ver" aria-live="polite">
+    <div class="hd">
+      <div><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><div><small>Allocation Verdict</small><h2>Target Monthly Cashflow</h2></div></div>
+      <div class="rt"><b id="resultValue">—</b><span>Net Monthly Budget</span></div>
     </div>
+    <div class="sx-bd-seg">
+      <div class="lb"><span><i style="background:var(--sx-primary)"></i><span id="lN">50% Needs</span></span><span><i style="background:var(--sx-secondary)"></i><span id="lW">30% Wants</span></span><span><i style="background:var(--sx-tertiary)"></i><span id="lS">20% Savings</span></span></div>
+      <div class="bar" id="segBar"></div>
+      <div class="am"><span id="mN">—</span><span id="mW">—</span><span id="mS">—</span></div>
+    </div>
+    <div class="sx-bd-cards">
+      <div><div class="k"><span id="cNl">Needs (50%)</span><span class="msym" aria-hidden="true">home</span></div><b><span id="cN">—</span><small>/mo</small></b><span class="y" id="yN">—</span><p>Housing, utilities, groceries, insurance and required minimum debt payments.</p></div>
+      <div><div class="k"><span id="cWl">Wants (30%)</span><span class="msym" aria-hidden="true">celebration</span></div><b><span id="cW">—</span><small>/mo</small></b><span class="y" id="yW">—</span><p>Dining out, travel, entertainment, subscriptions and upgrades.</p></div>
+      <div><div class="k"><span id="cSl">Savings (20%)</span><span class="msym" aria-hidden="true">trending_up</span></div><b><span id="cS">—</span><small>/mo</small></b><span class="y" id="yS">—</span><p>Retirement accounts, a 3–6 month emergency fund and extra debt payoff.</p></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-au-audit">
+    <h3 style="justify-content:space-between;flex-wrap:wrap"><span style="display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">health_and_safety</span>Budget Health Diagnostic</span><span class="sx-ef-grade" id="score">—</span></h3>
+    <ul>
+      <li id="d1"><span class="msym" aria-hidden="true">check_circle</span><div><div class="t">Needs Ceiling Compliance<em>PASSED</em></div><p id="d1t">—</p></div></li>
+      <li id="d2"><span class="msym" aria-hidden="true">check_circle</span><div><div class="t">Discretionary Wants Leakage<em>PASSED</em></div><p id="d2t">—</p></div></li>
+      <li id="d3"><span class="msym" aria-hidden="true">check_circle</span><div><div class="t">Savings &amp; Investing Target<em>PASSED</em></div><p id="d3t">—</p></div></li>
+    </ul>
+    <div class="sx-bd-foot"><span class="u"><i id="uDot"></i>Net Unallocated Reserve: <b id="unalloc">—</b></span><span class="b"><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export (.CSV)</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Plan</button><button type="button" data-action="share" aria-label="Share"><span class="msym" aria-hidden="true">share</span></button></span></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card r2 sx-au-sec" id="ledger">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="font-size:22px;line-height:30px;display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">table_chart</span>Itemized 50/30/20 Expense Classification Ledger</h2><p class="lead" style="margin-bottom:20px">How to classify spending that sits on the boundary between needs and wants.</p></div><span class="sx-au-tag">Real-time Reconciliation</span></div>
+  <div class="sx-scroll"><table class="sx-au-st sx-bd-led">
+    <thead><tr><th scope="col">Pillar &amp; Target</th><th scope="col" style="text-align:left">Inclusions &amp; Guidelines</th><th scope="col">Target Ceiling</th><th scope="col">Current Allocated</th><th scope="col">Variance Delta</th></tr></thead>
+    <tbody id="ledBody"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">menu_book</span>The Philosophy of 50/30/20</h3>
+    <p>Popularized by Elizabeth Warren and Amelia Warren Tyagi in their 2005 book <i>All Your Worth: The Ultimate Lifetime Money Plan</i>, the 50/30/20 framework replaces line-by-line tracking with three simple buckets.</p>
+    <div class="fx"><b>Take-Home Pay = Needs (50%) + Wants (30%) + Savings &amp; Debt (20%)</b><span>Percentages apply to after-tax pay</span></div>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">info</span><span><b>The debt dichotomy:</b> minimum debt payments keep you current, so they count as <b>needs</b>. Anything above the minimum builds wealth, so it counts as <b>savings</b>.</span></li>
+      <li><span class="msym" aria-hidden="true">info</span><span><b>After-tax only:</b> the split applies to take-home pay after income taxes and pre-tax payroll deductions such as employer health insurance.</span></li>
+    </ul>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">compare_arrows</span>Alternative Budgeting Benchmarks</h3>
+    <p>If 50/30/20 doesn't fit your local costs or life stage, compare these widely used alternatives:</p>
+    <ul class="sx-bd-alt">
+      <li><div><b>70/20/10 Rule<em>Family Standard</em></b><p>70% living expenses, 20% savings &amp; investing, 10% debt or giving.</p></div></li>
+      <li><div><b>80/20 "Pay Yourself First"<em>Low Overhead</em></b><p>Move 20% to savings automatically; spend the remaining 80% freely.</p></div></li>
+      <li><div><b>Zero-Based Budgeting<em>High Precision</em></b><p>Give every dollar a job until unallocated cash reaches exactly zero.</p></div><button type="button" id="zeroBtn" title="Put any unallocated money into savings">Balance to $0</button></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>The 50/30/20 rule is a simple budgeting guideline: 50% of after-tax income toward needs, 30% toward wants, and 20% toward savings and extra debt payments. Choose a different split above if your situation calls for it, then enter what you actually spend in each bucket to see where you're over or under.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>Adapting the 50/30/20 rule to your situation</h2>
     <p>The 50/30/20 split is a general starting framework, not a strict rule. In high cost-of-living areas, needs might reasonably consume more than 50% of income, requiring adjustments to the wants or savings percentages. Someone aggressively paying off debt might flip the wants and savings percentages to accelerate payoff.</p>
     <p>The most useful version of any budget is one you'll actually follow — treat this split as a benchmark to compare against your actual spending, then adjust based on your specific goals and constraints.</p>
+
     <h2>A worked example</h2>
     <p>At $5,200/month take-home pay, the 50/30/20 split suggests $2,600 for needs, $1,560 for wants, and $1,040 for savings and extra debt payments.</p>
     <p>If actual needs come in higher (say $3,200 due to high local rent), the wants and savings categories would need to shrink proportionally to stay within the same total budget — a common real-world adjustment to the standard split.</p>
-    <h2>Adjusting the 50/30/20 split for your situation</h2>
-    <p>The 50/30/20 rule is a starting guideline, not a rigid formula. In high cost-of-living areas, needs can easily exceed 50% of income, requiring the wants and savings percentages to flex downward. Someone aggressively paying off debt or saving for an early retirement might instead target a 50/20/30 or even 50/10/40 split.</p>
-    <p>The core value of the framework isn't the exact percentages — it's having a simple, memorable structure to check spending against, rather than tracking every category in detail.</p>
 
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>What counts as a 'need' vs. a 'want'?</h3>
-      <p>Needs are essentials like rent, utilities, groceries, and minimum debt payments. Wants are discretionary spending like dining out, entertainment, and subscriptions.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Is 50/30/20 right for everyone?</h3>
-      <p>It's a general starting guideline — people in high cost-of-living areas or with significant debt may need to adjust the splits.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What if my needs already exceed 50% of my income?</h3>
-      <p>This is common in high-cost areas — consider whether any 'needs' have room to shrink (like housing or transportation), or adjust the wants and savings percentages to reflect your real constraints.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Does debt payoff count as a 'need' or 'savings'?</h3>
-      <p>Minimum debt payments are generally treated as needs, while any extra payments beyond the minimum are often counted within the savings/debt-payoff 20% category.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What if my needs are more than 50% of my income?</h3>
-      <p>This is common in high cost-of-living areas — when it happens, most people reduce the wants category first, since it's the most discretionary, rather than cutting essential needs or savings.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
-      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
-      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
-      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>What counts as a 'need' vs. a 'want'?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Needs are essentials like rent, utilities, groceries, and minimum debt payments. Wants are discretionary spending like dining out, entertainment, and subscriptions.</p></details>
+    <details class="sx-faq"><summary>Is 50/30/20 right for everyone?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's a general starting guideline — people in high cost-of-living areas or with significant debt may need to adjust the splits.</p></details>
+    <details class="sx-faq"><summary>What if my needs already exceed 50% of my income?<span class="msym" aria-hidden="true">expand_more</span></summary><p>This is common in high-cost areas — consider whether any 'needs' have room to shrink (like housing or transportation), or adjust the wants and savings percentages to reflect your real constraints.</p></details>
+    <details class="sx-faq"><summary>Does debt payoff count as a 'need' or 'savings'?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Minimum debt payments are generally treated as needs, while any extra payments beyond the minimum are often counted within the savings/debt-payoff 20% category.</p></details>
+    <details class="sx-faq"><summary>What if my needs are more than 50% of my income?<span class="msym" aria-hidden="true">expand_more</span></summary><p>This is common in high cost-of-living areas — when it happens, most people reduce the wants category first, since it's the most discretionary, rather than cutting essential needs or savings.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Engines</h2><p>Build on your budget.</p></div>
+  <a href="/financial-calculators.html">View all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shield</span></span><b>Emergency Fund</b><span class="d">Size your 3 to 6-month cash cushion from your monthly needs.</span><span class="f">Calculate Buffer<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Paycheck Calculator</b><span class="d">Net take-home pay after federal, state and FICA taxes.</span><span class="f">Calculate Paycheck<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">credit_card_off</span></span><b>Debt Payoff Calculator</b><span class="d">Put your savings bucket to work with snowball or avalanche payoff.</span><span class="f">Eliminate Debt<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Compound Interest</b><span class="d" id="relCI">Forecast long-term growth when you invest your monthly savings.</span><span class="f">Simulate Growth<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -294,7 +328,8 @@
 </footer>
 
 <script src="/js/currency-format.js?v=3d1747f9"></script>
-<script src="/js/budget.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260927v"></script>
+<script src="/js/calc/budget.js?v=20260927v"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
