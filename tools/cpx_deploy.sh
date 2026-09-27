@@ -17,11 +17,18 @@ git worktree add -q "$W" origin/main -b "cpx-deploy-$$"
 trap 'cd "$ROOT"; git worktree remove --force "$W" >/dev/null 2>&1 || true; git branch -D -q "cpx-deploy-$$" >/dev/null 2>&1 || true' EXIT
 
 copy() { mkdir -p "$W/$(dirname "$1")"; cp "$ROOT/$1" "$W/$1"; }
-copy css/cp-calc.css; copy js/cp-calc.js; copy tools/cpx_apply.py; copy tools/cpx_deploy.sh
+copy css/cp-calc.css; copy js/cp-calc.js; copy tools/cpx_apply.py; copy tools/cpx_deploy.sh; copy tools/cpx_newpage.py; copy tools/cpx_register.py
 for page in "$@"; do
   slug="$(basename "$page" .html)"; slug="${slug%-calculator}"
   copy "js/calc/$slug.js"; copy "tools/redesign/$slug.main.html"
   [ -f "tools/redesign/$slug.head.json" ] && copy "tools/redesign/$slug.head.json"
+  # brand-new page: seed it from its shell and register it in the site indexes
+  if [ ! -f "$W/$page" ] && [ -f "tools/redesign/$slug.shell.html" ]; then
+    copy "tools/redesign/$slug.shell.html"; cp "$ROOT/tools/redesign/$slug.shell.html" "$W/$page"
+  fi
+  if [ -f "tools/redesign/$slug.register.json" ]; then
+    copy "tools/redesign/$slug.register.json"; (cd "$W" && python tools/cpx_register.py "$slug")
+  fi
 done
 cd "$W"
 python tools/cpx_apply.py "$@"
