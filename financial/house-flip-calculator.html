@@ -31,6 +31,7 @@
 <meta name="twitter:description" content="Estimate the profit and ROI on a house flip based on purchase price, rehab costs, and expected resale value. Free, instant, formula shown. No signup.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260928g">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,6 +73,10 @@
     }  ]
 }
 </script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,account_balance_wallet,apartment,arrow_forward,check_circle,chevron_right,construction,csv,east,expand_more,functions,gavel,handyman,home,home_work,info,percent,picture_as_pdf,query_stats,real_estate_agent,receipt_long,restart_alt,savings,schedule,sell,tune,verified,warning&display=block">
+<!-- /cpx-head-extra -->
 </head>
 <body>
 
@@ -90,118 +95,154 @@
 </header>
 
 <main>
+<div class="sx" id="hfCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">House Flip Profit Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/financial-calculators.html">Financial Calculators</a> / House Flip Profit Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>70% Rule Underwriting</span><span class="sx-badge">Holding Cost Modeling</span><span class="sx-badge">Net Profit &amp; ROI</span></div>
+    <h1>House Flip Profit Calculator &amp; ARV Deal Analyzer</h1>
+    <p>Estimate your profit and return on a house flip from purchase price, rehab costs, financing, holding costs and resale value — with a 70% rule check and a delay stress test.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Acquisition &amp; Scope Parameters</h2><p>Purchase, rehab scope, financing and holding period</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset Defaults</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-lr"><div class="sx-au-l"><label for="arv">Target After-Repair Value (ARV)</label></div><div class="sx-au-chips r">Presets: <button type="button" data-for="arv" data-value="300000">$300k</button><button type="button" data-for="arv" data-value="450000">$450k</button><button type="button" data-for="arv" data-value="600000">$600k</button><button type="button" data-for="arv" data-value="850000">$850k</button></div></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="arv" type="number" inputmode="decimal" min="0" step="5000" value="450000"></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="buy">Target Purchase Price</label><em class="mu" id="maoNote">70% MAO: —</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="buy" type="number" inputmode="decimal" min="0" step="1000" value="280000"></div>
+      <div class="sx-hf-warn" id="maoWarn"><span><span class="msym" aria-hidden="true">info</span><span id="maoTxt">—</span></span><span id="pctArv">—</span></div>
+      <div class="sx-au-g2" style="gap:12px;margin-top:10px"><div><label for="bcc" style="display:block;font-size:11px;color:var(--sx-muted);margin-bottom:3px">Buyer Closing Costs</label><div class="sx-au-in sm np pc"><input id="bcc" type="number" inputmode="decimal" min="0" max="10" step="0.1" value="1.5"><span class="suf">% of price</span></div></div></div>
+    </div>
+    <div class="sx-hf-rehab">
+      <div class="h"><span><span class="msym" aria-hidden="true">construction</span>Total Rehab / Renovation Budget</span><b id="rehabTot">—</b></div>
+      <div class="sx-au-g3" style="gap:10px">
+        <div><label for="r1">Cosmetic &amp; Paint</label><div class="sx-au-in sm"><span class="pre">$</span><input id="r1" type="number" inputmode="decimal" min="0" step="500" value="20000"></div></div>
+        <div><label for="r2">Mechanical &amp; HVAC</label><div class="sx-au-in sm"><span class="pre">$</span><input id="r2" type="number" inputmode="decimal" min="0" step="500" value="15000"></div></div>
+        <div><label for="r3">Kitchen &amp; Baths</label><div class="sx-au-in sm"><span class="pre">$</span><input id="r3" type="number" inputmode="decimal" min="0" step="500" value="25000"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Project Timeline &amp; Holding Duration</span><em id="moOut">6 Months</em></div>
+      <input type="hidden" id="mo" value="6">
+      <div class="sx-au-opts" role="group" aria-label="Holding months"><button type="button" data-for="mo" data-value="4">4 Months</button><button type="button" data-for="mo" data-value="6">6 Months</button><button type="button" data-for="mo" data-value="9">9 Months</button><button type="button" data-for="mo" data-value="12">12 Months</button></div>
+      <input class="sx-range2" type="range" min="1" max="24" step="1" value="6" data-sync="mo" aria-label="Holding months" style="margin-top:12px">
+    </div>
+    <div class="sx-fr-sec">
+      <div class="sx-au-l"><span>Financing Capital Structure</span></div>
+      <input type="hidden" id="fin" value="hm">
+      <div class="sx-seg" role="group" aria-label="Financing" style="display:flex;margin-bottom:12px"><button type="button" data-for="fin" data-value="hm" style="flex:1">Hard Money / Private Debt</button><button type="button" data-for="fin" data-value="cash" style="flex:1">Cash / Self-Funded</button></div>
+      <div class="sx-hf-fin" id="finRow">
+        <div><label for="ltc">Loan-to-Cost (LTC)</label><div class="sx-au-in sm np pc"><input id="ltc" type="number" inputmode="decimal" min="0" max="100" step="1" value="85"><span class="suf">%</span></div><small id="ltcN">—</small></div>
+        <div><label for="apr">Interest Rate (APR)</label><div class="sx-au-in sm np pc"><input id="apr" type="number" inputmode="decimal" min="0" max="30" step="0.25" value="11.5"><span class="suf">%</span></div><small style="color:var(--sx-muted)">Interest-only, monthly</small></div>
+        <div><label for="pts">Points / Origination</label><div class="sx-au-in sm np pc"><input id="pts" type="number" inputmode="decimal" min="0" max="10" step="0.25" value="2"><span class="suf">pts</span></div><small id="ptsN">—</small></div>
+      </div>
+    </div>
+    <div class="sx-hf-two">
+      <div><b><span class="msym" aria-hidden="true">receipt_long</span>Monthly Carrying Costs</b>
+        <label for="c1">Property Taxes<input id="c1" type="number" min="0" step="10" value="450" aria-label="Property taxes per month"></label>
+        <label for="c2">Builder's Risk Insurance<input id="c2" type="number" min="0" step="10" value="180" aria-label="Insurance per month"></label>
+        <label for="c3">Utilities &amp; Site Security<input id="c3" type="number" min="0" step="10" value="220" aria-label="Utilities per month"></label>
+        <label for="c4">HOA &amp; Municipal Fees<input id="c4" type="number" min="0" step="10" value="0" aria-label="HOA per month"></label>
+        <div class="tot"><span>Monthly carry</span><span id="carryMo">—</span></div></div>
+      <div><b><span class="msym" aria-hidden="true">sell</span>Disposition &amp; Selling Costs</b>
+        <label for="s1">Broker Commission (%)<input id="s1" type="number" min="0" max="10" step="0.25" value="5" aria-label="Broker commission percent"></label>
+        <label for="s2">Transfer Taxes &amp; Title (%)<input id="s2" type="number" min="0" max="10" step="0.25" value="1.5" aria-label="Transfer tax percent"></label>
+        <label for="s3">Buyer Concessions / Staging ($)<input id="s3" type="number" min="0" step="250" value="3500" aria-label="Concessions and staging"></label>
+        <div class="tot"><span>Total Disposition</span><span id="dispTot">—</span></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">query_stats</span>Calculate Flip Profitability &amp; Margin</button>
+  </div>
+</form>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>House Flip Profit Calculator</h1>
-    <p class="lede">Estimate your profit and return on investment on a house flip, based on purchase price, rehab costs, and expected resale value.</p>
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-ry-eng" aria-live="polite">
+    <div class="hd"><span>Underwriting Summary</span><span class="sx-ef-grade" id="annual">—</span></div>
+    <div class="k" style="font-size:12px;color:var(--sx-muted)">Net Realized Profit</div>
+    <div class="sx-sg-hero" style="padding:0"><div class="big" id="resultValue" style="margin:2px 0 6px">—</div></div>
+    <p style="margin:0;font-size:12px;line-height:18px;color:var(--sx-muted)" id="profitNote">—</p>
+    <div class="sx-hf-cash"><div><span>Required Cash Investment</span><b id="cash">—</b></div><div class="rt">Down payment + closing + points + interest &amp; carry paid before sale</div></div>
+  </section>
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k">Total Project Outlay</div><b id="outlay">—</b><p>All-in cost basis</p></div>
+    <div class="sx-card"><div class="k">Gross Flip Spread</div><b id="spread">—</b><p>ARV − purchase price</p></div>
+    <div class="sx-card"><div class="k">Total Holding Costs</div><b id="hold">—</b><p id="holdN">—</p></div>
+    <div class="sx-card"><div class="k">Profit as % of ARV</div><b id="parv">—</b><p>A common target is 10% or more</p></div>
   </div>
+  <section class="sx-card r2 sx-ry-wf">
+    <div class="hd"><b style="display:flex;align-items:center;gap:6px;font-size:14px"><span class="msym" aria-hidden="true">gavel</span>70% Rule Deal Assessment</b></div>
+    <div class="sx-cu-alert" id="ruleBox"><span class="msym" aria-hidden="true">warning</span><span id="ruleTxt">—</span></div>
+    <div class="sx-hf-mao" id="maoMath">—</div>
+  </section>
+  <section class="sx-card r2 sx-ry-wf sx-fr-dec">
+    <div class="hd"><b style="font-size:14px">Capital Waterfall Distribution</b><span id="wfTot">—</span></div>
+    <div class="bar" id="wfBar"></div>
+    <ul id="wfList" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px"></ul>
+    <div class="sx-in-acts" style="margin-top:14px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Flip Summary (PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">csv</span>Full Ledger (CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Itemized Cash Flow &amp; Expense Ledger</h2><p>Every cost of the flip, from purchase to sale.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Phase / Expense Category</th><th scope="col">Planned Budget</th><th scope="col">Per-Month Burn</th><th scope="col">% of Gross ARV</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="purchasePrice">Purchase price ($)</label>
-        <input type="number" id="purchasePrice" value="220000" step="1000" min="0">
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="rehabCost">Rehab / renovation cost ($)</label>
-          <input type="number" id="rehabCost" value="45000" step="500" min="0">
-        </div>
-        <div class="field">
-          <label for="holdingCosts">Holding costs ($)</label>
-          <input type="number" id="holdingCosts" value="8000" step="500" min="0">
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="sellingCostsPercent">Selling costs (%)</label>
-          <input type="number" id="sellingCostsPercent" value="8" step="0.5" min="0">
-        </div>
-        <div class="field">
-          <label for="arv">After-repair value / expected sale price ($)</label>
-          <input type="number" id="arv" value="340000" step="1000" min="0">
-        </div>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Estimated net profit</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Return on investment (ROI)</span><span id="outROI">—</span></div>
-          <div class="readout-row"><span>Total invested</span><span id="outTotalInvestment">—</span></div>
-        </div>
-      </div>
-    </aside>
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">functions</span>The 70% Rule &amp; Maximum Allowable Offer (MAO)</h3>
+    <p>Many flippers use the 70% rule as a quick screen: pay no more than 70% of the after-repair value minus the repair budget.</p>
+    <div class="sx-sg-take"><b>Why 70%?</b> The remaining 30% of ARV is meant to cover buying and selling costs, financing and holding costs, overruns, and still leave a profit. In expensive or slow markets the right percentage may differ.</div>
   </div>
-</section>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">schedule</span>Holding Cost Erosion &amp; Delay Sensitivity</h3>
+    <p>Time is one of the biggest risks in a flip. Interest and carrying costs run every month the property is unsold, and permit or contractor delays add up quickly.</p>
+    <div class="sx-sg-take" id="delay">—</div>
+  </div>
+</div>
 
-<section class="content-block">
-  <div class="container prose">
-
+<section class="sx-card sx-method">
+  <div class="sx-guide">
     <h2>What holding costs cover</h2>
     <p>Holding costs are often underestimated by new flippers — they include property taxes, insurance, utilities, loan interest (if the purchase is financed), and HOA fees accrued during the time between purchase and sale. The longer a renovation takes, the more these costs add up, which is part of why timeline overruns can quietly erode profit even when the renovation budget itself stays on track.</p>
     <p>Building a realistic timeline buffer into your holding cost estimate — rather than assuming a best-case renovation schedule — tends to produce a more reliable profit projection.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
     <h2>Why accurate ARV estimation matters most</h2>
     <p>The after-repair value (ARV) is typically the single most sensitive number in this calculation — since it's an estimate of a future sale price rather than a known figure, an overly optimistic ARV can make a marginal deal look profitable on paper when it isn't. Basing ARV on recent comparable sales in the immediate area, ideally reviewed by a local real estate agent or appraiser, produces a more reliable projection than a rough guess.</p>
     <p>Selling costs (agent commissions, closing costs, and staging) commonly run 8-10% of the sale price and are easy to underestimate — always build this into your profit calculation rather than treating the full ARV as available profit.</p>
 
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>What's typically included in selling costs?</h3>
-      <p>Real estate agent commissions, closing costs, and often staging or minor prep costs — commonly totaling around 8-10% of the sale price, though this varies by market and negotiated agent rates.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Why is ARV the most important number to get right?</h3>
-      <p>Because it's an estimate of a future sale price rather than a known figure, an overly optimistic ARV can make an unprofitable deal look attractive on paper — basing it on solid recent comparable sales data significantly improves the reliability of the whole projection.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/financial/401k-calculator.html" class="tool-link">401K Calculator <span class="arrow">→</span></a>
-      <a href="/financial/amortization-calculator.html" class="tool-link">Amortization Calculator <span class="arrow">→</span></a>
-      <a href="/financial/annuity-calculator.html" class="tool-link">Annuity Calculator <span class="arrow">→</span></a>
-      <a href="/financial/auto-loan-calculator.html" class="tool-link">Auto Loan Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>What's typically included in selling costs?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Real estate agent commissions, closing costs, and often staging or minor prep costs — commonly totaling around 8-10% of the sale price, though this varies by market and negotiated agent rates.</p></details>
+    <details class="sx-faq"><summary>Why is ARV the most important number to get right?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because it's an estimate of a future sale price rather than a known figure, an overly optimistic ARV can make an unprofitable deal look attractive on paper — basing it on solid recent comparable sales data significantly improves the reliability of the whole projection.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Related Real Estate &amp; Financial Calculators</h2></div>
+  <a href="/financial-calculators.html">Browse All Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/rental-yield-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">apartment</span></span><b>Rental Property Yield</b><span class="d">Cap rate, cash-on-cash return and cash flow if you hold instead of sell.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">east</span></span></a>
+  <a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home</span></span><b>House Affordability</b><span class="d">What buyers can afford at your target resale price.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">east</span></span></a>
+  <a class="sx-card" href="/financial/down-payment-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Down Payment Calculator</b><span class="d">Cash to close and PMI trade-offs for buyers.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">east</span></span></a>
+  <a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Mortgage Calculator</b><span class="d">Monthly payments and amortization for long-term financing.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">east</span></span></a>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -279,7 +320,8 @@
 </footer>
 
 <script src="/js/currency-format.js?v=3d1747f9"></script>
-<script src="/js/house-flip.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260928g"></script>
+<script src="/js/calc/house-flip.js?v=20260928g"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
