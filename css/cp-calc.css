@@ -3454,3 +3454,15 @@ html.cp-dark .sx-hf-warn{background:#2a1717;border-color:#7f2d2d;color:#fca5a5}
 @media(max-width:560px){.sx-hh-embed code{max-width:280px}}
 #bmCalc .sx-cu-spec b.c{color:var(--sx-primary)}
 .sx [hidden]{display:none!important}
+/* ---- macro calculator ---- */
+.sx-mc-grid{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;margin:14px 0 6px}
+@media(max-width:479px){.sx-mc-grid{grid-template-columns:1fr;justify-items:center}}
+.sx-mc-pie{width:150px;height:150px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+.sx-mc-pie:after{content:"";position:absolute;inset:26px;border-radius:50%;background:var(--sx-card)}
+.sx-mc-pie span{position:relative;z-index:1;font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--sx-on)}
+.sx-mc-list{display:flex;flex-direction:column;gap:10px;width:100%}
+.sx-mc-list>div{display:grid;grid-template-columns:12px 1fr auto;column-gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--sx-border);border-radius:10px;background:var(--sx-low)}
+.sx-mc-list i{width:12px;height:12px;border-radius:3px;grid-row:span 2}
+.sx-mc-list span{font-size:13px;font-weight:600;color:var(--sx-on)}
+.sx-mc-list b{font-family:var(--font-display);font-size:22px;color:var(--sx-on);grid-row:span 2;text-align:right}
+.sx-mc-list small{font-size:11px;color:var(--sx-muted);grid-column:2}
