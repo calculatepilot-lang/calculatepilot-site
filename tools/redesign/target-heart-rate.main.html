@@ -1,0 +1,104 @@
+<div class="sx" id="thrCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Target Heart Rate Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>AHA Zones</span><span class="sx-badge"><span class="msym" aria-hidden="true">monitor_heart</span>Karvonen (Heart Rate Reserve)</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Target Heart Rate Calculator — AHA &amp; Karvonen Zones</h1>
+    <p>Find your moderate and vigorous exercise heart rate zones from your age using the American Heart Association method, or personalize them with your resting heart rate using the Karvonen heart rate reserve formula.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="age">Age</label></div><div class="sx-au-in np"><input id="age" type="number" inputmode="numeric" min="10" max="100" step="1" value="45"><span class="suf">yrs</span></div></div>
+      <div><div class="sx-au-l"><label for="rhr">Resting HR (optional)</label></div><div class="sx-au-in np"><input id="rhr" type="number" inputmode="numeric" min="30" max="120" step="1" value="" placeholder="For Karvonen"><span class="suf">bpm</span></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Max Heart Rate Formula</span></div>
+      <input type="hidden" id="fm" value="s1">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(2,minmax(0,1fr))" role="group" aria-label="Max heart rate formula"><button type="button" data-for="fm" data-value="s1">220 − age (AHA)</button><button type="button" data-for="fm" data-value="s2">208 − 0.7 × age (Tanaka)</button><button type="button" data-for="fm" data-value="s3">207 − 0.7 × age (Gellish)</button><button type="button" data-for="fm" data-value="s4">I know my max</button></div>
+    </div>
+    <div id="mRow" hidden><div class="sx-au-l"><label for="mhr">Measured Max HR</label></div><div class="sx-au-in np"><input id="mhr" type="number" inputmode="numeric" min="120" max="230" step="1" value="180"><span class="suf">bpm</span></div></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Find My Zones</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Target heart rate zone</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small> bpm</small></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Moderate intensity</span><b id="mod">—</b></div><div><span>Vigorous intensity</span><b id="vig">—</b></div></div>
+    <div class="g2"><div><span>Estimated max heart rate</span><b id="max">—</b></div><div><span id="hrrL">Heart rate reserve</span><b id="hrr">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">timer_10</span>10-Second Pulse Check</span><span>Count beats for 10 s</span></div>
+    <div class="l"><span>Moderate zone</span><b id="p1">—</b></div>
+    <div class="l"><span>Vigorous zone</span><b id="p2">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Zones</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/vo2max-calculator.html"><span class="msym" aria-hidden="true">air</span>VO2 Max</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Five Training Zones</h2><p>A common 5-zone model used by coaches and heart-rate monitors, calculated for you.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Zone</th><th scope="col">% of Max HR</th><th scope="col">Heart Rate</th><th scope="col">Feels Like</th></tr></thead>
+    <tbody id="zTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <ul>
+      <li><strong>AHA method (% of max HR):</strong> max HR ≈ 220 − age. Moderate intensity is about 50–70% of max; vigorous is about 70–85%.</li>
+      <li><strong>Karvonen method (% of heart rate reserve):</strong> reserve = max HR − resting HR; target = resting HR + reserve × intensity. The American College of Sports Medicine classes 40–59% of reserve as moderate and 60–89% as vigorous. Because it uses your resting heart rate, it adjusts for fitness.</li>
+      <li><strong>Max HR alternatives:</strong> Tanaka (208 − 0.7 × age) and Gellish (207 − 0.7 × age) fit large datasets better than 220 − age, especially over 40. A measured max from a supervised test is best.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against AHA and ACSM guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A 45-year-old: max HR = 220 − 45 = 175 bpm. Moderate zone (50–70%) is about 88–123 bpm and vigorous (70–85%) about 123–149 bpm. With a resting heart rate of 65, the reserve is 110 bpm, so the Karvonen moderate zone (40–59%) is 109–130 bpm and vigorous (60–89%) is 131–163 bpm.</p>
+
+    <h2>Choosing the right zone</h2>
+    <p>Moderate-intensity sessions build an aerobic base and are sustainable for longer; vigorous sessions give more fitness benefit per minute but are harder to sustain. Adults are advised to get 150–300 minutes of moderate or 75–150 minutes of vigorous activity a week. Most plans mix both.</p>
+    <p>Some medicines, such as beta-blockers, lower heart rate and make these zones inaccurate. If you take heart medication or have a heart condition, ask your doctor what heart rate — or perceived effort — to use.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/target-heart-rates" rel="noopener noreferrer">American Heart Association — Target Heart Rates Chart</a></li>
+      <li>American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription (heart rate reserve intensity classification).</li>
+      <li>Karvonen MJ, Kentala E, Mustala O. The effects of training on heart rate; a longitudinal study. Ann Med Exp Biol Fenn 1957;35:307–315.</li>
+      <li>Tanaka H, Monahan KD, Seals DR. Age-predicted maximal heart rate revisited. J Am Coll Cardiol 2001;37:153–156.</li>
+      <li>Gellish RL, Goslin BR, Olson RE, et al. Longitudinal modeling of the relationship between age and maximal heart rate. Med Sci Sports Exerc 2007;39:822–829.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Which is better: % of max or heart rate reserve?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Heart rate reserve (Karvonen) is more personalized because it accounts for your resting heart rate, which drops as you get fitter. The % of max method is simpler and only needs your age.</p></details>
+    <details class="sx-faq"><summary>How do I check my heart rate during exercise?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use a heart-rate monitor or watch, or stop briefly and count your pulse at the wrist or neck for 10 seconds, then multiply by 6. The pulse-check panel shows your 10-second targets.</p></details>
+    <details class="sx-faq"><summary>What is a normal resting heart rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For most adults it's between 60 and 100 beats per minute. Well-trained athletes often have lower resting rates. Check it in the morning before getting out of bed.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>More for your training.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/vo2max-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">air</span></span><b>VO2 Max Calculator</b><span class="d">Aerobic fitness from resting HR or a test.</span><span class="f">Estimate VO2 max<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">directions_run</span></span><b>Calories Burned</b><span class="d">Energy used by your workout.</span><span class="f">Estimate burn<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/pace-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">timer</span></span><b>Pace Calculator</b><span class="d">Pace, time and distance.</span><span class="f">Work out pace<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/blood-pressure-category-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">favorite</span></span><b>Blood Pressure Category</b><span class="d">Check a reading against AHA categories.</span><span class="f">Check reading<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
