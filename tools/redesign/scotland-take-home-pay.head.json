@@ -2,5 +2,100 @@
  "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance_wallet,arrow_forward,chevron_right,compare_arrows,download,expand_more,gavel,landscape,layers,lock,payments,restart_alt,savings,schedule,school,shield_lock,table_view,trending_up,tune&display=block\">",
  "strip": [
   "\\s*<script>\\s*\\(function \\(\\) \\{\\s*const gbp = new Intl\\.NumberFormat.*?</script>"
- ]
+ ],
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@graph": [
+    {
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Home",
+       "item": "https://www.calculatepilot.com/"
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Financial calculators",
+       "item": "https://www.calculatepilot.com/financial-calculators.html"
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "name": "Scotland Take-Home Pay Calculator",
+       "item": "https://www.calculatepilot.com/financial/scotland-take-home-pay-calculator.html"
+      }
+     ]
+    },
+    {
+     "@type": "WebApplication",
+     "name": "Scotland Take-Home Pay Calculator",
+     "url": "https://www.calculatepilot.com/financial/scotland-take-home-pay-calculator.html",
+     "applicationCategory": "FinanceApplication",
+     "operatingSystem": "Any",
+     "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+     },
+     "creator": {
+      "@type": "Person",
+      "name": "Suhaib Hassan"
+     },
+     "description": "Scottish take-home pay for 2026/27 using Scottish income tax bands, UK Class 1 employee National Insurance and optional student-loan PAYE, with the difference versus England, Wales and Northern Ireland."
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Scottish income tax the same as the rest of the UK?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. For 2026/27 Scotland uses six bands on non-savings, non-dividend income: starter 19%, basic 20%, intermediate 21%, higher 42%, advanced 45% and top 48%. England, Wales and Northern Ireland use 20%, 40% and 45%. National Insurance is the same across the UK."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does National Insurance change in Scotland?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Employee Class 1 National Insurance is reserved to the UK. This page uses 0% up to £12,570, 8% to £50,270 and 2% above that — the same rates as the England, Wales and NI take-home calculator."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which student loan plan should a Scottish employee pick?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most Scottish undergraduates are on Plan 4. The deduction is still the UK PAYE rule: 9% of monthly pay above the published Plan 4 threshold, rounded down to the nearest pound. Confirm the plan in your Student Finance account."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who pays less tax, Scotland or the rest of the UK?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On employment income with a full personal allowance and no pension, a Scottish taxpayer pays less income tax than England, Wales and NI at £20,000 (by £39.67) and more at £35,000 (by £15.07) and at £60,000 (by £1,750.05). The crossover is inside the intermediate band. Dividends and savings interest stay on UK rates and are not in this comparison."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this exactly what PAYE will take this month?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. This is an annualised estimate on an S1257L-style full personal allowance. Real PAYE uses cumulative tables and per-period rounding, so a single month can differ by a few pounds."
+     }
+    }
+   ]
+  }
+ ],
+ "title": "Scottish Income Tax Calculator 2026/27 | CalculatePilot",
+ "description": "Scottish take-home pay for 2026/27: all six income tax bands, UK National Insurance, and how your pay compares with England, Wales and NI."
 }
