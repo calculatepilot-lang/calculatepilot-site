@@ -13,7 +13,7 @@ Reads:  tools/redesign/<slug>.main.html   (required, the new <main> inner HTML)
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VER = "20260929x"
+CSS_VER = "20260929y"
 
 
 def main(rel):
