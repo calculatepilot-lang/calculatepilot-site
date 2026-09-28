@@ -171,6 +171,16 @@ CPX.math={
   mean:function(a){var s=0;a.forEach(function(v){s+=v;});return s/a.length;},
   /* sum of squared deviations (two-pass, stable) */
   ss:function(a){var m=CPX.math.mean(a),s=0;a.forEach(function(v){s+=(v-m)*(v-m);});return s;}
+  ,
+  /* ln Γ(x), Lanczos (g=7, n=9) */
+  gammaln:function(x){if(x<0.5)return Math.log(Math.PI/Math.abs(Math.sin(Math.PI*x)))-CPX.math.gammaln(1-x);x-=1;var c=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7],a=c[0],t=x+7.5;for(var i=1;i<9;i++)a+=c[i]/(x+i);return 0.5*Math.log(2*Math.PI)+(x+0.5)*Math.log(t)-t+Math.log(a);},
+  /* regularized incomplete beta I_x(a,b), Lentz continued fraction */
+  betai:function(x,a,b){if(x<=0)return 0;if(x>=1)return 1;var bt=Math.exp(CPX.math.gammaln(a+b)-CPX.math.gammaln(a)-CPX.math.gammaln(b)+a*Math.log(x)+b*Math.log(1-x));
+    function cf(x,a,b){var qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap,m,aa,del,h;if(Math.abs(d)<1e-300)d=1e-300;d=1/d;h=d;for(m=1;m<=300;m++){var m2=2*m;aa=m*(b-m)*x/((qam+m2)*(a+m2));d=1+aa*d;if(Math.abs(d)<1e-300)d=1e-300;c=1+aa/c;if(Math.abs(c)<1e-300)c=1e-300;d=1/d;h*=d*c;aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));d=1+aa*d;if(Math.abs(d)<1e-300)d=1e-300;c=1+aa/c;if(Math.abs(c)<1e-300)c=1e-300;d=1/d;del=d*c;h*=del;if(Math.abs(del-1)<1e-15)break;}return h;}
+    return x<(a+1)/(a+b+2)?bt*cf(x,a,b)/a:1-bt*cf(1-x,b,a)/b;},
+  /* Student t CDF and quantile */
+  tcdf:function(t,df){var x=df/(df+t*t),p=0.5*CPX.math.betai(x,df/2,0.5);return t>0?1-p:p;},
+  tinv:function(p,df){if(!(p>0&&p<1))return NaN;if(p===0.5)return 0;var lo=-1,hi=1;while(CPX.math.tcdf(lo,df)>p)lo*=2;while(CPX.math.tcdf(hi,df)<p)hi*=2;for(var i=0;i<200;i++){var mid=(lo+hi)/2;if(CPX.math.tcdf(mid,df)<p)lo=mid;else hi=mid;if(hi-lo<1e-13*Math.max(1,Math.abs(mid)))break;}return (lo+hi)/2;}
 };
 
 window.CPX=CPX;
