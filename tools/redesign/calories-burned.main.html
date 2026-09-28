@@ -1,0 +1,110 @@
+<div class="sx" id="cbCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calories Burned Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>2024 Adult Compendium</span><span class="sx-badge"><span class="msym" aria-hidden="true">directions_run</span>28 Activities</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Calories Burned Calculator — 2024 Compendium MET Values</h1>
+    <p>Estimate calories burned for 28 activities using MET values from the 2024 Adult Compendium of Physical Activities, see how much is above your resting burn, and how the session counts toward the weekly activity guidelines.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Activity</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="act">Activity</label><em style="color:var(--sx-muted);font-weight:500" id="metL">—</em></div>
+      <div class="sx-au-sel"><select id="act" aria-label="Activity"></select></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="wt">Weight</label></div><div class="sx-au-in np"><input id="wt" type="number" inputmode="decimal" min="20" max="700" step="0.5" value="165"><span class="suf" id="wU">lb</span></div></div>
+      <div><div class="sx-au-l"><label for="min">Duration</label></div><div class="sx-au-in np"><input id="min" type="number" inputmode="numeric" min="1" max="600" step="1" value="30"><span class="suf">min</span></div></div>
+    </div>
+    <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s1"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">lb / in</button><button type="button" data-for="u" data-value="s2" style="flex:1">kg / cm</button></div></div>
+    <div style="border-top:1px solid var(--sx-border);padding-top:14px">
+      <div class="sx-au-l"><span>Personalize Intensity (optional)</span></div>
+      <div class="sx-au-g2">
+        <div><input type="hidden" id="sex" value="s1"><div class="sx-seg" role="group" aria-label="Sex" style="display:flex"><button type="button" data-for="sex" data-value="s1" style="flex:1">Male</button><button type="button" data-for="sex" data-value="s2" style="flex:1">Female</button></div></div>
+        <div class="sx-au-in np"><input id="age" type="number" inputmode="numeric" min="18" max="100" step="1" value="" placeholder="Age"><span class="suf">yrs</span></div>
+      </div>
+      <div class="sx-au-in np" id="hMet" hidden style="margin-top:10px"><input id="cm" type="number" inputmode="decimal" min="120" max="230" step="0.5" value="" placeholder="Height" aria-label="Height in centimetres"><span class="suf">cm</span></div>
+      <div class="sx-au-g2" id="hImp" style="margin-top:10px"><div class="sx-au-in np"><input id="ft" type="number" inputmode="numeric" min="4" max="7" step="1" value="" placeholder="Height" aria-label="Height in feet"><span class="suf">ft</span></div><div class="sx-au-in np"><input id="inch" type="number" inputmode="decimal" min="0" max="11.9" step="0.5" value="" placeholder="0" aria-label="Height in inches"><span class="suf">in</span></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Calories</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Calories burned</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small> kcal</small></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Above resting (net)</span><b id="net">—</b></div><div><span>Per hour at this pace</span><b id="ph">—</b></div></div>
+    <div class="g2"><div><span>MET-minutes</span><b id="mm">—</b></div><div><span id="pmL">Personalized MET</span><b id="pm">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/steps-to-calories-calculator.html"><span class="msym" aria-hidden="true">footprint</span>Steps to Calories</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Compare Activities</h2><p>Calories for the same duration at your weight, and each activity's intensity band.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Activity</th><th scope="col">MET</th><th scope="col">Calories</th><th scope="col">Intensity</th></tr></thead>
+    <tbody id="cmpTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>A MET (metabolic equivalent) expresses an activity's energy cost as a multiple of resting, where 1 MET = 3.5 mL of oxygen per kg per minute. Using the standard ACSM conversion:</p>
+    <ul>
+      <li><strong>Calories per minute</strong> = MET × 3.5 × weight (kg) ÷ 200</li>
+      <li><strong>Net calories</strong> (above what you'd burn resting anyway) = (MET − 1) × 3.5 × weight (kg) ÷ 200</li>
+      <li><strong>Intensity</strong> (Physical Activity Guidelines for Americans): light &lt; 3 METs, moderate 3–5.9, vigorous ≥ 6</li>
+    </ul>
+    <p>MET values come from the 2024 Adult Compendium of Physical Activities. If you add sex, age and height, the calculator also shows a <strong>corrected MET</strong> — the Compendium's recommended adjustment that divides 3.5 by your predicted resting rate (Harris-Benedict), since the standard 3.5 overstates resting metabolism for many adults. It can move an activity into a higher intensity band; calorie totals stay the same.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the 2024 Adult Compendium · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A 75 kg (165 lb) person running at 6 mph (MET 9.3) for 30 minutes: 9.3 × 3.5 × 75 ÷ 200 = 12.2 kcal a minute, or about <strong>366 kcal</strong>. About 39 kcal of that would have been burned at rest anyway, so the net extra is about 327 kcal. The same 30 minutes of Hatha yoga (MET 2.3) is about 91 kcal.</p>
+
+    <h2>How the session counts toward activity guidelines</h2>
+    <p>Adults are advised to get 150–300 minutes of moderate activity a week, or 75–150 minutes of vigorous activity, or an equivalent mix, plus muscle-strengthening activities on 2 or more days. A minute of vigorous activity counts roughly the same as two minutes of moderate activity.</p>
+
+    <h2>Why MET-based estimates are approximate</h2>
+    <p>The Compendium was built to standardize activity intensities for research, not to measure one person's exact burn. Fitness, technique, terrain and body composition all shift the real figure. Heart-rate-based wearables can be more personal, though they have their own error.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://pacompendium.com/" rel="noopener noreferrer">Herrmann SD, Willis EA, Ainsworth BE, et al. 2024 Adult Compendium of Physical Activities. J Sport Health Sci 2024;13:6–12.</a></li>
+      <li><a href="https://pacompendium.com/corrected-mets/" rel="noopener noreferrer">Compendium of Physical Activities — Corrected METs</a> (Kozey et al.; Byrne et al.)</li>
+      <li>American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription (metabolic equations).</li>
+      <li><a href="https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines" rel="noopener noreferrer">U.S. Physical Activity Guidelines for Americans, 2nd edition</a></li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is a MET?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A MET (metabolic equivalent of task) compares an activity's energy use with sitting at rest. 1 MET is resting; running at 6 mph is 9.3 METs, meaning it uses roughly 9.3 times as much energy per minute.</p></details>
+    <details class="sx-faq"><summary>What's the difference between gross and net calories burned?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Gross calories include what your body would have burned at rest during that time. Net calories subtract that resting amount, which is a fairer figure when deciding how much extra energy exercise used.</p></details>
+    <details class="sx-faq"><summary>Why is my fitness tracker's number different?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Trackers combine heart rate, movement and their own algorithms, while this calculator uses average MET values for each activity. Both are estimates — use one method consistently to track changes over time.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Put your activity in context.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Your total daily burn including activity.</span><span class="f">Estimate TDEE<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/steps-to-calories-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">footprint</span></span><b>Steps to Calories</b><span class="d">Convert your step count.</span><span class="f">Convert steps<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/target-heart-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_heart</span></span><b>Target Heart Rate</b><span class="d">Training zones by intensity.</span><span class="f">Find zones<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/water-intake-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">water_drop</span></span><b>Water Intake</b><span class="d">Replace what you sweat out.</span><span class="f">Check water<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
