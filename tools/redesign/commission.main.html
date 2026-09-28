@@ -1,0 +1,109 @@
+<div class="sx" id="cmCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Commission Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">percent</span>Flat or Tiered Rates</span><span class="sx-badge"><span class="msym" aria-hidden="true">call_split</span>Split &amp; Fees</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in Your Browser</span></div>
+    <h1>Commission Calculator — Flat, Tiered &amp; Split Commission</h1>
+    <p>Calculate sales or real estate commission at a flat or tiered rate, see your take-home after a brokerage split and fees, and find the sales volume you need to reach an income goal.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Sale &amp; Rates</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="sale">Sale Amount</label></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="sale" type="number" inputmode="decimal" min="0" step="1000" value="400000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="sale" data-value="10000">$10k</button><button type="button" data-for="sale" data-value="50000">$50k</button><button type="button" data-for="sale" data-value="250000">$250k</button><button type="button" data-for="sale" data-value="400000">$400k</button></div>
+    </div>
+    <div><div class="sx-au-l"><span>Rate Structure</span></div><input type="hidden" id="mode" value="s1"><div class="sx-seg" role="group" aria-label="Rate structure" style="display:flex"><button type="button" data-for="mode" data-value="s1" style="flex:1">Flat rate</button><button type="button" data-for="mode" data-value="s2" style="flex:1">Tiered</button></div></div>
+    <div id="fRow"><div class="sx-au-l"><label for="rate">Commission Rate</label></div><div class="sx-au-in np"><input id="rate" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="3"><span class="suf">%</span></div></div>
+    <div id="tRow" hidden>
+      <div class="sx-au-l"><span>Tiers (each rate applies to the part of the sale in that band)</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="sx-au-in"><span class="pre">Up to $</span><input id="t1" type="number" inputmode="decimal" min="0" step="1000" value="100000" aria-label="Tier 1 upper limit"></div><div class="sx-au-in np"><input id="r1" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="5" aria-label="Tier 1 rate"><span class="suf">%</span></div>
+        <div class="sx-au-in"><span class="pre">Up to $</span><input id="t2" type="number" inputmode="decimal" min="0" step="1000" value="300000" aria-label="Tier 2 upper limit"></div><div class="sx-au-in np"><input id="r2" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="3" aria-label="Tier 2 rate"><span class="suf">%</span></div>
+        <div class="sx-au-in np"><span class="pre" style="padding-left:12px">Above</span></div><div class="sx-au-in np"><input id="r3" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="2" aria-label="Tier 3 rate"><span class="suf">%</span></div>
+      </div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="split">Your Split</label></div><div class="sx-au-in np"><input id="split" type="number" inputmode="decimal" min="0" max="100" step="1" value="70"><span class="suf">%</span></div></div>
+      <div><div class="sx-au-l"><label for="fee">Fees per Deal</label></div><div class="sx-au-in"><span class="pre">$</span><input id="fee" type="number" inputmode="decimal" min="0" step="25" value="0"></div></div>
+    </div>
+    <div><div class="sx-au-l"><label for="goal">Annual Income Goal (optional)</label></div><div class="sx-au-in"><span class="pre">$</span><input id="goal" type="number" inputmode="decimal" min="0" step="1000" value="" placeholder="e.g. 80000"></div></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Commission</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Your take-home commission</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Gross commission</span><b id="gross">—</b></div><div><span>Effective rate on the sale</span><b id="eff">—</b></div></div>
+    <div class="g2"><div><span>Brokerage / house share</span><b id="house">—</b></div><div><span>Fees</span><b id="fees">—</b></div></div>
+    <div class="gain" id="gBox"><span id="gL">Add an income goal to see the sales volume needed</span><b id="gV">—</b></div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px" id="tierCard" hidden>
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">stacked_bar_chart</span>By Tier</span><span>Commission</span></div>
+    <div id="tierL"></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Result</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/financial/seller-net-sheet-calculator.html"><span class="msym" aria-hidden="true">real_estate_agent</span>Seller Net Sheet</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Commission at Different Sale Amounts</h2><p>Same rates, split and fees applied to other sale sizes.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Sale Amount</th><th scope="col">Gross Commission</th><th scope="col">Effective Rate</th><th scope="col">Your Take-Home</th></tr></thead>
+    <tbody id="cmpTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <ul>
+      <li><strong>Flat rate:</strong> gross commission = sale amount × rate.</li>
+      <li><strong>Tiered (marginal):</strong> each rate applies only to the part of the sale within its band, like tax brackets — so crossing a threshold never lowers your total.</li>
+      <li><strong>Take-home</strong> = gross commission × your split − fees per deal. The brokerage or house keeps the rest of the gross.</li>
+      <li><strong>Sales volume for a goal</strong> = income goal ÷ (take-home per dollar of sales), using the current sale's take-home rate.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Formula verified 28 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A $400,000 sale at a flat 3% gives <strong>$12,000</strong> of gross commission. On a 70/30 split, you keep $8,400 and the brokerage keeps $3,600. With the tiered example (5% to $100,000, 3% to $300,000, 2% above), the same sale earns $5,000 + $6,000 + $2,000 = $13,000 gross — an effective rate of 3.25%.</p>
+
+    <h2>How commission splits and rates work</h2>
+    <p>In real estate and many sales roles, the commission on a deal is split between the individual and their brokerage or employer by a pre-agreed percentage — a "70/30 split" means you keep 70%. Splits often improve as you hit production milestones, and some firms use caps or flat desk fees instead. Real estate commissions are negotiable; since August 2024, National Association of REALTORS® rules no longer allow offers of compensation to buyers' agents on the MLS, and buyers sign written agreements with their agents.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.nar.realtor/the-facts" rel="noopener noreferrer">National Association of REALTORS® — The Facts (settlement practice changes, August 2024)</a></li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is a 70/30 commission split typical?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Split arrangements vary widely by brokerage, industry and experience — 70/30 is a commonly cited example, but actual splits range broadly and are often negotiable, especially as your production increases.</p></details>
+    <details class="sx-faq"><summary>Does this calculator handle tiered commission structures?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Choose "Tiered" and set up to three bands. Each rate applies only to the portion of the sale inside its band, the way marginal tax brackets work.</p></details>
+    <details class="sx-faq"><summary>How do I calculate commission on a sale?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the sale amount by the commission rate — for example, $50,000 × 5% = $2,500. Then multiply by your split percentage and subtract any per-deal fees to get your take-home.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>More for sales and real estate pros.</p></div>
+  <a href="/financial-calculators.html">All Financial Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/seller-net-sheet-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">real_estate_agent</span></span><b>Seller Net Sheet</b><span class="d">Home sale proceeds after commission.</span><span class="f">Estimate proceeds<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/salary-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">badge</span></span><b>Salary Calculator</b><span class="d">Hourly, weekly and annual pay.</span><span class="f">Convert pay<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">work</span></span><b>Freelance Rate</b><span class="d">Set a rate that covers costs.</span><span class="f">Price your time<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/tax-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Income Tax Calculator</b><span class="d">Tax on your commission income.</span><span class="f">Estimate tax<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

@@ -1,0 +1,119 @@
+<div class="sx" id="nwCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Net Worth Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Fed SCF 2022 Benchmarks</span><span class="sx-badge"><span class="msym" aria-hidden="true">account_balance</span>Assets vs Liabilities</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in Your Browser</span></div>
+    <h1>Net Worth Calculator — Compare With Your Age Group</h1>
+    <p>Add up what you own and what you owe to get your net worth, see your debt-to-asset ratio and liquid assets, and compare your result with the Federal Reserve's median and average net worth for your age.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">What You Own &amp; Owe</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-l" style="margin-bottom:-6px"><span style="color:var(--sx-pc);font-weight:700">Assets</span></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="cash">Cash &amp; Savings</label></div><div class="sx-au-in"><span class="pre">$</span><input id="cash" type="number" inputmode="decimal" min="0" step="500" value="15000"></div></div>
+      <div><div class="sx-au-l"><label for="inv">Investments</label></div><div class="sx-au-in"><span class="pre">$</span><input id="inv" type="number" inputmode="decimal" min="0" step="500" value="25000"></div></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="ret">Retirement Accounts</label></div><div class="sx-au-in"><span class="pre">$</span><input id="ret" type="number" inputmode="decimal" min="0" step="1000" value="60000"></div></div>
+      <div><div class="sx-au-l"><label for="home">Home &amp; Real Estate</label></div><div class="sx-au-in"><span class="pre">$</span><input id="home" type="number" inputmode="decimal" min="0" step="5000" value="350000"></div></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="veh">Vehicles</label></div><div class="sx-au-in"><span class="pre">$</span><input id="veh" type="number" inputmode="decimal" min="0" step="500" value="18000"></div></div>
+      <div><div class="sx-au-l"><label for="oth">Other Assets</label></div><div class="sx-au-in"><span class="pre">$</span><input id="oth" type="number" inputmode="decimal" min="0" step="500" value="0"></div></div>
+    </div>
+    <div class="sx-au-l" style="margin:6px 0 -6px"><span style="color:var(--sx-err);font-weight:700">Liabilities</span></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="mort">Mortgage Balance</label></div><div class="sx-au-in"><span class="pre">$</span><input id="mort" type="number" inputmode="decimal" min="0" step="5000" value="240000"></div></div>
+      <div><div class="sx-au-l"><label for="auto">Auto Loans</label></div><div class="sx-au-in"><span class="pre">$</span><input id="auto" type="number" inputmode="decimal" min="0" step="500" value="12000"></div></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="stu">Student Loans</label></div><div class="sx-au-in"><span class="pre">$</span><input id="stu" type="number" inputmode="decimal" min="0" step="500" value="18000"></div></div>
+      <div><div class="sx-au-l"><label for="cc">Credit Cards</label></div><div class="sx-au-in"><span class="pre">$</span><input id="cc" type="number" inputmode="decimal" min="0" step="100" value="4000"></div></div>
+    </div>
+    <div><div class="sx-au-l"><label for="od">Other Debts</label></div><div class="sx-au-in"><span class="pre">$</span><input id="od" type="number" inputmode="decimal" min="0" step="500" value="0"></div></div>
+    <div class="sx-au-g2" style="border-top:1px solid var(--sx-border);padding-top:14px">
+      <div><div class="sx-au-l"><label for="age">Your Age</label></div><div class="sx-au-in np"><input id="age" type="number" inputmode="numeric" min="18" max="100" step="1" value="38"><span class="suf">yrs</span></div></div>
+      <div><div class="sx-au-l"><label for="inc">Household Income (optional)</label></div><div class="sx-au-in"><span class="pre">$</span><input id="inc" type="number" inputmode="decimal" min="0" step="1000" value="" placeholder="Pre-tax"></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Net Worth</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Your net worth</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Total assets</span><b id="ta">—</b></div><div><span>Total liabilities</span><b id="tl">—</b></div></div>
+    <div class="g2"><div><span>Debt-to-asset ratio</span><b id="dar">—</b></div><div><span>Liquid assets (cash + investments)</span><b id="liq">—</b></div></div>
+    <div class="gain" id="stBox"><span id="stL">Add household income for the expected net worth rule of thumb</span><b id="stV">—</b></div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">groups</span>Your Age Group (Fed SCF 2022)</span><span id="agT">—</span></div>
+    <div class="l"><span>Median net worth</span><b id="med">—</b></div>
+    <div class="l"><span>Mean (average) net worth</span><b id="mean">—</b></div>
+    <div class="l t"><span>You vs the median</span><b id="vs">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Result</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/financial/retirement-calculator.html"><span class="msym" aria-hidden="true">beach_access</span>Retirement Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Net Worth by Age — US Families</h2><p>Federal Reserve Survey of Consumer Finances, 2022 (in 2022 dollars). The median is the middle family; the mean is pulled up by the wealthiest households.</p></div><span class="sx-au-tag">Fed SCF 2022</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Age of Head of Family</th><th scope="col">Median</th><th scope="col">Mean</th></tr></thead>
+    <tbody id="scfTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <ul>
+      <li><strong>Net worth</strong> = total assets − total liabilities.</li>
+      <li><strong>Debt-to-asset ratio</strong> = total liabilities ÷ total assets — lower means more of what you own is truly yours.</li>
+      <li><strong>Liquid assets</strong> = cash + non-retirement investments you could access without penalties.</li>
+      <li><strong>Expected net worth (rule of thumb)</strong> = age × pre-tax household income ÷ 10, from <em>The Millionaire Next Door</em> (Stanley &amp; Danko). The authors call households at twice this figure or more "prodigious accumulators of wealth" and those at half or less "under accumulators".</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Benchmarks checked against the Federal Reserve Bulletin (October 2023) on 28 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>Using the default figures: assets of $15,000 + $25,000 + $60,000 + $350,000 + $18,000 = $468,000, and liabilities of $240,000 + $12,000 + $18,000 + $4,000 = $274,000, give a net worth of <strong>$194,000</strong>. That's a debt-to-asset ratio of 59%. For a 38-year-old, the SCF 2022 median for ages 35–44 is $135,600, so this household is above the median for its age group.</p>
+
+    <h2>Why net worth matters more than income</h2>
+    <p>Income measures cash flow; net worth measures your actual financial position. Someone with a high income but heavy debt and little saved can have a lower net worth than someone with a modest income and steady saving habits. Tracking it over time — quarterly or yearly — shows whether you're moving in the right direction. Home equity and retirement accounts count toward net worth but aren't easy to spend, which is why liquid assets are shown separately.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.federalreserve.gov/publications/files/scf23.pdf" rel="noopener noreferrer">Aladangady A, et al. Changes in U.S. Family Finances from 2019 to 2022: Evidence from the Survey of Consumer Finances. Federal Reserve Bulletin, October 2023 (Table 2).</a></li>
+      <li>Stanley TJ, Danko WD. The Millionaire Next Door. Longstreet Press, 1996.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Should I include my car's value as an asset?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You can include it for a complete picture — use its current resale value, not what you paid. Many people leave depreciating items like vehicles out when tracking wealth-building, since they lose value every year.</p></details>
+    <details class="sx-faq"><summary>How often should I recalculate my net worth?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many people track it quarterly or annually — often enough to see meaningful trends, but not so often that normal market swings feel misleading.</p></details>
+    <details class="sx-faq"><summary>What is the median net worth in the US?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In the Federal Reserve's 2022 Survey of Consumer Finances, the median US family net worth was $192,900 and the mean was about $1.06 million. The mean is much higher because a small number of very wealthy families pull the average up.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Grow your net worth.</p></div>
+  <a href="/financial-calculators.html">All Financial Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/retirement-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">beach_access</span></span><b>Retirement Calculator</b><span class="d">FIRE number and withdrawals.</span><span class="f">Plan retirement<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_down</span></span><b>Debt Payoff Calculator</b><span class="d">Cut liabilities faster.</span><span class="f">Plan payoff<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance_wallet</span></span><b>Budget Calculator</b><span class="d">Find money to save each month.</span><span class="f">Build a budget<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Emergency Fund</b><span class="d">How much cash to keep liquid.</span><span class="f">Size your fund<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
