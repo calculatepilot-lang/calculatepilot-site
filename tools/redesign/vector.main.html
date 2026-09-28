@@ -1,0 +1,131 @@
+<div class="sx" id="veCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Vector Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>2D and 3D vectors</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Vector Calculator</h1>
+    <p>Add and subtract vectors, find the magnitude, unit vector, dot product, cross product, angle between two vectors and the projection of one onto another — in 2D or 3D, with the determinant working shown.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every formula is standard vector algebra, and the worked examples are re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It combines components directly: sums of products for the dot product, a 3×3 determinant for the cross product, and arccos of the normalised dot product for the angle.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Physics and graphics use these operations constantly. Seeing the vectors drawn and the algebra written out makes sign and order errors easy to spot.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0" id="formH">Operations on u and v</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="What to compute"><button type="button" data-for="mode" data-value="s1">u and v</button><button type="button" data-for="mode" data-value="s2">Single vector</button><button type="button" data-for="mode" data-value="s3">Projection</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Space</span></div><input type="hidden" id="dim" value="s3"><div class="sx-seg" role="group" aria-label="Dimension" style="display:flex"><button type="button" data-for="dim" data-value="s2" style="flex:1">2D (x, y)</button><button type="button" data-for="dim" data-value="s3" style="flex:1">3D (x, y, z)</button></div></div>
+      <div><div class="sx-au-l"><label for="dp">Decimal places</label></div><select id="dp" class="sx-mt-sel"><option value="2">2</option><option value="4" selected>4</option><option value="6">6</option></select></div>
+    </div>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-u="3,4,0" data-v="1,2,2">Basis example</button><button type="button" data-u="1,0,0" data-v="0,1,0">Perpendicular</button><button type="button" data-u="2,4,6" data-v="1,2,3">Parallel</button><button type="button" data-u="10,0,5" data-v="3,4,0">Force · displacement</button></div>
+    <div><div class="sx-au-l"><span style="color:#1d4ed8;font-weight:700">Vector u</span><em class="mu" id="uMag">|u| = —</em></div>
+      <div class="sx-au-g3"><div class="sx-au-in np"><input id="ux" type="number" inputmode="decimal" step="any" value="3" aria-label="u x-component"><span class="suf">x</span></div><div class="sx-au-in np"><input id="uy" type="number" inputmode="decimal" step="any" value="4" aria-label="u y-component"><span class="suf">y</span></div><div class="sx-au-in np" id="uzW"><input id="uz" type="number" inputmode="decimal" step="any" value="0" aria-label="u z-component"><span class="suf">z</span></div></div></div>
+    <div id="vBlock"><div class="sx-au-l"><span style="color:#047857;font-weight:700">Vector v</span><em class="mu" id="vMag">|v| = —</em></div>
+      <div class="sx-au-g3"><div class="sx-au-in np"><input id="vx" type="number" inputmode="decimal" step="any" value="1" aria-label="v x-component"><span class="suf">x</span></div><div class="sx-au-in np"><input id="vy" type="number" inputmode="decimal" step="any" value="2" aria-label="v y-component"><span class="suf">y</span></div><div class="sx-au-in np" id="vzW"><input id="vz" type="number" inputmode="decimal" step="any" value="2" aria-label="v z-component"><span class="suf">z</span></div></div></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Compute</button><button type="button" class="rs" id="swap">Swap u and v</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Live expansion</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Dot product (u · v)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span id="ex1L">Angle between u and v</span><b id="ex1" style="font-size:17px">—</b></div><div><span id="ex2L">Cross product (u × v)</span><b id="ex2" style="font-size:17px">—</b></div></div>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Vector diagram</h2><p id="vizNote">Vectors drawn from the origin; 3D vectors use an oblique projection.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+  <div class="sx-mt-plot" id="viz" role="img" aria-label="Diagram of the vectors from the origin"></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Vector operations at a glance</h2><p>What each product returns and what it means.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+    <thead><tr><th scope="col">Operation</th><th scope="col">Notation</th><th scope="col">Result</th><th scope="col">Dimensions</th><th scope="col">Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>Dot product</td><td class="mono">u · v</td><td style="font-family:inherit">Scalar</td><td style="font-family:inherit">Any (2D, 3D, n-D)</td><td style="font-family:inherit">Work done; how aligned two vectors are</td></tr>
+      <tr><td>Cross product</td><td class="mono">u × v</td><td style="font-family:inherit">Vector</td><td style="font-family:inherit">3D (and 7D)</td><td style="font-family:inherit">Torque, angular momentum, surface normals</td></tr>
+      <tr><td>Scalar projection</td><td class="mono">comp<sub>v</sub> u</td><td style="font-family:inherit">Scalar</td><td style="font-family:inherit">Any</td><td style="font-family:inherit">Length of u’s shadow along v</td></tr>
+      <tr><td>Vector projection</td><td class="mono">proj<sub>v</sub> u</td><td style="font-family:inherit">Vector</td><td style="font-family:inherit">Any</td><td style="font-family:inherit">The part of u parallel to v</td></tr>
+      <tr><td>Scalar triple product</td><td class="mono">u · (v × w)</td><td style="font-family:inherit">Scalar</td><td style="font-family:inherit">3D</td><td style="font-family:inherit">Signed volume of a parallelepiped</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">fitness_center</span><h3>Work done by a force</h3><p>A force F = (10, 0, 5) N moves an object by d = (3, 4, 0) m.</p><div class="sx-mt-ex">W = F · d = 10·3 + 0·4 + 5·0 = <b>30 J</b></div></div>
+    <div><span class="msym" aria-hidden="true">settings</span><h3>Torque on a wrench</h3><p>Position r = (0.5, 0, 0) m, force F = (0, 20, 0) N.</p><div class="sx-mt-ex">τ = r × F = (0·0 − 0·20, 0·0 − 0.5·0, 0.5·20 − 0·0)<br>= <b>(0, 0, 10) N·m</b></div></div>
+    <div><span class="msym" aria-hidden="true">architecture</span><h3>Angle between vectors</h3><p>u = (3, 4, 0) and v = (1, 2, 2).</p><div class="sx-mt-ex">u·v = 11, |u| = 5, |v| = 3<br>cos θ = 11 ÷ 15 = 0.7333<br>θ = <b>42.8334°</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What is a vector?</h2>
+    <p>A vector has both magnitude and direction and is written by its components, such as u = (3, 4, 0). Its magnitude is |u| = √(uₓ² + u_y² + u_z²), and dividing by it gives the unit vector û = u ÷ |u|, of length 1.</p>
+    <h2>Formulas used</h2>
+    <ul>
+      <li><strong>Dot product:</strong> u · v = uₓvₓ + u_yv_y + u_zv_z = |u||v| cos θ.</li>
+      <li><strong>Angle:</strong> θ = arccos[(u · v) ÷ (|u||v|)], between 0° and 180°.</li>
+      <li><strong>Cross product:</strong> u × v = (u_yv_z − u_zv_y, u_zvₓ − uₓv_z, uₓv_y − u_yvₓ); its length |u||v| sin θ is the area of the parallelogram they span.</li>
+      <li><strong>Projection:</strong> proj<sub>v</sub> u = [(u · v) ÷ |v|²] v and comp<sub>v</sub> u = (u · v) ÷ |v|.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Gibbs, J. W. &amp; Wilson, E. B. (1901). <i>Vector Analysis</i>. Yale University Press.</li>
+      <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i> — notation for vectors and their products.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why is the dot product a scalar but the cross product a vector?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The dot product measures how much two vectors point the same way, which is a single number. The cross product produces a new vector perpendicular to both, whose length is the area of the parallelogram they span. In 2D there is no perpendicular direction within the plane, so the cross product reduces to one number (the z-component).</p></details>
+    <details class="sx-faq"><summary>What does a zero dot product mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The vectors are perpendicular (orthogonal), provided neither is the zero vector, because cos 90° = 0. A negative dot product means the angle is obtuse; a positive one means it is acute.</p></details>
+    <details class="sx-faq"><summary>What does a zero cross product mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The vectors are parallel or antiparallel (or one is zero), because sin 0° = sin 180° = 0. They span no area.</p></details>
+    <details class="sx-faq"><summary>How does the right-hand rule fix the direction of the cross product?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Point the fingers of your right hand along u, curl them toward v, and your thumb points along u × v. Reversing the order reverses the direction: v × u = −(u × v).</p></details>
+    <details class="sx-faq"><summary>What is the difference between scalar and vector projection?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The scalar projection is the signed length of u’s shadow along v. The vector projection is that length pointing along v’s direction. The difference u − proj<sub>v</sub> u is the part of u perpendicular to v.</p></details>
+    <details class="sx-faq"><summary>Why does the cross product only exist in 3D?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The construction needs a unique direction perpendicular to two given directions, which exists only in three dimensions (and, with a different algebra, in seven). In other dimensions the wedge product generalises it.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with geometry.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/distance-3d-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">view_in_ar</span></span><b>3D Distance</b><span class="d">Distance and midpoint between two points.</span><span class="f">Space distance<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/trigonometry-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">waves</span></span><b>Trigonometry</b><span class="d">Sine, cosine, tangent and inverses.</span><span class="f">Trig functions<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/slope-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>Slope Calculator</b><span class="d">Gradient and line equations.</span><span class="f">Rise and run<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/pythagorean-theorem-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">architecture</span></span><b>Pythagorean Theorem</b><span class="d">Hypotenuse, legs and triples.</span><span class="f">Right triangles<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Vector Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/vector-calculator.html" width="100%" height="560" loading="lazy" title="Vector Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
