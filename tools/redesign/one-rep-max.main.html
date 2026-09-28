@@ -1,0 +1,107 @@
+<div class="sx" id="ormCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">One Rep Max Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>7 Published Formulas</span><span class="sx-badge"><span class="msym" aria-hidden="true">fitness_center</span>NSCA Training Loads</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>One Rep Max Calculator — 7 Formulas &amp; Training Loads</h1>
+    <p>Estimate your one-rep max (1RM) from any set of 1–12 reps using seven published formulas side by side, then get training weights for strength, hypertrophy and endurance work.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Set</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s1"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">lb</button><button type="button" data-for="u" data-value="s2" style="flex:1">kg</button></div></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="w">Weight Lifted</label></div><div class="sx-au-in np"><input id="w" type="number" inputmode="decimal" min="1" max="2000" step="2.5" value="155"><span class="suf" id="wU">lb</span></div></div>
+      <div><div class="sx-au-l"><label for="r">Reps Completed</label></div><div class="sx-au-in np"><input id="r" type="number" inputmode="numeric" min="1" max="20" step="1" value="8"></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Round Weights To</span></div><input type="hidden" id="rd" value="s2">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Rounding"><button type="button" data-for="rd" data-value="s1" id="rd1">1 lb</button><button type="button" data-for="rd" data-value="s2" id="rd2">5 lb</button><button type="button" data-for="rd" data-value="s3" id="rd3">10 lb</button></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Estimate 1RM</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Estimated one-rep max (average)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Range across formulas</span><b id="rg">—</b></div><div><span>Your set as % of 1RM</span><b id="pc">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">science</span>By Formula</span><span>1RM</span></div>
+    <div id="fl"></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/protein-calculator.html"><span class="msym" aria-hidden="true">egg_alt</span>Protein for Strength</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Training Loads from Your 1RM</h2><p>Percent of 1RM with the approximate reps possible (NSCA), and the training goal each range suits.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">% 1RM</th><th scope="col">Weight</th><th scope="col">Approx. Reps</th><th scope="col">Goal</th></tr></thead>
+    <tbody id="ldTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Each formula predicts your 1RM from a weight (w) lifted for a number of reps (r):</p>
+    <ul>
+      <li><strong>Epley:</strong> w × (1 + r ÷ 30)</li>
+      <li><strong>Brzycki:</strong> w × 36 ÷ (37 − r)</li>
+      <li><strong>Lander:</strong> 100 × w ÷ (101.3 − 2.67123 × r)</li>
+      <li><strong>Lombardi:</strong> w × r<sup>0.10</sup></li>
+      <li><strong>Mayhew et al.:</strong> 100 × w ÷ (52.2 + 41.9 × e<sup>−0.055 × r</sup>)</li>
+      <li><strong>O'Conner et al.:</strong> w × (1 + 0.025 × r)</li>
+      <li><strong>Wathan:</strong> 100 × w ÷ (48.8 + 53.8 × e<sup>−0.075 × r</sup>)</li>
+    </ul>
+    <p>The headline is the average of all seven. In a comparison of these equations (LeSuer et al., 1997), most were reasonably accurate for sets of 10 or fewer reps, and accuracy fell as reps increased.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the published equations and NSCA guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>Lifting 155 lb for 8 reps. Epley: 155 × (1 + 8 ÷ 30) = 196 lb. Brzycki: 155 × 36 ÷ 29 = 192 lb. O'Conner: 155 × 1.2 = 186 lb. The seven formulas range from about 186 to 198 lb, averaging about <strong>193 lb</strong>. An 85% strength load would then be about 164 lb.</p>
+
+    <h2>Using your 1RM for training</h2>
+    <p>The NSCA's general guidance: strength work at about 85% of 1RM or more for 6 reps or fewer; hypertrophy at about 67–85% for 6–12 reps; muscular endurance at 67% or less for 12 or more reps. Re-estimate every 4–8 weeks as you get stronger so training weights don't become too light.</p>
+    <p>Testing a true 1RM carries more injury risk than a submaximal set — use good form, a spotter or safety bars, and don't test through pain.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li>LeSuer DA, McCormick JH, Mayhew JL, et al. The accuracy of prediction equations for estimating 1-RM performance in the bench press, squat, and deadlift. J Strength Cond Res 1997;11:211–213.</li>
+      <li>Brzycki M. Strength testing — predicting a one-rep max from reps-to-fatigue. J Phys Educ Recreat Dance 1993;64:88–90.</li>
+      <li>Epley B. Poundage chart. Boyd Epley Workout. Lincoln, NE, 1985.</li>
+      <li>Mayhew JL, Ball TE, Arnold MD, Bowen JC. Relative muscular endurance performance as a predictor of bench press strength in college men and women. J Appl Sport Sci Res 1992;6:200–206.</li>
+      <li>Haff GG, Triplett NT (eds). Essentials of Strength Training and Conditioning, 4th ed. National Strength and Conditioning Association. Human Kinetics, 2016.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Which one-rep max formula is most accurate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No single formula wins for every lift and person. Results are closest together for low-rep sets, which is why using a set of 3–6 reps and averaging the formulas gives a steadier estimate.</p></details>
+    <details class="sx-faq"><summary>How many reps should I use to estimate my 1RM?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A hard set of about 3–10 reps works best. Above 10–12 reps, the formulas diverge and become less reliable, because endurance starts to limit the set more than strength.</p></details>
+    <details class="sx-faq"><summary>How often should I re-test my 1RM?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Every 4–8 weeks is common. Re-estimating from a recent hard set is safer than a true max attempt and keeps your training percentages up to date.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Support your strength training.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/protein-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">egg_alt</span></span><b>Protein Calculator</b><span class="d">1.6–2.2 g/kg for strength training.</span><span class="f">Set protein<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/lean-body-mass-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">fitness_center</span></span><b>Lean Body Mass</b><span class="d">Track muscle with FFMI.</span><span class="f">Estimate lean mass<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">directions_run</span></span><b>Calories Burned</b><span class="d">Weight training and 27 other activities.</span><span class="f">Estimate burn<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Fuel your training.</span><span class="f">Estimate TDEE<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
