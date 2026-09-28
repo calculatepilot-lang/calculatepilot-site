@@ -146,5 +146,32 @@ CPX.fin={
   apy:function(annualPct,m){var r=annualPct/100;if(m===Infinity)return (Math.exp(r)-1)*100;return (Math.pow(1+r/m,m)-1)*100;}
 };
 
+/* Math helpers shared by the math calculators */
+CPX.math={
+  /* numbers separated by commas, spaces, semicolons or new lines */
+  list:function(str){var out=[],bad=0;String(str||'').split(/[\s,;]+/).forEach(function(t){if(t==='')return;var n=Number(t.replace(/,/g,''));if(isFinite(n))out.push(n);else bad++;});out.bad=bad;return out;},
+  /* trimmed decimal: fmt(1.50000,4) -> "1.5" ; big/small numbers fall back to exponent */
+  fmt:function(x,dp){if(!isFinite(x))return '—';dp=dp===undefined?4:dp;if(x===0)return '0';var a=Math.abs(x);if(a>=1e12||a<1e-6)return x.toExponential(Math.min(dp,6)).replace(/\.?0+e/,'e');var s=x.toFixed(dp);if(s.indexOf('.')>-1)s=s.replace(/0+$/,'').replace(/\.$/,'');return s==='-0'?'0':s;},
+  fix:function(x,dp){return isFinite(x)?(Math.abs(x)<0.5*Math.pow(10,-dp)?0:x).toFixed(dp):'—';},
+  /* standard normal density */
+  pdf:function(z){return Math.exp(-0.5*z*z)/Math.sqrt(2*Math.PI);},
+  /* standard normal CDF: Maclaurin series near 0, continued fraction in the tails (about 1e-15 accurate) */
+  cdf:function(z){if(z===Infinity)return 1;if(z===-Infinity)return 0;var a=Math.abs(z),p;
+    if(a<3){var t=z,sum=z,n=0;while(Math.abs(t)>1e-17*Math.abs(sum)&&n<200){n++;t*=z*z/(2*n+1);sum+=t;}return 0.5+CPX.math.pdf(z)*sum;}
+    var f=0;for(var k=80;k>=1;k--)f=k/(a+f);p=CPX.math.pdf(a)/(a+f);return z>0?1-p:p;},
+  /* upper tail Q(z)=1-cdf(z) without cancellation */
+  sf:function(z){return CPX.math.cdf(-z);},
+  /* inverse standard normal (Acklam's rational start, Newton-polished) */
+  inv:function(p){if(!(p>0&&p<1))return p===0?-Infinity:p===1?Infinity:NaN;
+    var a=[-39.69683028665376,220.9460984245205,-275.9285104469687,138.357751867269,-30.66479806614716,2.506628277459239],b=[-54.47609879822406,161.5858368580409,-155.6989798598866,66.80131188771972,-13.28068155288572],c=[-0.007784894002430293,-0.3223964580411365,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783],d=[0.007784695709041462,0.3224671290700398,2.445134137142996,3.754408661907416],x,q,r;
+    if(p<0.02425){q=Math.sqrt(-2*Math.log(p));x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    else if(p>1-0.02425){q=Math.sqrt(-2*Math.log(1-p));x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    else{q=p-0.5;r=q*q;x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+    for(var i=0;i<3;i++){var e=(x<0?CPX.math.cdf(x)-p:-(CPX.math.cdf(-x)-(1-p)))/CPX.math.pdf(x);x-=e/(1+x*e/2);}return x;},
+  mean:function(a){var s=0;a.forEach(function(v){s+=v;});return s/a.length;},
+  /* sum of squared deviations (two-pass, stable) */
+  ss:function(a){var m=CPX.math.mean(a),s=0;a.forEach(function(v){s+=(v-m)*(v-m);});return s;}
+};
+
 window.CPX=CPX;
 })();

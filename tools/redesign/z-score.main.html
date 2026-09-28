@@ -1,0 +1,178 @@
+<div class="sx" id="zCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Z-Score Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Standard normal, computed to ~15 digits</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Z-Score Calculator</h1>
+    <p>Find the z-score of a value, the percentile and tail probabilities that go with it, and every step of the working — from a mean and standard deviation, from a raw data set, or backwards from a percentile.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Formulas and worked examples are checked against the NIST/SEMATECH Engineering Statistics Handbook before publishing. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It standardises with z = (x − μ) ÷ σ, then evaluates the standard normal distribution numerically — a series near zero and a continued fraction in the tails.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Most z-score tools stop at one number. This one shows the tail areas and the working, and also handles raw data sets and inverse (percentile → value) lookups.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7" style="display:flex;flex-direction:column;gap:20px">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Inputs</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Calculation mode"><button type="button" data-for="mode" data-value="s1">Single value</button><button type="button" data-for="mode" data-value="s2">Raw data set</button><button type="button" data-for="mode" data-value="s3">Inverse (from percentile)</button></div>
+
+    <div id="fX"><div class="sx-au-l"><label for="x">Raw score (x)</label><em class="mu">the value to standardise</em></div><div class="sx-au-in np"><input id="x" type="number" inputmode="decimal" step="any" value="115"></div></div>
+
+    <div id="fData" hidden>
+      <div class="sx-au-l"><label for="data">Data set</label><em class="mu" id="dataN">—</em></div>
+      <textarea id="data" class="sx-mt-ta" spellcheck="false" aria-describedby="dataHelp">12, 15, 18, 20, 22, 25, 28, 30, 32, 38</textarea>
+      <p class="sx-au-help" id="dataHelp">Separate numbers with commas, spaces or new lines.</p>
+      <div class="sx-au-g2" style="margin-top:14px">
+        <div><div class="sx-au-l"><span>Standard deviation basis</span></div><input type="hidden" id="basis" value="s1"><div class="sx-seg" role="group" aria-label="Standard deviation basis" style="display:flex"><button type="button" data-for="basis" data-value="s1" style="flex:1">Sample (n − 1)</button><button type="button" data-for="basis" data-value="s2" style="flex:1">Population (N)</button></div></div>
+        <div><div class="sx-au-l"><label for="xd">Value to score (x)</label></div><div class="sx-au-in np"><input id="xd" type="number" inputmode="decimal" step="any" value="32"></div></div>
+      </div>
+    </div>
+
+    <div id="fMS" class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="mu">Mean (μ)</label><em class="mu">population average</em></div><div class="sx-au-in np"><input id="mu" type="number" inputmode="decimal" step="any" value="100"></div></div>
+      <div><div class="sx-au-l"><label for="sd">Standard deviation (σ)</label><em class="mu">must be above 0</em></div><div class="sx-au-in np"><input id="sd" type="number" inputmode="decimal" step="any" min="0" value="15"></div></div>
+    </div>
+
+    <div id="fP" hidden><div class="sx-au-l"><label for="pp">Percentile (area to the left)</label><em class="mu">between 0 and 100</em></div><div class="sx-au-in pc"><input id="pp" type="number" inputmode="decimal" step="any" min="0" max="100" value="97.5"><span class="suf">%</span></div></div>
+
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-mu="100" data-sd="15">IQ scale (100, 15)</button><button type="button" data-mu="50" data-sd="10">T-score (50, 10)</button><button type="button" data-mu="10" data-sd="3">Scaled score (10, 3)</button><button type="button" data-mu="0" data-sd="1">Standard normal (0, 1)</button></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate z-score</button>
+  </div>
+</form>
+
+<div id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Standardised z-score (z)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Cumulative percentile</span><b id="pct">—</b></div><div><span id="xLbl">Raw score (x)</span><b id="xOut">—</b></div></div>
+  </section>
+  <div class="sx-in-t4 c3">
+    <div class="sx-card"><div class="k">Left tail P(Z &lt; z)<span class="msym" aria-hidden="true">west</span></div><b id="pL">—</b><p>Area under the curve to the left of z</p></div>
+    <div class="sx-card"><div class="k">Right tail P(Z &gt; z)<span class="msym" aria-hidden="true">east</span></div><b id="pR">—</b><p>Complementary upper-tail area</p></div>
+    <div class="sx-card"><div class="k">Two-tailed P(|Z| &gt; |z|)<span class="msym" aria-hidden="true">swap_horiz</span></div><b id="pT">—</b><p>Extreme-value area in both tails</p></div>
+  </div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print / Save PDF</button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button></div>
+</div>
+</div>
+
+<div class="sx-r5">
+  <section class="sx-card r2" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">show_chart</span>Standard normal distribution</span><em class="mu" id="curveLbl">—</em></div>
+    <div class="sx-mt-plot" id="curve" role="img" aria-label="Standard normal curve with the area to the left of your z-score shaded"></div>
+  </section>
+  <section class="sx-card r2" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">account_tree</span>Step-by-step working</span></div>
+    <ol class="sx-mt-steps" id="steps"></ol>
+  </section>
+  <section class="sx-card" id="ptsCard" style="padding:20px" hidden>
+    <div class="sx-au-l" style="margin-bottom:8px"><span>Z-score of every data point</span><em class="mu" id="ptsN">—</em></div>
+    <div class="sx-scroll" style="max-height:280px;overflow-y:auto"><table class="sx-au-cmp plain" style="min-width:0" id="ptsTbl"><thead><tr><th scope="col">#</th><th scope="col">Value</th><th scope="col">z-score</th></tr></thead><tbody></tbody></table></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Population vs sample z-scores</h2>
+  <p>The z-score formula is the same either way; what changes is where the mean and standard deviation come from. Use σ when you know the whole population, and the sample statistics when you only have a sample.</p>
+  <div class="sx-mt-2">
+    <div><h3>Population z-score <span class="sx-mt-tag">μ and σ known</span></h3><p>Use when the mean and standard deviation describe the entire population — for example a published test norm.</p><div class="sx-mt-fx" style="padding:14px"><span class="eq">z = (x − μ) ÷ σ</span></div></div>
+    <div><h3>Sample z-score <span class="sx-mt-tag">x̄ and s from data</span></h3><p>Use when the mean x̄ and standard deviation s are estimated from a sample. s divides by n − 1 (Bessel's correction).</p><div class="sx-mt-fx" style="padding:14px"><span class="eq">z = (x − x̄) ÷ s</span></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>The empirical rule: how much of a normal distribution lies within each band</h2><p>Exact areas for a normal distribution — the familiar 68–95–99.7 figures are rounded versions of these. Your |z| falls in the highlighted band.</p></div><span class="sx-au-tag">Normal distribution only</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" id="ruleTbl">
+    <thead><tr><th scope="col">Band around the mean</th><th scope="col">Area inside the band</th><th scope="col">Area in each tail</th><th scope="col">Typical use</th></tr></thead>
+    <tbody>
+      <tr data-lo="0" data-hi="1"><td>μ ± 1σ  (|z| ≤ 1)</td><td class="mono">68.2689%</td><td class="mono">15.8655%</td><td style="font-family:inherit">The central bulk of the observations</td></tr>
+      <tr data-lo="1" data-hi="1.645"><td>μ ± 1.645σ</td><td class="mono">90.0000%</td><td class="mono">5.0000%</td><td style="font-family:inherit">90% confidence interval; one-sided 5% test</td></tr>
+      <tr data-lo="1.645" data-hi="1.96"><td>μ ± 1.96σ</td><td class="mono">95.0000%</td><td class="mono">2.5000%</td><td style="font-family:inherit">95% confidence interval; two-sided 5% test</td></tr>
+      <tr data-lo="1.96" data-hi="2"><td>μ ± 2σ</td><td class="mono">95.4500%</td><td class="mono">2.2750%</td><td style="font-family:inherit">A common "unusual value" screen</td></tr>
+      <tr data-lo="2" data-hi="2.576"><td>μ ± 2.576σ</td><td class="mono">99.0000%</td><td class="mono">0.5000%</td><td style="font-family:inherit">99% confidence interval; two-sided 1% test</td></tr>
+      <tr data-lo="2.576" data-hi="3"><td>μ ± 3σ</td><td class="mono">99.7300%</td><td class="mono">0.1350%</td><td style="font-family:inherit">Very rare values under normality</td></tr>
+      <tr data-lo="3" data-hi="999"><td>Beyond ±3σ</td><td class="mono">under 0.27% outside</td><td class="mono">under 0.135%</td><td style="font-family:inherit">Extreme values — check the data</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ft"><span>Areas come from the standard normal distribution: P(|Z| ≤ z) = 2Φ(z) − 1. Real data is only approximately normal, so treat these as guides, not guarantees.</span></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked example: a standardised test score</h2>
+  <p>A test has a mean of 500 and a standard deviation of 100, and results are roughly normally distributed. A candidate scores 650. How did they do relative to everyone else?</p>
+  <ol class="sx-mt-steps">
+    <li><span class="n">1</span><h4>State what you know</h4><p>Raw score x = 650, mean μ = 500, standard deviation σ = 100.</p></li>
+    <li><span class="n">2</span><h4>Subtract the mean</h4><p>How far the score sits from the average.</p><span class="eq">x − μ = 650 − 500 = <b>+150</b></span></li>
+    <li><span class="n">3</span><h4>Divide by the standard deviation</h4><p>Express that distance in standard deviations.</p><span class="eq">z = 150 ÷ 100 = <b>+1.50</b></span></li>
+    <li><span class="n">4</span><h4>Read off the percentile</h4><p>The standard normal CDF at 1.50 is 0.9332, so the candidate scored higher than about 93.3% of test-takers.</p><span class="eq">Φ(1.50) = <b>0.9332</b> → 93.32nd percentile</span></li>
+  </ol>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Where z-scores are used</h2>
+  <p>Standardising puts values from different scales on one common footing, which is why the idea appears across fields.</p>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">model_training</span><h3>Machine learning</h3><p>Feature standardisation rescales each variable to mean 0 and standard deviation 1, so large-valued features do not dominate distance-based or gradient-based models.</p><span class="f">Also called "z-score normalisation"</span></div>
+    <div><span class="msym" aria-hidden="true">monitor_heart</span><h3>Growth &amp; health screening</h3><p>Paediatric growth references and bone-density reports express a measurement as a z-score against an age- and sex-matched reference group.</p><span class="f">Reference-group comparison</span></div>
+    <div><span class="msym" aria-hidden="true">factory</span><h3>Quality control</h3><p>Process monitoring flags a measurement that lands several standard deviations from the process mean as a possible special cause worth investigating.</p><span class="f">Outlier screening</span></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What is a z-score?</h2>
+    <p>A z-score (standard score) says how many standard deviations a value lies from the mean of its distribution. A z-score of 0 is exactly average, +1 is one standard deviation above, and −2 is two below. Because the result has no units, z-scores let you compare a height in centimetres with an exam mark or a lab value.</p>
+    <h2>How to calculate a z-score</h2>
+    <p><strong>z = (x − μ) ÷ σ</strong>, where x is the raw score, μ the mean and σ the standard deviation. To go the other way, <strong>x = μ + zσ</strong>. The percentile comes from the standard normal cumulative distribution function Φ(z), assuming the data is approximately normal.</p>
+    <ul>
+      <li><strong>Left tail</strong> = Φ(z), the share of values below x.</li>
+      <li><strong>Right tail</strong> = 1 − Φ(z), the share above x.</li>
+      <li><strong>Two-tailed</strong> = 2 × the smaller tail, the share at least as far from the mean in either direction.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Interpreting your result</h2>
+    <p>Between −1 and +1 is ordinary variation, and beyond ±2 is unusual: roughly 5% of a normal distribution lies that far out. Beyond ±3 is rare (about 0.27%). The percentile is only meaningful if the data is close to bell-shaped — for skewed data a high z-score does not mean the same tail probability.</p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.6.6.1 Normal distribution</a></li>
+      <li>Abramowitz, M. &amp; Stegun, I. A. (eds.), <i>Handbook of Mathematical Functions</i>, National Bureau of Standards, 1964 — chapter 26, normal probability function.</li>
+      <li>ISO 3534-1:2006, <i>Statistics — Vocabulary and symbols — Part 1: General statistical terms and terms used in probability</i>.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What does a negative z-score mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It means the value is below the mean. A z-score of −1.5 is one and a half standard deviations below average, which on a normal distribution is about the 6.68th percentile.</p></details>
+    <details class="sx-faq"><summary>How do I convert a z-score to a percentile?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Evaluate the standard normal cumulative distribution function Φ(z) and multiply by 100. For example Φ(1.00) = 0.8413, so z = 1 is the 84.13th percentile. This calculator does that for you and also shows both tail areas.</p></details>
+    <details class="sx-faq"><summary>What is the difference between a z-score and a t-score?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A z-score uses a known population standard deviation and the normal distribution. A t statistic uses a standard deviation estimated from a small sample and the t distribution, which has heavier tails. Separately, "T-score" in psychometrics means a standardised score with mean 50 and standard deviation 10, which is unrelated to the t distribution.</p></details>
+    <details class="sx-faq"><summary>What are the critical z-values for 95% and 99% confidence?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For a two-sided interval, z = 1.960 for 95% confidence and z = 2.576 for 99% confidence. For 90% it is 1.645. Use the inverse mode with a percentile of 97.5 or 99.5 to reproduce them.</p></details>
+    <details class="sx-faq"><summary>Should I use the sample or the population standard deviation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use the population standard deviation (divide by N) only when your data is the whole population. If it is a sample drawn from a larger group, divide by n − 1 to get the unbiased estimate of the variance, which is the usual choice.</p></details>
+    <details class="sx-faq"><summary>Does the percentile work for any data?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. The z-score itself is always valid, but the percentile and tail areas assume an approximately normal distribution. For strongly skewed or heavy-tailed data they can be badly off.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related statistics calculators</h2><p>Next steps once you have a z-score.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bar_chart</span></span><b>Standard Deviation</b><span class="d">Sample and population standard deviation and variance for a data set.</span><span class="f">Get σ or s<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">casino</span></span><b>Probability Calculator</b><span class="d">Probabilities of single and combined events.</span><span class="f">Events and odds<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/binomial-probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Binomial Probability</b><span class="d">The chance of k successes in n independent trials.</span><span class="f">Discrete distributions<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/mean-median-mode-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">align_horizontal_center</span></span><b>Mean, Median &amp; Mode</b><span class="d">Central tendency measures for a list of numbers.</span><span class="f">Find the mean<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Z-Score Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/z-score-calculator.html" width="100%" height="560" loading="lazy" title="Z-Score Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
