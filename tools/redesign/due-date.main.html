@@ -1,0 +1,104 @@
+<div class="sx" id="ddCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Pregnancy Due Date Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>ACOG Dating Methods</span><span class="sx-badge"><span class="msym" aria-hidden="true">event_note</span>Prenatal Milestones</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Pregnancy Due Date Calculator — LMP, Conception or IVF</h1>
+    <p>Estimate your due date from your last menstrual period (adjusted for cycle length), conception date or IVF transfer, and see how far along you are with key prenatal milestones and term dates.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Dates</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Calculate From</span></div>
+      <input type="hidden" id="m" value="s1">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Method"><button type="button" data-for="m" data-value="s1">Last period</button><button type="button" data-for="m" data-value="s2">Conception</button><button type="button" data-for="m" data-value="s3">IVF transfer</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="d" id="dL">First Day of Last Period</label></div>
+      <div class="sx-au-in np"><input id="d" type="date" aria-label="Date"></div>
+    </div>
+    <div id="cRow"><div class="sx-au-l"><label for="cl">Average Cycle Length</label></div><div class="sx-au-in np"><input id="cl" type="number" inputmode="numeric" min="20" max="45" step="1" value="28"><span class="suf">days</span></div></div>
+    <div id="eRow" hidden>
+      <div class="sx-au-l"><span>Embryo Age at Transfer</span></div><input type="hidden" id="ea" value="s2">
+      <div class="sx-seg" role="group" aria-label="Embryo age" style="display:flex"><button type="button" data-for="ea" data-value="s1" style="flex:1">Day 3</button><button type="button" data-for="ea" data-value="s2" style="flex:1">Day 5</button><button type="button" data-for="ea" data-value="s3" style="flex:1">Day 6</button></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Due Date</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Estimated due date</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>How far along today</span><b id="ga">—</b></div><div><span>Trimester</span><b id="tri">—</b></div></div>
+    <div class="g2"><div><span>Days to due date</span><b id="left">—</b></div><div><span>Full term window (39w0d–40w6d)</span><b id="ft">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Dates</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/pregnancy-weight-gain-calculator.html"><span class="msym" aria-hidden="true">pregnant_woman</span>Weight Gain</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Your Pregnancy Timeline</h2><p>Dates for common prenatal milestones based on your estimated due date. Your care team sets your actual schedule.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Milestone</th><th scope="col">Gestational Age</th><th scope="col">Date</th></tr></thead>
+    <tbody id="msTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <ul>
+      <li><strong>Last menstrual period (Naegele's rule):</strong> due date = first day of LMP + 280 days (40 weeks). For cycles other than 28 days, the calculator adds or subtracts the difference (e.g. +2 days for a 30-day cycle), since ovulation shifts with cycle length.</li>
+      <li><strong>Conception date:</strong> due date = conception + 266 days (38 weeks).</li>
+      <li><strong>IVF transfer:</strong> due date = transfer date + 266 days − embryo age (263 days for a day-3 transfer, 261 for day 5, 260 for day 6).</li>
+    </ul>
+    <p>Gestational age is counted from the first day of the LMP, so at conception you are already about 2 weeks pregnant. Trimesters: first up to 13 weeks 6 days, second 14w0d–27w6d, third from 28 weeks.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against ACOG guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A last period starting 1 March 2026 with a 28-day cycle: 1 March + 280 days = <strong>6 December 2026</strong>. With a 32-day cycle the estimate moves 4 days later, to 10 December. A day-5 IVF transfer on 15 March 2026 gives 15 March + 261 days = 1 December 2026.</p>
+
+    <h2>How accurate is a due date?</h2>
+    <p>Relatively few babies arrive exactly on their due date — most are born within a couple of weeks either side. The American College of Obstetricians and Gynecologists (ACOG) considers an ultrasound in the first trimester the most accurate way to date a pregnancy, and your provider may change your due date if the scan and your LMP date differ by more than a set number of days. IVF dates are the most precise because the embryo's age is known.</p>
+    <p>ACOG term definitions: early term 37w0d–38w6d, full term 39w0d–40w6d, late term 41w0d–41w6d, and post-term from 42w0d. <strong>This is information, not medical advice</strong> — your care team confirms your dates and schedule.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date" rel="noopener noreferrer">ACOG Committee Opinion No. 700 — Methods for Estimating the Due Date</a> (2017)</li>
+      <li><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/11/definition-of-term-pregnancy" rel="noopener noreferrer">ACOG Committee Opinion No. 579 — Definition of Term Pregnancy</a> (2013)</li>
+      <li>ACOG Practice Bulletin No. 175, Ultrasound in Pregnancy (2016) — standard anatomy exam at 18–22 weeks.</li>
+      <li>ACOG Practice Bulletin No. 190, Gestational Diabetes Mellitus (2018) — screening at 24–28 weeks.</li>
+      <li>ACOG Committee Opinion No. 797, Prevention of Group B Streptococcal Early-Onset Disease in Newborns (2020) — screening at 36w0d–37w6d.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why is pregnancy counted from my last period, not conception?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The first day of the last period is usually a known date, while conception usually isn't. Counting from the LMP adds about two weeks before conception, which is why a full-term pregnancy is described as 40 weeks.</p></details>
+    <details class="sx-faq"><summary>What if my cycles are irregular?<span class="msym" aria-hidden="true">expand_more</span></summary><p>LMP-based dates are less reliable with irregular or unknown cycles. An early ultrasound gives a more accurate estimate, and your provider will usually date the pregnancy from it.</p></details>
+    <details class="sx-faq"><summary>Can my due date change?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. If an early ultrasound measurement differs from your LMP date by more than ACOG's thresholds, your provider may update your due date. Once set from an early scan, it usually isn't changed by later scans.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Planning for pregnancy.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/pregnancy-weight-gain-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pregnant_woman</span></span><b>Pregnancy Weight Gain</b><span class="d">IOM ranges by pre-pregnancy BMI.</span><span class="f">Check range<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/pregnancy-calorie-needs-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">restaurant</span></span><b>Pregnancy Calorie Needs</b><span class="d">Extra energy by trimester.</span><span class="f">Check needs<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/ovulation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">egg</span></span><b>Ovulation Calculator</b><span class="d">Fertile window for the next cycles.</span><span class="f">Find fertile days<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/water-intake-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">water_drop</span></span><b>Water Intake</b><span class="d">Fluid needs in pregnancy.</span><span class="f">Check water<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
