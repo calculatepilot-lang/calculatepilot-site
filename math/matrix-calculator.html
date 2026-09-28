@@ -15,11 +15,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matrix Calculator | CalculatePilot</title>
-<meta name="description" content="Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. Free, instant, formula shown. No signup.">
+<title>Matrix Calculator (2x2) - Determinant, Inverse & Eigenvalues</title>
+<meta name="description" content="Find a 2x2 matrix's determinant, inverse, trace and eigenvalues, multiply two matrices, or solve Ax = b with Cramer's rule. Free, with full working shown.">
 <link rel="canonical" href="https://www.calculatepilot.com/math/matrix-calculator.html">
-<meta property="og:title" content="Matrix Calculator | CalculatePilot">
-<meta property="og:description" content="Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. Free, instant, formula shown. No signup.">
+<meta property="og:title" content="Matrix Calculator (2x2) - Determinant, Inverse & Eigenvalues">
+<meta property="og:description" content="Find a 2x2 matrix's determinant, inverse, trace and eigenvalues, multiply two matrices, or solve Ax = b with Cramer's rule. Free, with full working shown.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/math/matrix-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -27,49 +27,135 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Matrix Calculator | CalculatePilot">
-<meta name="twitter:description" content="Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. Free, instant, formula shown. No signup.">
+<meta name="twitter:title" content="Matrix Calculator (2x2) - Determinant, Inverse & Eigenvalues">
+<meta name="twitter:description" content="Find a 2x2 matrix's determinant, inverse, trace and eigenvalues, multiply two matrices, or solve Ax = b with Cramer's rule. Free, with full working shown.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930k">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,bolt,calculate,chevron_right,code,content_copy,event,expand_more,functions,grid_on,lightbulb,link,lock,north_east,person_check,picture_as_pdf,restart_alt,show_chart,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Matrix Calculator (2\u00d72)",
-  "url": "https://www.calculatepilot.com/math/matrix-calculator.html",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Add, subtract, or multiply two 2x2 matrices, and calculate the determinant. No signup needed. CalculatePilot explains the formula behind every result."
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Matrix Calculator (2×2)",
+ "url": "https://www.calculatepilot.com/math/matrix-calculator.html",
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "2x2 matrix calculator for determinant, inverse, eigenvalues, multiplication and linear system solving"
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Matrix Calculator (2×2)", "item": "https://www.calculatepilot.com/math/matrix-calculator.html"}
-  ]
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Math Calculators",
+   "item": "https://www.calculatepilot.com/math-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Matrix Calculator (2×2)",
+   "item": "https://www.calculatepilot.com/math/matrix-calculator.html"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why isn\u0027t matrix multiplication done element by element?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Matrix multiplication follows a row-by-column rule rooted in linear algebra (representing composition of linear transformations), which is fundamentally different from simple element-wise multiplication." }
-    },    {
-      "@type": "Question",
-      "name": "What does it mean if the determinant is zero?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A zero determinant means the matrix is \u0027singular\u0027 \u2014 it cannot be inverted, and the corresponding system of linear equations doesn\u0027t have a unique solution." }
-    }  ]
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Matrix Calculator (2×2)",
+ "url": "https://www.calculatepilot.com/math/matrix-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-28",
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "Cayley 1858 Philosophical Transactions",
+  "Strang Introduction to Linear Algebra 2016",
+  "ISO 80000-2:2019"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What does det(A) = 0 mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The rows (or columns) of A are linearly dependent — one is a scalar multiple of the other. The matrix has no inverse, and it maps the plane onto a line or a single point rather than a full 2D region."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I check that an inverse is correct?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply A by the computed A⁻¹: the result should be the identity matrix I = [[1, 0], [0, 1]], up to rounding. This calculator performs that check for you."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can a 2×2 matrix have complex eigenvalues?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — whenever the discriminant tr(A)² − 4·det(A) is negative, such as for a rotation matrix (with angle not a multiple of 180°). The eigenvalues then form a complex conjugate pair."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does Cramer's rule fail when det(A) = 0?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because it divides by det(A). A singular system either has no solution or infinitely many, and Cramer's rule cannot distinguish those cases — use row reduction instead."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What do the eigenvalues tell you geometrically?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Along each eigenvector direction, A acts as pure scaling by the corresponding eigenvalue — no rotation. Real eigenvalues mean the map stretches or flips along fixed directions; complex ones mean the map includes rotation."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is A⁻¹A always equal to AA⁻¹?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, for a square invertible matrix, A⁻¹A = AA⁻¹ = I. This is a special property of square matrices; it does not hold for non-square matrices, which only have one-sided inverses at best."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -90,117 +176,144 @@
 </header>
 
 <main>
+<div class="sx" id="mxCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Matrix Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Matrix Calculator (2×2)
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>2×2 matrices, exact where possible</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Matrix Calculator (2×2)</h1>
+    <p>Determinant, inverse, trace and transpose · multiply two 2×2 matrices · eigenvalues, eigenvectors and the characteristic polynomial · solve Ax = b with Cramer's rule — every step and, where exact, the rational form too.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every worked example below is re-derived by hand from the formulas. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">grid_on</span><section><b>How the engine works</b><p>Determinant and inverse use the standard 2×2 adjugate formula; eigenvalues solve the characteristic quadratic λ² − tr(A)λ + det(A) = 0; the system solver uses Cramer's rule.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Linear algebra homework and quick graphics/engineering checks need exact fractions, not just decimals — this shows both.</p></section></div>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Matrix Calculator (2×2)</h1>
-    <p class="lede">Add, subtract, or multiply two 2×2 matrices, and calculate the determinant of matrix A.</p>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0" id="formH">Determinant, inverse &amp; trace</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Task"><button type="button" data-for="mode" data-value="s1">Determinant &amp; inverse</button><button type="button" data-for="mode" data-value="s2">Multiply A × B</button><button type="button" data-for="mode" data-value="s3">Eigenvalues</button><button type="button" data-for="mode" data-value="s4">Solve Ax = b</button></div>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-a="3,2,1,4">Standard [3,2;1,4]</button><button type="button" data-a="4,1,1,3">Symmetric [4,1;1,3]</button><button type="button" data-a="0.7071,-0.7071,0.7071,0.7071">Rotation 45°</button><button type="button" data-a="2,4,1,2">Singular [2,4;1,2]</button><button type="button" data-a="1,2,0,1">Shear [1,2;0,1]</button></div>
+    <div class="sx-au-l"><label>Matrix A</label></div>
+    <div class="sx-mt-mat2" role="group" aria-label="Matrix A entries">
+      <input id="a11" type="number" step="any" value="3" aria-label="Row 1, column 1"><input id="a12" type="number" step="any" value="2" aria-label="Row 1, column 2">
+      <input id="a21" type="number" step="any" value="1" aria-label="Row 2, column 1"><input id="a22" type="number" step="any" value="4" aria-label="Row 2, column 2">
+    </div>
+    <div id="fB" hidden><div class="sx-au-l"><label>Matrix B</label></div>
+      <div class="sx-mt-mat2" role="group" aria-label="Matrix B entries">
+        <input id="b11" type="number" step="any" value="2" aria-label="B row 1, column 1"><input id="b12" type="number" step="any" value="0" aria-label="B row 1, column 2">
+        <input id="b21" type="number" step="any" value="1" aria-label="B row 2, column 1"><input id="b22" type="number" step="any" value="2" aria-label="B row 2, column 2">
+      </div>
+    </div>
+    <div id="fRHS" hidden><div class="sx-au-l"><label>Right-hand side vector b</label></div>
+      <div class="sx-mt-mat2 vec" role="group" aria-label="Vector b">
+        <input id="r1" type="number" step="any" value="8" aria-label="b, row 1"><input id="r2" type="number" step="any" value="7" aria-label="b, row 2">
+      </div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Compute</button><button type="button" class="rs" id="ident">Set A to identity</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Matrix A</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Determinant det(A)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big" style="font-size:30px;line-height:1.2;word-break:break-word"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span id="ex1L">Rational form</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Classification</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec" id="vizCard">
+  <div class="hd"><div><h2>Geometric effect of A on the unit square</h2><p>How A maps the basis vectors e₁ = (1, 0) and e₂ = (0, 1).</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+  <div class="sx-mt-plot" id="viz" role="img" aria-label="Transformation of the unit square by matrix A"></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Matrix classes at a glance</h2><p>How a 2×2 matrix can behave.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+    <thead><tr><th scope="col">Class</th><th scope="col">Condition</th><th scope="col">det(A)</th><th scope="col">Geometric action</th></tr></thead>
+    <tbody>
+      <tr><td>Non-singular</td><td class="mono">rank(A) = 2</td><td class="mono">≠ 0</td><td style="font-family:inherit">Bijective map; area scales by |det(A)|</td></tr>
+      <tr><td>Singular</td><td class="mono">rank(A) &lt; 2</td><td class="mono">= 0</td><td style="font-family:inherit">Collapses the plane onto a line or a point</td></tr>
+      <tr><td>Orthogonal</td><td class="mono">AᵀA = I</td><td class="mono">±1</td><td style="font-family:inherit">Rigid motion — a rotation or reflection</td></tr>
+      <tr><td>Symmetric</td><td class="mono">A = Aᵀ</td><td style="font-family:inherit">—</td><td style="font-family:inherit">Real eigenvalues, perpendicular eigenvectors</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">grid_on</span><h3>Determinant &amp; inverse</h3><p>For A = [[3, 2], [1, 4]], find det(A) and A⁻¹.</p><div class="sx-mt-ex">det(A) = 3·4 − 2·1 = 10<br>A⁻¹ = (1/10)[[4, −2], [−1, 3]]<br><b>= [[0.4, −0.2], [−0.1, 0.3]]</b></div></div>
+    <div><span class="msym" aria-hidden="true">bolt</span><h3>Eigenvalues</h3><p>Find the eigenvalues of the same matrix A.</p><div class="sx-mt-ex">tr(A) = 7, det(A) = 10<br>λ² − 7λ + 10 = 0 → (λ − 5)(λ − 2) = 0<br><b>λ₁ = 5, λ₂ = 2</b></div></div>
+    <div><span class="msym" aria-hidden="true">functions</span><h3>Cramer's rule</h3><p>Solve Ax = b for b = (8, 7) with the same A.</p><div class="sx-mt-ex">x₁ = det([[8,2],[7,4]]) / det(A) = 18/10 = 1.8<br>x₂ = det([[3,8],[1,7]]) / det(A) = 13/10 = 1.3<br><b>x = (1.8, 1.3)</b></div></div>
   </div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="operation">Operation</label>
-        <select id="operation">
-          <option value="add" selected>Add (A + B)</option>
-          <option value="subtract" >Subtract (A − B)</option>
-          <option value="multiply" >Multiply (A × B)</option>
-        </select>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="a1">A row 1, col 1</label>
-          <input type="number" id="a1" value="1" step="1" >
-        </div>
-        <div class="field">
-          <label for="a2">A row 1, col 2</label>
-          <input type="number" id="a2" value="2" step="1" >
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="a3">A row 2, col 1</label>
-          <input type="number" id="a3" value="3" step="1" >
-        </div>
-        <div class="field">
-          <label for="a4">A row 2, col 2</label>
-          <input type="number" id="a4" value="4" step="1" >
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="b1">B row 1, col 1</label>
-          <input type="number" id="b1" value="5" step="1" >
-        </div>
-        <div class="field">
-          <label for="b2">B row 1, col 2</label>
-          <input type="number" id="b2" value="6" step="1" >
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="b3">B row 2, col 1</label>
-          <input type="number" id="b3" value="7" step="1" >
-        </div>
-        <div class="field">
-          <label for="b4">B row 2, col 2</label>
-          <input type="number" id="b4" value="8" step="1" >
-        </div>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Result matrix</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Operation</span><span id="outLabel">—</span></div>
-          <div class="readout-row"><span>Determinant of A</span><span id="outDeterminant">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
-    <h2>How 2×2 matrix multiplication works</h2>
-    <p>Unlike addition and subtraction, matrix multiplication isn't done element-by-element. Each entry in the result is a sum of products: the entry in row i, column j of the result comes from multiplying row i of matrix A by column j of matrix B, element by element, and summing.</p>
-    <p>This also means matrix multiplication generally isn't commutative — A × B usually doesn't equal B × A, unlike regular number multiplication, which is an important distinction when working with matrices in linear algebra.</p>
-    <h2>What the determinant tells you</h2>
-    <p>The determinant of a 2×2 matrix reveals whether the matrix can be inverted — a determinant of zero means the matrix has no inverse (it's called 'singular'), which has practical implications when solving systems of linear equations.</p>
-    <p>Geometrically, the absolute value of the determinant represents how much the matrix scales area when used as a linear transformation — a determinant of 2 means the transformation doubles area, for example.</p>
-
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Key 2×2 formulas</h2>
+    <ul>
+      <li><strong>Determinant:</strong> det(A) = a·d − b·c for A = [[a, b], [c, d]].</li>
+      <li><strong>Inverse:</strong> A⁻¹ = (1/det A)·[[d, −b], [−c, a]], defined only when det(A) ≠ 0.</li>
+      <li><strong>Trace:</strong> tr(A) = a + d, the sum of the diagonal entries.</li>
+      <li><strong>Characteristic polynomial:</strong> p(λ) = λ² − tr(A)λ + det(A); its roots are the eigenvalues.</li>
+      <li><strong>Cramer's rule:</strong> for Ax = b, xᵢ = det(Aᵢ) / det(A), where Aᵢ replaces column i of A with b.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Cayley, A. (1858). A memoir on the theory of matrices. <i>Philosophical Transactions of the Royal Society of London</i> 148, 17–37.</li>
+      <li>Strang, G. (2016). <i>Introduction to Linear Algebra</i> (5th ed.). Wellesley-Cambridge Press. Chapters 4 &amp; 6.</li>
+      <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>, clause 11 (matrices).</li>
+    </ul>
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Why isn't matrix multiplication done element by element?</h3>
-      <p>Matrix multiplication follows a row-by-column rule rooted in linear algebra (representing composition of linear transformations), which is fundamentally different from simple element-wise multiplication.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What does it mean if the determinant is zero?</h3>
-      <p>A zero determinant means the matrix is 'singular' — it cannot be inverted, and the corresponding system of linear equations doesn't have a unique solution.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
-      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
-      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
-      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>What does det(A) = 0 mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The rows (or columns) of A are linearly dependent — one is a scalar multiple of the other. The matrix has no inverse, and it maps the plane onto a line or a single point rather than a full 2D region.</p></details>
+    <details class="sx-faq"><summary>How do I check that an inverse is correct?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply A by the computed A⁻¹: the result should be the identity matrix I = [[1, 0], [0, 1]], up to rounding. This calculator performs that check for you.</p></details>
+    <details class="sx-faq"><summary>Can a 2×2 matrix have complex eigenvalues?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — whenever the discriminant tr(A)² − 4·det(A) is negative, such as for a rotation matrix (with angle not a multiple of 180°). The eigenvalues then form a complex conjugate pair.</p></details>
+    <details class="sx-faq"><summary>Why does Cramer's rule fail when det(A) = 0?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because it divides by det(A). A singular system either has no solution or infinitely many, and Cramer's rule cannot distinguish those cases — use row reduction instead.</p></details>
+    <details class="sx-faq"><summary>What do the eigenvalues tell you geometrically?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Along each eigenvector direction, A acts as pure scaling by the corresponding eigenvalue — no rotation. Real eigenvalues mean the map stretches or flips along fixed directions; complex ones mean the map includes rotation.</p></details>
+    <details class="sx-faq"><summary>Is A⁻¹A always equal to AA⁻¹?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes, for a square invertible matrix, A⁻¹A = AA⁻¹ = I. This is a special property of square matrices; it does not hold for non-square matrices, which only have one-sided inverses at best.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with algebra.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/polynomial-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Polynomial Calculator</b><span class="d">Roots, division and factoring.</span><span class="f">Degree n<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/vector-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">north_east</span></span><b>Vector Calculator</b><span class="d">Cross, dot products and angles.</span><span class="f">Vectors<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/quadratic-formula-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">show_chart</span></span><b>Quadratic Formula</b><span class="d">Roots of ax² + bx + c.</span><span class="f">Degree 2<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/gcd-lcm-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">calculate</span></span><b>GCD &amp; LCM Calculator</b><span class="d">Euclid's algorithm, Bézout.</span><span class="f">Integers<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Matrix Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/matrix-calculator.html" width="100%" height="560" loading="lazy" title="Matrix Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -276,8 +389,8 @@
     </div>
   </div>
 </footer>
-
-<script src="/js/matrix.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930k"></script>
+<script src="/js/calc/matrix.js?v=20260930k"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>

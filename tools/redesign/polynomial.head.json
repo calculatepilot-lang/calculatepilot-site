@@ -1,0 +1,121 @@
+{
+ "title": "Polynomial Calculator - Division, Roots & Factoring",
+ "description": "Divide polynomials with synthetic division, find real and complex roots, factor, add/subtract/multiply, or evaluate with Horner's method. Free, with full steps.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_tree,arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,functions,grid_on,lightbulb,link,lock,person_check,picture_as_pdf,pin,restart_alt,show_chart,superscript,trending_up,tune,verified_user,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "Polynomial Calculator",
+   "url": "https://www.calculatepilot.com/math/polynomial-calculator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Polynomial calculator with synthetic division, root finding, factoring, arithmetic and Horner evaluation"
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Polynomial Calculator",
+     "item": "https://www.calculatepilot.com/math/polynomial-calculator.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Polynomial Calculator",
+   "url": "https://www.calculatepilot.com/math/polynomial-calculator.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": [
+    "Horner 1819 Philosophical Transactions",
+    "Gauss 1799 Fundamental Theorem of Algebra",
+    "NIST DLMF 1.11",
+    "ISO 80000-2:2019"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "When can I use synthetic division instead of long division?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "When the divisor is linear, x − c (a monic linear factor). It needs only the coefficients and c, and is faster and less error-prone. For a divisor such as 2x − 6, divide the coefficients by 2 first (2x − 6 = 2(x − 3)) or use long division. For divisors of degree 2 or more, use long division."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does Horner’s scheme reduce the number of operations?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It rewrites aₙxⁿ + … + a₀ as (…((aₙx + aₙ₋₁)x + aₙ₋₂)x + …)x + a₀, needing only n multiplications and n additions instead of computing each power separately. It is also more accurate in floating-point arithmetic."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does the Fundamental Theorem of Algebra guarantee?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Every non-constant polynomial with complex coefficients has at least one complex root, and therefore exactly n roots counting multiplicity. Real polynomials may have complex roots, but they come in conjugate pairs a ± bi."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why are complex roots always in pairs?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "If a polynomial has real coefficients and a + bi is a root, its conjugate a − bi is also a root, because conjugation preserves real coefficients. So non-real roots of real polynomials appear in conjugate pairs."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a formula for the roots of every polynomial?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only up to degree 4 (the quadratic, cubic and quartic formulas). The Abel–Ruffini theorem shows there is no general algebraic formula for degree 5 or higher, so numerical methods — as used here — are needed."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How accurate are the numerical roots?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Roots are refined to about 12 significant digits. Repeated roots and very high degrees are less well conditioned, so their computed values can be slightly less accurate. Exact rational roots are found first, before any numerical work."
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,126 @@
+<div class="sx" id="frCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Fraction Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Exact integer arithmetic</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Fraction Calculator</h1>
+    <p>Add, subtract, multiply and divide fractions and mixed numbers, or simplify one — with the answer as a reduced fraction, a mixed number, a decimal (including repeating decimals) and a percent, and every step shown.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The rules are standard arithmetic and the worked examples are re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It uses arbitrary-size integers, finds the lowest common denominator, combines the numerators, then reduces with Euclid’s greatest-common-divisor algorithm. No rounding occurs until the decimal display.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Fractions are exact, decimals are not. This page keeps the exact answer and shows every step, including how a repeating decimal repeats.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Operation and fractions</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="op" value="add">
+    <div class="sx-seg full" role="group" aria-label="Operation"><button type="button" data-for="op" data-value="add">Add +</button><button type="button" data-for="op" data-value="sub">Subtract −</button><button type="button" data-for="op" data-value="mul">Multiply ×</button><button type="button" data-for="op" data-value="div">Divide ÷</button><button type="button" data-for="op" data-value="simp">Simplify</button></div>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-p="add|0,3,4|0,2,3">3/4 + 2/3</button><button type="button" data-p="add|1,5,8|0,3,32">1 5/8 + 3/32</button><button type="button" data-p="mul|0,3,4|2,2,3">3/4 × 2 2/3</button><button type="button" data-p="div|0,7,8|0,7,16">7/8 ÷ 7/16</button><button type="button" data-p="simp|0,18,24|0,1,1">Simplify 18/24</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Fraction 1</span><em class="mu">whole · numerator · denominator</em></div><div class="sx-au-g3" style="gap:6px"><div class="sx-au-in np"><input id="w1" type="number" inputmode="numeric" step="1" value="0" aria-label="Fraction 1 whole number"></div><div class="sx-au-in np"><input id="n1" type="number" inputmode="numeric" step="1" value="3" aria-label="Fraction 1 numerator"></div><div class="sx-au-in np"><input id="d1" type="number" inputmode="numeric" step="1" min="1" value="4" aria-label="Fraction 1 denominator"></div></div></div>
+      <div id="f2"><div class="sx-au-l"><span>Fraction 2</span><em class="mu">whole · numerator · denominator</em></div><div class="sx-au-g3" style="gap:6px"><div class="sx-au-in np"><input id="w2" type="number" inputmode="numeric" step="1" value="0" aria-label="Fraction 2 whole number"></div><div class="sx-au-in np"><input id="n2" type="number" inputmode="numeric" step="1" value="2" aria-label="Fraction 2 numerator"></div><div class="sx-au-in np"><input id="d2" type="number" inputmode="numeric" step="1" min="1" value="3" aria-label="Fraction 2 denominator"></div></div></div>
+    </div>
+    <p class="sx-au-help">Leave the whole number at 0 for a plain fraction. For a negative mixed number put the minus sign on the whole number (−2 1/3), or on the numerator when the whole number is 0.</p>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate</button><button type="button" class="rs" id="swap">Swap</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Expression</span><span class="eq" id="fxNow" style="font-size:16px">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Result (lowest terms)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Mixed number</span><b id="mixed" style="font-size:17px">—</b></div><div><span>Decimal</span><b id="dec" style="font-size:17px;word-break:break-all">—</b></div></div>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Number line</h2><p>Where the fractions and the result sit between whole numbers.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+  <div class="sx-mt-plot" id="viz" role="img" aria-label="Number line showing the two fractions and the result"></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Rules for fraction arithmetic</h2><p>The four operations and simplifying.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:700px">
+    <thead><tr><th scope="col">Operation</th><th scope="col">Rule</th><th scope="col">Example</th><th scope="col">Condition</th></tr></thead>
+    <tbody>
+      <tr><td>Add</td><td class="mono">a/b + c/d = (ad + bc) / bd</td><td class="mono">3/4 + 2/3 = 17/12</td><td style="font-family:inherit">b, d ≠ 0; the lowest common denominator keeps numbers small</td></tr>
+      <tr><td>Subtract</td><td class="mono">a/b − c/d = (ad − bc) / bd</td><td class="mono">3/4 − 2/3 = 1/12</td><td style="font-family:inherit">The result can be negative</td></tr>
+      <tr><td>Multiply</td><td class="mono">a/b × c/d = ac / bd</td><td class="mono">3/4 × 2/3 = 1/2</td><td style="font-family:inherit">Cancel common factors first to keep numbers small</td></tr>
+      <tr><td>Divide</td><td class="mono">a/b ÷ c/d = ad / bc</td><td class="mono">3/4 ÷ 2/3 = 9/8</td><td style="font-family:inherit">c ≠ 0: flip the divisor and multiply</td></tr>
+      <tr><td>Simplify</td><td class="mono">a/b = (a÷g) / (b÷g)</td><td class="mono">18/24 = 3/4</td><td style="font-family:inherit">g = GCD(a, b)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">carpenter</span><h3>Adding lengths</h3><p>A 1 5/8″ board plus a 3/32″ gasket.</p><div class="sx-mt-ex">1 5/8 = 13/8 = 52/32<br>52/32 + 3/32 = 55/32<br><b>= 1 23/32 inches</b></div></div>
+    <div><span class="msym" aria-hidden="true">science</span><h3>Combining volumes</h3><p>2/5 mL of one solution plus 3/8 mL of another.</p><div class="sx-mt-ex">LCD(5, 8) = 40<br>16/40 + 15/40 = <b>31/40 mL</b></div></div>
+    <div><span class="msym" aria-hidden="true">cookie</span><h3>Scaling a recipe</h3><p>A recipe needs 3/4 cup of sugar; you make 2 2/3 batches.</p><div class="sx-mt-ex">3/4 × 8/3 = 24/12<br><b>= 2 cups</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What is a fraction?</h2>
+    <p>A fraction a/b represents a parts out of b equal parts, or the quotient a ÷ b. It is <em>proper</em> if a &lt; b, <em>improper</em> if a ≥ b, and a <em>mixed number</em> combines a whole number with a proper fraction (1 5/12 = 17/12). Two fractions are equivalent if they have the same value: 2/4 = 1/2.</p>
+    <h2>How to simplify</h2>
+    <p>Divide the numerator and denominator by their greatest common divisor (GCD), found with Euclid’s algorithm. For 17/12: GCD(17, 12) = GCD(12, 5) = GCD(5, 2) = GCD(2, 1) = 1, so 17/12 is already in lowest terms.</p>
+    <h2>Repeating decimals</h2>
+    <p>A fraction in lowest terms has a terminating decimal exactly when its denominator has no prime factors other than 2 and 5. Otherwise the decimal repeats; the repeating block is at most (denominator − 1) digits long. For example 17/12 = 1.41666… = 1.41(6).</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Euclid, <i>Elements</i>, Book VII, Propositions 1–2 — the Euclidean algorithm for the greatest common divisor.</li>
+      <li>Knuth, D. E. (1997). <i>The Art of Computer Programming, Vol. 2: Seminumerical Algorithms</i>, 3rd ed., section 4.5 (rational arithmetic).</li>
+      <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why use the lowest common denominator instead of just multiplying the denominators?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Any common denominator works, but the lowest one keeps the numbers small and often skips a later simplification step. For 5/6 + 1/4, multiplying gives 26/24 which must be reduced to 13/12; the LCD 12 gives 13/12 directly.</p></details>
+    <details class="sx-faq"><summary>How can I tell whether a decimal will terminate or repeat?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Reduce the fraction, then factor the denominator. If it contains only 2s and 5s, the decimal terminates (3/8 = 0.375). Any other prime factor makes it repeat (1/3 = 0.(3), 1/7 = 0.(142857)).</p></details>
+    <details class="sx-faq"><summary>How do negative fractions work?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Only the fraction as a whole carries a sign: −3/4 = 3/(−4) = −(3/4). This calculator keeps the denominator positive and puts the sign on the numerator (or in front of a mixed number).</p></details>
+    <details class="sx-faq"><summary>How do I convert a mixed number to an improper fraction?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the whole number by the denominator, add the numerator, and keep the denominator: 2 1/3 = (2 × 3 + 1)/3 = 7/3. Going the other way, divide and keep the remainder: 7/3 = 2 remainder 1, so 2 1/3.</p></details>
+    <details class="sx-faq"><summary>Why can’t the denominator be zero?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Division by zero is undefined. A denominator of 0 would mean splitting something into zero parts. Dividing by a fraction whose numerator is 0 is likewise undefined.</p></details>
+    <details class="sx-faq"><summary>What is a continued fraction?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It writes a number as a whole part plus 1 over another whole part plus 1 over …: 17/12 = 1 + 1/(2 + 1/(2 + 1/2)), written [1; 2, 2, 2]. The quotients are exactly the ones produced by Euclid’s algorithm.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with number tools.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/gcd-lcm-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">tag</span></span><b>GCD &amp; LCM</b><span class="d">Greatest common divisor and least common multiple.</span><span class="f">Euclid’s algorithm<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Ratio Calculator</b><span class="d">Simplify ratios and solve proportions.</span><span class="f">Compare parts<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Percentage Calculator</b><span class="d">Percent of, change and reverse percentages.</span><span class="f">Work with percents<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/prime-number-checker.html"><span class="ic"><span class="msym" aria-hidden="true">numbers</span></span><b>Prime Number Checker</b><span class="d">Test primality and factorise integers.</span><span class="f">Factors<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Fraction Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/fraction-calculator.html" width="100%" height="560" loading="lazy" title="Fraction Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

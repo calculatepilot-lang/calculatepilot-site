@@ -15,11 +15,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GCD & LCM Calculator | CalculatePilot</title>
-<meta name="description" content="Calculate the greatest common divisor (GCD) and least common multiple (LCM) of two numbers. Free, instant, formula shown. No signup.">
+<title>GCD & LCM Calculator with Euclid Steps | CalculatePilot</title>
+<meta name="description" content="Free GCD and LCM calculator: greatest common divisor and least common multiple of two numbers or a list, with Euclid steps, prime factors and Bezout.">
 <link rel="canonical" href="https://www.calculatepilot.com/math/gcd-lcm-calculator.html">
-<meta property="og:title" content="GCD & LCM Calculator | CalculatePilot">
-<meta property="og:description" content="Calculate the greatest common divisor (GCD) and least common multiple (LCM) of two numbers. Free, instant, formula shown. No signup.">
+<meta property="og:title" content="GCD & LCM Calculator with Euclid Steps | CalculatePilot">
+<meta property="og:description" content="Free GCD and LCM calculator: greatest common divisor and least common multiple of two numbers or a list, with Euclid steps, prime factors and Bezout.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/math/gcd-lcm-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -27,49 +27,136 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GCD & LCM Calculator | CalculatePilot">
-<meta name="twitter:description" content="Calculate the greatest common divisor (GCD) and least common multiple (LCM) of two numbers. Free, instant, formula shown. No signup.">
+<meta name="twitter:title" content="GCD & LCM Calculator with Euclid Steps | CalculatePilot">
+<meta name="twitter:description" content="Free GCD and LCM calculator: greatest common divisor and least common multiple of two numbers or a list, with Euclid steps, prime factors and Bezout.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930k">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,balance,calculate,chevron_right,code,content_copy,directions_bus,event,expand_more,functions,grid_view,lightbulb,link,lock,numbers,percent,person_check,picture_as_pdf,pie_chart,restart_alt,settings,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "GCD \u0026 LCM Calculator",
-  "url": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Calculate the greatest common divisor (GCD) and least common multiple (LCM) of two numbers. No signup needed. CalculatePilot explains the formula behind every r"
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "GCD & LCM Calculator",
+ "url": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html",
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Find the greatest common divisor (GCD) and least common multiple (LCM) of two integers or a list, with Euclid's algorithm step by step, prime factorisations, a coprimality test and Bezout's identity."
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "GCD & LCM Calculator", "item": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html"}
-  ]
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Math Calculators",
+   "item": "https://www.calculatepilot.com/math-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "GCD & LCM Calculator",
+   "item": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What\u0027s the difference between GCD and LCM?",
-      "acceptedAnswer": { "@type": "Answer", "text": "GCD (greatest common divisor) is the largest number that divides both numbers evenly. LCM (least common multiple) is the smallest number that both numbers divide into evenly \u2014 they answer opposite kinds of questions." }
-    },    {
-      "@type": "Question",
-      "name": "Where is LCM used in everyday math?",
-      "acceptedAnswer": { "@type": "Answer", "text": "LCM is most commonly used to find a common denominator when adding or comparing fractions, and in scheduling problems involving repeating cycles or events." }
-    }  ]
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "GCD & LCM Calculator",
+ "url": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-28",
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "Euclid Elements Book VII Propositions 1 and 2",
+  "Gauss (1801) Disquisitiones Arithmeticae",
+  "Knuth (1997) The Art of Computer Programming, Vol. 2, section 4.5.2",
+  "ISO 80000-2:2019 Quantities and units - Mathematics"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Does gcd(a, b) · lcm(a, b) = a · b hold for three or more numbers?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The product identity is true only for two numbers. For a list you compute the GCD by repeatedly taking gcd of the running result with the next number, and the LCM likewise. For 4, 6 and 10: gcd = 2 and lcm = 60, but 2 × 60 = 120 while 4 × 6 × 10 = 240."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What happens if one or both inputs are zero?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "gcd(a, 0) = |a| because every number divides 0. gcd(0, 0) is conventionally 0. lcm with 0 is 0 by convention. Negative inputs give the same results as their absolute values."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is Euclid’s algorithm so much faster than factorisation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Each division at least halves the larger number every two steps, so it needs about log₂(min(a, b)) × 2 steps at most. Factorising large numbers has no known comparably fast method, which is why RSA cryptography relies on it being hard."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is Bézout’s identity used for?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It guarantees integers x and y with ax + by = gcd(a, b). When gcd(a, b) = 1, x is the modular inverse of a modulo b, which is how RSA computes a private key from a public exponent."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I use the GCD to simplify a fraction?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Divide the numerator and denominator by their GCD. For 48/180, gcd = 12, so 48/180 = 4/15. If the GCD is 1 the fraction is already in lowest terms."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does “coprime” mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Two integers are coprime (relatively prime) when their only common positive divisor is 1, i.e. gcd = 1. They need not be prime themselves: 8 and 15 are coprime. A set is pairwise coprime if every pair in it is coprime."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -90,78 +177,140 @@
 </header>
 
 <main>
+<div class="sx" id="gcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">GCD &amp; LCM Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / GCD & LCM Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>gcd · lcm · Bézout</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>GCD &amp; LCM Calculator</h1>
+    <p>Find the greatest common divisor and least common multiple of two integers or a whole list — with Euclid’s algorithm step by step, prime factorisations, a coprimality test and Bézout’s identity.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The algorithms are Euclid’s, and every worked example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It runs Euclid’s division algorithm on arbitrary-size integers, then gets the LCM from gcd(a, b) · lcm(a, b) = |a · b| and the Bézout coefficients from the extended algorithm.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>It shows both the fast route (Euclid) and the intuitive one (shared prime factors) side by side, so the two can be checked against each other.</p></section></div>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>GCD & LCM Calculator</h1>
-    <p class="lede">Calculate the greatest common divisor (GCD) and least common multiple (LCM) of two numbers.</p>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0" id="formH">Two integers</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Mode"><button type="button" data-for="mode" data-value="s1">Two integers</button><button type="button" data-for="mode" data-value="s2">A list</button><button type="button" data-for="mode" data-value="s3">Bézout identity</button><button type="button" data-for="mode" data-value="s4">Coprime test</button></div>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-a="48" data-b="180">48 &amp; 180</button><button type="button" data-a="24" data-b="36">24 &amp; 36</button><button type="button" data-a="17" data-b="31">17 &amp; 31 (coprime)</button><button type="button" data-a="252" data-b="105">252 &amp; 105 (Euclid)</button></div>
+    <div id="p1" class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="a">First integer (a)</label></div><div class="sx-au-in np"><input id="a" type="text" inputmode="numeric" autocomplete="off" value="48"></div></div>
+      <div><div class="sx-au-l"><label for="b">Second integer (b)</label></div><div class="sx-au-in np"><input id="b" type="text" inputmode="numeric" autocomplete="off" value="180"></div></div>
+    </div>
+    <div id="p2" hidden><div class="sx-au-l"><label for="lst">Integers</label><em class="mu" id="lstN">—</em></div><textarea id="lst" class="sx-mt-ta" spellcheck="false" aria-describedby="lstH">12, 18, 24, 30</textarea><p class="sx-au-help" id="lstH">Separate numbers with commas, spaces or new lines (2 to 30 numbers).</p></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate GCD &amp; LCM</button><button type="button" class="rs" id="swap">Swap</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Live invariant</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Greatest common divisor</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Least common multiple</span><b id="lcm" style="font-size:17px;word-break:break-all">—</b></div><div><span>Relationship</span><b id="rel" style="font-size:15px;word-break:break-all">—</b></div></div>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec" id="vennCard">
+  <div class="hd"><div><h2>Shared and separate prime factors</h2><p>The overlap multiplies to the GCD; everything together multiplies to the LCM.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+  <div class="sx-mt-plot" id="viz" role="img" aria-label="Venn diagram of the prime factors of the two numbers"></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Euclid’s algorithm</h2><p id="euN">—</p></div><span class="sx-au-tag" id="euTag">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" id="euTbl" style="min-width:520px"><thead><tr><th scope="col">Step</th><th scope="col">Division</th><th scope="col">Quotient</th><th scope="col">Remainder</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Identities to remember</h2><p>Key results about greatest common divisors and least common multiples.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+    <thead><tr><th scope="col">Identity</th><th scope="col">Statement</th><th scope="col">Note</th></tr></thead>
+    <tbody>
+      <tr><td>Euclidean algorithm</td><td class="mono">gcd(a, b) = gcd(b, a mod b)</td><td style="font-family:inherit">At most about 5 × the number of digits of the smaller number of steps</td></tr>
+      <tr><td>Bézout’s identity</td><td class="mono">ax + by = gcd(a, b)</td><td style="font-family:inherit">Solutions x, y always exist over the integers</td></tr>
+      <tr><td>Product duality</td><td class="mono">gcd(a, b) · lcm(a, b) = |a · b|</td><td style="font-family:inherit">Holds for two numbers, not three or more</td></tr>
+      <tr><td>Prime exponents</td><td class="mono">min(eₐ, e_b) for gcd, max for lcm</td><td style="font-family:inherit">Compare exponents of each prime</td></tr>
+      <tr><td>Associativity</td><td class="mono">gcd(a, b, c) = gcd(gcd(a, b), c)</td><td style="font-family:inherit">Reduce a list pair by pair</td></tr>
+      <tr><td>Coprime</td><td class="mono">gcd(a, b) = 1</td><td style="font-family:inherit">No shared prime factor</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">grid_view</span><h3>Tiling a floor</h3><p>What is the largest square tile that exactly covers a 12 × 18 floor?</p><div class="sx-mt-ex">gcd(12, 18) = <b>6</b><br>Tiles are 6 × 6, and (12 ÷ 6) × (18 ÷ 6) = <b>6 tiles</b></div></div>
+    <div><span class="msym" aria-hidden="true">directions_bus</span><h3>Bus timetable</h3><p>Two routes leave a station every 12 and every 18 minutes. When do they leave together again?</p><div class="sx-mt-ex">lcm(12, 18) = 12 · 18 ÷ 6 = <b>36 minutes</b></div></div>
+    <div><span class="msym" aria-hidden="true">settings</span><h3>Gear teeth</h3><p>Gears with 19 and 30 teeth are coprime. How long before the same teeth meet again?</p><div class="sx-mt-ex">gcd(19, 30) = 1<br>lcm = 19 × 30 = <b>570 teeth</b> — every tooth meets every other tooth, spreading wear evenly</div></div>
   </div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field-row">
-        <div class="field">
-          <label for="numA">First number</label>
-          <input type="number" id="numA" value="24" step="1" min="0">
-        </div>
-        <div class="field">
-          <label for="numB">Second number</label>
-          <input type="number" id="numB" value="36" step="1" min="0">
-        </div>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">GCD</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>LCM</span><span id="outLCM">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
-    <h2>How the Euclidean algorithm finds GCD</h2>
-    <p>This calculator uses the Euclidean algorithm, an efficient ancient method for finding the greatest common divisor: repeatedly replace the larger number with the remainder of dividing it by the smaller number, until the remainder is zero — the last nonzero remainder is the GCD.</p>
-    <p>This method is dramatically faster than checking every possible divisor, especially for large numbers, and remains one of the oldest algorithms still in common use today, dating back over 2,000 years.</p>
-    <h2>The relationship between GCD and LCM</h2>
-    <p>GCD and LCM are connected by a simple formula: GCD(a,b) × LCM(a,b) = a × b. This means once you know the GCD, finding the LCM is straightforward division rather than a separate calculation.</p>
-    <p>LCM is commonly used when adding fractions with different denominators (finding the smallest common denominator) and in scheduling problems, like determining when two repeating events will next align.</p>
-
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What are the GCD and LCM?</h2>
+    <p>The <strong>greatest common divisor</strong> (GCD, also called highest common factor) of two integers is the largest integer that divides both. The <strong>least common multiple</strong> (LCM) is the smallest positive integer that both divide. They are used to simplify fractions, to add fractions (the LCM of denominators), and to synchronise repeating cycles.</p>
+    <h2>Two methods</h2>
+    <ul>
+      <li><strong>Prime factorisation:</strong> write each number as a product of primes. The GCD takes the smallest exponent of each shared prime; the LCM takes the largest exponent of every prime present.</li>
+      <li><strong>Euclid’s algorithm:</strong> repeatedly replace (a, b) by (b, a mod b) until the remainder is 0; the last non-zero remainder is the GCD. It is far faster for large numbers, because it never needs to factorise.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Euclid, <i>Elements</i>, Book VII, Propositions 1–2, and Book X — the Euclidean division algorithm.</li>
+      <li>Gauss, C. F. (1801). <i>Disquisitiones Arithmeticae</i>. Leipzig — unique prime factorisation.</li>
+      <li>Knuth, D. E. (1997). <i>The Art of Computer Programming, Vol. 2</i>, 3rd ed., section 4.5.2 (the greatest common divisor).</li>
+      <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+    </ul>
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>What's the difference between GCD and LCM?</h3>
-      <p>GCD (greatest common divisor) is the largest number that divides both numbers evenly. LCM (least common multiple) is the smallest number that both numbers divide into evenly — they answer opposite kinds of questions.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Where is LCM used in everyday math?</h3>
-      <p>LCM is most commonly used to find a common denominator when adding or comparing fractions, and in scheduling problems involving repeating cycles or events.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
-      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
-      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
-      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>Does gcd(a, b) · lcm(a, b) = a · b hold for three or more numbers?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. The product identity is true only for two numbers. For a list you compute the GCD by repeatedly taking gcd of the running result with the next number, and the LCM likewise. For 4, 6 and 10: gcd = 2 and lcm = 60, but 2 × 60 = 120 while 4 × 6 × 10 = 240.</p></details>
+    <details class="sx-faq"><summary>What happens if one or both inputs are zero?<span class="msym" aria-hidden="true">expand_more</span></summary><p>gcd(a, 0) = |a| because every number divides 0. gcd(0, 0) is conventionally 0. lcm with 0 is 0 by convention. Negative inputs give the same results as their absolute values.</p></details>
+    <details class="sx-faq"><summary>Why is Euclid’s algorithm so much faster than factorisation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Each division at least halves the larger number every two steps, so it needs about log₂(min(a, b)) × 2 steps at most. Factorising large numbers has no known comparably fast method, which is why RSA cryptography relies on it being hard.</p></details>
+    <details class="sx-faq"><summary>What is Bézout’s identity used for?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It guarantees integers x and y with ax + by = gcd(a, b). When gcd(a, b) = 1, x is the modular inverse of a modulo b, which is how RSA computes a private key from a public exponent.</p></details>
+    <details class="sx-faq"><summary>How do I use the GCD to simplify a fraction?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the numerator and denominator by their GCD. For 48/180, gcd = 12, so 48/180 = 4/15. If the GCD is 1 the fraction is already in lowest terms.</p></details>
+    <details class="sx-faq"><summary>What does “coprime” mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Two integers are coprime (relatively prime) when their only common positive divisor is 1, i.e. gcd = 1. They need not be prime themselves: 8 and 15 are coprime. A set is pairwise coprime if every pair in it is coprime.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with number theory.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/fraction-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>Fraction Calculator</b><span class="d">Add, subtract, multiply, divide and simplify.</span><span class="f">Fractions<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/prime-number-checker.html"><span class="ic"><span class="msym" aria-hidden="true">numbers</span></span><b>Prime Number Checker</b><span class="d">Primality test and prime factors.</span><span class="f">Primes<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/modulo-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Modulo Calculator</b><span class="d">Remainders and modular arithmetic.</span><span class="f">a mod b<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Ratio Calculator</b><span class="d">Simplify ratios with the GCD.</span><span class="f">Ratios<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This GCD &amp; LCM Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/gcd-lcm-calculator.html" width="100%" height="560" loading="lazy" title="GCD and LCM Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -237,8 +386,8 @@
     </div>
   </div>
 </footer>
-
-<script src="/js/gcd-lcm.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930k"></script>
+<script src="/js/calc/gcd-lcm.js?v=20260930k"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
