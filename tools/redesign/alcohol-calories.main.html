@@ -1,0 +1,117 @@
+<div class="sx" id="acCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Alcohol Calories Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Size × ABV Formula</span><span class="sx-badge"><span class="msym" aria-hidden="true">local_bar</span>Standard Drinks &amp; UK Units</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Alcohol Calories Calculator — Per Drink, Week &amp; Year</h1>
+    <p>Calculate the calories in any drink from its size, strength (ABV) and sugar, see how many standard drinks and UK units it contains, and what your weekly drinking adds up to over a year.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Drink</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s1"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">fl oz</button><button type="button" data-for="u" data-value="s2" style="flex:1">mL</button></div></div>
+    <div>
+      <div class="sx-au-l"><label for="dt">Drink Type</label></div>
+      <div class="sx-au-sel"><select id="dt" aria-label="Drink type">
+        <option value="0">Regular beer (12 oz, 5%)</option><option value="1">Light beer (12 oz, 4.2%)</option><option value="2">Wine (5 oz, 12%)</option><option value="3">Spirits shot (1.5 oz, 40%)</option><option value="4">Spirit + 6 oz regular soda</option><option value="5">Hard seltzer (12 oz, 5%)</option><option value="6">Custom</option>
+      </select></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="sz">Size</label></div><div class="sx-au-in np"><input id="sz" type="number" inputmode="decimal" min="0.5" max="1000" step="0.5" value="12"><span class="suf" id="szU">fl oz</span></div></div>
+      <div><div class="sx-au-l"><label for="abv">Strength (ABV)</label></div><div class="sx-au-in np"><input id="abv" type="number" inputmode="decimal" min="0" max="70" step="0.1" value="5"><span class="suf">%</span></div></div>
+    </div>
+    <div><div class="sx-au-l"><label for="cb">Carbs / Sugar per Drink</label></div><div class="sx-au-in np"><input id="cb" type="number" inputmode="decimal" min="0" max="150" step="0.5" value="13"><span class="suf">g</span></div></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="n">Drinks per Occasion</label></div><div class="sx-au-in np"><input id="n" type="number" inputmode="numeric" min="0" max="30" step="1" value="3"></div></div>
+      <div><div class="sx-au-l"><label for="occ">Occasions per Week</label></div><div class="sx-au-in np"><input id="occ" type="number" inputmode="decimal" min="0" max="7" step="1" value="2"></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Calories</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Calories per week</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small> kcal</small></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Per drink</span><b id="pd">—</b></div><div><span>Per occasion</span><b id="po">—</b></div></div>
+    <div class="g2"><div><span>Per year</span><b id="py">—</b></div><div><span>Energy equivalent per year</span><b id="eq">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">science</span>One Drink, Broken Down</span><span id="brT">—</span></div>
+    <div class="l"><span>Pure alcohol</span><b id="ag">—</b></div>
+    <div class="l"><span>Calories from alcohol (7 kcal/g)</span><b id="ak">—</b></div>
+    <div class="l"><span>Calories from carbs (4 kcal/g)</span><b id="ck">—</b></div>
+    <div class="l"><span>US standard drinks (14 g)</span><b id="sd">—</b></div>
+    <div class="l"><span>UK units (8 g)</span><b id="uk">—</b></div>
+    <div class="l t"><span>UK units per week</span><b id="ukw">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/bac-calculator.html"><span class="msym" aria-hidden="true">local_bar</span>BAC Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Common Drinks Compared</h2><p>Calories, standard drinks and UK units per serving, calculated with the same formula.</p></div><span class="sx-au-tag">Per serving</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Drink</th><th scope="col">Serving</th><th scope="col">Calories</th><th scope="col">Std Drinks</th><th scope="col">UK Units</th></tr></thead>
+    <tbody id="cmpTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Calories in a drink come from two sources — the alcohol itself and any carbohydrate (sugar and starch):</p>
+    <ul>
+      <li><strong>Alcohol (g)</strong> = volume (mL) × ABV ÷ 100 × 0.789 (the density of ethanol)</li>
+      <li><strong>Calories</strong> = alcohol (g) × 7 + carbs (g) × 4</li>
+      <li><strong>US standard drinks</strong> = alcohol (g) ÷ 14 · <strong>UK units</strong> = alcohol (g) ÷ 8 (10 mL of pure alcohol)</li>
+    </ul>
+    <p>Preset carb values are typical figures from USDA FoodData Central; check the label for your brand, as beers, ciders and cocktails vary widely.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against NIAAA, UK CMO and U.S. Dietary Guidelines · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A 12-oz (355 mL) regular beer at 5% ABV: 355 × 0.05 × 0.789 = 14.0 g of alcohol — exactly one US standard drink — giving 98 kcal. Its 13 g of carbs add 52 kcal, for about <strong>150 kcal</strong>. Three beers twice a week is 900 kcal a week, or about 47,000 kcal a year.</p>
+
+    <h2>What the guidelines say</h2>
+    <p>The Dietary Guidelines for Americans, 2025–2030 advise consuming less alcohol for better overall health, and say pregnant women, people recovering from alcohol use disorder, and people whose medications or conditions interact with alcohol should avoid it completely. (The previous 2020–2025 edition set limits of 2 drinks or fewer a day for men and 1 or fewer for women.) The UK Chief Medical Officers advise drinking no more than 14 units a week, spread over three or more days.</p>
+
+    <h2>Why alcohol calories are easy to overlook</h2>
+    <p>At about 7 kcal per gram, alcohol is more energy-dense than carbohydrate or protein (4 kcal/g) and just below fat (9 kcal/g). Drinks are rarely tracked as closely as food, and sugary mixers, syrups and juices can double a cocktail's calories.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink" rel="noopener noreferrer">NIAAA — What is a standard drink?</a></li>
+      <li><a href="https://realfood.gov/" rel="noopener noreferrer">Dietary Guidelines for Americans, 2025–2030</a></li>
+      <li>UK Chief Medical Officers. UK Chief Medical Officers' Low Risk Drinking Guidelines. Department of Health, 2016.</li>
+      <li><a href="https://fdc.nal.usda.gov/" rel="noopener noreferrer">USDA FoodData Central</a> (typical carbohydrate per serving)</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why does alcohol have more calories than carbs or protein?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Alcohol provides about 7 calories per gram, compared with 4 calories per gram for carbohydrates and protein — a big part of why drinks add up faster than their serving size might suggest.</p></details>
+    <details class="sx-faq"><summary>Are cocktails always higher in calories than beer or wine?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Often, but not always — it depends on the recipe. Cocktails with sugary mixers, syrups or cream can be far higher in calories than a spirit with soda water or a glass of dry wine.</p></details>
+    <details class="sx-faq"><summary>What is a standard drink?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In the United States, one standard drink contains about 14 grams (0.6 fl oz) of pure alcohol — roughly a 12-oz beer at 5%, a 5-oz glass of wine at 12%, or a 1.5-oz shot of 40% spirits. A UK unit is smaller, at 8 grams.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>See the bigger picture.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/bac-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_bar</span></span><b>BAC Calculator</b><span class="d">Estimated blood alcohol from your drinks.</span><span class="f">Estimate BAC<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calorie Calculator</b><span class="d">Fit drinks into your daily target.</span><span class="f">Plan calories<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/weight-loss-calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_down</span></span><b>Weight Loss Calorie</b><span class="d">Plan a deficit that accounts for drinks.</span><span class="f">Plan deficit<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">directions_run</span></span><b>Calories Burned</b><span class="d">What it takes to burn it off.</span><span class="f">Estimate burn<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
