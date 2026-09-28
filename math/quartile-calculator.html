@@ -15,11 +15,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quartile Calculator — Q1, Q3, Median & IQR | CalculatePilot</title>
-<meta name="description" content="Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. Free, instant, formula shown. No signup.">
+<title>Quartile & IQR Calculator with Outlier Fences | CalculatePilot</title>
+<meta name="description" content="Free quartile calculator: Q1, median, Q3, IQR and Tukey outlier fences for a data set, with a box plot and four quartile methods compared.">
 <link rel="canonical" href="https://www.calculatepilot.com/math/quartile-calculator.html">
-<meta property="og:title" content="Quartile Calculator — Q1, Q3, Median & IQR | CalculatePilot">
-<meta property="og:description" content="Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. Free, instant, formula shown. No signup.">
+<meta property="og:title" content="Quartile & IQR Calculator with Outlier Fences | CalculatePilot">
+<meta property="og:description" content="Free quartile calculator: Q1, median, Q3, IQR and Tukey outlier fences for a data set, with a box plot and four quartile methods compared.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/math/quartile-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -27,49 +27,135 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Quartile Calculator — Q1, Q3, Median & IQR | CalculatePilot">
-<meta name="twitter:description" content="Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. Free, instant, formula shown. No signup.">
+<meta name="twitter:title" content="Quartile & IQR Calculator with Outlier Fences | CalculatePilot">
+<meta name="twitter:description" content="Free quartile calculator: Q1, median, Q3, IQR and Tukey outlier fences for a data set, with a box plot and four quartile methods compared.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930j">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=align_horizontal_center,arrow_forward,bar_chart,calculate,candlestick_chart,chevron_right,code,content_copy,download,event,expand_more,factory,fence,functions,lightbulb,lock,payments,person_check,picture_as_pdf,restart_alt,scale,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Quartile Calculator",
-  "url": "https://www.calculatepilot.com/math/quartile-calculator.html",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Calculate the quartiles (Q1, median, Q3) and interquartile range (IQR) of a data set. No signup needed. CalculatePilot explains the formula behind every result."
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Quartile Calculator",
+ "url": "https://www.calculatepilot.com/math/quartile-calculator.html",
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calculate quartiles (Q1, Q2, Q3), the interquartile range, five-number summary and Tukey outlier fences, with a box plot, step-by-step ranks and a comparison of four quartile methods."
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Quartile Calculator", "item": "https://www.calculatepilot.com/math/quartile-calculator.html"}
-  ]
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Math Calculators",
+   "item": "https://www.calculatepilot.com/math-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Quartile Calculator",
+   "item": "https://www.calculatepilot.com/math/quartile-calculator.html"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why might my quartile results differ slightly from another calculator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "There are several accepted methods for calculating quartiles, particularly for small or even-sized data sets, and different tools sometimes default to different conventions \u2014 this calculator uses a common median-based split method, but results can vary slightly by method for small samples." }
-    },    {
-      "@type": "Question",
-      "name": "How is IQR used to detect outliers?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A common rule flags values more than 1.5 times the IQR below Q1 or above Q3 as potential outliers \u2014 this method is the basis for the whiskers shown on a standard box plot." }
-    }  ]
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Quartile & IQR Calculator",
+ "url": "https://www.calculatepilot.com/math/quartile-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-28",
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "Hyndman and Fan (1996) Sample quantiles in statistical packages, The American Statistician 50(4)",
+  "Tukey (1977) Exploratory Data Analysis",
+  "NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.3.7 Box plot"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Why does Excel give a different Q1 than my textbook?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Excel’s QUARTILE.INC interpolates at rank 1 + 0.25(n − 1), while many textbooks take the median of the lower half. Both are legitimate definitions; the comparison table above shows the results side by side for your data."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the interquartile range used for?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It measures the spread of the middle 50% of the data and, unlike the range or standard deviation, is barely affected by extreme values. It is also the basis of Tukey’s outlier fences."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How are mild and extreme outliers classified?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A value beyond 1.5 × IQR from the nearer quartile is a mild outlier; beyond 3 × IQR it is an extreme outlier. The 1.5 and 3 multipliers are Tukey’s conventions rather than laws of nature."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can the lower fence be negative when all data is positive?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. The fence is a calculation from Q1 and the IQR, so it can fall below zero even if every value is positive. It simply means no value is low enough to be flagged at the bottom."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the difference between quartiles and percentiles?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Quartiles are specific percentiles: Q1 is the 25th, Q2 the 50th and Q3 the 75th. Percentile methods share the same definitional choices as the quartile methods on this page."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many values do I need?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Quartiles can be computed from as few as two values with the inclusive and hinge methods, but they are only meaningful with a reasonable amount of data. The exclusive method requires at least three values."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -90,74 +176,162 @@
 </header>
 
 <main>
+<div class="sx" id="qCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Quartile &amp; IQR Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Quartile Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>4 quartile methods compared</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Quartile &amp; IQR Calculator</h1>
+    <p>Find the five-number summary, quartiles (Q1, Q2, Q3), interquartile range and Tukey outlier fences for a list of numbers — with a box plot, the rank arithmetic, and a live comparison of the four common quartile methods so you can match your textbook or software.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Methods follow Hyndman &amp; Fan (1996) and Tukey (1977), and each is checked against a hand-worked data set. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It sorts your data, finds each quartile's rank position, and interpolates between neighbouring values where the rank is not a whole number.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Textbooks, Excel and R often report different Q1 and Q3 for the same data. This page shows all four methods side by side instead of hiding the choice.</p></section></div>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Quartile Calculator</h1>
-    <p class="lede">Calculate the quartiles and interquartile range (IQR) of a data set — useful for understanding data spread and outliers.</p>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Data set</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="data">Numbers</label><em class="mu" id="dataN">—</em></div>
+      <textarea id="data" class="sx-mt-ta" spellcheck="false" aria-describedby="dataHelp">12, 15, 18, 20, 22, 25, 28, 30, 32, 38, 45, 52, 60, 95</textarea>
+      <p class="sx-au-help" id="dataHelp">Separate values with commas, spaces or new lines.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="method">Quartile method</label><em class="mu">the four differ only in how they place the cut points</em></div>
+      <select id="method" class="sx-mt-sel"><option value="inc">Inclusive, R-7 (Excel QUARTILE.INC, R and NumPy default)</option><option value="exc">Exclusive, R-6 (Excel QUARTILE.EXC, Minitab, SPSS)</option><option value="tukey">Tukey’s hinges (median in both halves)</option><option value="mm">Moore &amp; McCabe (median excluded from halves)</option></select>
+      <p class="sx-au-help" id="methodHelp">—</p>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="ex">Load an example</label></div><select id="ex" class="sx-mt-sel"><option value="">Choose…</option><option value="12, 15, 18, 20, 22, 25, 28, 30, 32, 38, 45, 52, 60, 95">Fourteen values with one outlier</option><option value="1, 2, 3, 4, 5, 6, 7, 8, 9">1 to 9 (odd count)</option><option value="7, 15, 36, 39, 40, 41">Six values (even count)</option><option value="72, 85, 90, 66, 78, 94, 81, 88, 70, 75, 85">Test marks (illustrative)</option></select></div>
+      <div><div class="sx-au-l"><label for="prec">Decimal places</label></div><select id="prec" class="sx-mt-sel"><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate quartiles</button><button type="button" class="rs" id="clear">Clear</button></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Interquartile range (IQR)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Semi-IQR (IQR ÷ 2)</span><b id="siqr">—</b></div><div><span>Midhinge (Q1 + Q3) ÷ 2</span><b id="midh">—</b></div></div>
+  </section>
+  <div class="sx-in-t4 c3">
+    <div class="sx-card"><div class="k">Minimum</div><b id="mn">—</b><p id="mnN">—</p></div>
+    <div class="sx-card"><div class="k">Q1 (25th percentile)</div><b id="q1">—</b><p id="q1N">—</p></div>
+    <div class="sx-card"><div class="k">Median (Q2)</div><b id="q2">—</b><p id="q2N">—</p></div>
+    <div class="sx-card"><div class="k">Q3 (75th percentile)</div><b id="q3">—</b><p id="q3N">—</p></div>
+    <div class="sx-card"><div class="k">Maximum</div><b id="mx">—</b><p id="mxN">—</p></div>
+    <div class="sx-card"><div class="k">Count (n)</div><b id="cnt">—</b><p>Values used</p></div>
+  </div>
+  <section class="sx-card" style="padding:16px 18px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">fence</span>Tukey outlier fences</span><em id="outTag" class="mu">—</em></div>
+    <div class="sx-au-g2" style="gap:10px">
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Inner lower (Q1 − 1.5 × IQR)</span><span class="eq" style="font-size:15px" id="ilf">—</span></div>
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Inner upper (Q3 + 1.5 × IQR)</span><span class="eq" style="font-size:15px" id="iuf">—</span></div>
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Outer lower (Q1 − 3 × IQR)</span><span class="eq" style="font-size:15px" id="olf">—</span></div>
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Outer upper (Q3 + 3 × IQR)</span><span class="eq" style="font-size:15px" id="ouf">—</span></div>
+    </div>
+    <p class="sx-au-help" id="outN" style="margin-top:10px">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy summary</span></button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export CSV</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Box-and-whisker plot</h2><p>The box spans Q1 to Q3 with the median marked. Whiskers reach the most extreme values inside the inner fences; dots beyond them are outliers.</p></div><span class="sx-au-tag" id="whiskTag">—</span></div>
+  <div class="sx-mt-plot" id="plot" role="img" aria-label="Box and whisker plot of the data"></div>
+  <p class="sx-au-help" id="plotN" style="margin-top:8px">—</p>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Why different tools give different quartiles</h2><p>Your data run through all four methods. The row for the method you selected is highlighted.</p></div><span class="sx-au-tag">live from your data</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" id="cmpTbl" style="min-width:680px"><thead><tr><th scope="col">Method</th><th scope="col">Q1</th><th scope="col">Median</th><th scope="col">Q3</th><th scope="col">IQR</th><th scope="col">Used by</th></tr></thead><tbody></tbody></table></div>
+  <div class="ft"><span>The methods agree for some data sizes and differ for others. None is “wrong” — always state which one you used.</span></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Why quartiles instead of mean and standard deviation?</h2>
+  <p>Quartiles and the IQR are resistant statistics: a few extreme values barely move them, whereas the mean and standard deviation can shift a lot.</p>
+  <div class="sx-mt-2">
+    <div><h3>Example with the default data <span class="sx-mt-tag">n = 14</span></h3><div class="sx-mt-ex">With the outlier 95: mean = <b>35.14</b>, median = <b>29</b><br>Without it (n = 13): mean = <b>30.54</b>, median = <b>28</b></div><p style="margin-top:10px">Dropping one extreme value moves the mean by about 4.6 but the median by only 1.</p></div>
+    <div><h3>Breakdown point <span class="sx-mt-tag">25%</span></h3><p>Up to a quarter of the data can be replaced by arbitrarily extreme values before the quartiles themselves are dragged away. The mean can be moved arbitrarily by changing a single value.</p></div>
   </div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="numberList">Numbers (comma-separated)</label>
-        <input type="text" id="numberList" value="2, 4, 4, 6, 8, 9, 11, 13, 15, 18"  >
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Median (Q2)</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Q1 (25th percentile)</span><span id="outQ1">—</span></div>
-          <div class="readout-row"><span>Q3 (75th percentile)</span><span id="outQ3">—</span></div>
-          <div class="readout-row"><span>Interquartile range (IQR)</span><span id="outIQR">—</span></div>
-        </div>
-      </div>
-    </aside>
+<section class="sx-card sx-mt-sec">
+  <h2>Where quartiles are used</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">candlestick_chart</span><h3>Exploratory analysis</h3><p>Box plots built from the five-number summary show centre, spread and skew at a glance, and make side-by-side group comparisons easy.</p><span class="f">Five-number summary</span></div>
+    <div><span class="msym" aria-hidden="true">factory</span><h3>Outlier screening</h3><p>Tukey’s 1.5 × IQR rule flags unusually high or low readings — for example a faulty sensor value or a mistyped entry — for review.</p><span class="f">Inner and outer fences</span></div>
+    <div><span class="msym" aria-hidden="true">payments</span><h3>Skewed data</h3><p>Incomes, house prices and response times are skewed, so they are often summarised by the median and IQR rather than the mean and standard deviation.</p><span class="f">Robust summaries</span></div>
   </div>
 </section>
 
-<section class="content-block">
-  <div class="container prose">
-
-    <h2>What quartiles tell you about your data</h2>
-    <p>Quartiles split sorted data into four equal groups. Q1 (the 25th percentile) marks the point below which a quarter of the data falls, Q2 (the median) marks the halfway point, and Q3 (the 75th percentile) marks the point below which three-quarters of the data falls.</p>
-    <p>The interquartile range (IQR), the distance between Q1 and Q3, captures the spread of the middle 50% of your data — it's a more outlier-resistant measure of spread than the full range (max minus min), since it ignores extreme values at either end.</p>
-    <h2>Using IQR to spot outliers</h2>
-    <p>A common rule of thumb flags any value more than 1.5 times the IQR below Q1 or above Q3 as a potential outlier — this method is widely used in statistics (it's the basis for the whiskers on a standard box plot) because it doesn't rely on assuming a normal distribution the way some other outlier detection methods do.</p>
-    <p>Different statistical software and textbooks sometimes use slightly different methods for calculating quartiles on small data sets (this calculator uses a common median-based split method) — for large data sets the differences between methods become negligible, but for small samples, results can vary slightly by method.</p>
-
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What are quartiles and the IQR?</h2>
+    <p>Quartiles split a sorted data set into four parts holding roughly equal numbers of values. Q1 is the 25th percentile, Q2 is the median (50th percentile) and Q3 is the 75th percentile. The interquartile range, IQR = Q3 − Q1, is the spread of the middle half of the data.</p>
+    <h2>How the four methods place the cut points</h2>
+    <ul>
+      <li><strong>Inclusive (R-7):</strong> rank L = 1 + p(n − 1), interpolating between neighbouring sorted values. Used by Excel QUARTILE.INC, R’s default and NumPy’s default.</li>
+      <li><strong>Exclusive (R-6):</strong> rank L = p(n + 1), interpolating. Used by Excel QUARTILE.EXC, Minitab and SPSS; needs n ≥ 3.</li>
+      <li><strong>Tukey’s hinges:</strong> split the sorted data at the median and take the median of each half; for an odd n the median belongs to both halves.</li>
+      <li><strong>Moore &amp; McCabe:</strong> as above, but for an odd n the median is left out of both halves.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Tukey’s outlier fences</h2>
+    <p>Values below Q1 − 1.5 × IQR or above Q3 + 1.5 × IQR lie outside the inner fences and are flagged as possible (mild) outliers. Values beyond Q1 − 3 × IQR or Q3 + 3 × IQR lie outside the outer fences and are flagged as extreme. A flag is a prompt to investigate, not proof that a value is an error.</p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Hyndman, R. J. &amp; Fan, Y. (1996). Sample quantiles in statistical packages. <i>The American Statistician</i> 50(4), 361–365.</li>
+      <li>Tukey, J. W. (1977). <i>Exploratory Data Analysis</i>. Addison-Wesley.</li>
+      <li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda337.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.3.7 Box plot</a></li>
+      <li><a href="https://www.itl.nist.gov/div898/handbook/prc/section1/prc16.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 7.1.6 What are outliers in the data?</a></li>
+    </ul>
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Why might my quartile results differ slightly from another calculator?</h3>
-      <p>There are several accepted methods for calculating quartiles, particularly for small or even-sized data sets, and different tools sometimes default to different conventions — this calculator uses a common median-based split method, but results can vary slightly by method for small samples.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How is IQR used to detect outliers?</h3>
-      <p>A common rule flags values more than 1.5 times the IQR below Q1 or above Q3 as potential outliers — this method is the basis for the whiskers shown on a standard box plot.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
-      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
-      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
-      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>Why does Excel give a different Q1 than my textbook?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Excel’s QUARTILE.INC interpolates at rank 1 + 0.25(n − 1), while many textbooks take the median of the lower half. Both are legitimate definitions; the comparison table above shows the results side by side for your data.</p></details>
+    <details class="sx-faq"><summary>What is the interquartile range used for?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It measures the spread of the middle 50% of the data and, unlike the range or standard deviation, is barely affected by extreme values. It is also the basis of Tukey’s outlier fences.</p></details>
+    <details class="sx-faq"><summary>How are mild and extreme outliers classified?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A value beyond 1.5 × IQR from the nearer quartile is a mild outlier; beyond 3 × IQR it is an extreme outlier. The 1.5 and 3 multipliers are Tukey’s conventions rather than laws of nature.</p></details>
+    <details class="sx-faq"><summary>Can the lower fence be negative when all data is positive?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. The fence is a calculation from Q1 and the IQR, so it can fall below zero even if every value is positive. It simply means no value is low enough to be flagged at the bottom.</p></details>
+    <details class="sx-faq"><summary>What is the difference between quartiles and percentiles?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Quartiles are specific percentiles: Q1 is the 25th, Q2 the 50th and Q3 the 75th. Percentile methods share the same definitional choices as the quartile methods on this page.</p></details>
+    <details class="sx-faq"><summary>How many values do I need?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Quartiles can be computed from as few as two values with the inclusive and hinge methods, but they are only meaningful with a reasonable amount of data. The exclusive method requires at least three values.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Related statistics calculators</h2><p>Continue your analysis.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bar_chart</span></span><b>Standard Deviation</b><span class="d">Sample and population spread, variance and confidence interval.</span><span class="f">Measure spread<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/z-score-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Z-Score Calculator</b><span class="d">Standardise a value against the mean and standard deviation.</span><span class="f">Standard scores<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/mean-median-mode-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">align_horizontal_center</span></span><b>Mean, Median &amp; Mode</b><span class="d">Central tendency measures and skewness for a list.</span><span class="f">Find the centre<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/weighted-average-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">scale</span></span><b>Weighted Average</b><span class="d">Averages where some values count more than others.</span><span class="f">Weighted mean<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Quartile Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/quartile-calculator.html" width="100%" height="560" loading="lazy" title="Quartile Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -233,8 +407,8 @@
     </div>
   </div>
 </footer>
-
-<script src="/js/quartile.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930j"></script>
+<script src="/js/calc/quartile.js?v=20260930j"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>

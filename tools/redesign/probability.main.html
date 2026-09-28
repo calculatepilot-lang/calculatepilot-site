@@ -1,0 +1,173 @@
+<div class="sx" id="prCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Probability Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Kolmogorov axioms enforced</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Probability Calculator</h1>
+    <p>Work out the probability of two or three events happening together or separately, update a probability with Bayes’ theorem, or convert between probability, odds and “1 in N” — with a Venn diagram and every step of the working.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every rule used here is a standard theorem, and each worked example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It checks your inputs are valid probabilities, then applies the multiplication rule, the addition rule, the complement rule and Bayes’ theorem exactly as written below.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Mutually exclusive and independent are often confused. This page makes the relationship an explicit choice and rejects combinations that are impossible.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7" style="display:flex;flex-direction:column;gap:20px">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Events</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Calculation type"><button type="button" data-for="mode" data-value="s1">Two events</button><button type="button" data-for="mode" data-value="s2">Bayes’ theorem</button><button type="button" data-for="mode" data-value="s3">Three events</button><button type="button" data-for="mode" data-value="s4">Odds</button></div>
+    <div id="fFmt"><input type="hidden" id="fmt" value="s1"><div class="sx-au-l"><span>Enter probabilities as</span></div><div class="sx-seg" role="group" aria-label="Probability format" style="display:flex"><button type="button" data-for="fmt" data-value="s1" style="flex:1">Decimals (0 to 1)</button><button type="button" data-for="fmt" data-value="s2" style="flex:1">Percent (0 to 100)</button></div></div>
+
+    <div id="p1" class="sx-au-stack">
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="pa">Probability of event A, P(A)</label></div><div class="sx-au-in np"><input id="pa" type="number" inputmode="decimal" step="any" value="0.40"></div></div>
+        <div><div class="sx-au-l"><label for="pb">Probability of event B, P(B)</label></div><div class="sx-au-in np"><input id="pb" type="number" inputmode="decimal" step="any" value="0.35"></div></div>
+      </div>
+      <div><div class="sx-au-l"><span>Relationship between A and B</span></div><input type="hidden" id="rel" value="s1"><div class="sx-seg full" role="group" aria-label="Relationship"><button type="button" data-for="rel" data-value="s1">Independent</button><button type="button" data-for="rel" data-value="s2">Mutually exclusive</button><button type="button" data-for="rel" data-value="s3">Custom joint</button></div><p class="sx-au-help" id="relHelp">—</p></div>
+      <div id="fJoint"><div class="sx-au-l"><label for="pj">Joint probability, P(A ∩ B)</label><em class="mu" id="pjH">—</em></div><div class="sx-au-in np"><input id="pj" type="number" inputmode="decimal" step="any" value="0.14"></div></div>
+    </div>
+
+    <div id="p2" class="sx-au-stack" hidden>
+      <div><div class="sx-au-l"><label for="pr">Prior probability, P(A)</label><em class="mu">how common the condition is before any evidence</em></div><div class="sx-au-in np"><input id="pr" type="number" inputmode="decimal" step="any" value="0.001"></div></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="se">P(B | A) — true-positive rate</label></div><div class="sx-au-in np"><input id="se" type="number" inputmode="decimal" step="any" value="0.95"></div></div>
+        <div><div class="sx-au-l"><label for="fp">P(B | not A) — false-positive rate</label></div><div class="sx-au-in np"><input id="fp" type="number" inputmode="decimal" step="any" value="0.05"></div></div>
+      </div>
+      <div><div class="sx-au-l"><label for="pn">People in the illustration</label><em class="mu">natural-frequency view</em></div><div class="sx-au-in np"><input id="pn" type="number" inputmode="numeric" step="1" min="100" max="100000000" value="100000"></div></div>
+      <p class="sx-au-help">Event A is the thing you want to know about (a condition, a defect); event B is the evidence observed (a positive test, an alarm).</p>
+    </div>
+
+    <div id="p3" class="sx-au-stack" hidden>
+      <div class="sx-au-g3">
+        <div><div class="sx-au-l"><label for="qa">P(A)</label></div><div class="sx-au-in np"><input id="qa" type="number" inputmode="decimal" step="any" value="0.50"></div></div>
+        <div><div class="sx-au-l"><label for="qb">P(B)</label></div><div class="sx-au-in np"><input id="qb" type="number" inputmode="decimal" step="any" value="0.30"></div></div>
+        <div><div class="sx-au-l"><label for="qc">P(C)</label></div><div class="sx-au-in np"><input id="qc" type="number" inputmode="decimal" step="any" value="0.20"></div></div>
+      </div>
+      <div><div class="sx-au-l"><span>Relationship</span></div><input type="hidden" id="rel3" value="s1"><div class="sx-seg full" role="group" aria-label="Relationship of three events"><button type="button" data-for="rel3" data-value="s1">Independent</button><button type="button" data-for="rel3" data-value="s2">Mutually exclusive</button></div></div>
+    </div>
+
+    <div id="p4" class="sx-au-stack" hidden>
+      <div><div class="sx-au-l"><label for="ok">I know the…</label></div><select id="ok" class="sx-mt-sel"><option value="p">Probability</option><option value="o">Odds in favour (a : b)</option><option value="n">“1 in N” frequency</option></select></div>
+      <div id="o1"><div class="sx-au-l"><label for="op">Probability</label></div><div class="sx-au-in np"><input id="op" type="number" inputmode="decimal" step="any" value="0.4"></div></div>
+      <div id="o2" class="sx-au-g2" hidden><div><div class="sx-au-l"><label for="oa">Odds in favour, a</label></div><div class="sx-au-in np"><input id="oa" type="number" inputmode="decimal" step="any" min="0" value="2"></div></div><div><div class="sx-au-l"><label for="ob">Odds against, b</label></div><div class="sx-au-in np"><input id="ob" type="number" inputmode="decimal" step="any" min="0" value="3"></div></div></div>
+      <div id="o3" hidden><div class="sx-au-l"><label for="on">1 in N, N =</label></div><div class="sx-au-in np"><input id="on" type="number" inputmode="decimal" step="any" min="1" value="10"></div></div>
+      <div><div class="sx-au-l"><label for="ot">Number of independent trials</label><em class="mu">for expected count and “at least once”</em></div><div class="sx-au-in np"><input id="ot" type="number" inputmode="numeric" step="1" min="1" value="10"></div></div>
+    </div>
+
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Compute probabilities</button>
+  </div>
+</form>
+
+<div id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Both events occur, P(A ∩ B)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<div class="sx-r5">
+  <section class="sx-card r2" style="padding:20px" id="vennCard">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">bubble_chart</span>Venn diagram</span><em class="mu" id="vennTag">not to scale</em></div>
+    <div class="sx-mt-plot" id="venn" role="img" aria-label="Venn diagram of the events and their probabilities"></div>
+  </section>
+  <section class="sx-card r2" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">account_tree</span>Step-by-step working</span></div>
+    <ol class="sx-mt-steps" id="steps"></ol>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Kolmogorov’s three axioms</h2>
+  <p>All of modern probability rests on three rules, formalised by Andrey Kolmogorov in 1933. This calculator rejects any input that breaks them.</p>
+  <div class="sx-mt-3">
+    <div><h3>1. Non-negativity</h3><div class="sx-mt-ex" style="margin-bottom:10px">P(E) ≥ 0</div><p>The probability of any event is never negative.</p></div>
+    <div><h3>2. Unit measure</h3><div class="sx-mt-ex" style="margin-bottom:10px">P(Ω) = 1</div><p>Something in the sample space must happen, so the total probability is exactly 1.</p></div>
+    <div><h3>3. Additivity</h3><div class="sx-mt-ex" style="margin-bottom:10px">P(A ∪ B) = P(A) + P(B) if A ∩ B = ∅</div><p>For events that cannot occur together, probabilities add.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Mutually exclusive vs independent events</h2><p>Two of the most confused ideas in probability. They are close to opposites.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:640px">
+    <thead><tr><th scope="col">Property</th><th scope="col">Mutually exclusive</th><th scope="col">Independent</th></tr></thead>
+    <tbody>
+      <tr><td>Meaning</td><td style="font-family:inherit">A and B cannot both happen: A ∩ B = ∅</td><td style="font-family:inherit">Knowing A happened tells you nothing about B</td></tr>
+      <tr><td>Intersection P(A ∩ B)</td><td class="mono">0</td><td class="mono">P(A) × P(B)</td></tr>
+      <tr><td>Union P(A ∪ B)</td><td class="mono">P(A) + P(B)</td><td class="mono">P(A) + P(B) − P(A)P(B)</td></tr>
+      <tr><td>Conditional P(A | B)</td><td class="mono">0</td><td class="mono">P(A)</td></tr>
+      <tr><td>Can both apply?</td><td colspan="2" style="font-family:inherit">Only if P(A) = 0 or P(B) = 0. If both events are possible, being mutually exclusive means knowing one happened tells you the other did not — so they are dependent.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <p>Each is checked by hand and can be reproduced above.</p>
+  <div class="sx-mt-3">
+    <div><h3>Rare-condition screening</h3><p>A condition affects 1 in 1,000 people. A test detects it 95% of the time and gives a false positive 5% of the time. Someone tests positive — what is the chance they have it?</p><div class="sx-mt-ex">P(B) = 0.95×0.001 + 0.05×0.999 = 0.05090<br>P(A|B) = 0.00095 ÷ 0.05090<br><b>= 0.0187 (about 1.87%)</b></div><p style="margin-top:10px">Most positives are false positives because the condition is so rare. Use the Bayes’ theorem tab.</p></div>
+    <div><h3>At least one six in four rolls</h3><p>Rolling a fair die four times: the chance of at least one six.</p><div class="sx-mt-ex">P(no six in one roll) = 5/6<br>P(no six in four) = (5/6)⁴ = 0.4823<br><b>P(at least one six) = 1 − 0.4823 = 0.5177</b></div><p style="margin-top:10px">Use the Odds tab with p = 1/6 (0.1667) and 4 trials.</p></div>
+    <div><h3>Two independent backups</h3><p>Each of two independent backup systems fails with probability 0.02.</p><div class="sx-mt-ex">Both fail: 0.02 × 0.02 = <b>0.0004</b><br>At least one fails: 0.02 + 0.02 − 0.0004 = <b>0.0396</b></div><p style="margin-top:10px">Enter 0.02 and 0.02 on the Two events tab, independent.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What is probability?</h2>
+    <p>Probability measures how likely an event is, on a scale from 0 (impossible) to 1 (certain). It can be written as a decimal, a percentage, a fraction, odds, or a frequency such as “1 in 20”.</p>
+    <h2>The core rules</h2>
+    <ul>
+      <li><strong>Complement:</strong> P(not A) = 1 − P(A).</li>
+      <li><strong>Addition (either event):</strong> P(A ∪ B) = P(A) + P(B) − P(A ∩ B). The intersection is subtracted so it is not counted twice.</li>
+      <li><strong>Multiplication (both events), independent:</strong> P(A ∩ B) = P(A) × P(B).</li>
+      <li><strong>Conditional probability:</strong> P(A | B) = P(A ∩ B) ÷ P(B), for P(B) &gt; 0.</li>
+      <li><strong>Bayes’ theorem:</strong> P(A | B) = P(B | A) × P(A) ÷ P(B), where P(B) = P(B | A)P(A) + P(B | not A)P(not A).</li>
+      <li><strong>Odds:</strong> odds in favour = p ÷ (1 − p); p = a ÷ (a + b) for odds a : b.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Kolmogorov, A. N. (1933). <i>Grundbegriffe der Wahrscheinlichkeitsrechnung</i>. Springer, Berlin.</li>
+      <li>Grinstead, C. M. &amp; Snell, J. L. (1997). <i>Introduction to Probability</i>, 2nd ed. American Mathematical Society.</li>
+      <li>Gigerenzer, G. &amp; Hoffrage, U. (1995). How to improve Bayesian reasoning without instruction: frequency formats. <i>Psychological Review</i> 102(4), 684–704.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is the difference between mutually exclusive and independent events?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Mutually exclusive events cannot happen together, so P(A ∩ B) = 0. Independent events can happen together, and one occurring does not change the probability of the other, so P(A ∩ B) = P(A) × P(B). If both have non-zero probability, events cannot be both.</p></details>
+    <details class="sx-faq"><summary>Why can’t I just add probabilities for “A or B”?<span class="msym" aria-hidden="true">expand_more</span></summary><p>If the events can overlap, adding counts the overlap twice. The addition rule subtracts P(A ∩ B) once to correct this. Adding alone is only right for mutually exclusive events.</p></details>
+    <details class="sx-faq"><summary>What does Bayes’ theorem do?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It updates a prior probability when you observe new evidence. It reverses a conditional probability: from P(B | A), how likely the evidence is if A is true, to P(A | B), how likely A is given the evidence, taking into account how common A was to begin with.</p></details>
+    <details class="sx-faq"><summary>What is the gambler’s fallacy?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is the mistaken belief that past independent outcomes change future ones — for example that heads is “due” after a run of tails. For independent events, P(A | B) = P(A): the coin has no memory.</p></details>
+    <details class="sx-faq"><summary>How do I convert probability to odds?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Odds in favour are p ÷ (1 − p). A probability of 0.4 gives odds of 0.4 ÷ 0.6 = 2 to 3 in favour, or 3 to 2 against. Use the Odds tab to convert in either direction.</p></details>
+    <details class="sx-faq"><summary>Can a probability be greater than 1 or negative?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Every probability lies between 0 and 1 inclusive (0% to 100%). The calculator rejects values outside that range, and joint probabilities that are impossible given P(A) and P(B).</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with counting and distributions.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/binomial-probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Binomial Probability</b><span class="d">The chance of k successes in n independent trials.</span><span class="f">Repeated trials<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/permutation-combination-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shuffle</span></span><b>Permutations &amp; Combinations</b><span class="d">Count ordered and unordered selections.</span><span class="f">Count outcomes<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/z-score-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">show_chart</span></span><b>Z-Score Calculator</b><span class="d">Normal-distribution probabilities and percentiles.</span><span class="f">Normal curve<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Percentage Calculator</b><span class="d">Convert and compare percentages.</span><span class="f">Work with percents<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Probability Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/probability-calculator.html" width="100%" height="560" loading="lazy" title="Probability Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

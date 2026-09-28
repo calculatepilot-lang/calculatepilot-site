@@ -42,15 +42,17 @@ def main(rel):
 
     # 3. scripts: keep currency-format + nav, replace page-specific scripts
     body_scripts = re.findall(r'<script src="/js/([^"?]+)[^"]*"></script>', html.split("</main>")[1])
+    keep = ("currency-format.js", "nav.js") if "nav.js" in body_scripts else ("currency-format.js", "site.js")
     for s in body_scripts:
-        if s not in ("currency-format.js", "nav.js"):
+        if s not in keep:
             html = re.sub(r'\s*<script src="/js/%s[^"]*"></script>' % re.escape(s), "", html)
     html = html.replace('<script src="/js/cp-calc.js', '<script data-old src="/js/cp-calc.js')
     html = re.sub(r'\s*<script data-old src="/js/cp-calc\.js[^"]*"></script>', "", html)
     html = re.sub(r'\s*<script src="/js/calc/[^"]*"></script>', "", html)
-    html = re.sub(r'(<script src="/js/nav\.js[^"]*"></script>)',
-                  '<script src="/js/cp-calc.js?v=%s"></script>\n<script src="/js/calc/%s.js?v=%s"></script>\n\\1'
-                  % (CSS_VER, slug, CSS_VER), html, count=1)
+    tags = '<script src="/js/cp-calc.js?v=%s"></script>\n<script src="/js/calc/%s.js?v=%s"></script>' % (CSS_VER, slug, CSS_VER)
+    html, n = re.subn(r'(<script src="/js/nav\.js[^"]*"></script>)', tags + "\n\\1", html, count=1)
+    if not n:  # page without nav.js: put the calculator scripts just before </body>
+        html = html.replace("</body>", tags + "\n</body>", 1)
 
     # 4. optional head updates
     hp = os.path.join(red, slug + ".head.json")

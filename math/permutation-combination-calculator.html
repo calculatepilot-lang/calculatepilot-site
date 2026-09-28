@@ -16,10 +16,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Permutation & Combination Calculator (nPr, nCr) | CalculatePilot</title>
-<meta name="description" content="Calculate permutations (nPr) and combinations (nCr) for any values of n and r. Free, instant, formula shown. No signup.">
+<meta name="description" content="Free nPr and nCr calculator: exact permutations and combinations with or without repetition for n up to 1,000, with factorial steps.">
 <link rel="canonical" href="https://www.calculatepilot.com/math/permutation-combination-calculator.html">
 <meta property="og:title" content="Permutation & Combination Calculator (nPr, nCr) | CalculatePilot">
-<meta property="og:description" content="Calculate permutations (nPr) and combinations (nCr) for any values of n and r. Free, instant, formula shown. No signup.">
+<meta property="og:description" content="Free nPr and nCr calculator: exact permutations and combinations with or without repetition for n up to 1,000, with factorial steps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/math/permutation-combination-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -28,48 +28,134 @@
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Permutation & Combination Calculator (nPr, nCr) | CalculatePilot">
-<meta name="twitter:description" content="Calculate permutations (nPr) and combinations (nCr) for any values of n and r. Free, instant, formula shown. No signup.">
+<meta name="twitter:description" content="Free nPr and nCr calculator: exact permutations and combinations with or without repetition for n up to 1,000, with factorial steps.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930j">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,bar_chart,calculate,casino,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,priority_high,restart_alt,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Permutation \u0026 Combination Calculator",
-  "url": "https://www.calculatepilot.com/math/permutation-combination-calculator.html",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Calculate permutations (nPr) and combinations (nCr) for any values of n and r. No signup needed. CalculatePilot explains the formula behind every result."
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Permutation & Combination Calculator",
+ "url": "https://www.calculatepilot.com/math/permutation-combination-calculator.html",
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calculate permutations (nPr) and combinations (nCr), with or without repetition, as exact integers for n up to 1,000, with step-by-step factorial cancellation."
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Math Calculators", "item": "https://www.calculatepilot.com/math-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Permutation & Combination Calculator", "item": "https://www.calculatepilot.com/math/permutation-combination-calculator.html"}
-  ]
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Math Calculators",
+   "item": "https://www.calculatepilot.com/math-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Permutation & Combination Calculator",
+   "item": "https://www.calculatepilot.com/math/permutation-combination-calculator.html"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I know whether to use permutation or combination?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ask whether order matters for your situation. If rearranging the same items creates a different outcome (like race placements), use permutation. If the same items in any order count as the same result (like a committee), use combination." }
-    },    {
-      "@type": "Question",
-      "name": "Why is nPr always bigger than nCr for the same n and r?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Because permutations count every possible ordering of the same r items as separate outcomes, while combinations group all those orderings together as one outcome \u2014 so nPr is always a multiple of nCr (specifically, nPr = nCr \u00d7 r!)." }
-    }  ]
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Permutation & Combination Calculator (nPr and nCr)",
+ "url": "https://www.calculatepilot.com/math/permutation-combination-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-28",
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "NIST Digital Library of Mathematical Functions, chapter 26 Combinatorial Analysis",
+  "Knuth (1997) The Art of Computer Programming, Vol. 1, 3rd ed.",
+  "ISO 80000-2:2019 Quantities and units - Mathematics"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is the difference between a permutation and a combination?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A permutation counts ordered arrangements, so (1, 2, 3) and (3, 2, 1) are different. A combination counts unordered selections, so they are the same. Because each combination of size r can be arranged in r! ways, the number of permutations is always r! times the number of combinations."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is a “combination lock” really a permutation lock?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because the order in which you enter the digits matters: 1-2-3 opens it but 3-2-1 does not. Strictly it is a count of ordered sequences, so it uses permutation formulas (with repetition if digits can be reused)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How does this calculator handle very large factorials?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It uses arbitrary-precision integer arithmetic, so results are exact rather than rounded to floating-point. Numbers with more than 18 digits are shown in scientific notation, and “Copy exact value” copies every digit."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are “stars and bars”?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is a method for counting combinations with repetition. Choosing r items from n types, with repeats allowed and order ignored, is equivalent to placing r stars and n − 1 bars in a row, which gives C(n + r − 1, r)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is 0! and what if r = 0?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "By definition 0! = 1. Choosing zero items can be done in exactly one way, so C(n, 0) = P(n, 0) = 1, and n⁰ = 1."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why can r not exceed n without repetition?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You cannot pick more distinct items than exist, so the count is 0. The calculator asks you to enter r ≤ n for the no-repetition formulas; with repetition allowed, r may be larger than n."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -90,85 +176,154 @@
 </header>
 
 <main>
+<div class="sx" id="pcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Permutation &amp; Combination Calculator</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/math-calculators.html">Math Calculators</a> / Permutation & Combination Calculator
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Exact integers, n up to 1,000</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Permutation &amp; Combination Calculator (nPr and nCr)</h1>
+    <p>Count arrangements (order matters) and selections (order does not) — with or without repetition. Results are exact integers, however large, with the factorial cancellation shown step by step.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The counting formulas are standard and each example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It uses arbitrary-precision integer arithmetic, multiplying only the factors that do not cancel, so no rounding or overflow occurs even when n is in the hundreds.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Picking the wrong formula is the usual mistake. A decision guide and a side-by-side count of all four cases help you choose correctly.</p></section></div>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Permutation & Combination Calculator</h1>
-    <p class="lede">Calculate the number of permutations (order matters) or combinations (order doesn't matter) for choosing r items from n.</p>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">What do you want to count?</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="c">
+    <div class="sx-seg full" role="group" aria-label="Counting type" style="flex-wrap:wrap"><button type="button" data-for="mode" data-value="c">Combinations nCr</button><button type="button" data-for="mode" data-value="p">Permutations nPr</button><button type="button" data-for="mode" data-value="cr">Combinations with repetition</button><button type="button" data-for="mode" data-value="pr">Permutations with repetition</button></div>
+    <p class="sx-au-help" id="modeHelp" style="margin:-6px 0 0">—</p>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-m="c" data-n="49" data-r="6">Lottery, pick 6 of 49</button><button type="button" data-m="c" data-n="52" data-r="5">Poker hand (52, 5)</button><button type="button" data-m="c" data-n="12" data-r="4">Committee (12, 4)</button><button type="button" data-m="pr" data-n="36" data-r="8">Password (36, 8)</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="n">Total items in the set (n)</label><em class="mu">0 to 1,000</em></div><div class="sx-au-in np"><input id="n" type="number" inputmode="numeric" step="1" min="0" max="1000" value="52"></div></div>
+      <div><div class="sx-au-l"><label for="r">Items chosen (r)</label><em class="mu" id="rH">0 to n</em></div><div class="sx-au-in np"><input id="r" type="number" inputmode="numeric" step="1" min="0" max="1000" value="5"></div></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate</button><button type="button" class="rs" id="swap">Swap n and r</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Formula in use</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">C(52, 5)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big" style="font-size:36px;word-break:break-all"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span id="oneLbl">Chance of one specific selection</span><b id="one" style="font-size:16px">—</b></div><div><span>Number of digits</span><b id="digits">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:0;overflow:hidden">
+    <div class="sx-scroll"><table class="sx-au-cmp plain" id="allTbl" style="min-width:0"><thead><tr><th scope="col">Count for n and r</th><th scope="col">Formula</th><th scope="col">Result</th></tr></thead><tbody></tbody></table></div>
+  </section>
+  <div class="sx-in-t4 c3">
+    <div class="sx-card"><div class="k">n!</div><b id="fn" style="font-size:16px">—</b><p>Numerator</p></div>
+    <div class="sx-card"><div class="k">r!</div><b id="fr" style="font-size:16px">—</b><p>Orderings of r items</p></div>
+    <div class="sx-card"><div class="k">(n − r)!</div><b id="fnr" style="font-size:16px">—</b><p>Cancelled factors</p></div>
+  </div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy exact value</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Permutation vs combination: does order matter?</h2>
+  <p>A permutation counts each different ordering separately. A combination treats orderings of the same items as one selection, so every combination corresponds to r! permutations.</p>
+  <div class="sx-mt-2">
+    <div><h3>Permutations <span class="sx-mt-tag">order matters</span></h3><p>Three tokens A, B, C can be arranged in 3! = 6 different orders:</p><div class="sx-mt-ex">ABC · ACB · BAC · BCA · CAB · CBA</div><p style="margin-top:10px">Each ordered arrangement is a separate outcome — like the gold, silver and bronze places in a race.</p></div>
+    <div><h3>Combinations <span class="sx-mt-tag">order does not matter</span></h3><p>All six orders contain the same three tokens, so they collapse into a single combination:</p><div class="sx-mt-ex"><b>{ A, B, C }</b> — 1 combination</div><p style="margin-top:10px">C(n, r) = P(n, r) ÷ r!  — like choosing a committee, where only membership counts.</p></div>
   </div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="calcType">Type</label>
-        <select id="calcType">
-          <option value="permutation" selected>Permutation (nPr) — order matters</option>
-          <option value="combination" >Combination (nCr) — order doesn't matter</option>
-        </select>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="nValue">n (total items)</label>
-          <input type="number" id="nValue" value="10" step="1" min="0">
-        </div>
-        <div class="field">
-          <label for="rValue">r (items chosen)</label>
-          <input type="number" id="rValue" value="3" step="1" min="0">
-        </div>
-      </div>
-    </form>
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
 
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Result</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Formula</span><span id="outFormula">—</span></div>
-        </div>
-      </div>
-    </aside>
+<section class="sx-card sx-mt-sec">
+  <h2>The four counting formulas</h2>
+  <div class="sx-mt-2" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+    <div><h3>Combinations <span class="sx-mt-tag">no repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">C(n, r) = n! ÷ (r!(n − r)!)</span></div><p>Unordered selections where each element can be picked at most once.</p></div>
+    <div><h3>Permutations <span class="sx-mt-tag">no repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">P(n, r) = n! ÷ (n − r)!</span></div><p>Ordered arrangements without reuse: n choices, then n − 1, and so on.</p></div>
+    <div><h3>Combinations <span class="sx-mt-tag">with repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">C(n + r − 1, r)</span></div><p>Multisets of size r from n types (the “stars and bars” count), where items may repeat and order is ignored.</p></div>
+    <div><h3>Permutations <span class="sx-mt-tag">with repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">nʳ</span></div><p>Ordered sequences where each of the r positions can independently be any of the n symbols.</p></div>
   </div>
 </section>
 
-<section class="content-block">
-  <div class="container prose">
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>When does order matter?</h2><p>A quick guide to choosing the right formula. All counts are exact.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+    <thead><tr><th scope="col">Scenario</th><th scope="col">Order matters?</th><th scope="col">Formula</th><th scope="col">Setup</th><th scope="col">Exact result</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:normal">Locker padlock, distinct numbers</td><td style="font-family:inherit">Yes</td><td class="mono">P(n, r)</td><td style="font-family:inherit">3 different numbers from 0–39</td><td class="mono">59,280</td></tr>
+      <tr><td style="white-space:normal">Lottery, pick 6</td><td style="font-family:inherit">No</td><td class="mono">C(n, r)</td><td style="font-family:inherit">6 from 49</td><td class="mono">13,983,816</td></tr>
+      <tr><td style="white-space:normal">Race podium</td><td style="font-family:inherit">Yes</td><td class="mono">P(n, r)</td><td style="font-family:inherit">Top 3 of 8 sprinters</td><td class="mono">336</td></tr>
+      <tr><td style="white-space:normal">Pizza toppings</td><td style="font-family:inherit">No</td><td class="mono">C(n, r)</td><td style="font-family:inherit">3 toppings from 10</td><td class="mono">120</td></tr>
+      <tr><td style="white-space:normal">Password, characters may repeat</td><td style="font-family:inherit">Yes</td><td class="mono">nʳ</td><td style="font-family:inherit">62 characters, 8 slots</td><td class="mono">218,340,105,584,896</td></tr>
+    </tbody>
+  </table></div>
+</section>
 
-    <h2>Permutations vs. combinations</h2>
-    <p>The key difference is whether order matters. Arranging 3 people in a race (1st, 2nd, 3rd place) is a permutation, since who comes in 1st versus 2nd matters. Choosing 3 people for a committee is a combination, since the group is the same regardless of the order they were selected in.</p>
-    <p>Because permutations count every possible ordering separately, nPr is always greater than or equal to nCr for the same n and r — combinations essentially group together all the orderings that contain the same items.</p>
-    <h2>A worked example</h2>
-    <p>Choosing 3 winners (1st, 2nd, 3rd prize) from 10 entrants is a permutation: 10P3 = 10!/(10-3)! = 720 possible outcomes, since each different order counts separately.</p>
-    <p>Choosing 3 people from 10 to form a team (no ranking) is a combination: 10C3 = 10!/(3!×7!) = 120 possible outcomes — much smaller, since it doesn't matter which order the 3 were chosen in.</p>
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <div class="sx-mt-3">
+    <div><h3>Password key space</h3><p>An 8-character password from 26 lowercase + 26 uppercase + 10 digits (62 symbols), repetition allowed.</p><div class="sx-mt-ex">62⁸ = <b>218,340,105,584,896</b><br>log₂ = 8 × 5.954 ≈ 47.6 bits</div></div>
+    <div><h3>Choosing a trial group</h3><p>Select 20 participants from a pool of 100, order irrelevant.</p><div class="sx-mt-ex">C(100, 20) = <b>535,983,370,403,809,682,970</b><br>≈ 5.36 × 10²⁰ possible groups</div></div>
+    <div><h3>Mesh network links</h3><p>How many point-to-point links join 24 servers so that every pair is connected?</p><div class="sx-mt-ex">C(24, 2) = 24 × 23 ÷ 2 = <b>276</b> links</div></div>
+  </div>
+</section>
 
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What are permutations and combinations?</h2>
+    <p>Permutations and combinations count the ways to select items from a set. A <strong>permutation</strong> is an ordered arrangement; a <strong>combination</strong> is an unordered selection. The factorial n! = n × (n − 1) × … × 1 underlies both, with 0! defined as 1.</p>
+    <h2>How to choose the formula</h2>
+    <ul>
+      <li>Does the order of the chosen items create a different outcome? If yes, use permutations; if no, use combinations.</li>
+      <li>Can the same item be chosen more than once? If yes, use the “with repetition” formulas.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>NIST Digital Library of Mathematical Functions, section 26.3 (Lattice paths: binomial coefficients) and chapter 26, <i>Combinatorial Analysis</i>.</li>
+      <li>Knuth, D. E. (1997). <i>The Art of Computer Programming, Volume 1: Fundamental Algorithms</i>, 3rd ed. Addison-Wesley.</li>
+      <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i> (notation for factorials and binomial coefficients).</li>
+    </ul>
     <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>How do I know whether to use permutation or combination?</h3>
-      <p>Ask whether order matters for your situation. If rearranging the same items creates a different outcome (like race placements), use permutation. If the same items in any order count as the same result (like a committee), use combination.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Why is nPr always bigger than nCr for the same n and r?</h3>
-      <p>Because permutations count every possible ordering of the same r items as separate outcomes, while combinations group all those orderings together as one outcome — so nPr is always a multiple of nCr (specifically, nPr = nCr × r!).</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/math/area-calculator.html" class="tool-link">Area Calculator <span class="arrow">→</span></a>
-      <a href="/math/binary-calculator.html" class="tool-link">Binary Calculator <span class="arrow">→</span></a>
-      <a href="/math/binomial-probability-calculator.html" class="tool-link">Binomial Probability Calculator <span class="arrow">→</span></a>
-      <a href="/math/circle-calculator.html" class="tool-link">Circle Calculator <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>What is the difference between a permutation and a combination?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A permutation counts ordered arrangements, so (1, 2, 3) and (3, 2, 1) are different. A combination counts unordered selections, so they are the same. Because each combination of size r can be arranged in r! ways, the number of permutations is always r! times the number of combinations.</p></details>
+    <details class="sx-faq"><summary>Why is a “combination lock” really a permutation lock?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because the order in which you enter the digits matters: 1-2-3 opens it but 3-2-1 does not. Strictly it is a count of ordered sequences, so it uses permutation formulas (with repetition if digits can be reused).</p></details>
+    <details class="sx-faq"><summary>How does this calculator handle very large factorials?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It uses arbitrary-precision integer arithmetic, so results are exact rather than rounded to floating-point. Numbers with more than 18 digits are shown in scientific notation, and “Copy exact value” copies every digit.</p></details>
+    <details class="sx-faq"><summary>What are “stars and bars”?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is a method for counting combinations with repetition. Choosing r items from n types, with repeats allowed and order ignored, is equivalent to placing r stars and n − 1 bars in a row, which gives C(n + r − 1, r).</p></details>
+    <details class="sx-faq"><summary>What is 0! and what if r = 0?<span class="msym" aria-hidden="true">expand_more</span></summary><p>By definition 0! = 1. Choosing zero items can be done in exactly one way, so C(n, 0) = P(n, 0) = 1, and n⁰ = 1.</p></details>
+    <details class="sx-faq"><summary>Why can r not exceed n without repetition?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You cannot pick more distinct items than exist, so the count is 0. The calculator asks you to enter r ≤ n for the no-repetition formulas; with repetition allowed, r may be larger than n.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with probability and factorials.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/binomial-probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Binomial Probability</b><span class="d">Probability of k successes in n trials, built on nCr.</span><span class="f">Use nCr<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">casino</span></span><b>Probability Calculator</b><span class="d">Union, intersection, conditional probability and Bayes.</span><span class="f">Events and odds<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/factorial-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">priority_high</span></span><b>Factorial Calculator</b><span class="d">Factorials with exact results.</span><span class="f">n!<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bar_chart</span></span><b>Standard Deviation</b><span class="d">Sample and population spread.</span><span class="f">Measure spread<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Permutation &amp; Combination Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/permutation-combination-calculator.html" width="100%" height="560" loading="lazy" title="Permutation and Combination Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -244,8 +399,8 @@
     </div>
   </div>
 </footer>
-
-<script src="/js/permutation-combination.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930j"></script>
+<script src="/js/calc/permutation-combination.js?v=20260930j"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
