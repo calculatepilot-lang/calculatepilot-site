@@ -1,0 +1,111 @@
+{
+ "title": "Random Number Generator - Integers, Floats & Gaussian",
+ "description": "Generate uniform random integers or decimals, normally-distributed values, or a reproducible seeded sequence, using your browser's secure random source. Free.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,casino,chevron_right,code,content_copy,event,expand_more,lightbulb,link,lock,memory,person_check,picture_as_pdf,restart_alt,show_chart,shuffle,ssid_chart,tune,verified_user,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "Random Number Generator",
+   "url": "https://www.calculatepilot.com/math/random-number-generator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Random number generator for integers, floats, Gaussian distribution and seeded reproducible sequences"
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Random Number Generator",
+     "item": "https://www.calculatepilot.com/math/random-number-generator.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Random Number Generator",
+   "url": "https://www.calculatepilot.com/math/random-number-generator.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": [
+    "Box Muller Annals of Mathematical Statistics 1958",
+    "W3C Web Cryptography API 2017"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is this suitable for cryptographic keys?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Integer and Float modes draw from crypto.getRandomValues, the browser's cryptographically secure generator, so the raw randomness is suitable. For actual key material, use a dedicated cryptography library that handles encoding and key formats correctly — this tool is for general-purpose random numbers."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does \"no duplicates\" mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It samples without replacement — like drawing lottery balls without putting them back — so every value in the output is distinct. It requires the range to contain at least as many values as you're requesting."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why use a seeded generator instead of true randomness?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A seeded (deterministic) generator lets you reproduce the exact same \"random\" sequence again later — essential for debugging simulations, sharing reproducible examples, or writing tests with predictable output."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does the Box–Muller transform create a normal distribution?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It takes two independent uniform random numbers and applies √(−2 ln u₁)·cos(2πu₂) (and a sine variant), which can be shown mathematically to produce exactly standard normal N(0,1) values — then scaled by σ and shifted by μ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is Math.random() not used here?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Math.random() is not specified to be cryptographically secure and its algorithm varies by browser. crypto.getRandomValues() is a web standard specifically designed for unpredictable, high-quality randomness."
+     }
+    }
+   ]
+  }
+ ]
+}

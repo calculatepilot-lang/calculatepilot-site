@@ -1,0 +1,112 @@
+{
+ "title": "Binary Calculator - Arithmetic, Bitwise & Two's Complement",
+ "description": "Add, subtract, multiply or divide binary numbers, apply bitwise logic, shift or rotate bits, or convert to two's complement at 8 to 64-bit width.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,lightbulb,link,lock,memory,person_check,picture_as_pdf,restart_alt,superscript,swap_horiz,sync_alt,tune,verified_user,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "Binary Calculator",
+   "url": "https://www.calculatepilot.com/math/binary-calculator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Binary calculator for arithmetic, bitwise logic, bit shifts and two's complement conversion"
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Binary Calculator",
+     "item": "https://www.calculatepilot.com/math/binary-calculator.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Binary Calculator",
+   "url": "https://www.calculatepilot.com/math/binary-calculator.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": [
+    "Patterson Hennessy Computer Organization and Design 2020",
+    "IEEE Std 754-2019",
+    "ISO 80000-2:2019"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Why does register width matter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It sets how many bits are available to store the result. An 8-bit register can hold unsigned values 0–255; anything larger overflows and the extra high bits are discarded, just as in real hardware."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I read a negative number in two's complement?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "If the leading bit is 1, the value is negative: flip every bit, add 1, and that gives the binary magnitude — then negate. E.g. in 8 bits, 11111011 flips to 00000100, +1 = 00000101 = 5, so 11111011 represents −5."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What's the difference between LSR and ASR?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "LSR (logical shift right) always fills the vacated high bit with 0, treating the value as unsigned. ASR (arithmetic shift right) fills it by copying the sign bit, so a negative two's-complement number stays negative — equivalent to floor division by a power of two."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does 1111 + 0001 overflow in a 4-bit register?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "1111 (15) + 1 = 16 = 10000 in binary, which needs 5 bits. A 4-bit register can't hold it, so the leading 1 is dropped, leaving 0000 and an overflow/carry flag — the same \"wraps to zero\" behavior real 4-bit hardware shows."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I enter more bits than the register width?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can, but the value is masked (truncated) to the chosen width before the operation runs, matching what happens when a value doesn't fit in a real register."
+     }
+    }
+   ]
+  }
+ ]
+}

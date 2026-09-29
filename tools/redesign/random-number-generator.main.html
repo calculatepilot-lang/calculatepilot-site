@@ -1,0 +1,110 @@
+<div class="sx" id="rgCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Random Number Generator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Web Crypto CSPRNG</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Random Number Generator</h1>
+    <p>Generate uniform random integers or decimals, normally-distributed (Gaussian) values, or a reproducible sequence from a seed — using your browser's cryptographically secure random source, with duplicate control and sorting.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">memory</span><section><b>How the engine works</b><p>Integers, floats and Gaussian draws use <code>crypto.getRandomValues</code> (a CSPRNG) for true browser-sourced randomness; the seeded mode uses a deterministic PRNG (mulberry32) so the same seed always reproduces the same sequence.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Nothing leaves your browser — no numbers are logged or sent anywhere, and a seeded run is fully reproducible for testing.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0" id="formH">Random integers</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Task"><button type="button" data-for="mode" data-value="s1">Integer [min, max]</button><button type="button" data-for="mode" data-value="s2">Float [0, 1)</button><button type="button" data-for="mode" data-value="s3">Gaussian N(μ, σ)</button><button type="button" data-for="mode" data-value="s4">Seeded (reproducible)</button></div>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-m="s1" data-lo="1" data-hi="6" data-n="1">Dice roll [1, 6]</button><button type="button" data-m="s1" data-lo="1" data-hi="49" data-n="6" data-uniq="1">Lottery pick 6 of 49</button><button type="button" data-m="s3" data-mu="0" data-sig="1" data-n="10">Standard normal, n=10</button><button type="button" data-m="s4" data-seed="42" data-n="8">Seed 42, n=8</button></div>
+    <div id="fInt">
+      <div><div class="sx-au-l"><label for="lo">Minimum (inclusive)</label></div><div class="sx-au-in np"><input id="lo" type="number" step="1" value="1"></div></div>
+      <div><div class="sx-au-l"><label for="hi">Maximum (inclusive)</label></div><div class="sx-au-in np"><input id="hi" type="number" step="1" value="6"></div></div>
+    </div>
+    <div id="fGauss" hidden>
+      <div><div class="sx-au-l"><label for="mu">Mean (μ)</label></div><div class="sx-au-in np"><input id="mu" type="number" step="any" value="0"></div></div>
+      <div><div class="sx-au-l"><label for="sig">Standard deviation (σ)</label></div><div class="sx-au-in np"><input id="sig" type="number" step="any" min="0" value="1"></div></div>
+    </div>
+    <div id="fSeed" hidden>
+      <div class="sx-au-l"><label for="seed">Seed</label></div><div class="sx-au-in np"><input id="seed" type="text" value="42"></div>
+    </div>
+    <div><div class="sx-au-l"><label for="n">How many values (n)</label></div><div class="sx-au-in np"><input id="n" type="number" step="1" min="1" max="1000" value="1"></div></div>
+    <div id="fUniq"><label class="sx-au-ck"><input type="checkbox" id="uniq"> No duplicates (sample without replacement)</label></div>
+    <div><div class="sx-au-l"><label for="sortOrder">Sort output</label></div><div class="sx-au-sel"><select id="sortOrder"><option value="raw">As generated</option><option value="asc">Ascending</option><option value="desc">Descending</option></select></div></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">casino</span>Generate</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Configuration</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Result</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big" style="font-size:24px;line-height:1.4;word-break:break-word;font-family:var(--font-mono)"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span id="ex1L">Mean of sample</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Source</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy results</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec" id="vizCard">
+  <div class="hd"><div><h2>Sample distribution</h2><p>Where each value falls in its range.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+  <div class="sx-mt-plot" id="viz" role="img" aria-label="Plot of the generated sample values"></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How each mode generates numbers</h2>
+    <ul>
+      <li><strong>Integer / Float:</strong> uses <code>crypto.getRandomValues</code>, the same cryptographically secure source browsers use for security tokens — far higher quality than <code>Math.random()</code>.</li>
+      <li><strong>Gaussian:</strong> combines two uniform CSPRNG draws with the Box–Muller transform to produce normally-distributed values with your chosen mean and standard deviation.</li>
+      <li><strong>Seeded:</strong> uses the mulberry32 deterministic algorithm — the same seed always produces the same sequence, useful for reproducible tests and simulations (not for security).</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Box, G. E. P., &amp; Muller, M. E. (1958). A note on the generation of random normal deviates. <i>Annals of Mathematical Statistics</i> 29(2), 610–611.</li>
+      <li>W3C (2017). <i>Web Cryptography API</i> — <code>Crypto.getRandomValues()</code> specification.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is this suitable for cryptographic keys?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The Integer and Float modes draw from <code>crypto.getRandomValues</code>, the browser's cryptographically secure generator, so the raw randomness is suitable. For actual key material, use a dedicated cryptography library that handles encoding and key formats correctly — this tool is for general-purpose random numbers.</p></details>
+    <details class="sx-faq"><summary>What does "no duplicates" mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It samples without replacement — like drawing lottery balls without putting them back — so every value in the output is distinct. It requires the range to contain at least as many values as you're requesting.</p></details>
+    <details class="sx-faq"><summary>Why use a seeded generator instead of true randomness?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A seeded (deterministic) generator lets you reproduce the exact same "random" sequence again later — essential for debugging simulations, sharing reproducible examples, or writing tests with predictable output.</p></details>
+    <details class="sx-faq"><summary>How does the Box–Muller transform create a normal distribution?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It takes two independent uniform random numbers and applies √(−2 ln u₁)·cos(2πu₂) (and a sine variant), which can be shown mathematically to produce exactly standard normal N(0,1) values — then scaled by σ and shifted by μ.</p></details>
+    <details class="sx-faq"><summary>Why is Math.random() not used here?<span class="msym" aria-hidden="true">expand_more</span></summary><p><code>Math.random()</code> is not specified to be cryptographically secure and its algorithm varies by browser. <code>crypto.getRandomValues()</code> is a web standard specifically designed for unpredictable, high-quality randomness.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with statistics.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">ssid_chart</span></span><b>Standard Deviation</b><span class="d">Spread of a data set.</span><span class="f">Statistics<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">casino</span></span><b>Probability Calculator</b><span class="d">Single and combined events.</span><span class="f">Probability<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/permutation-combination-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shuffle</span></span><b>Permutation &amp; Combination</b><span class="d">nPr and nCr counting.</span><span class="f">Counting<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/z-score-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">show_chart</span></span><b>Z-Score Calculator</b><span class="d">Standardize a normal value.</span><span class="f">Statistics<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Random Number Generator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/random-number-generator.html" width="100%" height="560" loading="lazy" title="Random Number Generator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
