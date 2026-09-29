@@ -15,11 +15,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shipping Cost Calculator | CalculatePilot</title>
-<meta name="description" content="Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. Free, instant, formula shown. No signup.">
+<title>Shipping Cost Calculator: Dimensional Weight | CalculatePilot</title>
+<meta name="description" content="Free shipping cost calculator: dimensional weight vs actual weight, billable weight, zone by distance and cost at your carrier rates, with box-size savings.">
 <link rel="canonical" href="https://www.calculatepilot.com/other/shipping-cost-calculator.html">
-<meta property="og:title" content="Shipping Cost Calculator | CalculatePilot">
-<meta property="og:description" content="Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. Free, instant, formula shown. No signup.">
+<meta property="og:title" content="Shipping Cost Calculator: Dimensional Weight | CalculatePilot">
+<meta property="og:description" content="Free shipping cost calculator: dimensional weight vs actual weight, billable weight, zone by distance and cost at your carrier rates, with box-size savings.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/other/shipping-cost-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -27,49 +27,127 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Shipping Cost Calculator | CalculatePilot">
-<meta name="twitter:description" content="Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. Free, instant, formula shown. No signup.">
+<meta name="twitter:title" content="Shipping Cost Calculator: Dimensional Weight | CalculatePilot">
+<meta name="twitter:description" content="Free shipping cost calculator: dimensional weight vs actual weight, billable weight, zone by distance and cost at your carrier rates, with box-size savings.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,balance,calculate,chevron_right,code,content_copy,download,event,expand_more,functions,lightbulb,local_shipping,lock,package_2,payments,person_check,picture_as_pdf,query_stats,receipt_long,restart_alt,scale,view_in_ar,warning&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Shipping Cost Calculator",
-  "url": "https://www.calculatepilot.com/other/shipping-cost-calculator.html",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Calculate estimated shipping cost based on package weight, dimensions, and your carrier rate per pound. No signup needed. CalculatePilot explains the formula be"
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Shipping Cost Calculator",
+ "url": "https://www.calculatepilot.com/other/shipping-cost-calculator.html",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calculates dimensional and billable weight for a package and prices it at your own carrier rates and surcharges."
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Shipping Cost Calculator", "item": "https://www.calculatepilot.com/other/shipping-cost-calculator.html"}
-  ]
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Everyday Calculators",
+   "item": "https://www.calculatepilot.com/other-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Shipping Cost Calculator",
+   "item": "https://www.calculatepilot.com/other/shipping-cost-calculator.html"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why would I be charged for a heavier weight than my package actually weighs?",
-      "acceptedAnswer": { "@type": "Answer", "text": "If your package is large relative to its actual weight, carriers charge based on \u0027dimensional weight\u0027 instead \u2014 a size-based calculation designed to account for the space large packages take up in transport, regardless of how light they are." }
-    },    {
-      "@type": "Question",
-      "name": "Does every carrier use the same dimensional weight divisor?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No \u2014 166 is common for many US domestic shipments, but some carriers and international services use different divisors (like 139), so check your specific carrier\u0027s published rates for the most accurate estimate." }
-    }  ]
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Shipping Cost & Dimensional Weight Calculator",
+ "url": "https://www.calculatepilot.com/other/shipping-cost-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-29",
+ "lastReviewed": "2026-09-29",
+ "citation": [
+  "UPS and FedEx dimensional weight pricing rules",
+  "USPS Domestic Mail Manual, dimensional weight and zones",
+  "IATA air cargo volumetric weight guidance"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is dimensional weight?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dimensional (DIM) weight is a size-based weight that carriers use to price bulky, light packages. It is the box volume divided by a divisor, and you are billed for whichever is larger, DIM weight or actual weight."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which divisor should I use?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Many carriers use 139 cubic inches per pound for daily or commercial rates and 166 for retail rates. USPS applies dimensional weight only to larger packages. Check your own carrier agreement, or choose a custom divisor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How can I reduce dimensional weight?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use a box that fits the item snugly, cut the tallest dimension first, and avoid extra void fill. The table shows how much a smaller box would save."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does the zone matter?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The farther a package travels, the higher its zone and its rate. Zones are set by the distance between the ZIP codes, so the same parcel costs more to ship across the country than across town."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do residential deliveries cost more?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Many carriers add a residential delivery surcharge on top of the base rate. Enter the fee on your rate card, or set it to zero for commercial addresses."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -90,118 +168,89 @@
 </header>
 
 <main>
+<div class="sx" id="spCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Shipping Cost Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">local_shipping</span>Actual vs dimensional weight</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div><h1>Shipping Cost &amp; Dimensional Weight Calculator</h1><p>Find the billable weight of a package from its size and scale weight, then price it with your own carrier rates. See dimensional weight against actual weight, how far the package travels, residential, insurance and signature charges, and how a smaller box could cut the bill.</p></div></header>
+<div class="sx-mt-wvh"><div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It converts the box size to a dimensional weight, takes the larger of that and the scale weight, and prices it at your rates.</p></section></div><div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Carriers charge for the space a box takes, not just its weight. This shows what you pay and where a smaller box saves money.</p></section></div></div>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Shipping Cost Calculator
-  </nav>
+<form id="calcForm" novalidate>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+  <div class="sx-params-head"><div><span class="msym" aria-hidden="true">package_2</span><h2 class="sx-h-md" style="margin:0">Package, distance and surcharges</h2></div><button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button></div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><label>Units</label></div><input type="hidden" id="u" value="in"><div class="sx-seg" role="group" aria-label="Units"><button type="button" data-for="u" data-value="in">Inches and pounds</button><button type="button" data-for="u" data-value="cm">Centimetres and kilograms</button></div></div>
+    <div class="sx-au-g3">
+      <div><div class="sx-au-l"><label for="L">Length</label><em class="mu" data-du>in</em></div><div class="sx-au-in sm np"><input id="L" type="number" inputmode="decimal" step="0.1" min="0" value="16"></div></div>
+      <div><div class="sx-au-l"><label for="W">Width</label><em class="mu" data-du>in</em></div><div class="sx-au-in sm np"><input id="W" type="number" inputmode="decimal" step="0.1" min="0" value="12"></div></div>
+      <div><div class="sx-au-l"><label for="H">Height</label><em class="mu" data-du>in</em></div><div class="sx-au-in sm np"><input id="H" type="number" inputmode="decimal" step="0.1" min="0" value="10"></div></div>
+    </div>
+    <div class="sx-strip"><span>Package volume</span><b id="vol">—</b></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="wt">Actual weight</label><em class="mu" data-dw>lb</em></div><div class="sx-au-in sm np"><input id="wt" type="number" inputmode="decimal" step="0.1" min="0" value="8.5"></div></div>
+      <div><div class="sx-au-l"><label for="dv">Dimensional divisor</label><em class="mu">cubic in per lb</em></div><select id="dv" class="sx-mt-sel"><option value="139" selected>139 · daily or commercial rates</option><option value="166">166 · retail rates</option><option value="custom">Custom divisor</option></select><div class="sx-au-in sm np" id="cdBox" hidden style="margin-top:8px"><input id="cdv" type="number" inputmode="decimal" step="1" min="1" value="139" aria-label="Custom divisor"></div></div>
+    </div>
+    <div class="sx-au-note" id="dimV" style="text-align:left;margin:0;font-size:13px">—</div>
+    <div class="sx-au-box">
+      <div class="sx-au-l"><label>Distance and delivery</label></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="mi">Distance</label><em class="mu">miles</em></div><div class="sx-au-in sm np"><input id="mi" type="number" inputmode="decimal" step="10" min="0" value="2451"></div></div>
+        <div><div class="sx-au-l"><label for="ad">Address type</label></div><select id="ad" class="sx-mt-sel"><option value="res" selected>Residential</option><option value="com">Commercial</option></select></div>
+        <div><div class="sx-au-l"><label for="sv">Service speed</label></div><select id="sv" class="sx-mt-sel"><option value="1" selected>Ground (about 1 to 7 days)</option><option value="2.2">2-day air</option><option value="3.2">Overnight</option></select></div>
+        <div><div class="sx-au-l"><label for="sg">Signature</label></div><select id="sg" class="sx-mt-sel"><option value="none" selected>None</option><option value="direct">Direct signature</option><option value="adult">Adult signature</option></select></div>
+      </div>
+      <div class="sx-au-note" id="zoneV" style="text-align:left;margin:10px 0 0;font-size:13px">—</div>
+    </div>
+    <div class="sx-au-box">
+      <div class="sx-au-l"><label>Your rates</label><em class="mu">from your carrier or rate card</em></div>
+      <div class="sx-au-g3">
+        <div><div class="sx-au-l"><label for="r1">Carrier A per billable lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="r1" type="number" inputmode="decimal" step="0.05" min="0" value="1.55"></div></div>
+        <div><div class="sx-au-l"><label for="r2">Carrier B per billable lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="r2" type="number" inputmode="decimal" step="0.05" min="0" value="1.7"></div></div>
+        <div><div class="sx-au-l"><label for="r3">Carrier C per billable lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="r3" type="number" inputmode="decimal" step="0.05" min="0" value="1.75"></div></div>
+      </div>
+      <div class="sx-au-g3" style="margin-top:10px">
+        <div><div class="sx-au-l"><label for="rs">Residential fee</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="rs" type="number" inputmode="decimal" step="0.05" min="0" value="4.85"></div></div>
+        <div><div class="sx-au-l"><label for="dvv">Declared value</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="dvv" type="number" inputmode="decimal" step="10" min="0" value="250"></div></div>
+        <div><div class="sx-au-l"><label for="ir">Insurance per $100</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="ir" type="number" inputmode="decimal" step="0.05" min="0" value="1.4"></div></div>
+      </div>
+      <div class="sx-au-g2" style="margin-top:10px">
+        <div><div class="sx-au-l"><label for="fs">Fuel surcharge</label><em class="mu">% of base</em></div><div class="sx-au-in sm np"><input id="fs" type="number" inputmode="decimal" step="0.25" min="0" value="0"></div></div>
+        <div><div class="sx-au-l"><label for="qty">Packages</label></div><div class="sx-au-in sm np"><input id="qty" type="number" inputmode="numeric" step="1" min="1" value="1"></div></div>
+      </div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Compare shipping costs</button></div>
+  </div>
 </div>
+</div>
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite"><div class="hd"><span>Billable weight</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small>lb</small></div><p id="interp">—</p>
+    <div class="g2"><div><span>Actual weight</span><b id="oAct">—</b></div><div><span>Dimensional weight</span><b id="oDim">—</b></div><div><span>Extra billed</span><b id="oPen">—</b></div><div><span>Zone (by distance)</span><b id="oZone">—</b></div></div></section>
+  <section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Cost by carrier</span><em class="mu" id="cmpN">—</em></div><div id="cmp" style="display:flex;flex-direction:column"></div></section>
+  <section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="color:var(--sx-pc)">lightbulb</span>Cost-saving idea</span></div><p class="sx-au-note" id="tip" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p><div class="sx-tblwrap" style="margin-top:12px"><table class="sx-tbl" style="min-width:300px" id="opt"><thead><tr><th>Smaller box</th><th class="n">Dim. weight</th><th class="n">Billable</th><th class="n">Saves</th></tr></thead><tbody></tbody></table></div></section>
+  <div class="sx-in-acts"><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>CSV</button><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</form>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Shipping Cost Calculator</h1>
-    <p class="lede">Estimate shipping cost based on your package's actual weight, dimensions, and carrier rate — accounting for dimensional weight pricing.</p>
-  </div>
-</section>
+<section class="sx-card sx-mt-sec"><div class="hd"><div><h2>Shipping zones by distance</h2><p>US parcel carriers price by zone, which rises with the distance between the origin and destination ZIP codes. Exact zones come from your carrier's zone chart.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:560px" id="zones"><thead><tr><th>Zone</th><th>Distance</th><th>Typical ground transit</th></tr></thead><tbody>
+<tr><td class="a"><b>Zone 1 – 2</b></td><td class="a">0 to 150 miles</td><td class="a">1 to 2 days</td></tr>
+<tr><td class="a"><b>Zone 3</b></td><td class="a">151 to 300 miles</td><td class="a">2 to 3 days</td></tr>
+<tr><td class="a"><b>Zone 4</b></td><td class="a">301 to 600 miles</td><td class="a">2 to 4 days</td></tr>
+<tr><td class="a"><b>Zone 5</b></td><td class="a">601 to 1,000 miles</td><td class="a">3 to 5 days</td></tr>
+<tr><td class="a"><b>Zone 6</b></td><td class="a">1,001 to 1,400 miles</td><td class="a">3 to 5 days</td></tr>
+<tr><td class="a"><b>Zone 7</b></td><td class="a">1,401 to 1,800 miles</td><td class="a">4 to 6 days</td></tr>
+<tr><td class="a"><b>Zone 8</b></td><td class="a">1,801 miles and more</td><td class="a">4 to 7 days</td></tr>
+</tbody></table></div></section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field-row">
-        <div class="field">
-          <label for="actualWeight">Actual weight (lb)</label>
-          <input type="number" id="actualWeight" value="3" step="0.1" min="0">
-        </div>
-        <div class="field">
-          <label for="pricePerLb">Carrier rate ($/lb)</label>
-          <input type="number" id="pricePerLb" value="1.2" step="0.05" min="0">
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="length">Length (in)</label>
-          <input type="number" id="length" value="14" step="0.5" min="0">
-        </div>
-        <div class="field">
-          <label for="width">Width (in)</label>
-          <input type="number" id="width" value="10" step="0.5" min="0">
-        </div>
-      </div>
-      <div class="field">
-        <label for="height">Height (in)</label>
-        <input type="number" id="height" value="8" step="0.5" min="0">
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="currency-picker">
-          <label for="cpCurrencySelect">Currency</label>
-          <select id="cpCurrencySelect" class="cp-currency-select">
-            <option value="USD">$ USD</option>
-            <option value="GBP">£ GBP</option>
-            <option value="EUR">€ EUR</option>
-            <option value="CAD">CA$ CAD</option>
-            <option value="AUD">A$ AUD</option>
-            <option value="INR">₹ INR</option>
-            <option value="PKR">Rs PKR</option>
-            <option value="AED">AED</option>
-            <option value="SAR">SAR</option>
-            <option value="JPY">¥ JPY</option>
-            <option value="CNY">¥ CNY</option>
-            <option value="NZD">NZ$ NZD</option>
-            <option value="SGD">S$ SGD</option>
-            <option value="ZAR">R ZAR</option>
-            <option value="CHF">CHF</option>
-            <option value="MXN">MX$ MXN</option>
-            <option value="BRL">R$ BRL</option>
-            <option value="NGN">₦ NGN</option>
-            <option value="EGP">E£ EGP</option>
-            <option value="KES">KSh KES</option>
-          </select>
-        </div>
-        <div class="readout-label">Estimated shipping cost</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Billable weight (used for cost)</span><span id="outBillableWeight">—</span></div>
-          <div class="readout-row"><span>Dimensional weight</span><span id="outDimWeight">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
-    <h2>What dimensional weight means</h2>
-    <p>Most major carriers charge based on whichever is greater: a package's actual weight or its 'dimensional weight' — a calculated figure based on the box's size, meant to account for the fact that large, lightweight packages take up valuable truck and plane space regardless of how little they weigh.</p>
-    <p>This calculator uses the widely used divisor of 166 (common for domestic US shipments) to calculate dimensional weight from length × width × height in inches. Some carriers and international shipments use a different divisor (like 139), so check your specific carrier's published formula for precise quotes.</p>
-    <h2>Why oversized-but-light packages cost more than expected</h2>
-    <p>This is the most common shipping cost surprise for e-commerce sellers — a large, lightweight item (like a lampshade or a pillow) can trigger a dimensional weight charge far higher than its actual weight would suggest, since the box's volume, not just its contents' weight, drives the cost.</p>
-    <p>Using the smallest reasonable packaging for a given item is one of the most effective ways to control shipping costs, since reducing box dimensions directly reduces dimensional weight, even when actual product weight stays the same.</p>
-
-    <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Why would I be charged for a heavier weight than my package actually weighs?</h3>
-      <p>If your package is large relative to its actual weight, carriers charge based on 'dimensional weight' instead — a size-based calculation designed to account for the space large packages take up in transport, regardless of how light they are.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Does every carrier use the same dimensional weight divisor?</h3>
-      <p>No — 166 is common for many US domestic shipments, but some carriers and international services use different divisors (like 139), so check your specific carrier's published rates for the most accurate estimate.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
-      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
-      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
-      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
+<section class="sx-card sx-mt-sec"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span class="msym" aria-hidden="true">view_in_ar</span></div><h3>Dimensional weight</h3><p>Volume in cubic inches divided by the divisor your carrier uses.</p><code>DIM weight = L × W × H ÷ divisor</code></div><div><div class="ic"><span class="msym" aria-hidden="true">balance</span></div><h3>Billable weight</h3><p>The larger of actual and dimensional weight, rounded up to the next whole pound.</p><code>billable = ⌈ max(actual, DIM) ⌉</code></div><div><div class="ic"><span class="msym" aria-hidden="true">payments</span></div><h3>Shipping cost</h3><p>Billable weight times your rate, plus fuel, residential, insurance and signature charges.</p><code>cost = billable × rate × (1 + fuel) + fees</code></div></div></section>
+<section class="sx-mt-sec sx-card"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>16 × 12 × 10 in, 8.5 lb</h3><p>Divisor 139, rate $1.55 per billable lb.</p><div class="sx-mt-ex">16 × 12 × 10 = 1,920 cu in<br>1,920 ÷ 139 = 13.81 lb<br>billable = <b>14 lb</b>, 5.5 lb over actual<br>14 × 1.55 = $21.70 before fees</div></div><div><h3>Using a shorter box</h3><p>The same items in a 16 × 12 × 8 in box.</p><div class="sx-mt-ex">16 × 12 × 8 = 1,536 cu in<br>1,536 ÷ 139 = 11.05 lb → <b>12 lb</b><br>saves 2 billable lb, or <b>$3.10</b> at $1.55</div></div><div><h3>Retail divisor 166</h3><p>The original box at retail rates.</p><div class="sx-mt-ex">1,920 ÷ 166 = 11.57 lb<br>billable = <b>12 lb</b><br>a higher divisor means a lower dimensional weight</div></div></div></section>
+<section class="sx-card sx-method"><div class="sx-guide"><h2>How to estimate shipping cost</h2><ul><li>Measure the length, width and height of the packed box and weigh it.</li><li>Enter the divisor your carrier uses for dimensional weight.</li><li>Enter your carrier rates per billable pound and any surcharges.</li><li>Compare carriers and check whether a smaller box lowers the billable weight.</li></ul><p>Carriers publish their own rate tables, zones, surcharges and dimensional rules, and they change often. The rates here are placeholders that you should replace with your quotes. Always confirm with the carrier or your shipping software.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>UPS, <i>Dimensional Weight Pricing</i> and FedEx, <i>Dimensional Weight</i> rules, showing the divisors used for daily and retail rates.</li><li>USPS, <i>Domestic Mail Manual</i> on dimensional weight pricing and zones.</li><li>IATA, <i>Air Cargo Rates</i> guidance on volumetric weight for air freight.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>What is dimensional weight?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Dimensional (DIM) weight is a size-based weight that carriers use to price bulky, light packages. It is the box volume divided by a divisor, and you are billed for whichever is larger, DIM weight or actual weight.</p></details><details class="sx-faq"><summary>Which divisor should I use?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many carriers use 139 cubic inches per pound for daily or commercial rates and 166 for retail rates. USPS applies dimensional weight only to larger packages. Check your own carrier agreement, or choose a custom divisor.</p></details><details class="sx-faq"><summary>How can I reduce dimensional weight?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use a box that fits the item snugly, cut the tallest dimension first, and avoid extra void fill. The table shows how much a smaller box would save.</p></details><details class="sx-faq"><summary>Why does the zone matter?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The farther a package travels, the higher its zone and its rate. Zones are set by the distance between the ZIP codes, so the same parcel costs more to ship across the country than across town.</p></details><details class="sx-faq"><summary>Do residential deliveries cost more?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many carriers add a residential delivery surcharge on top of the base rate. Enter the fee on your rate card, or set it to zero for commercial addresses.</p></details></div></section>
+<div class="sx-au-relh"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+<div class="sx-au-rel"><a class="sx-card" href="/other/unit-price-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">scale</span></span><b>Unit Price Calculator</b><span class="d">Compare package sizes.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/other/invoice-late-fee-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Invoice Late Fee</b><span class="d">Late fees on invoices.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/other/moving-cost-estimator.html"><span class="ic"><span class="msym" aria-hidden="true">local_shipping</span></span><b>Moving Cost Estimator</b><span class="d">Budget a household move.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/other/break-even-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Break-Even Calculator</b><span class="d">Units to cover your costs.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed" id="embed"><div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Shipping Cost Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/shipping-cost-calculator.html" width="100%" height="560" loading="lazy" title="Shipping Cost Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -279,7 +328,8 @@
 </footer>
 
 <script src="/js/currency-format.js?v=3d1747f9"></script>
-<script src="/js/shipping-cost.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/shipping-cost.js?v=20260930o"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
