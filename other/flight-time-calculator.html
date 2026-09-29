@@ -15,16 +15,16 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flight Time Calculator | CalculatePilot</title>
-<meta name="description" content="Estimate flight duration based on distance and average cruise speed, including taxi and climb buffer time. Free, instant, formula shown. No signup.">
+<title>Flight Time Calculator: Duration, Distance and Jet Lag | CalculatePilot</title>
+<meta name="description" content="Free flight time calculator: great-circle distance, gate-to-gate time with wind, local arrival time and jet lag between 40 major airports.">
 <link rel="canonical" href="https://www.calculatepilot.com/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/other/flight-time-calculator.html">
-<meta property="og:title" content="Flight Time Calculator | CalculatePilot">
-<meta property="og:description" content="Estimate flight duration based on distance and average cruise speed, including taxi and climb buffer time. Free, instant, formula shown. No signup.">
+<meta property="og:title" content="Flight Time Calculator: Duration, Distance and Jet Lag | CalculatePilot">
+<meta property="og:description" content="Free flight time calculator: great-circle distance, gate-to-gate time with wind, local arrival time and jet lag between 40 major airports.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/other/flight-time-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -32,49 +32,126 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flight Time Calculator | CalculatePilot">
-<meta name="twitter:description" content="Estimate flight duration based on distance and average cruise speed, including taxi and climb buffer time. Free, instant, formula shown. No signup.">
+<meta name="twitter:title" content="Flight Time Calculator: Duration, Distance and Jet Lag | CalculatePilot">
+<meta name="twitter:description" content="Free flight time calculator: great-circle distance, gate-to-gate time with wind, local arrival time and jet lag between 40 major airports.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,bedtime,chevron_right,code,content_copy,event,expand_more,flight,flight_takeoff,functions,lightbulb,link,lock,person_check,picture_as_pdf,public,restart_alt,schedule,speed,swap_vert,warning,wb_sunny&display=block">
+<!-- /cpx-head-extra -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Flight Time Calculator",
-  "url": "https://www.calculatepilot.com/other/flight-time-calculator.html",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Estimate flight duration based on distance and average cruise speed, including taxi and climb buffer time. No signup needed. CalculatePilot explains the formula"
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Flight Time Calculator",
+ "url": "https://www.calculatepilot.com/other/flight-time-calculator.html",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Estimates flight time, distance, ground speed, local arrival time and jet lag between airports."
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Everyday Calculators", "item": "https://www.calculatepilot.com/other-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Flight Time Calculator", "item": "https://www.calculatepilot.com/other/flight-time-calculator.html"}
-  ]
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Everyday Calculators",
+   "item": "https://www.calculatepilot.com/other-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Flight Time Calculator",
+   "item": "https://www.calculatepilot.com/other/flight-time-calculator.html"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why is my calculated time different from what the airline shows?",
-      "acceptedAnswer": { "@type": "Answer", "text": "This is a simplified estimate based on distance and average speed \u2014 actual scheduled flight times also account for typical wind patterns, routing, and historical performance on that specific route, which this calculator doesn\u0027t include." }
-    },    {
-      "@type": "Question",
-      "name": "What\u0027s a typical cruise speed for a commercial flight?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Most commercial jets cruise in the range of roughly 480-560 mph depending on the aircraft type, making 500 mph a reasonable general estimate if you don\u0027t know the specific aircraft." }
-    }  ]
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Flight Time, Distance & Jet Lag Calculator",
+ "url": "https://www.calculatepilot.com/other/flight-time-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-29",
+ "lastReviewed": "2026-09-29",
+ "citation": [
+  "Sinnott, Virtues of the Haversine (1984)",
+  "Eastman and Burgess, How to travel the world without jet lag (2009)"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How is flight time calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The great-circle distance is divided by ground speed (aircraft speed plus wind along the route). Taxi, climb and approach time is then added to give a gate-to-gate figure."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is the flight home longer?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "In the middle latitudes the jet stream blows west to east, so eastbound flights get a tailwind and westbound flights a headwind. Transatlantic westbound trips are often about an hour longer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is block time?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The time from leaving the departure gate to arriving at the arrival gate. It is what airline timetables show."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long does jet lag last?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A common rule of thumb is about one day per time zone crossed when travelling east and about two-thirds of a day per zone travelling west. It varies a lot between people."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does the arrival day sometimes change?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Crossing the date line or a long eastbound flight can land on a different calendar day in the destination time zone."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -95,82 +172,46 @@
 </header>
 
 <main>
+<div class="sx" id="flCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Flight Time Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">flight_takeoff</span>Great-circle distance and jet lag</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div><h1>Flight Time, Distance &amp; Jet Lag Calculator</h1><p>Estimate flight time, distance, ground speed and the local arrival time between 40 major airports, and see how many time zones you cross and roughly how long jet lag lasts.</p></div></header>
+<div class="sx-mt-wvh"><div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It measures the great-circle distance, divides by aircraft speed plus wind, adds taxi and approach time, and converts times using each airport's time zone for the date you pick.</p></section></div><div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Airlines show a scheduled time but not how it is made up. This shows distance, speed and wind so you can see what drives it.</p></section></div></div>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> / <a href="/other-calculators.html">Everyday Calculators</a> / Flight Time Calculator
-  </nav>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head"><div><span class="msym" aria-hidden="true">flight_takeoff</span><h2 class="sx-h-md" style="margin:0">Route and aircraft</h2></div><button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button></div>
+  <div class="sx-au-stack">
+    <div class="sx-qpills"><span class="lb">Quick routes</span><button type="button" data-r="JFK,LHR">JFK → LHR</button><button type="button" data-r="LAX,HND">LAX → HND</button><button type="button" data-r="SYD,SIN">SYD → SIN</button><button type="button" data-r="ORD,MIA">ORD → MIA</button></div>
+    <div class="sx-au-g2"><div><div class="sx-au-l"><label for="o">From</label></div><select id="o" class="sx-mt-sel"><option value="JFK" selected>JFK · New York JFK</option><option value="LAX">LAX · Los Angeles</option><option value="ORD">ORD · Chicago O'Hare</option><option value="ATL">ATL · Atlanta</option><option value="DFW">DFW · Dallas Fort Worth</option><option value="DEN">DEN · Denver</option><option value="SFO">SFO · San Francisco</option><option value="SEA">SEA · Seattle</option><option value="MIA">MIA · Miami</option><option value="BOS">BOS · Boston</option><option value="YYZ">YYZ · Toronto</option><option value="YVR">YVR · Vancouver</option><option value="MEX">MEX · Mexico City</option><option value="GRU">GRU · Sao Paulo</option><option value="LHR">LHR · London Heathrow</option><option value="CDG">CDG · Paris Charles de Gaulle</option><option value="AMS">AMS · Amsterdam</option><option value="FRA">FRA · Frankfurt</option><option value="MAD">MAD · Madrid</option><option value="FCO">FCO · Rome Fiumicino</option><option value="IST">IST · Istanbul</option><option value="DXB">DXB · Dubai</option><option value="DOH">DOH · Doha</option><option value="DEL">DEL · Delhi</option><option value="BOM">BOM · Mumbai</option><option value="KHI">KHI · Karachi</option><option value="LHE">LHE · Lahore</option><option value="SIN">SIN · Singapore Changi</option><option value="HKG">HKG · Hong Kong</option><option value="BKK">BKK · Bangkok</option><option value="PEK">PEK · Beijing Capital</option><option value="PVG">PVG · Shanghai Pudong</option><option value="ICN">ICN · Seoul Incheon</option><option value="HND">HND · Tokyo Haneda</option><option value="SYD">SYD · Sydney</option><option value="AKL">AKL · Auckland</option><option value="JNB">JNB · Johannesburg</option><option value="CAI">CAI · Cairo</option><option value="LOS">LOS · Lagos</option><option value="NBO">NBO · Nairobi</option></select></div><div><div class="sx-au-l"><label for="d">To</label></div><select id="d" class="sx-mt-sel"><option value="JFK">JFK · New York JFK</option><option value="LAX">LAX · Los Angeles</option><option value="ORD">ORD · Chicago O'Hare</option><option value="ATL">ATL · Atlanta</option><option value="DFW">DFW · Dallas Fort Worth</option><option value="DEN">DEN · Denver</option><option value="SFO">SFO · San Francisco</option><option value="SEA">SEA · Seattle</option><option value="MIA">MIA · Miami</option><option value="BOS">BOS · Boston</option><option value="YYZ">YYZ · Toronto</option><option value="YVR">YVR · Vancouver</option><option value="MEX">MEX · Mexico City</option><option value="GRU">GRU · Sao Paulo</option><option value="LHR" selected>LHR · London Heathrow</option><option value="CDG">CDG · Paris Charles de Gaulle</option><option value="AMS">AMS · Amsterdam</option><option value="FRA">FRA · Frankfurt</option><option value="MAD">MAD · Madrid</option><option value="FCO">FCO · Rome Fiumicino</option><option value="IST">IST · Istanbul</option><option value="DXB">DXB · Dubai</option><option value="DOH">DOH · Doha</option><option value="DEL">DEL · Delhi</option><option value="BOM">BOM · Mumbai</option><option value="KHI">KHI · Karachi</option><option value="LHE">LHE · Lahore</option><option value="SIN">SIN · Singapore Changi</option><option value="HKG">HKG · Hong Kong</option><option value="BKK">BKK · Bangkok</option><option value="PEK">PEK · Beijing Capital</option><option value="PVG">PVG · Shanghai Pudong</option><option value="ICN">ICN · Seoul Incheon</option><option value="HND">HND · Tokyo Haneda</option><option value="SYD">SYD · Sydney</option><option value="AKL">AKL · Auckland</option><option value="JNB">JNB · Johannesburg</option><option value="CAI">CAI · Cairo</option><option value="LOS">LOS · Lagos</option><option value="NBO">NBO · Nairobi</option></select></div></div>
+    <div><button type="button" id="swap" class="sx-reset" style="margin:0"><span class="msym" aria-hidden="true">swap_vert</span>Swap origin and destination</button></div>
+    <div><div class="sx-au-l"><label for="ac">Aircraft cruise speed</label><em class="mu" id="acN">true airspeed</em></div><select id="ac" class="sx-mt-sel"><option value="490" selected>Widebody jet · 490 kt · B777, B787, A350</option><option value="450">Narrowbody jet · 450 kt · A320, B737</option><option value="510">Long-range business jet · 510 kt</option><option value="280">Turboprop · 280 kt · ATR 72, Dash 8</option></select></div>
+    <div class="sx-au-g2"><div><div class="sx-au-l"><label for="wd">Wind along the route</label><em class="mu">kt, + tailwind, − headwind</em></div><div class="sx-au-in sm np"><input id="wd" type="number" inputmode="numeric" step="5" min="-150" max="200" value="45"></div><div class="sx-qpills"><button type="button" data-w="45">East +45</button><button type="button" data-w="-35">West −35</button><button type="button" data-w="0">Calm 0</button></div></div>
+      <div><div class="sx-au-l"><label for="bf">Taxi, climb and approach</label><em class="mu">minutes added</em></div><div class="sx-au-in sm np"><input id="bf" type="number" inputmode="numeric" step="5" min="0" max="180" value="30"></div></div></div>
+    <div><div class="sx-au-l"><label for="dt">Departure, local time at origin</label></div><div class="sx-au-in sm np"><input id="dt" type="datetime-local" value="2027-01-15T19:00"></div></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">flight</span>Calculate flight time</button></div>
+  </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite"><div class="hd"><span>Gate-to-gate time</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+    <div class="g2"><div><span>Lands (local time)</span><b id="oArr">—</b></div><div><span>Time zone change</span><b id="oTz">—</b></div></div></section>
+  <section class="sx-card" style="padding:20px"><div class="sx-au-tiles"><div><span>Great-circle distance</span><b id="oNm">—</b><small id="oKm">—</small></div><div><span>Ground speed</span><b id="oGs">—</b><small id="oGsN">—</small></div><div><span>Time in the air</span><b id="oAir">—</b><small id="oBuf">—</small></div><div><span>Jet lag</span><b id="oJl">—</b><small id="oJlN">—</small></div></div></section>
+  <section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="color:var(--sx-pc)">wb_sunny</span>Jet lag plan</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Flight Time Calculator</h1>
-    <p class="lede">Estimate total flight time based on distance and average cruise speed, including a buffer for takeoff, climb, and landing.</p>
-  </div>
-</section>
+<section class="sx-card sx-mt-sec"><div class="hd"><div><h2>Block time and airborne time</h2><p>Airline schedules use block time, from pushback at the departure gate to arriving at the arrival gate. It is longer than the time in the air because of taxiing, climbing and approach. Real flights also follow airways, not perfect great-circle arcs, so scheduled times are often a little longer than this estimate.</p></div></div></section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="distance">Distance (miles)</label>
-        <input type="number" id="distance" value="2500" step="10" min="0">
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="avgSpeed">Average cruise speed (mph)</label>
-          <input type="number" id="avgSpeed" value="500" step="10" min="1">
-        </div>
-        <div class="field">
-          <label for="bufferMinutes">Taxi/climb/landing buffer (minutes)</label>
-          <input type="number" id="bufferMinutes" value="30" step="5" min="0">
-        </div>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Estimated total flight time</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Time airborne at cruise speed</span><span id="outAirborneTime">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
-    <h2>Why actual flight times include more than cruise speed</h2>
-    <p>A flight's total scheduled time includes more than just time spent cruising at top speed — taxiing to the runway, the climb to cruising altitude, and the descent and landing all take additional time beyond straightforward distance-divided-by-speed math. This calculator adds a buffer to approximate that overhead.</p>
-    <p>Commercial airliners typically cruise around 480-560 mph depending on aircraft type and route, so 500 mph is a reasonable default estimate for a typical jet — adjust it if you know your specific aircraft's typical cruise speed.</p>
-    <h2>What this estimate doesn't account for</h2>
-    <p>Real flight times are also affected by wind (tailwinds shorten flight time, headwinds lengthen it), air traffic control routing and holding patterns, and weather delays — this calculator provides a straightforward distance-and-speed estimate, not an official flight schedule.</p>
-    <p>For actual travel planning, always use the airline's published scheduled flight time, which already accounts for typical routing and historical performance on that specific route rather than a generic distance-based estimate.</p>
-
-    <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h3>Why is my calculated time different from what the airline shows?</h3>
-      <p>This is a simplified estimate based on distance and average speed — actual scheduled flight times also account for typical wind patterns, routing, and historical performance on that specific route, which this calculator doesn't include.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What's a typical cruise speed for a commercial flight?</h3>
-      <p>Most commercial jets cruise in the range of roughly 480-560 mph depending on the aircraft type, making 500 mph a reasonable general estimate if you don't know the specific aircraft.</p>
-    </div>
-
-    <h2>Related calculators</h2>
-    <div class="tool-grid">
-      <a href="/other/age-calculator.html" class="tool-link">Age Calculator <span class="arrow">→</span></a>
-      <a href="/other/base64-encode-decode.html" class="tool-link">Base64 Encode / Decode <span class="arrow">→</span></a>
-      <a href="/other/break-even-calculator.html" class="tool-link">Break-Even Calculator <span class="arrow">→</span></a>
-      <a href="/other/car-depreciation-calculator.html" class="tool-link">Car Depreciation Calculator <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
+<section class="sx-card sx-mt-sec"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span class="msym" aria-hidden="true">public</span></div><h3>Great-circle distance</h3><p>The shortest path between two points on the Earth, by the haversine formula, with Earth radius 6,371 km.</p><code>a = sin²(Δφ/2) + cos φ₁ cos φ₂ sin²(Δλ/2)<br>d = 2R · asin(√a)</code></div><div><div class="ic"><span class="msym" aria-hidden="true">speed</span></div><h3>Ground speed and time</h3><p>True airspeed plus the wind along the route. Airborne time is distance over ground speed.</p><code>ground speed = TAS + wind<br>air time = distance ÷ ground speed</code></div><div><div class="ic"><span class="msym" aria-hidden="true">schedule</span></div><h3>Gate-to-gate and arrival</h3><p>Airborne time plus taxi and approach minutes. Arrival is shown in the destination time zone on the departure date.</p><code>block = air time + buffer<br>arrival = departure + block</code></div></div></section>
+<section class="sx-mt-sec sx-card"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>JFK to London</h3><p>Widebody at 490 kt, +45 kt tailwind, 30 min buffer, departing 19:00.</p><div class="sx-mt-ex">distance 5,540 km = 2,991 NM<br>ground speed 490 + 45 = 535 kt<br>air time = 2,991 ÷ 535 = <b>5.59 h</b> (5 h 35 m) + 30 m = <b>6 h 05 m</b></div></div><div><h3>No wind</h3><p>Same route, calm air.</p><div class="sx-mt-ex">2,991 ÷ 490 = 6.10 h = 6 h 06 m<br>+ 30 m = <b>6 h 36 m</b></div></div><div><h3>Time zone change</h3><p>New York (UTC−5 in winter) to London (UTC+0).</p><div class="sx-mt-ex">shift = +5 hours, an eastward trip<br>eastbound recovery about 1 hour per day, so roughly <b>5 days</b> to adjust</div></div></div></section>
+<section class="sx-card sx-method"><div class="sx-guide"><h2>How to estimate flight time</h2><ul><li>Pick the origin and destination airports.</li><li>Choose an aircraft type and the wind along the route. Eastbound jet-stream tailwinds are commonly 40 to 100 kt.</li><li>Set the taxi and approach allowance, then enter the departure date and local time.</li><li>Read the gate-to-gate time, local arrival and time zone change.</li></ul><p>Estimates only. Actual flight time depends on the routing, winds aloft, air traffic control and the aircraft. Use the airline's schedule for planning connections.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>ICAO, <i>Annex 2 and Annex 6</i>, definitions of block time and flight time.</li><li>Sinnott, R.W., <i>Virtues of the Haversine</i>, Sky and Telescope, 1984.</li><li>Eastman &amp; Burgess, <i>How to travel the world without jet lag</i>, Sleep Medicine Clinics, 2009.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How is flight time calculated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The great-circle distance is divided by ground speed (aircraft speed plus wind along the route). Taxi, climb and approach time is then added to give a gate-to-gate figure.</p></details><details class="sx-faq"><summary>Why is the flight home longer?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In the middle latitudes the jet stream blows west to east, so eastbound flights get a tailwind and westbound flights a headwind. Transatlantic westbound trips are often about an hour longer.</p></details><details class="sx-faq"><summary>What is block time?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The time from leaving the departure gate to arriving at the arrival gate. It is what airline timetables show.</p></details><details class="sx-faq"><summary>How long does jet lag last?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common rule of thumb is about one day per time zone crossed when travelling east and about two-thirds of a day per zone travelling west. It varies a lot between people.</p></details><details class="sx-faq"><summary>Why does the arrival day sometimes change?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Crossing the date line or a long eastbound flight can land on a different calendar day in the destination time zone. For jet lag, a 17 hour clock difference counts as 7 hours the other way round the world.</p></details></div></section>
+<div class="sx-au-relh"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+<div class="sx-au-rel"><a class="sx-card" href="/other/time-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">schedule</span></span><b>Time Calculator</b><span class="d">Add and subtract time.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/other/utc-time-converter.html"><span class="ic"><span class="msym" aria-hidden="true">public</span></span><b>UTC Time Converter</b><span class="d">Convert time zones.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/other/speed-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">speed</span></span><b>Speed Calculator</b><span class="d">Speed, distance and time.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/other/sleep-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bedtime</span></span><b>Sleep Calculator</b><span class="d">Plan sleep cycles.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed" id="embed"><div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Flight Time Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/flight-time-calculator.html" width="100%" height="560" loading="lazy" title="Flight Time Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -246,8 +287,8 @@
     </div>
   </div>
 </footer>
-
-<script src="/js/flight-time.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/flight-time.js?v=20260930o"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
