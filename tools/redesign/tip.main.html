@@ -1,0 +1,152 @@
+<div class="sx" id="tipCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Tip &amp; Split Bill Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Tip on the pre-tax subtotal</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Tip &amp; Split Bill Calculator</h1>
+    <p>Work out the tip, sales tax and total, then split the check between any number of diners. The split runs in whole cents, so every share adds back to the exact total with no missing pennies.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Tipping ranges reflect common customs and are guidance, not rules. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It converts the bill to cents, computes tax and tip, then divides the total by diners and hands leftover cents to the first diners in turn.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Most tip tools show one rounded number. This one shows each person's exact share and lets you choose how the total is rounded.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Calculation parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><label for="bill">Bill subtotal (before tax)</label><em class="mu">required</em></div><div class="sx-au-in sm"><span class="pre" id="curSym">$</span><input id="bill" type="number" inputmode="decimal" step="0.01" min="0" value="85"></div><div class="sx-qpills"><button type="button" data-for="bill" data-step="-5">− 5</button><button type="button" data-for="bill" data-step="5">+ 5</button><button type="button" data-for="bill" data-step="20">+ 20</button></div></div>
+    <div>
+      <div class="sx-au-l"><label>Tip percentage</label><em id="tipBadge">18% selected</em></div>
+      <input type="hidden" id="tip" value="18">
+      <div class="sx-au-opts c6" id="tipPills"><button type="button" data-for="tip" data-value="10">10%<small>Minimal</small></button><button type="button" data-for="tip" data-value="15">15%<small>Fair</small></button><button type="button" data-for="tip" data-value="18">18%<small>Standard</small></button><button type="button" data-for="tip" data-value="20">20%<small>Great</small></button><button type="button" data-for="tip" data-value="25">25%<small>Superior</small></button><div class="sx-au-in sm pc"><input id="tipC" type="number" inputmode="decimal" step="0.5" min="0" max="100" placeholder="Custom" aria-label="Custom tip percentage"><span class="suf">%</span></div></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="n">Diners</label><em class="mu">1 – 100</em></div><div class="sx-au-in sm np"><input id="n" type="number" inputmode="numeric" step="1" min="1" max="100" value="3"></div><div class="sx-qpills"><button type="button" data-for="n" data-step="-1">− 1</button><button type="button" data-for="n" data-step="1">+ 1</button></div></div>
+      <div><div class="sx-au-l"><label>Split method</label></div><input type="hidden" id="mode" value="eq"><div class="sx-seg full" role="group" aria-label="Split method"><button type="button" data-for="mode" data-value="eq">Equal split</button><button type="button" data-for="mode" data-value="wt">Custom ratio</button></div></div>
+    </div>
+    <div id="wtRow" hidden><div class="sx-au-l"><label for="wts">Shares (one weight per diner)</label><em class="mu">e.g. 2, 1, 1</em></div><div class="sx-au-in sm np"><input id="wts" type="text" inputmode="decimal" value="2, 1, 1" placeholder="2, 1, 1"></div><p class="sx-au-note" style="text-align:left">A diner with weight 2 pays twice the share of a diner with weight 1. Missing weights count as 1.</p></div>
+    <div><div class="sx-au-l"><label>Rounding</label></div><input type="hidden" id="rnd" value="exact"><div class="sx-au-opts rad c3"><button type="button" data-for="rnd" data-value="exact"><i></i>Exact cents</button><button type="button" data-for="rnd" data-value="total"><i></i>Round total</button><button type="button" data-for="rnd" data-value="tip"><i></i>Round tip</button></div></div>
+    <div class="sx-au-box">
+      <div class="sx-between" style="display:flex;align-items:center;justify-content:space-between;gap:12px"><label class="sx-au-l" style="margin:0" for="pre">Tip on the pre-tax subtotal (common US custom)</label><label class="sx-toggle"><input type="checkbox" id="pre" checked><i></i></label></div>
+      <div class="sx-au-g2" style="margin-top:12px"><div><div class="sx-au-l"><label for="tax">Sales tax rate</label></div><div class="sx-au-in sm pc"><input id="tax" type="number" inputmode="decimal" step="0.01" min="0" value="8.25"><span class="suf">%</span></div></div><div><div class="sx-au-l"><label>Computed sales tax</label></div><b id="taxAmt" class="sx-bigmono" style="font-size:18px">—</b></div></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">bolt</span>Calculate tip &amp; split</button></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Each person pays</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>/ person</small></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span id="tipK">Total tip</span><b id="tTip">—</b></div><div><span>Total bill + tip</span><b id="tTot">—</b></div><div><span>Tip per person</span><b id="tTpp">—</b></div><div><span>Base share per person</span><b id="tBpp">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="color:var(--sx-pc)">group</span>Who pays what</span><em class="mu">allocation ledger</em></div>
+    <div id="ledger" style="display:flex;flex-direction:column;max-height:288px;overflow:auto"></div>
+  </section>
+  <div class="sx-in-t4 c1"><div class="sx-card" style="border-left:4px solid var(--sx-pc)"><div class="k">Etiquette note<span class="msym" aria-hidden="true">info</span></div><p style="margin-top:6px">Tipping on the pre-tax subtotal is the common US custom: staff are tipped for the food and service, not for the sales tax. Some diners tip on the post-tax total, which adds a little.</p></div></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Typical gratuity by service</h2><p>Common US customs. Treat these as a guide, since local norms and any service charge already on the bill come first.</p></div></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:720px">
+    <thead><tr><th>Service</th><th>Usual range</th><th>Common rate</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="a"><span class="msym" aria-hidden="true" style="vertical-align:-5px;color:var(--sx-pc)">restaurant</span> Full-service dine-in</td><td>15% – 25%</td><td>18% – 20%</td><td class="a" style="white-space:normal">Usually on the pre-tax food and drink subtotal. Many restaurants add 18–20% automatically for large parties.</td></tr>
+      <tr><td class="a"><span class="msym" aria-hidden="true" style="vertical-align:-5px;color:var(--sx-pc)">delivery_dining</span> Food delivery</td><td>10% – 20%</td><td>$3 – $5 minimum</td><td class="a" style="white-space:normal">Tip more for bad weather, long distances or big orders.</td></tr>
+      <tr><td class="a"><span class="msym" aria-hidden="true" style="vertical-align:-5px;color:var(--sx-pc)">local_bar</span> Bartender</td><td>15% – 20%</td><td>$1 – $2 per drink</td><td class="a" style="white-space:normal">A flat amount per drink, or a percentage if you run a tab.</td></tr>
+      <tr><td class="a"><span class="msym" aria-hidden="true" style="vertical-align:-5px;color:var(--sx-pc)">flatware</span> Buffet</td><td>5% – 10%</td><td>$1 – $2 per person</td><td class="a" style="white-space:normal">Covers clearing plates and refilling drinks.</td></tr>
+      <tr><td class="a"><span class="msym" aria-hidden="true" style="vertical-align:-5px;color:var(--sx-pc)">local_taxi</span> Taxi and rideshare</td><td>10% – 20%</td><td>15% baseline</td><td class="a" style="white-space:normal">Add extra for luggage help or long waits.</td></tr>
+      <tr><td class="a"><span class="msym" aria-hidden="true" style="vertical-align:-5px;color:var(--sx-pc)">garage</span> Valet</td><td>Flat amount</td><td>$2 – $5</td><td class="a" style="white-space:normal">Given when the car is returned; more for bad weather or luxury cars.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Tipping around the world</h2>
+  <p>Customs differ a lot. Always check whether a service charge is already on the bill.</p>
+  <div class="sx-mt-3">
+    <div><h3>United States · 15% – 20%</h3><p>Expected in sit-down restaurants. Servers are often paid a lower base wage that assumes tips.</p><span class="f">Status: expected</span></div>
+    <div><h3>United Kingdom · 10% – 12.5%</h3><p>Often added to the bill as a discretionary service charge. Ask for it to be removed if service was poor.</p><span class="f">Status: optional or included</span></div>
+    <div><h3>France and Germany · round up 5% – 10%</h3><p>Service is included in menu prices in France (<i>service compris</i>) and customary in Germany. Rounding up or leaving small change is normal.</p><span class="f">Status: included</span></div>
+    <div><h3>Japan · 0%</h3><p>Good service is part of the price, and leaving cash behind can cause confusion.</p><span class="f">Status: not customary</span></div>
+    <div><h3>Australia · 5% – 10%</h3><p>Uncommon. Staff are paid an award wage, so tips are reserved for exceptional service.</p><span class="f">Status: discretionary</span></div>
+  </div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>How the split is calculated</h2>
+  <p>Everything runs in whole cents so no fraction of a cent is ever lost.</p>
+  <div class="sx-au-fx">
+    <div><div class="ic"><span class="msym" aria-hidden="true">percent</span></div><h3>1. Tip</h3><p>The tip is a percentage of the pre-tax subtotal, or of subtotal plus tax if you switch the option off.</p><code>tip = round(basis × tip% )</code></div>
+    <div><div class="ic"><span class="msym" aria-hidden="true">receipt_long</span></div><h3>2. Total</h3><p>Add the subtotal, the sales tax and the tip. Rounding options adjust the tip so the total lands on a whole amount.</p><code>total = subtotal + tax + tip</code></div>
+    <div><div class="ic"><span class="msym" aria-hidden="true">group</span></div><h3>3. Split</h3><p>Each diner gets the whole-cent quotient. The remaining cents go one each to the first diners, so shares sum to the total.</p><code>share = ⌊total ÷ n⌋ cents<br>extra = total mod n</code></div>
+  </div>
+</section>
+
+<section class="sx-mt-sec sx-card">
+  <h2>Worked examples</h2>
+  <p>Illustrative bills, each checked by hand. The first is the default setup.</p>
+  <div class="sx-mt-3">
+    <div><h3>Dinner for three</h3><p>$85.00 subtotal, 8.25% sales tax, 18% tip on the subtotal, three diners.</p><div class="sx-mt-ex">tax = 85.00 × 8.25% = 7.01<br>tip = 85.00 × 18% = 15.30<br>total = 85.00 + 7.01 + 15.30 = <b>107.31</b><br>107.31 ÷ 3 = <b>35.77 each</b></div></div>
+    <div><h3>Uneven cents</h3><p>$92.00 bill, no tax, 18% tip, three diners.</p><div class="sx-mt-ex">tip = 16.56, total = <b>108.56</b><br>10,856 cents ÷ 3 = 3,618 r 2<br><b>36.19 + 36.19 + 36.18</b> = 108.56</div></div>
+    <div><h3>Pre-tax or post-tax?</h3><p>$60.00 subtotal, 8% tax, 20% tip.</p><div class="sx-mt-ex">pre-tax tip = 60.00 × 20% = 12.00<br>post-tax tip = 64.80 × 20% = 12.96<br>difference = <b>0.96</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How to split a bill with a tip</h2>
+    <ul>
+      <li>Enter the subtotal before tax, then choose a tip percentage that fits the service.</li>
+      <li>Add the sales tax rate so the total matches your receipt.</li>
+      <li>Set the number of diners for an equal split, or enter weights for an uneven one.</li>
+      <li>Pick a rounding style if you want to pay in whole dollars.</li>
+    </ul>
+    <p>If the check already includes a service charge or automatic gratuity, you may not need to tip further. Set the tip to 0% to see the split of the bill alone.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>IRS Revenue Ruling 2012-18, on mandatory service charges and how they differ from voluntary tips.</li>
+      <li>IRS Publication 531, <i>Reporting Tip Income</i>.</li>
+      <li>U.S. Department of Labor, Wage and Hour Division, <i>Fact Sheet #15: Tipped Employees under the Fair Labor Standards Act</i>.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Should I tip on the pre-tax or post-tax amount?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Either is acceptable. Tipping on the pre-tax subtotal is the more common custom, because sales tax is a government charge rather than a payment for service. Tipping on the post-tax total adds a little more. Use the toggle to compare.</p></details>
+    <details class="sx-faq"><summary>How is the per-person amount calculated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The total bill plus tax and tip is divided by the number of diners in whole cents. Any leftover cents go to the first diners, one cent each, so the shares add up to the exact total.</p></details>
+    <details class="sx-faq"><summary>What is an automatic gratuity for large parties?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many restaurants add a fixed service charge, often 18% to 20%, for parties of six or more. Under IRS Revenue Ruling 2012-18 a mandatory charge like this is a service charge rather than a voluntary tip, so check the bill before adding more.</p></details>
+    <details class="sx-faq"><summary>What does the rounding option do?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Exact cents keeps every amount to the cent. Round total moves the tip so the grand total is a whole dollar. Round tip rounds only the tip to a whole dollar.</p></details>
+    <details class="sx-faq"><summary>How does the custom ratio split work?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Enter one weight per diner, such as 2, 1, 1. Each diner pays their weight divided by the total weight of the total bill, again in whole cents.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+  <a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/other/unit-price-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">scale</span></span><b>Unit Price Calculator</b><span class="d">Compare package sizes and find the cheaper price per unit.</span><span class="f">Compare prices<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/sales-tax-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Sales Tax Calculator</b><span class="d">Add or remove sales tax from a price.</span><span class="f">Check the tax<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/discount-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">sell</span></span><b>Discount Calculator</b><span class="d">Find the sale price after a percentage discount.</span><span class="f">Find the price<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Percentage Calculator</b><span class="d">Percent of a number, change and difference.</span><span class="f">Work with percents<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Tip Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/tip-calculator.html" width="100%" height="560" loading="lazy" title="Tip Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

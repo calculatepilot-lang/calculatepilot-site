@@ -1,0 +1,167 @@
+<div class="sx" id="ptCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Paint Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">grid_view</span>Walls, ceiling and trim</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Paint Calculator &amp; Coverage Estimator</h1>
+    <p>Find out how much paint a room needs. It measures the wall area, subtracts doors and windows, adjusts for surface texture and the number of coats, adds a waste margin, and tells you what to buy in gallons and quarts.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Spread rates are typical manufacturer figures; your can label rules. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>Net wall area × coats ÷ spread rate × 1.10 gives the gallons, which are rounded up to whole cans.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Buying too little means a second trip and colour mismatch. This shows exactly what to buy and what it costs.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Room, openings and surface</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><label>Units</label></div><input type="hidden" id="unit" value="ft"><div class="sx-seg" role="group" aria-label="Units"><button type="button" data-for="unit" data-value="ft">Feet</button><button type="button" data-for="unit" data-value="m">Metres</button></div></div>
+    <div class="sx-au-g3">
+      <div><div class="sx-au-l"><label for="L">Length</label><em class="mu" data-u>ft</em></div><div class="sx-au-in sm np"><input id="L" type="number" inputmode="decimal" step="0.5" min="0" value="18"></div></div>
+      <div><div class="sx-au-l"><label for="W">Width</label><em class="mu" data-u>ft</em></div><div class="sx-au-in sm np"><input id="W" type="number" inputmode="decimal" step="0.5" min="0" value="14"></div></div>
+      <div><div class="sx-au-l"><label for="H">Ceiling height</label><em class="mu" data-u>ft</em></div><div class="sx-au-in sm np"><input id="H" type="number" inputmode="decimal" step="0.5" min="0" value="9"></div></div>
+    </div>
+    <div class="sx-qpills"><span class="lb">Height presets</span><button type="button" data-h="8">8 ft</button><button type="button" data-h="9">9 ft</button><button type="button" data-h="10">10 ft</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="doors">Doors</label><em class="mu">21 sq ft each</em></div><div class="sx-au-in sm np"><input id="doors" type="number" inputmode="numeric" step="1" min="0" value="2"></div></div>
+      <div><div class="sx-au-l"><label for="wins">Windows</label><em class="mu">15 sq ft each</em></div><div class="sx-au-in sm np"><input id="wins" type="number" inputmode="numeric" step="1" min="0" value="2"></div></div>
+      <div><div class="sx-au-l"><label for="cust">Other openings to subtract</label><em class="mu">sq ft</em></div><div class="sx-au-in sm np"><input id="cust" type="number" inputmode="decimal" step="1" min="0" value="0"></div></div>
+      <div><div class="sx-au-l"><label for="rooms">Identical rooms</label></div><div class="sx-au-in sm np"><input id="rooms" type="number" inputmode="numeric" step="1" min="1" value="1"></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label>Surface and texture</label><em class="mu" id="spNote">400 sq ft per gallon</em></div>
+      <input type="hidden" id="sp" value="400">
+      <div class="sx-au-opts rad c2 sm" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button type="button" data-for="sp" data-value="400"><i></i>Smooth primed drywall</button><button type="button" data-for="sp" data-value="350"><i></i>Textured or orange peel</button><button type="button" data-for="sp" data-value="275"><i></i>Rough plaster or masonry</button><button type="button" data-for="sp" data-value="225"><i></i>Unprimed bare wood</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label>Coats</label></div>
+      <input type="hidden" id="coats" value="2">
+      <div class="sx-au-opts c3 sm"><button type="button" data-for="coats" data-value="1">1 coat <small>touch-up</small></button><button type="button" data-for="coats" data-value="2">2 coats <small>full cover</small></button><button type="button" data-for="coats" data-value="3">3 coats <small>dark to light</small></button></div>
+    </div>
+    <div class="sx-au-box">
+      <div class="sx-au-l"><label>Also paint</label></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label for="incCeil" style="font-size:13px;font-weight:500">Ceiling</label><label class="sx-toggle"><input type="checkbox" id="incCeil" checked><i></i></label></div>
+        <div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label for="incTrim" style="font-size:13px;font-weight:500">Baseboards and trim (6 in base, 3.5 in casings)</label><label class="sx-toggle"><input type="checkbox" id="incTrim"><i></i></label></div>
+        <div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label for="incPrime" style="font-size:13px;font-weight:500">Primer on the walls (1 coat)</label><label class="sx-toggle"><input type="checkbox" id="incPrime"><i></i></label></div>
+      </div>
+      <div class="sx-au-g3" style="margin-top:14px">
+        <div><div class="sx-au-l"><label for="pw">Wall paint / gal</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pw" type="number" inputmode="decimal" step="1" min="0" value="54"></div></div>
+        <div><div class="sx-au-l"><label for="pc">Ceiling paint / gal</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pc" type="number" inputmode="decimal" step="1" min="0" value="38"></div></div>
+        <div><div class="sx-au-l"><label for="pp">Primer / gal</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pp" type="number" inputmode="decimal" step="1" min="0" value="18"></div></div>
+      </div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate paint</button></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Wall paint needed</span><span class="sx-ef-grade" id="tag">10% waste included</span></div>
+    <div class="big"><span id="resultValue">—</span><small>gallons</small></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Buy at the store</span><b id="buy" style="font-size:17px">—</b></div><div><span>In litres</span><b id="oL">—</b></div><div><span>Net wall area</span><b id="oNet">—</b></div><div><span>Total area to coat</span><b id="oCov">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="color:var(--sx-pc)">checklist</span>Shopping list</span><em class="mu">itemised</em></div>
+    <div id="list" style="display:flex;flex-direction:column"></div>
+    <div class="sx-strip" style="margin-top:12px"><span>Estimated total (before tax)</span><b id="oTot">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Paint sheen guide</h2><p>Typical spread rates and where each finish is used. Gloss ranges are approximate and vary by brand.</p></div></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:760px">
+    <thead><tr><th>Sheen</th><th>Spread (sq ft/gal)</th><th>Gloss at 60°</th><th>Best used for</th><th>Durability</th></tr></thead>
+    <tbody>
+      <tr><td class="a">Flat / matte</td><td>350 – 400</td><td>0 – 5</td><td class="a" style="white-space:normal">Ceilings, low-traffic bedrooms</td><td class="a">Hides flaws, hard to scrub</td></tr>
+      <tr><td class="a">Eggshell</td><td>350 – 400</td><td>10 – 25</td><td class="a" style="white-space:normal">Living rooms, dining rooms, offices</td><td class="a">Moderate scrubbing</td></tr>
+      <tr><td class="a">Satin</td><td>350 – 400</td><td>25 – 35</td><td class="a" style="white-space:normal">Hallways, kids' rooms, laundry</td><td class="a">Good wipe resistance</td></tr>
+      <tr><td class="a">Semi-gloss</td><td>350 – 400</td><td>35 – 70</td><td class="a" style="white-space:normal">Bathrooms, kitchens, trim and doors</td><td class="a">Very washable</td></tr>
+      <tr><td class="a">High-gloss</td><td>300 – 350</td><td>70+</td><td class="a" style="white-space:normal">Cabinets, entry doors, railings</td><td class="a">Hardest, shows every flaw</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="sx-ev-two">
+  <section class="sx-card">
+    <span class="eyebrow">Formulas</span>
+    <h2>How the paint is calculated</h2>
+    <div class="sx-au-fx" style="grid-template-columns:1fr">
+      <div><h3>Net wall area</h3><code>A = 2 × (L + W) × H − doors × 21 − windows × 15 − other</code></div>
+      <div><h3>Gallons to buy</h3><code>gal = ⌈ A × coats ÷ spread × 1.10 ⌉</code></div>
+      <div><h3>Ceiling</h3><code>A = L × W</code></div>
+    </div>
+  </section>
+  <section class="sx-card">
+    <span class="eyebrow">Assumptions</span>
+    <h2>What is included</h2>
+    <p>Doors are taken as 3 × 7 ft (21 sq ft) and windows as 3 × 5 ft (15 sq ft). Use the custom field for larger openings such as sliding doors.</p>
+    <p>Waste of 10% covers spills, roller loss and touch-ups. Ceilings use the same number of coats. Trim is estimated at 6 in baseboards and 3.5 in casings, painted at 350 sq ft per gallon.</p>
+    <p>Very deep colour changes and rough textures may need extra coats or primer.</p>
+  </section>
+</div>
+
+<section class="sx-mt-sec sx-card">
+  <h2>Worked examples</h2>
+  <p>Illustrative rooms, each checked by hand. The first is the default setup.</p>
+  <div class="sx-mt-3">
+    <div><h3>18 × 14 ft room, 9 ft ceiling</h3><p>2 doors, 2 windows, smooth drywall, 2 coats.</p><div class="sx-mt-ex">walls = 2 × 32 × 9 = 576<br>openings = 42 + 30 = 72<br>net = <b>504 sq ft</b><br>504 × 2 ÷ 400 × 1.10 = <b>2.77 gal → 3 gal</b></div></div>
+    <div><h3>Ceiling of the same room</h3><p>18 × 14 ft, 2 coats, smooth.</p><div class="sx-mt-ex">area = 252 sq ft<br>252 × 2 ÷ 400 × 1.10 = <b>1.39 gal</b><br>buy 2 gal (or 1 gal + 2 qt)</div></div>
+    <div><h3>Textured walls</h3><p>Same room, orange-peel texture at 350 sq ft per gallon.</p><div class="sx-mt-ex">504 × 2 ÷ 350 × 1.10 = <b>3.17 gal</b><br>buy 3 gal + 1 qt</div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How much paint do I need?</h2>
+    <ul>
+      <li>Measure the room length, width and ceiling height.</li>
+      <li>Count doors and windows so their area comes off the walls.</li>
+      <li>Choose the surface texture, which changes how far a gallon goes, and the number of coats.</li>
+      <li>Add ceiling, trim and primer if you are painting those too, then read the shopping list.</li>
+    </ul>
+    <p>Buy all the paint for one room at the same time and mix cans together (boxing) so the colour matches from wall to wall.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Master Painters Institute (MPI), gloss and sheen level definitions for architectural coatings.</li>
+      <li>Paint manufacturers' product data sheets, which state coverage of about 350 to 400 square feet per gallon on smooth, primed surfaces.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>How much does a gallon of paint cover?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Manufacturers usually state 350 to 400 square feet per gallon on smooth, primed walls. Textured, porous or unprimed surfaces soak up more paint and can drop coverage to 250 to 300 square feet per gallon.</p></details>
+    <details class="sx-faq"><summary>Do I need primer?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use primer on new drywall, bare wood, patched areas, stains, and when moving from a glossy or oil-based paint to latex. A good paint-and-primer can replace it on already-painted, clean walls.</p></details>
+    <details class="sx-faq"><summary>How many coats are needed?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Two coats give a durable, even finish for most jobs. One coat can work for touch-ups in the same colour, and three may be needed for a big colour change such as dark to light.</p></details>
+    <details class="sx-faq"><summary>How do I measure a vaulted ceiling?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For a sloped ceiling, find the sloped length with the Pythagorean theorem (√(rise² + run²)) and multiply by the room length. Add the triangular gable wall, which is ½ × base × height.</p></details>
+    <details class="sx-faq"><summary>How should I store leftover paint?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Seal the lid tightly, store the can upside down or on its side if the manufacturer allows, and keep it somewhere cool and dry above freezing. Label it with the colour, room and date.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>More project tools.</p></div>
+  <a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/other/square-footage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">aspect_ratio</span></span><b>Square Footage</b><span class="d">Measure room and wall area.</span><span class="f">Measure area<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/tile-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">grid_view</span></span><b>Tile Calculator</b><span class="d">Tiles and boxes with waste.</span><span class="f">Count tiles<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/concrete-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">foundation</span></span><b>Concrete Calculator</b><span class="d">Slabs, footings and bags.</span><span class="f">Estimate a pour<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/lumber-board-feet-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">carpenter</span></span><b>Lumber Board Feet</b><span class="d">Board feet and lumber cost.</span><span class="f">Price the lumber<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Paint Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/paint-calculator.html" width="100%" height="560" loading="lazy" title="Paint Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
