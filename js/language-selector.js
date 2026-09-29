@@ -15,7 +15,7 @@
     return;
   }
   var script = document.createElement('script');
-  script.src = '/js/language-switcher.js?v=20260923';
+  script.src = '/js/language-switcher.js?v=20260929a';
   script.onload = function () {
     if (typeof window.__cpMountLanguage === 'function') window.__cpMountLanguage();
   };

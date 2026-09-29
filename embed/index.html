@@ -12,9 +12,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Embed Free Calculators on Your Website | CalculatePilot</title>
-<meta name="description" content="Embed any of CalculatePilot's 167 free calculators on your website with a single line of code. Free, no API key needed, works on any site.">
+<meta name="description" content="Embed any of CalculatePilot's 170 free calculators on your website with a single line of code. Free, no API key needed, works on any site.">
 <link rel="canonical" href="https://www.calculatepilot.com/embed/">
-<link rel="stylesheet" href="/css/styles.css?v=b9fa22ed">
+<link rel="stylesheet" href="/css/styles.css?v=20260929b">
 <style>
 .embed-search {
   display: flex; gap: 10px; margin: 20px 0;
@@ -65,7 +65,7 @@
 .embed-card-actions { display: flex; gap: 8px; }
 .btn-copy {
   flex: 1; padding: 7px 12px;
-  background: var(--signal); color: #fff;
+  background: var(--signal-bg,var(--signal)); color: #fff;
   border: none; border-radius: var(--radius-sm);
   font-size: 0.82rem; font-weight: 600; cursor: pointer;
   transition: background .15s;
@@ -124,7 +124,7 @@
   transition: all .15s;
 }
 .cat-pill:hover, .cat-pill.active {
-  background: var(--signal); color: #fff; border-color: var(--signal);
+  background: var(--signal-bg,var(--signal)); color: #fff; border-color: var(--signal);
 }
 
 /* HOW TO section */
@@ -148,7 +148,7 @@
 .embed-plan-pro { border-color: var(--signal); background: var(--signal-soft); }
 .embed-plan-badge {
   position: absolute; top: -12px; left: 16px;
-  background: var(--signal); color: #fff;
+  background: var(--signal-bg,var(--signal)); color: #fff;
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
   padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
 }
@@ -160,7 +160,7 @@
 .embed-plan ul li.muted { color: var(--slate-light); }
 .btn-upgrade {
   display: block; width: 100%; text-align: center;
-  background: var(--signal); color: #fff;
+  background: var(--signal-bg,var(--signal)); color: #fff;
   padding: 10px 16px; border-radius: var(--radius-sm);
   font-weight: 700; font-size: 0.9rem; text-decoration: none;
   transition: background .15s;
@@ -176,7 +176,7 @@
   cursor: pointer; background: var(--paper); color: var(--slate);
   transition: all .15s;
 }
-.plan-tab.active { background: var(--signal); color: #fff; border-color: var(--signal); }
+.plan-tab.active { background: var(--signal-bg,var(--signal)); color: #fff; border-color: var(--signal); }
 .save-badge {
   background: #F59E0B; color: #fff;
   font-size: 0.65rem; padding: 1px 5px; border-radius: 10px;
@@ -216,7 +216,7 @@
 }
 .license-row input:focus { outline: none; border-color: var(--signal); }
 .license-row button {
-  padding: 9px 18px; background: var(--signal); color: #fff;
+  padding: 9px 18px; background: var(--signal-bg,var(--signal)); color: #fff;
   border: none; border-radius: var(--radius-sm); font-weight: 700;
   cursor: pointer; font-size: 0.88rem;
 }
@@ -236,7 +236,7 @@
       <li><a href="/health-calculators.html">Health &amp; Fitness</a></li>
       <li><a href="/math-calculators.html">Math</a></li>
       <li><a href="/other-calculators.html">Everyday</a></li>
-      <li><a href="/guides/index.html">Guides</a></li>
+      <li><a href="/guides/">Guides</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Open menu">Menu</button>
   </div>
@@ -246,7 +246,7 @@
 <section class="calc-page-head">
   <div class="container">
     <h1>Embed Free Calculators on Your Website</h1>
-    <p class="lede">Add any of our 167 calculators to your site in seconds — one line of code, free forever, works on any platform.</p>
+    <p class="lede">Add any of our 170 calculators to your site in seconds — one line of code, free forever, works on any platform.</p>
   </div>
 </section>
 
@@ -274,7 +274,7 @@
           <div class="embed-plan-price">$0 <span>/ forever</span></div>
         </div>
         <ul>
-          <li>✓ All 167 calculators</li>
+          <li>✓ All 170 calculators</li>
           <li>✓ Unlimited embeds</li>
           <li>✓ Multi-currency support</li>
           <li>✓ Works on any platform</li>
@@ -1478,19 +1478,6 @@
           </div>
         </div>
       </div>
-      <div class="embed-card" data-cat="other" data-name="word counter">
-        <div class="embed-card-head">
-          <div class="embed-card-cat">Everyday Calculators</div>
-          <div class="embed-card-title">Word Counter</div>
-        </div>
-        <div class="embed-card-body">
-          <div class="embed-code" id="code-word-counter">&lt;iframe src="https://www.calculatepilot.com/embed/word-counter.html" width="100%" height="520" frameborder="0" scrolling="no" title="Word Counter" loading="lazy"&gt;&lt;/iframe&gt;</div>
-          <div class="embed-card-actions">
-            <button class="btn-copy" onclick="copyCode('word-counter', this)">Copy code</button>
-            <a href="/embed/word-counter.html" target="_blank" class="btn-preview">Preview ↗</a>
-          </div>
-        </div>
-      </div>
       <div class="embed-card" data-cat="health" data-name="alcohol calories calculator">
         <div class="embed-card-head">
           <div class="embed-card-cat">Health & Fitness Calculators</div>
@@ -2463,7 +2450,7 @@
         <ul>
           <li><a href="/about.html">About</a></li>
           <li><a href="/methodology.html">Our Methodology</a></li>
-          <li><a href="/guides/index.html">Guides</a></li>
+          <li><a href="/guides/">Guides</a></li>
           <li><a href="/embed/">Embed Calculators</a></li>
         </ul>
 <ul>

@@ -47,7 +47,7 @@
   const isLocale=/^\/(fr|de|es)(\/|$)/.test(path);
 
   const HEADER_INNER='<a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/index.html">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button>';
-  const TICKER='<div class="ticker-bar" role="note" aria-label="Announcement"><div class="ticker-content"><span class="ticker-icon">✨</span><span class="ticker-text">Embed any of our 158+ calculators on your website — remove branding from $7.99/month.</span><a href="/embed/" class="ticker-btn">See embed options →</a></div><button class="ticker-close" onclick="this.parentElement.style.display=\'none\'" aria-label="Dismiss announcement">✕</button></div>';
+  const TICKER='<div class="ticker-bar" role="note" aria-label="Announcement"><div class="ticker-content"><span class="ticker-icon">✨</span><span class="ticker-text">Embed any of our 170+ calculators on your website — remove branding from $7.99/month.</span><a href="/embed/" class="ticker-btn">See embed options →</a></div><button class="ticker-close" onclick="this.parentElement.style.display=\'none\'" aria-label="Dismiss announcement">✕</button></div>';
 
   function ensureHeader(){
     let header=document.querySelector('header.site-header');

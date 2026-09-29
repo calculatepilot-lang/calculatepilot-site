@@ -1,41 +1,50 @@
-User-agent: OAI-SearchBot
-Allow: /
+# CalculatePilot: search engines and AI crawlers are welcome.
+# Machine-readable site summary: https://www.calculatepilot.com/llms.txt (full index: /llms-full.txt)
 
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
+# Search engines
+User-agent: Googlebot
+User-agent: Googlebot-Image
 User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Applebot
+User-agent: YandexBot
+User-agent: Baiduspider
+User-agent: Slurp
 Allow: /
 
+# AI search and assistants (retrieval, citations, user-requested fetches)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Google-CloudVertexBot
+User-agent: Applebot-Extended
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+User-agent: FacebookBot
+User-agent: cohere-ai
+User-agent: YouBot
+User-agent: Diffbot
 User-agent: CCBot
+User-agent: Bytespider
 Allow: /
 
+# Everyone else
 User-agent: *
 Allow: /
 Disallow: /embed/
 
 Sitemap: https://www.calculatepilot.com/sitemap.xml
+Sitemap: https://www.calculatepilot.com/es/sitemap.xml
 Sitemap: https://www.calculatepilot.com/fr/sitemap.xml
 Sitemap: https://www.calculatepilot.com/de/sitemap.xml
-Sitemap: https://www.calculatepilot.com/es/sitemap.xml
-
-# AI/LLM content index (not an XML sitemap)
-Allow: /llms.txt
