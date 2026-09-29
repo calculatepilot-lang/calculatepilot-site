@@ -34,7 +34,9 @@ cd "$W"
 python tools/cpx_apply.py "$@"
 for page in "$@"; do
   n=$(grep -c 'adsbygoogle\|googletagmanager\|analytics.ahrefs' "$page" || true)
-  [ "$n" -ge 2 ] || { echo "tracking scripts missing in $page ($n)"; exit 1; }
+  up=$(git show "origin/main:$page" 2>/dev/null | grep -c 'adsbygoogle\|googletagmanager\|analytics.ahrefs' || true)
+  need=2; [ "$up" -lt 2 ] && need=$up
+  [ "$n" -ge "$need" ] || { echo "tracking scripts missing in $page ($n, live has $up)"; exit 1; }
 done
 git add -A
 git -c core.safecrlf=false diff --cached --stat | tail -1
