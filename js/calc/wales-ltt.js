@@ -46,6 +46,13 @@ function compute(){
 document.addEventListener('DOMContentLoaded',function(){
   C.init({root:'lttCalc',compute:compute});
   $('calcForm').addEventListener('submit',function(){if(window.innerWidth<1024)$('results').scrollIntoView({behavior:'smooth',block:'start'});});
+  var ex=$('load300');
+  if(ex) ex.addEventListener('click',function(){
+    $('price').value='300000';
+    $('mode').value='nonres';
+    $('price').dispatchEvent(new Event('input',{bubbles:true}));
+    if(window.innerWidth<1024) $('results').scrollIntoView({behavior:'smooth',block:'start'});
+  });
 });
 window.cpLtt={ltt:ltt,sdlt:sdlt,lbtt:lbtt};
 })();

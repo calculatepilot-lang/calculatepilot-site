@@ -69,6 +69,13 @@ function compute(){
 document.addEventListener('DOMContentLoaded',function(){
   C.init({root:'lbttCalc',compute:compute});
   $('calcForm').addEventListener('submit',function(){if(window.innerWidth<1024)$('results').scrollIntoView({behavior:'smooth',block:'start'});});
+  var ex=$('load465');
+  if(ex) ex.addEventListener('click',function(){
+    $('price').value='465000';
+    $('buyer').value='nonres';
+    $('price').dispatchEvent(new Event('input',{bubbles:true}));
+    if(window.innerWidth<1024) $('results').scrollIntoView({behavior:'smooth',block:'start'});
+  });
 });
 window.cpLbtt={scot:scot,eng:eng,wal:wal};
 })();
