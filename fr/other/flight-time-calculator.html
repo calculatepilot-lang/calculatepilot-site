@@ -15,16 +15,16 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculateur de Temps de Vol | CalculatePilot</title>
-<meta name="description" content="Estimez la durée du vol selon la distance et la vitesse de croisière moyenne, marge pour le roulage et la montée incluse. Sans inscription. Avec la formule expliquée.">
+<title>Calculateur de durée de vol : durée, distance et décalage horaire | CalculatePilot</title>
+<meta name="description" content="Calculateur de durée de vol gratuit : distance orthodromique, durée porte à porte avec vent, heure d'arrivée locale et décalage horaire entre 40 grands aéroports.">
 <link rel="canonical" href="https://www.calculatepilot.com/fr/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/other/flight-time-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/other/flight-time-calculator.html">
-<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/other/flight-time-calculator.html">
 <link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/other/flight-time-calculator.html">
-<meta property="og:title" content="Calculateur de Temps de Vol | CalculatePilot">
-<meta property="og:description" content="Estimez la durée du vol selon la distance et la vitesse de croisière moyenne, marge pour le roulage et la montée incluse. Sans inscription. Avec la formule expliquée.">
+<meta property="og:title" content="Calculateur de durée de vol : durée, distance et décalage horaire | CalculatePilot">
+<meta property="og:description" content="Calculateur de durée de vol gratuit : distance orthodromique, durée porte à porte avec vent, heure d'arrivée locale et décalage horaire entre 40 grands aéroports.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/fr/other/flight-time-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -32,60 +32,120 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calculateur de Temps de Vol | CalculatePilot">
-<meta name="twitter:description" content="Estimez la durée du vol selon la distance et la vitesse de croisière moyenne, marge pour le roulage et la montée incluse. Sans inscription. Avec la formule expliquée.">
+<meta name="twitter:title" content="Calculateur de durée de vol : durée, distance et décalage horaire | CalculatePilot">
+<meta name="twitter:description" content="Calculateur de durée de vol gratuit : distance orthodromique, durée porte à porte avec vent, heure d'arrivée locale et décalage horaire entre 40 grands aéroports.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=20260929d">
-<script src="/js/language-selector.js?v=20260914" defer></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Calculateur de Temps de Vol",
-  "url": "https://www.calculatepilot.com/other/flight-time-calculator.html",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Estimez la durée du vol selon la distance et la vitesse de croisière moyenne, marge pour le roulage et la montée incluse. Sans inscription. Avec la formule expliquée."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Calculateurs du quotidien", "item": "https://www.calculatepilot.com/fr/other-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Calculateur de Temps de Vol", "item": "https://www.calculatepilot.com/fr/other/flight-time-calculator.html"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Pourquoi mon temps calculé diffère-t-il de celui affiché par la compagnie aérienne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Il s’agit d’une estimation simplifiée basée sur la distance et la vitesse moyenne — les horaires de vol réels tiennent aussi compte des vents habituels, du routage et des performances historiques sur cette route précise, que ce calculateur n’inclut pas."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est une vitesse de croisière typique pour un vol commercial ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La plupart des jets commerciaux volent à environ 480–560 mph selon le type d’appareil, ce qui fait de 500 mph une estimation générale raisonnable si vous ne connaissez pas l’appareil précis."
-      }
-    }
-  ]
-}
-</script>
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,bedtime,chevron_right,code,content_copy,event,expand_more,flight,flight_takeoff,functions,lightbulb,link,lock,person_check,picture_as_pdf,public,restart_alt,schedule,speed,swap_vert,warning,wb_sunny&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculatrice de durée de vol",
+ "url": "https://www.calculatepilot.com/fr/other/flight-time-calculator.html",
+ "applicationCategory": "UtilitiesApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Estime la durée de vol, la distance, la vitesse sol, l'heure d'arrivée locale et le décalage horaire entre aéroports."
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculatrices du quotidien",
+   "item": "https://www.calculatepilot.com/other-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculatrice de durée de vol",
+   "item": "https://www.calculatepilot.com/fr/other/flight-time-calculator.html"
+  }
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calculateur de durée de vol, de distance et de décalage horaire",
+ "url": "https://www.calculatepilot.com/fr/other/flight-time-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-29",
+ "lastReviewed": "2026-09-29",
+ "citation": [
+  "Sinnott, Virtues of the Haversine (1984)",
+  "Eastman and Burgess, How to travel the world without jet lag (2009)"
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Comment la durée de vol est-elle calculée ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "La distance orthodromique est divisée par la vitesse sol (vitesse de l'avion plus vent le long de la route). Le temps de roulage, de montée et d'approche est ensuite ajouté pour obtenir une durée porte à porte."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pourquoi le vol retour est-il plus long ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Aux latitudes moyennes, le courant-jet souffle d'ouest en est, si bien que les vols vers l'est profitent d'un vent arrière et les vols vers l'ouest d'un vent de face. Les traversées transatlantiques vers l'ouest durent souvent environ une heure de plus."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Qu'est-ce que le temps bloc ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Le temps écoulé entre le départ de la porte d'embarquement et l'arrivée à la porte de destination. C'est ce qu'affichent les horaires des compagnies aériennes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Combien de temps dure le décalage horaire ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Une règle empirique courante est d'environ un jour par fuseau horaire traversé en voyageant vers l'est et d'environ deux tiers de jour par fuseau en voyageant vers l'ouest. Cela varie beaucoup d'une personne à l'autre."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pourquoi le jour d'arrivée change-t-il parfois ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Le franchissement de la ligne de changement de date ou un long vol vers l'est peut faire atterrir à un autre jour du calendrier dans le fuseau horaire de destination."
+   }
+  }
+ ]
+}</script>
 </head>
 <body>
 
@@ -97,89 +157,53 @@
       <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
       <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
       <li><a href="/fr/other-calculators.html">Quotidien</a></li>
-      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/fr/guides/">Guides</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
   </div>
 </header>
 
 <main>
+<div class="sx" id="flCalc">
+<nav class="sx-crumb" aria-label="Fil d'Ariane"><a href="/fr/">Accueil</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/fr/other-calculators.html">Calculateurs du quotidien</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculatrice de durée de vol</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">flight_takeoff</span>Distance orthodromique et décalage horaire</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Vérifié le 29 sept. 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>S'exécute dans votre navigateur</span></div><h1>Calculateur de durée de vol, de distance et de décalage horaire</h1><p>Estimez la durée de vol, la distance, la vitesse sol et l'heure d'arrivée locale entre 40 grands aéroports, et voyez combien de fuseaux horaires vous traversez et combien de temps dure approximativement le décalage horaire.</p></div></header>
+<div class="sx-mt-wvh"><div><span class="msym" aria-hidden="true">person_check</span><section><b>Qui l'a rédigé</b><p>Rédigé par <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Les chiffres sont des estimations que vous pouvez modifier. <a href="/methodology.html">Notre méthodologie</a>.</p></section></div><div><span class="msym" aria-hidden="true">functions</span><section><b>Comment fonctionne le moteur de calcul</b><p>Il mesure la distance orthodromique, la divise par la vitesse de l'avion plus le vent, ajoute le temps de roulage et d'approche, et convertit les heures selon le fuseau horaire de chaque aéroport pour la date choisie.</p></section></div><div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Pourquoi nous l'avons créé</b><p>Les compagnies aériennes affichent un horaire prévu mais pas sa composition. Cet outil montre la distance, la vitesse et le vent pour que vous voyiez ce qui le détermine.</p></section></div></div>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/fr/">Accueil</a> / <a href="/fr/other-calculators.html">Calculateurs du quotidien</a> / Calculateur de Temps de Vol
-  </nav>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head"><div><span class="msym" aria-hidden="true">flight_takeoff</span><h2 class="sx-h-md" style="margin:0">Itinéraire et avion</h2></div><button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Réinitialiser</button></div>
+  <div class="sx-au-stack">
+    <div class="sx-qpills"><span class="lb">Itinéraires rapides</span><button type="button" data-r="JFK,LHR">JFK → LHR</button><button type="button" data-r="LAX,HND">LAX → HND</button><button type="button" data-r="SYD,SIN">SYD → SIN</button><button type="button" data-r="ORD,MIA">ORD → MIA</button></div>
+    <div class="sx-au-g2"><div><div class="sx-au-l"><label for="o">De</label></div><select id="o" class="sx-mt-sel"><option value="JFK" selected>JFK · New York JFK</option><option value="LAX">LAX · Los Angeles</option><option value="ORD">ORD · Chicago O'Hare</option><option value="ATL">ATL · Atlanta</option><option value="DFW">DFW · Dallas Fort Worth</option><option value="DEN">DEN · Denver</option><option value="SFO">SFO · San Francisco</option><option value="SEA">SEA · Seattle</option><option value="MIA">MIA · Miami</option><option value="BOS">BOS · Boston</option><option value="YYZ">YYZ · Toronto</option><option value="YVR">YVR · Vancouver</option><option value="MEX">MEX · Mexico</option><option value="GRU">GRU · São Paulo</option><option value="LHR">LHR · Londres Heathrow</option><option value="CDG">CDG · Paris Charles de Gaulle</option><option value="AMS">AMS · Amsterdam</option><option value="FRA">FRA · Francfort</option><option value="MAD">MAD · Madrid</option><option value="FCO">FCO · Rome Fiumicino</option><option value="IST">IST · Istanbul</option><option value="DXB">DXB · Dubaï</option><option value="DOH">DOH · Doha</option><option value="DEL">DEL · Delhi</option><option value="BOM">BOM · Bombay</option><option value="KHI">KHI · Karachi</option><option value="LHE">LHE · Lahore</option><option value="SIN">SIN · Singapour Changi</option><option value="HKG">HKG · Hong Kong</option><option value="BKK">BKK · Bangkok</option><option value="PEK">PEK · Pékin Capitale</option><option value="PVG">PVG · Shanghai Pudong</option><option value="ICN">ICN · Séoul Incheon</option><option value="HND">HND · Tokyo Haneda</option><option value="SYD">SYD · Sydney</option><option value="AKL">AKL · Auckland</option><option value="JNB">JNB · Johannesburg</option><option value="CAI">CAI · Le Caire</option><option value="LOS">LOS · Lagos</option><option value="NBO">NBO · Nairobi</option></select></div><div><div class="sx-au-l"><label for="d">Vers</label></div><select id="d" class="sx-mt-sel"><option value="JFK">JFK · New York JFK</option><option value="LAX">LAX · Los Angeles</option><option value="ORD">ORD · Chicago O'Hare</option><option value="ATL">ATL · Atlanta</option><option value="DFW">DFW · Dallas Fort Worth</option><option value="DEN">DEN · Denver</option><option value="SFO">SFO · San Francisco</option><option value="SEA">SEA · Seattle</option><option value="MIA">MIA · Miami</option><option value="BOS">BOS · Boston</option><option value="YYZ">YYZ · Toronto</option><option value="YVR">YVR · Vancouver</option><option value="MEX">MEX · Mexico</option><option value="GRU">GRU · São Paulo</option><option value="LHR" selected>LHR · Londres Heathrow</option><option value="CDG">CDG · Paris Charles de Gaulle</option><option value="AMS">AMS · Amsterdam</option><option value="FRA">FRA · Francfort</option><option value="MAD">MAD · Madrid</option><option value="FCO">FCO · Rome Fiumicino</option><option value="IST">IST · Istanbul</option><option value="DXB">DXB · Dubaï</option><option value="DOH">DOH · Doha</option><option value="DEL">DEL · Delhi</option><option value="BOM">BOM · Bombay</option><option value="KHI">KHI · Karachi</option><option value="LHE">LHE · Lahore</option><option value="SIN">SIN · Singapour Changi</option><option value="HKG">HKG · Hong Kong</option><option value="BKK">BKK · Bangkok</option><option value="PEK">PEK · Pékin Capitale</option><option value="PVG">PVG · Shanghai Pudong</option><option value="ICN">ICN · Séoul Incheon</option><option value="HND">HND · Tokyo Haneda</option><option value="SYD">SYD · Sydney</option><option value="AKL">AKL · Auckland</option><option value="JNB">JNB · Johannesburg</option><option value="CAI">CAI · Le Caire</option><option value="LOS">LOS · Lagos</option><option value="NBO">NBO · Nairobi</option></select></div></div>
+    <div><button type="button" id="swap" class="sx-reset" style="margin:0"><span class="msym" aria-hidden="true">swap_vert</span>Inverser l'origine et la destination</button></div>
+    <div><div class="sx-au-l"><label for="ac">Vitesse de croisière de l'avion</label><em class="mu" id="acN">vitesse vraie</em></div><select id="ac" class="sx-mt-sel"><option value="490" selected>Gros-porteur · 490 kt · B777, B787, A350</option><option value="450">Moyen-courrier à fuselage étroit · 450 kt · A320, B737</option><option value="510">Jet d'affaires long-courrier · 510 kt</option><option value="280">Turbopropulseur · 280 kt · ATR 72, Dash 8</option></select></div>
+    <div class="sx-au-g2"><div><div class="sx-au-l"><label for="wd">Vent le long de la route</label><em class="mu">kt, + vent arrière, − vent de face</em></div><div class="sx-au-in sm np"><input id="wd" type="number" inputmode="numeric" step="5" min="-150" max="200" value="45"></div><div class="sx-qpills"><button type="button" data-w="45">Est +45</button><button type="button" data-w="-35">Ouest −35</button><button type="button" data-w="0">Calme 0</button></div></div>
+      <div><div class="sx-au-l"><label for="bf">Roulage, montée et approche</label><em class="mu">minutes ajoutées</em></div><div class="sx-au-in sm np"><input id="bf" type="number" inputmode="numeric" step="5" min="0" max="180" value="30"></div></div></div>
+    <div><div class="sx-au-l"><label for="dt">Départ, heure locale à l'origine</label></div><div class="sx-au-in sm np"><input id="dt" type="datetime-local" value="2027-01-15T19:00"></div></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">flight</span>Calculer la durée de vol</button></div>
+  </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite"><div class="hd"><span>Durée porte à porte</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+    <div class="g2"><div><span>Atterrissage (heure locale)</span><b id="oArr">—</b></div><div><span>Changement de fuseau horaire</span><b id="oTz">—</b></div></div></section>
+  <section class="sx-card" style="padding:20px"><div class="sx-au-tiles"><div><span>Distance orthodromique</span><b id="oNm">—</b><small id="oKm">—</small></div><div><span>Vitesse sol</span><b id="oGs">—</b><small id="oGsN">—</small></div><div><span>Temps en vol</span><b id="oAir">—</b><small id="oBuf">—</small></div><div><span>Décalage horaire</span><b id="oJl">—</b><small id="oJlN">—</small></div></div></section>
+  <section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="color:var(--sx-pc)">wb_sunny</span>Plan anti-décalage horaire</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copier le résultat</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Partager le lien</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Imprimer</button></div>
+</div>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Calculateur de Temps de Vol</h1>
-    <p class="lede">Estimez le temps de vol total selon la distance et la vitesse de croisière moyenne, marge pour le décollage, la montée et l’atterrissage incluse.</p>
-  </div>
-</section>
+<section class="sx-card sx-mt-sec"><div class="hd"><div><h2>Temps bloc et temps en vol</h2><p>Les horaires des compagnies aériennes utilisent le temps bloc, du recul à la porte de départ jusqu'à l'arrivée à la porte de destination. Il est plus long que le temps en vol à cause du roulage, de la montée et de l'approche. Les vols réels suivent aussi des voies aériennes, et non des arcs orthodromiques parfaits, de sorte que les horaires prévus sont souvent un peu plus longs que cette estimation.</p></div></div></section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="distance">Distance (miles)</label>
-        <input type="number" id="distance" value="2500" step="10" min="0">
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="avgSpeed">Vitesse de croisière moyenne (mph)</label>
-          <input type="number" id="avgSpeed" value="500" step="10" min="1">
-        </div>
-        <div class="field">
-          <label for="bufferMinutes">Marge roulage/montée/atterrissage (minutes)</label>
-          <input type="number" id="bufferMinutes" value="30" step="5" min="0">
-        </div>
-      </div>
-    </form>
-
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Temps de vol total estimé</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Temps en vol à vitesse de croisière</span><span id="outAirborneTime">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="content-block">
-  <div class="container prose">
-
-    <h2>Pourquoi les temps de vol réels incluent plus que la vitesse de croisière</h2>
-    <p>Le temps total programmé d’un vol inclut plus que le simple temps passé à vitesse de croisière maximale — le roulage jusqu’à la piste, la montée à l’altitude de croisière, ainsi que la descente et l’atterrissage nécessitent du temps supplémentaire au-delà du simple calcul distance divisée par vitesse. Ce calculateur ajoute une marge pour approximer ce temps supplémentaire.</p>
-    <p>Les avions de ligne volent généralement autour de 480-560 mph selon le type d’appareil et la route, donc 500 mph est une estimation par défaut raisonnable pour un jet typique — ajustez-la si vous connaissez la vitesse de croisière typique de votre appareil spécifique.</p>
-    <h2>Ce que cette estimation ne prend pas en compte</h2>
-    <p>Les temps de vol réels sont aussi affectés par le vent (les vents arrière raccourcissent le vol, les vents contraires l’allongent), le routage du contrôle aérien et les circuits d’attente, et les retards météorologiques — ce calculateur fournit une estimation simple basée sur la distance et la vitesse, pas un horaire de vol officiel.</p>
-    <p>Pour la planification réelle d’un voyage, utilisez toujours l’horaire de vol programmé publié par la compagnie aérienne, qui tient déjà compte du routage habituel et des performances historiques sur cette route précise plutôt qu’une estimation générique basée sur la distance.</p>
-
-    <h2>Questions fréquentes</h2>
-    <div class="faq-item">
-      <h3>Pourquoi mon temps calculé diffère-t-il de celui affiché par la compagnie aérienne ?</h3>
-      <p>Il s’agit d’une estimation simplifiée basée sur la distance et la vitesse moyenne — les horaires de vol réels tiennent aussi compte des vents habituels, du routage et des performances historiques sur cette route précise, que ce calculateur n’inclut pas.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Quelle est une vitesse de croisière typique pour un vol commercial ?</h3>
-      <p>La plupart des jets commerciaux volent à environ 480–560 mph selon le type d’appareil, ce qui fait de 500 mph une estimation générale raisonnable si vous ne connaissez pas l’appareil précis.</p>
-    </div>
-
-    <h2>Calculateurs associés</h2>
-    <div class="tool-grid">
-      <a href="/fr/other/age-calculator.html" class="tool-link">Calculateur d'Âge <span class="arrow">→</span></a>
-      <a href="/other/base64-encode-decode.html" class="tool-link">Encoder/Décoder Base64 <span class="arrow">→</span></a>
-      <a href="/other/break-even-calculator.html" class="tool-link">Calculateur de Seuil de Rentabilité <span class="arrow">→</span></a>
-      <a href="/other/car-depreciation-calculator.html" class="tool-link">Calculateur de Dépréciation Auto <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
+<section class="sx-card sx-mt-sec"><h2>Formules</h2><p>Comment les chiffres sont calculés.</p><div class="sx-au-fx"><div><div class="ic"><span class="msym" aria-hidden="true">public</span></div><h3>Distance orthodromique</h3><p>Le plus court chemin entre deux points de la Terre, selon la formule de haversine, avec un rayon terrestre de 6,371 km.</p><code>a = sin²(Δφ/2) + cos φ₁ cos φ₂ sin²(Δλ/2)<br>d = 2R · asin(√a)</code></div><div><div class="ic"><span class="msym" aria-hidden="true">speed</span></div><h3>Vitesse sol et durée</h3><p>Vitesse vraie plus vent le long de la route. Le temps en vol est la distance divisée par la vitesse sol.</p><code>vitesse sol = TAS + vent<br>temps en vol = distance ÷ vitesse sol</code></div><div><div class="ic"><span class="msym" aria-hidden="true">schedule</span></div><h3>Porte à porte et arrivée</h3><p>Temps en vol plus minutes de roulage et d'approche. L'arrivée est indiquée dans le fuseau horaire de destination à la date de départ.</p><code>bloc = temps en vol + marge<br>arrivée = départ + bloc</code></div></div></section>
+<section class="sx-mt-sec sx-card"><h2>Exemples détaillés</h2><p>Valeurs illustratives, chacune vérifiée à la main. La première correspond à la configuration par défaut.</p><div class="sx-mt-3"><div><h3>JFK vers Londres</h3><p>Gros-porteur à 490 kt, vent arrière de +45 kt, marge de 30 min, départ à 19:00.</p><div class="sx-mt-ex">distance 5,540 km = 2,991 NM<br>vitesse sol 490 + 45 = 535 kt<br>temps en vol = 2,991 ÷ 535 = <b>5.59 h</b> (5 h 35 m) + 30 m = <b>6 h 05 m</b></div></div><div><h3>Sans vent</h3><p>Même route, air calme.</p><div class="sx-mt-ex">2,991 ÷ 490 = 6.10 h = 6 h 06 m<br>+ 30 m = <b>6 h 36 m</b></div></div><div><h3>Changement de fuseau horaire</h3><p>New York (UTC−5 en hiver) vers Londres (UTC+0).</p><div class="sx-mt-ex">décalage = +5 heures, un voyage vers l'est<br>récupération vers l'est d'environ 1 heure par jour, soit environ <b>5 jours</b> pour s'adapter</div></div></div></section>
+<section class="sx-card sx-method"><div class="sx-guide"><h2>Comment estimer la durée d'un vol</h2><ul><li>Choisissez les aéroports d'origine et de destination.</li><li>Choisissez un type d'avion et le vent le long de la route. Les vents arrière du courant-jet vers l'est sont couramment de 40 à 100 kt.</li><li>Réglez la marge de roulage et d'approche, puis saisissez la date et l'heure locale de départ.</li><li>Lisez la durée porte à porte, l'arrivée locale et le changement de fuseau horaire.</li></ul><p>Estimations uniquement. La durée de vol réelle dépend de l'itinéraire, des vents en altitude, du contrôle du trafic aérien et de l'avion. Utilisez l'horaire de la compagnie pour planifier vos correspondances.</p><p class="sx-trust" style="margin:0 0 8px">Par <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Vérifié le 29 septembre 2026 · <a href="/methodology.html">Comment CalculatePilot vérifie ses formules →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>ICAO, <i>Annex 2 and Annex 6</i>, définitions du temps bloc et du temps de vol.</li><li>Sinnott, R.W., <i>Virtues of the Haversine</i>, Sky and Telescope, 1984.</li><li>Eastman &amp; Burgess, <i>How to travel the world without jet lag</i>, Sleep Medicine Clinics, 2009.</li></ul><h2>Questions fréquentes</h2><details class="sx-faq"><summary>Comment la durée de vol est-elle calculée ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>La distance orthodromique est divisée par la vitesse sol (vitesse de l'avion plus vent le long de la route). Le temps de roulage, de montée et d'approche est ensuite ajouté pour obtenir une durée porte à porte.</p></details><details class="sx-faq"><summary>Pourquoi le vol retour est-il plus long ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Aux latitudes moyennes, le courant-jet souffle d'ouest en est, si bien que les vols vers l'est profitent d'un vent arrière et les vols vers l'ouest d'un vent de face. Les traversées transatlantiques vers l'ouest durent souvent environ une heure de plus.</p></details><details class="sx-faq"><summary>Qu'est-ce que le temps bloc ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Le temps écoulé entre le départ de la porte d'embarquement et l'arrivée à la porte de destination. C'est ce qu'affichent les horaires des compagnies aériennes.</p></details><details class="sx-faq"><summary>Combien de temps dure le décalage horaire ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Une règle empirique courante est d'environ un jour par fuseau horaire traversé en voyageant vers l'est et d'environ deux tiers de jour par fuseau en voyageant vers l'ouest. Cela varie beaucoup d'une personne à l'autre.</p></details><details class="sx-faq"><summary>Pourquoi le jour d'arrivée change-t-il parfois ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Le franchissement de la ligne de changement de date ou un long vol vers l'est peut vous faire atterrir un autre jour du calendrier dans le fuseau horaire de destination. Pour le décalage horaire, un écart de 17 heures équivaut à 7 heures dans l'autre sens autour du globe.</p></details></div></section>
+<div class="sx-au-relh"><div><h2>Calculateurs associés</h2><p>D'autres outils du quotidien.</p></div><a href="/fr/other-calculators.html">Tous les calculateurs du quotidien<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+<div class="sx-au-rel"><a class="sx-card" href="/fr/other/time-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">schedule</span></span><b>Calculatrice de temps</b><span class="d">Additionnez et soustrayez des durées.</span><span class="f">Ouvrir<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/fr/other/utc-time-converter.html"><span class="ic"><span class="msym" aria-hidden="true">public</span></span><b>Convertisseur d'heure UTC</b><span class="d">Convertissez les fuseaux horaires.</span><span class="f">Ouvrir<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/fr/other/speed-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">speed</span></span><b>Calculatrice de vitesse</b><span class="d">Vitesse, distance et temps.</span><span class="f">Ouvrir<span class="msym" aria-hidden="true">arrow_forward</span></span></a><a class="sx-card" href="/fr/other/sleep-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bedtime</span></span><b>Calculatrice de sommeil</b><span class="d">Planifiez vos cycles de sommeil.</span><span class="f">Ouvrir<span class="msym" aria-hidden="true">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed" id="embed"><div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Intégrer cette calculatrice de durée de vol</h2><p>Gratuit et adaptatif, il s'exécute dans le navigateur du visiteur. Suppression de la marque à partir de 7,99 $/mois.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/flight-time-calculator.html" width="100%" height="560" loading="lazy" title="Flight Time Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copier le code</span></button></div></div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -189,22 +213,22 @@
         <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
         <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
         <div class="footer-social"><div class="social-icons">
-  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur X (Twitter)" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
   </a>
-  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot on Pinterest" class="social-icon">
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot sur Pinterest" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
   </a>
-  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on TikTok" class="social-icon">
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur TikTok" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
   </a>
-  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Instagram" class="social-icon">
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur Instagram" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
   </a>
-  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on YouTube" class="social-icon">
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur YouTube" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
   </a>
-  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Facebook" class="social-icon">
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur Facebook" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
   </a>
 </div></div>
@@ -212,25 +236,25 @@
       <div>
         <h4>Finance</h4>
         <ul>
-          <li><a href="/financial/401k-calculator.html">401(k)</a></li>
-          <li><a href="/financial/amortization-calculator.html">Amortissement</a></li>
-          <li><a href="/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/fr/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/fr/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/fr/financial/annuity-calculator.html">Rente</a></li>
         </ul>
       </div>
       <div>
         <h4>Santé</h4>
         <ul>
-          <li><a href="/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
-          <li><a href="/health/bac-calculator.html">Alcoolémie (BAC)</a></li>
-          <li><a href="/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+          <li><a href="/fr/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/fr/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/fr/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
         </ul>
       </div>
       <div>
         <h4>Mathématiques &amp; plus</h4>
         <ul>
-          <li><a href="/math/basic-calculator.html">Basique</a></li>
-          <li><a href="/math/area-calculator.html">Aire</a></li>
-          <li><a href="/other/age-calculator.html">Âge</a></li>
+          <li><a href="/fr/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/fr/math/area-calculator.html">Aire</a></li>
+          <li><a href="/fr/other/age-calculator.html">Âge</a></li>
         </ul>
       </div>
       <div>
@@ -238,7 +262,7 @@
         <ul>
           <li><a href="/about.html">À propos</a></li>
           <li><a href="/methodology.html">Notre méthodologie</a></li>
-          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/fr/guides/">Guides</a></li>
           <li><a href="/embed/">Intégrer des calculateurs</a></li>
         </ul>
 <ul>
@@ -250,13 +274,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 CalculatePilot. Tous les calculs sont des estimations — consultez un professionnel pour toute décision financière ou médicale. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span>
-      <span><a href="/embed/flight-time-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer ce calculateur</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Tous les calculateurs →</a></span>
+      <span>© 2026 CalculatePilot. Tous les calculs sont des estimations — consultez un professionnel pour toute décision financière ou médicale. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span> <span><a href="/embed/flight-time-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer cette calculatrice</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Toutes les calculatrices →</a></span>
     </div>
   </div>
 </footer>
-
-<script src="/js/flight-time.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/fr/flight-time.js?v=20260930o"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculatrice de quartiles et d’IQR avec bornes des valeurs aberrantes | CalculatePilot</title>
+<meta name="description" content="Calculatrice de quartiles gratuite : Q1, médiane, Q3, écart interquartile et bornes de Tukey pour une série de données, avec boîte à moustaches et comparaison de quatre méthodes de quartiles.">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/math/quartile-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/math/quartile-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/math/quartile-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/math/quartile-calculator.html">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/math/quartile-calculator.html">
+<meta property="og:title" content="Calculatrice de quartiles et d’IQR avec bornes des valeurs aberrantes | CalculatePilot">
+<meta property="og:description" content="Calculatrice de quartiles gratuite : Q1, médiane, Q3, écart interquartile et bornes de Tukey pour une série de données, avec boîte à moustaches et comparaison de quatre méthodes de quartiles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/math/quartile-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculatrice de quartiles et d’IQR avec bornes des valeurs aberrantes | CalculatePilot">
+<meta name="twitter:description" content="Calculatrice de quartiles gratuite : Q1, médiane, Q3, écart interquartile et bornes de Tukey pour une série de données, avec boîte à moustaches et comparaison de quatre méthodes de quartiles.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20260929d">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=align_horizontal_center,arrow_forward,bar_chart,calculate,candlestick_chart,chevron_right,code,content_copy,download,event,expand_more,factory,fence,functions,lightbulb,lock,payments,person_check,picture_as_pdf,restart_alt,scale,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculatrice de quartiles",
+ "url": "https://www.calculatepilot.com/fr/math/quartile-calculator.html",
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calculez les quartiles (Q1, Q2, Q3), l’écart interquartile, le résumé à cinq nombres et les bornes de Tukey, avec une boîte à moustaches, les rangs étape par étape et une comparaison de quatre méthodes de quartiles."
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculatrices de maths",
+   "item": "https://www.calculatepilot.com/math-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculatrice de quartiles",
+   "item": "https://www.calculatepilot.com/fr/math/quartile-calculator.html"
+  }
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calculatrice de quartiles et d'écart interquartile",
+ "url": "https://www.calculatepilot.com/fr/math/quartile-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-28",
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "Hyndman and Fan (1996) Sample quantiles in statistical packages, The American Statistician 50(4)",
+  "Tukey (1977) Exploratory Data Analysis",
+  "NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.3.7 Box plot"
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Pourquoi Excel donne-t-il un Q1 différent de mon manuel ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "La fonction QUARTILE.INC d’Excel interpole au rang 1 + 0.25(n − 1), alors que de nombreux manuels prennent la médiane de la moitié inférieure. Ces deux définitions sont légitimes ; le tableau comparatif ci-dessus présente les résultats côte à côte pour vos données."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "À quoi sert l’écart interquartile ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Il mesure la dispersion des 50 % centraux des données et, contrairement à l’étendue ou à l’écart type, il est à peine influencé par les valeurs extrêmes. Il sert aussi de base aux bornes de Tukey pour les valeurs aberrantes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Comment les valeurs aberrantes modérées et extrêmes sont-elles classées ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Une valeur située à plus de 1,5 × IQR du quartile le plus proche est une valeur aberrante modérée ; au-delà de 3 × IQR, c’est une valeur aberrante extrême. Les multiplicateurs 1,5 et 3 sont des conventions de Tukey, et non des lois de la nature."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "La borne inférieure peut-elle être négative alors que toutes les données sont positives ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. La borne est le résultat d’un calcul à partir de Q1 et de l’IQR ; elle peut donc passer sous zéro même si toutes les valeurs sont positives. Cela signifie simplement qu’aucune valeur n’est assez basse pour être signalée en bas de l’échelle."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quelle est la différence entre quartiles et percentiles ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Les quartiles sont des percentiles particuliers : Q1 est le 25e, Q2 le 50e et Q3 le 75e. Les méthodes de calcul des percentiles reposent sur les mêmes choix de définition que les méthodes de quartiles présentées sur cette page."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "De combien de valeurs ai-je besoin ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Les quartiles peuvent être calculés à partir de deux valeurs seulement avec les méthodes inclusive et des charnières, mais ils n’ont de sens qu’avec une quantité raisonnable de données. La méthode exclusive exige au moins trois valeurs."
+   }
+  }
+ ]
+}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/fr/guides/">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="qCalc">
+<nav class="sx-crumb" aria-label="Fil d'Ariane"><a href="/fr/">Accueil</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/fr/math-calculators.html">Calculatrices de mathématiques</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculatrice de quartiles &amp; écart interquartile</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Comparaison de 4 méthodes de quartiles</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Révisé le 28 sept. 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>S'exécute dans votre navigateur</span></div>
+    <h1>Calculatrice de quartiles &amp; écart interquartile</h1>
+    <p>Trouvez le résumé à cinq nombres, les quartiles (Q1, Q2, Q3), l’écart interquartile et les bornes de Tukey pour une liste de nombres — avec une boîte à moustaches, le calcul des rangs et une comparaison en direct des quatre méthodes de quartiles courantes, pour retrouver les résultats de votre manuel ou de votre logiciel.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Qui l'a rédigé</b><p>Rédigé par <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Les méthodes suivent Hyndman &amp; Fan (1996) et Tukey (1977), et chacune est vérifiée sur un jeu de données calculé à la main. <a href="/methodology.html">Notre méthodologie</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>Comment fonctionne le moteur de calcul</b><p>Elle trie vos données, détermine la position de rang de chaque quartile et interpole entre les valeurs voisines lorsque le rang n’est pas un nombre entier.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Pourquoi nous l'avons créé</b><p>Les manuels, Excel et R donnent souvent des Q1 et Q3 différents pour les mêmes données. Cette page affiche les quatre méthodes côte à côte au lieu de masquer ce choix.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Jeu de données</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Réinitialiser</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="data">Nombres</label><em class="mu" id="dataN">—</em></div>
+      <textarea id="data" class="sx-mt-ta" spellcheck="false" aria-describedby="dataHelp">12, 15, 18, 20, 22, 25, 28, 30, 32, 38, 45, 52, 60, 95</textarea>
+      <p class="sx-au-help" id="dataHelp">Séparez les valeurs par des virgules, des espaces ou des retours à la ligne.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="method">Méthode de calcul des quartiles</label><em class="mu">les quatre ne diffèrent que par la façon de placer les points de coupure</em></div>
+      <select id="method" class="sx-mt-sel"><option value="inc">Inclusive, R-7 (Excel QUARTILE.INC, valeur par défaut de R et NumPy)</option><option value="exc">Exclusive, R-6 (Excel QUARTILE.EXC, Minitab, SPSS)</option><option value="tukey">Charnières de Tukey (médiane dans les deux moitiés)</option><option value="mm">Moore &amp; McCabe (médiane exclue des moitiés)</option></select>
+      <p class="sx-au-help" id="methodHelp">—</p>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="ex">Charger un exemple</label></div><select id="ex" class="sx-mt-sel"><option value="">Choisir…</option><option value="12, 15, 18, 20, 22, 25, 28, 30, 32, 38, 45, 52, 60, 95">Quatorze valeurs dont une valeur aberrante</option><option value="1, 2, 3, 4, 5, 6, 7, 8, 9">1 à 9 (effectif impair)</option><option value="7, 15, 36, 39, 40, 41">Six valeurs (effectif pair)</option><option value="72, 85, 90, 66, 78, 94, 81, 88, 70, 75, 85">Notes d’examen (illustratif)</option></select></div>
+      <div><div class="sx-au-l"><label for="prec">Décimales</label></div><select id="prec" class="sx-mt-sel"><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculer les quartiles</button><button type="button" class="rs" id="clear">Effacer</button></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Écart interquartile (IQR)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Demi-écart interquartile (IQR ÷ 2)</span><b id="siqr">—</b></div><div><span>Milieu des charnières (Q1 + Q3) ÷ 2</span><b id="midh">—</b></div></div>
+  </section>
+  <div class="sx-in-t4 c3">
+    <div class="sx-card"><div class="k">Minimum</div><b id="mn">—</b><p id="mnN">—</p></div>
+    <div class="sx-card"><div class="k">Q1 (25e percentile)</div><b id="q1">—</b><p id="q1N">—</p></div>
+    <div class="sx-card"><div class="k">Médiane (Q2)</div><b id="q2">—</b><p id="q2N">—</p></div>
+    <div class="sx-card"><div class="k">Q3 (75e percentile)</div><b id="q3">—</b><p id="q3N">—</p></div>
+    <div class="sx-card"><div class="k">Maximum</div><b id="mx">—</b><p id="mxN">—</p></div>
+    <div class="sx-card"><div class="k">Effectif (n)</div><b id="cnt">—</b><p>Valeurs utilisées</p></div>
+  </div>
+  <section class="sx-card" style="padding:16px 18px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">fence</span>Bornes de Tukey pour les valeurs aberrantes</span><em id="outTag" class="mu">—</em></div>
+    <div class="sx-au-g2" style="gap:10px">
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Borne interne inférieure (Q1 − 1,5 × IQR)</span><span class="eq" style="font-size:15px" id="ilf">—</span></div>
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Borne interne supérieure (Q3 + 1,5 × IQR)</span><span class="eq" style="font-size:15px" id="iuf">—</span></div>
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Borne externe inférieure (Q1 − 3 × IQR)</span><span class="eq" style="font-size:15px" id="olf">—</span></div>
+      <div class="sx-mt-fx" style="padding:10px;text-align:left"><span class="k">Borne externe supérieure (Q3 + 3 × IQR)</span><span class="eq" style="font-size:15px" id="ouf">—</span></div>
+    </div>
+    <p class="sx-au-help" id="outN" style="margin-top:10px">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copier le résumé</span></button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Exporter en CSV</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Imprimer</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Boîte à moustaches</h2><p>La boîte s’étend de Q1 à Q3, avec la médiane repérée. Les moustaches atteignent les valeurs les plus extrêmes situées à l’intérieur des bornes internes ; les points au-delà sont des valeurs aberrantes.</p></div><span class="sx-au-tag" id="whiskTag">—</span></div>
+  <div class="sx-mt-plot" id="plot" role="img" aria-label="Boîte à moustaches des données"></div>
+  <p class="sx-au-help" id="plotN" style="margin-top:8px">—</p>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Calcul étape par étape</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Pourquoi les outils donnent des quartiles différents</h2><p>Vos données traitées par les quatre méthodes. La ligne de la méthode sélectionnée est mise en évidence.</p></div><span class="sx-au-tag">en direct à partir de vos données</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" id="cmpTbl" style="min-width:680px"><thead><tr><th scope="col">Méthode</th><th scope="col">Q1</th><th scope="col">Médiane</th><th scope="col">Q3</th><th scope="col">IQR</th><th scope="col">Utilisée par</th></tr></thead><tbody></tbody></table></div>
+  <div class="ft"><span>Les méthodes concordent pour certaines tailles de données et diffèrent pour d’autres. Aucune n’est « fausse » : indiquez toujours celle que vous avez utilisée.</span></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Pourquoi utiliser les quartiles plutôt que la moyenne et l’écart type ?</h2>
+  <p>Les quartiles et l’IQR sont des statistiques robustes : quelques valeurs extrêmes les déplacent à peine, alors que la moyenne et l’écart type peuvent varier fortement.</p>
+  <div class="sx-mt-2">
+    <div><h3>Exemple avec les données par défaut <span class="sx-mt-tag">n = 14</span></h3><div class="sx-mt-ex">Avec la valeur aberrante 95 : moyenne = <b>35.14</b>, médiane = <b>29</b><br>Sans elle (n = 13) : moyenne = <b>30.54</b>, médiane = <b>28</b></div><p style="margin-top:10px">Retirer une valeur extrême déplace la moyenne d’environ 4,6, mais la médiane de 1 seulement.</p></div>
+    <div><h3>Point de rupture <span class="sx-mt-tag">25%</span></h3><p>Jusqu’à un quart des données peut être remplacé par des valeurs arbitrairement extrêmes avant que les quartiles eux-mêmes ne soient entraînés. La moyenne peut, elle, être déplacée à volonté en modifiant une seule valeur.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Où les quartiles sont utilisés</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">candlestick_chart</span><h3>Analyse exploratoire</h3><p>Les boîtes à moustaches construites à partir du résumé à cinq nombres montrent d’un coup d’œil le centre, la dispersion et l’asymétrie, et facilitent la comparaison côte à côte de plusieurs groupes.</p><span class="f">Résumé à cinq nombres</span></div>
+    <div><span class="msym" aria-hidden="true">factory</span><h3>Détection des valeurs aberrantes</h3><p>La règle de Tukey du 1,5 × IQR signale les mesures anormalement hautes ou basses — par exemple une valeur de capteur défectueux ou une erreur de saisie — pour vérification.</p><span class="f">Bornes internes et externes</span></div>
+    <div><span class="msym" aria-hidden="true">payments</span><h3>Données asymétriques</h3><p>Les revenus, les prix de l’immobilier et les temps de réponse sont asymétriques ; on les résume donc souvent par la médiane et l’IQR plutôt que par la moyenne et l’écart type.</p><span class="f">Résumés robustes</span></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Que sont les quartiles et l’IQR ?</h2>
+    <p>Les quartiles divisent un jeu de données trié en quatre parties contenant à peu près le même nombre de valeurs. Q1 est le 25e percentile, Q2 est la médiane (50e percentile) et Q3 est le 75e percentile. L’écart interquartile, IQR = Q3 − Q1, représente la dispersion de la moitié centrale des données.</p>
+    <h2>Comment les quatre méthodes placent les points de coupure</h2>
+    <ul>
+      <li><strong>Inclusive (R-7) :</strong> rang L = 1 + p(n − 1), avec interpolation entre les valeurs triées voisines. Utilisée par Excel QUARTILE.INC, par défaut dans R et dans NumPy.</li>
+      <li><strong>Exclusive (R-6) :</strong> rang L = p(n + 1), avec interpolation. Utilisée par Excel QUARTILE.EXC, Minitab et SPSS ; nécessite n ≥ 3.</li>
+      <li><strong>Charnières de Tukey :</strong> séparez les données triées à la médiane et prenez la médiane de chaque moitié ; pour un n impair, la médiane appartient aux deux moitiés.</li>
+      <li><strong>Moore &amp; McCabe :</strong> comme ci-dessus, mais pour un n impair, la médiane est exclue des deux moitiés.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">Par <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Vérifié le 28 septembre 2026 · <a href="/methodology.html">Comment CalculatePilot vérifie ses formules →</a></p>
+    <h2>Bornes de Tukey pour les valeurs aberrantes</h2>
+    <p>Les valeurs inférieures à Q1 − 1,5 × IQR ou supérieures à Q3 + 1,5 × IQR se situent hors des bornes internes et sont signalées comme valeurs aberrantes possibles (modérées). Les valeurs au-delà de Q1 − 3 × IQR ou de Q3 + 3 × IQR se situent hors des bornes externes et sont signalées comme extrêmes. Un signalement invite à vérifier, il ne prouve pas qu’une valeur est erronée.</p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Hyndman, R. J. &amp; Fan, Y. (1996). Sample quantiles in statistical packages. <i>The American Statistician</i> 50(4), 361–365.</li>
+      <li>Tukey, J. W. (1977). <i>Exploratory Data Analysis</i>. Addison-Wesley.</li>
+      <li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda337.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.3.7 Box plot</a></li>
+      <li><a href="https://www.itl.nist.gov/div898/handbook/prc/section1/prc16.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 7.1.6 What are outliers in the data?</a></li>
+    </ul>
+    <h2>Questions fréquentes</h2>
+    <details class="sx-faq"><summary>Pourquoi Excel donne-t-il un Q1 différent de mon manuel ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>La fonction QUARTILE.INC d’Excel interpole au rang 1 + 0.25(n − 1), alors que de nombreux manuels prennent la médiane de la moitié inférieure. Ces deux définitions sont légitimes ; le tableau comparatif ci-dessus présente les résultats côte à côte pour vos données.</p></details>
+    <details class="sx-faq"><summary>À quoi sert l’écart interquartile ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Il mesure la dispersion des 50 % centraux des données et, contrairement à l’étendue ou à l’écart type, il est à peine influencé par les valeurs extrêmes. Il sert aussi de base aux bornes de Tukey pour les valeurs aberrantes.</p></details>
+    <details class="sx-faq"><summary>Comment les valeurs aberrantes modérées et extrêmes sont-elles classées ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Une valeur située à plus de 1,5 × IQR du quartile le plus proche est une valeur aberrante modérée ; au-delà de 3 × IQR, c’est une valeur aberrante extrême. Les multiplicateurs 1,5 et 3 sont des conventions de Tukey, et non des lois de la nature.</p></details>
+    <details class="sx-faq"><summary>La borne inférieure peut-elle être négative alors que toutes les données sont positives ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Oui. La borne est le résultat d’un calcul à partir de Q1 et de l’IQR ; elle peut donc passer sous zéro même si toutes les valeurs sont positives. Cela signifie simplement qu’aucune valeur n’est assez basse pour être signalée en bas de l’échelle.</p></details>
+    <details class="sx-faq"><summary>Quelle est la différence entre quartiles et percentiles ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Les quartiles sont des percentiles particuliers : Q1 est le 25e, Q2 le 50e et Q3 le 75e. Les méthodes de calcul des percentiles reposent sur les mêmes choix de définition que les méthodes de quartiles présentées sur cette page.</p></details>
+    <details class="sx-faq"><summary>De combien de valeurs ai-je besoin ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Les quartiles peuvent être calculés à partir de deux valeurs seulement avec les méthodes inclusive et des charnières, mais ils n’ont de sens qu’avec une quantité raisonnable de données. La méthode exclusive exige au moins trois valeurs.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Calculatrices de statistiques associées</h2><p>Poursuivez votre analyse.</p></div>
+  <a href="/fr/math-calculators.html">Toutes les calculatrices de mathématiques<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/fr/math/standard-deviation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bar_chart</span></span><b>Écart type</b><span class="d">Dispersion d’un échantillon et d’une population, variance et intervalle de confiance.</span><span class="f">Mesurer la dispersion<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/math/z-score-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Calculatrice de score Z</b><span class="d">Standardisez une valeur par rapport à la moyenne et à l’écart-type.</span><span class="f">Scores standardisés<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/math/mean-median-mode-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">align_horizontal_center</span></span><b>Moyenne, médiane &amp; mode</b><span class="d">Mesures de tendance centrale et asymétrie pour une liste.</span><span class="f">Trouver le centre<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/math/weighted-average-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">scale</span></span><b>Moyenne pondérée</b><span class="d">Moyennes où certaines valeurs comptent plus que d’autres.</span><span class="f">Moyenne pondérée<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Intégrer cette calculatrice de quartiles</h2><p>Gratuit et adaptatif, il s'exécute dans le navigateur du visiteur. Suppression de la marque à partir de 7,99 $/mois.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/quartile-calculator.html" width="100%" height="560" loading="lazy" title="Quartile Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copier le code</span></button></div>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot sur Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul>
+          <li><a href="/fr/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/fr/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/fr/financial/annuity-calculator.html">Rente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Santé</h4>
+        <ul>
+          <li><a href="/fr/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/fr/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/fr/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathématiques &amp; plus</h4>
+        <ul>
+          <li><a href="/fr/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/fr/math/area-calculator.html">Aire</a></li>
+          <li><a href="/fr/other/age-calculator.html">Âge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/methodology.html">Notre méthodologie</a></li>
+          <li><a href="/fr/guides/">Guides</a></li>
+          <li><a href="/embed/">Intégrer des calculateurs</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Politique de confidentialité</a></li>
+          <li><a href="/terms.html">Conditions d'utilisation</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Plan du site</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Tous les calculs sont des estimations — consultez un professionnel pour toute décision financière ou médicale. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span> <span><a href="/embed/quartile-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer cette calculatrice</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Toutes les calculatrices →</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/fr/quartile.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>
