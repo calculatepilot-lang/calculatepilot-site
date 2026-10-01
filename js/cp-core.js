@@ -83,10 +83,13 @@
   });
 
   // Fill each card's iframe snippet
+  // optional one-line listener: the widget reports its height so the iframe fits the content
+  var RESIZE = '<script>addEventListener("message",function(e){if(e.origin==="https://www.calculatepilot.com"&&e.data&&e.data.cpEmbedHeight){document.querySelectorAll("iframe").forEach(function(f){if(f.contentWindow===e.source)f.style.height=e.data.cpEmbedHeight+"px"})}})<\/script>';
   $$('.calc-card').forEach(function (c) {
     var slug = c.querySelector('[data-preview]').getAttribute('data-preview').replace(/^\/embed\//, '').replace(/\.html$/, '');
     var title = c.querySelector('h3').textContent.trim().replace(/"/g, '&quot;');
-    c.querySelector('.embed-code').textContent = '<iframe src="https://www.calculatepilot.com/embed/' + slug + '.html" width="100%" height="520" frameborder="0" scrolling="no" title="' + title + '" loading="lazy"></iframe>';
+    var h = c.getAttribute('data-h') || '1500';
+    c.querySelector('.embed-code').textContent = '<iframe src="https://www.calculatepilot.com/embed/' + slug + '.html" width="100%" height="' + h + '" frameborder="0" scrolling="auto" title="' + title + '" loading="lazy"></iframe>\n' + RESIZE;
   });
 
   // Copy code
@@ -147,6 +150,7 @@
     if (!b) return;
     $('#modalTitle').textContent = b.closest('.calc-card').querySelector('h3').textContent.trim() + ' preview';
     frame.setAttribute('src', b.getAttribute('data-preview'));
+    frame.style.height = '70vh';
     prev.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   });
