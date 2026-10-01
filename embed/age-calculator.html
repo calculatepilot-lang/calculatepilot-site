@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Age Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,calendar_clock,calendar_month,chevron_right,child_care,code,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,pets,picture_as_pdf,restart_alt,schedule,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,50 +38,154 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Age Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="birthDate">Date of birth</label>
-          <input type="date" id="birthDate" value="1995-06-15"
->
-        </div>
-        <div class="field">
-          <label for="toDate">Age at date</label>
-          <input type="date" id="toDate" value="2026-07-24"
->
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Your age</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total months</span><span id="outMonths">—</span></div>
-        <div class="embed-row"><span>Total days</span><span id="outDays">—</span></div>
-        <div class="embed-row"><span>Next birthday in</span><span id="outNextBirthday">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="agCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Age Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">calendar_month</span>Exact calendar age</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Exact Age &amp; Lifespan Milestone Calculator</h1>
+<p>Find your exact age in years, months and days from your date of birth, on today's date or any other date. See your total days, weeks, hours and minutes lived, your next birthday, milestone days such as your 10,000th day, and your zodiac signs. Nothing is stored or sent anywhere.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. It uses the Gregorian calendar and real month lengths. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It subtracts the birth date from the target date, borrowing days from the previous month when needed, so leap years and month lengths are exact.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Dividing by 365.25 drifts. This counts real calendar months and days, which is what forms and legal ages need.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">calendar_clock</span><h2 class="sx-h-md" style="margin:0">Dates</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="bm">Date of birth</label><em class="mu">required</em></div>
+<div class="sx-au-g3"><select aria-label="Birth month" class="sx-mt-sel" id="bm"><option value="0">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option selected="" value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select><div class="sx-au-in sm np"><input aria-label="Birth day" id="bd" inputmode="numeric" max="31" min="1" placeholder="Day" step="1" type="number" value="14"/></div><div class="sx-au-in sm np"><input aria-label="Birth year" id="by" inputmode="numeric" max="2100" min="1900" placeholder="Year" step="1" type="number" value="1995"/></div></div>
+</div>
+<div class="sx-au-box">
+<div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label class="sx-au-l" for="useT" style="margin:0">Add my birth time (for hours, minutes and seconds)</label><label class="sx-toggle"><input id="useT" type="checkbox"/><i></i></label></div>
+<div hidden="" id="tBox" style="margin-top:12px"><div class="sx-au-l"><label for="bt">Time of birth</label><em class="mu">local time</em></div><div class="sx-au-in sm np"><input id="bt" type="time" value="08:30"/></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="td">Calculate age on</label><em class="mu" id="tdNote">today</em></div>
+<div class="sx-au-in sm np"><input id="td" type="date"/></div>
+<div class="sx-qpills" id="tpre"><span class="lb">Presets</span><button data-t="today" type="button">Today</button><button data-t="next" type="button">Next birthday</button><button data-t="2030" type="button">Jan 1, 2030</button><button data-t="65" type="button">Age 65</button><button data-t="67" type="button">Age 67</button></div>
+</div>
+<div class="sx-au-box">
+<div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label class="sx-au-l" for="incl" style="margin:0">Count the end date as a day (adds 1 to total days)</label><label class="sx-toggle"><input id="incl" type="checkbox"/><i></i></label></div>
+<div style="margin-top:12px"><div class="sx-au-l"><label for="le">Life expectancy for the progress bar</label><em class="mu">years</em></div><div class="sx-au-in sm np"><input id="le" inputmode="decimal" max="120" min="1" step="0.1" type="number" value="78.4"/></div><p class="sx-au-note" style="text-align:left">Default is US life expectancy at birth in 2023 (CDC, National Center for Health Statistics). It is an average, not a prediction.</p></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate exact age</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Your exact age</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:34px;line-height:1.15"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Next birthday</span><b id="nbA" style="font-size:16px">—</b></div><div><span>Days until</span><b id="nbD">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Time lived, in other units</span><em class="mu" id="unitsN">—</em></div>
+<div class="sx-au-tiles"><div><span>Total days</span><b id="tD">—</b><small id="tDh">—</small></div><div><span>Total weeks</span><b id="tW">—</b><small id="tWr">—</small></div><div><span>Total months</span><b id="tM">—</b><small>whole calendar months</small></div><div><span>Total minutes</span><b id="tMin">—</b><small id="tSec">—</small></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Life progress</span><em class="mu" id="lifeP">—</em></div>
+<div style="height:10px;border-radius:99px;background:var(--sx-low);overflow:hidden"><div id="lifeBar" style="height:100%;width:0;background:var(--sx-pc)"></div></div>
+<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin:6px 0 12px"><span>Birth</span><span id="lifeE">—</span></div>
+<div id="miles" style="display:flex;flex-direction:column"></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Calendar signals</span><em class="mu">born on</em></div>
+<div class="sx-au-tiles c3"><div><span>Zodiac sign</span><b id="zs" style="font-size:16px">—</b></div><div><span>Chinese zodiac</span><b id="cz" style="font-size:16px">—</b></div><div><span>Weekday</span><b id="wd" style="font-size:16px">—</b></div></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Birth year reference</h2><p>Age this year, approximate days lived, the year of full retirement age (67 for anyone born in 1960 or later) and the generation, for birth years every five years.</p></div><span class="sx-mt-tag" id="cohortYr">—</span></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="cohort" style="min-width:640px"><thead><tr><th>Birth year</th><th class="n">Age this year</th><th class="n">Approx. days lived</th><th class="n">Full retirement year</th><th>Generation</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Method</span>
+<h2>How exact age is worked out</h2>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Years, months, days</h3><code>subtract year, month and day; if the day is negative, borrow the days of the previous month</code></div>
+<div><h3>Leap year rule</h3><code>leap if divisible by 4, except centuries not divisible by 400</code></div>
+<div><h3>Total days</h3><code>days = (end date − birth date) in whole days</code></div>
+</div>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Good to know</span>
+<h2>Leap-day birthdays</h2>
+<p>People born on 29 February celebrate on 28 February or 1 March in other years, depending on local law. This tool shows 1 March for the next birthday in a non-leap year.</p>
+<p>Milestone days count from the date of birth, so your 10,000th day is 10,000 days after you were born.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative dates, each checked by hand.</p>
+<div class="sx-mt-3">
+<div><h3>Born 14 May 1995, on 5 Feb 2025</h3><p>Borrowing from January.</p><div class="sx-mt-ex">2025 − 1995 = 30 y, month 2 − 5 = −3 → 29 y 9 m<br/>day 5 − 14 = −9 → borrow 31 (Jan)<br/><b>29 years, 8 months, 22 days</b></div></div>
+<div><h3>Total days</h3><p>The same two dates.</p><div class="sx-mt-ex">from 14 May 1995 to 5 Feb 2025<br/>= <b>10,860 days</b><br/>= 1,551 weeks and 3 days</div></div>
+<div><h3>10,000th day</h3><p>For someone born 14 May 1995.</p><div class="sx-mt-ex">14 May 1995 + 10,000 days<br/>= <b>29 September 2022</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to calculate your age</h2>
+<ul>
+<li>Subtract your birth year from the current year to get a first estimate.</li>
+<li>If your birthday has not happened yet this year, subtract one year.</li>
+<li>For months and days, count from your last birthday to today using real month lengths.</li>
+<li>For total days, count the days between the two dates. This tool does all of that for you.</li>
+</ul>
+<p>Legal age rules differ by country, and some traditions count age differently. For official purposes, check the rules that apply.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>ISO 8601, <i>Date and time — Representations for information interchange</i>, and the Gregorian calendar leap-year rule.</li>
+<li>CDC National Center for Health Statistics, <i>Mortality in the United States</i> (life expectancy at birth).</li>
+<li>U.S. Social Security Administration, <i>Full Retirement Age</i> tables.</li>
+<li>Pew Research Center, generation definitions (Millennial 1981–1996, Gen Z 1997–2012).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How do you calculate exact age?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Subtract the birth date from the target date year, month and day. If the day difference is negative, borrow the number of days in the previous month and reduce the month count by one. Do the same for months and years.</p></details>
+<details class="sx-faq"><summary>How does the calculator handle leap years?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It uses the real calendar, so 29 February is included in leap years and total days are exact. A year is a leap year if divisible by 4, except century years that are not divisible by 400.</p></details>
+<details class="sx-faq"><summary>What is my 10,000th day?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It is the date 10,000 days after you were born, which falls at about 27 years and 4 months old. The tool also shows when you reach 20,000 days and one billion seconds.</p></details>
+<details class="sx-faq"><summary>What does the life progress bar mean?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It shows your age as a share of an average life expectancy, which you can edit. It is a statistical average for a group, not a forecast for any one person.</p></details>
+<details class="sx-faq"><summary>Is my date of birth stored?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. Everything is calculated in your browser and nothing is sent to a server. The share link only puts your dates in the web address you copy.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">calendar_month</span></span><b>Date Calculator</b><span class="d">Days between dates and business days.</span><span class="f">Count the days<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/pet-age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pets</span></span><b>Pet Age Calculator</b><span class="d">Dog and cat age in human years.</span><span class="f">Convert pet age<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/time-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">schedule</span></span><b>Time Calculator</b><span class="d">Add and subtract times.</span><span class="f">Work with time<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/due-date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">child_care</span></span><b>Due Date Calculator</b><span class="d">Pregnancy due date from your last period.</span><span class="f">Find a due date<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Age Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/age-calculator.html" width="100%" height="560" loading="lazy" title="Age Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/age-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -208,7 +194,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/age.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/age.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

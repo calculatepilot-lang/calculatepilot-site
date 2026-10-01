@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Binomial Probability Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bar_chart,calculate,casino,chevron_right,code,content_copy,download,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,restart_alt,show_chart,shuffle,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,54 +38,156 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Binomial Probability Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="trials">Number of trials (n)</label>
-          <input type="number" id="trials" value="10"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="successes">Number of successes (k)</label>
-          <input type="number" id="successes" value="5"
-step="1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="probability">Probability of success per trial (0-1)</label>
-          <input type="number" id="probability" value="0.5"
-step="0.01"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Probability</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Expected value (mean)</span><span id="outMean">—</span></div>
-        <div class="embed-row"><span>Variance</span><span id="outVariance">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="biCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Binomial Probability Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact for n up to 1,000</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Binomial Probability Calculator</h1>
+<p>Find the exact probability of k successes in n independent trials — P(X = k), P(X ≤ k), P(X &lt; k), P(X ≥ k) and P(X &gt; k) — with the mean, variance and shape of the distribution, a probability histogram and every step of the working.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The formula and every worked example are re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It evaluates C(n, k) · pᵏ · qⁿ⁻ᵏ using logarithms of factorials, so large n does not overflow, and adds terms for the cumulative results.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Textbook tables stop at small n and round heavily. This calculator gives every tail in one place and shows the arithmetic behind the answer.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><div><h2 class="sx-h-md" style="margin:0">Distribution parameters</h2><p>X ~ Binomial(n, p)</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-k="5" data-n="10" data-p="0.5" type="button">Fair coin (10, ½, 5)</button><button data-k="3" data-n="12" data-p="0.16666666666666666" type="button">Die roll (12, ⅙, 3)</button><button data-k="1" data-n="50" data-p="0.02" type="button">Defect sampling (50, 0.02, 1)</button><button data-k="6" data-n="20" data-p="0.25" type="button">Lab test (20, 0.25, 6)</button></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="n">Number of independent trials (n)</label><em class="mu">1 to 1,000</em></div><div class="sx-au-in np"><input id="n" inputmode="numeric" max="1000" min="1" step="1" type="number" value="20"/></div></div>
+<div><div class="sx-au-l"><label for="k">Number of successes (k)</label><em class="mu" id="kH">0 to n</em></div><div class="sx-au-in np"><input id="k" inputmode="numeric" min="0" step="1" type="number" value="6"/></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="p">Probability of success on each trial (p)</label><em class="mu">0 to 1</em></div>
+<div class="sx-au-in np"><input id="p" inputmode="decimal" max="1" min="0" step="any" type="number" value="0.25"/></div>
+<div class="sx-mt-chips" id="fracs" style="margin-top:8px"><span>Fractions</span><button data-p="0.5" type="button">1/2</button><button data-p="0.25" type="button">1/4</button><button data-p="0.16666666666666666" type="button">1/6</button><button data-p="0.1" type="button">1/10</button><button data-p="0.05" type="button">1/20</button></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Primary result to show</span></div>
+<input id="q" type="hidden" value="eq"/>
+<div aria-label="Primary result" class="sx-seg full" role="group"><button data-for="q" data-value="eq" type="button">P(X = k)</button><button data-for="q" data-value="le" type="button">P(X ≤ k)</button><button data-for="q" data-value="ge" type="button">P(X ≥ k)</button><button data-for="q" data-value="lt" type="button">P(X &lt; k)</button><button data-for="q" data-value="gt" type="button">P(X &gt; k)</button></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate probability</button><button class="rs" id="rand" type="button">Random</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">P(X = k)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>As a percentage</span><b id="pctV">—</b></div><div><span>Odds form</span><b id="oddsV" style="font-size:16px">—</b></div></div>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k">P(X = k)</div><b id="t_eq">—</b><p id="t_eqN">—</p></div>
+<div class="sx-card"><div class="k">P(X ≤ k)</div><b id="t_le">—</b><p id="t_leN">—</p></div>
+<div class="sx-card"><div class="k">P(X ≥ k)</div><b id="t_ge">—</b><p id="t_geN">—</p></div>
+<div class="sx-card"><div class="k">P(X &lt; k)</div><b id="t_lt">—</b><p id="t_ltN">—</p></div>
+<div class="sx-card"><div class="k">P(X &gt; k)</div><b id="t_gt">—</b><p id="t_gtN">—</p></div>
+<div class="sx-card"><div class="k">Most likely value (mode)</div><b id="mode">—</b><p id="modeN">—</p></div>
+</div>
+<section class="sx-card" style="padding:16px 18px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Distribution moments</span></div>
+<div class="sx-au-g2" style="gap:8px 16px">
+<div><span class="sx-au-help" style="margin:0">Expected value μ = np</span><br/><b class="sx-mt-sym" id="mu">—</b></div>
+<div><span class="sx-au-help" style="margin:0">Variance σ² = npq</span><br/><b class="sx-mt-sym" id="va">—</b></div>
+<div><span class="sx-au-help" style="margin:0">Standard deviation σ</span><br/><b class="sx-mt-sym" id="sd">—</b></div>
+<div><span class="sx-au-help" style="margin:0">Skewness (1 − 2p) ÷ σ</span><br/><b class="sx-mt-sym" id="sk">—</b></div>
+<div><span class="sx-au-help" style="margin:0">Excess kurtosis (1 − 6pq) ÷ σ²</span><br/><b class="sx-mt-sym" id="ku">—</b></div>
+<div><span class="sx-au-help" style="margin:0">Failure probability q = 1 − p</span><br/><b class="sx-mt-sym" id="qq">—</b></div>
+</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy summary</span></button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Probability mass function</h2><p>The chance of each possible number of successes. Bars in the event you asked for are dark; the dashed line marks the mean.</p></div><span class="sx-au-tag" id="plotTag">—</span></div>
+<div aria-label="Bar chart of the binomial probability mass function" class="sx-mt-plot" id="plot" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Governing equations and conditions</h2>
+<div class="sx-mt-2">
+<div><h3>The equations</h3>
+<div class="sx-mt-fx" style="padding:12px;margin-bottom:10px"><span class="k">Probability mass function</span><span class="eq" style="font-size:16px">P(X = k) = C(n, k) · pᵏ · (1 − p)ⁿ⁻ᵏ</span></div>
+<div class="sx-mt-fx" style="padding:12px;margin-bottom:10px"><span class="k">Cumulative distribution</span><span class="eq" style="font-size:16px">P(X ≤ k) = Σᵢ₌₀ᵏ C(n, i) · pⁱ · qⁿ⁻ⁱ</span></div>
+<div class="sx-mt-fx" style="padding:12px"><span class="k">Mean and variance</span><span class="eq" style="font-size:16px">μ = np,  σ² = npq</span></div></div>
+<div><h3>Four conditions for a binomial model</h3>
+<ul class="sx-au-2c" style="display:block;padding:0;margin:0;list-style:none"><li style="margin-bottom:10px;font-size:14px;line-height:22px;color:var(--sx-onv)"><b style="color:var(--sx-on)">Fixed number of trials.</b> n is set in advance.</li><li style="margin-bottom:10px;font-size:14px;line-height:22px;color:var(--sx-onv)"><b style="color:var(--sx-on)">Two outcomes.</b> Each trial is a success or a failure.</li><li style="margin-bottom:10px;font-size:14px;line-height:22px;color:var(--sx-onv)"><b style="color:var(--sx-on)">Constant probability.</b> p is the same on every trial.</li><li style="font-size:14px;line-height:22px;color:var(--sx-onv)"><b style="color:var(--sx-on)">Independence.</b> One trial’s outcome does not affect another’s.</li></ul></div>
+</div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<p>Each uses exact binomial sums, checked by hand and reproducible with the presets and inputs above.</p>
+<div class="sx-mt-3">
+<div><h3>Lot inspection</h3><p>A batch has a 2% defect rate. An inspector tests 50 units and rejects the batch if more than 2 are defective.</p><div class="sx-mt-ex">P(X ≤ 2) with n = 50, p = 0.02<br/>= 0.36417 + 0.37160 + 0.18580 = 0.92157<br/><b>P(reject) = P(X &gt; 2) = 0.0784</b></div></div>
+<div><h3>Clinical response</h3><p>A treatment works for 70% of patients. Among 30 patients, what is the chance that at least 25 respond?</p><div class="sx-mt-ex">n = 30, p = 0.70, k = 25<br/><b>P(X ≥ 25) = 0.0766</b> (about 7.7%)<br/>Mean = 21 responders</div></div>
+<div><h3>Packet loss</h3><p>Each of 64 packets is lost independently with probability 0.05. What is the chance more than 5 are lost?</p><div class="sx-mt-ex">n = 64, p = 0.05, k = 5<br/>P(X ≤ 5) = 0.89990<br/><b>P(X &gt; 5) = 0.1001</b> (about 10.0%)</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is the binomial distribution?</h2>
+<p>The binomial distribution gives the probability of getting exactly k successes in n independent trials when each trial succeeds with the same probability p. Typical examples are the number of heads in coin tosses, defective items in a sample, or patients who respond to a treatment.</p>
+<h2>How to calculate a binomial probability</h2>
+<ul>
+<li>Work out the binomial coefficient C(n, k) = n! ÷ (k!(n − k)!), the number of ways to choose which trials succeed.</li>
+<li>Multiply by pᵏ, the probability that those k trials all succeed.</li>
+<li>Multiply by (1 − p)ⁿ⁻ᵏ, the probability that the other trials all fail.</li>
+<li>For a cumulative probability, add the terms over the range of k values you need.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.6.6.18 Binomial distribution</a></li>
+<li>Feller, W. (1968). <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1, 3rd ed. Wiley.</li>
+<li>ISO 3534-1:2006, <i>Statistics — Vocabulary and symbols — Part 1: General statistical terms and terms used in probability</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What is the difference between the binomial and hypergeometric distributions?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The binomial model assumes independent trials with a constant probability, as with sampling with replacement or from a very large population. The hypergeometric distribution models sampling without replacement from a finite population, where each draw changes the odds of the next. When the sample is a small fraction of the population (commonly under 5%), the binomial is a good approximation.</p></details>
+<details class="sx-faq"><summary>When can I use a normal approximation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common rule of thumb is that both np and n(1 − p) should be at least 5 (some texts use 10). Then X is approximately normal with mean np and standard deviation √(npq), usually with a continuity correction of ±0.5. This calculator gives the exact answer, so no approximation is needed.</p></details>
+<details class="sx-faq"><summary>How does the calculator avoid overflow for large n?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Instead of multiplying huge factorials, it works with the logarithm of the binomial coefficient (using the log-gamma function) and exponentiates at the end. The exact coefficient shown in the steps is computed separately with integer arithmetic.</p></details>
+<details class="sx-faq"><summary>What happens when p is 0 or 1?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The outcome is certain: if p = 0 every trial fails, so P(X = 0) = 1; if p = 1 every trial succeeds, so P(X = n) = 1. The variance is zero and the distribution is a single point.</p></details>
+<details class="sx-faq"><summary>How do I find the probability of at least one success?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use the complement: P(X ≥ 1) = 1 − P(X = 0) = 1 − (1 − p)ⁿ. Set k = 1 and choose P(X ≥ k) to see it directly.</p></details>
+<details class="sx-faq"><summary>What if my trials are not independent?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Then the binomial model does not apply exactly. Depending on the situation, a hypergeometric or other model may be more suitable. Independence and a constant probability are essential assumptions.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with probability and counting.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/probability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">casino</span></span><b>Probability Calculator</b><span class="d">Union, intersection, conditional probability and Bayes.</span><span class="f">Events and odds<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/permutation-combination-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">shuffle</span></span><b>Permutations &amp; Combinations</b><span class="d">nCr and nPr with exact factorials.</span><span class="f">Count outcomes<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/z-score-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">show_chart</span></span><b>Z-Score Calculator</b><span class="d">Normal-distribution probabilities and percentiles.</span><span class="f">Normal curve<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">bar_chart</span></span><b>Standard Deviation</b><span class="d">Sample and population spread.</span><span class="f">Measure spread<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Binomial Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/binomial-probability-calculator.html" width="100%" height="560" loading="lazy" title="Binomial Probability Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/binomial-probability-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -212,7 +196,8 @@ step="0.01"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/binomial-probability.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/binomial-probability.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

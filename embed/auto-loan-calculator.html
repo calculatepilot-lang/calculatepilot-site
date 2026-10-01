@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auto Loan Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,arrow_forward,check_circle,chevron_right,compare_arrows,download,expand_more,functions,key,lock,picture_as_pdf,pie_chart,precision_manufacturing,print,published_with_changes,restart_alt,share,shield,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,95 +38,180 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Auto Loan Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="vehiclePrice">Vehicle price</label>
-          <input type="number" id="vehiclePrice" value="32000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="downPayment">Down payment</label>
-          <input type="number" id="downPayment" value="4000"
-step="100"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="tradeInValue">Trade-in value</label>
-          <input type="number" id="tradeInValue" value="3000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="salesTaxRate">Sales tax rate (%)</label>
-          <input type="number" id="salesTaxRate" value="7"
-step="0.1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="interestRate">Interest rate (% APR)</label>
-          <input type="number" id="interestRate" value="6.9"
-step="0.01"min="0">
-        </div>
-        <div class="field">
-          <label for="loanTermMonths">Loan term (months)</label>
-          <input type="number" id="loanTermMonths" value="60"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Monthly payment</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Sales tax</span><span id="outSalesTax">—</span></div>
-        <div class="embed-row"><span>Amount financed</span><span id="outFinanced">—</span></div>
-        <div class="embed-row"><span>Total interest</span><span id="outTotalInterest">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="autoCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Auto Loan Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Vehicle Financing Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Client-Side Precision • Zero Data Stored</span><span class="sx-badge" style="background:var(--sx-hi2)">Formula Verified Sep 2026</span></div>
+<h1>Auto Loan Calculator</h1>
+<p>Calculate exact monthly car payments, total loan cost, dealer financing options, sales tax, trade-in value, and amortization schedules.</p>
 </div>
+<div class="sx-au-hbtns">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print Sheet</button>
+<button data-action="share" type="button"><span aria-hidden="true" class="msym">share</span>Share Calculation</button>
+</div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Financing Parameters</h2><p>Input transaction specifics, capital down, and loan structure</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset Defaults</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-lr"><label class="sx-lbl-md" for="price">Vehicle Purchase Price</label><div class="sx-inl w144"><span class="pre">$</span><input id="price" inputmode="decimal" min="0" step="500" type="number" value="35000"/></div></div>
+<input aria-label="Vehicle price slider" class="sx-range2" data-sync="price" max="100000" min="5000" step="500" type="range" value="35000"/>
+<div class="sx-au-chips">Presets: <button data-for="price" data-value="20000" type="button">$20k</button><button data-for="price" data-value="35000" type="button">$35k</button><button data-for="price" data-value="50000" type="button">$50k</button><button data-for="price" data-value="75000" type="button">$75k</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="trade">Trade-in Vehicle Value</label></div><div class="sx-au-in"><span class="pre">$</span><input id="trade" inputmode="decimal" min="0" step="250" type="number" value="5000"/></div></div>
+<div><div class="sx-au-l"><label for="owed">Existing Loan on Trade-in</label><em class="mu" id="tradeNote"></em></div><div class="sx-au-in"><span class="pre">$</span><input id="owed" inputmode="decimal" min="0" step="250" type="number" value="0"/></div></div>
+</div>
+<div>
+<div class="sx-au-lr"><div class="sx-au-l"><label for="down">Cash Down Payment</label></div><div class="sx-au-chips r" id="dpChips"><button data-dp="10" type="button">10%</button><button data-dp="15" type="button">15%</button><button data-dp="20" type="button">20%</button></div></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="down" inputmode="decimal" min="0" step="250" type="number" value="4000"/></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="tax">Sales Tax Rate (%)</label></div>
+<div class="sx-au-row"><div class="sx-au-in np pc"><input id="tax" inputmode="decimal" max="20" min="0" step="0.25" type="number" value="6.5"/><span class="suf">%</span></div><label class="sx-au-ck"><input checked="" id="rollTax" type="checkbox"/>Roll sales tax into loan</label></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Loan Term Duration</span><em id="termNote">60 Months (Recommended Standard)</em></div>
+<input id="term" type="hidden" value="60"/>
+<div aria-label="Loan term" class="sx-au-opts c5 ol" role="group"><button data-for="term" data-value="36" type="button">36 mo</button><button data-for="term" data-value="48" type="button">48 mo</button><button data-for="term" data-value="60" type="button">60 mo</button><button data-for="term" data-value="72" type="button">72 mo</button><button data-for="term" data-value="84" type="button">84 mo</button></div>
+<div class="sx-au-warn" hidden="" id="termWarn"><span aria-hidden="true" class="msym">warning</span><span><b>Extended Loan Term Warning:</b> Financing beyond 60 months raises negative-equity risk. The car usually loses value faster than the loan balance falls for longer, so GAP coverage is worth considering.</span></div>
+</div>
+<div>
+<div class="sx-au-lr"><div class="sx-au-l"><label for="apr">Interest Rate / APR</label></div><div class="sx-au-chips r">Quick set: <button data-for="apr" data-value="4.9" type="button">4.9%</button><button data-for="apr" data-value="6.8" type="button">6.8%</button><button data-for="apr" data-value="11.5" type="button">11.5%</button></div></div>
+<div class="sx-au-in np pc"><input id="apr" inputmode="decimal" max="36" min="0" step="0.01" type="number" value="5.99"/><span class="suf">%</span></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="fees">Dealer Fees, Title &amp; Documentation</label></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="fees" inputmode="decimal" min="0" step="25" type="number" value="650"/></div>
+<p class="sx-au-help">Includes typical documentation, registration, and destination processing. Financed with the loan.</p>
+</div>
+<button class="sx-cta big" type="submit"><span aria-hidden="true" class="msym">functions</span>Calculate Auto Loan Repayment</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-pay">
+<div class="deco"></div>
+<div class="hd"><span class="sx-kick">Estimated Monthly Obligation</span><span class="sx-pill2">Fixed Rate</span></div>
+<div class="phero"><b id="resultValue">—</b><span>/ month</span></div>
+<div class="sx-au-tiles mono card">
+<div><span>Amount Financed</span><b id="financed">—</b></div>
+<div><span>Total Interest Paid</span><b id="totInt">—</b></div>
+<div><span>Total Purchase Cost</span><b id="totCost">—</b></div>
+<div><span>Upfront at Signing</span><b id="upfront">—</b></div>
+</div>
+<div class="sx-au-chart">
+<div class="h">Vehicle Equity Trajectory<span id="chartTerm">60-Month Trajectory</span></div>
+<p>Where the lines cross, the car becomes worth more than you owe on it.</p>
+<svg aria-label="Loan balance versus estimated car value over the loan term" id="eqChart" role="img" viewbox="0 0 320 170"></svg>
+<div class="lg"><span><i style="background:var(--sx-pc)"></i>Loan Balance</span><span><i style="background:#64748b"></i>Car Fair Value</span><span><i style="background:#fca5a5"></i>Negative Equity</span></div>
+<div class="be">Estimated Equity Breakeven: <b id="breakeven">—</b></div>
+</div>
+<div class="sx-au-tt">Term Strategy Comparison</div>
+<div class="sx-au-terms3" id="termCmp"></div>
+<div class="sx-au-acts c2">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Amortization PDF</button>
+<a href="/financial/lease-calculator.html"><span aria-hidden="true" class="msym">compare_arrows</span>Compare Lease vs Buy</a>
+</div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="schedule">
+<div class="hd">
+<div><h2>Amortization &amp; Vehicle Value Schedule</h2><p>Principal paydown, interest, and estimated loan-to-value (LTV) over the life of the loan.</p></div>
+<input id="view" type="hidden" value="year"/>
+<div aria-label="Schedule view" class="sx-seg md" role="group"><button data-for="view" data-value="year" type="button">Annual View</button><button data-for="view" data-value="month" type="button">Monthly View</button></div>
+</div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th id="sPer" scope="col">Period / Year</th><th scope="col">Starting Balance</th><th scope="col">Scheduled Payments</th><th scope="col">Principal Paid</th><th scope="col">Interest Paid</th><th scope="col">Ending Balance</th><th scope="col">Est. Vehicle Value</th><th scope="col">LTV Ratio</th></tr></thead>
+<tbody id="schedBody"></tbody>
+</table></div>
+<div class="ft"><span>*Estimated vehicle value assumes a 20% first-year drop followed by 15% per year (a common rule of thumb; real depreciation varies by model).</span><span style="display:flex;gap:16px"><button hidden="" id="moreBtn" type="button"><span id="moreTxt">Show all months</span></button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export Full Schedule (.CSV)</button></span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">precision_manufacturing</span>Mathematical Loan Formula</h3>
+<p>CalculatePilot uses the standard monthly payment formula for fixed-rate installment loans. The payment (M) comes from the amount financed (P), the monthly interest rate (r), and the number of payments (n).</p>
+<div class="fx"><b>M = P × [ r(1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> − 1) ]</b><span>Where: r = APR / 12 | n = Loan Months | P = Price + Fees + Tax (if rolled in) − Down Payment − Net Trade-in</span></div>
+<ul class="ck">
+<li><span aria-hidden="true" class="msym">check_circle</span><span><b>Simple Interest Convention:</b> Most US auto loans charge simple interest on the remaining balance. The front-loaded "Rule of 78s" method is prohibited on US consumer loans longer than 61 months.</span></li>
+<li><span aria-hidden="true" class="msym">check_circle</span><span><b>Prepayment Efficiency:</b> On a simple-interest loan with no prepayment penalty, extra payments go straight to principal and cut the interest that would have accrued on it.</span></li>
+</ul>
+</div>
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">shield</span>GAP Protection Anatomy</h3>
+<p>Guaranteed Asset Protection (GAP) covers the shortfall between your insurance payout (the car's market value) and the unpaid loan balance if the vehicle is totaled or stolen.</p>
+<div class="sx-au-gapbox">
+<b>When is GAP coverage worth considering?</b>
+<ul id="gapList">
+<li data-gap="down">Less than 20% down payment at purchase</li>
+<li data-gap="term">Financing terms extended over 60 months</li>
+<li data-gap="neg">Rolling negative trade-in equity into the new loan</li>
+<li data-gap="dep">High-depreciation vehicles (some luxury and EV models)</li>
+</ul>
+</div>
+<div class="sx-au-gapft"><span>Items in bold apply to your inputs. GAP is optional; compare lender and insurer prices.</span><a href="/guides/car-depreciation-guide.html">Read Depreciation Guide →</a></div>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>Sales tax is applied to the price minus your trade-in value, then either added to the loan or paid at signing. Dealer fees are added to the loan, and any amount still owed on your trade-in is subtracted from its value (negative equity is rolled into the new loan). The remaining balance amortizes at your interest rate over the loan term, same as any fixed-rate loan.</p>
+<p><strong>Amount financed = Price + Fees − Down payment − (Trade-in − Payoff) + Sales tax</strong></p>
+<p>The financed amount is then run through the standard loan amortization formula.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Trade-in value and sales tax</h2>
+<p>Most US states only charge sales tax on the price minus your trade-in value, which is why trading in a vehicle can meaningfully lower your total loan amount even before considering the trade-in credit itself.</p>
+<h2>Manufacturer rebates and incentives</h2>
+<p>Cash rebates from manufacturers reduce what you finance, but whether they also reduce your sales tax depends entirely on your state.</p>
+<ul>
+<li><strong>Rebate taxed on full price</strong> — most states calculate sales tax on the vehicle's price before the rebate is applied. A $2,000 rebate on a $40,000 car still means tax is charged on $40,000, not $38,000.</li>
+<li><strong>Rebate not taxed</strong> — a smaller group of states (including Arizona, Iowa, Kansas, Minnesota, Missouri, Nebraska, Texas, and Wyoming) tax the post-rebate price, so the rebate lowers your tax bill too.</li>
+</ul>
+<p>Trade-in credit is a separate question from rebate taxability — check your own state's rule for each before assuming this calculator's default trade-in tax treatment matches a rebate.</p>
+<p>To model a rebate here, subtract it from the vehicle price before entering it, then adjust the sales tax rate manually if your state taxes the pre-rebate amount.</p>
+<h2>A worked example</h2>
+<p>A $28,000 car with a $3,000 trade-in and $2,000 down, at 7% sales tax and 6.5% APR over 60 months (no dealer fees): taxable amount is $25,000 (price minus trade-in), sales tax is $1,750, and the amount financed is $28,000 minus $2,000 minus $3,000 plus $1,750, or $24,750.</p>
+<p>At 6.5% over 60 months, that works out to a monthly payment of about $484, with about $4,306 in total interest over the loan.</p>
+<h2>New vs. used car loan rates</h2>
+<p>New car loans typically carry lower interest rates than used car loans, since lenders view new vehicles as lower risk collateral. The gap can be a full percentage point or more, which matters on a multi-year loan.</p>
+<p>Loan term also affects total cost more than many buyers expect — stretching an auto loan to 72 or 84 months lowers the monthly payment but often means owing more than the car is worth for a significant stretch of the loan, a situation known as being 'underwater' on the loan. If you're weighing buying against leasing instead, compare the numbers with our <a href="/financial/lease-calculator.html">Lease Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Does trade-in value reduce sales tax?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In most US states, yes — sales tax is calculated on the price after subtracting your trade-in value, not the full vehicle price.</p></details>
+<details class="sx-faq"><summary>Should I include destination or dealer fees?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — enter them in the Dealer Fees, Title &amp; Documentation field (or add them to the vehicle price). They're typically rolled into the loan, so leaving them out understates the amount financed.</p></details>
+<details class="sx-faq"><summary>Is it better to lease or finance a car?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Financing builds equity and has no mileage limits, while leasing typically offers lower monthly payments but no ownership at the end — the right choice depends on how long you keep vehicles and how much you drive.</p></details>
+<details class="sx-faq"><summary>How much should my down payment be?<span aria-hidden="true" class="msym">expand_more</span></summary><p>20% is a common guideline for new cars and 10% for used, though any amount that avoids being 'underwater' (owing more than the car's worth) as it depreciates is reasonable.</p></details>
+<details class="sx-faq"><summary>Should I choose a shorter or longer auto loan term?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Shorter terms (36-48 months) minimize total interest and reduce the risk of owing more than the car is worth, while longer terms lower the monthly payment at a higher total cost.</p></details>
+<details class="sx-faq"><summary>Is it worth negotiating the vehicle price separately from financing?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — negotiating price and financing separately, rather than focusing only on the monthly payment, generally leads to a better overall deal since dealers can adjust either variable to hit a target monthly number.</p></details>
+<details class="sx-faq"><summary>Does a manufacturer rebate lower my sales tax too?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It depends on your state. Most states tax the vehicle's full pre-rebate price, so a rebate lowers your loan amount but not your tax bill. A handful of states (including Arizona, Iowa, Kansas, Minnesota, Missouri, Nebraska, Texas, and Wyoming) tax the post-rebate price instead — check your state's rule before assuming either way.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Automotive &amp; Financing Calculators</h2><p>Tools for total cost of ownership and debt restructuring.</p></div>
+<a href="/financial-calculators.html">View all 52 tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/lease-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">key</span></span><b>Car Lease Calculator</b><span class="d">Compute money factor, residual value depreciation, and acquisition costs for vehicle lease contracts.</span><span class="f">Lease vs Buy<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/car-affordability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>20/4/10 Rule Calculator</b><span class="d">Find a car budget based on 20% down, a 4-year term, and 10% of gross monthly income.</span><span class="f">Affordability Benchmark<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/guides/car-loan-refinance-calculator-guide.html"><span class="ic"><span aria-hidden="true" class="msym">published_with_changes</span></span><b>Auto Refinance Guide</b><span class="d">Work out net interest savings and break-even timelines when lowering your vehicle APR or changing the remaining term.</span><span class="f">Refi Analysis<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>General Loan Calculator</b><span class="d">Monthly payment and total interest for any fixed-rate installment loan.</span><span class="f">Universal Debt Tool<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/auto-loan-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -253,40 +220,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/auto-loan.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/auto-loan.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

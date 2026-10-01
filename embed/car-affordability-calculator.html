@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Car Affordability Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,bolt,calculate,calendar_month,cancel,car_repair,check_circle,chevron_right,description,directions_car,expand_more,file_download,key,local_gas_station,lock,pie_chart,restart_alt,share,task_alt,terminal,trending_down,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,83 +38,147 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Car Affordability Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="monthlyBudget">Monthly payment budget ($)</label>
-          <input type="number" id="monthlyBudget" value="450"
-step="25"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="downPayment">Down payment ($)</label>
-          <input type="number" id="downPayment" value="4000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="interestRate">Interest rate (%)</label>
-          <input type="number" id="interestRate" value="6.5"
-step="0.1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="loanTerm">Loan term (years)</label>
-          <input type="number" id="loanTerm" value="5"
-step="1"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated max car price</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Maximum loan amount</span><span id="outMaxLoan">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="affCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Car Affordability Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>20/4/10 Budget Model</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Zero Tracking</span><span class="sx-badge"><span aria-hidden="true" class="msym">terminal</span>Client-Side Computation</span></div>
+<h1>Car Affordability Calculator (20/4/10 Rule)</h1>
+<p>Determine the maximum vehicle purchase price your budget can sustainably support based on the 20/4/10 rule and debt-to-income benchmarks.</p>
 </div>
+<div class="sx-au-hbtns">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">file_download</span>Export Audit</button>
+<button data-action="share" type="button"><span aria-hidden="true" class="msym">share</span>Share</button>
+</div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Income &amp; Expense Parameters</h2><p>Enter your household cash flows</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset to Baseline</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-mode"><span>Income Mode</span><input id="incMode" type="hidden" value="month"/><div aria-label="Gross income entered as" class="sx-seg" role="group"><button data-for="incMode" data-value="month" type="button">Monthly Gross</button><button data-for="incMode" data-value="year" type="button">Annual Gross</button></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="gross" id="grossLbl">Monthly Gross Income</label><em class="mu" id="grossAlt">$78,000 / yr</em></div><div class="sx-au-in"><span class="pre">$</span><input id="gross" inputmode="decimal" min="0" step="100" type="number" value="6500"/></div></div>
+<div><div class="sx-au-l"><label for="net">Net Take-Home Pay</label><em class="mu">Monthly</em></div><div class="sx-au-in"><span class="pre">$</span><input id="net" inputmode="decimal" min="0" step="100" type="number" value="5000"/></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>10% Rule Anchor</span></div>
+<input id="anchor" type="hidden" value="net"/>
+<div aria-label="Apply the 10% limit to" class="sx-au-opts c2 rad" role="group"><button data-for="anchor" data-value="net" type="button"><i></i>Take-Home Pay</button><button data-for="anchor" data-value="gross" type="button"><i></i>Gross Income</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="down">Cash Available for Down Payment</label><em class="ok" id="downNote">Meets 20% Baseline</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="down" inputmode="decimal" min="0" step="500" type="number" value="8000"/></div>
+<p class="sx-au-help">Rule requirement: at least 20% cash down, to cushion the car's steep first-year depreciation.</p>
+</div>
+<div class="sx-au-box">
+<b><span aria-hidden="true" class="msym">local_gas_station</span>Monthly Ownership Overhead (Estimated)</b>
+<div class="sx-au-g2" style="gap:12px">
+<div><label class="sub" for="ins">Auto Insurance</label><div class="sx-au-in sm"><span class="pre">$</span><input id="ins" inputmode="decimal" min="0" step="10" type="number" value="160"/></div></div>
+<div><label class="sub" for="ops">Fuel / Energy / Maint.</label><div class="sx-au-in sm"><span class="pre">$</span><input id="ops" inputmode="decimal" min="0" step="10" type="number" value="140"/></div></div>
+</div>
+</div>
+<div>
+<div class="sx-au-l"><label for="debts">Existing Monthly Debt Obligations</label><em class="mu" id="dtiNote"></em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="debts" inputmode="decimal" min="0" step="25" type="number" value="450"/></div>
+<p class="sx-au-help">Student loans, minimum credit card amounts, personal financing.</p>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="term">Loan Duration</label><em class="mu">20/4/10 Cap</em></div><div class="sx-au-sel"><select id="term"><option value="36">36 Months (Conservative)</option><option selected="" value="48">48 Months (Strict 4-Year)</option><option value="60">60 Months (Beyond 20/4/10)</option><option value="72">72 Months (Long Term)</option></select></div></div>
+<div><div class="sx-au-l"><label for="apr">Expected Interest APR (%)</label></div><div class="sx-au-in np pc"><input id="apr" inputmode="decimal" max="36" min="0" step="0.1" type="number" value="6.5"/><span class="suf">%</span></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Sustainable Vehicle Price</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-au-max">
+<div class="hd"><span class="sx-kick">Maximum Sustainable Purchase Price</span><div class="rt"><span class="sx-au-st8" id="status">Status: Prudent</span><br/><span id="loanCost">Total Loan Cost: —</span></div></div>
+<div class="big" id="resultValue">—</div>
+<p class="bs" id="basis">—</p>
+<div class="sx-au-ceil">
+<div class="r"><span><span aria-hidden="true" class="msym">pie_chart</span><span id="ceilLbl">Max Total Transportation Ceiling (10% Take-Home)</span></span><b><span id="ceil">—</span> <small>/ month</small></b></div>
+<div class="bar"><span id="barLoan" style="background:var(--sx-pc)"></span><span id="barOps" style="background:var(--sx-fixed)"></span></div>
+<div class="lg"><span><i style="background:var(--sx-pc)"></i>Max Auto Loan Payment:<b id="loanPay">—</b></span><span><i style="background:var(--sx-fixed)"></i>Allocated Insurance &amp; Ops:<b id="opsPay">—</b></span></div>
+</div>
+</section>
+<section class="sx-card r2 sx-au-audit">
+<h3><span aria-hidden="true" class="msym">task_alt</span>20/4/10 Rule Compliance Audit</h3>
+<ul>
+<li id="a1"><span aria-hidden="true" class="msym">check_circle</span><div><div class="t">20% Minimum Down Payment<em>PASSED</em></div><p id="a1t">—</p></div></li>
+<li id="a2"><span aria-hidden="true" class="msym">check_circle</span><div><div class="t"><span id="a2h">4-Year Maximum Loan Duration (48 Months)</span><em>PASSED</em></div><p id="a2t">—</p></div></li>
+<li id="a3"><span aria-hidden="true" class="msym">check_circle</span><div><div class="t"><span id="a3h">10% Take-Home Allocation Limit</span><em>PASSED</em></div><p id="a3t">—</p></div></li>
+</ul>
+</section>
+<div class="sx-au-tiers" id="tiers">
+<div><span>Conservative (8%)</span><b id="t8">—</b><p id="t8t">—</p></div>
+<div class="on"><span>Target (10% 20/4/10)</span><b id="t10">—</b><p id="t10t">—</p></div>
+<div class="hi"><span>Aggressive (12%)</span><b id="t12">—</b><p id="t12t">—</p></div>
+</div>
+<div class="sx-au-acts c2 lo">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">description</span>Download Affordability Sheet</button>
+<a href="/financial/auto-loan-calculator.html" id="loanLink"><span aria-hidden="true" class="msym">calendar_month</span>View Auto Loan Schedule</a>
+</div>
+</div>
+</div>
+<section class="sx-au-plain cp-hide">
+<h2>The 20/4/10 Rule of Auto Financing Explained</h2>
+<p class="lead">A widely used personal-finance guideline that keeps a car — a depreciating asset — from crowding out saving and investing.</p>
+<div class="sx-au-rules">
+<div><span class="n">20%</span><h3>Down Payment Barrier</h3><p>New cars often lose around 20% of their value in the first year. Putting at least 20% down helps keep you from going into <em>negative equity</em> ("underwater"), where you owe more than the car is worth.</p></div>
+<div><span class="n">4 Yrs</span><h3>48-Month Maximum Loan</h3><p>72- and 84-month terms make expensive cars look affordable through small installments. Capping the loan at 48 months limits total interest and usually clears the debt while the car is still under a typical factory warranty.</p></div>
+<div><span class="n">10%</span><h3>Total Cost of Ownership</h3><p>Affordability is not just the loan payment. The 10% ceiling here covers the payment plus insurance, fuel or charging, and routine maintenance. Some versions of the rule apply it to gross income; switch the rule anchor above to compare.</p></div>
+</div>
+</section>
+<section class="sx-au-plain cp-hide">
+<div class="relh2"><div><h2 style="margin:0;font-family:var(--font-display);font-size:30px;line-height:38px;font-weight:600;color:var(--sx-on)">Price Bands Across Vehicle Classes</h2><p class="lead">Typical new-car price bands, with an estimated loan payment on your down payment, rate and term.</p></div><small>Illustrative MSRP bands</small></div>
+<div class="sx-au-bands" id="bands">
+<div data-hi="28000" data-lo="22000"><span class="tag">Your Match</span><div class="k">Entry-Level<em>Conservative Tier</em></div><h3>Economy Sedan</h3><div class="p">$22,000 – $28,000</div><p>Compact sedans and hatchbacks. Strong fuel economy and typically lower insurance costs.</p><div class="f"><span class="est">Est. Loan: —</span><span aria-hidden="true" class="msym">directions_car</span></div></div>
+<div data-hi="36000" data-lo="28000"><span class="tag">Your Match</span><div class="k">Utility Crossover<em class="st">Mid Tier</em></div><h3>Compact SUV</h3><div class="p">$28,000 – $36,000</div><p>Balances safety, cargo space and generally robust resale values.</p><div class="f"><span class="est">Est. Loan: —</span><span aria-hidden="true" class="msym">check_circle</span></div></div>
+<div data-hi="48000" data-lo="36000"><span class="tag">Your Match</span><div class="k">Battery Electric<em class="st">Stretch Tier</em></div><h3>Electric Vehicle</h3><div class="p">$36,000 – $48,000</div><p>Lower fuel and maintenance costs, often offset by a higher sticker price and insurance.</p><div class="f"><span class="est">Est. Loan: —</span><span aria-hidden="true" class="msym">bolt</span></div></div>
+<div data-hi="65000" data-lo="48000"><span class="tag">Your Match</span><div class="k">Premium Tier<em class="bad">Premium</em></div><h3>Luxury Crossover</h3><div class="p">$48,000 – $65,000+</div><p>Higher prices, insurance and maintenance usually need a larger income and down payment.</p><div class="f"><span class="est">Est. Loan: —</span><span aria-hidden="true" class="msym">warning</span></div></div>
+<p class="note">Bands are rough guides; actual prices vary by model, trim, region and incentives. "Your Match" marks the band containing your maximum price.</p>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>Your monthly transportation ceiling is 10% of take-home pay (or gross income, if you switch the anchor). Insurance and running costs are subtracted to leave the maximum loan payment, which is converted to a maximum loan amount with the standard fixed-rate loan formula at your APR and term. Adding your down payment gives the maximum price — capped so the down payment is still at least 20% of the price. Sales tax and dealer fees are not included, so leave room for them.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Setting your monthly budget realistically</h2>
+<p>A common guideline suggests keeping total vehicle costs (payment, insurance, fuel, and maintenance combined) under about 15-20% of take-home pay — meaning your loan payment alone should typically be less than that full percentage, since insurance and fuel add meaningfully on top. The stricter 20/4/10 rule used above caps total costs at 10%.</p>
+<p>It's worth budgeting for these additional costs before deciding your maximum monthly payment — a car that's affordable on payment alone can still strain a budget once insurance, fuel, and maintenance are factored in, especially for newer or higher-performance vehicles.</p>
+<h2>How loan term affects what you can afford</h2>
+<p>A longer loan term lowers the monthly payment for the same total loan amount, which can make a more expensive car appear 'affordable' — but it also means paying more in total interest and staying in debt longer, sometimes longer than the car's useful life or warranty coverage.</p>
+<p>It's worth running this calculator with a couple of different term lengths to see the trade-off directly — a shorter term with a smaller max car price is often the more financially conservative choice, even if it means buying a less expensive vehicle.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Should my monthly payment be my only car budget consideration?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No — insurance, fuel, and maintenance add meaningfully on top of the loan payment. A common guideline suggests keeping total vehicle costs under roughly 15-20% of take-home pay, not just the loan payment alone.</p></details>
+<details class="sx-faq"><summary>Does a longer loan term let me afford a more expensive car?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It lowers the monthly payment for the same loan amount, which can make a pricier car fit your budget on paper, but it also increases total interest paid and extends how long you're in debt — worth weighing against the immediate affordability benefit.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Precision Calculators</h2><p>Cross-reference debt capacity and asset planning.</p></div>
+<a href="/financial-calculators.html">View all 52 tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/auto-loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">car_repair</span></span><b>Auto Loan Calculator</b><span class="d">Monthly payments, total interest and an amortization schedule for your car loan.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/lease-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">key</span></span><b>Car Lease Calculator</b><span class="d">Compute money factor, residual depreciation, and lease vs buy costs.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>50/30/20 Budget Calculator</b><span class="d">Benchmark essential living needs against discretionary spending and savings targets.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_down</span></span><b>Debt Payoff Calculator</b><span class="d">Avalanche vs snowball schedules to free up cash flow for transportation.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/car-affordability-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -241,40 +187,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/car-affordability.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/car-affordability.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
