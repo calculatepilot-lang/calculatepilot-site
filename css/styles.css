@@ -166,3 +166,13 @@ html.cp-dark .lang-menu a{color:var(--ink)}
 html.cp-dark .lang-menu a:hover,html.cp-dark .lang-menu a[aria-current="true"],html.cp-dark .footer-langs a:hover,html.cp-dark .footer-langs a[aria-current="true"]{background:var(--signal-soft)!important;color:var(--signal-dark)!important}
 /* header and footer follow the width of the redesigned (.sx) calculator pages so the logo lines up with the content */
 body:has(main .sx) .site-header .container,body:has(main .sx) .site-footer .container{max-width:1280px}
+/* dark mode: white text on the bright mint accent was unreadable; use the deeper green for filled controls and hero panels */
+html.cp-dark .sx :is(.sx-cta,.sx-cta.big,.sx-cta.pc,.sx-cta.dk,.sx-au-cta,.sx-hy-hero,.sx-vt-gross,.act,a.pri,.rib,.sx-an-ph.p,.sx-dp-tag.done,.corner,.flag,.sx-sg-st.done,a.on,.b.z,.tg,.tag,.sx-bc-btn.eq,.sx-cd-mode a.on,.sx-fr-hero .corner,.sx-sc-card .rib,.sx-ur-card .rib,.sx-rel3:hover .ic,.sx-ef-tiers li.on .ic,.sx-in-assets li.win .ic){background:#1A7A5E!important;color:#fff}
+html.cp-dark .sx button[aria-pressed="true"]:not(.sx-toggle){background:#1A7A5E;color:#fff}
+html.cp-dark .sx .sx-hy-hero :is(p,b,div,span,small,em){color:#fff}
+html.cp-dark .sx td.mt{color:#5FE0AF}
+html.cp-dark .sx :is(.sx-hy-hero,.sx-vt-gross,.act,a.pri,.rib,.sx-an-ph.p,.sx-dp-tag.done,.corner,.flag,.sx-sg-st.done,a.on,.b.z,.tg,.tag,.sx-cd-mode a.on){color:#fff}
+html.cp-dark .sx :is(.sx-hy-hero,.sx-vt-gross,.act,a.pri,.rib,.sx-an-ph.p,.sx-dp-tag.done,.corner,.flag,.sx-sg-st.done,a.on,.b.z,.tg,.tag) :is(span,small,em,p,b,i,div){color:#fff!important}
+html.cp-dark .sx :is(.sx-bt td.r2,.sx-au-l em.warn,.sx-au-warn .msym,.sx-au-audit li.warn .t em,.sx-dt-two b.mid,.sx-dt-two span.s.mid){color:#F5B14C}
+html.cp-dark .sx :is(.sx-au-grade.hi,.sx-au-st8.bad,.sx-ef-grade.hi){background:#3A1D1D;border-color:#7F3A3A;color:#F5A9A4}
+html.cp-dark .sx :is(.sx-ef-store>div.no,.sx-ry-cf.neg){background:#2E1B1B;border-color:#7F3A3A}

@@ -4,9 +4,11 @@ Tokenizes JS (strings, template literals without ${}, comments, regex literals) 
 A literal is translatable if it looks like human text (letters + a space, or a capitalised word) and is not
 used as a key/comparison/selector. Replacement keeps original quotes and surrounding whitespace.
 """
-import re
+import re, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seg
 
-LETTERS = re.compile(r"[A-Za-zÀ-ɏ]")
+LETTERS = re.compile(r"[A-Za-zÀ-ÖØ-öø-ɏ]")
 SELECTORISH = re.compile(r"^[#.\[][\w\-\[\]=\"'.# >:,*]*$")
 IDISH = re.compile(r"^[a-z][a-zA-Z0-9_\-:.]*$")
 CODEWORDS = re.compile(r"^(?:function|return|true|false|null|undefined|number|string|object|input|change|click|submit|div|span|tr|td|th|tbody|thead|table|button|option|select|checked|disabled|hidden|value|text|none|block|flex|grid|auto|px|em|rem|%|en-US|de-DE|fr-FR|es-ES|USD|EUR|GBP|Content-Type)$")
@@ -106,8 +108,22 @@ def context_ok(src, start, end):
     return True
 
 
+def strip_markup(v):
+    t = re.sub(r"<[^>]*>", "", v)
+    t = re.sub(r"<[^>]*$", "", t)
+    if ">" in t and "<" not in t[: t.index(">")]:
+        t = t[t.index(">") + 1:]
+    return t
+
+
+CSSISH = re.compile(r"(?:\d\s*px|var\(--|rgba?\(|#[0-9a-fA-F]{3,6}|solid|flex|grid|!important|calc\()")
+
+
 def is_text(v):
-    if not LETTERS.search(re.sub(r"<[^>]+>", "", v)):
+    t = strip_markup(v)
+    if not LETTERS.search(t):
+        return False
+    if CSSISH.search(t):
         return False
     s = v.strip()
     if not s or CODEWORDS.match(s):
@@ -123,8 +139,9 @@ def is_text(v):
     if re.match(r"^[a-z]+(-[a-z]+)+$", s):  # kebab-case ids / css classes
         return False
     if " " not in s and not re.match(r"^[A-ZÀ-Þ][a-zß-ɏ]{2,}[.,!:;)?]*$", s) and "<" not in s:
-        # single token: only capitalised words
-        return False
+        # single token: capitalised words, or a word fragment padded with spaces (' diner', ' selected')
+        if not (v != s and re.match(r"^[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ'-]{2,}[.,!:;)?]*$", s)):
+            return False
     if re.match(r"^[\w\-\s]+$", s) and re.search(r"\b(px|rem|em|flex|grid|block|none)\b", s) and len(s.split()) <= 3:
         return False
     return True
@@ -173,10 +190,13 @@ def apply(src, tr, on_missing=None):
         lead = val[:len(val) - len(val.lstrip())]
         trail = val[len(val.rstrip()):]
         core = val.strip()
-        t = tr(core)
+        key, tags = seg.bare(core) if "<" in core else (core, [])
+        t = tr(key)
+        if t is not None and tags:
+            t = seg.restore(t, tags)
         if t is None:
             if on_missing:
-                on_missing(core)
+                on_missing(key)
             out.append(src[L["start"]:L["end"]])
         else:
             out.append(q + escape_js(lead + t + trail, q) + q)
