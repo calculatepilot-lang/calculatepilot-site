@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modulo Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,check_circle,chevron_right,code,content_copy,event,expand_more,exposure_neg_1,exposure_plus_1,lightbulb,link,lock,person_check,picture_as_pdf,restart_alt,sync_alt,tag,tune,verified,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,126 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Modulo Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="dividend">Dividend (a)</label>
-          <input type="number" id="dividend" value="17"
-step="1">
-        </div>
-        <div class="field">
-          <label for="divisor">Divisor (b)</label>
-          <input type="number" id="divisor" value="5"
-step="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Remainder (a mod b)</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Mathematical modulo (always ≥ 0)</span><span id="outMathModulo">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="mdCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Modulo Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact BigInt arithmetic</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Modulo Calculator</h1>
+<p>Compute a mod n with the correct sign for negative numbers, check a congruence a ≡ b (mod n), find a modular inverse, or compute a large modular exponentiation aᵇ mod n exactly — every step shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every worked example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">sync_alt</span><section><b>How the engine works</b><p>Modulo uses exact BigInt division; the modular inverse uses the extended Euclidean algorithm; exponentiation uses fast (binary) modular exponentiation, so even huge exponents stay exact and fast.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Programming languages disagree on the sign of a % b for negative numbers — this shows both conventions side by side.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">a mod n</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">a mod n</button><button data-for="mode" data-value="s2" type="button">Congruence a ≡ b</button><button data-for="mode" data-value="s3" type="button">Modular inverse</button><button data-for="mode" data-value="s4" type="button">Modular power aᵇ</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-a="-7" data-m="s1" data-n="3" type="button">−7 mod 3</button><button data-a="17" data-b="5" data-m="s2" data-n="6" type="button">17 ≡ 5 (mod 6)?</button><button data-a="3" data-m="s3" data-n="11" type="button">3⁻¹ mod 11</button><button data-a="7" data-b="128" data-m="s4" data-n="13" type="button">7^128 mod 13</button></div>
+<div><div class="sx-au-l"><label for="a">a</label></div><div class="sx-au-in np"><input autocomplete="off" id="a" inputmode="numeric" type="text" value="-7"/></div></div>
+<div hidden="" id="fB"><div class="sx-au-l"><label for="b" id="bL">b</label></div><div class="sx-au-in np"><input autocomplete="off" id="b" inputmode="numeric" type="text" value="128"/></div></div>
+<div><div class="sx-au-l"><label for="n" id="nL">n (modulus)</label></div><div class="sx-au-in np"><input autocomplete="off" id="n" inputmode="numeric" type="text" value="3"/></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compute</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Expression</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">a mod n</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:30px;line-height:1.2;word-break:break-word"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Truncated remainder</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Quotient</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2>Where a lands on the number line mod n</h2><p>Every multiple of n is marked; a wraps to its residue in [0, n).</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Number line showing a wrapping to its residue modulo n" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Floored vs. truncated modulo</h2><p>Languages disagree on the sign of the result when a is negative.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:640px">
+<thead><tr><th scope="col">Convention</th><th scope="col">Formula</th><th scope="col">−7 mod 3</th><th scope="col">Used by</th></tr></thead>
+<tbody>
+<tr><td>Floored (this calculator's default)</td><td class="mono">a − n·⌊a/n⌋</td><td class="mono">2</td><td style="font-family:inherit">Python <code>%</code>, mathematics</td></tr>
+<tr><td>Truncated</td><td class="mono">a − n·trunc(a/n)</td><td class="mono">−1</td><td style="font-family:inherit">C, Java, JavaScript <code>%</code></td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">exposure_neg_1</span><h3>Negative dividend</h3><p>What is −7 mod 3?</p><div class="sx-mt-ex">−7 = 3 × (−3) + 2<br/><b>−7 mod 3 = 2</b> (floored)</div></div>
+<div><span aria-hidden="true" class="msym">check_circle</span><h3>Congruence</h3><p>Is 17 ≡ 5 (mod 6)?</p><div class="sx-mt-ex">17 mod 6 = 5, and 5 mod 6 = 5<br/><b>Yes — both sides give the same remainder</b></div></div>
+<div><span aria-hidden="true" class="msym">bolt</span><h3>Modular inverse</h3><p>Find 3⁻¹ mod 11.</p><div class="sx-mt-ex">3 × 4 = 12 ≡ 1 (mod 11)<br/><b>3⁻¹ ≡ 4 (mod 11)</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Key definitions</h2>
+<ul>
+<li><strong>Modulo:</strong> a mod n is the remainder left after dividing a by n, with 0 ≤ (a mod n) &lt; n for n &gt; 0 under the floored convention.</li>
+<li><strong>Congruence:</strong> a ≡ b (mod n) means n divides (a − b) exactly — a and b leave the same remainder.</li>
+<li><strong>Modular inverse:</strong> a⁻¹ mod n is the value x with a·x ≡ 1 (mod n); it exists exactly when gcd(a, n) = 1.</li>
+<li><strong>Modular exponentiation:</strong> aᵇ mod n, computed by repeated squaring so it stays fast even for huge b.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Gauss, C. F. (1801). <i>Disquisitiones Arithmeticae</i>, Article 1 (the definition of congruence).</li>
+<li>Knuth, D. E. (1997). <i>The Art of Computer Programming, Vol. 2</i> (3rd ed.), section 4.5.2 (the Euclidean algorithm and modular inverses).</li>
+<li>ISO/IEC 80000-2:2019, clause 9 (the floor function and integer division).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why is −7 mod 3 equal to 2, not −1?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Under the mathematical (floored) convention, the result of a mod n always has the same sign as n (here positive), so it stays in [0, n). −7 = 3 × (−3) + 2, giving remainder 2. Some programming languages instead truncate toward zero, giving −1 — this calculator shows both.</p></details>
+<details class="sx-faq"><summary>When does a modular inverse not exist?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Exactly when gcd(a, n) ≠ 1 — that is, a and n share a common factor. For example, 4 has no inverse mod 8, since gcd(4, 8) = 4.</p></details>
+<details class="sx-faq"><summary>How is aᵇ mod n computed for a huge exponent b?<span aria-hidden="true" class="msym">expand_more</span></summary><p>By fast (binary) exponentiation: repeatedly squaring a mod n and multiplying in the factors corresponding to the binary digits of b, taking the modulus at every step. This needs only about log₂(b) multiplications, so even a 1000-digit exponent computes instantly.</p></details>
+<details class="sx-faq"><summary>What is the modulo operation used for?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Clock and calendar arithmetic, hash tables, checksums, cryptography (RSA relies on modular exponentiation), pseudo-random number generators, and cycling through array indices.</p></details>
+<details class="sx-faq"><summary>Is a mod 0 defined?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No — division by zero is undefined, so a mod 0 has no value. This calculator flags it as an error rather than returning a result.</p></details>
+<details class="sx-faq"><summary>How is congruence different from equality?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Equality means two numbers are identical. Congruence mod n is weaker: it only requires them to leave the same remainder when divided by n, so infinitely many numbers (…, b−n, b, b+n, b+2n, …) are all congruent to b.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with number theory.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/gcd-lcm-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">calculate</span></span><b>GCD &amp; LCM Calculator</b><span class="d">Euclidean algorithm, Bézout.</span><span class="f">Integers<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/prime-number-checker.html"><span class="ic"><span aria-hidden="true" class="msym">verified</span></span><b>Prime Number Checker</b><span class="d">Primality and factorization.</span><span class="f">Primes<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/binary-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">tag</span></span><b>Binary Calculator</b><span class="d">Bitwise ops and two's complement.</span><span class="f">Base 2<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/factorial-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">exposure_plus_1</span></span><b>Factorial Calculator</b><span class="d">n!, double and Gamma.</span><span class="f">Factorials<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Modulo Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/modulo-calculator.html" width="100%" height="560" loading="lazy" title="Modulo Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/modulo-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +166,8 @@ step="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/modulo.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/modulo.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Love Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,cake,casino,celebration,chat,chevron_right,code,content_copy,event,expand_more,favorite,functions,info,lightbulb,link,local_fire_department,lock,person_check,picture_as_pdf,restart_alt,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,45 +38,58 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Love Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="name1">Your name</label>
-          <input type="text" id="name1" value="Alex"
->
-        </div>
-        <div class="field">
-          <label for="name2">Their name</label>
-          <input type="text" id="name2" value="Sam"
->
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Compatibility score</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="lvCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Love Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">favorite</span>Name game and love languages</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Love Calculator: Name Match, FLAMES &amp; Love Languages</h1><p>A playful love calculator. Enter two names for a love percentage or a FLAMES result, or pick each partner's love language for ideas on showing care. It is a game for fun, not a real measure of compatibility.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>The percentage and FLAMES use the letters in the names with a fixed rule, so the same names always give the same result. There is no science behind the score.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>People love these games and often ask how they work. This shows the working, and adds something practical: the love languages tips.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">favorite</span><h2 class="sx-h-md" style="margin:0">Two people</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Choose a game</label></div><input id="mode" type="hidden" value="love"/><div aria-label="Game" class="sx-seg full" role="group"><button data-for="mode" data-value="love" type="button">Love percentage</button><button data-for="mode" data-value="flames" type="button">FLAMES</button><button data-for="mode" data-value="lang" type="button">Love languages</button></div></div>
+<div class="sx-au-stack" id="gNames">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="n1">First name</label></div><div class="sx-au-in sm np"><input autocomplete="off" id="n1" maxlength="40" type="text" value="Emma"/></div></div><div><div class="sx-au-l"><label for="n2">Second name</label></div><div class="sx-au-in sm np"><input autocomplete="off" id="n2" maxlength="40" type="text" value="Noah"/></div></div></div>
+<p class="sx-au-note" style="text-align:left;margin:0;font-size:12px">Only letters are counted. The same two names always give the same answer.</p>
 </div>
+<div class="sx-au-stack" hidden="" id="gLang">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="l1">Partner 1, main love language</label></div><select class="sx-mt-sel" id="l1"><option selected="" value="words">Words of affirmation</option><option value="time">Quality time</option><option value="acts">Acts of service</option><option value="touch">Physical touch</option><option value="gifts">Receiving gifts</option></select></div><div><div class="sx-au-l"><label for="l2">Partner 2, main love language</label></div><select class="sx-mt-sel" id="l2"><option value="words">Words of affirmation</option><option selected="" value="time">Quality time</option><option value="acts">Acts of service</option><option value="touch">Physical touch</option><option value="gifts">Receiving gifts</option></select></div></div>
+<p class="sx-au-note" style="text-align:left;margin:0;font-size:12px">The five love languages are a popular way to talk about how people like to give and receive care. Research support for matching them is limited, so use this as a conversation starter.</p>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">favorite</span>Calculate</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Love percentage</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:8px"><span id="wkH">How it was worked out</span></div><p class="sx-au-note" id="wk" style="text-align:left;margin:0;font-size:13px;line-height:22px;word-break:break-word">—</p></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">info</span>Just for fun</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">This is an entertainment game based on letters in names. It cannot measure or predict a real relationship.</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>What actually matters in a relationship</h2><p>No name game or quiz can predict how a relationship will go. Research on couples points to a few everyday habits that matter far more.</p></div></div>
+<div class="sx-mt-3">
+<div><h3>How you handle conflict</h3><p>Couples who raise problems gently, listen, and repair after arguments tend to be more satisfied than couples who avoid conflict or attack each other.</p></div>
+<div><h3>Kindness and appreciation</h3><p>Small, regular expressions of interest and thanks build trust. Contempt and constant criticism do the opposite.</p></div>
+<div><h3>Shared goals and values</h3><p>Agreeing on big things, such as money, children and where to live, matters more than sharing every hobby.</p></div>
+</div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">favorite</span></div><h3>Love percentage</h3><p>Count how many times the letters L, O, V, E and S appear in the first name, the word "loves" and the second name. Add neighbouring digits, splitting any two-digit sum into digits, until two digits remain.</p><code>e.g. counts 2 1 1 2 2 → 3 2 3 4 → 5 5 7 → 10 12 → 24</code></div><div><div class="ic"><span aria-hidden="true" class="msym">local_fire_department</span></div><h3>FLAMES</h3><p>Cross out letters the two names share. Count the letters left, then use that number to knock out letters of F L A M E S in turn. The last one standing is the result.</p><code>F Friends · L Love · A Affection · M Marriage · E Enemies · S Siblings</code></div><div><div class="ic"><span aria-hidden="true" class="msym">chat</span></div><h3>Love languages</h3><p>Each language has a different way to show care. The tips pair one person's way of giving with the other's way of receiving.</p><code>words · time · acts · touch · gifts</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Emma and Noah</h3><p>The default names.</p><div class="sx-mt-ex">counts of L, O, V, E, S: 1 2 1 2 1 → 3 3 3 3 → 6 6 6 → 1 2 1 2 → 3 3 3 → 6 6 = <b>66%</b><br/>FLAMES leaves 6 letters, giving <b>M for Marriage</b></div></div><div><h3>Anna and Ben</h3><p>A second pair.</p><div class="sx-mt-ex">reduces to <b>12%</b><br/>FLAMES leaves 5 letters, giving <b>F for Friends</b></div></div><div><h3>Same love language</h3><p>Both partners choose quality time.</p><div class="sx-mt-ex">the tip is to protect time together and keep it free of phones</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to use the love calculator</h2><ul><li>Choose Love percentage, FLAMES or Love languages.</li><li>Enter two names, or pick each person's love language.</li><li>Read the result and the working.</li><li>Share it for fun, and remember it is only a game.</li></ul><p>Entertainment only. A name game cannot tell you whether a relationship will work. If you are worried about a relationship, talk to your partner or a qualified counsellor.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>Gottman, J. &amp; Silver, N., <i>The Seven Principles for Making Marriage Work</i>, Harmony Books, 1999.</li><li>Chapman, G., <i>The 5 Love Languages</i>, Northfield Publishing, 1992.</li><li>Bunt, S. &amp; Hazelwood, Z., <i>Walking the walk, talking the talk: Love languages, self-regulation, and relationship satisfaction</i>, Personal Relationships, 2017.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>Is the love calculator accurate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. It is a game that counts letters in names. It has no scientific basis and cannot predict a relationship.</p></details><details class="sx-faq"><summary>How is the love percentage worked out?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It counts the letters L, O, V, E and S across the two names and the word "loves", then keeps adding neighbouring digits until two digits are left.</p></details><details class="sx-faq"><summary>What is FLAMES?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A paper-and-pencil game. Cancel the letters the two names share, count what is left, and use the count to remove letters from F L A M E S until one remains: Friends, Love, Affection, Marriage, Enemies or Siblings.</p></details><details class="sx-faq"><summary>What are the five love languages?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Words of affirmation, quality time, acts of service, physical touch and receiving gifts. The idea comes from Gary Chapman. Studies have found limited evidence that matching them predicts satisfaction.</p></details><details class="sx-faq"><summary>What really predicts a happy relationship?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Research points to how couples handle disagreements, kindness and appreciation in daily life, and shared long-term goals.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">cake</span></span><b>Age Calculator</b><span class="d">Exact age.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">event</span></span><b>Date Calculator</b><span class="d">Days between dates, anniversaries.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/wedding-budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">celebration</span></span><b>Wedding Budget</b><span class="d">Plan wedding costs.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/dice-roller.html"><span class="ic"><span aria-hidden="true" class="msym">casino</span></span><b>Dice Roller</b><span class="d">Roll dice online.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Love Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/love-calculator.html" width="100%" height="560" loading="lazy" title="Love Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/love-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -203,7 +98,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/love.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/love.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

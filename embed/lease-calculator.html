@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Car Lease Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,account_balance_wallet,arrow_forward,balance,build,chevron_right,compare_arrows,credit_card,directions_car,expand_more,functions,insights,payments,percent,picture_as_pdf,query_stats,restart_alt,savings,share,speed,terminal,thumb_down,thumb_up,thumbs_up_down,trending_down,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,90 +38,179 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Car Lease Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="vehiclePrice">Vehicle price / cap cost ($)</label>
-          <input type="number" id="vehiclePrice" value="35000"
-step="500"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="downPayment">Down payment / cap reduction ($)</label>
-          <input type="number" id="downPayment" value="3000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="residualPercent">Residual value (%)</label>
-          <input type="number" id="residualPercent" value="55"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="termMonths">Lease term (months)</label>
-          <input type="number" id="termMonths" value="36"
-step="1"min="1">
-        </div>
-        <div class="field">
-          <label for="apr">APR / interest rate (%)</label>
-          <input type="number" id="apr" value="5"
-step="0.1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Monthly lease payment</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Depreciation fee (monthly)</span><span id="outDepreciation">—</span></div>
-        <div class="embed-row"><span>Finance fee (monthly)</span><span id="outFinanceFee">—</span></div>
-        <div class="embed-row"><span>Residual value</span><span id="outResidualValue">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="leaseCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Car Lease Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Dealer Lease Transparency Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>Client-Side Precision</span></div>
+<h1>Car Lease Calculator</h1>
+<p>Deconstruct monthly lease payments into depreciation fee, finance rent charge, money factor conversion, and acquisition costs.</p>
 </div>
+<div class="sx-au-hbtns">
+<button data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset Defaults</button>
+<button data-action="share" type="button"><span aria-hidden="true" class="msym">share</span>Share Calculation</button>
+</div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Lease Deal Parameters</h2><p>Enter Window Sticker, Capitalized Costs, and Finance Factors</p></div></div>
+<span class="sx-au-tag">Money-Factor Method</span>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="msrp">MSRP / Sticker Price</label><em class="mu">Total Base Monroney</em></div><div class="sx-au-in"><span class="pre">$</span><input id="msrp" inputmode="decimal" min="0" step="500" type="number" value="48000"/></div></div>
+<div><div class="sx-au-l"><label for="price">Negotiated Selling Price</label><em id="discNote">7.29% Dealer Discount</em></div><div class="sx-au-in"><span class="pre">$</span><input id="price" inputmode="decimal" min="0" step="500" type="number" value="44500"/></div></div>
+</div>
+<div class="sx-au-g2">
+<div>
+<div class="sx-au-l"><label for="resRange">Residual Value</label><em id="resNote">56.0% <small>($26,880)</small></em></div>
+<input id="resPct" type="hidden" value="56"/>
+<div class="sx-au-range"><input aria-label="Residual value, percent of MSRP" class="sx-range2" data-sync="resPct" id="resRange" max="75" min="40" step="0.5" type="range" value="56"/></div>
+<div class="sx-au-range"><div class="sx-scale"><span id="resLo">40% ($19.2k)</span><b>56% Standard</b><span id="resHi">75% ($36.0k)</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Lease Term (Duration)</span></div>
+<input id="term" type="hidden" value="36"/>
+<div aria-label="Lease term" class="sx-au-opts" role="group"><button data-for="term" data-value="24" type="button">24 Mo</button><button data-for="term" data-value="36" type="button">36 Mo</button><button data-for="term" data-value="39" type="button">39 Mo</button><button data-for="term" data-value="48" type="button">48 Mo</button></div>
+</div>
+</div>
+<div class="sx-au-mf">
+<div class="h"><b><span aria-hidden="true" class="msym">percent</span>Money Factor (Lease Factor) &amp; APR Equivalence</b><span>Standard 2,400 Formula Constant</span></div>
+<div class="sx-au-g2" style="gap:12px">
+<div><label class="sub" for="mf">Money Factor (Decimal)</label><div class="sx-au-in np"><input id="mf" inputmode="decimal" max="0.02" min="0" step="0.00005" type="number" value="0.00225"/></div></div>
+<div><span class="sub">Equivalent Annual APR</span><div aria-live="polite" class="sx-au-apr"><b id="aprOut">5.40%</b><span id="aprEq">= 0.00225 × 2400</span></div></div>
+</div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="down">Cap Reduction / Down Payment</label></div><div class="sx-au-in"><span class="pre">$</span><input id="down" inputmode="decimal" min="0" step="250" type="number" value="2500"/></div></div>
+<div><div class="sx-au-l"><label for="rebate">Manufacturer Rebates &amp; EV Credits</label></div><div class="sx-au-in"><span class="pre">$</span><input id="rebate" inputmode="decimal" min="0" step="250" type="number" value="1000"/></div></div>
+</div>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="acq">Acquisition Fee</label></div><div class="sx-au-in sm"><span class="pre">$</span><input id="acq" inputmode="decimal" min="0" step="25" type="number" value="895"/></div></div>
+<div><div class="sx-au-l"><label for="disp">Disposition Fee</label></div><div class="sx-au-in sm"><span class="pre">$</span><input id="disp" inputmode="decimal" min="0" step="25" type="number" value="395"/></div></div>
+<div><div class="sx-au-l"><label for="tax">Sales Tax Rate (%)</label></div><div class="sx-au-in sm np pc"><input id="tax" inputmode="decimal" max="20" min="0" step="0.25" type="number" value="8.00"/><span class="suf">%</span></div></div>
+</div>
+<div class="sx-au-g2">
+<div>
+<div class="sx-au-l"><span>Annual Mileage Tier</span></div>
+<input id="miles" type="hidden" value="12000"/>
+<div aria-label="Annual mileage allowance" class="sx-au-opts c3" role="group"><button data-for="miles" data-value="10000" type="button">10,000 mi</button><button data-for="miles" data-value="12000" type="button">12,000 mi</button><button data-for="miles" data-value="15000" type="button">15,000 mi</button></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Tax Application Mode</span></div>
+<input id="taxMode" type="hidden" value="monthly"/>
+<div aria-label="How sales tax is charged" class="sx-au-opts c2 rad" role="group"><button data-for="taxMode" data-value="monthly" type="button"><i></i>Monthly Payment</button><button data-for="taxMode" data-value="upfront" type="button"><i></i>Upfront Cap</button></div>
+</div>
+</div>
+<div>
+<button class="sx-cta sx-au-cta" type="submit"><span aria-hidden="true" class="msym">insights</span>Compute Lease Payment &amp; Fee Anatomy</button>
+<p class="sx-au-note">Instant deterministic local calculation. Zero telemetry transmitted to third parties.</p>
+</div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-pay">
+<div class="deco"></div>
+<div class="hd"><span class="sx-kick">Total Monthly Obligation</span><span class="sx-pill2" id="termPill">36 Months</span></div>
+<div class="phero"><b id="resultValue">—</b><span>/ month</span></div>
+<div class="sx-au-sub"><span>Base Payment: <b id="basePay">—</b></span><i></i><span><span id="taxLbl">Monthly Tax (8%):</span> <b id="taxPay">—</b></span></div>
+<div class="sx-au-anat">Payment Anatomy Decomposition<span id="anatTot">100% of —</span></div>
+<div class="sx-au-bar" id="anatBar"></div>
+<div class="sx-au-li">
+<div><span><i style="background:var(--sx-pc)"></i>Depreciation Charge</span><b id="itDep">—</b></div>
+<div><span><i style="background:var(--sx-secondary)"></i>Finance Rent Charge (Interest)</span><b id="itRent">—</b></div>
+<div><span><i style="background:var(--sx-outline)"></i><span id="itTaxLbl">Applicable Sales Tax</span></span><b id="itTax">—</b></div>
+</div>
+</section>
+<section class="sx-card r2 sx-au-health">
+<div class="hd"><h3>Deal Health Assessment</h3><span class="sx-au-grade" id="grade"><span aria-hidden="true" class="msym">thumb_up</span><span id="gradeTxt">—</span></span></div>
+<div class="sx-au-ratio">
+<div class="r"><span>The 1% Rule of Thumb Ratio</span><b id="ratio">—</b></div>
+<div class="t"><span id="ratioBar"></span></div>
+<p id="ratioTxt">—</p>
+</div>
+<div class="sx-au-tiles">
+<div><span>Effective Drive-Off</span><b id="driveOff">—</b><small id="driveNote">Down + 1st Mo + Acq</small></div>
+<div><span id="outLbl">Total 3-Year Outlay</span><b id="outlay">—</b><small id="outNote">36 payments + upfronts</small></div>
+</div>
+<div class="sx-au-acts">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export Sheet</button>
+<a href="#compare"><span aria-hidden="true" class="msym">compare_arrows</span>Buy vs Lease</a>
+<a href="/embed/lease-calculator.html" rel="noopener" target="_blank"><span aria-hidden="true" class="msym">terminal</span>Embed Code</a>
+</div>
+</section>
+</div>
+</div>
+<section class="sx-card r2 sx-au-sec cp-hide" id="compare">
+<div class="sx-au-k">Comparative Financial Modeling</div>
+<h2>Lease vs Traditional Auto Loan Analysis</h2>
+<p class="lead" id="cmpLead">A side-by-side comparison of holding the vehicle across the lease term, against buying it with a loan over the same term or a 72-month loan.</p>
+<div class="sx-scroll"><table class="sx-au-cmp">
+<thead><tr><th scope="col">Evaluation Vector</th><th id="cH1" scope="col">36-Month Lease (Modeled)</th><th id="cH2" scope="col">36-Month Loan Purchase</th><th scope="col">72-Month Standard Financing</th></tr></thead>
+<tbody>
+<tr><td><span><span aria-hidden="true" class="msym">credit_card</span>Monthly Payment</span></td><td class="mono" id="cPay1">—</td><td class="mono" id="cPay2">—</td><td class="mono" id="cPay3">—</td></tr>
+<tr><td><span><span aria-hidden="true" class="msym">payments</span>Cash Due at Signing</span></td><td class="mono" id="cDue1">—</td><td class="mono" id="cDue2">—</td><td class="mono" id="cDue3">—</td></tr>
+<tr><td><span><span aria-hidden="true" class="msym">account_balance</span><span id="cEqLbl">Retained Equity at Month 36</span></span></td><td class="ok" id="cEq1">—</td><td id="cEq2">—</td><td id="cEq3">—</td></tr>
+<tr><td><span><span aria-hidden="true" class="msym">speed</span>Mileage Boundaries</span></td><td id="cMi1">—</td><td>Unlimited (depreciation impacts resale)</td><td>Unlimited</td></tr>
+<tr><td><span><span aria-hidden="true" class="msym">build</span>Maintenance Exposure</span></td><td class="ok" id="cMt1">—</td><td id="cMt2">—</td><td class="bad" id="cMt3">—</td></tr>
+<tr><td><span><span aria-hidden="true" class="msym">savings</span><span id="cOutLbl">Total 3-Year Capital Outlay</span></span></td><td class="mono" id="cOut1">—</td><td class="mono" id="cOut2">—</td><td class="mono" id="cOut3">—</td></tr>
+<tr class="tot"><td><span><span aria-hidden="true" class="msym">balance</span>Net Cost After Equity</span></td><td class="mono" id="cNet1">—</td><td class="mono" id="cNet2">—</td><td class="mono" id="cNet3">—</td></tr>
+</tbody>
+</table></div>
+<p class="sx-au-cmpn" id="cmpNote">—</p>
+</section>
+<section class="sx-card r2 sx-au-sec cp-hide" id="formula">
+<div class="sx-au-k">Actuarial Transparency</div>
+<h2>The Exact Mathematics of Car Leasing</h2>
+<p class="lead">Leasing companies price a lease with two simple formulas: you pay for the value the car loses while you drive it, plus a finance charge on the money tied up in it.</p>
+<div class="sx-au-fx">
+<div><span class="ic"><span aria-hidden="true" class="msym">trending_down</span></span><h3>1. Monthly Depreciation</h3><p>The value the car is expected to lose, from the adjusted (net) capitalized cost down to the guaranteed residual value, spread evenly over the term.</p><code>Depreciation =
+<b>(Net Cap Cost − Residual)</b> ÷ Term</code></div>
+<div><span class="ic"><span aria-hidden="true" class="msym">account_balance_wallet</span></span><h3>2. Finance Rent Charge</h3><p>The lessor's charge for the money tied up in the car, applied to the sum of the starting and ending values each month.</p><code>Rent Charge =
+<b>(Net Cap Cost + Residual)</b> × Money Factor</code></div>
+<div><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><h3>3. The 2,400 Constant</h3><p>Adding cap cost and residual counts the average balance twice (×2), the rate is monthly (×12) and APR is a percentage (×100): 100 × 12 × 2 = 2,400.</p><code><b>APR</b> = Money Factor × 2,400
+<b>MF</b>  = APR ÷ 2,400</code></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>The net capitalized cost is the negotiated selling price minus your cap-cost reduction (down payment) and any manufacturer rebates. The residual value is a percentage of MSRP, as leasing companies set it. The base payment is the monthly depreciation plus the rent charge, and sales tax is either added to each payment or, where your state taxes leases upfront, charged at signing on the total of all payments. The acquisition fee is treated as paid at signing and the disposition fee as paid when you return the car. Leasing companies' own figures (and state tax rules) can differ, so treat the result as an estimate to check against the dealer's lease worksheet.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>How lease payments are structured</h2>
+<p>A lease payment has two components: a depreciation fee (covering the value the car is expected to lose during your lease) and a finance fee (essentially interest on the money tied up in the vehicle, similar to loan interest). This calculator breaks out both parts so you can see where your payment actually goes.</p>
+<p>The residual value — what the car is predicted to be worth at lease end — is set by the leasing company based on the vehicle's expected depreciation curve. A higher residual value means less depreciation to pay for during the lease, which generally means a lower monthly payment.</p>
+<h2>Understanding money factor and APR</h2>
+<p>Leasing companies typically quote a 'money factor' rather than an APR, which can make comparing lease offers to loan offers confusing. Money factor converts to APR by multiplying by 2400 — so a money factor of 0.00125 equals roughly a 3% APR. This calculator takes the money factor directly and shows the equivalent APR next to it.</p>
+<p>A lower money factor (or APR) directly reduces the finance fee portion of your payment — for well-qualified buyers, this is often negotiable, similar to negotiating an interest rate on a car loan. If buying makes more sense for you, run the same vehicle through our <a href="/financial/auto-loan-calculator.html">Auto Loan Calculator</a> for a side-by-side comparison.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between a money factor and an APR?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Money factor is a small decimal figure leasing companies use instead of a percentage rate — multiply the money factor by 2400 to get the roughly equivalent APR.</p></details>
+<details class="sx-faq"><summary>Does a higher down payment always lower my monthly lease payment?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Generally yes, since it reduces the capitalized cost being depreciated and financed — though putting a large down payment on a lease carries more risk than on a purchase, since that money isn't recoverable if the car is totaled early in the lease.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Auto &amp; Capital Engines</h2><p>Evaluate purchasing leverage, affordability constraints, and loan costs.</p></div>
+<a href="/financial-calculators.html">Explore All 52 Financial Tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/auto-loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_car</span></span><b>Auto Loan Calculator</b><span class="d">Monthly car payments with trade-in, sales tax and a full amortization schedule.</span><span class="f">Calculate Loan<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/car-affordability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>Car Affordability (20/4/10)</b><span class="d">Apply the common guideline: 20% down, 4-year max term, and no more than 10% of gross monthly income.</span><span class="f">Check Affordability<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Loan Calculator</b><span class="d">Monthly payment and total interest for any fixed-rate loan.</span><span class="f">Price a Loan<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/amortization-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Amortization Calculator</b><span class="d">See how each payment splits between principal and interest over the life of a loan.</span><span class="f">View Schedule<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/lease-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -248,40 +219,9 @@ step="0.1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/lease.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/lease.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

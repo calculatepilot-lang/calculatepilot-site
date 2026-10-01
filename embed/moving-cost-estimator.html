@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moving Cost Estimator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,aspect_ratio,chevron_right,code,content_copy,deployed_code,directions_car,download,event,expand_more,functions,lightbulb,local_gas_station,local_shipping,lock,package_2,person_check,picture_as_pdf,pin_drop,restart_alt,speed,tips_and_updates,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,94 +38,80 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Moving Cost Estimator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="numRooms">Number of rooms</label>
-          <input type="number" id="numRooms" value="3"
-step="1"min="1">
-        </div>
-        <div class="field">
-          <label for="numMovers">Number of movers</label>
-          <input type="number" id="numMovers" value="2"
-step="1"min="1">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="hourlyRate">Hourly rate per mover ($)</label>
-          <input type="number" id="hourlyRate" value="40"
-step="5"min="0">
-        </div>
-        <div class="field">
-          <label for="distanceMiles">Distance (miles)</label>
-          <input type="number" id="distanceMiles" value="50"
-step="5"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="fuelCostPerMile">Fuel cost per mile ($)</label>
-          <input type="number" id="fuelCostPerMile" value="0.65"
-step="0.05"min="0">
-        </div>
-        <div class="field">
-          <label for="truckRental">Truck rental cost ($)</label>
-          <input type="number" id="truckRental" value="150"
-step="10"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated total cost</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Labor cost</span><span id="outLaborCost">—</span></div>
-        <div class="embed-row"><span>Estimated labor hours</span><span id="outEstimatedHours">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="mvCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Moving Cost Estimator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">local_shipping</span>Movers, container or DIY truck</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Moving Cost &amp; Relocation Budget Estimator</h1><p>Estimate the cost of a move and compare full-service movers, a moving container and a rental truck. Enter the distance, the weight of your belongings, the season and any extra services, and see the total for each option with a recommendation. Rates are planning assumptions you can edit.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It prices each option from weight, distance and services using rates you can change.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>A move has many moving parts. This puts the three main options side by side so you can see where the money goes.</p></section></div></div>
+<form id="calcForm" novalidate="">
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">pin_drop</span><h2 class="sx-h-md" style="margin:0">Route, home size and services</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="from">Moving from</label><em class="mu">label only</em></div><div class="sx-au-in sm np"><input autocomplete="off" id="from" maxlength="40" type="text" value="Austin, TX"/></div></div><div><div class="sx-au-l"><label for="to">Moving to</label><em class="mu">label only</em></div><div class="sx-au-in sm np"><input autocomplete="off" id="to" maxlength="40" type="text" value="Denver, CO"/></div></div></div>
+<div><div class="sx-au-l"><label for="mi">1. Driving distance</label><em id="miV">920 miles</em></div><input id="mi" type="hidden" value="920"/><input aria-label="Distance in miles" class="sx-range2" data-sync="mi" max="3000" min="20" step="10" type="range" value="920"/><div class="sx-qpills"><span class="lb">Type</span><button data-for="mi" data-value="40" type="button">Local 40</button><button data-for="mi" data-value="250" type="button">Regional 250</button><button data-for="mi" data-value="920" type="button">Interstate 920</button><button data-for="mi" data-value="2800" type="button">Coast to coast 2,800</button></div></div>
+<div><div class="sx-au-l"><label>2. Size of the move</label><em class="mu">sets a starting weight</em></div><input id="tier" type="hidden" value="7500"/><div class="sx-au-opts c4 sm"><button data-for="tier" data-value="3000" type="button">Studio or 1 bed <small>about 3,000 lb</small></button><button data-for="tier" data-value="5000" type="button">2 bed <small>about 5,000 lb</small></button><button data-for="tier" data-value="7500" type="button">3 bed <small>about 7,500 lb</small></button><button data-for="tier" data-value="11000" type="button">4+ bed <small>about 11,000 lb</small></button></div></div>
+<div><div class="sx-au-l"><label for="wt">Weight of belongings</label><em id="cf">—</em></div><div class="sx-au-in sm np"><input id="wt" inputmode="decimal" min="0" step="250" type="number" value="7500"/></div><p class="sx-au-note" style="text-align:left">Movers estimate about 7 lb per cubic foot. Weight and distance set the price of a long-distance move, so check the weight with your mover.</p></div>
+<div><div class="sx-au-l"><label>3. Season</label></div><input id="ss" type="hidden" value="1"/><div class="sx-au-opts c3 sm"><button data-for="ss" data-value="1.2" type="button">Peak summer <small>+20%</small></button><button data-for="ss" data-value="1" type="button">Spring or fall <small>baseline</small></button><button data-for="ss" data-value="0.85" type="button">Winter <small>−15%</small></button></div></div>
+<div class="sx-au-box"><div class="sx-au-l"><label>Extra services</label><em class="mu">amounts are editable</em></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div class="sx-au-g2" style="align-items:center"><label style="display:flex;gap:10px;align-items:center;font-size:13px;font-weight:500"><label class="sx-toggle"><input checked="" id="k1" type="checkbox"/><i></i></label>Full packing service</label><div class="sx-au-in sm"><span class="pre cs">$</span><input aria-label="Packing price" id="p1" inputmode="decimal" min="0" step="10" type="number" value="850"/></div></div>
+<div class="sx-au-g2" style="align-items:center"><label style="display:flex;gap:10px;align-items:center;font-size:13px;font-weight:500"><label class="sx-toggle"><input id="k2" type="checkbox"/><i></i></label>Custom crating (art, chandeliers)</label><div class="sx-au-in sm"><span class="pre cs">$</span><input aria-label="Crating price" id="p2" inputmode="decimal" min="0" step="10" type="number" value="220"/></div></div>
+<div class="sx-au-g2" style="align-items:center"><label style="display:flex;gap:10px;align-items:center;font-size:13px;font-weight:500"><label class="sx-toggle"><input id="k3" type="checkbox"/><i></i></label>Piano, safe or heavy item</label><div class="sx-au-in sm"><span class="pre cs">$</span><input aria-label="Heavy item price" id="p3" inputmode="decimal" min="0" step="10" type="number" value="250"/></div></div>
+<div class="sx-au-g2" style="align-items:center"><label style="display:flex;gap:10px;align-items:center;font-size:13px;font-weight:500"><label class="sx-toggle"><input id="k4" type="checkbox"/><i></i></label>Stairs or long carry</label><div class="sx-au-in sm"><span class="pre cs">$</span><input aria-label="Stairs price" id="p4" inputmode="decimal" min="0" step="10" type="number" value="150"/></div></div>
 </div>
+<div style="margin-top:12px"><div class="sx-au-l"><label>Protection for your belongings</label></div><input id="cov" type="hidden" value="0"/><div class="sx-au-opts rad c2 sm"><button data-for="cov" data-value="0" type="button"><i></i>Released value, 60¢ per lb per item</button><button data-for="cov" data-value="350" type="button"><i></i>Full value protection, add fee</button></div><div class="sx-au-in sm" hidden="" id="covBox" style="margin-top:8px"><span class="pre cs">$</span><input aria-label="Full value protection fee" id="fvp" inputmode="decimal" min="0" step="10" type="number" value="350"/></div></div>
+</div>
+<details class="sx-faq" style="margin:0"><summary>Planning assumptions you can change<span aria-hidden="true" class="msym">expand_more</span></summary><div style="padding:0 0 4px">
+<p class="sx-au-note" style="text-align:left;margin:0 0 10px">These rates are illustrative. Real quotes depend on the mover, route and date, so replace them with numbers from your own quotes.</p>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="a1">Full service, handling per 100 lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a1" inputmode="decimal" min="0" step="1" type="number" value="20"/></div></div>
+<div><div class="sx-au-l"><label for="a2">Full service, per 100 lb per 100 mi</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a2" inputmode="decimal" min="0" step="0.25" type="number" value="4.5"/></div></div>
+<div><div class="sx-au-l"><label for="a3">Container, fixed fee each</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a3" inputmode="decimal" min="0" step="10" type="number" value="450"/></div></div>
+<div><div class="sx-au-l"><label for="a4">Container, per mile each</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a4" inputmode="decimal" min="0" step="0.05" type="number" value="0.9"/></div></div>
+<div><div class="sx-au-l"><label for="a5">Container size</label><em class="mu">cu ft</em></div><div class="sx-au-in sm np"><input id="a5" inputmode="decimal" min="1" step="50" type="number" value="700"/></div></div>
+<div><div class="sx-au-l"><label for="a6">Truck rental base</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a6" inputmode="decimal" min="0" step="10" type="number" value="300"/></div></div>
+<div><div class="sx-au-l"><label for="a7">Truck per mile</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a7" inputmode="decimal" min="0" step="0.05" type="number" value="0.9"/></div></div>
+<div><div class="sx-au-l"><label for="a8">Truck MPG</label></div><div class="sx-au-in sm np"><input id="a8" inputmode="decimal" min="1" step="0.5" type="number" value="8"/></div></div>
+<div><div class="sx-au-l"><label for="a9">Fuel per gallon</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="a9" inputmode="decimal" min="0" step="0.05" type="number" value="3.55"/></div></div>
+<div><div class="sx-au-l"><label for="b1">Lodging per night</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="b1" inputmode="decimal" min="0" step="5" type="number" value="120"/></div></div>
+<div><div class="sx-au-l"><label for="b2">Tolls per mile</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="b2" inputmode="decimal" min="0" step="0.01" type="number" value="0.05"/></div></div>
+<div><div class="sx-au-l"><label for="b3">Helpers for DIY</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="b3" inputmode="decimal" min="0" step="10" type="number" value="250"/></div></div>
+</div></div></details>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">functions</span>Estimate moving cost</button></div>
+</div>
+</div>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Cheapest option</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span>Full-service movers</span><b id="oFs">—</b></div><div><span>Moving container</span><b id="oPod">—</b></div><div><span>DIY rental truck</span><b id="oDiy">—</b></div><div><span>Volume</span><b id="oVol">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Cost comparison</span><em class="mu" id="cmpN">—</em></div><div id="cmp" style="display:flex;flex-direction:column"></div></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">tips_and_updates</span>What to know</span></div><p class="sx-au-note" id="rec" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+<div class="sx-in-acts"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>CSV</button><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Typical belongings by home size</h2><p>Starting points for weight and volume. Your actual load depends on furniture and how much you own, so use a mover's survey for a firm figure.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="szT" style="min-width:560px"><thead><tr><th>Home</th><th class="n">Approx. weight</th><th class="n">Approx. volume</th><th>Container fit</th></tr></thead><tbody></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Moving rules worth knowing</h2><p>Interstate moves in the United States are regulated by the Federal Motor Carrier Safety Administration (FMCSA).</p>
+<div class="sx-mt-3"><div><h3>Estimates</h3><p>A binding estimate fixes the price for the listed goods and services. A binding not-to-exceed estimate caps the price. A non-binding estimate can rise, but movers must limit what they can demand at delivery.</p></div><div><h3>Weight and distance</h3><p>Long-distance moves are priced by the weight of your goods and the distance, plus services. That is why weighing and decluttering before the move saves money.</p></div><div><h3>Liability</h3><p>Basic released value protection pays only 60 cents per pound per item, so a 10 lb item is covered for $6. Full value protection costs extra but pays to repair or replace.</p></div></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">local_shipping</span></div><h3>Full-service movers</h3><p>Weight in hundredweight times a handling rate plus a distance rate, adjusted for season, plus services.</p><code>cost = (lb ÷ 100) × (handling + rate × miles ÷ 100) × season + extras</code></div><div><div class="ic"><span aria-hidden="true" class="msym">deployed_code</span></div><h3>Moving container</h3><p>Number of containers times a fixed fee plus a per-mile charge, adjusted for season. You pack and load.</p><code>cost = ⌈ cu ft ÷ size ⌉ × (fixed + per mile × miles) × season</code></div><div><div class="ic"><span aria-hidden="true" class="msym">directions_car</span></div><h3>DIY rental truck</h3><p>Truck base and mileage, fuel, lodging, tolls and helpers.</p><code>cost = base + per mile × miles + miles ÷ mpg × fuel + lodging + tolls + helpers</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>920 miles, 7,500 lb, default rates</h3><p>Full-service movers with packing, released value.</p><div class="sx-mt-ex">75 hundredweight × (20 + 4.5 × 9.2) = 75 × 61.4<br/>= 4,605<br/>+ packing 850 = <b>$5,455</b><br/>(the tool also applies your season factor)</div></div><div><h3>Moving container</h3><p>The same 1,071 cu ft load in 700 cu ft containers.</p><div class="sx-mt-ex">7,500 ÷ 7 = 1,071 cu ft → 2 containers<br/>2 × (450 + 0.90 × 920) = 2 × 1,278<br/>= <b>$2,556</b> before extras</div></div><div><h3>DIY truck</h3><p>The same distance in a rental truck.</p><div class="sx-mt-ex">base 300 + 0.90 × 920 = 1,128<br/>fuel 920 ÷ 8 × 3.55 = 408.25<br/>lodging + tolls + helpers = 120 + 46 + 250<br/>= <b>$1,952</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to estimate the cost of a move</h2><ul><li>Choose the driving distance and the size of the move, then check the weight of your belongings.</li><li>Pick the season and any extra services such as packing or crating.</li><li>Edit the planning rates to match quotes you have received.</li><li>Compare movers, a container and a rental truck, and get written quotes before deciding.</li></ul><p>These estimates are for planning only. Real prices vary widely by company, route, date and access, and long-distance movers give binding or non-binding estimates after a survey. Always get at least three written quotes.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>FMCSA, <i>Your Rights and Responsibilities When You Move</i> (49 CFR Part 375).</li><li>FMCSA, <i>Protect Your Move</i>, for estimates, liability and consumer protections.</li><li>U.S. Department of Transportation, <i>Household Goods Program</i>.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How much does it cost to move?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It varies greatly. Local moves are usually priced by the hour, while long-distance moves are priced by weight and distance. Use this tool for a planning figure, then get written quotes.</p></details><details class="sx-faq"><summary>Is a container or a truck cheaper?<span aria-hidden="true" class="msym">expand_more</span></summary><p>For long distances, a rental truck is usually the cheapest but you do the driving and lifting. Containers fall in the middle, and full-service movers cost the most but do the work. The comparison panel uses your assumptions.</p></details><details class="sx-faq"><summary>How is a long-distance move priced?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Interstate moves are priced by the weight of your goods and the distance, plus services such as packing. Movers weigh the truck before and after loading.</p></details><details class="sx-faq"><summary>What is released value protection?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It is the basic, no-extra-cost liability. It pays 60 cents per pound per item, so it does not cover the true value of most belongings. Full value protection costs extra but pays to repair or replace.</p></details><details class="sx-faq"><summary>How can I lower my moving costs?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Declutter before you move, move in the off-season and mid-month, pack yourself, and compare quotes. Less weight and fewer services directly reduce a long-distance bill.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/shipping-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">package_2</span></span><b>Shipping Cost Calculator</b><span class="d">Parcel and dimensional weight.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/fuel-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_gas_station</span></span><b>Fuel Cost Calculator</b><span class="d">Trip fuel cost.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/gas-mileage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">speed</span></span><b>Gas Mileage (MPG)</b><span class="d">Fuel economy.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/square-footage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">aspect_ratio</span></span><b>Square Footage</b><span class="d">Measure your new home.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Moving Cost Estimator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/moving-cost-estimator.html" width="100%" height="560" loading="lazy" title="Moving Cost Estimator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/moving-cost-estimator.html?ref=widget" target="_blank" rel="noopener">
@@ -252,40 +120,9 @@ step="10"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/moving-cost.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/moving-cost-estimator.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

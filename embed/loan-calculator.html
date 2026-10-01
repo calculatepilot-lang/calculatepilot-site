@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loan Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=analytics,arrow_forward,balance,chevron_right,compare_arrows,credit_card,credit_card_off,directions_car,download,expand_more,payments,percent,picture_as_pdf,price_change,print,savings,security,shield_with_heart,timer,tune,unfold_more,verified&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,79 +38,145 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Loan Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="loanAmount">Loan amount</label>
-          <input type="number" id="loanAmount" value="15000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="interestRate">Interest rate (% APR)</label>
-          <input type="number" id="interestRate" value="7.5"
-step="0.01"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="loanTermMonths">Loan term (months)</label>
-          <input type="number" id="loanTermMonths" value="60"
-step="1"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Monthly payment</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total interest</span><span id="outTotalInterest">—</span></div>
-        <div class="embed-row"><span>Total repayment</span><span id="outTotalRepayment">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="plCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Loan Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified</span>Amortization Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">percent</span>Origination Fee &amp; True APR</span><span class="sx-badge"><span aria-hidden="true" class="msym">security</span>Client-Side Zero Tracking</span></div>
+<h1>Loan Calculator: Personal Loan &amp; Debt Consolidation</h1>
+<p>Work out your monthly payment, total interest and total repayment on any fixed-rate loan — plus the effective APR after origination fees, and your savings from consolidating credit card debt.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div style="display:block"><h2 class="sx-h-md" style="margin:0">Loan Terms &amp; Disbursement</h2><p>Parameters &amp; capital structure</p></div>
+<button class="sx-reset pri" data-action="reset" type="button">Reset Defaults</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Calculation Strategy</span></div>
+<input id="mode" type="hidden" value="std"/>
+<div aria-label="Calculation strategy" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="std" style="flex:1" type="button">Standard Loan</button><button data-for="mode" data-value="cons" style="flex:1" type="button">Debt Consolidation</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="amt">Desired Loan Amount</label><em id="amtOut" style="color:var(--sx-on);font-family:var(--font-mono)">$15,000</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="amt" inputmode="decimal" min="0" step="500" style="font-size:17px;font-weight:600" type="number" value="15000"/></div>
+<div aria-label="Amount presets" class="sx-au-opts c5" role="group" style="margin-top:8px"><button data-for="amt" data-value="5000" type="button">$5,000</button><button data-for="amt" data-value="10000" type="button">$10,000</button><button data-for="amt" data-value="15000" type="button">$15,000</button><button data-for="amt" data-value="25000" type="button">$25,000</button><button data-for="amt" data-value="40000" type="button">$40,000</button></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Repayment Term</span></div>
+<input id="term" type="hidden" value="36"/>
+<div aria-label="Term" class="sx-au-opts c5" role="group"><button data-for="term" data-value="24" type="button">24 Mo</button><button data-for="term" data-value="36" type="button">36 Mo</button><button data-for="term" data-value="48" type="button">48 Mo</button><button data-for="term" data-value="60" type="button">60 Mo</button><button data-for="term" data-value="72" type="button">72 Mo</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="rate">Stated Interest Rate (Nominal)</label><em id="rateOut" style="color:var(--sx-on);font-family:var(--font-mono)">9.99%</em></div>
+<div class="sx-au-in np pc"><input id="rate" inputmode="decimal" max="40" min="0" step="0.01" type="number" value="9.99"/><span class="suf">%</span></div>
+<div class="sx-au-chips">Quick set: <button data-for="rate" data-value="7.99" type="button">7.99%</button><button data-for="rate" data-value="9.99" type="button">9.99%</button><button data-for="rate" data-value="16.99" type="button">16.99%</button><button data-for="rate" data-value="24.99" type="button">24.99%</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="fee">Origination Fee (%)</label><em id="feeOut" style="color:var(--sx-on);font-family:var(--font-mono)">—</em></div>
+<div class="sx-au-row"><div class="sx-au-in np pc" style="max-width:140px"><input id="fee" inputmode="decimal" max="15" min="0" step="0.25" type="number" value="4"/><span class="suf">%</span></div><span style="font-size:12px;color:var(--sx-muted)">Charged by the lender at funding</span></div>
+<input id="feeMode" type="hidden" value="deduct"/>
+<div aria-label="How the fee is paid" class="sx-au-cat nr" role="group" style="grid-template-columns:1fr;margin-top:10px"><button data-for="feeMode" data-value="deduct" type="button"><span><b id="fmD">Deduct fee from disbursement</b></span></button><button data-for="feeMode" data-value="roll" type="button"><span><b id="fmR">Roll fee into the loan balance</b></span></button></div>
+</div>
+<div class="sx-pl-cons" hidden="" id="consBox">
+<b><span aria-hidden="true" class="msym">credit_card_off</span>Target Debt to Pay Off</b>
+<div class="sx-au-g2" style="gap:10px">
+<div><label for="ccApr">Blended Card APR</label><div class="sx-au-in sm np pc"><input id="ccApr" inputmode="decimal" max="40" min="0" step="0.25" type="number" value="24.5"/><span class="suf">%</span></div></div>
+<div><label for="ccPay">Current Monthly Payment</label><div class="sx-au-in sm"><span class="pre">$</span><input id="ccPay" inputmode="decimal" min="0" step="10" type="number" value="580"/></div></div>
+</div>
+<p class="sx-au-help">Assumes the loan pays off card balances equal to the amount you receive, and you keep paying the cards at this amount otherwise.</p>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">tune</span>Compute Loan Amortization Schedule</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-sg-hero">
+<div class="hd"><span class="sx-kick">Estimated Monthly Payment</span><div style="text-align:right"><span class="sx-ef-grade" id="eff">—</span><div id="effN" style="font-size:11px;color:var(--sx-muted);margin-top:4px">—</div></div></div>
+<div class="big"><span id="resultValue">—</span><small>/ month</small></div>
+<div class="sx-au-tiles c4 card" style="margin-top:14px">
+<div><span>Net Disbursed</span><b id="net">—</b><small id="netN">—</small></div>
+<div><span>Total Interest</span><b id="int">—</b><small id="intN">—</small></div>
+<div><span>Total Loan Cost</span><b id="cost">—</b><small>Principal + interest + fee</small></div>
+<div class="hl" id="savT"><span id="savL">Net Savings</span><b class="g" id="sav">—</b><small id="savN">—</small></div>
+</div>
+<div class="sx-au-traj" style="padding:16px 0 0">
+<div class="hd" style="margin-bottom:8px"><div><h3 style="font-size:14px">Amortization Trajectory (Principal Balance vs Time)</h3></div><span id="trR" style="font-family:var(--font-mono);font-size:11px;color:var(--sx-muted)">—</span></div>
+<svg aria-label="Loan balance over time" id="chart" role="img" viewbox="0 0 520 170"></svg>
+</div>
+<div class="sx-pl-audit">
+<h4><span aria-hidden="true" class="msym">analytics</span>Loan Health Audit</h4>
+<div class="g"><div><span aria-hidden="true" class="msym">payments</span><div><b id="a1h">—</b><p id="a1">—</p></div></div><div><span aria-hidden="true" class="msym">timer</span><div><b>Term Certainty</b><p id="a2">—</p></div></div></div>
+</div>
+<div class="sx-in-acts" style="margin-top:16px"><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print Schedule</button><button id="csvBtn2" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export Schedule (.CSV)</button><a class="pri" href="/financial/debt-payoff-calculator.html"><span aria-hidden="true" class="msym">compare_arrows</span>Compare Payoff Plans</a></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2 style="display:flex;align-items:center;gap:10px">Complete Amortization Ledger <span class="sx-au-tag" id="perTag">36 Monthly Periods</span></h2><p>Interest, principal and remaining balance for every period.</p></div><div class="hbt"><button id="expBtn" style="border-color:var(--sx-hover);background:var(--sx-emb);color:var(--sx-emt)" type="button"><span aria-hidden="true" class="msym">unfold_more</span><span id="expTxt">Expand Monthly Detail</span></button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button></div></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Period / Year</th><th scope="col">Starting Balance</th><th scope="col">Scheduled Payment</th><th scope="col">Principal Paid</th><th scope="col" style="color:var(--sx-err)">Interest Paid</th><th scope="col">Cumulative Interest</th><th scope="col">Ending Balance</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<div class="ft"><span>*Standard fixed-payment monthly amortization. Lenders that accrue interest daily may differ by a few cents.</span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">price_change</span>The True Cost of Origination Fees</h3>
+<p>Origination fees — commonly about 1%–10% of the loan — are charged by many personal-loan lenders when the loan is funded, usually by reducing the cash you receive.</p>
+<div class="sx-sg-take" id="feeTake">—</div>
+</div>
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">shield_with_heart</span>Personal Loan vs Credit Card Consolidation Guardrails</h3>
+<p>Rolling card balances into an installment loan swaps open-ended minimum payments for a fixed payoff date. It only works if the cards don't fill back up.</p>
+<div class="sx-sg-take" style="border-color:var(--sx-hover);background:var(--sx-emb)"><b>Preventing double debt:</b> once the cards are paid off, stop using them for new balances — keep a small emergency cushion so you don't need to, and consider lowering limits on cards you won't use.</div>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>This uses the same amortization formula banks use for personal, auto, and business loans. See also the <a href="/financial/amortization-calculator.html">Amortization Calculator</a> and <a href="/financial/student-loan-calculator.html">Student Loan Calculator</a>.</p>
+<p><strong>M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</strong> — M = monthly payment · P = loan amount · i = monthly interest rate · n = number of months</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>How loan term affects total cost</h2>
+<p>A longer term lowers your monthly payment but increases total interest. A shorter term raises the monthly payment but reduces total interest significantly.</p>
+<h2>Origination fees and APR — the real cost of a loan</h2>
+<p>Many personal, business, and some auto loans charge an origination fee — typically 1–10% of the loan amount — deducted from your proceeds before the money reaches you. This is the single biggest reason two loans with the same "interest rate" can cost very differently.</p>
+<p>Example: a 20,000 loan with a 5% origination fee only puts 19,000 in your account, but you still repay the full 20,000 plus interest. Your effective APR is higher than the stated rate.</p>
+<p>Rule of thumb: if you need a specific amount in hand, borrow enough to cover the fee — divide your target amount by (1 minus the fee percentage). The "roll fee into the loan balance" option above does this for you.</p>
+<p>Prepayment penalties are separate from origination fees and appear in the loan agreement, not this calculator. Some lenders charge for paying off early; most personal loans do not, but always check before assuming.</p>
+<h2>A worked example</h2>
+<p>A $20,000 loan at 7.5% costs about $401/month over 60 months with roughly $4,050 in total interest, versus about $622/month over 36 months with about $2,400 in interest.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between APR and interest rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The interest rate is the cost of borrowing the principal. APR usually includes additional fees.</p></details>
+<details class="sx-faq"><summary>Does paying extra each month reduce total interest?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — extra payments go toward principal and can shorten the loan term.</p></details>
+<details class="sx-faq"><summary>How does an origination fee affect my loan payment?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The fee is usually deducted from your loan proceeds up front, so you receive less cash than the loan amount but still repay the full amount plus interest, raising your effective APR above the stated rate.</p></details>
+<details class="sx-faq"><summary>Is there a penalty for paying off a loan early?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It depends on the lender. Most personal loans have no prepayment penalty, but some auto, business, and specialty loans do — check your agreement.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Financing Engines</h2><p>Tools for debt optimization and borrowing decisions.</p></div>
+<a href="/financial-calculators.html">View all financial tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/credit-card-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">credit_card</span></span><b>Credit Card Payoff Calculator</b><span class="d">Payoff time and interest for card balances.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/auto-loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_car</span></span><b>Auto Loan Calculator</b><span class="d">Car payments with trade-in, taxes and fees.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-to-income-ratio-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>Debt-to-Income (DTI) Calculator</b><span class="d">Front-end and back-end borrowing capacity.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Emergency Fund Calculator</b><span class="d">Keep a cash cushion so paid-off cards stay paid off.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/loan-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -237,40 +185,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/loan.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/loan.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

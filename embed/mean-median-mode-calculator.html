@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mean, Median & Mode Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add,arrow_forward,bar_chart,calculate,candlestick_chart,chevron_right,close,code,content_copy,content_cut,download,event,expand_more,functions,home,inventory_2,lightbulb,lock,person_check,picture_as_pdf,restart_alt,scale,school,straighten,swap_horiz,tag,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,45 +38,178 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Mean, Median & Mode Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="numberList">Numbers (comma-separated)</label>
-          <input type="text" id="numberList" value="4, 8, 6, 5, 3, 8, 9"
->
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Mean (average)</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Median</span><span id="outMedian">—</span></div>
-        <div class="embed-row"><span>Mode</span><span id="outMode">—</span></div>
-        <div class="embed-row"><span>Range</span><span id="outRange">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="mmCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Mean, Median &amp; Mode Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact arithmetic on your list</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Mean, Median &amp; Mode Calculator</h1>
+<p>Enter a list of numbers to get the mean, median and mode (including multiple modes), plus the geometric and harmonic means, trimmed mean, midrange, range and skewness — with the sorted list, frequency table and every step shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Definitions follow the NIST/SEMATECH Engineering Statistics Handbook. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It sorts your list, sums it for the mean, picks the middle value(s) for the median, and counts how often each value occurs to find every mode.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Averages disagree on skewed data. This page shows all of them side by side, plots the frequencies, and tells you which one to report.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Data set</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="data">Numbers</label><em class="mu" id="dataN">—</em></div>
+<textarea aria-describedby="dataHelp" class="sx-mt-ta" id="data" spellcheck="false">4, 8, 6, 5, 3, 8, 9, 8, 2, 7, 6, 12, 15, 6</textarea>
+<p class="sx-au-help" id="dataHelp">Separate values with commas, spaces or new lines.</p>
+</div>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="ex">Load an example</label></div><select class="sx-mt-sel" id="ex"><option value="">Choose…</option><option value="4, 8, 6, 5, 3, 8, 9, 8, 2, 7, 6, 12, 15, 6">Two modes (6 and 8)</option><option value="72, 85, 90, 66, 78, 94, 81, 88, 70, 75, 85">Test marks (illustrative)</option><option value="38, 42, 45, 48, 52, 55, 58, 62, 65, 70, 95, 650">Skewed incomes in $k (illustrative)</option><option value="46, 48, 49, 50, 50, 50, 51, 52, 54">Symmetric set</option></select></div>
+<div><div class="sx-au-l"><label for="sortb">Sorted list order</label></div><select class="sx-mt-sel" id="sortb"><option value="asc">Ascending</option><option value="desc">Descending</option><option value="orig">Original order</option></select></div>
+<div><div class="sx-au-l"><label for="prec">Decimal places</label></div><select class="sx-mt-sel" id="prec"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option></select></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Input format</span></div>
+<input id="grp" type="hidden" value="s1"/>
+<div aria-label="Input format" class="sx-seg full" role="group"><button data-for="grp" data-value="s1" type="button">Plain list</button><button data-for="grp" data-value="s2" type="button">Value:frequency pairs</button></div>
+<p class="sx-au-help" id="grpHelp">—</p>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Analyse data set</button><button class="rs" id="rand" type="button">Random data</button><button class="rs" id="clear" type="button">Clear</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Arithmetic mean (x̄)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="meanN">—</p>
+<div class="g2"><div><span>Median</span><b id="med">—</b></div><div><span id="modeLbl">Mode</span><b id="mode">—</b></div></div>
+<div class="note" id="modeN" style="margin-top:8px">—</div>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k">Geometric mean<span aria-hidden="true" class="msym">close</span></div><b id="gm">—</b><p id="gmN">nth root of the product</p></div>
+<div class="sx-card"><div class="k">Harmonic mean<span aria-hidden="true" class="msym">functions</span></div><b id="hm">—</b><p id="hmN">n ÷ Σ(1/x)</p></div>
+<div class="sx-card"><div class="k">10% trimmed mean<span aria-hidden="true" class="msym">content_cut</span></div><b id="tm">—</b><p id="tmN">—</p></div>
+<div class="sx-card"><div class="k">Midrange<span aria-hidden="true" class="msym">swap_horiz</span></div><b id="mid">—</b><p>(min + max) ÷ 2</p></div>
+<div class="sx-card"><div class="k">Count · Sum<span aria-hidden="true" class="msym">tag</span></div><b id="cnt" style="font-size:18px">—</b><p id="sumN">—</p></div>
+<div class="sx-card"><div class="k">Range<span aria-hidden="true" class="msym">straighten</span></div><b id="rng">—</b><p id="rngN">—</p></div>
+</div>
+<div class="sx-card" style="padding:14px 16px"><div class="sx-au-l" style="margin:0"><span>Skewness (Pearson’s second coefficient)</span><em id="skw" style="font-family:var(--font-mono);color:var(--sx-on)">—</em></div><p class="sx-au-help" id="skwN" style="margin-top:4px">3 × (mean − median) ÷ s</p></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Frequency distribution and averages</h2><p>Bars show how often each value (or range of values) occurs. Modes are highlighted; the dashed lines mark the mean and median.</p></div><span class="sx-au-tag" id="plotTag">—</span></div>
+<div aria-label="Frequency chart of the data with mean and median marked" class="sx-mt-plot" id="plot" role="img"></div>
+<p class="sx-au-help" id="legend" style="margin-top:8px">—</p>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps" style="margin-bottom:18px"></ol>
+<div class="sx-scroll"><table class="sx-au-cmp plain" id="frqTbl" style="min-width:520px"><thead><tr><th scope="col">Value</th><th scope="col">Frequency</th><th scope="col">Share of data</th><th scope="col">Status</th></tr></thead><tbody></tbody></table></div>
+<div class="ft"><span id="frqNote">—</span></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Three kinds of average</h2>
+<p>Each mean answers a different question. Pick the one that matches how your numbers combine.</p>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">add</span><h3>Arithmetic mean</h3><div class="sx-mt-fx" style="padding:10px;margin-bottom:10px"><span class="eq" style="font-size:15px">x̄ = Σxᵢ ÷ n</span></div><p>The everyday average. Best for values that add up — heights, marks, weights — but pulled by extreme values.</p></div>
+<div><span aria-hidden="true" class="msym">close</span><h3>Geometric mean</h3><div class="sx-mt-fx" style="padding:10px;margin-bottom:10px"><span class="eq" style="font-size:15px">G = (x₁ · x₂ · … · xₙ)^(1/n)</span></div><p>For quantities that multiply — growth factors, index ratios. Requires every value to be above zero.</p></div>
+<div><span aria-hidden="true" class="msym">functions</span><h3>Harmonic mean</h3><div class="sx-mt-fx" style="padding:10px;margin-bottom:10px"><span class="eq" style="font-size:15px">H = n ÷ Σ(1 ÷ xᵢ)</span></div><p>For averaging rates over equal amounts — such as speed over equal distances. Requires every value to be above zero.</p></div>
+</div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Skewness: how mean, median and mode compare</h2>
+<p>When a distribution is lopsided, the three measures separate in a predictable way (though the ordering is a guide, not a law).</p>
+<div class="sx-mt-3">
+<div><h3>Symmetric</h3><p><strong>Mean ≈ median ≈ mode.</strong> The centre of mass sits at the peak, as in a bell-shaped distribution.</p></div>
+<div><h3>Right-skewed (positive)</h3><p><strong>Mean &gt; median &gt; mode</strong> is typical. A long tail of high values, such as incomes or house prices, drags the mean upward.</p></div>
+<div><h3>Left-skewed (negative)</h3><p><strong>Mean &lt; median &lt; mode</strong> is typical. A tail of low values, such as age at death in high-income countries or scores on an easy exam, pulls the mean down.</p></div>
+</div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Which average should you report?</h2><p>The right choice depends on the scale of measurement and how skewed the data is.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:640px">
+<thead><tr><th scope="col">Type of data</th><th scope="col">Sensitivity to outliers</th><th scope="col">Best measure</th><th scope="col">Example</th></tr></thead>
+<tbody>
+<tr><td>Nominal (categories)</td><td style="font-family:inherit">Not applicable — no numeric order</td><td style="font-family:inherit"><b>Mode</b> only</td><td style="font-family:inherit">Most common shoe size or party choice</td></tr>
+<tr><td>Ordinal (ranked)</td><td style="font-family:inherit">Low</td><td style="font-family:inherit"><b>Median</b></td><td style="font-family:inherit">Satisfaction on a 1–5 scale</td></tr>
+<tr><td>Interval / ratio, skewed</td><td style="font-family:inherit">High for the mean</td><td style="font-family:inherit"><b>Median</b> (or trimmed mean)</td><td style="font-family:inherit">House prices, salaries, response times</td></tr>
+<tr><td>Interval / ratio, symmetric</td><td style="font-family:inherit">Moderate</td><td style="font-family:inherit"><b>Arithmetic mean</b></td><td style="font-family:inherit">Repeated lab measurements, heights</td></tr>
+<tr><td>Growth rates or ratios</td><td style="font-family:inherit">Moderate</td><td style="font-family:inherit"><b>Geometric mean</b></td><td style="font-family:inherit">Average annual growth over several years</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked example: a skewed set of household incomes</h2>
+<p>Twelve household incomes in thousands of dollars: 38, 42, 45, 48, 52, 55, 58, 62, 65, 70, 95, 650. (Load "Skewed incomes" from the examples menu to see it above.)</p>
+<div class="sx-mt-2">
+<div><h3>Mean <span class="sx-mt-tag">distorted</span></h3><div class="sx-mt-ex">Σx = 1,280 ÷ 12<br/><b>mean = 106.67</b> ($106.7k)</div><p style="margin-top:10px">11 of 12 households (91.7%) earn less than this “average”, because one very large value inflates it.</p></div>
+<div><h3>Median <span class="sx-mt-tag">robust</span></h3><div class="sx-mt-ex">6th and 7th values: 55 and 58<br/><b>median = (55 + 58) ÷ 2 = 56.5</b></div><p style="margin-top:10px">Half of households earn less and half more, so the median describes a typical household far better here.</p></div>
+</div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Where each average is used</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">home</span><h3>Economic statistics</h3><p>Official income and house-price figures are usually reported as medians because a few very large values would distort the mean.</p><span class="f">Governing measure: median</span></div>
+<div><span aria-hidden="true" class="msym">inventory_2</span><h3>Retail &amp; inventory</h3><p>A shop ordering stock wants the most common size, not the average size — the mode identifies the size that sells most.</p><span class="f">Governing measure: mode</span></div>
+<div><span aria-hidden="true" class="msym">school</span><h3>Grading &amp; measurement</h3><p>Exam marks are usually summarised with the mean, while two well-separated modes can reveal two distinct groups in a class.</p><span class="f">Governing measure: mean, modes</span></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What are the mean, median and mode?</h2>
+<p>The <strong>mean</strong> is the sum of the values divided by how many there are. The <strong>median</strong> is the middle value once the list is sorted — or the mean of the two middle values when there is an even number of them. The <strong>mode</strong> is the value that occurs most often; a data set can have one mode, several, or none.</p>
+<h2>How to calculate them</h2>
+<ul>
+<li><strong>Mean:</strong> add all values, then divide by the count.</li>
+<li><strong>Median:</strong> sort the values. With n values, take the value at position (n + 1) ÷ 2, averaging the two middle values when n is even.</li>
+<li><strong>Mode:</strong> count each value; the highest count wins. If every value occurs once there is no mode.</li>
+<li><strong>Trimmed mean:</strong> drop the lowest and highest 10% of values (rounded down), then average the rest.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.5.1 Measures of location</a></li>
+<li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.5.11 Measures of skewness and kurtosis</a></li>
+<li>ISO 3534-1:2006, <i>Statistics — Vocabulary and symbols — Part 1: General statistical terms and terms used in probability</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What if a data set has more than one mode?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Then it is bimodal (two modes) or multimodal (more). This calculator lists every value that ties for the highest frequency. If every value appears exactly once, there is no mode.</p></details>
+<details class="sx-faq"><summary>Why does an extreme value change the mean but not the median?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The mean uses every value's size, so one very large number pulls it up. The median depends only on the middle position in the sorted list, so making the largest value larger changes nothing.</p></details>
+<details class="sx-faq"><summary>What is the difference between arithmetic, geometric and harmonic means?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Arithmetic averages values that add, geometric averages values that multiply (such as growth factors), and harmonic averages rates over equal amounts. For positive, unequal values they always satisfy harmonic ≤ geometric ≤ arithmetic.</p></details>
+<details class="sx-faq"><summary>How do I find the median with an even number of values?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Sort the list and average the two middle values. For 2, 4, 6, 8 the middle values are 4 and 6, so the median is 5.</p></details>
+<details class="sx-faq"><summary>How does the value:frequency format work?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Type each distinct value followed by a colon and how many times it occurs, for example 5:2, 8:4 means two 5s and four 8s. The calculator expands it into a full list before working everything out.</p></details>
+<details class="sx-faq"><summary>What is a trimmed mean?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A trimmed mean discards a fixed share of the smallest and largest values before averaging. Here 10% is removed from each end, rounded down, so it resists outliers while still using most of the data.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related statistics calculators</h2><p>Continue your analysis.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">bar_chart</span></span><b>Standard Deviation</b><span class="d">Sample and population spread, variance and confidence interval.</span><span class="f">Measure spread<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/quartile-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">candlestick_chart</span></span><b>Quartile &amp; IQR</b><span class="d">Quartiles and the interquartile range.</span><span class="f">Robust spread<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/weighted-average-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Weighted Average</b><span class="d">Averages where some values count more than others.</span><span class="f">Weighted mean<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/z-score-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Z-Score Calculator</b><span class="d">Standardise a value against the mean and standard deviation.</span><span class="f">Standard scores<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Mean, Median &amp; Mode Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/mean-median-mode-calculator.html" width="100%" height="560" loading="lazy" title="Mean, Median and Mode Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/mean-median-mode-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -203,7 +218,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/mean-median-mode.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/mean-median-mode.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

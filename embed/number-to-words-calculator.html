@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Number to Words Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_tree,arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,exposure,lightbulb,link,lock,percent,person_check,picture_as_pdf,restart_alt,superscript,swap_horiz,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,40 +38,109 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Number to Words Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="numberInput">Number</label>
-          <input type="number" id="numberInput" value="1234"
-step="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">In words</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ntCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Number to Words Converter</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Cardinal, ordinal &amp; check format</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Number to Words Converter</h1>
+<p>Spell out a number as cardinal words, an ordinal (1st, 2nd, 3rd, …), a currency amount, or a formal legal-check line — in either short scale (US/modern UK) or long scale (European) naming.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">account_tree</span><section><b>How the engine works</b><p>The number is split into groups of three digits (triads), each spelled out and paired with its scale word (thousand, million, billion, …), following standard English hyphenation rules.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Check-writing and legal documents have precise conventions this gets right — including the short-scale/long-scale distinction that trips up "billion" across countries.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Convert to words</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-v="1405920318.75" type="button">$1,405,920,318.75</button><button data-v="25480.5" type="button">$25,480.50</button><button data-fmt="ord" data-v="104729" type="button">104,729th</button><button data-v="-42.06" type="button">−42.06</button></div>
+<div><div class="sx-au-l"><label for="v">Number</label></div><div class="sx-au-in np"><input autocomplete="off" id="v" inputmode="decimal" type="text" value="1405920318.75"/></div></div>
+<div><div class="sx-au-l"><label for="fmt">Output format</label></div><div class="sx-au-sel"><select id="fmt"><option value="card">Cardinal words</option><option value="ord">Ordinal (1st, 2nd, …)</option><option value="usd">US currency (dollars &amp; cents)</option><option value="gbp">British pounds &amp; pence</option><option value="eur">Euros &amp; cents</option><option value="check">Legal check line</option></select></div></div>
+<div><div class="sx-au-l"><label>Naming scale</label></div><input id="scale" type="hidden" value="short"/><div aria-label="Scale" class="sx-seg full" role="group"><button data-for="scale" data-value="short" type="button">Short scale (US)</button><button data-for="scale" data-value="long" type="button">Long scale (EU)</button></div></div>
+<div><label class="sx-au-ck"><input checked="" id="hyphen" type="checkbox"/> Hyphenate compound tens (twenty-one)</label></div>
+<div><label class="sx-au-ck"><input id="titlecase" type="checkbox"/> Title Case Capitalization</label></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Convert</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Number</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">In words</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:22px;line-height:1.4;word-break:break-word"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Alternate scale</span><b id="ex1" style="font-size:15px;word-break:break-word">—</b></div><div><span id="ex2L">Legal check line</span><b id="ex2" style="font-size:15px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Short scale vs. long scale</h2><p>The same word, different values, by country.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:560px">
+<thead><tr><th scope="col">Power of 10</th><th scope="col">Short scale (US, modern UK)</th><th scope="col">Long scale (much of Europe)</th></tr></thead>
+<tbody>
+<tr><td class="mono">10⁹</td><td>billion</td><td>milliard</td></tr>
+<tr><td class="mono">10¹²</td><td>trillion</td><td>billion</td></tr>
+<tr><td class="mono">10¹⁵</td><td>quadrillion</td><td>billiard</td></tr>
+<tr><td class="mono">10¹⁸</td><td>quintillion</td><td>trillion</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How the conversion works</h2>
+<p>The integer part is split into groups of three digits (triads) from the right. Each triad is spelled out as a number from 1–999, and paired with its scale word — thousand, million, billion, and so on — then the groups are joined together.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Uniform Commercial Code § 3-114 (words control over conflicting figures on a negotiable instrument).</li>
+<li>Chicago Manual of Style (18th ed.), section 9 (numeral and number-word conventions).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why do "billion" mean different things in different countries?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The US and modern UK use the "short scale," where each new name is 1000× the last (million, billion = 10⁹, trillion = 10¹²). Much of continental Europe traditionally uses the "long scale," where billion = 10¹² and milliard fills the 10⁹ spot — this calculator supports both.</p></details>
+<details class="sx-faq"><summary>Why do checks write out amounts in words?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Under the Uniform Commercial Code and similar laws elsewhere, if the written words and the numeric figure on a check disagree, the words legally control — a safeguard against a single altered digit changing the amount.</p></details>
+<details class="sx-faq"><summary>How are cents handled on a check?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Conventionally written as a fraction over 100, e.g. "and 75/100 Dollars," rather than spelled out — reducing ambiguity, since the fraction format is instantly recognizable.</p></details>
+<details class="sx-faq"><summary>What's the difference between a cardinal and an ordinal number?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Cardinal numbers count quantity (one, two, three); ordinal numbers describe position or rank (first, second, third). Only the final word of a spelled-out number changes form for the ordinal — "twenty-three" becomes "twenty-third."</p></details>
+<details class="sx-faq"><summary>Is there a limit to how large a number this can spell out?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Named scale words are supported up to the short-scale decillion (10³³) / long-scale equivalent; beyond that, the number is shown in scientific notation instead, since no widely agreed English name exists.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with notation.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/scientific-notation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">superscript</span></span><b>Scientific Notation</b><span class="d">Convert to and from a × 10ⁿ.</span><span class="f">Notation<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/sig-fig-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">exposure</span></span><b>Significant Figures</b><span class="d">Count, classify and round digits.</span><span class="f">Precision<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Percentage Calculator</b><span class="d">Percent of, change and reverse.</span><span class="f">Percentages<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/number-base-converter.html"><span class="ic"><span aria-hidden="true" class="msym">swap_horiz</span></span><b>Number Base Converter</b><span class="d">Binary, octal, decimal, hex.</span><span class="f">Bases 2–36<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Number-to-Words Converter</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/number-to-words-calculator.html" width="100%" height="560" loading="lazy" title="Number to Words Converter"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/number-to-words-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -198,7 +149,8 @@ step="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/number-to-words.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/number-to-words.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
