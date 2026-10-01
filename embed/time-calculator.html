@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Time Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add_circle,arrow_forward,bedtime,cake,calculate,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,pin,restart_alt,schedule,warning,work_history&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,65 +38,63 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Time Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="h1">Hours 1</label>
-          <input type="number" id="h1" value="2"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="m1">Minutes 1</label>
-          <input type="number" id="m1" value="30"
-step="1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="operation">Operation</label>
-          <select id="operation">
-            <option value="add" selected>+ Add</option>
-            <option value="subtract" >− Subtract</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="h2">Hours 2</label>
-          <input type="number" id="h2" value="1"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="m2">Minutes 2</label>
-          <input type="number" id="m2" value="45"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total minutes</span><span id="outTotalMinutes">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="tmCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Time Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">schedule</span>Clock and duration arithmetic</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Time Calculator: Duration, Add &amp; Subtract</h1><p>Find the time between two clock times, add or subtract hours and minutes from a time, or add up a list of durations. Overnight spans, unpaid breaks and decimal hours for payroll are handled.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts clock times to minutes since midnight, does the arithmetic on whole minutes, and turns the answer back into hours, minutes and decimal hours.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Clock arithmetic goes wrong around midnight and with breaks. This handles both and gives the decimal hours a timesheet needs.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">schedule</span><h2 class="sx-h-md" style="margin:0">Time calculation</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>What do you want to do?</label></div><input id="mode" type="hidden" value="el"/><div aria-label="Mode" class="sx-seg full" role="group"><button data-for="mode" data-value="el" type="button">Time between two clocks</button><button data-for="mode" data-value="ad" type="button">Add or subtract time</button><button data-for="mode" data-value="su" type="button">Add up durations</button></div></div>
+<div class="sx-au-stack" id="gEl">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="a">Start time</label></div><div class="sx-au-in sm np"><input id="a" type="time" value="08:45"/></div></div><div><div class="sx-au-l"><label for="b">End time</label></div><div class="sx-au-in sm np"><input id="b" type="time" value="17:15"/></div></div></div>
+<div><div class="sx-au-l"><label for="dy">End falls on</label><em class="mu">for overnight spans</em></div><select class="sx-mt-sel" id="dy"><option selected="" value="0">The same day</option><option value="1">The next day (+1)</option><option value="2">Two days later (+2)</option></select></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="br">Unpaid break</label><em class="mu">minutes</em></div><div class="sx-au-in sm np"><input id="br" inputmode="numeric" min="0" step="5" type="number" value="45"/></div><div class="sx-qpills"><button data-b="0" type="button">0</button><button data-b="30" type="button">30</button><button data-b="45" type="button">45</button><button data-b="60" type="button">60</button></div></div>
+<div><div class="sx-au-l"><label for="rt">Hourly rate (optional)</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="rt" inputmode="decimal" min="0" step="0.5" type="number" value="30"/></div></div></div>
 </div>
+<div class="sx-au-stack" hidden="" id="gAd">
+<div><div class="sx-au-l"><label for="s">Start time</label></div><div class="sx-au-in sm np"><input id="s" type="time" value="09:00"/></div></div>
+<div><div class="sx-au-l"><label>Operation</label></div><input id="op" type="hidden" value="1"/><div aria-label="Operation" class="sx-seg full" role="group"><button data-for="op" data-value="1" type="button">Add</button><button data-for="op" data-value="-1" type="button">Subtract</button></div></div>
+<div class="sx-au-g3"><div><div class="sx-au-l"><label for="dd">Days</label></div><div class="sx-au-in sm np"><input id="dd" inputmode="numeric" min="0" step="1" type="number" value="0"/></div></div><div><div class="sx-au-l"><label for="hh">Hours</label></div><div class="sx-au-in sm np"><input id="hh" inputmode="numeric" min="0" step="1" type="number" value="2"/></div></div><div><div class="sx-au-l"><label for="mm">Minutes</label></div><div class="sx-au-in sm np"><input id="mm" inputmode="numeric" min="0" step="1" type="number" value="45"/></div></div></div>
+</div>
+<div class="sx-au-stack" hidden="" id="gSu">
+<div><div class="sx-au-l"><label for="ls">Durations, one per line</label><em class="mu">h:mm, for example 1:30, or 45m, or 2h 15m</em></div><textarea class="sx-mt-sel" id="ls" rows="6" style="width:100%;font:inherit;padding:10px;min-height:120px">1:30
+0:45
+2:15</textarea></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Net duration</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span id="l1">Decimal hours</span><b id="o1">—</b></div><div><span id="l2">Total minutes</span><b id="o2">—</b></div><div><span id="l3">Total seconds</span><b id="o3">—</b></div><div><span id="l4">Pay</span><b id="o4">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:8px"><span>Working</span></div><p class="sx-au-note" id="wk" style="text-align:left;margin:0;font-size:13px;line-height:22px">—</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Minutes to decimal hours</h2><p>Payroll usually needs time as hours in decimals. Divide the minutes by 60.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:0"><thead><tr><th>Minutes</th><th class="n">Decimal</th><th>Minutes</th><th class="n">Decimal</th></tr></thead><tbody><tr><td class="a">5 min</td><td class="n">0.08 h</td><td class="a">35 min</td><td class="n">0.58 h</td></tr><tr><td class="a">10 min</td><td class="n">0.17 h</td><td class="a">40 min</td><td class="n">0.67 h</td></tr><tr><td class="a">15 min</td><td class="n">0.25 h</td><td class="a">45 min</td><td class="n">0.75 h</td></tr><tr><td class="a">20 min</td><td class="n">0.33 h</td><td class="a">50 min</td><td class="n">0.83 h</td></tr><tr><td class="a">25 min</td><td class="n">0.42 h</td><td class="a">55 min</td><td class="n">0.92 h</td></tr></tbody></table></div>
+<p style="margin:16px 0 8px;font-size:14px;line-height:22px"><b>The 7-minute rounding rule.</b> Where an employer rounds to the nearest quarter hour, 1 to 7 minutes round down and 8 to 14 minutes round up to the next quarter. So 8 to 22 minutes count as 15 minutes, 23 to 37 as 30, 38 to 52 as 45 and 53 to 60 as a full hour. Rounding must average out so employees are paid for all time worked.</p></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">schedule</span></div><h3>Time between two clocks</h3><p>Convert both times to minutes since midnight, add a day offset if the end is on a later day, and subtract.</p><code>elapsed = (end + 1440 × days) − start<br/>net = elapsed − break</code></div><div><div class="ic"><span aria-hidden="true" class="msym">add_circle</span></div><h3>Add or subtract time</h3><p>Add or subtract the span in minutes, then wrap around 24 hours to get the clock time and the day shift.</p><code>result = start ± (days × 1440 + hours × 60 + minutes)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">pin</span></div><h3>Decimal hours</h3><p>Minutes divided by 60. Pay is decimal hours times the hourly rate.</p><code>decimal hours = minutes ÷ 60<br/>pay = decimal hours × rate</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Shift with a break</h3><p>8:45 AM to 5:15 PM, 45 minute unpaid break, $30 an hour (the default).</p><div class="sx-mt-ex">elapsed = 17:15 − 08:45 = 8 h 30 m<br/>net = 8 h 30 m − 45 m = <b>7 h 45 m</b> = 7.75 h<br/>pay = 7.75 × $30 = <b>$232.50</b></div></div><div><h3>Night shift</h3><p>10:00 PM to 6:30 AM the next day, 30 minute break.</p><div class="sx-mt-ex">(6:30 + 24 h) − 22:00 = 8 h 30 m<br/>net = <b>8 h 00 m</b> = 8.00 h</div></div><div><h3>Add time</h3><p>9:00 AM plus 2 hours 45 minutes.</p><div class="sx-mt-ex">9:00 + 2:45 = <b>11:45 AM</b> the same day</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to calculate time</h2><ul><li>Choose whether to find the time between clocks, add or subtract, or add up durations.</li><li>Enter the times. For a shift that ends after midnight, set the end to the next day.</li><li>Add the unpaid break and an hourly rate if you want pay.</li><li>Read the duration in hours and minutes, decimal hours and total minutes.</li></ul><p>For a full weekly timecard with overtime, use the Hours Calculator. Check local rules on rounding and breaks before relying on the payroll figures.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>U.S. Department of Labor, <i>29 CFR 785.48(b)</i>, rounding of working time.</li><li>NIST, <i>Time and Frequency Division</i>, definition of the second and the day.</li><li>ISO 8601, <i>Date and time format</i>.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How do I calculate time between two times?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Convert each to minutes since midnight and subtract. If the end is earlier than the start the span crosses midnight, so add 24 hours to the end.</p></details><details class="sx-faq"><summary>How do I convert minutes to decimal hours?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the minutes by 60. 45 minutes is 0.75 hours, and 7 hours 45 minutes is 7.75 hours.</p></details><details class="sx-faq"><summary>What is the 7-minute rule?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A payroll method that rounds working time to the nearest quarter hour. Up to 7 minutes rounds down, 8 minutes or more rounds up.</p></details><details class="sx-faq"><summary>How do I subtract time?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Choose Subtract, enter the hours and minutes to take away, and the result shows the earlier clock time and how many days back it falls.</p></details><details class="sx-faq"><summary>Does it handle daylight saving?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. It does clock arithmetic on a 24-hour day, so a shift across a daylight saving change will be an hour out.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/hours-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">work_history</span></span><b>Hours Calculator</b><span class="d">Weekly timecard and pay.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">event</span></span><b>Date Calculator</b><span class="d">Days between dates.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">cake</span></span><b>Age Calculator</b><span class="d">Exact age.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/sleep-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">bedtime</span></span><b>Sleep Calculator</b><span class="d">Sleep cycles.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Time Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/time-calculator.html" width="100%" height="560" loading="lazy" title="Time Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/time-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -223,7 +103,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/time.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/time.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

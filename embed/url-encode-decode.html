@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>URL Encode / Decode | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,chevron_right,code,content_copy,data_object,event,expand_more,functions,lightbulb,link,lock,lock_open,notes,password,person_check,public,restart_alt,swap_vert,sync_alt,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,47 +38,49 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">URL Encode / Decode</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="mode">Mode</label>
-          <select id="mode">
-            <option value="encode" selected>Encode (text → URL-safe)</option>
-            <option value="decode" >Decode (URL-safe → text)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="inputText">Input</label>
-          <input type="text" id="inputText" value="hello world & friends?"
->
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Output</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ueCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">URL Encode and Decode</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">link</span>RFC 3986 percent-encoding</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>URL Encoder &amp; Decoder</h1><p>Encode or decode URLs and query strings with percent-encoding. Choose component or full-URL encoding, pick %20 or + for spaces, and see every query parameter split out with its encoded form.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It uses the browser's own encodeURIComponent, encodeURI and decodeURIComponent, with options for strict escaping and form-style spaces.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Broken links are often an encoding problem. This shows what changed and which parts of a URL are affected.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">link</span><h2 class="sx-h-md" style="margin:0">Text to encode or decode</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Action</label></div><input id="mode" type="hidden" value="u"/><div aria-label="Action" class="sx-seg full" role="group"><button data-for="mode" data-value="c" type="button">Encode a component</button><button data-for="mode" data-value="u" type="button">Encode a full URL</button><button data-for="mode" data-value="d" type="button">Decode</button></div></div>
+<div><div class="sx-au-l"><label for="in">Input</label><em class="mu" id="cnt">0 characters</em></div><textarea class="sx-mt-sel" id="in" rows="6" spellcheck="false" style="width:100%;font-family:ui-monospace,Consolas,monospace;padding:10px;min-height:140px">https://www.calculatepilot.com/search?query=gas leak&amp;metric=m³/hr&amp;filter=cat#1&amp;auth=token+key/test==</textarea>
+<div class="sx-qpills"><span class="lb">Examples</span><button data-x="q" type="button">Query with symbols</button><button data-x="o" type="button">OAuth redirect</button><button data-x="j" type="button">JSON</button><button data-x="i" type="button">International</button><button data-x="clear" type="button">Clear</button></div></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="sp">Spaces become</label></div><select class="sx-mt-sel" id="sp"><option selected="" value="%20">%20 (standard)</option><option value="+">+ (HTML form style)</option></select></div><div class="sx-au-box" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0"><label for="st" style="font-size:13px;font-weight:500">Also escape ! ' ( ) *</label><label class="sx-toggle"><input id="st" type="checkbox"/><i></i></label></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">sync_alt</span>Convert</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Encoded result</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big" style="font-size:15px;line-height:24px;font-family:ui-monospace,Consolas,monospace;word-break:break-all"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span>Input characters</span><b id="o1">—</b></div><div><span>Output characters</span><b id="o2">—</b></div><div><span>Reserved characters escaped</span><b id="o3">—</b></div><div><span>Non-ASCII bytes encoded</span><b id="o4">—</b></div></div>
+<div class="sx-in-acts" style="margin-top:12px"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button id="useBtn" type="button"><span aria-hidden="true" class="msym">swap_vert</span>Use as input</button></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Query parameters found</span><em class="mu" id="qN">—</em></div><div class="sx-tblwrap"><table class="sx-tbl" style="min-width:0"><thead><tr><th>Key</th><th>Value</th><th>Encoded</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Which characters get percent-encoded</h2><p>Percent-encoding writes a character as % followed by the hexadecimal value of each of its UTF-8 bytes. encodeURI() keeps characters that structure a URL. encodeURIComponent() encodes them, which is what you want for a single query value.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:600px"><thead><tr><th>Character</th><th class="n">Percent form</th><th>RFC 3986 class</th><th class="n">encodeURI</th><th class="n">encodeURIComponent</th></tr></thead><tbody><tr><td class="a"><code>space</code></td><td class="n">%20</td><td class="a">Not allowed</td><td class="n">%20</td><td class="n">%20</td></tr><tr><td class="a"><code>!</code></td><td class="n">%21</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">Kept</td></tr><tr><td class="a"><code>"</code></td><td class="n">%22</td><td class="a">Not allowed</td><td class="n">%22</td><td class="n">%22</td></tr><tr><td class="a"><code>#</code></td><td class="n">%23</td><td class="a">Gen-delim</td><td class="n">Kept</td><td class="n">%23</td></tr><tr><td class="a"><code>$</code></td><td class="n">%24</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">%24</td></tr><tr><td class="a"><code>%</code></td><td class="n">%25</td><td class="a">Not allowed</td><td class="n">%25</td><td class="n">%25</td></tr><tr><td class="a"><code>&amp;</code></td><td class="n">%26</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">%26</td></tr><tr><td class="a"><code>'</code></td><td class="n">%27</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">Kept</td></tr><tr><td class="a"><code>(</code></td><td class="n">%28</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">Kept</td></tr><tr><td class="a"><code>)</code></td><td class="n">%29</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">Kept</td></tr><tr><td class="a"><code>*</code></td><td class="n">%2A</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">Kept</td></tr><tr><td class="a"><code>+</code></td><td class="n">%2B</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">%2B</td></tr><tr><td class="a"><code>,</code></td><td class="n">%2C</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">%2C</td></tr><tr><td class="a"><code>/</code></td><td class="n">%2F</td><td class="a">Gen-delim</td><td class="n">Kept</td><td class="n">%2F</td></tr><tr><td class="a"><code>:</code></td><td class="n">%3A</td><td class="a">Gen-delim</td><td class="n">Kept</td><td class="n">%3A</td></tr><tr><td class="a"><code>;</code></td><td class="n">%3B</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">%3B</td></tr><tr><td class="a"><code>&lt;</code></td><td class="n">%3C</td><td class="a">Not allowed</td><td class="n">%3C</td><td class="n">%3C</td></tr><tr><td class="a"><code>=</code></td><td class="n">%3D</td><td class="a">Sub-delim</td><td class="n">Kept</td><td class="n">%3D</td></tr><tr><td class="a"><code>&gt;</code></td><td class="n">%3E</td><td class="a">Not allowed</td><td class="n">%3E</td><td class="n">%3E</td></tr><tr><td class="a"><code>?</code></td><td class="n">%3F</td><td class="a">Gen-delim</td><td class="n">Kept</td><td class="n">%3F</td></tr><tr><td class="a"><code>@</code></td><td class="n">%40</td><td class="a">Gen-delim</td><td class="n">Kept</td><td class="n">%40</td></tr><tr><td class="a"><code>[</code></td><td class="n">%5B</td><td class="a">Gen-delim</td><td class="n">%5B</td><td class="n">%5B</td></tr><tr><td class="a"><code>\</code></td><td class="n">%5C</td><td class="a">Not allowed</td><td class="n">%5C</td><td class="n">%5C</td></tr><tr><td class="a"><code>]</code></td><td class="n">%5D</td><td class="a">Gen-delim</td><td class="n">%5D</td><td class="n">%5D</td></tr><tr><td class="a"><code>^</code></td><td class="n">%5E</td><td class="a">Not allowed</td><td class="n">%5E</td><td class="n">%5E</td></tr><tr><td class="a"><code>`</code></td><td class="n">%60</td><td class="a">Not allowed</td><td class="n">%60</td><td class="n">%60</td></tr><tr><td class="a"><code>{</code></td><td class="n">%7B</td><td class="a">Not allowed</td><td class="n">%7B</td><td class="n">%7B</td></tr><tr><td class="a"><code>|</code></td><td class="n">%7C</td><td class="a">Not allowed</td><td class="n">%7C</td><td class="n">%7C</td></tr><tr><td class="a"><code>}</code></td><td class="n">%7D</td><td class="a">Not allowed</td><td class="n">%7D</td><td class="n">%7D</td></tr><tr><td class="a"><code>~</code></td><td class="n">%7E</td><td class="a">Unreserved</td><td class="n">Kept</td><td class="n">Kept</td></tr><tr><td class="a"><code>³</code></td><td class="n">%C2%B3</td><td class="a">Unreserved</td><td class="n">%C2%B3</td><td class="n">%C2%B3</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">link</span></div><h3>Percent-encoding</h3><p>Each byte of the character's UTF-8 form becomes a percent sign and two hexadecimal digits.</p><code>%C2%B3 = ³ (two UTF-8 bytes)<br/>space = %20</code></div><div><div class="ic"><span aria-hidden="true" class="msym">data_object</span></div><h3>Component or full URL</h3><p>Encode a single value with the component option. Encode a whole address with the full URL option so : / ? &amp; = # stay as they are.</p><code>encodeURIComponent(value)<br/>encodeURI(url)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">lock_open</span></div><h3>Decoding</h3><p>Each %XX sequence is turned back into its byte, and bytes are read as UTF-8.</p><code>decodeURIComponent(text)</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>A query value</h3><p>Encode the component "gas leak &amp; m³/hr".</p><div class="sx-mt-ex">space → %20, &amp; → %26, ³ → %C2%B3, / → %2F<br/>result: <b>gas%20leak%20%26%20m%C2%B3%2Fhr</b></div></div><div><h3>A full URL</h3><p>Encode "https://example.com/a b?x=1".</p><div class="sx-mt-ex">only the space changes: <b>https://example.com/a%20b?x=1</b></div></div><div><h3>Decode</h3><p>Decode "caf%C3%A9%20menu".</p><div class="sx-mt-ex">%C3%A9 = é and %20 = space: <b>café menu</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to encode or decode a URL</h2><ul><li>Choose Encode a component, Encode a full URL or Decode.</li><li>Paste your text. Use the examples to see typical cases.</li><li>Copy the result, or use it as the next input to round-trip.</li><li>Check the table for each query parameter.</li></ul><p>Encoding turns text into a safe form for URLs. It is not encryption and hides nothing. Never put secrets in a URL.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>IETF, <i>RFC 3986, Uniform Resource Identifier (URI): Generic Syntax</i> (2005).</li><li>WHATWG, <i>URL Standard</i>, percent-encoding.</li><li>MDN Web Docs, <i>encodeURIComponent()</i> and <i>encodeURI()</i>.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>What is the difference between encodeURI and encodeURIComponent?<span aria-hidden="true" class="msym">expand_more</span></summary><p>encodeURI keeps characters such as : / ? &amp; = # so a whole address still works. encodeURIComponent encodes them, so use it for a single value inside a URL.</p></details><details class="sx-faq"><summary>When should a space be %20 and when +?<span aria-hidden="true" class="msym">expand_more</span></summary><p>%20 is correct everywhere in a URL. A + means a space only in HTML form data (application/x-www-form-urlencoded), such as query strings from forms.</p></details><details class="sx-faq"><summary>Why does ³ become %C2%B3?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Non-ASCII characters are first turned into UTF-8 bytes, and each byte is written in hex. ³ is the two bytes C2 and B3.</p></details><details class="sx-faq"><summary>Why does decoding fail with a malformed error?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A % must be followed by two hexadecimal digits, and the bytes must form valid UTF-8. A stray % or truncated sequence causes this.</p></details><details class="sx-faq"><summary>Is this data sent anywhere?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. Everything runs in your browser.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/base64-encode-decode.html"><span class="ic"><span aria-hidden="true" class="msym">code</span></span><b>Base64 Encode Decode</b><span class="d">Encode and decode Base64.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/password-generator.html"><span class="ic"><span aria-hidden="true" class="msym">password</span></span><b>Password Generator</b><span class="d">Strong passwords.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/word-counter.html"><span class="ic"><span aria-hidden="true" class="msym">notes</span></span><b>Word Counter</b><span class="d">Count words and characters.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/utc-time-converter.html"><span class="ic"><span aria-hidden="true" class="msym">public</span></span><b>UTC Time Converter</b><span class="d">Convert time zones.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This URL Encode Decode</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/url-encode-decode.html" width="100%" height="560" loading="lazy" title="URL Encode Decode"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/url-encode-decode.html?ref=widget" target="_blank" rel="noopener">
@@ -205,7 +89,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/url-encode.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/url-encode-decode.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

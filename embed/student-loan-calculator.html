@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Loan Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,account_balance_wallet,alt_route,arrow_forward,chevron_right,credit_card_off,currency_pound,download,electric_bolt,expand_more,functions,gavel,lock,model_training,pie_chart,print,receipt_long,refresh,savings,schedule,tune,update,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,79 +38,159 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Student Loan Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="loanAmount">Loan amount</label>
-          <input type="number" id="loanAmount" value="30000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="interestRate">Interest rate (%)</label>
-          <input type="number" id="interestRate" value="5.5"
-step="0.1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="termYears">Repayment term (years)</label>
-          <input type="number" id="termYears" value="10"
-step="1"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Monthly payment</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total interest</span><span id="outTotalInterest">—</span></div>
-        <div class="embed-row"><span>Total repayment</span><span id="outTotalRepayment">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="slCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Student Loan Calculator</b></nav>
+<header class="sx-headbar" style="align-items:flex-start">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Federal &amp; Private Loan Modeling</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Client-Side Security</span><span class="sx-badge"><span aria-hidden="true" class="msym">update</span>Formula Verified Sep 2026 (IBR / PSLF Rules)</span></div>
+<h1>Student Loan Calculator &amp; Repayment Strategist</h1>
+<p>Calculate your monthly student loan payment, total interest and payoff date — then compare standard amortization, accelerated payoff with extra payments, and federal Income-Based Repayment (IBR) with PSLF. For US federal and private loans; UK PAYE deductions use a different formula — use the <a href="/financial/uk-student-loan-repayment-calculator.html">UK student loan repayment calculator</a>.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">account_balance_wallet</span></span><h2 class="sx-h-md" style="margin:0">Loan Portfolio</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">refresh</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="bal">Total Student Loan Balance</label><em class="mu">Principal + Accrued</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="bal" inputmode="decimal" min="0" step="500" type="number" value="42000"/></div>
+<div class="sx-au-chips">Quick Presets: <button data-for="bal" data-value="25000" type="button">$25k</button><button data-for="bal" data-value="42000" type="button">$42k</button><button data-for="bal" data-value="75000" type="button">$75k</button><button data-for="bal" data-value="120000" type="button">$120k</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="rate">Weighted Average Interest Rate</label><span class="sx-au-pct" id="rateOut">5.50%</span></div>
+<input id="rate" type="hidden" value="5.50"/>
+<input aria-label="Interest rate" class="sx-range2" data-sync="rate" max="12" min="2" step="0.05" type="range" value="5.5"/>
+<div class="sx-scale"><span>2.0% (Low)</span><span>7.0%</span><span>12.0% (Private high)</span></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Loan Origination Category</span></div>
+<input id="cat" type="hidden" value="undergrad"/>
+<div aria-label="Loan type" class="sx-au-cat" role="group">
+<button data-for="cat" data-value="undergrad" type="button"><i></i><span><b>Direct Undergrad</b><small>IBR &amp; PSLF eligible</small></span></button>
+<button data-for="cat" data-value="grad" type="button"><i></i><span><b>Direct Graduate</b><small>IBR &amp; PSLF eligible</small></span></button>
+<button data-for="cat" data-value="parent" type="button"><i></i><span><b>Parent PLUS</b><small>ICR via consolidation only</small></span></button>
+<button data-for="cat" data-value="private" type="button"><i></i><span><b>Private Student Loan</b><small>No federal forgiveness</small></span></button>
+</div>
+</div>
+<div>
+<div class="sx-au-l"><label for="plan">Primary Target Repayment Plan</label></div>
+<div class="sx-au-sel"><select id="plan"><option selected="" value="std">Standard 10-Year (Level Amortization)</option><option value="ibr">Income-Based Repayment (IBR)</option><option value="grad">Graduated 10-Year (Payments rise every 2 years)</option><option value="ext">Extended 25-Year Fixed</option></select></div>
+<p class="sx-au-help" id="planNote"></p>
+</div>
+<div class="sx-au-box">
+<b style="justify-content:space-between"><span style="display:flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym">tune</span>Federal IDR Parameters (IBR)</span><span style="font-size:11px;font-weight:500;color:var(--sx-muted)">150% Poverty Base</span></b>
+<div class="sx-au-g3" style="gap:10px">
+<div><label class="sub" for="agi" title="Adjusted Gross Income">Annual AGI</label><div class="sx-au-in sm"><span class="pre">$</span><input id="agi" inputmode="decimal" min="0" step="1000" type="number" value="62000"/></div></div>
+<div><label class="sub" for="hh">Tax Household Size</label><div class="sx-au-in sm np"><input id="hh" inputmode="numeric" max="12" min="1" step="1" type="number" value="1"/></div></div>
+<div><label class="sub" for="pov">Poverty Guideline</label><div class="sx-au-in sm"><span class="pre">$</span><input id="pov" inputmode="decimal" min="0" step="10" type="number" value="15650"/></div></div>
+</div>
+<p class="sx-au-help" id="povNote">2025 HHS guideline for 1 person (48 states): $15,650, plus $5,500 per extra person. IBR protects 150% ($23,475) from repayment.</p>
+</div>
+<div>
+<div class="sx-au-l"><label for="extra">Extra Monthly Prepayment</label><em id="extraNote">+$150 / mo</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="extra" inputmode="decimal" min="0" step="25" type="number" value="150"/></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="pslfMade">PSLF Qualifying Payments Already Made</label><em class="mu">If in public service</em></div>
+<div class="sx-au-in np"><input id="pslfMade" inputmode="numeric" max="120" min="0" step="1" type="number" value="0"/></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">model_training</span>Model Repayment Scenarios</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<div aria-live="polite" class="sx-au-top2">
+<div class="sx-card"><div class="k"><span id="selLbl">Standard 10-Yr Obligation</span><span aria-hidden="true" class="msym">schedule</span></div><div class="v"><span id="resultValue">—</span> <small>/ month</small></div><div class="f"><span>Total Term:</span><b id="selTerm">—</b></div></div>
+<div class="sx-card g"><div class="k"><b><span aria-hidden="true" class="msym">savings</span>IBR Plan Obligation (IDR)</b><em id="ibrTag">Lowest Cashflow</em></div><div class="v"><span id="ibrPay">—</span> <small>/ month</small></div><div class="f"><span>Monthly Cashflow Delta:</span><b id="ibrDelta">—</b></div></div>
+</div>
+<section class="sx-card sx-au-cmp3">
+<div class="hd"><h3>Strategy Comparative Analysis</h3><span>Amortization Engine</span></div>
+<div class="cols">
+<div><div class="t"><b>Standard 10-Yr</b><em>Base</em></div><dl><dt>Payoff Horizon:</dt><dd id="s1d">—</dd><dt>Total Interest:</dt><dd id="s1i">—</dd><dt>Total Outlay:</dt><dd id="s1o">—</dd></dl><p>Fixed level payment. Qualifies for PSLF on federal Direct Loans.</p></div>
+<div class="mid"><div class="t"><b>Accelerated Payoff</b><em class="p" id="s2x">+ $150/mo</em></div><dl><dt>Payoff Horizon:</dt><dd id="s2d">—</dd><dt>Total Interest:</dt><dd id="s2i">—</dd><dt>Net Interest Saved:</dt><dd class="ok" id="s2s">—</dd></dl><p class="ok"><span aria-hidden="true" class="msym">electric_bolt</span><span id="s2e">—</span></p></div>
+<div><div class="t"><b>IBR Plan (IDR)</b><em>20-Yr Term</em></div><dl><dt>Monthly Obligation:</dt><dd id="s3p">—</dd><dt>Forgiven Balance:</dt><dd id="s3f">—</dd><dt>Unpaid Interest:</dt><dd id="s3u">—</dd></dl><p id="s3n">Payment = 10% of income above 150% of the poverty guideline, capped at the standard payment.</p></div>
+</div>
+</section>
+<section class="sx-card sx-au-traj">
+<div class="hd"><div><h3>Debt Trajectory Projection</h3><p id="trajSub">Remaining balance over time</p></div><div class="lg"><span><i style="background:#94a3b8"></i>Standard 10-Yr</span><span><i style="background:var(--sx-pc)"></i>Accelerated</span><span><i style="background:var(--sx-secondary);opacity:.6"></i>IBR Balance</span></div></div>
+<svg aria-label="Remaining student loan balance under standard, accelerated and IBR repayment" id="trajChart" role="img" viewbox="0 0 520 200"></svg>
+</section>
+<section class="sx-card sx-au-pslf">
+<div class="hd"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><div><h3>Public Service Loan Forgiveness (PSLF) Tracker</h3><p>120 qualifying monthly payments while working full-time for a government or qualifying non-profit employer</p></div><em>Tax-Free Forgiveness</em></div>
+<div class="r"><span>Current Simulation Progress: <b id="pMade">0 / 120</b> Qualifying Payments</span><b id="pLeft">—</b></div>
+<div class="bar"><span id="pBar"></span></div>
+<div class="f"><span id="pPaid">—</span><span>Projected Tax-Free Discharge: <b id="pDis">—</b></span></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="schedule">
+<div class="hd">
+<div><h2>Repayment Amortization Ledger</h2><p id="ledgerSub">Annual breakdown of payments, interest and principal reduction.</p></div>
+<div class="hbt"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print Schedule</button></div>
+</div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Calendar Year</th><th scope="col">Starting Principal</th><th scope="col">Annual Payments</th><th scope="col">Principal Paid</th><th scope="col">Interest Paid</th><th scope="col">Unpaid Interest</th><th scope="col">Ending Balance</th></tr></thead>
+<tbody id="ledger"></tbody>
+</table></div>
+</section>
+<section class="sx-card r2 sx-au-sec cp-hide" id="method">
+<div class="sx-au-k">Statutory Precision</div>
+<h2>Methodology &amp; Federal Computational Rules</h2>
+<p class="lead">Federal student loans follow rules set by the Higher Education Act and Department of Education regulations — for daily interest, capitalization and forgiveness — that differ from credit cards and mortgages.</p>
+<div class="sx-au-fx">
+<div><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><h3>Simple Daily Interest Accrual</h3><p>Federal loans accrue simple interest daily rather than compounding:</p><code>Daily Interest = Principal ×
+(Interest Rate ÷ 365.25)</code><p style="margin-top:12px">Payments go first to any fees, then to accrued interest, then to principal. This calculator uses the monthly equivalent (rate ÷ 12), which gives near-identical results.</p></div>
+<div><span class="ic"><span aria-hidden="true" class="msym">alt_route</span></span><h3>Interest Capitalization Safeguards</h3><p>Since July 2023, unpaid interest no longer capitalizes (is added to principal) in most situations, such as entering repayment or leaving forbearance.</p><p>It still capitalizes where the law requires it — for example when you leave IBR, or at the end of a deferment on unsubsidized loans. The IBR projection here keeps unpaid interest separate and does not capitalize it.</p></div>
+<div><span class="ic"><span aria-hidden="true" class="msym">gavel</span></span><h3>PSLF &amp; Federal Forgiveness Rules</h3><p>PSLF forgives the remaining Direct Loan balance tax-free (IRC §108(f)(1)) after 120 qualifying payments under a qualifying plan while working full-time for a government or qualifying non-profit employer.</p><p>IBR forgiveness after 20 years (25 for pre-July 2014 borrowers) is a separate route. The federal tax exclusion for IDR forgiveness covered discharges through 2025, so later discharges may be taxable income. Repayment plans are changing — check <a href="https://studentaid.gov/" rel="noopener" target="_blank">StudentAid.gov</a> and our <a href="/guides/save-plan-deadline-student-loan-payments-2026.html">SAVE deadline guide</a>.</p></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Standard vs. extended repayment</h2>
+<p>A standard 10-year term keeps total interest lower but means higher monthly payments. Extended or income-driven repayment plans lower the monthly amount but increase total interest paid over time. For a deeper look at repayment strategies, see our <a href="/guides/student-loan-guide.html">student loan guide</a>, or use the general <a href="/financial/loan-calculator.html">Loan Calculator</a> to compare against other fixed-rate loans.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Federal vs. private student loans</h2>
+<p>Federal student loans generally offer more flexible repayment options — including income-driven plans, deferment, and forgiveness programs in some cases — while private loans typically have fewer built-in protections but sometimes offer lower rates for borrowers with strong credit.</p>
+<p>The IBR estimate here holds your income and household size constant and uses the 10%-of-discretionary-income formula for borrowers since July 2014. Real IBR payments are recalculated every year from your latest income, so treat it as a planning estimate. UK student loans are income-contingent as the default, not as an optional plan: they take 9% (or 6% postgraduate) of income above a published threshold. Do not switch this page to pounds and treat it as a UK quote — open the <a href="/financial/uk-student-loan-repayment-calculator.html">UK student loan repayment calculator</a> instead.</p>
+<h2>A worked example</h2>
+<p>A $25,000 loan at 5% over 10 years: the monthly payment is about $265, with total interest of roughly $6,820 over the loan's life, for total repayment of about $31,820.</p>
+<p>Extending to a 20-year term instead lowers the monthly payment to about $165, but total interest roughly doubles to $14,600 — illustrating the standard trade-off between lower monthly payments and higher lifetime cost.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Does this model income-driven repayment plans?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, in simplified form: it estimates Income-Based Repayment (IBR) at 10% of income above 150% of the poverty guideline, capped at the standard 10-year payment, holding your income constant. Real IDR payments are recalculated every year, so your actual payment and total cost can differ.</p></details>
+<details class="sx-faq"><summary>Should I pay off student loans early?<span aria-hidden="true" class="msym">expand_more</span></summary><p>This depends on your interest rate relative to other financial priorities — paying extra toward high-rate loans generally makes sense, though some borrowers prioritize building emergency savings or capturing employer retirement matches first.</p></details>
+<details class="sx-faq"><summary>What is loan forgiveness and am I eligible?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Various federal forgiveness programs exist for specific careers (like public service) or after extended income-driven repayment — eligibility rules are specific and change periodically, so check current federal guidance directly.</p></details>
+<details class="sx-faq"><summary>What's the difference between federal and private student loans?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Federal loans typically offer more borrower protections, flexible repayment plans, and potential forgiveness programs, while private loans are based on creditworthiness and generally offer less flexibility but sometimes lower rates for well-qualified borrowers.</p></details>
+<details class="sx-faq"><summary>How do I calculate my student loan monthly payment?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use the standard amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where P is principal, r is monthly interest rate (annual rate ÷ 12), and n is number of payments. Enter your loan details above for an instant result.</p></details>
+<details class="sx-faq"><summary>What is the average student loan monthly payment?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The average monthly student loan payment for a 10-year standard repayment plan on a $30,000 federal student loan at 6.5% is approximately $340/month. Use this calculator to find your specific payment.</p></details>
+<details class="sx-faq"><summary>How much is a $50,000 student loan monthly payment?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A $50,000 student loan at 6.5% over 10 years has a monthly payment of approximately $567/month, with total interest of about $18,000 over the life of the loan.</p></details>
+<details class="sx-faq"><summary>What will my student loan monthly payment be?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Your monthly student loan payment depends on three things: the loan amount, interest rate, and repayment term. For example, a $30,000 loan at 6.5% over 10 years has a monthly payment of about $340. Use this calculator to enter your specific figures and get an exact amount.</p></details>
+<details class="sx-faq"><summary>How do I estimate my student loan payments before taking out a loan?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Enter the expected loan amount, the interest rate offered, and your preferred repayment term (10 years is standard for federal loans). This calculator shows your monthly payment, total interest paid, and total cost — so you can compare different loan amounts before committing.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Debt &amp; Budget Calculators</h2><p>Explore connected calculators built on the same verified formulas.</p></div>
+<a href="/financial-calculators.html">View all 52 tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">credit_card_off</span></span><b>Debt Payoff Calculator</b><span class="d">Compare debt snowball vs debt avalanche to clear credit cards and personal loans.</span><span class="f">Model Avalanche<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>Budget Calculator</b><span class="d">Allocate income using the 50/30/20 framework, with room for debt payments.</span><span class="f">Optimize Cashflow<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+<a class="sx-card" href="/financial/tax-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Income Tax Calculator</b><span class="d">Estimate federal income tax; student loan interest is deductible up to $2,500 a year, subject to income limits.</span><span class="f">Estimate Liability<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+<a class="sx-card" href="/financial/uk-student-loan-repayment-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">currency_pound</span></span><b>UK Student Loan Repayment</b><span class="d">Calculate deductions under Plan 1, Plan 2, Plan 4, Plan 5 and Postgraduate Loans from HMRC thresholds.</span><span class="f">Simulate UK Plans<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/student-loan-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -237,40 +199,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/student-loan.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/student-loan.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
