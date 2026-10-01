@@ -46,12 +46,15 @@
     toastTimer = setTimeout(function () { t.classList.add('translate-y-24', 'opacity-0'); }, 2600);
   }
 
-  // Plan toggle + payment modal
+  // Plan toggle. Checkout (startCreemCheckout) and server-side license validation
+  // (applyLicense, restoreVerifiedLicense) are injected by embed/index.php.
   var plan = 'monthly';
-  var PLANS = { monthly: ['$7.99', 'per month', 'Monthly ($7.99)'], yearly: ['$89.99', 'per year', 'Yearly ($89.99)'] };
+  window.currentPlan = plan;
+  var PLANS = { monthly: ['$7.99', 'per month'], yearly: ['$89.99', 'per year'] };
   $$('.plan-tab').forEach(function (tab) {
     tab.addEventListener('click', function () {
       plan = tab.getAttribute('data-plan');
+      window.currentPlan = plan;
       $$('.plan-tab').forEach(function (t) {
         var on = t === tab;
         t.setAttribute('aria-selected', on ? 'true' : 'false');
@@ -64,49 +67,20 @@
     });
   });
 
-  var payModal = $('#payModal');
-  function openPay() {
-    $('#payModalTitle').textContent = 'Complete your purchase — ' + PLANS[plan][2];
-    $('#payWidgetMonthly').classList.toggle('hidden', plan === 'yearly');
-    $('#payWidgetYearly').classList.toggle('hidden', plan !== 'yearly');
-    var active = plan === 'yearly' ? $('#payWidgetYearly iframe') : $('#payWidgetMonthly iframe');
-    if (!active.getAttribute('src')) active.setAttribute('src', active.getAttribute('data-src'));
-    payModal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-  function closePay() { payModal.classList.add('hidden'); document.body.style.overflow = ''; }
   var payBtn = $('#payNowBtn');
-  if (payBtn) payBtn.addEventListener('click', openPay);
-  $$('[data-close-pay]').forEach(function (b) { b.addEventListener('click', closePay); });
-  payModal.addEventListener('click', function (e) { if (e.target === payModal) closePay(); });
+  if (payBtn) payBtn.addEventListener('click', function () { if (window.startCreemCheckout) window.startCreemCheckout(); });
 
-  // License key (client-side convenience, same behaviour as before)
-  var KEY = 'cp_license_validated';
-  function applyToCodes(key) {
-    $$('.embed-code').forEach(function (el) {
-      var t = el.textContent.replace(/\?license=[^"]*"/, '"');
-      el.textContent = t.replace(/src="([^"]+)"/, function (m, u) { return 'src="' + u + '?license=' + encodeURIComponent(key) + '"'; });
-    });
-  }
   var status = $('#licenseStatus');
-  function setStatus(msg, ok) {
+  window.setLicenseStatus = function (msg, ok) {
     status.textContent = msg;
-    status.classList.toggle('text-primary', ok);
+    status.classList.toggle('text-primary', !!ok);
     status.classList.toggle('text-error', !ok);
-  }
+  };
   var form = $('#licenseForm');
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var key = $('#licenseInput').value.trim();
-    if (!key || key.length < 32) { setStatus('Please enter a valid license key.', false); return; }
-    try { localStorage.setItem(KEY, key); } catch (err) {}
-    applyToCodes(key);
-    setStatus('License applied. Your embeds now show without CalculatePilot branding.', true);
+    if (window.applyLicense) window.applyLicense();
   });
-  try {
-    var saved = localStorage.getItem(KEY);
-    if (saved) { $('#licenseInput').value = saved; applyToCodes(saved); setStatus('License active on this browser.', true); }
-  } catch (err) {}
 
   // Fill each card's iframe snippet
   $$('.calc-card').forEach(function (c) {
@@ -114,7 +88,6 @@
     var title = c.querySelector('h3').textContent.trim().replace(/"/g, '&quot;');
     c.querySelector('.embed-code').textContent = '<iframe src="https://www.calculatepilot.com/embed/' + slug + '.html" width="100%" height="520" frameborder="0" scrolling="no" title="' + title + '" loading="lazy"></iframe>';
   });
-  try { var lic = localStorage.getItem(KEY); if (lic) applyToCodes(lic); } catch (err) {}
 
   // Copy code
   directory.addEventListener('click', function (e) {
@@ -182,6 +155,5 @@
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     if (!prev.classList.contains('hidden')) closePreview();
-    if (!payModal.classList.contains('hidden')) closePay();
   });
 })();
