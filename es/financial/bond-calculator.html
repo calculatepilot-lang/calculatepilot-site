@@ -1,3 +1,320 @@
-<!doctype html><html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
-<meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de precio de bonos | CalculatePilot</title><meta name="description" content="Calcula el precio teórico de un bono según su valor nominal, cupón, vencimiento y tasa de mercado."><link rel="canonical" href="https://www.calculatepilot.com/financial/bond-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/bond-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/bond-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/bond-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/bond-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/bond-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=20260929d"></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/es/financial-calculators.html">Finanzas</a></li><li><a href="/health-calculators.html">Salud</a></li><li><a href="/math-calculators.html">Matemáticas</a></li><li><a href="/other-calculators.html">Vida diaria</a></li><li><a href="/guides/">Guías</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Precio de bonos</nav></div><section class="calc-page-head"><div class="container"><h1>Calculadora de precio de bonos</h1><p class="lede">Estima el valor actual de un bono usando su cupón, vencimiento y tasa de mercado.</p></div></section><section><div class="container calc-layout"><form class="calc-card"><div class="field"><label>Valor nominal</label><input id="fv" type="number" value="1000" min="0"></div><div class="field-row"><div class="field"><label>Tasa de cupón (%)</label><input id="c" type="number" value="5" step="0.1"></div><div class="field"><label>Tasa de mercado (%)</label><input id="y" type="number" value="6" step="0.1"></div></div><div class="field-row"><div class="field"><label>Años hasta el vencimiento</label><input id="n" type="number" value="10" min="0"></div><div class="field"><label>Pagos por año</label><input id="m" type="number" value="2" min="1"></div></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Precio estimado</div><div class="readout-value big" id="r">—</div><div class="readout-breakdown"><div class="readout-row"><span>Cupón por período</span><span id="cp">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>¿Cómo se calcula el precio?</h2><p>El precio teórico es el valor presente de los pagos futuros de cupones y del reembolso final del valor nominal. Cuando la tasa de mercado supera el cupón, el precio normalmente cae por debajo del valor nominal.</p><h2>Nota</h2><p>El resultado es una estimación matemática. El precio real también puede depender del riesgo de crédito, la liquidez y la oferta y demanda.</p></div></section></main><script>function calc(){let F=+fv.value||0,C=(+c.value||0)/100,Y=(+y.value||0)/100,N=+n.value||0,M=+m.value||1,p=C*F/M,q=Y/M,k=N*M,price;if(!k)price=F;else if(!q)price=F+p*k;else price=p*(1-Math.pow(1+q,-k))/q+F*Math.pow(1+q,-k);r.textContent=price.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2});cp.textContent=p.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})}document.querySelectorAll('input').forEach(x=>x.addEventListener('input',calc));calc();</script></body></html>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de bonos: precio, rendimiento y duración | CalculatePilot</title>
+<meta name="description" content="Calculadora de bonos gratuita: calcula el precio justo de un bono a partir de su valor nominal, tasa de cupón, vencimiento y tasa de mercado, además del rendimiento al vencimiento y la duración.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/bond-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/bond-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/bond-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/bond-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/bond-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/bond-calculator.html">
+<meta property="og:title" content="Calculadora de bonos: precio, rendimiento y duración | CalculatePilot">
+<meta property="og:description" content="Calculadora de bonos gratuita: calcula el precio justo de un bono a partir de su valor nominal, tasa de cupón, vencimiento y tasa de mercado, además del rendimiento al vencimiento y la duración.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/es/financial/bond-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de bonos: precio, rendimiento y duración | CalculatePilot">
+<meta name="twitter:description" content="Calculadora de bonos gratuita: calcula el precio justo de un bono a partir de su valor nominal, tasa de cupón, vencimiento y tasa de mercado, además del rendimiento al vencimiento y la duración.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20260929d">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculadora de precio de bonos",
+ "url": "https://www.calculatepilot.com/es/financial/bond-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calcula el precio justo de un bono según su valor nominal, tasa de cupón, vencimiento y tasa de interés de mercado actual. Sin registro. CalculatePilot explica la"
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculadoras financieras",
+   "item": "https://www.calculatepilot.com/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculadora de precio de bonos",
+   "item": "https://www.calculatepilot.com/es/financial/bond-calculator.html"
+  }
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Por qué un bono cotizaría por debajo de su valor nominal?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cuando las tasas de interés actuales del mercado son más altas que la tasa de cupón fija del bono, este resulta menos atractivo frente a los bonos nuevos, por lo que su precio cae por debajo del valor nominal para compensar a los compradores con un mejor rendimiento efectivo."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué ocurre con el precio de un bono al vencimiento?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El precio de un bono converge a su valor nominal a medida que se acerca el vencimiento, ya que al vencer el titular recibe exactamente el valor nominal: cualquier prima o descuento se reduce gradualmente a cero durante la vida restante del bono."
+   }
+  }
+ ]
+}</script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,calculate,chevron_right,expand_more,payments,percent,picture_as_pdf,restart_alt,savings,shield,speed,swap_vert,table_view,trending_up,tune,unfold_more,verified&display=block">
+<!-- /cpx-head-extra -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/es/financial-calculators.html">Finanzas</a></li>
+      <li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+      <li><a href="/es/math-calculators.html">Matemáticas</a></li>
+      <li><a href="/es/other-calculators.html">Vida diaria</a></li>
+      <li><a href="/es/guides/">Guías</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="bdCalc">
+<nav class="sx-crumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/es/financial-calculators.html">Calculadoras financieras</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculadora de precio de bonos</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Rendimiento al vencimiento (YTM)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Duración modificada y convexidad</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Valoración de bonos cupón cero y con cupón</span></div>
+    <h1>Calculadora de precio de bonos: precio, rendimiento y duración</h1>
+    <p>Calcula el precio justo de un bono a partir de su valor nominal, tasa de cupón, tiempo hasta el vencimiento y rendimiento de mercado actual; después comprueba si cotiza con descuento o con prima, su rendimiento corriente, su duración y cuánto varía el precio cuando cambian las tasas.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Parámetros del bono</h2><p>Condiciones del bono y rendimiento de mercado vigente</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Restablecer</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="faceValue">Valor nominal</label><em style="color:var(--sx-muted);font-weight:500">Capital que se devuelve al vencimiento</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="faceValue" type="number" inputmode="decimal" min="0" step="100" value="1000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Valores predefinidos: <button type="button" data-for="faceValue" data-value="1000">$1,000</button><button type="button" data-for="faceValue" data-value="5000">$5,000</button><button type="button" data-for="faceValue" data-value="10000">$10,000</button><button type="button" data-for="faceValue" data-value="100000">$100,000</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="couponRate">Tasa de cupón anual</label></div><div class="sx-au-in np pc"><input id="couponRate" type="number" inputmode="decimal" min="0" max="30" step="0.05" value="4.5"><span class="suf">%</span></div><div class="sx-au-chips"><button type="button" data-for="couponRate" data-value="0">0%</button><button type="button" data-for="couponRate" data-value="3.5">3.5%</button><button type="button" data-for="couponRate" data-value="4.5">4.5%</button><button type="button" data-for="couponRate" data-value="6">6.0%</button></div></div>
+      <div><div class="sx-au-l"><label for="marketRate">Rendimiento de mercado (YTM)</label></div><div class="sx-au-in np pc"><input id="marketRate" type="number" inputmode="decimal" min="0" max="30" step="0.05" value="5.25"><span class="suf">%</span></div><p class="sx-au-help" id="scen">—</p></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="years">Años hasta el vencimiento</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="yOut">—</em></div>
+      <div class="sx-au-in np"><input id="years" type="number" inputmode="decimal" min="0.5" max="50" step="0.5" value="10"><span class="suf">años</span></div>
+      <div class="sx-au-chips">Plazos: <button type="button" data-for="years" data-value="2">2 años</button><button type="button" data-for="years" data-value="5">5 años</button><button type="button" data-for="years" data-value="10">10 años</button><button type="button" data-for="years" data-value="20">20 años</button><button type="button" data-for="years" data-value="30">30 años</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Frecuencia del cupón</span></div>
+      <input type="hidden" id="paymentsPerYear" value="2">
+      <div class="sx-seg" role="group" aria-label="Frecuencia del cupón" style="display:flex"><button type="button" data-for="paymentsPerYear" data-value="1" style="flex:1">Anual</button><button type="button" data-for="paymentsPerYear" data-value="2" style="flex:1">Semestral</button><button type="button" data-for="paymentsPerYear" data-value="4" style="flex:1">Trimestral</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cat">Categoría del bono y tratamiento fiscal</label></div>
+      <div class="sx-au-sel"><select id="cat"><option value="t">Tesoro de EE. UU.: exento de impuestos estatales y locales</option><option value="c" selected>Corporativo: totalmente imponible</option><option value="m">Municipal: exento de impuestos federales</option></select></div>
+      <div class="sx-vt-in" id="mRow"><label for="br">Tu tramo impositivo federal (para el rendimiento equivalente antes de impuestos):</label><div class="sx-au-sel" style="width:110px"><select id="br"><option value="10">10%</option><option value="12">12%</option><option value="22">22%</option><option value="24" selected>24%</option><option value="32">32%</option><option value="35">35%</option><option value="37">37%</option></select></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Valorar el bono y medir la duración</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-vt-set" aria-live="polite">
+    <div class="hd"><div><b><span class="msym" aria-hidden="true">verified</span>Veredicto de precio</b><small>Precio limpio en una fecha de cupón</small></div><span class="sx-ef-grade" id="kind">—</span></div>
+    <div class="sx-vt-gross"><span>Precio del bono (valor justo)</span><div class="big" id="resultValue">—</div>
+      <div class="r"><span id="prem">—</span><span id="why">—</span></div></div>
+    <div class="sx-in-t4" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="sx-card"><div class="k">Rendimiento corriente<span class="msym" aria-hidden="true">percent</span></div><b id="cy">—</b><p id="cyN">—</p></div>
+      <div class="sx-card"><div class="k" id="ytmL">Rendimiento al vencimiento<span class="msym" aria-hidden="true">trending_up</span></div><b id="ytm">—</b><p id="ytmN">—</p></div>
+      <div class="sx-card"><div class="k">Total de pagos de cupón<span class="msym" aria-hidden="true">payments</span></div><b id="outCoupon">—</b><p id="cpN">—</p></div>
+      <div class="sx-card"><div class="k">Rendimiento total al vencimiento<span class="msym" aria-hidden="true">savings</span></div><b id="tr">—</b><p id="trN">—</p></div>
+    </div>
+    <div class="sx-vt-led" style="margin-top:14px">
+      <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">speed</span>Duración y sensibilidad a las tasas</span><span>Riesgo de tasa de interés</span></div>
+      <div class="l"><span>Duración de Macaulay</span><b id="mac">—</b></div>
+      <div class="l"><span>Duración modificada</span><b id="mod">—</b></div>
+      <div class="l"><span>Convexidad</span><b id="cvx">—</b></div>
+      <div class="l"><span>Subida de tasas de +100 pb (+1.00%)</span><b class="r" id="up">—</b></div>
+      <div class="l"><span>Bajada de tasas de −100 pb (−1.00%)</span><b id="dn" style="color:var(--sx-pc)">—</b></div>
+    </div>
+    <div class="sx-in-acts" style="margin-top:16px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Exportar (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Libro de flujos de caja (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 id="ledH">Libro de flujos de caja y acreción</h2><p>Cupones, ganancias por interés efectivo, acreción del descuento (o amortización de la prima), valor contable y valor presente de cada flujo de caja.</p></div><div class="hbt"><button type="button" id="expBtn" style="border-color:var(--sx-hover);background:var(--sx-emb);color:var(--sx-emt)"><span class="msym" aria-hidden="true">unfold_more</span><span id="expTxt">Expandir todos los periodos</span></button></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Periodo</th><th scope="col">Cronología</th><th scope="col">Pago del cupón</th><th scope="col" id="ieH">Interés devengado</th><th scope="col" id="acH">Acreción</th><th scope="col">Valor contable</th><th scope="col">Valor presente</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Supone que la liquidación se realiza en una fecha de cupón (sin interés acumulado) y una curva de rendimientos plana. En las operaciones reales se suma el interés acumulado al precio limpio.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">swap_vert</span></span><h3>El balancín de los bonos: por qué los precios bajan cuando suben las tasas</h3><p>El cupón de un bono se fija cuando se emite. Cuando suben las tasas de mercado, los bonos nuevos pagan más, así que un bono antiguo con cupón más bajo tiene que venderse por debajo de su valor nominal hasta que su rendimiento al vencimiento iguale al del mercado. Cuando las tasas bajan, ocurre lo contrario.</p><div class="sx-sg-take"><b>Idea clave:</b> YTM por encima de la tasa del cupón → bono con descuento. YTM por debajo de la tasa del cupón → bono con prima. Igual → cotiza a la par.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">shield</span></span><h3>Duración de Macaulay frente a duración modificada</h3><p>La duración de Macaulay es el tiempo promedio ponderado hasta que recibes los flujos de efectivo del bono. La duración modificada lo convierte en sensibilidad del precio: una duración modificada de <span id="mdEx">7.7</span> significa que el precio se mueve aproximadamente <span id="mdEx2">7.7</span>% en sentido contrario por cada punto porcentual de variación del rendimiento. La convexidad explica por qué el movimiento real es algo menor cuando suben las tasas y mayor cuando bajan.</p><div class="sx-sg-take"><b>Regla práctica:</b> vencimientos más largos y cupones más bajos implican mayor duración, y variaciones de precio más grandes.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Por qué los precios de los bonos se mueven en sentido contrario a las tasas de interés</h2>
+    <p>La tasa de cupón fija de un bono se establece cuando se emite, pero las tasas de interés del mercado cambian con el tiempo. Cuando las tasas de mercado suben por encima de la tasa de cupón de un bono, este resulta menos atractivo frente a los bonos nuevos que pagan más, por lo que su precio cae por debajo del valor nominal (cotiza «con descuento») para compensar a los compradores. Cuando las tasas de mercado bajan por debajo de la tasa de cupón, el bono se vuelve más atractivo y cotiza por encima del valor nominal («con prima»).</p>
+    <p>Esta relación inversa es uno de los conceptos más fundamentales de la inversión en bonos: por eso se suele decir que los precios de los bonos y las tasas de interés se mueven en direcciones opuestas.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Por Suhaib Hassan · Fórmula verificada el 27 sep 2026 · <a href="/methodology.html">Cómo verifica CalculatePilot las fórmulas →</a></p>
+
+    <h2>Qué representa este precio</h2>
+    <p>Esta calculadora obtiene el valor justo mediante matemática de valor presente: descuenta todos los pagos de cupón futuros y el reembolso final del valor nominal a dólares de hoy usando la tasa de mercado actual. Es el enfoque estándar en la valoración de renta fija.</p>
+    <p><strong>Precio = C × [1 − (1 + y)^−n] ÷ y + F ÷ (1 + y)^n</strong> — C = cupón por período · y = rendimiento de mercado por período · n = número de períodos · F = valor nominal</p>
+    <p>Los precios reales de los bonos pueden diferir ligeramente de este valor justo teórico debido a factores como el riesgo crediticio (riesgo percibido de impago), la liquidez y la oferta y la demanda del mercado; esta calculadora ofrece la valoración base a partir de la cual se ajustan esos factores reales.</p>
+
+    <h2>Preguntas frecuentes</h2>
+    <details class="sx-faq"><summary>¿Por qué un bono cotizaría por debajo de su valor nominal?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Cuando las tasas de interés actuales del mercado son más altas que la tasa de cupón fija del bono, este resulta menos atractivo frente a los bonos nuevos, por lo que su precio cae por debajo del valor nominal para compensar a los compradores con un mejor rendimiento efectivo.</p></details>
+    <details class="sx-faq"><summary>¿Qué ocurre con el precio de un bono al vencimiento?<span class="msym" aria-hidden="true">expand_more</span></summary><p>El precio de un bono converge a su valor nominal a medida que se acerca el vencimiento, ya que al vencer el titular recibe exactamente el valor nominal: cualquier prima o descuento se reduce gradualmente a cero durante la vida restante del bono.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Calculadoras financieras complementarias</h2><p>Herramientas de interés, depósitos y anualidades.</p></div>
+  <a href="/es/financial-calculators.html">Ver todas las herramientas financieras<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/es/financial/simple-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Calculadora de interés simple</b><span class="d">Pagarés sin capitalización y deuda a corto plazo.</span><span class="f">Explorar el motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Calculadora de CD</b><span class="d">Crecimiento de certificados de depósito y APY.</span><span class="f">Explorar el motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>Calculadora de interés compuesto</b><span class="d">Crecimiento a largo plazo con rendimientos reinvertidos.</span><span class="f">Explorar el motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/annuity-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Calculadora de anualidades</b><span class="d">Valor presente y futuro de flujos de pagos.</span><span class="f">Explorar el motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Calculadoras gratuitas y precisas para decisiones cotidianas — pensadas para la claridad, no para el desorden.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot en Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzas</h4>
+        <ul>
+          <li><a href="/es/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/es/financial/amortization-calculator.html">Amortización</a></li>
+          <li><a href="/es/financial/annuity-calculator.html">Anualidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Salud</h4>
+        <ul>
+          <li><a href="/es/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
+          <li><a href="/es/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/es/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Matemáticas y más</h4>
+        <ul>
+          <li><a href="/es/math/basic-calculator.html">Básica</a></li>
+          <li><a href="/es/math/area-calculator.html">Área</a></li>
+          <li><a href="/es/other/age-calculator.html">Edad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/about.html">Acerca de</a></li>
+          <li><a href="/methodology.html">Nuestra metodología</a></li>
+          <li><a href="/es/guides/">Guías</a></li>
+          <li><a href="/embed/">Incrustar calculadoras</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Política de privacidad</a></li>
+          <li><a href="/terms.html">Términos de uso</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Mapa del sitio</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones: consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span> <span><a href="/embed/bond-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrusta esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/es/bond.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

@@ -15,16 +15,16 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Alcoholemia — Estima tu Nivel de Alcohol en Sangre | CalculatePilot</title>
-<meta name="description" content="Estima el nivel de alcohol en sangre (BAC) según las bebidas consumidas, el peso corporal y el tiempo transcurrido. Solo con fines educativos.">
+<title>Calculadora de alcoholemia — Estimación de alcohol en sangre (Widmark) | CalculatePilot</title>
+<meta name="description" content="Calculadora de alcoholemia gratuita: estima el alcohol en sangre a partir de bebidas estándar o del tamaño y la graduación (ABV), peso, sexo y tiempo, con la evolución hora a hora. Solo estimación educativa.">
 <link rel="canonical" href="https://www.calculatepilot.com/es/health/bac-calculator.html">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/health/bac-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/health/bac-calculator.html">
 <link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/health/bac-calculator.html">
 <link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/health/bac-calculator.html">
-<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/health/bac-calculator.html">
 <link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/health/bac-calculator.html">
-<meta property="og:title" content="Calculadora de Alcoholemia — Estima tu Nivel de Alcohol en Sangre | CalculatePilot">
-<meta property="og:description" content="Estima el nivel de alcohol en sangre (BAC) según las bebidas consumidas, el peso corporal y el tiempo transcurrido. Solo con fines educativos.">
+<meta property="og:title" content="Calculadora de alcoholemia — Estimación de alcohol en sangre (Widmark) | CalculatePilot">
+<meta property="og:description" content="Calculadora de alcoholemia gratuita: estima el alcohol en sangre a partir de bebidas estándar o del tamaño y la graduación (ABV), peso, sexo y tiempo, con la evolución hora a hora. Solo estimación educativa.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/es/health/bac-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -32,60 +32,108 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="CalculatePilot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calculadora de Alcoholemia — Estima tu Nivel de Alcohol en Sangre | CalculatePilot">
-<meta name="twitter:description" content="Estima el nivel de alcohol en sangre (BAC) según las bebidas consumidas, el peso corporal y el tiempo transcurrido. Solo con fines educativos.">
+<meta name="twitter:title" content="Calculadora de alcoholemia — Estimación de alcohol en sangre (Widmark) | CalculatePilot">
+<meta name="twitter:description" content="Calculadora de alcoholemia gratuita: estima el alcohol en sangre a partir de bebidas estándar o del tamaño y la graduación (ABV), peso, sexo y tiempo, con la evolución hora a hora. Solo estimación educativa.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <link rel="stylesheet" href="/css/styles.css?v=20260929d">
-<script src="/js/language-selector.js?v=20260914" defer></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Calculadora de Alcoholemia",
-  "url": "https://www.calculatepilot.com/health/bac-calculator.html",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Web",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/OnlineOnly" },
-  "isAccessibleForFree": true,
-  "description": "Estima el nivel de alcohol en sangre (BAC) según las bebidas consumidas, el peso corporal y el tiempo transcurrido. Solo con fines educativos."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculatepilot.com/"},
-    {"@type": "ListItem", "position": 2, "name": "Calculadoras de salud y fitness", "item": "https://www.calculatepilot.com/es/health-calculators.html"},
-    {"@type": "ListItem", "position": 3, "name": "Calculadora de Alcoholemia", "item": "https://www.calculatepilot.com/es/health/bac-calculator.html"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Puedo usar esto para decidir si estoy en condiciones de conducir?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Esta es solo una estimación educativa, y el deterioro real puede producirse por debajo de lo que predice cualquier calculadora. Nunca uses una estimación de alcoholemia para tomar una decisión de conducción — organiza siempre un transporte alternativo después de beber."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué podría diferir mi alcoholemia real de esta estimación?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La alcoholemia real depende de muchos factores que esta fórmula simple no puede captar, incluyendo el metabolismo individual, la comida ingerida, los medicamentos, la graduación de la bebida y el ritmo de consumo — trata esto como una estimación educativa aproximada, no una medición precisa."
-      }
-    }
-  ]
-}
-</script>
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,calculate,chevron_right,content_copy,event,expand_more,favorite,local_bar,monitor_weight,print,restart_alt,schedule,tune,verified_user,water_drop&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculadora de alcoholemia (BAC)",
+ "url": "https://www.calculatepilot.com/es/health/bac-calculator.html",
+ "applicationCategory": "HealthApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Estimador educativo de alcohol en sangre con la fórmula de Widmark, con bebidas estándar o personalizadas y una cronología horaria de eliminación."
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculadoras de salud y fitness",
+   "item": "https://www.calculatepilot.com/health-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculadora de alcoholemia (BAC)",
+   "item": "https://www.calculatepilot.com/es/health/bac-calculator.html"
+  }
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "MedicalWebPage",
+ "name": "Calculadora de alcoholemia — Estimación de alcohol en sangre (Widmark)",
+ "url": "https://www.calculatepilot.com/es/health/bac-calculator.html",
+ "audience": {
+  "@type": "PeopleAudience",
+  "suggestedMinAge": 21
+ },
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "Widmark EMP. Die theoretischen Grundlagen und die praktische Verwendbarkeit der gerichtlich-medizinischen Alkoholbestimmung. 1932",
+  "https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink",
+  "https://www.nhtsa.gov/risky-driving/drunk-driving"
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Qué tan precisa es una calculadora de alcoholemia?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ofrece una estimación aproximada basada en promedios poblacionales. Dos personas que beben la misma cantidad pueden tener alcoholemias muy distintas por la comida, la velocidad al beber, la composición corporal, los medicamentos y el metabolismo. Solo una prueba de aliento o de sangre mide la alcoholemia."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuánto tarda la alcoholemia en llegar a cero?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El cuerpo elimina el alcohol a un ritmo medio de aproximadamente 0,015 % por hora, y nada —ni el café, ni las duchas frías, ni el ejercicio— lo acelera. Una alcoholemia de 0,08 % tarda unas 5 horas o más en eliminarse."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué se considera una bebida estándar?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En EE. UU., una bebida estándar contiene unos 14 gramos (0,6 fl oz) de alcohol puro: aproximadamente una cerveza de 12 oz al 5 %, una copa de vino de 5 oz al 12 % o un chupito de 1,5 oz de licor al 40 %. Las cervezas artesanales, las porciones grandes y los cócteles suelen contener más."
+   }
+  }
+ ]
+}</script>
 </head>
 <body>
 
@@ -97,96 +145,120 @@
       <li><a href="/es/health-calculators.html">Salud y fitness</a></li>
       <li><a href="/es/math-calculators.html">Matemáticas</a></li>
       <li><a href="/es/other-calculators.html">Vida diaria</a></li>
-      <li><a href="/guides/">Guías</a></li>
+      <li><a href="/es/guides/">Guías</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
   </div>
 </header>
 
 <main>
+<div class="sx" id="bacCalc">
+<nav class="sx-crumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/es/health-calculators.html">Calculadoras de salud &amp; fitness</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculadora de alcoholemia (BAC)</b></nav>
 
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/es/">Inicio</a> / <a href="/es/health-calculators.html">Calculadoras de salud y fitness</a> / Calculadora de Alcoholemia
-  </nav>
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Fórmula de Widmark</span><span class="sx-badge"><span class="msym" aria-hidden="true">schedule</span>Estimación hora a hora</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Revisado el 28 de sep. de 2026</span></div>
+    <h1>Calculadora de alcoholemia — Estimación de alcohol en sangre (Widmark)</h1>
+    <p>Estima tu concentración de alcohol en sangre a partir de tus bebidas, tu peso corporal, tu sexo y el tiempo transcurrido desde que empezaste a beber, y consulta cómo es probable que descienda hora a hora. Es solo una estimación educativa: <strong>nunca la uses para decidir si es seguro conducir</strong>.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Tus bebidas</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Restablecer</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Sexo</span></div><input type="hidden" id="sex" value="s1"><div class="sx-seg" role="group" aria-label="Sexo" style="display:flex"><button type="button" data-for="sex" data-value="s1" style="flex:1">Hombre</button><button type="button" data-for="sex" data-value="s2" style="flex:1">Mujer</button></div></div>
+      <div><div class="sx-au-l"><span>Unidades</span></div><input type="hidden" id="u" value="s1"><div class="sx-seg" role="group" aria-label="Unidades" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">lb / oz</button><button type="button" data-for="u" data-value="s2" style="flex:1">kg / mL</button></div></div>
+    </div>
+    <div><div class="sx-au-l"><label for="wt">Peso corporal</label></div><div class="sx-au-in np"><input id="wt" type="number" inputmode="decimal" min="60" max="600" step="1" value="176"><span class="suf" id="wU">lb</span></div></div>
+    <div>
+      <div class="sx-au-l"><span>Contar las bebidas como</span></div><input type="hidden" id="dm" value="s1">
+      <div class="sx-seg" role="group" aria-label="Entrada de bebidas" style="display:flex"><button type="button" data-for="dm" data-value="s1" style="flex:1">Bebidas estándar</button><button type="button" data-for="dm" data-value="s2" style="flex:1">Tamaño y ABV</button></div>
+    </div>
+    <div id="sdRow"><div class="sx-au-l"><label for="n">Número de bebidas estándar</label></div><div class="sx-au-in np"><input id="n" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="4"><span class="suf">bebidas</span></div><p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">1 bebida estándar = 12 oz de cerveza al 5 %, 5 oz de vino al 12 % o 1,5 oz de licor al 40 %.</p></div>
+    <div id="cuRow" hidden>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="cn">Bebidas</label></div><div class="sx-au-in np"><input id="cn" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="3"></div></div>
+        <div><div class="sx-au-l"><label for="cs">Tamaño de cada una</label></div><div class="sx-au-in np"><input id="cs" type="number" inputmode="decimal" min="0.5" max="1000" step="0.5" value="16"><span class="suf" id="sU">oz</span></div></div>
+      </div>
+      <div style="margin-top:10px"><div class="sx-au-l"><label for="abv">Graduación (ABV)</label></div><div class="sx-au-in np"><input id="abv" type="number" inputmode="decimal" min="0.5" max="70" step="0.1" value="6.5"><span class="suf">%</span></div></div>
+    </div>
+    <div><div class="sx-au-l"><label for="h">Horas desde la primera bebida</label></div><div class="sx-au-in np"><input id="h" type="number" inputmode="decimal" min="0" max="48" step="0.25" value="2"><span class="suf">horas</span></div></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Estimar alcoholemia</button>
+  </div>
+</form>
 </div>
 
-<section class="calc-page-head">
-  <div class="container">
-    <h1>Calculadora de Alcoholemia</h1>
-    <p class="lede">Estima el nivel de alcohol en sangre según las bebidas consumidas, el peso corporal y el tiempo transcurrido. Esto es solo una estimación educativa — nunca la uses para decidir si es seguro conducir.</p>
-  </div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Alcoholemia estimada ahora</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small> %</small></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Estimación máxima (sin eliminación)</span><b id="pk">—</b></div><div><span>Tiempo estimado para llegar a 0,00 %</span><b id="tz">—</b></div></div>
+    <div class="g2"><div><span>Alcohol puro consumido</span><b id="ag">—</b></div><div><span>Bebidas estándar de EE. UU.</span><b id="sd">—</b></div></div>
+    <div class="note" id="warn" style="font-weight:600">Nunca conduzcas después de beber: organiza un transporte sin alcohol.</div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copiar estimación</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Imprimir</button><a href="/es/health/alcohol-calories-calculator.html"><span class="msym" aria-hidden="true">local_bar</span>Calorías del alcohol</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Cómo desciende tu alcoholemia estimada</h2><p>Horas después de tu primera bebida, suponiendo que no bebes más y una tasa media de eliminación de 0,015 % por hora.</p></div><span class="sx-au-tag">Solo estimación</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Horas tras la primera bebida</th><th scope="col">Alcoholemia estimada</th><th scope="col">frente al límite de 0,08 % de EE. UU.</th></tr></thead>
+    <tbody id="tlTbl"></tbody>
+  </table></div>
 </section>
 
-<section>
-  <div class="container calc-layout">
-    <form class="calc-card" id="calcForm">
-      <div class="field">
-        <label for="sex">Sexo</label>
-        <select id="sex">
-          <option value="male" selected>Hombre</option>
-          <option value="female" >Mujer</option>
-        </select>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="weight">Peso corporal (lb)</label>
-          <input type="number" id="weight" value="170" step="1" min="60">
-        </div>
-        <div class="field">
-          <label for="numDrinks">Bebidas estándar consumidas</label>
-          <input type="number" id="numDrinks" value="2" step="1" min="0">
-        </div>
-      </div>
-      <div class="field">
-        <label for="hoursElapsed">Horas desde la primera bebida</label>
-        <input type="number" id="hoursElapsed" value="1" step="0.25" min="0">
-      </div>
-    </form>
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Cómo funciona esta calculadora</h2>
+    <p>Utiliza la fórmula de Widmark, el método clásico para estimar el alcohol en sangre:</p>
+    <ul>
+      <li><strong>Alcoholemia (%)</strong> = alcohol (g) ÷ (peso corporal (g) × r) × 100 − 0,015 × horas</li>
+      <li><strong>r</strong> (el factor de distribución del agua corporal) = 0,68 para hombres y 0,55 para mujeres, los valores medios de Widmark</li>
+      <li><strong>Alcohol (g)</strong> = bebidas estándar × 14 g, o bebidas × tamaño (mL) × ABV × 0,789</li>
+      <li><strong>0,015 % por hora</strong> es una tasa media de eliminación; las tasas reales varían de una persona a otra</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">Por <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Revisado el 28 de septiembre de 2026 con información del NIAAA y la NHTSA · <a href="/methodology.html">Cómo verifica CalculatePilot las fórmulas →</a></p>
 
-    <aside class="readout">
-      <div class="bar"></div>
-      <div class="readout-body">
-        <div class="readout-label">Alcoholemia estimada</div>
-        <div class="readout-value big" id="resultValue">—</div>
-        <div class="readout-breakdown">
-          <div class="readout-row"><span>Tiempo estimado hasta que la alcoholemia llegue a 0</span><span id="outHoursToZero">—</span></div>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
+    <h2>Un ejemplo resuelto</h2>
+    <p>Un hombre de 176 lb (80 kg) que ha tomado 4 bebidas estándar (56 g de alcohol) en 2 horas: 56 ÷ (80.000 × 0,68) × 100 = 0,103 %, menos 0,015 × 2 = <strong>aproximadamente 0,073 %</strong>. A 0,015 % por hora, tardaría unas 5 horas más en bajar a cero.</p>
 
-<section class="content-block">
-  <div class="container prose">
+    <h2>Esto es una estimación, no una determinación de seguridad</h2>
+    <p>La alcoholemia real depende de la comida, la velocidad al beber, los medicamentos, la salud, la composición corporal y el metabolismo individual, así que tu alcoholemia verdadera podría ser mayor o menor que esta estimación. Además, el alcohol sigue absorbiéndose durante un tiempo después de tu última bebida, por lo que la alcoholemia aún puede estar subiendo. La afectación comienza muy por debajo de los límites legales: la NHTSA señala que incluso con 0,02 % las personas muestran cierta pérdida de juicio y una disminución de la capacidad de hacer dos cosas a la vez. <strong>Ninguna calculadora puede decirte que es seguro conducir.</strong> Si has bebido, usa un servicio de transporte compartido, un taxi, el transporte público o un conductor designado sin alcohol.</p>
+    <p>El límite legal para conductores de 21 años o más es 0,08 % en todos los estados de EE. UU. excepto Utah (0,05 %); los conductores comerciales tienen un límite de 0,04 %, y los menores de 21 años están sujetos a leyes de tolerancia cero.</p>
 
-    <h2>Esto es una estimación — no una determinación de seguridad</h2>
-    <p>Esta calculadora usa una fórmula de estimación estándar (una versión de la ecuación de Widmark) para dar una idea aproximada del nivel de alcohol en sangre. Está pensada solo para concienciación educativa. No puede tener en cuenta el metabolismo individual, las interacciones con medicamentos, la ingesta de comida, la variación en la graduación de las bebidas ni muchos otros factores reales que afectan la alcoholemia real — lo que significa que tu alcoholemia real podría ser notablemente distinta de esta estimación, en cualquier dirección.</p>
-    <p>Ningún nivel de alcoholemia es «seguro» para conducir, y el deterioro del tiempo de reacción y el juicio comienza muy por debajo de la mayoría de los límites legales. Esta herramienta nunca debe usarse para decidir si tú u otra persona está en condiciones de conducir. Si has estado bebiendo, organiza un servicio de transporte compartido, un taxi, un conductor designado o transporte público.</p>
-    <h2>Qué cuenta como «bebida estándar»</h2>
-    <p>Una bebida estándar en EE. UU. suele definirse como unos 14 gramos (0,6 oz) de alcohol puro — aproximadamente una cerveza normal de 355 ml, una copa de vino de 150 ml, o un chupito de 44 ml de licor de 40°. Las cervezas más fuertes, las raciones más grandes y las bebidas mezcladas con varios chupitos pueden contener bastante más alcohol que una bebida estándar — algo que esta calculadora no puede detectar a partir de un simple recuento de bebidas.</p>
-    <p>Si estás registrando tu consumo por concienciación, merece la pena ser honesto sobre el tamaño real de las raciones y la graduación de la bebida, en lugar de asumir que cada bebida equivale exactamente a una unidad estándar.</p>
+    <h2>Fuentes</h2>
+    <ul>
+      <li>Widmark EMP. Die theoretischen Grundlagen und die praktische Verwendbarkeit der gerichtlich-medizinischen Alkoholbestimmung. Berlin: Urban &amp; Schwarzenberg, 1932.</li>
+      <li><a href="https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink" rel="noopener noreferrer">NIAAA — What is a standard drink?</a></li>
+      <li><a href="https://www.nhtsa.gov/risky-driving/drunk-driving" rel="noopener noreferrer">NHTSA — Conducir bajo los efectos del alcohol</a></li>
+    </ul>
 
     <h2>Preguntas frecuentes</h2>
-    <div class="faq-item">
-      <h3>¿Puedo usar esto para decidir si estoy en condiciones de conducir?</h3>
-      <p>No. Esta es solo una estimación educativa, y el deterioro real puede producirse por debajo de lo que predice cualquier calculadora. Nunca uses una estimación de alcoholemia para tomar una decisión de conducción — organiza siempre un transporte alternativo después de beber.</p>
-    </div>
-    <div class="faq-item">
-      <h3>¿Por qué podría diferir mi alcoholemia real de esta estimación?</h3>
-      <p>La alcoholemia real depende de muchos factores que esta fórmula simple no puede captar, incluyendo el metabolismo individual, la comida ingerida, los medicamentos, la graduación de la bebida y el ritmo de consumo — trata esto como una estimación educativa aproximada, no una medición precisa.</p>
-    </div>
-
-    <h2>Calculadoras relacionadas</h2>
-    <div class="tool-grid">
-      <a href="/health/alcohol-calories-calculator.html" class="tool-link">Calculadora de Calorías del Alcohol <span class="arrow">→</span></a>
-      <a href="/health/blood-pressure-category-calculator.html" class="tool-link">Calculadora de Categoría de Presión Arterial <span class="arrow">→</span></a>
-      <a href="/es/health/bmi-calculator.html" class="tool-link">Calculadora de IMC <span class="arrow">→</span></a>
-      <a href="/es/health/bmr-calculator.html" class="tool-link">Calculadora de Metabolismo Basal <span class="arrow">→</span></a>
-    </div>
+    <details class="sx-faq"><summary>¿Qué tan precisa es una calculadora de alcoholemia?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Ofrece una estimación aproximada basada en promedios poblacionales. Dos personas que beben la misma cantidad pueden tener alcoholemias muy distintas por la comida, la velocidad al beber, la composición corporal, los medicamentos y el metabolismo. Solo una prueba de aliento o de sangre mide la alcoholemia.</p></details>
+    <details class="sx-faq"><summary>¿Cuánto tarda la alcoholemia en llegar a cero?<span class="msym" aria-hidden="true">expand_more</span></summary><p>El cuerpo elimina el alcohol a un ritmo medio de aproximadamente 0,015 % por hora, y nada —ni el café, ni las duchas frías, ni el ejercicio— lo acelera. Una alcoholemia de 0,08 % tarda unas 5 horas o más en eliminarse.</p></details>
+    <details class="sx-faq"><summary>¿Qué se considera una bebida estándar?<span class="msym" aria-hidden="true">expand_more</span></summary><p>En EE. UU., una bebida estándar contiene unos 14 gramos (0,6 fl oz) de alcohol puro: aproximadamente una cerveza de 12 oz al 5 %, una copa de vino de 5 oz al 12 % o un chupito de 1,5 oz de licor al 40 %. Las cervezas artesanales, las porciones grandes y los cócteles suelen contener más.</p></details>
   </div>
 </section>
 
+<div class="sx-au-relh">
+  <div><h2>Calculadoras relacionadas</h2><p>Más sobre alcohol y salud.</p></div>
+  <a href="/es/health-calculators.html">Todas las calculadoras de salud<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/es/health/alcohol-calories-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_bar</span></span><b>Calorías del alcohol</b><span class="d">Calorías, bebidas estándar y unidades del Reino Unido.</span><span class="f">Contar calorías<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/health/blood-pressure-category-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">favorite</span></span><b>Categoría de presión arterial</b><span class="d">El alcohol puede elevar la presión arterial.</span><span class="f">Revisar lectura<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/health/water-intake-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">water_drop</span></span><b>Consumo de agua</b><span class="d">Necesidades diarias de líquidos.</span><span class="f">Revisar agua<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/health/bmi-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_weight</span></span><b>Calculadora de IMC</b><span class="d">Peso en relación con la estatura.</span><span class="f">Revisar IMC<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -196,22 +268,22 @@
         <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
         <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Calculadoras gratuitas y precisas para decisiones cotidianas — pensadas para la claridad, no para el desorden.</p>
         <div class="footer-social"><div class="social-icons">
-  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on X (Twitter)" class="social-icon">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en X (Twitter)" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
   </a>
-  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot on Pinterest" class="social-icon">
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot en Pinterest" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
   </a>
-  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on TikTok" class="social-icon">
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en TikTok" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
   </a>
-  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Instagram" class="social-icon">
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Instagram" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
   </a>
-  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot on YouTube" class="social-icon">
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en YouTube" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
   </a>
-  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot on Facebook" class="social-icon">
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Facebook" class="social-icon">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
   </a>
 </div></div>
@@ -219,25 +291,25 @@
       <div>
         <h4>Finanzas</h4>
         <ul>
-          <li><a href="/financial/401k-calculator.html">401(k)</a></li>
-          <li><a href="/financial/amortization-calculator.html">Amortización</a></li>
-          <li><a href="/financial/annuity-calculator.html">Anualidad</a></li>
+          <li><a href="/es/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/es/financial/amortization-calculator.html">Amortización</a></li>
+          <li><a href="/es/financial/annuity-calculator.html">Anualidad</a></li>
         </ul>
       </div>
       <div>
         <h4>Salud</h4>
         <ul>
-          <li><a href="/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
-          <li><a href="/health/bac-calculator.html">Alcoholemia (BAC)</a></li>
-          <li><a href="/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
+          <li><a href="/es/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
+          <li><a href="/es/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/es/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
         </ul>
       </div>
       <div>
         <h4>Matemáticas y más</h4>
         <ul>
-          <li><a href="/math/basic-calculator.html">Básica</a></li>
-          <li><a href="/math/area-calculator.html">Área</a></li>
-          <li><a href="/other/age-calculator.html">Edad</a></li>
+          <li><a href="/es/math/basic-calculator.html">Básica</a></li>
+          <li><a href="/es/math/area-calculator.html">Área</a></li>
+          <li><a href="/es/other/age-calculator.html">Edad</a></li>
         </ul>
       </div>
       <div>
@@ -245,7 +317,7 @@
         <ul>
           <li><a href="/about.html">Acerca de</a></li>
           <li><a href="/methodology.html">Nuestra metodología</a></li>
-          <li><a href="/guides/">Guías</a></li>
+          <li><a href="/es/guides/">Guías</a></li>
           <li><a href="/embed/">Incrustar calculadoras</a></li>
         </ul>
 <ul>
@@ -257,13 +329,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones — consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span>
-      <span><a href="/embed/bac-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrustar esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
+      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones: consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span> <span><a href="/embed/bac-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrusta esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
     </div>
   </div>
 </footer>
-
-<script src="/js/bac.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/es/bac.js?v=20260930o"></script>
 <script src="/js/nav.js?v=3d1747f9"></script>
 </body>
 </html>
