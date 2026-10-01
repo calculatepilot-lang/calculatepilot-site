@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .cp-card{@apply bg-surface-card border border-border-subtle rounded-xl p-5 shadow-sm flex flex-col justify-between}
+  .cp-card-top{@apply flex items-center justify-between mb-2}
+  .cp-tag{@apply text-[11px] font-semibold uppercase tracking-wider text-primary bg-surface-accent px-2 py-0.5 rounded}
+  .cp-note{@apply text-[11px] text-text-muted font-mono}
+  .cp-title{@apply font-headline-sm text-headline-sm text-text-primary mb-3}
+  .cp-code{@apply bg-surface-subtle rounded-md p-3 font-mono text-[11px] text-text-secondary border border-border-subtle mb-3 overflow-x-auto}
+  .cp-actions{@apply flex items-center gap-2 pt-2 border-t border-border-subtle}
+  .cp-copy{@apply flex-1 py-2 px-3 bg-surface-subtle hover:bg-surface-accent border border-border-subtle hover:border-primary/30 text-text-primary font-label-sm text-label-sm rounded flex items-center justify-center gap-1.5 transition-colors}
+  .cp-prev{@apply py-2 px-3 bg-surface-card hover:bg-surface-subtle border border-border-subtle text-text-secondary font-label-sm text-label-sm rounded flex items-center gap-1 transition-colors}
+}
