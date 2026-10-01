@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Period Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,calendar_month,chevron_right,child_friendly,content_copy,egg,event,expand_more,fact_check,monitor_weight,nutrition,print,restart_alt,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,111 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Period Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="lastPeriodDate">First day of last period</label>
-          <input type="date" id="lastPeriodDate" value="2026-07-01"
->
-        </div>
-        <div class="field">
-          <label for="cycleLength">Average cycle length (days)</label>
-          <input type="number" id="cycleLength" value="28"
-step="1"min="20">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Next period (estimated)</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Following period (estimated)</span><span id="outFollowing">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="prCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Period Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>FIGO Cycle Parameters</span><span class="sx-badge"><span aria-hidden="true" class="msym">calendar_month</span>Next 6 Periods</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Period Calculator — Next Periods &amp; Cycle Regularity Check</h1>
+<p>Predict your next six periods from your last period, cycle length and period length, and check your recent cycles against the FIGO definitions of a normal menstrual cycle.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Cycle</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label for="d">First Day of Last Period</label></div><div class="sx-au-in np"><input aria-label="First day of last period" id="d" type="date"/></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="cl">Average Cycle</label></div><div class="sx-au-in np"><input id="cl" inputmode="numeric" max="60" min="15" step="1" type="number" value="28"/><span class="suf">days</span></div></div>
+<div><div class="sx-au-l"><label for="pl">Period Lasts</label></div><div class="sx-au-in np"><input id="pl" inputmode="numeric" max="15" min="1" step="1" type="number" value="5"/><span class="suf">days</span></div></div>
+</div>
+<div style="border-top:1px solid var(--sx-border);padding-top:14px">
+<div class="sx-au-l"><span>Regularity Check (optional)</span></div>
+<p style="margin:0 0 8px;font-size:12px;color:var(--sx-muted)">Length of your last three cycles, in days.</p>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div class="sx-au-in np"><input aria-label="Cycle 1 length" id="c1" inputmode="numeric" max="90" min="10" placeholder="—" step="1" type="number" value=""/></div>
+<div class="sx-au-in np"><input aria-label="Cycle 2 length" id="c2" inputmode="numeric" max="90" min="10" placeholder="—" step="1" type="number" value=""/></div>
+<div class="sx-au-in np"><input aria-label="Cycle 3 length" id="c3" inputmode="numeric" max="90" min="10" placeholder="—" step="1" type="number" value=""/></div>
+</div>
+<div class="sx-au-in np" style="margin-top:8px"><input aria-label="Age" id="age" inputmode="numeric" max="60" min="12" placeholder="Age (for regularity limit)" step="1" type="number" value=""/><span class="suf">yrs</span></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Predict Periods</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Next period expected</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Expected to end</span><b id="pe">—</b></div><div><span>Estimated ovulation before it</span><b id="ov">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">fact_check</span>Against FIGO Normal Limits</span><span id="rgT">—</span></div>
+<div class="l"><span>Cycle frequency (normal 24–38 days)</span><b id="fq">—</b></div>
+<div class="l"><span>Period duration (normal up to 8 days)</span><b id="du">—</b></div>
+<div class="l"><span id="vaL">Cycle-to-cycle variation</span><b id="va">—</b></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Dates</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/ovulation-calculator.html"><span aria-hidden="true" class="msym">egg</span>Ovulation Calculator</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Your Next 6 Periods</h2><p>Estimated start and end dates if your cycle stays at the same length.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">#</th><th scope="col">Starts</th><th scope="col">Ends</th><th scope="col">In</th></tr></thead>
+<tbody id="prTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Next period</strong> = first day of last period + cycle length; each following period adds another cycle length.</li>
+<li><strong>Period end</strong> = start + period length − 1 day.</li>
+<li><strong>Ovulation</strong> ≈ 14 days before the next period starts.</li>
+</ul>
+<p>The regularity check uses the International Federation of Gynecology and Obstetrics (FIGO) 2018 parameters for normal menstruation in non-pregnant adults: a cycle every 24–38 days, bleeding for up to 8 days, and a difference between shortest and longest cycles of no more than 7–9 days (up to 7 days for ages 26–41, up to 9 days for ages 18–25 and 42–45).</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against FIGO and ACOG guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A last period starting 1 July with a 29-day cycle: the next period is estimated around <strong>30 July</strong>, then 28 August. With a 5-day period, the first runs 30 July – 3 August. If the last three cycles were 27, 29 and 33 days, the variation is 6 days — within FIGO's normal limit.</p>
+<h2>When to talk to a doctor</h2>
+<p>Cycles often vary by a few days, especially in the first years after periods start and in the years before menopause. It's worth seeing a healthcare provider if your periods come less than 24 or more than 38 days apart, last more than 8 days, are very heavy, stop for 3 months or more when you're not pregnant, or suddenly become irregular. Tracking your start dates over several months makes these conversations easier.</p>
+<h2>Sources</h2>
+<ul>
+<li>Munro MG, Critchley HOD, Fraser IS; FIGO Menstrual Disorders Committee. The two FIGO systems for normal and abnormal uterine bleeding symptoms and classification of causes of abnormal uterine bleeding in the reproductive years: 2018 revisions. Int J Gynaecol Obstet 2018;143:393–408.</li>
+<li><a href="https://www.acog.org/womens-health/faqs/abnormal-uterine-bleeding" rel="noopener noreferrer">ACOG — Abnormal Uterine Bleeding (FAQ)</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How long is a normal menstrual cycle?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Under FIGO's 2018 definitions, a normal adult cycle is 24 to 38 days long, counted from the first day of one period to the first day of the next.</p></details>
+<details class="sx-faq"><summary>Why did my period come early or late?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Stress, illness, travel, weight changes, intense exercise and some medicines can shift ovulation, which moves your next period. A single early or late period is common; a persistent change is worth discussing with a doctor. If you could be pregnant, take a pregnancy test.</p></details>
+<details class="sx-faq"><summary>How accurate are period predictions?<span aria-hidden="true" class="msym">expand_more</span></summary><p>They're most accurate for regular cycles. Even then, a few days either way is normal. Using your average from several recent cycles improves the estimate.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Understand your cycle.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/ovulation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">egg</span></span><b>Ovulation Calculator</b><span class="d">Fertile window for the next cycles.</span><span class="f">Find fertile days<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/due-date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">child_friendly</span></span><b>Due Date Calculator</b><span class="d">If your period is late and you're pregnant.</span><span class="f">Find due date<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Weight changes can affect cycles.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/fiber-intake-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">nutrition</span></span><b>Fiber Intake</b><span class="d">Daily target by age and calories.</span><span class="f">Set fiber target<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/period-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +151,8 @@ step="1"min="20">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/period.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/period.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

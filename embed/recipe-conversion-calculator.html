@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe Conversion Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add,arrow_forward,calculate,chevron_right,close,code,content_copy,download,event,expand_more,functions,lightbulb,lock,percent,person_check,pets,picture_as_pdf,receipt_long,restart_alt,restaurant_menu,scale,straighten,swap_horiz,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,53 +38,84 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Recipe Conversion Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="originalServings">Original recipe servings</label>
-          <input type="number" id="originalServings" value="4"
-step="0.5"min="0.5">
-        </div>
-        <div class="field">
-          <label for="desiredServings">Desired servings</label>
-          <input type="number" id="desiredServings" value="6"
-step="0.5"min="0.5">
-        </div>
-</div>        <div class="field">
-          <label for="ingredientAmount">Ingredient amount (in your preferred unit)</label>
-          <input type="number" id="ingredientAmount" value="2"
-step="0.125"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Scaled amount</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Scale factor</span><span id="outScaleFactor">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="rcCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Recipe Conversion Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">restaurant_menu</span>Scale recipes and convert units</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Recipe Scaling, Baker's Math &amp; Kitchen Converter</h1><p>Scale any recipe up or down to the number of servings you need, keeping every ingredient in proportion. See each amount as a friendly fraction, its weight in grams, baker's percentages and the total batch weight, and convert cooking units between cups, spoons, grams and ounces.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It multiplies every ingredient by the same ratio, rounds to kitchen measures, and converts volume to weight using typical densities.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Halving or tripling a recipe by hand is where mistakes creep in. This scales everything at once and shows weights for accuracy.</p></section></div></div>
+<form id="calcForm" novalidate="">
+<div style="margin-bottom:20px"><input id="mode" type="hidden" value="scale"/><div aria-label="Mode" class="sx-seg" role="group"><button data-for="mode" data-value="scale" type="button">Recipe scaler</button><button data-for="mode" data-value="conv" type="button">Kitchen unit converter</button></div></div>
+<div id="scaleMode">
+<div class="sx-grid" style="margin-bottom:32px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">restaurant_menu</span><h2 class="sx-h-md" style="margin:0">Servings and ingredients</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-qpills bd" id="rpre" style="padding-top:0"><span class="lb">Load an example</span><button data-r="cookie" type="button">Cookie dough</button><button data-r="bread" type="button">Sourdough loaf</button></div>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="os">Original servings</label></div><div class="sx-au-in sm np"><input id="os" inputmode="decimal" min="1" step="1" type="number" value="4"/></div></div>
+<div><div class="sx-au-l"><label for="ts">Servings you want</label></div><div class="sx-au-in sm np"><input id="ts" inputmode="decimal" min="1" step="1" type="number" value="10"/></div></div>
+<div><div class="sx-au-l"><label>Multiplier</label></div><div class="sx-strip" style="height:44px"><span>×</span><b id="mult">2.5</b></div></div>
 </div>
+<div class="sx-qpills"><span class="lb">Quick multiplier</span><button data-m="0.5" type="button">½×</button><button data-m="1.5" type="button">1.5×</button><button data-m="2" type="button">2×</button><button data-m="3" type="button">3×</button><button data-m="4" type="button">4×</button></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="ing" style="min-width:820px"><thead><tr><th>Ingredient</th><th class="n">Quantity</th><th>Unit</th><th>Type of ingredient</th><th class="n">Scaled</th><th class="n">Weight (g)</th><th></th></tr></thead><tbody></tbody></table></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="sx-mt-add" id="addIng" type="button"><span aria-hidden="true" class="msym">add</span>Add ingredient</button></div>
+<p class="sx-au-note" style="text-align:left">Amounts are shown to the nearest ⅛ cup, ¼ teaspoon or ¼ tablespoon. Weights use typical grams per cup for each ingredient, so measuring by weight is more accurate than by volume.</p>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Scale the recipe</button></div>
+</div>
+</div>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Recipe multiplier</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span>Total batch weight</span><b id="oMass">—</b></div><div><span>In pounds and ounces</span><b id="oImp" style="font-size:16px">—</b></div><div><span>Ingredients</span><b id="oN">—</b></div><div><span>Servings</span><b id="oSv">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Baker's percentages</span><em class="mu">flour = 100%</em></div><div id="bp" style="display:flex;flex-direction:column"></div><p class="sx-au-note" id="bpN" style="text-align:left;margin-top:10px">—</p></section>
+<div class="sx-in-acts"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>CSV</button><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy scaled recipe</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</div>
+<div hidden="" id="convMode">
+<div class="sx-grid" style="margin-bottom:32px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">swap_horiz</span><h2 class="sx-h-md" style="margin:0">Convert cooking units</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="ca">Amount</label></div><div class="sx-au-in sm np"><input id="ca" inputmode="decimal" min="0" step="0.05" type="number" value="2"/></div></div><div><div class="sx-au-l"><label for="cu">From</label></div><select class="sx-mt-sel" id="cu"></select></div></div>
+<div><div class="sx-au-l"><label for="cp">Ingredient</label><em class="mu">sets the density</em></div><select class="sx-mt-sel" id="cp"></select></div>
+<div hidden="" id="cgBox"><div class="sx-au-l"><label for="cg">Grams per cup</label></div><div class="sx-au-in sm np"><input id="cg" inputmode="decimal" min="1" step="1" type="number" value="120"/></div></div>
+</div>
+</div>
+</div>
+<div class="sx-r5"><section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Converted amount</span><span class="sx-ef-grade" id="ctag">—</span></div><div class="big" style="font-size:34px;line-height:1.1"><span id="cRes">—</span></div><p id="cInterp">—</p></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Same amount in other units</span></div><div id="cAll" style="display:flex;flex-direction:column"></div></section></div>
+</div>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Grams per cup of common ingredients</h2><p>Typical weights of one US cup. Real weight depends on how you scoop, the brand and humidity, so treat these as averages.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="dens" style="min-width:560px"><thead><tr><th>Ingredient</th><th class="n">Grams per cup</th><th class="n">Ounces per cup</th><th class="n">Grams per tablespoon</th></tr></thead><tbody></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Kitchen measurement conversions</h2><p>Exact relationships between US customary cooking measures.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:480px"><thead><tr><th>Measure</th><th class="n">Teaspoons</th><th class="n">Tablespoons</th><th class="n">Fluid ounces</th><th class="n">Millilitres</th></tr></thead><tbody>
+<tr><td class="a">1 tablespoon</td><td class="n">3</td><td class="n">1</td><td class="n">0.5</td><td class="n">14.79</td></tr>
+<tr><td class="a">¼ cup</td><td class="n">12</td><td class="n">4</td><td class="n">2</td><td class="n">59.15</td></tr>
+<tr><td class="a">½ cup (1 stick butter)</td><td class="n">24</td><td class="n">8</td><td class="n">4</td><td class="n">118.29</td></tr>
+<tr><td class="a">1 cup</td><td class="n">48</td><td class="n">16</td><td class="n">8</td><td class="n">236.59</td></tr>
+<tr><td class="a">1 pint</td><td class="n">96</td><td class="n">32</td><td class="n">16</td><td class="n">473.18</td></tr>
+</tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">close</span></div><h3>Scaling</h3><p>Multiply each quantity by the ratio of the servings you want to the original servings.</p><code>new amount = old amount × (target servings ÷ original servings)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">scale</span></div><h3>Volume to weight</h3><p>Convert to cups, then multiply by grams per cup for that ingredient.</p><code>grams = cups × grams per cup</code></div><div><div class="ic"><span aria-hidden="true" class="msym">percent</span></div><h3>Baker's percentage</h3><p>Each ingredient weight divided by total flour weight.</p><code>percent = ingredient g ÷ flour g × 100</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Cookie dough for 10</h3><p>A recipe for 4 scaled to 10 servings, so 2.5×.</p><div class="sx-mt-ex">2.5 cups flour × 2.5 = 6.25 → <b>6 ¼ cups</b><br/>6.25 × 120 g = <b>750 g</b><br/>1.5 sticks butter × 2.5 = <b>3 ¾ sticks</b> = 426 g</div></div><div><h3>Baker's percentage</h3><p>750 g flour, 500 g sugar, 426 g butter.</p><div class="sx-mt-ex">sugar = 500 ÷ 750 = <b>66.7%</b><br/>butter = 426 ÷ 750 = <b>56.8%</b><br/>flour is always 100%</div></div><div><h3>Cups to grams</h3><p>2 cups of granulated sugar.</p><div class="sx-mt-ex">2 × 200 g = <b>400 g</b><br/>= 14.1 oz<br/>(1 cup of AP flour is only about 120 g)</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to scale a recipe</h2><ul><li>Enter the servings the recipe makes and the servings you want.</li><li>List each ingredient with its quantity and unit, and choose the ingredient type so weights are right.</li><li>Read the scaled amounts, grams and total batch weight.</li><li>Adjust pan size, baking time and seasoning, since these do not scale in a straight line.</li></ul><p>Scaling ingredients is simple, but cooking is not always linear. Very large batches, leaveners, spices and baking times may need adjusting, so taste and test as you go.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>King Arthur Baking, <i>Ingredient Weight Chart</i>.</li><li>USDA FoodData Central, for ingredient densities and portion weights.</li><li>NIST Special Publication 811, for teaspoon, tablespoon, cup and millilitre conversions.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How do I scale a recipe?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the servings you want by the servings in the original recipe to get a multiplier, then multiply every ingredient by it. To go from 4 to 10 servings, multiply by 2.5.</p></details><details class="sx-faq"><summary>Why is weight better than cups for baking?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A cup of flour can weigh 120 g or more than 150 g depending on how you scoop it. Weighing ingredients removes that variation, which is why bakers use grams.</p></details><details class="sx-faq"><summary>What is a baker's percentage?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It expresses each ingredient as a percentage of the flour weight, which is always 100%. A dough with 700 g water to 1,000 g flour has a hydration of 70%.</p></details><details class="sx-faq"><summary>How many grams are in a cup?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It depends on the ingredient: about 120 g of all-purpose flour, 200 g of granulated sugar, 227 g of butter and 237 g of water. Use the ingredient type in the tool for the right figure.</p></details><details class="sx-faq"><summary>Do baking times change when I scale a recipe?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Often, yes. A larger or deeper batch takes longer, a smaller one less, and pan size changes how it browns. Use time and doneness cues rather than scaling time directly.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/unit-price-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Unit Price Calculator</b><span class="d">Compare package sizes.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">straighten</span></span><b>Length Conversion</b><span class="d">Metric and imperial length.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/dog-food-portion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pets</span></span><b>Dog Food Portion</b><span class="d">Daily food for a dog.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/tip-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Tip Calculator</b><span class="d">Split the dinner bill.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Recipe Conversion Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/recipe-conversion-calculator.html" width="100%" height="560" loading="lazy" title="Recipe Conversion Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/recipe-conversion-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -211,7 +124,8 @@ step="0.125"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/recipe-conversion.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/recipe-conversion.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
