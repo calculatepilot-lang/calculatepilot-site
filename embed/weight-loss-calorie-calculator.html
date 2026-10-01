@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weight Loss Calorie Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,content_copy,egg_alt,event,event_available,expand_more,local_fire_department,pie_chart,print,query_stats,restart_alt,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,66 +38,118 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Weight Loss Calorie Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="units">Units</label>
-          <select id="units">
-            <option value="imperial" selected>Imperial (lb)</option>
-            <option value="metric" >Metric (kg)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="currentWeight">Current weight</label>
-          <input type="number" id="currentWeight" value="180"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="goalWeight">Goal weight</label>
-          <input type="number" id="goalWeight" value="165"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="weeklyLossRate">Target loss per week</label>
-          <input type="number" id="weeklyLossRate" value="1"
-step="0.1"min="0.1">
-        </div>
-        <div class="field">
-          <label for="maintenanceCalories">Your maintenance calories (TDEE)</label>
-          <input type="number" id="maintenanceCalories" value="2400"
-step="50"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Target daily calories</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Daily deficit</span><span id="outDailyDeficit">—</span></div>
-        <div class="embed-row"><span>Estimated time needed</span><span id="outWeeksNeeded">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="wlCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Weight Loss Calorie Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>AHA/ACC/TOS Guideline</span><span class="sx-badge"><span aria-hidden="true" class="msym">event_available</span>Rate or Goal Date</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Weight Loss Calorie Calculator — Deficit &amp; Goal Date Planner</h1>
+<p>Start from your maintenance calories (TDEE) and plan a deficit: pick a weekly rate to see your daily calories and finish date, or pick a goal date to see the deficit it would take — with guideline safety checks.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Plan</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s1"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">lb</button><button data-for="u" data-value="s2" style="flex:1" type="button">kg</button></div></div>
+<div><div class="sx-au-l"><span>Sex</span></div><input id="sex" type="hidden" value="s2"/><div aria-label="Sex" class="sx-seg" role="group" style="display:flex"><button data-for="sex" data-value="s1" style="flex:1" type="button">Male</button><button data-for="sex" data-value="s2" style="flex:1" type="button">Female</button></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="tdee">Maintenance Calories (TDEE)</label><a href="/health/tdee-calculator.html" style="font-size:12px;font-weight:600">Estimate yours →</a></div>
+<div class="sx-au-in np"><input id="tdee" inputmode="numeric" max="6000" min="1000" step="10" type="number" value="2200"/><span class="suf">kcal</span></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="wt">Current Weight</label></div><div class="sx-au-in np"><input id="wt" inputmode="decimal" max="700" min="50" step="0.5" type="number" value="180"/><span class="suf" id="wU">lb</span></div></div>
+<div><div class="sx-au-l"><label for="gw">Goal Weight</label></div><div class="sx-au-in np"><input id="gw" inputmode="decimal" max="700" min="50" step="0.5" type="number" value="160"/><span class="suf" id="gU">lb</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Plan By</span></div><input id="mode" type="hidden" value="s1"/>
+<div aria-label="Plan by" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="s1" style="flex:1" type="button">Weekly rate</button><button data-for="mode" data-value="s2" style="flex:1" type="button">Goal date</button></div>
+</div>
+<div id="rateRow">
+<div class="sx-au-l"><span>Target Loss per Week</span></div><input id="rate" type="hidden" value="1"/>
+<div aria-label="Weekly rate" class="sx-au-opts" role="group" style="grid-template-columns:repeat(4,minmax(0,1fr))"><button data-for="rate" data-value="0.5" id="r1" type="button">½ lb</button><button data-for="rate" data-value="1" id="r2" type="button">1 lb</button><button data-for="rate" data-value="1.5" id="r3" type="button">1½ lb</button><button data-for="rate" data-value="2" id="r4" type="button">2 lb</button></div>
+</div>
+<div hidden="" id="dateRow">
+<div class="sx-au-l"><label for="gd">Goal Date</label></div>
+<div class="sx-au-in np"><input aria-label="Goal date" id="gd" type="date"/></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Plan My Deficit</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Daily calorie target</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small> kcal/day</small></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Daily deficit</span><b id="def">—</b></div><div><span id="etaL">Estimated goal date</span><b id="eta">—</b></div></div>
+<div class="g2"><div><span>To lose</span><b id="tl">—</b></div><div><span>Share of body weight / week</span><b id="pct">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Plan</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/calorie-calculator.html"><span aria-hidden="true" class="msym">query_stats</span>Adaptive Projection</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Compare Weekly Rates</h2><p>Daily calories and finish date at each common rate, using the flat 3,500 kcal per pound rule.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Rate / Week</th><th scope="col">Daily Calories</th><th scope="col">Deficit</th><th scope="col">Weeks</th><th scope="col">Goal Date</th></tr></thead>
+<tbody id="rtTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>The planner uses the long-standing approximation that about <strong>3,500 kcal equals one pound</strong> of body weight (about 7,700 kcal per kg):</p>
+<ul>
+<li><strong>By rate:</strong> daily deficit = weekly loss × 3,500 ÷ 7; daily target = TDEE − deficit; weeks = amount to lose ÷ weekly loss.</li>
+<li><strong>By goal date:</strong> weekly loss needed = amount to lose ÷ weeks available; the deficit and daily target follow from that.</li>
+</ul>
+<p>For comparison, the 2013 AHA/ACC/TOS adult obesity guideline suggests a deficit of about 500–750 kcal a day, or intakes of roughly 1,200–1,500 kcal a day for women and 1,500–1,800 kcal a day for men. The planner warns if your target drops below 1,200 (women) or 1,500 (men) kcal, or if the rate is faster than about 1% of body weight a week.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the AHA/ACC/TOS guideline and CDC guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>Maintenance of 2,200 kcal, 180 lb now, 160 lb goal, 1 lb a week: deficit = 1 × 3,500 ÷ 7 = 500 kcal, so the target is <strong>1,700 kcal a day</strong>, and 20 lb at 1 lb a week takes about 20 weeks. Wanting to finish in 10 weeks would need 2 lb a week — a 1,000 kcal deficit and a 1,200 kcal target, right at the guideline floor for women.</p>
+<h2>Why the real timeline is usually longer</h2>
+<p>The 3,500 kcal rule is a useful planning tool, but it overestimates long-term loss: as you get lighter, your maintenance calories fall, so a fixed intake produces a shrinking deficit. Research by Hall and colleagues at the NIH showed weight loss slows over time for this reason. Recalculate every few weeks with an updated TDEE, or use our <a href="/health/calorie-calculator.html">Calorie Calculator</a>, which projects your weight week by week as maintenance changes.</p>
+<p>The CDC notes that people who lose weight gradually and steadily — about 1 to 2 pounds a week — are more likely to keep it off.</p>
+<h2>Sources</h2>
+<ul>
+<li>Jensen MD, Ryan DH, Apovian CM, et al. 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults. Circulation 2014;129(25 Suppl 2):S102–S138.</li>
+<li>Hall KD, Sacks G, Chandramohan D, et al. Quantification of the effect of energy imbalance on bodyweight. Lancet 2011;378:826–837.</li>
+<li><a href="https://www.cdc.gov/healthy-weight-growth/losing-weight/index.html" rel="noopener noreferrer">CDC — Losing weight</a></li>
+<li><a href="https://www.niddk.nih.gov/bwp" rel="noopener noreferrer">NIH Body Weight Planner</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why 3,500 calories per pound of fat?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It's a long-standing approximation for the energy stored in a pound of body fat. It works for short-term planning, but because maintenance calories fall as you lose weight, it overestimates how much you'll lose over months.</p></details>
+<details class="sx-faq"><summary>Should I recalculate as I lose weight?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — as your weight decreases, your maintenance calories typically decrease too, so recalculating every few weeks keeps your target accurate rather than relying on a calculation made at your starting weight.</p></details>
+<details class="sx-faq"><summary>What is the lowest safe calorie target?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Adult guidelines commonly use about 1,200 kcal a day for women and 1,500 kcal a day for men as the lower end for a weight-loss diet without medical supervision. Very-low-calorie diets should only be followed under a healthcare provider's care.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Tools for the rest of your plan.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Your maintenance calories — start here.</span><span class="f">Estimate TDEE<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Calorie Calculator</b><span class="d">Week-by-week projection as maintenance falls.</span><span class="f">Project my weight<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/macro-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>Macro Calculator</b><span class="d">Split your target into protein, carbs and fat.</span><span class="f">Split macros<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/protein-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">egg_alt</span></span><b>Protein Calculator</b><span class="d">Protect muscle while in a deficit.</span><span class="f">Set protein<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/weight-loss-calorie-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -224,7 +158,8 @@ step="50"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/weight-loss-calorie.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/weight-loss-calorie.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
