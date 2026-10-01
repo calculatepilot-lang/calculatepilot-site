@@ -102,29 +102,8 @@ function cp_find_license(string $key): ?array
 
 function cp_send_license_email(string $email, string $licenseKey, string $plan): bool
 {
-    global $CP;
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return false;
-    }
-
-    $safeKey = htmlspecialchars($licenseKey, ENT_QUOTES, 'UTF-8');
-    $safePlan = htmlspecialchars($plan, ENT_QUOTES, 'UTF-8');
-    $subject = 'Your CalculatePilot White-Label License is Active';
-    $message = '<!doctype html><html><body style="font-family:Arial,sans-serif;color:#14171A;line-height:1.55">'
-        . '<h2>Your CalculatePilot White-Label License is Active</h2>'
-        . '<p>Thank you for subscribing to CalculatePilot Pro (' . $safePlan . '). Your license is ready to use.</p>'
-        . '<p><strong>Activation key</strong></p>'
-        . '<p style="font-family:monospace;font-size:20px;padding:14px;background:#EAF4F1;border-radius:6px;display:inline-block">' . $safeKey . '</p>'
-        . '<p>Open <a href="' . htmlspecialchars($CP['site_url'] . '/embed/', ENT_QUOTES, 'UTF-8') . '">CalculatePilot embeds</a>, enter this key in the license section, and copy your white-label embed code.</p>'
-        . '<p>Your key stays the same while your subscription remains eligible for access. If you need help, contact <a href="mailto:' . htmlspecialchars($CP['mail_from'], ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($CP['mail_from'], ENT_QUOTES, 'UTF-8') . '</a>.</p>'
-        . '</body></html>';
-
-    $headers = [
-        'MIME-Version: 1.0',
-        'Content-Type: text/html; charset=UTF-8',
-        'From: ' . $CP['mail_name'] . ' <' . $CP['mail_from'] . '>',
-        'Reply-To: ' . $CP['mail_from'],
-    ];
-
-    return @mail($email, $subject, $message, implode("\r\n", $headers));
+    // Delivery (authenticated SMTP with mail() fallback) lives in mail.php.
+    require_once __DIR__ . '/mail.php';
+    return cp_deliver_license_email($email, $licenseKey, $plan);
 }
+
