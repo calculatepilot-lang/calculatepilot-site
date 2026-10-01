@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Date Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,cake,calculate,calendar_add_on,calendar_month,chevron_right,child_care,code,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,restart_alt,schedule,tune,warning,work_history&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,49 +38,164 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Date Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="startDate">Start date</label>
-          <input type="date" id="startDate" value="2026-01-01"
->
-        </div>
-        <div class="field">
-          <label for="endDate">End date</label>
-          <input type="date" id="endDate" value="2026-12-31"
->
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Days between dates</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Weeks</span><span id="outWeeks">—</span></div>
-        <div class="embed-row"><span>Months (approx.)</span><span id="outMonths">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="dtCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Date Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">calendar_month</span>Calendar and business days</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Date Duration &amp; Business Days Calculator</h1>
+<p>Count the days between two dates, add or subtract days from a date, or count working days only. Skip weekends, public holidays for the US, UK, Canada or Australia, and any dates of your own, and see the weeks, months and the next working day.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Holiday lists follow the official rules for each country. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It counts whole days between dates, then removes weekends and holidays one date at a time to get working days.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Deadlines, notice periods and delivery times often run in business days. This shows both counts side by side.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Dates and rules</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>What do you want to do?</label></div><input id="mode" type="hidden" value="between"/><div aria-label="Mode" class="sx-seg full" role="group"><button data-for="mode" data-value="between" type="button">Between two dates</button><button data-for="mode" data-value="addsub" type="button">Add or subtract days</button><button data-for="mode" data-value="biz" type="button">Business days only</button></div></div>
+<div>
+<div class="sx-au-l"><label for="sd">Start date</label><em class="mu" id="sdW">—</em></div><div class="sx-au-in sm np"><input id="sd" type="date"/></div>
+<div class="sx-qpills" id="spre"><span class="lb">Quick</span><button data-s="today" type="button">Today</button><button data-s="mstart" type="button">Month start</button><button data-s="jan1" type="button">Jan 1</button></div>
+</div>
+<div id="endBox">
+<div class="sx-au-l"><label for="ed">End date</label><em class="mu" id="edW">—</em></div><div class="sx-au-in sm np"><input id="ed" type="date"/></div>
+<div class="sx-qpills" id="epre"><span class="lb">Quick</span><button data-e="90" type="button">+90 days</button><button data-e="180" type="button">+180 days</button><button data-e="yend" type="button">Year end</button></div>
+</div>
+<div hidden="" id="addBox">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="nd">Number of days</label></div><div class="sx-au-in sm np"><input id="nd" inputmode="numeric" min="0" step="1" type="number" value="30"/></div></div>
+<div><div class="sx-au-l"><label>Direction</label></div><input id="dir" type="hidden" value="1"/><div aria-label="Direction" class="sx-seg full" role="group"><button data-for="dir" data-value="1" type="button">Add</button><button data-for="dir" data-value="-1" type="button">Subtract</button></div></div>
+</div>
+<div style="margin-top:10px"><div class="sx-au-l"><label>Count</label></div><input id="cnt" type="hidden" value="cal"/><div aria-label="Count type" class="sx-seg" role="group"><button data-for="cnt" data-value="cal" type="button">Calendar days</button><button data-for="cnt" data-value="biz" type="button">Business days</button></div></div>
+</div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Counting rules</label></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label for="incl" style="font-size:13px;font-weight:500">Include the end day (+1)</label><label class="sx-toggle"><input id="incl" type="checkbox"/><i></i></label></div>
+<div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label for="nowk" style="font-size:13px;font-weight:500">Skip weekends (Saturday and Sunday)</label><label class="sx-toggle"><input checked="" id="nowk" type="checkbox"/><i></i></label></div>
+</div>
+<div style="margin-top:12px"><div class="sx-au-l"><label for="jur">Skip public holidays</label><em class="mu" id="hCount">—</em></div><select class="sx-mt-sel" id="jur"><option selected="" value="us">United States (federal holidays)</option><option value="uk">United Kingdom (England and Wales bank holidays)</option><option value="ca">Canada (federal statutory holidays)</option><option value="au">Australia (national holidays)</option><option value="none">None, calendar only</option></select></div>
+<div style="margin-top:12px"><div class="sx-au-l"><label for="cust">Extra days off</label><em class="mu">optional, YYYY-MM-DD, separated by commas</em></div><div class="sx-au-in sm np"><input autocomplete="off" id="cust" placeholder="2026-12-24, 2026-12-31" type="text"/></div></div>
+<div style="margin-top:12px"><div class="sx-au-l"><label for="hpd">Working hours per day</label></div><div class="sx-au-in sm np"><input id="hpd" inputmode="decimal" max="24" min="0" step="0.5" type="number" value="8"/></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0;display:flex;gap:8px;flex-wrap:wrap"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button><button class="sx-reset" id="icsBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:10px 14px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">calendar_add_on</span>Download .ics</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroL">Calendar days</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small id="heroU">days</small></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="h1L">Working days</span><b id="h1">—</b></div><div><span id="h2L">Weeks and days</span><b id="h2">—</b></div><div><span id="h3L">Years, months, days</span><b id="h3" style="font-size:15px">—</b></div><div><span id="h4L">Working hours</span><b id="h4">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Where the days go</span><em class="mu" id="cmpN">—</em></div>
+<div id="cbar" style="display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--sx-low);margin-bottom:10px"></div>
+<div id="cleg" style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--sx-onv)"></div>
+<div id="hlist" style="margin-top:12px;display:flex;flex-direction:column"></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Other measures</span><em class="mu">same interval</em></div>
+<div class="sx-au-tiles"><div><span>Solar hours</span><b id="oSol">—</b><small id="oMin">—</small></div><div><span>Share of the year</span><b id="oYr">—</b><small id="oYrN">—</small></div></div>
+<div class="sx-strip" style="margin-top:12px"><span>Next working day after the end</span><b id="oNext">—</b></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Dates from today</h2><p>Common offsets from today, with the weekday each lands on.</p></div><span class="sx-mt-tag" id="offBase">—</span></div>
+<div class="sx-au-tiles c3 card" id="offs"></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Quarter and fiscal-year working days</h2><p>Calendar and working days for each quarter of the current year and the US federal fiscal year, using your holiday choice and weekend setting above.</p></div><span class="sx-mt-tag" id="qBase">—</span></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="qt" style="min-width:640px"><thead><tr><th>Period</th><th>Start</th><th>End</th><th class="n">Calendar days</th><th class="n">Working days</th><th class="n">Holidays on weekdays</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>How the counts work</h2>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Calendar days</h3><code>days = (end − start) ÷ 86,400,000 ms (+1 if the end day is included)</code></div>
+<div><h3>Working days</h3><code>count each date d in [start, end) where d is not a weekend, holiday or extra day off</code></div>
+<div><h3>Leap year</h3><code>(y mod 4 = 0 and y mod 100 ≠ 0) or y mod 400 = 0</code></div>
+</div>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Holidays</span>
+<h2>What is skipped</h2>
+<p>US federal holidays are the eleven in 5 U.S.C. 6103. A holiday that falls on a Saturday is observed on Friday and one on a Sunday on Monday. UK, Canada and Australia lists cover the common national holidays, and moving rules such as Easter are calculated.</p>
+<p>Regional and one-off holidays are not included. Add them in the extra days off box.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative dates, each checked by hand.</p>
+<div class="sx-mt-3">
+<div><h3>9 Mar to 1 Jun 2026</h3><p>Calendar days between the dates.</p><div class="sx-mt-ex">March: 31 − 9 = 22<br/>April 30 + May 31 = 61<br/>+ 1 day into June = <b>84 days</b><br/>= 12 weeks exactly</div></div>
+<div><h3>Working days in that range</h3><p>US federal holidays, weekends skipped.</p><div class="sx-mt-ex">84 days − 24 weekend days = 60<br/>− Memorial Day (25 May) = <b>59 working days</b></div></div>
+<div><h3>Add 90 days</h3><p>To 9 March 2026.</p><div class="sx-mt-ex">9 Mar + 22 → 31 Mar<br/>+ 30 → 30 Apr, + 31 → 31 May<br/>+ 7 → <b>7 Jun 2026, a Sunday</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to count days between two dates</h2>
+<ul>
+<li>Pick the start and end dates and decide whether the end day counts.</li>
+<li>For calendar days, subtract the dates. Leap days are handled automatically.</li>
+<li>For business days, remove weekends and any public holidays that fall on weekdays.</li>
+<li>To find a deadline, use Add or subtract days with the business-day option.</li>
+</ul>
+<p>Contracts and laws define how days are counted. Check whether the first or last day is included, and which holidays apply, before relying on a date.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>5 U.S.C. § 6103, <i>Holidays</i>, and U.S. Office of Personnel Management, <i>Federal Holidays</i>.</li>
+<li>GOV.UK, <i>UK bank holidays</i>.</li>
+<li>Government of Canada, <i>Statutory holidays</i> (federal).</li>
+<li>ISO 8601, <i>Date and time — Representations for information interchange</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is the end date included in the count?<span aria-hidden="true" class="msym">expand_more</span></summary><p>By default no: the count runs from the start date up to, but not including, the end date. Turn on Include the end day to add one. Legal deadlines often specify the rule, so check yours.</p></details>
+<details class="sx-faq"><summary>How are business days counted?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Every date in the range that is not a Saturday, Sunday, chosen public holiday or extra day off counts as a working day. A holiday that falls on a weekend is not deducted twice.</p></details>
+<details class="sx-faq"><summary>Which US holidays are skipped?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The eleven federal holidays: New Year's Day, Martin Luther King Jr. Day, Washington's Birthday, Memorial Day, Juneteenth, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving and Christmas Day, with weekend observance rules.</p></details>
+<details class="sx-faq"><summary>How does the tool handle leap years?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Dates are counted on the real Gregorian calendar, so 29 February is included in leap years. A year is a leap year if divisible by 4, except centuries not divisible by 400.</p></details>
+<details class="sx-faq"><summary>Why is the next working day useful?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It shows when work resumes after the interval ends, skipping weekends and holidays. It is handy for delivery windows, notice periods and project handovers.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">cake</span></span><b>Age Calculator</b><span class="d">Exact age and milestone days.</span><span class="f">Find your age<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/time-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">schedule</span></span><b>Time Calculator</b><span class="d">Add and subtract times.</span><span class="f">Work with time<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/hours-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">work_history</span></span><b>Hours Calculator</b><span class="d">Work hours and shift totals.</span><span class="f">Total the hours<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/due-date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">child_care</span></span><b>Due Date Calculator</b><span class="d">Pregnancy due date.</span><span class="f">Find a due date<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Date Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/date-calculator.html" width="100%" height="560" loading="lazy" title="Date Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/date-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -207,7 +204,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/date.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/date.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

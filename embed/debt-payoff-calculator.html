@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Debt Payoff Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,account_balance_wallet,add_circle,arrow_forward,auto_awesome,chevron_right,credit_card,delete,directions_car,expand_more,functions,home,medical_services,percent,pie_chart,psychology,psychology_alt,receipt_long,savings,school,trending_down,tune,verified,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,79 +38,129 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Debt Payoff Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="balance">Current balance</label>
-          <input type="number" id="balance" value="6000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="apr">Interest rate (% APR)</label>
-          <input type="number" id="apr" value="21.9"
-step="0.1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="monthlyPayment">Monthly payment</label>
-          <input type="number" id="monthlyPayment" value="250"
-step="10"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Time to pay off</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total interest paid</span><span id="outTotalInterest">—</span></div>
-        <div class="embed-row"><span>Total paid</span><span id="outTotalPaid">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="debtCalc">
+<div class="sx-dmain">
+<nav aria-label="Breadcrumb" class="sx-crumb"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b aria-current="page">Debt Payoff Calculator</b></nav>
+<section class="sx-dhead">
+<div class="sx-badges">
+<span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Mathematical Model: Debt Snowball vs Avalanche</span>
+<span class="sx-plain"><span aria-hidden="true" class="msym">verified_user</span>Client-Side Verified • Zero Data Stored</span>
 </div>
+<h1>Debt Payoff Calculator</h1>
+<p>Formulate an accelerated debt repayment strategy, compare interest-minimizing Avalanche vs balance-eliminating Snowball methods, and identify your exact debt-free date.</p>
+</section>
+<form id="calcForm" novalidate="" style="display:contents">
+<section class="sx-card r2 sx-topbar">
+<div>
+<div class="sx-between"><label class="sx-lic" for="extra"><span aria-hidden="true" class="msym">add_circle</span>Extra Monthly Repayment Allocation</label><span class="sx-lbl-sm">Accelerates principal reduction</span></div>
+<div class="sx-xrow">
+<div class="sx-xin"><span class="pre">$</span><input id="extra" inputmode="decimal" min="0" step="25" type="number" value="300"/><span class="suf">/ month</span></div>
+<div class="sx-xpills"><button data-for="extra" data-value="150" type="button">+$150</button><button data-for="extra" data-value="300" type="button">+$300</button><button data-for="extra" data-value="500" type="button">+$500</button></div>
+</div>
+</div>
+<div>
+<span class="sx-lic"><span aria-hidden="true" class="msym">tune</span>Select Execution Algorithm</span>
+<input id="strategy" type="hidden" value="avalanche"/>
+<div aria-label="Payoff strategy" class="sx-algo" role="group">
+<button data-for="strategy" data-value="avalanche" type="button"><span class="t"><i></i>Avalanche Method</span><span class="s">Highest APR First • Max Savings</span></button>
+<button data-for="strategy" data-value="snowball" type="button"><span class="t"><i></i>Snowball Method</span><span class="s">Lowest Balance First • Quick Wins</span></button>
+</div>
+</div>
+</section>
+</form>
+<div class="sx-dgrid">
+<section class="sx-l7">
+<div class="sx-phead">
+<div><span aria-hidden="true" class="msym">account_balance_wallet</span><h2 class="sx-h-md">Debt Portfolio</h2><span class="sx-cnt" id="debtCount">3 Liabilities</span></div>
+<span class="tot">Total Minimum: <b id="totalMin">$615 / mo</b></span>
+</div>
+<div class="sx-debts" id="debts"></div>
+<button class="sx-add" id="addDebt" type="button"><span aria-hidden="true" class="msym">add_circle</span>+ Add Another Debt</button>
+</section>
+<section class="sx-r5" id="results">
+<div aria-live="polite" class="sx-dfree" id="heroCard">
+<div class="circ"></div>
+<div class="hd"><span class="kk">Projected Milestone</span><span class="as"><span aria-hidden="true" class="msym">auto_awesome</span>Active Strategy</span></div>
+<div class="by">Debt Free by:</div>
+<div class="dt" id="resultValue">—</div>
+<div class="du" id="durTxt">—</div>
+<div class="st"><div><span>Total Principal</span><b id="totPrin">—</b></div><div><span>Total Interest Paid</span><b class="i" id="totInt">—</b></div></div>
+</div>
+<div class="sx-card r2 sx-cmpc">
+<div class="hd"><b>Strategy Comparison</b><span>3 Scenarios Calculated</span></div>
+<div id="scenarios"></div>
+<div class="sx-save" id="saveBox"><span aria-hidden="true" class="msym">savings</span><div id="saveTxt">—</div></div>
+</div>
+<div class="sx-card r2 sx-traj2">
+<div class="hd"><b>Paydown Trajectory</b><span>Balance Evolution</span></div>
+<div class="sx-bars" id="bars"></div>
+<div class="sx-dleg" id="legend"></div>
+</div>
+</section>
+</div>
+<section class="sx-card r2 sx-casc" id="schedule">
+<div class="hd">
+<div><h2 class="sx-h-md">Repayment Rollout Cascade</h2><p id="cascSub">Step-by-step sequential allocation under the Avalanche Model</p></div>
+<span class="cf">Total Monthly Cashflow Allocated: <strong id="cashflow">$915.00</strong></span>
+</div>
+<div class="sx-phases" id="phases"></div>
+</section>
+<section class="sx-edu" id="formula">
+<div class="sx-card r2">
+<div class="sx-title"><span aria-hidden="true" class="msym">functions</span><h3 class="sx-h-md">Mathematical Mechanics: Amortization</h3></div>
+<p>The monthly compounding finance charge on each liability is calculated via:</p>
+<div class="fx">I_monthly = Balance × (APR / 12)</div>
+<p class="sm" id="mechTxt">The <strong>Avalanche method</strong> is mathematically optimal because every extra dollar goes to the balance charging the highest rate, which minimizes the total interest accruing across all your debts. Any dollar allocated to a 22.4% APR balance earns a guaranteed return of 22.4%.</p>
+</div>
+<div class="sx-card r2">
+<div class="sx-title"><span aria-hidden="true" class="msym s">psychology_alt</span><h3 class="sx-h-md">Avalanche vs Snowball Trade-Off</h3></div>
+<div class="two">
+<div><h4 class="p">Debt Avalanche</h4><p>Maximizes mathematical efficiency. Saves the most in interest charges and usually reaches debt freedom soonest, but the first payoff can take a while.</p></div>
+<div><h4>Debt Snowball</h4><p>Prioritizes behavioral momentum. Eliminates small accounts early, generating quick psychological wins that reduce friction and the number of bills you juggle.</p></div>
+</div>
+</div>
+</section>
+<section class="sx-card sx-method" style="margin:0">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>Each month, every debt accrues interest at its APR ÷ 12 and receives at least its minimum payment. Your extra amount goes to the target debt — the highest APR for avalanche, the smallest balance for snowball. When a debt is paid off, its minimum rolls into the next target, so your total monthly outlay stays the same until you're debt free. The "minimums only" scenario keeps that same total but adds no extra.</p>
+<h2>Why the payment amount matters so much</h2>
+<p>On high-interest debt like credit cards, a payment close to the minimum can take years to clear and cost more in interest than the original balance. Increasing the monthly payment even modestly often cuts both the payoff time and total interest dramatically.</p>
+<h2>A worked example</h2>
+<p>A $5,000 balance at 19.99% APR with a $150/month payment takes about 50 months (4 years, 2 months) to pay off, with roughly $2,357 in total interest — meaning you'd pay about $7,357 total for the original $5,000. Bump the payment to $250/month instead, and payoff time drops to about 25 months with around $1,132 in interest — roughly halving both the timeline and the total interest.</p>
+<p>For a multi-debt walkthrough with real numbers, see <a href="/guides/debt-payoff-avalanche-vs-snowball-real-numbers.html">avalanche vs snowball, worked through</a>. Once your obligations drop, check how it moves your <a href="/financial/debt-to-income-ratio-calculator.html">debt-to-income ratio</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What if my payment doesn't cover the interest?<span aria-hidden="true" class="msym">expand_more</span></summary><p>If your monthly payment is lower than the interest accruing each month, the balance will never be paid off — you'll need to increase the payment above that threshold. The calculator flags any debt whose minimum doesn't cover its interest.</p></details>
+<details class="sx-faq"><summary>Should I pay off high-interest debt before investing?<span aria-hidden="true" class="msym">expand_more</span></summary><p>As a general rule, paying off debt with a higher interest rate than your expected investment return tends to provide a better guaranteed outcome, though individual circumstances vary.</p></details>
+<details class="sx-faq"><summary>Which is better: avalanche or snowball payoff method?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Avalanche (highest interest rate first) saves more money mathematically. Snowball (smallest balance first) can be more motivating since it produces quick wins, even at a slightly higher total cost — the best method is the one you'll actually stick with.</p></details>
+<details class="sx-faq"><summary>Should I pay off debt or save simultaneously?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Most financial guidance suggests keeping a small emergency fund while aggressively paying down high-interest debt, then shifting focus to savings once high-interest balances are cleared.</p></details>
+<details class="sx-faq"><summary>How much does avalanche actually save over snowball, in real numbers?<span aria-hidden="true" class="msym">expand_more</span></summary><p>On $14,700 across three debts (24.99%, 19.99%, and 11.5% APR) with $300/month extra, avalanche saves $178 in interest over 25 months — but takes until month 12 to eliminate its first debt, versus month 7 for snowball. See the <a href="/guides/debt-payoff-avalanche-vs-snowball-real-numbers.html">full worked example</a>.</p></details>
+<details class="sx-faq"><summary>Is a 0% balance transfer worth the fee?<span aria-hidden="true" class="msym">expand_more</span></summary><p>On a $6,700 balance at 23% APR paid off over 18 months, a 0% intro card with a 3% transfer fee ($201) saves about $1,084 versus staying put. The transfer stops being worth it once your original APR drops below roughly 3.8%.</p></details>
+</div>
+</section>
+<section>
+<div class="sx-rel-head">
+<h2 class="sx-h-md">Related Financial Tools</h2>
+<a class="lg" href="/financial-calculators.html">Explore all calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-rel2grid">
+<a class="sx-card sx-rel4" href="/financial/credit-card-calculator.html"><div><span class="ic"><span aria-hidden="true" class="msym">credit_card</span></span><h4>Credit Card Payoff</h4><p>Calculate how long it takes to clear a single card balance and what it costs.</p></div><div class="go">Launch Tool<span aria-hidden="true" class="msym">arrow_forward</span></div></a>
+<a class="sx-card sx-rel4" href="/financial/debt-to-income-ratio-calculator.html"><div><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><h4>Debt-to-Income Ratio</h4><p>Check front-end and back-end DTI against common mortgage lending thresholds.</p></div><div class="go">Launch Tool<span aria-hidden="true" class="msym">arrow_forward</span></div></a>
+<a class="sx-card sx-rel4" href="/financial/budget-calculator.html"><div><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><h4>Budget Calculator</h4><p>Build a 50/30/20 budget and find the extra cash to throw at your debts.</p></div><div class="go">Launch Tool<span aria-hidden="true" class="msym">arrow_forward</span></div></a>
+<a class="sx-card sx-rel4" href="/financial/loan-calculator.html"><div><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><h4>Loan Calculator</h4><p>Work out payments, total interest and payoff time for any fixed-rate loan.</p></div><div class="go">Launch Tool<span aria-hidden="true" class="msym">arrow_forward</span></div></a>
+</div>
+</section>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/debt-payoff-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -237,40 +169,9 @@ step="10"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/debt-payoff.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/debt-payoff.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

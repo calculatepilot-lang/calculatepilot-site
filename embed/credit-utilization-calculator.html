@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Credit Utilization Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=ac_unit,account_balance,add,arrow_forward,auto_graph,calendar_month,check_circle,chevron_right,close,credit_card,download,event_repeat,expand_more,hub,insights,payments,print,real_estate_agent,security,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,109 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Credit Utilization Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="totalBalances">Total credit card balances ($)</label>
-          <input type="number" id="totalBalances" value="1800"
-step="50"min="0">
-        </div>
-        <div class="field">
-          <label for="totalLimits">Total credit limits ($)</label>
-          <input type="number" id="totalLimits" value="10000"
-step="500"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Credit utilization</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Category</span><span id="outCategory">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="cuCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Credit Utilization Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Credit Utilization Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">hub</span>Revolving Credit Modeling</span><span class="sx-badge"><span aria-hidden="true" class="msym">security</span>Zero-Tracking Browser Local</span></div>
+<h1>Credit Utilization Calculator &amp; Paydown Simulator</h1>
+<p>Calculate your overall and per-card credit utilization ratios — one of the biggest factors in your credit score — and see how a paydown before your statement dates changes them.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">credit_card</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Revolving Credit Cards &amp; Lines</h2><p>Balances and credit limits for each card</p></div></div>
+<button class="sx-cu-add" id="addBtn" type="button"><span aria-hidden="true" class="msym">add</span>Add Another Card</button>
+</div>
+<div class="sx-au-stack">
+<div><div id="cards"></div><div class="sx-cu-tot"><span>Total Credit Limit: <b id="tLim">—</b></span><span>Total Balance: <b id="tBal">—</b></span><span>Revolving Lines: <b id="tN">—</b></span></div></div>
+<div class="sx-fr-sec">
+<div class="sx-au-l"><label for="tgtR">Target Overall Utilization: <span id="tgtOut">9%</span></label><em class="ok" id="tgtTag">Low Tier</em></div>
+<input id="tgt" type="hidden" value="9"/><input aria-label="Target utilization" class="sx-range2" data-sync="tgt" id="tgtR" max="50" min="1" step="1" type="range" value="9"/>
+<div class="sx-au-chips"><button data-for="tgt" data-value="1" type="button">1%</button><button data-for="tgt" data-value="9" type="button">9%</button><button data-for="tgt" data-value="29" type="button">29%</button><button data-for="tgt" data-value="45" type="button">45%</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="cap">Available Paydown Capital</label></div><div class="sx-au-in"><span class="pre">$</span><input id="cap" inputmode="decimal" min="0" step="100" type="number" value="2000"/></div></div>
+<div><div class="sx-au-l"><label for="strat">Payoff Allocation Strategy</label></div><div class="sx-au-sel"><select id="strat"><option selected="" value="bal">Balance per card (lower the highest ratios)</option><option value="hi">Highest utilization first</option><option value="lo">Lowest balance first (quick wins)</option></select></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px;background:var(--sx-primary)" type="submit"><span aria-hidden="true" class="msym">insights</span>Simulate Utilization Impact</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-ry-eng">
+<div class="hd"><span>Credit Utilization Audit</span><span class="sx-ef-grade" id="tier">—</span></div>
+<div class="sx-sg-hero" style="padding:0"><div class="big" style="color:var(--sx-on)"><span id="resultValue">—</span><small>Aggregate Revolving Utilization</small></div></div>
+<div class="sx-au-tiles c3 card" style="margin:10px 0 16px">
+<div><span>Total Revolving Balance</span><b id="bal">—</b></div>
+<div><span>Aggregate Credit Line</span><b id="lim">—</b></div>
+<div style="border-color:var(--sx-hover);background:var(--sx-emb)"><span>Payoff to Reach Target</span><b class="g" id="pay">—</b><small id="payN">—</small></div>
+</div>
+<div class="sx-cu-spec">
+<div class="r">Utilization Spectrum<span>Current: <b class="c" id="curL">—</b> · After paydown: <b class="s" id="simL">—</b></span></div>
+<div class="t"><span style="width:9%;background:#16a34a"></span><span style="width:20%;background:#4ade80"></span><span style="width:20%;background:#facc15"></span><span style="width:25%;background:#fb923c"></span><span style="width:26%;background:#ef4444"></span><i class="c" id="curM"></i><i class="s" id="simM"></i></div>
+<div class="lb"><span>&lt;10%</span><span>10–29%</span><span>30–49%</span><span>50–74%</span><span>75%+</span></div>
+</div>
+<div class="sx-cu-sim">
+<h4><span aria-hidden="true" class="msym">auto_graph</span>Paydown Simulation</h4>
+<div class="row"><div><span>Overall utilization</span><b id="simO">—</b></div><div class="rt"><span>Highest single card after paydown</span><b id="simH">—</b></div></div>
+<div class="sx-cu-alert" id="alert"><span aria-hidden="true" class="msym">warning</span><span id="alertTxt">—</span></div>
+</div>
+<div class="sx-au-acts" style="margin-top:16px;grid-template-columns:1fr 1fr auto"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export Payoff Plan</button><a href="#schedule"><span aria-hidden="true" class="msym">calendar_month</span>Statement Calendar</a><button aria-label="Print" data-action="print" style="width:40px" type="button"><span aria-hidden="true" class="msym">print</span></button></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="schedule">
+<div class="hd"><div><h2>Per-Card Utilization &amp; Statement Cycle Schedule</h2><p>Pay down before each statement closing date so a lower balance is reported.</p></div><span style="font-size:12px;color:var(--sx-muted)">Sorted by: <span class="sx-au-tag">Statement Date</span></span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Card Name</th><th scope="col">Credit Limit</th><th scope="col">Current Balance</th><th scope="col">Individual Ratio</th><th scope="col">Utilization Tier</th><th scope="col">Statement Closing</th><th scope="col">Recommended Action</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+</section>
+<section class="sx-au-plain cp-hide" style="border:0;padding-top:0">
+<h2>Credit Reporting Science &amp; Strategic Playbooks</h2>
+<p class="lead">How reporting timing and balances shape your utilization.</p>
+<div class="sx-au-2c" style="margin-bottom:0">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">event_repeat</span></span><h3>Statement Date vs Payment Due Date</h3><p>Card issuers usually report your balance to the credit bureaus (Equifax, Experian, TransUnion) around your <b>statement closing date</b>, not your due date. If you pay in full only by the due date, a high statement balance may still be reported.</p><div class="sx-sg-take"><b>Tactic:</b> make a payment a few days before the statement closes so a smaller balance is reported, then pay the rest by the due date to avoid interest.</div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">filter_1</span></span><h3>The "All Zero Except One" (AZEO) Approach</h3><p>Some scoring models can score slightly lower when every card reports a $0 balance, because it shows no recent revolving activity. AZEO is a popular approach among people optimizing a score before a big application.</p><div class="sx-sg-take"><b>Tactic:</b> pay every card to $0 before its statement closes except one, and let that card report a small balance (well under 10% of its limit).</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Why credit utilization matters so much</h2>
+<p>Credit utilization — how much of your available credit you're currently using — is one of the most heavily weighted factors in most credit scoring models, second only to payment history. This is true even if you pay your balance in full every month, since utilization is typically calculated from whatever balance is reported on your statement closing date, not your current balance.</p>
+<p>This calculator shows both overall utilization across all your cards and per-card utilization — maxing out one card while others sit unused can hurt your score even if your overall utilization looks reasonable.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>How to lower your utilization quickly</h2>
+<p>Since utilization is based on your statement balance, paying down your balance before the statement closing date (rather than just before the due date) can lower the reported utilization that affects your score. Requesting a credit limit increase (without adding new spending) also lowers utilization by increasing the denominator.</p>
+<p>Closing old credit cards, even unused ones, can actually hurt utilization by reducing your total available credit — this is a common mistake people make when trying to 'clean up' their credit profile.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Does utilization still matter if I pay my balance in full every month?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, often — many card issuers report your statement balance to credit bureaus regardless of whether you pay in full afterward, so a high balance on your statement date can still affect your utilization ratio.</p></details>
+<details class="sx-faq"><summary>Will closing an old credit card improve my credit utilization?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Usually not — closing a card reduces your total available credit, which can actually raise your utilization ratio for the same balances, potentially hurting your score rather than helping it.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Calculators</h2><p>Tools for paying down and managing debt.</p></div>
+<a href="/financial-calculators.html">Explore All Tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/credit-card-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Credit Card Payoff Calculator</b><span class="d">Payoff time and interest saved at your APR.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-to-income-ratio-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>Debt-to-Income (DTI) Calculator</b><span class="d">Front-end and back-end DTI for mortgage approval.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">real_estate_agent</span></span><b>Personal Loan Calculator</b><span class="d">Consolidate card balances into one fixed payment.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">ac_unit</span></span><b>Debt Snowball Calculator</b><span class="d">Snowball vs avalanche plans across several debts.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/credit-utilization-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +149,8 @@ step="500"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/credit-utilization.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/credit-utilization.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

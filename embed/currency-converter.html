@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Currency Converter | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,chevron_right,expand_more,lightbulb,payments,picture_as_pdf,point_of_sale,policy,query_stats,receipt_long,restart_alt,schedule,swap_horiz,table_chart,trending_up,tune,verified,visibility_off,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,120 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Currency Converter</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="amount">Amount</label>
-          <input type="number" id="amount" value="100"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="exchangeRate">Exchange rate (1 unit = ?)</label>
-          <input type="number" id="exchangeRate" value="1.27"
-step="0.0001"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Converted amount</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Inverse rate</span><span id="outInverseRate">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="fxCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Currency Converter</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Mid-Market Rate Benchmark</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified</span>Zero-Markup Reference</span><span class="sx-badge"><span aria-hidden="true" class="msym">policy</span>Hidden Bank Fee Auditing</span></div>
+<h1>Currency Converter &amp; FX Fee Calculator</h1>
+<p>Convert an amount between currencies using the exchange rate you enter — then see how much a bank, transfer service or exchange desk would really deliver after its markup and fees.</p>
+<div class="sx-fx-strip"><div><span id="pairL">USD/EUR mid-market (your rate)</span><b id="pairV">—</b></div><div><span>Selected provider spread</span><b id="sprV">—</b></div></div>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Execution Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="amount">Amount to Convert</label><em style="color:var(--sx-muted);font-weight:500">Source currency</em></div>
+<div class="sx-au-in np"><input id="amount" inputmode="decimal" min="0" step="1" style="font-size:17px;font-weight:600" type="number" value="5000"/><span class="suf" id="fromSuf">USD</span></div>
+<div class="sx-au-chips">Presets: <button data-for="amount" data-value="500" type="button">500</button><button data-for="amount" data-value="1000" type="button">1,000</button><button data-for="amount" data-value="2500" type="button">2,500</button><button data-for="amount" data-value="5000" type="button">5,000</button><button data-for="amount" data-value="10000" type="button">10,000</button></div>
+</div>
+<div class="sx-fx-pair">
+<div><div class="sx-au-l"><label for="from">Source Currency (From)</label></div><div class="sx-au-sel"><select id="from"></select></div></div>
+<button aria-label="Swap currencies" class="sw" id="swap" type="button"><span aria-hidden="true" class="msym">swap_horiz</span></button>
+<div><div class="sx-au-l"><label for="to">Target Currency (To)</label></div><div class="sx-au-sel"><select id="to"></select></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="exchangeRate" id="rateL">Exchange rate (1 USD = ? EUR)</label><em style="color:var(--sx-muted);font-weight:500">Enter today's mid-market rate</em></div>
+<div class="sx-au-in np"><input id="exchangeRate" inputmode="decimal" min="0" step="0.0001" type="number" value="0.86"/><span class="suf" id="toSuf">EUR</span></div>
+<p class="sx-au-help">The default is only an example. Check the current mid-market rate on a financial data site or your provider's app right before converting.</p>
+</div>
+<div>
+<div class="sx-au-l"><span>Transfer Provider / Settlement Channel</span><em style="color:var(--sx-muted);font-weight:500">Typical costs — edit below</em></div>
+<input id="prov" type="hidden" value="s3"/>
+<div aria-label="Provider" class="sx-au-cat nr" role="group">
+<button data-for="prov" data-value="s1" type="button"><span><b>Mid-Market Rate</b><small>0.00% markup — the reference rate itself</small></span></button>
+<button data-for="prov" data-value="s2" type="button"><span><b>Digital Specialist</b><small>~0.5% fee — online money-transfer services</small></span></button>
+<button data-for="prov" data-value="s3" type="button"><span><b>Major Retail Bank</b><small>~3% rate markup + ~$30 wire fee</small></span></button>
+<button data-for="prov" data-value="s4" type="button"><span><b>Bureau de Change</b><small>~10% spread — cash desks &amp; airport kiosks</small></span></button>
+</div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="mk">Rate Markup / Fee</label></div><div class="sx-au-in np pc"><input id="mk" inputmode="decimal" max="30" min="0" step="0.05" type="number" value="3.25"/><span class="suf">%</span></div></div>
+<div><div class="sx-au-l"><label for="ff">Flat Fee</label></div><div class="sx-au-in np"><input id="ff" inputmode="decimal" min="0" step="1" type="number" value="30"/><span class="suf" id="ffSuf">USD</span></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">query_stats</span>Convert &amp; Audit Exchange Costs</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:12px"><span class="sx-kick">Estimated Net Payout</span><span class="sx-ef-grade"><span aria-hidden="true" class="msym" style="font-size:14px;vertical-align:-2px">trending_up</span> Mid-Market</span></div>
+<div class="sx-fx-rec"><span>Recipient gets at the mid-market rate:</span><div class="big"><span id="resultValue">—</span><small id="toC">EUR</small></div><div class="r"><span id="r1">—</span><span>Inverse rate: <b id="outInverse">—</b></span></div></div>
+<div class="sx-fx-fr" id="frBox"><div class="h"><span aria-hidden="true" class="msym">warning</span><span id="frH">Provider Friction</span></div>
+<div class="l"><span>Amount actually delivered:</span><b id="deliv">—</b></div>
+<div class="l"><span>Total cost vs mid-market:</span><b class="r" id="loss">—</b></div></div>
+<section class="sx-hy-stack" style="padding:14px 0 0">
+<div class="hd">Value Anatomy Breakdown<span id="pctD">—</span></div>
+<div class="bar" id="anBar"></div>
+<div class="lg" id="anLg"></div>
+</section>
+<div class="sx-in-acts" style="margin-top:16px"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export FX Audit (.PDF)</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_chart</span>Provider Matrix (.CSV)</button></div>
+<div class="sx-fx-obs"><span aria-hidden="true" class="msym">lightbulb</span><div><b class="h">Provider Comparison Observation</b><span id="obs">—</span></div></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="matrix">
+<div class="hd"><div><h2>Provider Cost Matrix for Your Transfer</h2><p id="mxN">What each channel would deliver for this amount at your entered rate.</p></div><span class="sx-au-tag">4 Channels</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Channel</th><th scope="col">Markup</th><th scope="col">Flat Fee</th><th scope="col">Effective Rate</th><th scope="col">Recipient Gets</th><th scope="col">Cost vs Mid-Market</th><th scope="col">Cost per 10,000</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<div class="ft"><span>*Typical costs are illustrative; providers price differently by currency pair, amount and payment method. Enter your quote's markup and fee above for an exact comparison.</span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">visibility_off</span></span><h3>The Hidden FX Spread: Why "Zero Fee" Transfers Can Be Misleading</h3><p>Many banks and exchange desks advertise "no commission" or "$0 transfer fees" but set their exchange rate below the mid-market rate. That markup is a cost even though it never appears as a line item — it simply reduces what your recipient receives.</p><div class="sx-sg-take"><b>How to check:</b> compare the rate you're offered with the mid-market rate at the same moment. The percentage gap is the markup — enter it above.</div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">balance</span></span><h3>Large Transfers: When Rate Movements Matter</h3><p>On large one-off transfers — a property purchase, tuition, or moving savings abroad — even small daily moves in the rate can change the cost by hundreds or thousands. Some providers offer forward contracts to lock a rate for a future payment date, and limit orders to convert only when a target rate is reached.</p><div class="sx-sg-take"><b>Reference rates:</b> central banks such as the European Central Bank publish daily reference rates, useful as a neutral benchmark.</div></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Why you need to enter your own rate</h2>
+<p>Exchange rates change constantly throughout the trading day, so rather than showing a rate that could be stale or inaccurate, this calculator asks you to enter the current rate yourself — which you can find from your bank, a currency exchange service, or a live financial data source right before converting.</p>
+<p>This calculator then handles the math precisely: multiplying your amount by the rate you provide, and showing the inverse rate for reference if you need to convert in the opposite direction.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Bank rates vs. market rates</h2>
+<p>The exchange rate you see quoted by financial news sources is typically the 'mid-market' rate — the midpoint between buy and sell prices on the wholesale currency market. Banks and currency exchange services usually apply a markup on top of this rate, plus sometimes an explicit fee, meaning the rate you actually receive when exchanging money is often less favorable than the quoted market rate.</p>
+<p>For significant currency exchanges, it's worth comparing rates across a few providers, since the markup applied can vary meaningfully between banks, exchange kiosks, and online services.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why doesn't this calculator show live exchange rates automatically?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Exchange rates fluctuate constantly, and displaying a rate that isn't truly live could be misleading — entering the current rate yourself from a trusted source ensures you're always working with an up-to-date figure.</p></details>
+<details class="sx-faq"><summary>Why is the rate I get from my bank different from the rate I see online?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Banks and exchange services typically apply a markup above the 'mid-market' rate quoted by financial data sources, plus sometimes an additional fee — this is standard practice and part of how currency exchange services generate revenue.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Calculators</h2><p>Tools for international commerce and pay.</p></div>
+<a href="/financial-calculators.html">View all tools<span aria-hidden="true" class="msym">chevron_right</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/vat-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>VAT Calculator</b><span class="d">Add or remove UK, EU and international VAT.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/sales-tax-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">point_of_sale</span></span><b>Sales Tax Calculator</b><span class="d">US state and local sales tax on a price.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>UK Take-Home Pay</b><span class="d">Income tax, National Insurance and pension.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">schedule</span></span><b>Freelance Rate Calculator</b><span class="d">Billable rates that cover overheads and tax.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/currency-converter.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +160,8 @@ step="0.0001"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/currency.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/currency-converter.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

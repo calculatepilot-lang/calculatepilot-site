@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Density Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,foundation,functions,info,landscape,layers,lightbulb,link,local_shipping,lock,person_check,picture_as_pdf,restart_alt,science,swap_horiz,warning,water_drop&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,52 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Density Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="mass">Mass (kg)</label>
-          <input type="number" id="mass" value="5"
-step="0.01"min="0">
-        </div>
-        <div class="field">
-          <label for="volume">Volume (m³)</label>
-          <input type="number" id="volume" value="0.002"
-step="0.0001"min="0.0001">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Density</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Density (g/cm³)</span><span id="outGramsPerCm3">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="dnCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Density Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">science</span>Mass, volume and density</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Density, Mass &amp; Volume Calculator</h1><p>Solve for mass, volume or density with 40 common materials preloaded. Results come in metric and imperial units, with specific gravity, a float-or-sink check and support for porous or partly filled parts such as 3D prints.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It uses ρ = m ÷ V after converting everything to grams and cubic centimetres, then converts back to whichever units you pick.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Material densities are scattered across handbooks and datasheets. This puts typical values next to the arithmetic and the unit conversions.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">science</span><h2 class="sx-h-md" style="margin:0">Mass, volume and density</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Solve for</label></div><input id="mode" type="hidden" value="mass"/><div aria-label="Solve for" class="sx-seg full" role="group"><button data-for="mode" data-value="mass" type="button">Mass</button><button data-for="mode" data-value="vol" type="button">Volume</button><button data-for="mode" data-value="den" type="button">Density</button></div></div>
+<div id="fMat"><div class="sx-au-l"><label for="mat">Material</label><em class="mu">fills in a typical density</em></div><select class="sx-mt-sel" id="mat"><option value="custom">Custom material</option><optgroup label="Metals"><option selected="" value="steel">Steel, carbon · 7.85 g/cm³</option><option value="ss304">Stainless steel 304 · 8 g/cm³</option><option value="al6061">Aluminium 6061 · 2.7 g/cm³</option><option value="cu">Copper · 8.96 g/cm³</option><option value="brass">Brass · 8.5 g/cm³</option><option value="bronze">Bronze · 8.8 g/cm³</option><option value="ti64">Titanium Ti-6Al-4V · 4.43 g/cm³</option><option value="au">Gold · 19.32 g/cm³</option><option value="ag">Silver · 10.49 g/cm³</option><option value="pb">Lead · 11.34 g/cm³</option><option value="zn">Zinc · 7.14 g/cm³</option><option value="ni">Nickel · 8.91 g/cm³</option><option value="sn">Tin · 7.31 g/cm³</option><option value="ci">Cast iron, gray · 7.15 g/cm³</option></optgroup><optgroup label="Plastics"><option value="pla">PLA · 1.24 g/cm³</option><option value="abs">ABS · 1.04 g/cm³</option><option value="petg">PETG · 1.27 g/cm³</option><option value="nylon">Nylon 6 · 1.14 g/cm³</option><option value="hdpe">HDPE · 0.95 g/cm³</option><option value="pp">Polypropylene · 0.9 g/cm³</option><option value="pvc">PVC, rigid · 1.4 g/cm³</option><option value="pmma">Acrylic (PMMA) · 1.18 g/cm³</option></optgroup><optgroup label="Woods, air dried, approximate"><option value="oak">Oak · 0.75 g/cm³</option><option value="maple">Maple · 0.7 g/cm³</option><option value="walnut">Walnut · 0.65 g/cm³</option><option value="pine">Pine · 0.5 g/cm³</option><option value="balsa">Balsa · 0.16 g/cm³</option></optgroup><optgroup label="Liquids"><option value="water">Water at 20 °C · 0.998 g/cm³</option><option value="sea">Seawater · 1.025 g/cm³</option><option value="etoh">Ethanol · 0.789 g/cm³</option><option value="olive">Olive oil · 0.91 g/cm³</option><option value="gas">Gasoline · 0.74 g/cm³</option><option value="milk">Milk · 1.03 g/cm³</option><option value="hg">Mercury · 13.546 g/cm³</option><option value="glyc">Glycerin · 1.261 g/cm³</option></optgroup><optgroup label="Stone and building"><option value="conc">Concrete · 2.4 g/cm³</option><option value="glass">Glass, soda-lime · 2.5 g/cm³</option><option value="granite">Granite · 2.7 g/cm³</option><option value="brick">Brick · 1.9 g/cm³</option><option value="sand">Sand, dry (bulk) · 1.6 g/cm³</option><option value="ice">Ice · 0.917 g/cm³</option></optgroup></select></div>
+<div id="fDen"><div class="sx-au-l"><label for="dv">Density</label></div><div class="sx-au-g2"><div class="sx-au-in sm np"><input id="dv" inputmode="decimal" min="0" step="any" type="number" value="7.85"/></div><select aria-label="Density unit" class="sx-mt-sel" id="du"><option selected="" value="1">g/cm³</option><option value="0.001">kg/m³</option><option value="0.01601846">lb/ft³</option><option value="27.679905">lb/in³</option></select></div></div>
+<div id="fVol"><div class="sx-au-l"><label for="vv">Volume</label></div><div class="sx-au-g2"><div class="sx-au-in sm np"><input id="vv" inputmode="decimal" min="0" step="any" type="number" value="250"/></div><select aria-label="Volume unit" class="sx-mt-sel" id="vu"><option selected="" value="1">cm³ (mL)</option><option value="1000">litres</option><option value="1000000">m³</option><option value="3785.411784">US gallons</option><option value="16.387064">in³</option><option value="28316.846592">ft³</option></select></div></div>
+<div hidden="" id="fMas"><div class="sx-au-l"><label for="mv">Mass</label></div><div class="sx-au-g2"><div class="sx-au-in sm np"><input id="mv" inputmode="decimal" min="0" step="any" type="number" value="1962.5"/></div><select aria-label="Mass unit" class="sx-mt-sel" id="mu"><option selected="" value="1">grams</option><option value="1000">kilograms</option><option value="453.59237">pounds</option><option value="28.349523125">ounces</option></select></div></div>
+<div id="fFil"><div class="sx-au-l"><label for="fill">Solid fill</label><em class="mu">% of the volume that is material, for 3D prints and porous parts</em></div><div class="sx-au-in sm np"><input id="fill" inputmode="decimal" max="100" min="1" step="5" type="number" value="100"/></div><div class="sx-qpills"><button data-f="100" type="button">100% solid</button><button data-f="50" type="button">50%</button><button data-f="20" type="button">20% print infill</button></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Mass</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small id="resU">g</small></div><p id="interp">—</p>
+<div class="g2"><div><span id="l1">In kilograms</span><b id="o1">—</b></div><div><span id="l2">In pounds</span><b id="o2">—</b></div><div><span>Specific gravity</span><b id="oSg">—</b></div><div><span>Floats in water?</span><b id="oFl">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-tiles"><div><span>Density</span><b id="oD1">—</b><small id="oD2">—</small></div><div><span>Volume</span><b id="oV1">—</b><small id="oV2">—</small></div></div></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">info</span>Note</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Density of common materials</h2><p>Typical values near room temperature. Real materials vary with alloy, moisture, temperature and manufacturing, so treat these as good estimates. Specific gravity is density compared with water.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:560px"><thead><tr><th>Material</th><th class="n">g/cm³</th><th class="n">kg/m³</th><th class="n">lb/ft³</th><th class="n">Specific gravity</th></tr></thead><tbody><tr><td class="a">Water at 20 °C</td><td class="n">0.998</td><td class="n">998</td><td class="n">62.30</td><td class="n">0.998</td></tr><tr><td class="a">Steel, carbon</td><td class="n">7.85</td><td class="n">7,850</td><td class="n">490.06</td><td class="n">7.851</td></tr><tr><td class="a">Aluminium 6061</td><td class="n">2.7</td><td class="n">2,700</td><td class="n">168.56</td><td class="n">2.700</td></tr><tr><td class="a">Titanium Ti-6Al-4V</td><td class="n">4.43</td><td class="n">4,430</td><td class="n">276.56</td><td class="n">4.431</td></tr><tr><td class="a">Cast iron, gray</td><td class="n">7.15</td><td class="n">7,150</td><td class="n">446.36</td><td class="n">7.151</td></tr><tr><td class="a">Copper</td><td class="n">8.96</td><td class="n">8,960</td><td class="n">559.35</td><td class="n">8.961</td></tr><tr><td class="a">Gold</td><td class="n">19.32</td><td class="n">19,320</td><td class="n">1206.11</td><td class="n">19.323</td></tr><tr><td class="a">Lead</td><td class="n">11.34</td><td class="n">11,340</td><td class="n">707.93</td><td class="n">11.342</td></tr><tr><td class="a">Oak</td><td class="n">0.75</td><td class="n">750</td><td class="n">46.82</td><td class="n">0.750</td></tr><tr><td class="a">Pine</td><td class="n">0.5</td><td class="n">500</td><td class="n">31.21</td><td class="n">0.500</td></tr><tr><td class="a">Concrete</td><td class="n">2.4</td><td class="n">2,400</td><td class="n">149.83</td><td class="n">2.400</td></tr><tr><td class="a">Ethanol</td><td class="n">0.789</td><td class="n">789</td><td class="n">49.26</td><td class="n">0.789</td></tr><tr><td class="a">Olive oil</td><td class="n">0.91</td><td class="n">910</td><td class="n">56.81</td><td class="n">0.910</td></tr><tr><td class="a">PLA</td><td class="n">1.24</td><td class="n">1,240</td><td class="n">77.41</td><td class="n">1.240</td></tr><tr><td class="a">ABS</td><td class="n">1.04</td><td class="n">1,040</td><td class="n">64.93</td><td class="n">1.040</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">science</span></div><h3>Density</h3><p>Mass per unit volume. Rearrange for mass or volume.</p><code>ρ = m ÷ V<br/>m = ρ × V<br/>V = m ÷ ρ</code></div><div><div class="ic"><span aria-hidden="true" class="msym">layers</span></div><h3>Solid fill</h3><p>For a part that is not fully solid, the effective density is the material density times the fill fraction.</p><code>effective ρ = ρ × fill%</code></div><div><div class="ic"><span aria-hidden="true" class="msym">water_drop</span></div><h3>Floating and buoyancy</h3><p>An object floats if its effective density is below the fluid's. Water at 20 °C is 0.998 g/cm³.</p><code>floats if ρ &lt; 0.998 g/cm³<br/>net force = (water displaced − mass) × g</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Steel block</h3><p>250 cm³ of steel at 7.85 g/cm³ (the default).</p><div class="sx-mt-ex">mass = 7.85 × 250 = <b>1,962.5 g</b> = 1.9625 kg = 4.33 lb<br/>displaces 250 g of water, so net downward pull is 1,712.5 g, and it sinks</div></div><div><h3>Volume from mass</h3><p>5 kg of aluminium 6061 at 2.70 g/cm³.</p><div class="sx-mt-ex">5,000 g ÷ 2.70 = <b>1,851.9 cm³</b> = 1.85 L</div></div><div><h3>3D print</h3><p>200 cm³ of PLA (1.24 g/cm³) printed at 20% infill.</p><div class="sx-mt-ex">effective density = 1.24 × 0.20 = 0.248 g/cm³<br/>mass = 0.248 × 200 = <b>49.6 g</b><br/>this is below 0.998, so it floats</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to calculate density, mass or volume</h2><ul><li>Choose what you want to find.</li><li>Pick a material to fill in its density, or enter your own.</li><li>Enter the other two values with their units.</li><li>Read the result, its conversions, specific gravity and whether the object floats in water.</li></ul><p>Densities are typical values near 20 °C. Actual alloys, woods and plastics vary, and gases and liquids change with temperature and pressure. Use the supplier's datasheet for engineering work.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>CRC Handbook of Chemistry and Physics, <i>Density of common materials</i>.</li><li>ASM International, <i>ASM Handbook, Volume 1: Properties and Selection: Irons, Steels, and High-Performance Alloys</i>.</li><li>NIST, <i>Guide for the Use of the International System of Units (SI)</i>, SP 811.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How do you calculate density?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide mass by volume. A block of 1,962.5 g with a volume of 250 cm³ has a density of 7.85 g/cm³.</p></details><details class="sx-faq"><summary>What is specific gravity?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The ratio of a material's density to the density of water. Water is 1, steel is about 7.85, and anything below 1 floats in water.</p></details><details class="sx-faq"><summary>How do I convert g/cm³ to kg/m³?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply by 1,000. Steel at 7.85 g/cm³ is 7,850 kg/m³.</p></details><details class="sx-faq"><summary>Why does the fill percentage matter?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A 3D print or foam is not solid material. A part at 20% infill has roughly one fifth of the solid material's density plus its outer walls, so treat this as an estimate.</p></details><details class="sx-faq"><summary>Does temperature change density?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes. Most materials expand when heated and become less dense. The change is small for solids and larger for liquids and gases.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/concrete-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">foundation</span></span><b>Concrete Calculator</b><span class="d">Volume and bags of concrete.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">swap_horiz</span></span><b>Unit Conversion</b><span class="d">Convert units.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/gravel-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">landscape</span></span><b>Gravel Calculator</b><span class="d">Gravel by volume and weight.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/shipping-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_shipping</span></span><b>Shipping Cost</b><span class="d">Postage and dimensional weight.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Density Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/density-calculator.html" width="100%" height="560" loading="lazy" title="Density Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/density-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +92,8 @@ step="0.0001"min="0.0001">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/density.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/density.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
