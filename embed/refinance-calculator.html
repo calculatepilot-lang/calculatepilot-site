@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Refinance Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,analytics,arrow_forward,balance,calculate,chevron_right,download,expand_more,functions,gavel,history,home_pin,lock,payments,print,restart_alt,savings,show_chart,table_chart,trending_up,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,96 +38,134 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Refinance Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="currentBalance">Current loan balance ($)</label>
-          <input type="number" id="currentBalance" value="280000"
-step="1000"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="currentRate">Current rate (%)</label>
-          <input type="number" id="currentRate" value="7.2"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="remainingTerm">Remaining term (years)</label>
-          <input type="number" id="remainingTerm" value="27"
-step="1"min="1">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="newRate">New rate (%)</label>
-          <input type="number" id="newRate" value="6.2"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="newTerm">New term (years)</label>
-          <input type="number" id="newTerm" value="30"
-step="1"min="1">
-        </div>
-</div>        <div class="field">
-          <label for="closingCosts">Closing costs ($)</label>
-          <input type="number" id="closingCosts" value="4500"
-step="100"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Monthly savings</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Current monthly payment</span><span id="outCurrentPayment">—</span></div>
-        <div class="embed-row"><span>New monthly payment</span><span id="outNewPayment">—</span></div>
-        <div class="embed-row"><span>Breakeven point</span><span id="outBreakeven">—</span></div>
-        <div class="embed-row"><span>Total interest difference</span><span id="outInterestDiff">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="rfCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Refinance Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">analytics</span>Amortization Reset &amp; Break-Even Modeling</span><span class="sx-badge" style="background:var(--sx-hi2)"><span aria-hidden="true" class="msym">calculate</span>Closing Cost Recovery</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Verified Client-Side</span></div>
+<h1>Mortgage Refinance Calculator</h1>
+<p>Compare your current loan with a refinance offer: monthly savings, the month you break even on closing costs, and whether resetting the loan term costs you more interest in the long run.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Loan Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-rf-box">
+<div class="h"><b><i></i>Current Loan Baseline</b><em>Fixed Baseline</em></div>
+<label class="sub" for="bal" style="margin-top:0">Remaining Mortgage Balance</label>
+<div class="sx-au-in"><span class="pre">$</span><input id="bal" inputmode="decimal" min="0" step="1000" type="number" value="320000"/></div>
+<div class="sx-au-g2" style="gap:12px">
+<div><label class="sub" for="r1">Current Rate</label><div class="sx-au-in np pc"><input id="r1" inputmode="decimal" max="20" min="0" step="0.125" type="number" value="7.25"/><span class="suf">%</span></div></div>
+<div><label class="sub" for="n1">Remaining Term</label><div class="sx-au-in np pc"><input id="n1" inputmode="numeric" max="40" min="1" step="1" type="number" value="26"/><span class="suf">Yrs</span></div></div>
+</div>
+<div class="ft"><span>Current Monthly P&amp;I:</span><b id="p1">—</b></div>
+</div>
+<div class="sx-rf-box new">
+<div class="h"><b><i></i>Proposed Refinance Loan</b><em id="drop">—</em></div>
+<label class="sub" style="margin-top:0">New Loan Term</label>
+<input id="n2" type="hidden" value="30"/>
+<div aria-label="New loan term" class="sx-au-opts c3" role="group"><button data-for="n2" data-value="30" type="button">30-Year Fixed</button><button data-for="n2" data-value="20" type="button">20-Year Fixed</button><button data-for="n2" data-value="15" type="button">15-Year Fixed</button></div>
+<label class="sub" for="r2">New Interest Rate</label>
+<div class="sx-au-in np pc"><input id="r2" inputmode="decimal" max="20" min="0" step="0.125" type="number" value="5.875"/><span class="suf">%</span></div>
+<div class="sx-au-l" style="margin-top:10px"><label for="cc" style="font-size:12px;font-weight:500;color:var(--sx-muted)">Estimated Closing Costs &amp; Fees</label><em class="mu" id="ccPct">—</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="cc" inputmode="decimal" min="0" step="100" type="number" value="5500"/></div>
+<input id="roll" type="hidden" value="pay"/>
+<div aria-label="How closing costs are paid" class="sx-au-opts c2 rad" role="group" style="margin-top:10px"><button data-for="roll" data-value="pay" type="button"><i></i>Pay Out-of-Pocket</button><button data-for="roll" data-value="roll" type="button"><i></i>Roll Into Loan</button></div>
+<div class="sx-au-lr" style="margin:12px 0 0"><label for="co" style="font-size:12px;color:var(--sx-on);font-weight:600">Cash-Out Amount<br/><small style="font-weight:400;color:var(--sx-muted)">Extract equity into refinance</small></label><div class="sx-au-in sm" style="width:120px"><span class="pre">$</span><input id="co" inputmode="decimal" min="0" step="1000" type="number" value="0"/></div></div>
+<input id="match" type="hidden" value="0"/>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px;background:var(--sx-primary)" type="submit">Calculate Refinance Economics<span aria-hidden="true" class="msym">arrow_forward</span></button>
+</div>
+</form>
+<div class="sx-rf-privacy"><span aria-hidden="true" class="msym">lock</span><span><b>Zero Data Retention:</b> every calculation runs in your browser. No credit profile or loan data is sent anywhere.</span></div>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-rf-ver">
+<div class="hd"><div><small>Refinance Viability Verdict</small><h2 id="resultValue">—</h2></div><span class="sx-ef-grade" id="viab">—</span></div>
+<div class="sx-au-tiles c3 card">
+<div><span>Monthly Cashflow Delta</span><b id="dMo">—</b><small id="dMoN">—</small></div>
+<div><span>5-Year Net Benefit</span><b id="d5">—</b><small id="d5N">—</small></div>
+<div><span>Lifetime Interest Delta</span><b id="dLife">—</b><small>Remaining old loan vs full new loan</small></div>
+</div>
+<div class="sx-rf-ch">
+<div class="h"><span><span aria-hidden="true" class="msym">show_chart</span>Cumulative Net Benefit (Break-Even Trajectory)</span><span id="chRange">Month 0 to Month 60</span></div>
+<svg aria-label="Cumulative net benefit of refinancing by month" id="chart" role="img" viewbox="0 0 560 220"></svg>
+</div>
+<div class="sx-rf-note" id="reset">
+<div class="h"><span aria-hidden="true" class="msym">warning</span>Amortization Reset Check<em>Term Notice</em></div>
+<p id="resetTxt">—</p>
+<div class="f"><span id="matchLbl">Payment to keep your original payoff date: <b id="matchPay">—</b></span><button id="matchBtn" type="button"><span id="matchBtnTxt">Apply accelerated payoff</span><span aria-hidden="true" class="msym">arrow_forward</span></button></div>
+</div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="schedule">
+<div class="hd">
+<div><h2 style="display:flex;align-items:center;gap:8px"><span aria-hidden="true" class="msym">table_chart</span>Year-by-Year Amortization Comparison</h2><p>Interest burden, principal paid and cumulative net benefit over the first 10 years.</p></div>
+<div class="hbt"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print Report</button></div>
+</div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Year</th><th scope="col">Current Loan Int.</th><th scope="col">Refinance Int.</th><th scope="col">Annual Int. Savings</th><th scope="col">Refi Principal Paid</th><th scope="col">Cumulative Net Benefit</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<div class="ft"><span>Net benefit = payments saved + (old loan balance − new loan balance) − upfront costs paid + cash-out received. It accounts for slower principal payoff when the term is reset.</span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">functions</span>Mathematical Methodology</h3>
+<p>The quick rule of thumb divides closing costs by the monthly payment saving. This calculator also tracks the loan balances, because a longer new term lowers the payment partly by paying off principal more slowly.</p>
+<div class="sx-ha-fbox"><div class="k">Quick Break-Even (Payment Method)</div><code>Break-Even (Months) = Closing Costs ÷ (Old P&amp;I − New P&amp;I)</code><p id="quickBe">—</p></div>
+<p style="margin:14px 0 0;font-size:13px">The verdict above uses the fuller net-benefit method, so it can be later than the quick estimate when the term is reset — and it still works when costs are rolled into the loan or you take cash out.</p>
+</div>
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">gavel</span>When NOT to Refinance</h3>
+<p>A lower rate alone doesn't guarantee a good decision. Be cautious when:</p>
+<ul class="sx-rf-no">
+<li><span aria-hidden="true" class="msym">home_pin</span><div><b>You'll move before breaking even</b><p id="noMove">If you sell or refinance again before the break-even month, closing costs exceed your savings.</p></div></li>
+<li><span aria-hidden="true" class="msym">history</span><div><b>You're deep into your current loan</b><p>Years into a 30-year loan, most of each payment goes to principal. Restarting a new 30-year term puts you back at the interest-heavy start.</p></div></li>
+<li><span aria-hidden="true" class="msym">trending_up</span><div><b>Switching from a fixed rate to an ARM</b><p>An adjustable rate can reset higher after the intro period, which can erase the savings.</p></div></li>
+</ul>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What breakeven point means</h2>
+<p>The breakeven point is how many months it takes for your monthly savings to cover the closing costs of refinancing. If you plan to stay in the home (or keep the loan) longer than the breakeven period, refinancing is generally worth it purely on the numbers.</p>
+<p>If you expect to sell or pay off the loan before reaching breakeven, the closing costs may outweigh the savings — timeline is often the single biggest factor in whether refinancing makes sense.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Beyond the monthly payment</h2>
+<p>A lower monthly payment doesn't always mean less total interest — resetting to a new 30-year term after already paying down several years of a loan can sometimes increase total interest paid over time, even with a lower rate, because you're extending how long interest accrues.</p>
+<p>Comparing total interest between the current loan's remaining term and the new loan's full term (as this calculator does) gives a more complete picture than the monthly payment difference alone. If you're still deciding on your original loan terms, the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> covers that first step.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is refinancing worth it if I'm planning to move soon?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Generally not, if you'd move before reaching the breakeven point — the closing costs may not be recovered through monthly savings in that case.</p></details>
+<details class="sx-faq"><summary>Can refinancing increase my total interest even with a lower rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — resetting to a longer term (e.g., back to 30 years after already paying several years) extends how long interest accrues, which can offset some or all of the benefit of a lower rate.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Financial Calculators</h2><p>Complementary tools for mortgage and debt decisions.</p></div>
+<a href="/financial-calculators.html">Explore all 52 tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Mortgage &amp; Amortization</b><span class="d">Principal and interest breakdown with a full schedule and CSV export.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/uk-mortgage-overpayment-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Mortgage Overpayment</b><span class="d">Keep your rate and pay extra: years cut and interest saved.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/heloc-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>HELOC &amp; Second Mortgage</b><span class="d">Tap equity without refinancing your first mortgage.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>Debt Payoff Avalanche</b><span class="d">Compare a cash-out refinance with paying down high-interest debt directly.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/refinance-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -254,40 +174,9 @@ step="100"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/refinance.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/refinance.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

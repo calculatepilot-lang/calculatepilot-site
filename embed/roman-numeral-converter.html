@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roman Numeral Converter | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=123,arrow_forward,cake,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,lock,looks_one,person_check,restart_alt,schedule,straighten,swap_horiz,sync_alt,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,40 +38,53 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Roman Numeral Converter</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="number">Number (1-3999)</label>
-          <input type="number" id="number" value="2026"
-step="1"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Roman numeral</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="rmCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Roman Numeral Converter</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">123</span>Standard and additive styles</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Roman Numeral Converter</h1><p>Convert numbers to Roman numerals and back, up to 3,999,999 using bars over the letters. Choose standard or additive style, upper or lower case, and turn any date into Roman numerals.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It builds numerals by taking the largest value that fits at each step, and reads them by adding values and subtracting smaller letters that come before larger ones.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>People need Roman numerals for dates, film credits, outlines and tattoos. This checks them and shows the working.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">123</span><h2 class="sx-h-md" style="margin:0">Number or numeral</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Convert</label></div><input id="mode" type="hidden" value="a"/><div aria-label="Convert" class="sx-seg full" role="group"><button data-for="mode" data-value="a" type="button">Number to Roman</button><button data-for="mode" data-value="r" type="button">Roman to number</button><button data-for="mode" data-value="d" type="button">Date to Roman</button></div></div>
+<div id="gA"><div class="sx-au-l"><label for="n">Number</label><em class="mu">1 to 3,999,999</em></div><div class="sx-au-in sm np"><input id="n" inputmode="numeric" max="3999999" min="1" step="1" type="number" value="2026"/></div>
+<div class="sx-qpills"><span class="lb">Presets</span><button data-n="2026" type="button">2026</button><button data-n="1984" type="button">1984</button><button data-n="1066" type="button">1066</button><button data-n="476" type="button">476</button><button data-n="4" type="button">4</button><button data-n="3999" type="button">3999</button><button data-n="60" type="button">60</button></div></div>
+<div hidden="" id="gR"><div class="sx-au-l"><label for="rn">Roman numeral</label><em class="mu">for thousands use a bar or brackets, e.g. (V)</em></div><div class="sx-au-in sm np"><input autocomplete="off" id="rn" maxlength="40" spellcheck="false" type="text" value="MMXXVI"/></div>
+<div class="sx-qpills"><span class="lb">Examples</span><button data-r="MMXXVI" type="button">MMXXVI</button><button data-r="MCMLXXXIV" type="button">MCMLXXXIV</button><button data-r="IIII" type="button">IIII</button><button data-r="(V)DC" type="button">(V)DC</button></div></div>
+<div hidden="" id="gD"><div class="sx-au-l"><label for="dt">Date</label></div><div class="sx-au-in sm np"><input id="dt" type="date" value="2026-10-24"/></div></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="st">Style</label></div><select class="sx-mt-sel" id="st"><option selected="" value="c">Standard (IV, IX, XL)</option><option value="a">Additive (IIII, VIIII)</option></select></div><div><div class="sx-au-l"><label for="cs">Letters</label></div><select class="sx-mt-sel" id="cs"><option selected="" value="u">UPPERCASE</option><option value="l">lowercase</option></select></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">sync_alt</span>Convert</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Roman numeral</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big" style="word-break:break-all"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span id="l1">Value</span><b id="o1">—</b></div><div><span>Letters used</span><b id="o2">—</b></div></div>
+<div class="sx-in-acts" style="margin-top:12px"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>How it breaks down</span></div><div class="sx-tblwrap"><table class="sx-tbl" style="min-width:0"><thead><tr><th>Part</th><th class="n">Value</th><th class="n">Numeral</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:8px"><span>Date in Roman numerals</span></div><p class="sx-au-note" id="dateOut" style="text-align:left;margin:0;font-size:14px;line-height:22px">—</p></section>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Roman numeral reference</h2><p>Seven letters give every number: I 1, V 5, X 10, L 50, C 100, D 500, M 1,000. A smaller letter before a larger one is subtracted. A bar over a numeral multiplies it by 1,000.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:560px"><thead><tr><th class="n">Number</th><th>Standard</th><th>Additive</th><th>Note</th></tr></thead><tbody><tr><td class="n">1</td><td class="a"><b>I</b></td><td class="a">I</td><td class="a" style="white-space:normal">Single strokes, the oldest form</td></tr><tr><td class="n">4</td><td class="a"><b>IV</b></td><td class="a">IIII</td><td class="a" style="white-space:normal">IIII is common on clock faces and older inscriptions</td></tr><tr><td class="n">5</td><td class="a"><b>V</b></td><td class="a">V</td><td class="a" style="white-space:normal">Five, the shape of an open hand</td></tr><tr><td class="n">9</td><td class="a"><b>IX</b></td><td class="a">VIIII</td><td class="a" style="white-space:normal">One less than ten</td></tr><tr><td class="n">10</td><td class="a"><b>X</b></td><td class="a">X</td><td class="a" style="white-space:normal">Ten, two crossed fives</td></tr><tr><td class="n">40</td><td class="a"><b>XL</b></td><td class="a">XXXX</td><td class="a" style="white-space:normal">Ten less than fifty</td></tr><tr><td class="n">50</td><td class="a"><b>L</b></td><td class="a">L</td><td class="a" style="white-space:normal">Fifty</td></tr><tr><td class="n">90</td><td class="a"><b>XC</b></td><td class="a">LXXXX</td><td class="a" style="white-space:normal">Ten less than one hundred</td></tr><tr><td class="n">100</td><td class="a"><b>C</b></td><td class="a">C</td><td class="a" style="white-space:normal">From centum, one hundred</td></tr><tr><td class="n">400</td><td class="a"><b>CD</b></td><td class="a">CCCC</td><td class="a" style="white-space:normal">One hundred less than five hundred</td></tr><tr><td class="n">500</td><td class="a"><b>D</b></td><td class="a">D</td><td class="a" style="white-space:normal">Five hundred</td></tr><tr><td class="n">900</td><td class="a"><b>CM</b></td><td class="a">DCCCC</td><td class="a" style="white-space:normal">One hundred less than one thousand</td></tr><tr><td class="n">1,000</td><td class="a"><b>M</b></td><td class="a">M</td><td class="a" style="white-space:normal">From mille, one thousand</td></tr><tr><td class="n">4,000</td><td class="a"><b>I̅V̅</b></td><td class="a">MMMM</td><td class="a" style="white-space:normal">A bar over a numeral multiplies it by 1,000</td></tr><tr><td class="n">5,000</td><td class="a"><b>V̅</b></td><td class="a">V̅</td><td class="a" style="white-space:normal">V with a bar</td></tr><tr><td class="n">10,000</td><td class="a"><b>X̅</b></td><td class="a">X̅</td><td class="a" style="white-space:normal">X with a bar</td></tr><tr><td class="n">1,000,000</td><td class="a"><b>M̅</b></td><td class="a">M̅</td><td class="a" style="white-space:normal">M with a bar, one million</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">123</span></div><h3>Number to Roman</h3><p>Take the largest numeral value that fits, write it down, subtract, and repeat.</p><code>2026 = 1000 + 1000 + 10 + 10 + 5 + 1 = MMXXVI</code></div><div><div class="ic"><span aria-hidden="true" class="msym">swap_horiz</span></div><h3>Roman to number</h3><p>Add each value, but subtract a letter that stands before a bigger one.</p><code>MCMXCIV = 1000 + (1000 − 100) + (100 − 10) + (5 − 1) = 1994</code></div><div><div class="ic"><span aria-hidden="true" class="msym">looks_one</span></div><h3>Large numbers</h3><p>A bar (vinculum) over letters multiplies them by 1,000. In brackets, (V) also means 5,000.</p><code>(V)DC = 5,000 + 600 = 5,600</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Year 2026</h3><p>Default.</p><div class="sx-mt-ex">2000 = MM, 20 = XX, 6 = VI, so <b>MMXXVI</b></div></div><div><h3>Year 1994</h3><p>Roman to number.</p><div class="sx-mt-ex">MCMXCIV: M 1000, CM 900, XC 90, IV 4 = <b>1994</b></div></div><div><h3>A big number</h3><p>5,600.</p><div class="sx-mt-ex">5,000 = V with a bar, 600 = DC, so <b>V̅DC</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to convert Roman numerals</h2><ul><li>Choose number to Roman, Roman to number, or date to Roman.</li><li>Enter the number, numeral or date.</li><li>Pick standard (IV) or additive (IIII) style.</li><li>Read the result and the breakdown.</li></ul><p>Roman numerals have no zero, no negative numbers and no fractions here. Numbers of 4,000 and above use the overline, and not all fonts draw the bar clearly.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>Gordon, A.E., <i>Illustrated Introduction to Latin Epigraphy</i>, University of California Press, 1983.</li><li>Unicode Consortium, <i>The Unicode Standard</i>, Number Forms and combining overline (U+0305).</li><li>Ifrah, G., <i>The Universal History of Numbers</i>, Wiley, 2000.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How do you write 4 in Roman numerals?<span aria-hidden="true" class="msym">expand_more</span></summary><p>IV in standard notation. IIII (additive) is also seen, especially on clock faces.</p></details><details class="sx-faq"><summary>What is the largest Roman numeral?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Classical numerals stop at 3,999 (MMMCMXCIX). A bar over a numeral multiplies it by 1,000, which here extends the range to 3,999,999.</p></details><details class="sx-faq"><summary>Is there a zero in Roman numerals?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. The Romans had no symbol for zero, though they had the word nulla.</p></details><details class="sx-faq"><summary>Why is IIII on clocks?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It balances the face visually against VIII, and it has a long tradition. Both IV and IIII are historically valid.</p></details><details class="sx-faq"><summary>How do I write a date in Roman numerals?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Convert the day, month and year each to numerals. 24 October 2026 becomes XXIV.X.MMXXVI.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">event</span></span><b>Date Calculator</b><span class="d">Days between dates.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">cake</span></span><b>Age Calculator</b><span class="d">Exact age.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">straighten</span></span><b>Length Converter</b><span class="d">Convert lengths.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/time-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">schedule</span></span><b>Time Calculator</b><span class="d">Time arithmetic.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Roman Numeral Converter</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/roman-numeral-converter.html" width="100%" height="560" loading="lazy" title="Roman Numeral Converter"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/roman-numeral-converter.html?ref=widget" target="_blank" rel="noopener">
@@ -198,7 +93,8 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/roman-numeral.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/roman-numeral-converter.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

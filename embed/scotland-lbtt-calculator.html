@@ -5,135 +5,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scotland LBTT Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://www.calculatepilot.com/financial/scotland-lbtt-calculator.html">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,check_circle,chevron_right,compare_arrows,domain,download,expand_more,gavel,history_edu,home_work,info,open_in_new,payments,policy,refresh,shield,swap_horiz,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --paper: #FBFBFA; --ink: #14171A; --slate: #6B7280; --line: #E5E7EB;
-  --signal: #0F6B5C; --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-}
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
-.embed-wrap { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
-.embed-header { border-bottom: 2px solid var(--signal); padding-bottom: 10px; }
-.embed-title { font-size: 1rem; font-weight: 700; }
-.embed-lede { font-size: 0.8rem; color: var(--slate); margin-top: 4px; }
-.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
-.field label { font-size: 0.75rem; font-weight: 600; }
-.field input, .field select { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 0.9rem; background: #fff; color: var(--ink); width: 100%; }
-.field input:focus, .field select:focus { outline: none; border-color: var(--signal); }
-.field input[type="checkbox"] { width: auto; margin-right: 6px; }
-.readout { border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: hidden; }
-.bar { height: 4px; background: var(--signal); }
-.readout-body { padding: 12px 14px; }
-.readout-label { font-size: 0.72rem; color: var(--slate); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-.readout-value { font-size: 1.55rem; font-weight: 800; margin: 4px 0 8px; }
-.readout-row { display: flex; justify-content: space-between; gap: 12px; font-size: 0.82rem; padding: 5px 0; border-top: 1px solid var(--line); }
-.hint { font-size: 0.75rem; color: var(--slate); margin-top: 8px; }
-.embed-footer { padding: 10px 16px 14px; border-top: 1px solid var(--line); font-size: 0.75rem; display: flex; justify-content: space-between; gap: 10px; }
-.embed-footer a { color: var(--signal); font-weight: 700; text-decoration: none; }
+
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
+
 </style>
 </head>
-<body>
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Scotland LBTT Calculator</div>
-    <p class="embed-lede">Residential Land and Buildings Transaction Tax. Same bands as the full page. Not English SDLT.</p>
-  </div>
-  <form id="calcForm">
-  <div class="field"><label for="price">Purchase price (£)</label><input type="number" id="price" value="250000" step="1000" min="0"></div>
-  <div class="field"><label for="propertyType">Property</label>
-    <select id="propertyType">
-      <option value="res" selected>Residential</option>
-      <option value="nonres">Non-residential freehold / lease premium</option>
-    </select>
-  </div>
-  <div class="field"><label for="buyer">Buyer type</label>
-    <select id="buyer">
-      <option value="std" selected>Replacing / only home</option>
-      <option value="ftb">First-time buyer</option>
-    </select>
-  </div>
-  <div class="field">
-    <label><input type="checkbox" id="ads"> Additional dwelling (ADS, usually +8% of the whole price)</label>
-  </div>
-  <p class="hint">Residential bands from 1 April 2021. Non-residential freehold uses 0% / 1% / 5% with no ADS. Revenue Scotland’s £465,000 case is £11,750 and the LBTT4012 £872,000 office is £32,100. Lease rent is not calculated.</p>
-</form>
-  <aside class="readout"><div class="bar"></div><div class="readout-body">
-  <div class="readout-label">LBTT due</div>
-  <div class="readout-value" id="resultValue">—</div>
-  <div class="readout-row"><span>Band tax</span><span id="outBase">—</span></div>
-  <div class="readout-row"><span>Additional Dwelling Supplement</span><span id="outAds">—</span></div>
-  <div class="readout-row"><span>Effective rate</span><span id="outRate">—</span></div>
-  <div class="readout-row"><span>Price plus LBTT</span><span id="outTotal">—</span></div>
-  <p class="hint" id="outNote"></p>
-</div></aside>
+<body class="cp-embed">
+<main>
+<div class="sx" id="lbttCalc">
+<div class="sx-toprow cp-hide" style="margin-bottom:24px">
+<nav aria-label="Breadcrumb" class="sx-crumb"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b>Scotland stamp duty (LBTT)</b></nav>
+<div class="sx-badges" style="margin:0;gap:8px">
+<span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym" style="font-size:16px;color:var(--sx-emt)">verified_user</span>Revenue Scotland Statutory Model: Devolved Scottish Rates (2026/2027)</span>
+<span class="sx-badge" style="color:var(--sx-muted)"><span aria-hidden="true" class="msym" style="font-size:16px;color:var(--sx-muted)">shield</span>Client-Side Precision • Zero Tracking</span>
 </div>
-<footer class="embed-footer">
-  <span>Estimate only. Not tax advice.</span>
-  <a href="https://www.calculatepilot.com/financial/scotland-lbtt-calculator.html">Open full calculator</a>
-</footer>
-<script>
+</div>
+<header class="sx-head uk" style="margin-bottom:32px">
+<h1>Scotland Stamp Duty Calculator (LBTT)</h1>
+<p style="max-width:56rem">People search for Scottish stamp duty. The statute is Land and Buildings Transaction Tax, set by Revenue Scotland — not English SDLT. This page calculates first-time buyer relief, the 8% Additional Dwelling Supplement, and non-residential freehold or lease premium. A £465,000 shop or office is <strong>£11,750</strong>.</p>
+</header>
+<div class="sx-grid half">
+<div class="sx-colstack">
+<form class="sx-card sx-lbp" id="calcForm" novalidate="">
+<div class="sx-params-head" style="padding-bottom:16px">
+<div><span class="sx-ibox"><span aria-hidden="true" class="msym">tune</span></span><h2 class="sx-h-md">Transaction Parameters</h2></div>
+<span>LBTT (Scotland) Act 2013</span>
+</div>
+<div style="margin-bottom:24px">
+<label class="sx-lbl-md" for="price" style="display:block;margin-bottom:8px">Agreed Purchase Price (£)</label>
+<div class="sx-field big cur"><span class="pre">£</span><input id="price" inputmode="decimal" min="0" step="5000" type="number" value="320000"/></div>
+<div class="sx-qpills bd" style="margin-top:8px;gap:8px"><span class="lb">Presets:</span><button data-for="price" data-value="180000" type="button">£180k</button><button data-for="price" data-value="250000" type="button">£250k</button><button data-for="price" data-value="320000" type="button">£320k</button><button data-for="price" data-value="500000" type="button">£500k</button><button data-for="price" data-value="800000" type="button">£800k</button></div>
+</div>
+<div style="margin-bottom:24px">
+<span class="sx-lbl-md" style="display:block;margin-bottom:8px">Purchaser Status</span>
+<input id="buyer" type="hidden" value="main"/>
+<div aria-label="Purchaser status" class="sx-bcards lb" role="group" style="gap:12px">
+<button data-for="buyer" data-value="ftb" type="button"><i class="rd"></i><span><span class="tt">First-Time Buyer<em class="g">Relief Active</em></span><p>Zero-tax threshold raised from £145,000 to £175,000 (saving up to £600). No price cap.</p></span></button>
+<button data-for="buyer" data-value="main" type="button"><i class="rd"></i><span><span class="tt">Main Residence Replacement<em class="m">Standard</em></span><p>Standard progressive residential rates apply. Previous main residence sold or selling on the same day.</p></span></button>
+<button data-for="buyer" data-value="ads" type="button"><i class="rd"></i><span><span class="tt">Additional Residential Property / Second Home<em class="r">+8% ADS</em></span><p>Triggers the Additional Dwelling Supplement (ADS) of 8% charged on the total purchase price from £40,000.</p></span></button>
+<button data-for="buyer" data-value="nonres" type="button"><i class="rd"></i><span><span class="tt">Non-Residential Freehold / Lease Premium<em class="m">0% / 1% / 5%</em></span><p>Shops, offices and land. ADS and first-time buyer relief do not apply; lease rent is not calculated.</p></span></button>
+</div>
+</div>
+<div class="sx-reclaim" style="margin-bottom:24px">
+<span aria-hidden="true" class="msym">info</span>
+<div><h4>Statutory 36-Month ADS Reclaim Window</h4><p>Buying before you've sold your previous home? If you sell your previous main residence within 36 months, you can claim the full ADS back from Revenue Scotland.</p>
+<label><input id="reclaim" type="checkbox"/>Flag transaction for a future 36-month ADS reclaim</label><div class="out" hidden="" id="reclaimOut"></div></div>
+</div>
+<button class="sx-cta pc" type="submit"><span aria-hidden="true" class="msym">refresh</span>Recalculate Scottish Tax</button>
+</form>
+<div class="sx-card sx-statnote"><span aria-hidden="true" class="msym">gavel</span><p>Rates configured in accordance with the <strong>Land and Buildings Transaction Tax (Scotland) Act 2013</strong>, the ADS rate in force since 5 December 2024 and the Scottish Budget 2026-27.</p></div>
+</div>
+<div class="sx-colstack" id="results">
+<section aria-live="polite" class="sx-card sx-lbh">
+<div class="hd"><span class="sx-kick">Statutory Liability</span><span class="eff" id="effBadge">—</span></div>
+<div class="k2">TOTAL LBTT DUE</div>
+<div class="vv"><b id="resultValue">—</b><span id="baseTxt">—</span></div>
+<div class="sx-adsc" hidden="" id="adsCall">
+<div class="r"><span>Standard Residential LBTT:</span><b id="coreAmt">—</b></div>
+<div class="r"><span>Additional Dwelling Supplement (8%):</span><b class="er" id="adsAmt">—</b></div>
+<div class="t">Total payment required on completion day: <strong id="sumAmt">—</strong></div>
+</div>
+<div class="sx-tier">
+<div class="sx-between"><span>Marginal Tier Breakdown</span><span>Proportional Tax Burden</span></div>
+<div class="tb" id="tierBar"></div>
+<div class="lb" id="tierLbl"></div>
+</div>
+<div class="acts">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">download</span>Certificate</button>
+<a href="/financial/uk-stamp-duty-calculator.html"><span aria-hidden="true" class="msym">compare_arrows</span>England SDLT</a>
+<a href="/financial/wales-ltt-calculator.html"><span aria-hidden="true" class="msym">swap_horiz</span>Wales LTT</a>
+</div>
+</section>
+<section class="sx-card sx-wtab">
+<div class="hd"><b>Revenue Scotland Waterfall Table</b><span>Marginal Slices</span></div>
+<div class="sx-scroll"><table class="sx-t8">
+<thead><tr><th scope="col">Rate Band</th><th scope="col">Taxable Slice</th><th scope="col">Rate</th><th scope="col">Tax Due</th></tr></thead>
+<tbody id="bandBody"></tbody>
+<tfoot><tr><td colspan="3">Aggregated Tax Payable</td><td id="totTax">—</td></tr></tfoot>
+</table></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-mx cp-hide" id="compare">
+<div class="hd"><div><h2 class="sx-h-md">Cross-Border UK Stamp Duty Comparison Matrix</h2><p id="mxSub">—</p></div><span><span aria-hidden="true" class="msym">balance</span>2026/2027 Devolution Benchmarks</span></div>
+<div class="g" id="mxGrid"></div>
+</section>
+<section class="sx-rq cp-hide">
+<div class="sx-card a">
+<div class="sx-title"><span class="sx-ibox"><span aria-hidden="true" class="msym">history_edu</span></span><h3 class="sx-h-md">Revenue Scotland ADS 36-Month Reclaim Procedure</h3></div>
+<p>Under Schedule 2A of the <strong>LBTT (Scotland) Act 2013</strong>, if you buy a new main residence before selling your previous one, you pay the 8% Additional Dwelling Supplement at completion and can claim it back once the old home is sold.</p>
+<div class="sx-steps">
+<div><b>Step 1: Settlement Payment</b><p>Pay the full 8% supplement with the core LBTT through your solicitor, with the return filed within 30 days of the effective date.</p></div>
+<div><b>Step 2: 36-Month Sale</b><p>Sell your previous main residence within 36 months of the effective date of the new purchase.</p></div>
+<div><b>Step 3: Reclaim</b><p>Submit a repayment claim to Revenue Scotland once the old home is sold — check its guidance for the claim deadline.</p></div>
+</div>
+</div>
+<div class="sx-card b">
+<div>
+<div class="sx-title"><span class="sx-ibox"><span aria-hidden="true" class="msym">policy</span></span><h4 class="sx-h-md" style="margin:0">Key Devolved Thresholds</h4></div>
+<ul>
+<li><span aria-hidden="true" class="msym">check_circle</span><span><strong>ADS Rate:</strong> 8% of the whole price on additional dwellings costing £40,000 or more.</span></li>
+<li><span aria-hidden="true" class="msym">check_circle</span><span><strong>First-Time Buyer Relief:</strong> 0% up to £175,000, a maximum saving of £600.</span></li>
+<li><span aria-hidden="true" class="msym">check_circle</span><span><strong>Filing Window:</strong> 30 days from the effective date to file the return and pay.</span></li>
+</ul>
+</div>
+<div class="lk"><a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/additional-dwelling-supplement-ads" rel="noopener" target="_blank">Official Revenue Scotland Guidance Notes<span aria-hidden="true" class="msym">open_in_new</span></a></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide" style="margin-bottom:48px">
+<div class="sx-guide">
+<h2>Rates this calculator uses</h2>
+<p>Residential (from 1 April 2021): 0% to £145,000 · 2% to £250,000 · 5% to £325,000 · 10% to £750,000 · 12% above. First-time buyers pay nothing up to £175,000. ADS is 8% of the whole price for additional dwellings of £40,000 or more (from 5 December 2024), added to the band tax. Non-residential freehold and lease premiums: 0% to £150,000 · 1% to £250,000 · 5% above (unchanged by the Scottish Budget 2026-27).</p>
+<p>Sources: Revenue Scotland <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/residential-property" rel="noopener" target="_blank">residential rates</a>, <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/additional-dwelling-supplement-ads" rel="noopener" target="_blank">Additional Dwelling Supplement</a>, <a href="https://www.revenue.scot/taxes/land-buildings-transaction-tax/non-residential-property" rel="noopener" target="_blank">non-residential rates</a> and the <a href="https://www.gov.scot/publications/scottish-budget-2026-2027/" rel="noopener" target="_blank">Scottish Budget 2026-27</a>. Revenue Scotland, not this calculator, is the authority.</p>
+<p class="sx-trust" style="margin:0">By Suhaib Hassan · Residential bands verified 22 Sep 2026, non-residential examples re-checked 30 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+<h2>Worked examples</h2>
+<ul>
+<li><strong>Main residence at £250,000:</strong> 2% on £105,000 = <strong>£2,100</strong>. A first-time buyer pays 2% on £75,000 = <strong>£1,500</strong>.</li>
+<li><strong>Same £300,000, three buyer types:</strong> first-time buyer £4,000 · main residence £4,600 · additional dwelling £28,600 (£4,600 + £24,000 ADS).</li>
+<li><strong>Additional dwelling at £197,000 (Revenue Scotland example):</strong> 2% on £52,000 = £1,040 + ADS 8% × £197,000 = £15,760 → <strong>£16,800</strong>.</li>
+<li><strong>Non-residential at £150,000 or below:</strong> inside the nil-rate band, so LBTT is <strong>£0</strong>.</li>
+<li><strong>Non-residential at £465,000 (Revenue Scotland rates page):</strong> £0 on the first £150,000, 1% on the next £100,000 (£1,000) and 5% on the remaining £215,000 (£10,750) = <strong>£11,750</strong>. <button id="load465" type="button">Load this £465,000 example</button></li>
+<li><strong>Non-residential office at £872,000 (Revenue Scotland LBTT4012):</strong> £1,000 + 5% on £622,000 (£31,100) = <strong>£32,100</strong>. The same price as a main home is £62,990, not £32,100 — the tables are not interchangeable.</li>
+</ul>
+<h2>Checked amounts</h2>
+<p>Each cell is the band sum above, not a rounded guess. Additional-dwelling cells add 8% of the whole price to the main-home band tax. First-time buyer relief saves £600 once the price is above £175,000, with no England-style £500,000 cap.</p>
+<div class="sx-scroll"><table class="sx-t8">
+<thead><tr><th scope="col">Price</th><th scope="col">Main home</th><th scope="col">First-time buyer</th><th scope="col">Additional dwelling</th><th scope="col">Non-residential</th></tr></thead>
+<tbody>
+<tr><td>£150,000</td><td>£100</td><td>£0</td><td>£12,100</td><td>£0</td></tr>
+<tr><td>£197,000</td><td>£1,040</td><td>£440</td><td>£16,800</td><td>£470</td></tr>
+<tr><td>£250,000</td><td>£2,100</td><td>£1,500</td><td>£22,100</td><td>£1,000</td></tr>
+<tr><td>£300,000</td><td>£4,600</td><td>£4,000</td><td>£28,600</td><td>£3,500</td></tr>
+<tr><td>£465,000</td><td>£19,850</td><td>£19,250</td><td>£57,050</td><td>£11,750</td></tr>
+<tr><td>£872,000</td><td>£62,990</td><td>£62,390</td><td>£132,750</td><td>£32,100</td></tr>
+</tbody>
+</table></div>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is LBTT the same as stamp duty in England?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. Different statute, different bands and a different surcharge. For England and Northern Ireland use the UK Stamp Duty Calculator.</p></details>
+<details class="sx-faq"><summary>How much is first-time buyer relief in Scotland?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It raises the nil-rate band from £145,000 to £175,000 — worth up to £600. There is no £500,000 price cap as in England.</p></details>
+<details class="sx-faq"><summary>What is the Additional Dwelling Supplement?<span aria-hidden="true" class="msym">expand_more</span></summary><p>8% of the whole price, from 5 December 2024, on additional dwellings of £40,000 or more, added on top of the band tax.</p></details>
+<details class="sx-faq"><summary>Can I get the ADS back?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, if the new home replaces your main residence and you sell the previous one within 36 months of buying the new one. You then claim a repayment from Revenue Scotland.</p></details>
+<details class="sx-faq"><summary>Does this cover a shop or office?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — choose Non-Residential. Slices are 0% to £150,000, 1% to £250,000 and 5% above; ADS is not added. £150,000 or below is £0. Revenue Scotland's rates-page case of £465,000 is £11,750. The LBTT4012 £872,000 office is £32,100. Lease rent is not calculated.</p></details>
+<details class="sx-faq"><summary>Is this a Revenue Scotland assessment?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. Confirm with your solicitor. This page is a planning estimate from published rates.</p></details>
+</div>
+</section>
+<section class="sx-related cp-hide" style="margin-bottom:48px">
+<div class="sx-rel-head"><h3 class="sx-h-md">Related UK Financial Planning Calculators</h3><a class="lg" href="/financial-calculators.html">View Directory<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-rel5g">
+<a class="sx-card sx-rel5" href="/financial/uk-mortgage-overpayment-calculator.html"><div class="t"><span class="ic"><span aria-hidden="true" class="msym">home_work</span></span><span aria-hidden="true" class="msym">chevron_right</span></div><h4>UK Mortgage Overpayment Calculator</h4><p>Simulate interest savings and a shorter term from regular overpayments or a lump sum.</p></a>
+<a class="sx-card sx-rel5" href="/financial/scotland-take-home-pay-calculator.html"><div class="t"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><span aria-hidden="true" class="msym">chevron_right</span></div><h4>Scottish Take-Home Pay &amp; Income Tax</h4><p>Model 2026/27 Scottish income tax bands (starter, basic, intermediate, higher, advanced, top).</p></a>
+<a class="sx-card sx-rel5" href="/financial/uk-stamp-duty-calculator.html"><div class="t"><span class="ic"><span aria-hidden="true" class="msym">domain</span></span><span aria-hidden="true" class="msym">chevron_right</span></div><h4>England &amp; NI SDLT Stamp Duty Calculator</h4><p>HMRC residential and commercial stamp duty including first-time buyer, surcharge and company rates.</p></a>
+</div>
+</section>
+</div>
+</main>
 
-(function () {
-  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
-  const priceEl = document.getElementById("price");
-  const typeEl = document.getElementById("propertyType");
-  const buyerEl = document.getElementById("buyer");
-  const adsEl = document.getElementById("ads");
-  const STD = [[145000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
-  const FTB = [[175000, 0], [250000, 0.02], [325000, 0.05], [750000, 0.10], [Infinity, 0.12]];
-  const NONRES = [[150000, 0], [250000, 0.01], [Infinity, 0.05]];
 
-  function taxOn(price, table) {
-    let rem = price, prev = 0, total = 0;
-    for (let i = 0; i < table.length; i++) {
-      const up = table[i][0];
-      const rate = table[i][1];
-      const width = (up === Infinity ? rem : up - prev);
-      const taxable = Math.max(0, Math.min(rem, width));
-      total += taxable * rate;
-      rem -= taxable;
-      prev = up;
-      if (rem <= 0) break;
-    }
-    return total;
-  }
 
-  function render() {
-    const price = Math.max(0, +priceEl.value || 0);
-    const nonres = typeEl.value === "nonres";
-    buyerEl.disabled = nonres;
-    adsEl.disabled = nonres;
-    let base, ads, note = "";
-    if (nonres) {
-      base = taxOn(price, NONRES);
-      ads = 0;
-      note = "Non-residential freehold or lease premium. ADS and first-time buyer relief do not apply. Lease rent is not calculated.";
-    } else {
-      const ftbEligible = buyerEl.value === "ftb" && !adsEl.checked;
-      base = taxOn(price, ftbEligible ? FTB : STD);
-      ads = (adsEl.checked && price >= 40000) ? price * 0.08 : 0;
-      if (buyerEl.value === "ftb" && adsEl.checked) note = "First-time buyer relief is not combined with ADS. Standard bands plus 8% are used.";
-      else if (adsEl.checked && price < 40000) note = "ADS usually starts at £40,000. No supplement applied.";
-    }
-    const due = base + ads;
-    document.getElementById("resultValue").textContent = gbp.format(due);
-    document.getElementById("outBase").textContent = gbp.format(base);
-    document.getElementById("outAds").textContent = gbp.format(ads);
-    document.getElementById("outRate").textContent = price > 0 ? (100 * due / price).toFixed(2) + "%" : "—";
-    document.getElementById("outTotal").textContent = gbp.format(price + due);
-    document.getElementById("outNote").textContent = note;
-  }
-
-  ["price", "propertyType", "buyer", "ads"].forEach(function (id) {
-    const el = document.getElementById(id);
-    el.addEventListener("input", render);
-    el.addEventListener("change", render);
-  });
-  render();
-})();
-
-</script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/scotland-lbtt.js?v=20260930p"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

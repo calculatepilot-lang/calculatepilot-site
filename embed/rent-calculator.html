@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rent Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=analytics,arrow_forward,badge,balance,calculate,check_circle,chevron_right,donut_large,expand_more,gavel,home,payments,picture_as_pdf,pie_chart,real_estate_agent,receipt_long,restart_alt,rule,savings,schedule,shield,table_view,verified&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,73 +38,141 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Rent Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="monthlyIncome">Gross monthly income</label>
-          <input type="number" id="monthlyIncome" value="5500"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="rentPercent">Target % of income on rent</label>
-          <input type="number" id="rentPercent" value="30"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Recommended max rent</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Annual rent budget</span><span id="outAnnual">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="rnCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Rent Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified</span>40x Rent Rule &amp; 30% Guideline</span><span class="sx-badge"><span aria-hidden="true" class="msym">shield</span>Landlord Screening Check</span><span class="sx-badge"><span aria-hidden="true" class="msym">analytics</span>Debt-to-Income Check</span></div>
+<h1>Rent Calculator: How Much Rent Can You Afford?</h1>
+<p>Find out how much rent fits comfortably within your budget — using the 30% guideline, the landlord 40x rule or a conservative net-pay cap — then see your debt burden, monthly cash flow and the cash you need to move in.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">badge</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Tenant Financial Profile</h2><p>What landlords and property managers look at</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="inc">Gross Annual Household Income</label><em id="moInc" style="color:var(--sx-on);font-family:var(--font-mono)">—</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="inc" inputmode="decimal" min="0" step="1000" style="font-size:17px;font-weight:600" type="number" value="85000"/><span class="suf">USD/yr</span></div>
+<div class="sx-au-chips">Presets: <button data-for="inc" data-value="50000" type="button">$50k</button><button data-for="inc" data-value="75000" type="button">$75k</button><button data-for="inc" data-value="85000" type="button">$85k</button><button data-for="inc" data-value="120000" type="button">$120k</button><button data-for="inc" data-value="150000" type="button">$150k</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="debt">Monthly Debt Payments</label></div><div class="sx-au-in"><span class="pre">$</span><input id="debt" inputmode="decimal" min="0" step="25" type="number" value="550"/><span class="suf">/mo</span></div><p class="sx-au-help">Student loans, car payments, card minimums.</p></div>
+<div><div class="sx-au-l"><label for="etr">Effective Tax Rate</label></div><div class="sx-au-in np pc"><input id="etr" inputmode="decimal" max="60" min="0" step="1" type="number" value="25"/><span class="suf">%</span></div><p class="sx-au-help">Federal, state &amp; payroll taxes combined.</p></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Affordability Standard</span></div>
+<input id="std" type="hidden" value="s2"/>
+<div aria-label="Affordability standard" class="sx-au-cat nr" role="group">
+<button data-for="std" data-value="s1" type="button"><span><b>Conservative</b><small>25% of net (take-home) pay</small></span></button>
+<button data-for="std" data-value="s2" type="button"><span><b>Standard 30% Rule</b><small>30% of gross income</small></span></button>
+<button data-for="std" data-value="s3" type="button"><span><b>Landlord 40x Rule</b><small>Annual income ÷ 40 (common in NYC)</small></span></button>
+<button data-for="std" data-value="s4" type="button"><span><b>Custom Target</b><small>Your own % of gross income</small></span></button>
+</div>
+<div class="sx-vt-in" id="cRow"><label for="rentPercent">Target % of gross income on rent:</label><div class="sx-au-in sm np pc" style="max-width:120px"><input id="rentPercent" inputmode="decimal" max="100" min="0" step="1" type="number" value="30"/><span class="suf">%</span></div></div>
+</div>
+<div class="sx-card" style="padding:14px;background:var(--sx-low)">
+<div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:18px">real_estate_agent</span>Move-In Cash &amp; Monthly Extras</span></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="dep">Security Deposit</label></div><div class="sx-au-sel"><select id="dep"><option value="0">None / deposit alternative</option><option selected="" value="1">1 month's rent</option><option value="1.5">1.5 months' rent</option><option value="2">2 months' rent</option></select></div></div>
+<div><div class="sx-au-l"><label for="bro">Broker Fee (paid by you)</label></div><div class="sx-au-sel"><select id="bro"><option selected="" value="0">None</option><option value="1">1 month's rent</option><option value="1.8">15% of annual rent</option></select></div></div>
+</div>
+<div class="sx-au-g2" style="margin-top:10px">
+<div><div class="sx-au-l"><label for="util">Utilities &amp; Renters Insurance</label></div><div class="sx-au-in"><span class="pre">$</span><input id="util" inputmode="decimal" min="0" step="10" type="number" value="220"/><span class="suf">/mo</span></div></div>
+<div><div class="sx-au-l"><label for="app">Application &amp; Moving Costs</label></div><div class="sx-au-in"><span class="pre">$</span><input id="app" inputmode="decimal" min="0" step="10" type="number" value="320"/></div></div>
+</div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Affordable Rent</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-hy-hero">
+<div class="hd"><em><span aria-hidden="true" class="msym">check_circle</span><span id="tierT">—</span></em><span id="stdT">—</span></div>
+<div class="k">Recommended Maximum Rent</div>
+<div class="big"><span id="resultValue">—</span><small style="font-size:16px;font-weight:500;opacity:.8;margin-left:4px">/ month</small></div>
+<p>Equates to <b id="outAnnual">—</b> a year in rent.</p>
+<span aria-hidden="true" class="msym wm">home</span>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k">Landlord 40x Rule Check<span aria-hidden="true" class="msym">rule</span></div><b id="x40">—</b><p id="x40N">—</p></div>
+<div class="sx-card"><div class="k">True Monthly Housing Cost<span aria-hidden="true" class="msym">receipt_long</span></div><b id="true">—</b><p>Rent + utilities &amp; insurance</p></div>
+<div class="sx-card"><div class="k">Housing Ratio<span aria-hidden="true" class="msym">donut_large</span></div><b id="fe">—</b><p>Rent as % of gross income</p></div>
+<div class="sx-card"><div class="k">Total Burden (Rent + Debt)<span aria-hidden="true" class="msym">balance</span></div><b id="be">—</b><p id="beN">—</p></div>
+</div>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h">Post-Rent Cash Flow<span id="cfN">—</span></div>
+<div class="l"><span>Estimated monthly take-home pay</span><b id="net">—</b></div>
+<div class="l"><span>Rent, utilities &amp; insurance</span><b class="r" id="cf1">—</b></div>
+<div class="l"><span>Debt payments</span><b class="r" id="cf2">—</b></div>
+<div class="l t"><span>Left for everything else &amp; savings</span><b id="cf3">—</b></div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h">Upfront Move-In Cash<span id="miT">—</span></div>
+<div class="l"><span>First month's rent</span><b id="mi1">—</b></div>
+<div class="l"><span id="mi2L">Security deposit</span><b id="mi2">—</b></div>
+<div class="l"><span id="mi3L">Broker fee</span><b id="mi3">—</b></div>
+<div class="l"><span>Application &amp; moving costs</span><b id="mi4">—</b></div>
+</section>
+<div class="sx-in-acts"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Rent Budget (.PDF)</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_view</span>Budget Schedule (.CSV)</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="matrix">
+<div class="hd"><div><h2>Rent Affordability Across Income Levels</h2><p>Maximum rent under each standard, plus a three-month cash cushion at that rent.</p></div><span class="sx-au-tag"><span aria-hidden="true" class="msym" style="font-size:14px;vertical-align:-2px">schedule</span> Updated 2026</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Gross Annual Income</th><th scope="col">30% of Gross</th><th scope="col">40x Rule</th><th scope="col">25% of Net Pay</th><th scope="col">3-Month Cash Cushion</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">gavel</span></span><h3>The 40x Rule vs the 30% Guideline</h3><p>Many landlords in expensive cities — New York especially — require your <b>annual</b> income to be at least 40 times the <b>monthly</b> rent. That works out to rent of 30% of gross monthly income, the same as the classic guideline, but landlords apply it as a hard cut-off.</p><p>If you fall short, landlords often accept a guarantor earning around 80 times the rent, or an institutional guarantor service that charges a fee — often in the range of one month's rent.</p></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">payments</span></span><h3>The Hidden Costs of Renting</h3><p>The advertised rent is rarely the whole monthly bill. Budget for:</p><ul style="margin:0 0 10px;padding-left:18px;font-size:14px;line-height:22px;color:var(--sx-onv)"><li><b>Building fees:</b> some properties charge mandatory amenity, trash or parking fees.</li><li><b>Utilities &amp; insurance:</b> electricity, internet, and renters insurance.</li><li><b>Broker fees:</b> in some markets tenants pay a fee; New York City's FARE Act (2025) generally stops landlords passing on the fee for a broker they hired.</li></ul></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>The 30% rule</h2>
+<p>Spending no more than 30% of gross income on rent is a commonly cited affordability guideline, though it's a general rule of thumb — your comfortable number depends on other debts, savings goals, and cost of living.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Beyond the 30% rule</h2>
+<p>The 30% guideline is a useful starting point, but your actual comfortable rent budget depends on other factors: existing debt payments, savings goals, commute costs, and local cost of living all matter. Someone with no debt and low other expenses might comfortably afford more than 30%, while someone with significant student loans or car payments may want to budget less.</p>
+<p>It's also worth factoring in renter's insurance, utilities, and moving costs when budgeting for a new place — the advertised rent is rarely the complete monthly housing cost.</p>
+<h2>A worked example</h2>
+<p>At $6,200/month gross income with a 30% target, the recommended maximum rent is $1,860/month, or about $22,320 annually.</p>
+<p>If that same person instead budgeted 25% (a more conservative target, perhaps due to other debt), the maximum rent drops to $1,550/month — a $310 difference that could instead go toward savings or debt payoff.</p>
+<h2>Other costs of renting to budget for</h2>
+<p>Beyond the base rent figure, renters typically budget for utilities, renters insurance, parking, and sometimes pet fees — all of which add to the effective monthly housing cost beyond what the 30% guideline alone captures.</p>
+<p>In competitive rental markets, landlords may also require proof of income at a multiple of monthly rent (commonly 2.5-3x rent) as a qualifying condition, which is a related but separate calculation from the affordability guideline this calculator uses.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is 30% the right target for everyone?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It's a widely used guideline, but people with significant other debts may want to budget less, while those with minimal other expenses may comfortably afford more.</p></details>
+<details class="sx-faq"><summary>What if 30% of my income isn't enough rent for my area?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In high cost-of-living areas, many renters exceed the 30% guideline out of necessity — if so, it's worth budgeting extra carefully elsewhere and building a larger emergency fund to compensate.</p></details>
+<details class="sx-faq"><summary>Should I include roommates' contributions in this calculation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No — calculate based on your own income and your own share of the rent, to get an accurate picture of what you personally can afford.</p></details>
+<details class="sx-faq"><summary>Do landlords typically require a minimum income relative to rent?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Many landlords require monthly income of roughly 2.5-3x the rent amount as a qualifying condition, which is a common industry practice separate from personal affordability guidelines.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Tools</h2><p>Plan the rest of your housing budget.</p></div>
+<a href="/financial-calculators.html">Explore All Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">home</span></span><b>House Affordability</b><span class="d">How much home your income supports.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>50/30/20 Budget</b><span class="d">Split take-home pay into needs, wants and savings.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Paycheck Calculator</b><span class="d">Take-home pay after tax and FICA.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Emergency Fund</b><span class="d">Size a 3–6 month cash reserve.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/rent-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -231,40 +181,9 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/rent.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/rent.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

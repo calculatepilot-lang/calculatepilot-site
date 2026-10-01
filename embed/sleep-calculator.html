@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleep Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=alarm,arrow_forward,bedtime,cake,chevron_right,code,content_copy,event,expand_more,functions,health_and_safety,hotel,lightbulb,link,local_fire_department,lock,person_check,picture_as_pdf,restart_alt,schedule,warning,work_history&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,44 +38,55 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Sleep Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="wakeTime">Wake-up time</label>
-          <input type="time" id="wakeTime" value="07:00"
->
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Ideal bedtime (6 cycles)</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>5 cycles (7.5 hrs)</span><span id="outCycle5">—</span></div>
-        <div class="embed-row"><span>4 cycles (6 hrs)</span><span id="outCycle4">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="slCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Sleep Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">bedtime</span>90-minute sleep cycles</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Sleep Cycle Calculator: Bedtime and Wake Time</h1><p>Find the best time to go to bed or wake up. It counts back or forward in 90-minute sleep cycles from your wake time or bedtime, allows for the time you take to fall asleep, and checks the result against the recommended hours for your age group.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It uses a fixed 90-minute cycle. Real cycles run about 70 to 120 minutes and change through the night, so treat the times as a good starting point.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>A whole number of cycles often leaves you less groggy than the same total hours cut mid-cycle. This makes that arithmetic quick.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">bedtime</span><h2 class="sx-h-md" style="margin:0">Plan your sleep</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>What do you want to find?</label></div><input id="mode" type="hidden" value="wake"/><div aria-label="Mode" class="sx-seg full" role="group"><button data-for="mode" data-value="wake" type="button">Bedtime for a wake time</button><button data-for="mode" data-value="bed" type="button">Wake time from bedtime</button><button data-for="mode" data-value="nap" type="button">Nap length</button></div></div>
+<div><div class="sx-au-l"><label for="t" id="tL">I need to wake up at</label><em class="mu">as your device shows the time</em></div><div class="sx-au-in sm np"><input id="t" type="time" value="06:30"/></div><div class="sx-qpills"><span class="lb">Quick</span><button data-t="05:00" type="button">5:00</button><button data-t="06:30" type="button">6:30</button><button data-t="07:30" type="button">7:30</button><button data-t="08:30" type="button">8:30</button></div></div>
+<div><div class="sx-au-l"><label>Time to fall asleep</label><em id="latV">14 min</em></div><input id="lat" type="hidden" value="14"/><input aria-label="Minutes to fall asleep" class="sx-range2" data-sync="lat" max="45" min="0" step="1" type="range" value="14"/><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted)"><span>0 min</span><span>about 15 min is typical</span><span>45 min</span></div></div>
+<div id="ageRow"><div class="sx-au-l"><label for="age">Age group</label><em class="mu" id="ageN">7 to 9 hours recommended</em></div><select class="sx-mt-sel" id="age"><option value="7-9">Adult (18 to 64) · 7 to 9 hours</option><option value="8-10">Teen (14 to 17) · 8 to 10 hours</option><option value="7-8">Older adult (65+) · 7 to 8 hours</option></select></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">bedtime</span>Calculate times</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Best bedtime</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span>Sleep you get</span><b id="oSleep">—</b></div><div><span>Time in bed</span><b id="oBed">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span id="lad">Other options</span><em class="mu" id="ladN">—</em></div><div class="sx-tblwrap"><table class="sx-tbl" style="min-width:0"><thead><tr><th id="h1">Go to bed at</th><th class="n" id="h2">Cycles</th><th class="n">Sleep</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">health_and_safety</span>Sleep note</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Sleep stages and waking up</h2><p>A night is a run of cycles of about 90 minutes, each moving through light sleep, deep sleep and REM. Waking at the end of a cycle, from light sleep, usually feels better than waking from deep sleep.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:640px"><thead><tr><th>Stage</th><th class="n">Share of a night</th><th>What happens</th><th>If you wake in it</th></tr></thead><tbody>
+<tr><td class="a">N1 light sleep</td><td class="n">about 5%</td><td class="a" style="white-space:normal">Drifting off, muscles relax, heart rate slows.</td><td class="a" style="white-space:normal">Easy to wake, feel alert</td></tr>
+<tr><td class="a">N2 core sleep</td><td class="n">45–55%</td><td class="a" style="white-space:normal">Body temperature falls, memory processing.</td><td class="a" style="white-space:normal">Mild grogginess</td></tr>
+<tr><td class="a">N3 deep sleep</td><td class="n">15–25%</td><td class="a" style="white-space:normal">Physical recovery, growth hormone release. Mostly early in the night.</td><td class="a" style="white-space:normal">Heaviest grogginess</td></tr>
+<tr><td class="a">REM sleep</td><td class="n">20–25%</td><td class="a" style="white-space:normal">Vivid dreams, memory and mood processing. Longer near morning.</td><td class="a" style="white-space:normal">Usually easy to wake</td></tr>
+</tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">bedtime</span></div><h3>Bedtime for a wake time</h3><p>Count back whole cycles from the time you want to wake, then allow for falling asleep.</p><code>bedtime = wake − (cycles × 90 min) − fall-asleep time</code></div><div><div class="ic"><span aria-hidden="true" class="msym">alarm</span></div><h3>Wake time from a bedtime</h3><p>Add the time to fall asleep to your bedtime, then count forward whole cycles.</p><code>wake = bedtime + fall-asleep time + (cycles × 90 min)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">hotel</span></div><h3>Sleep you get</h3><p>Whole cycles times 90 minutes. Time in bed is that plus the time to fall asleep.</p><code>sleep = cycles × 90 min</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Wake at 6:30 AM</h3><p>5 cycles and 14 minutes to fall asleep (the default).</p><div class="sx-mt-ex">5 × 90 = 450 min of sleep<br/>6:30 AM − 450 min − 14 min = <b>10:46 PM</b><br/>4 cycles: <b>12:16 AM</b> · 6 cycles: <b>9:16 PM</b></div></div><div><h3>Bed at 11:00 PM</h3><p>14 minutes to fall asleep.</p><div class="sx-mt-ex">asleep at 11:14 PM<br/>5 cycles: 11:14 PM + 7 h 30 min = <b>6:44 AM</b><br/>4 cycles: <b>5:14 AM</b></div></div><div><h3>Nap at 2:00 PM</h3><p>14 minutes to fall asleep.</p><div class="sx-mt-ex">asleep at 2:14 PM<br/>20 min power nap: <b>2:34 PM</b><br/>90 min full cycle: <b>3:44 PM</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to use the sleep calculator</h2><ul><li>Choose whether you know your wake time, your bedtime, or want a nap.</li><li>Enter the time and how long you usually take to fall asleep.</li><li>Pick the age group so the result is compared with the recommended hours.</li><li>Choose the option that fits your schedule. Five cycles (7.5 hours) suits most adults.</li></ul><p>This is a planning tool, not medical advice. If you regularly sleep badly, snore heavily, or feel exhausted after a full night, speak to a doctor.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>National Sleep Foundation, <i>National Sleep Foundation's sleep time duration recommendations</i> (Hirshkowitz et al., Sleep Health, 2015).</li><li>American Academy of Sleep Medicine, <i>Sleep stages and cycles</i>.</li><li>Carskadon &amp; Dement, <i>Normal human sleep: an overview</i>, in Principles and Practice of Sleep Medicine.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How long is a sleep cycle?<span aria-hidden="true" class="msym">expand_more</span></summary><p>About 90 minutes on average, moving through light sleep, deep sleep and REM. Individual cycles vary from about 70 to 120 minutes, and the mix shifts through the night.</p></details><details class="sx-faq"><summary>How many hours of sleep do I need?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The National Sleep Foundation recommends 7 to 9 hours for adults aged 18 to 64, 8 to 10 for teens, and 7 to 8 for adults 65 and over.</p></details><details class="sx-faq"><summary>Why do I wake up tired after 8 hours?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Waking during deep sleep causes sleep inertia, a heavy groggy feeling that can last for a while. Shifting the time by 15 to 30 minutes can change how you feel.</p></details><details class="sx-faq"><summary>What is the best length for a nap?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A 10 to 20 minute nap gives an alertness boost with little grogginess. A 90-minute nap is a full cycle. Around 30 to 60 minutes often means waking from deep sleep.</p></details><details class="sx-faq"><summary>Why include time to fall asleep?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Cycles only start once you are asleep. If you take 15 minutes to drift off, you need to be in bed 15 minutes earlier to get the same amount of sleep.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/time-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">schedule</span></span><b>Time Calculator</b><span class="d">Add and subtract hours and minutes.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/hours-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">work_history</span></span><b>Hours Calculator</b><span class="d">Timecard and work hours.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_fire_department</span></span><b>Calorie Calculator</b><span class="d">Daily calories.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">cake</span></span><b>Age Calculator</b><span class="d">Exact age in years, months and days.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Sleep Cycle Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/sleep-calculator.html" width="100%" height="560" loading="lazy" title="Sleep Cycle Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/sleep-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -202,7 +95,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/sleep.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/sleep.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
