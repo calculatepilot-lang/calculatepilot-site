@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HELOC Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,calculate,cancel,check_circle,chevron_right,expand_more,functions,gavel,home,lock,merge_type,real_estate_agent,restart_alt,savings,schedule,stacked_line_chart,timeline,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,88 +38,159 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">HELOC Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="homeValue">Current home value ($)</label>
-          <input type="number" id="homeValue" value="400000"
-step="1000"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="mortgageBalance">Remaining mortgage balance ($)</label>
-          <input type="number" id="mortgageBalance" value="220000"
-step="1000"min="0">
-        </div>
-        <div class="field">
-          <label for="maxCLTV">Max combined loan-to-value (%)</label>
-          <input type="number" id="maxCLTV" value="80"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="helocRate">HELOC interest rate (%)</label>
-          <input type="number" id="helocRate" value="8.5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="drawAmount">Amount you plan to draw ($)</label>
-          <input type="number" id="drawAmount" value="30000"
-step="500"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated max HELOC available</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Monthly interest-only payment</span><span id="outMonthlyPayment">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="hlCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">HELOC Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>CLTV Risk Modeling</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">timeline</span>Draw vs. Repayment Phase Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Client-Side Privacy</span></div>
+<h1>HELOC &amp; Home Equity Loan Calculator</h1>
+<p>Estimate how much you could borrow against your home, your combined loan-to-value (CLTV), and your payment in the interest-only draw period versus the principal-and-interest repayment period.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><h2 class="sx-h-md" style="margin:0">Equity &amp; Debt Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="value">Current Estimated Home Value</label><em class="mu">Appraised Value</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="value" inputmode="decimal" min="0" step="5000" type="number" value="500000"/></div>
+<div class="sx-au-chips">Presets: <button data-for="value" data-value="300000" type="button">$300k</button><button data-for="value" data-value="500000" type="button">$500k</button><button data-for="value" data-value="750000" type="button">$750k</button><button data-for="value" data-value="1000000" type="button">$1M</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="first">First Mortgage Remaining Balance</label><em class="mu">Primary Lien</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="first" inputmode="decimal" min="0" step="1000" type="number" value="280000"/></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Maximum Lender Combined LTV (CLTV) Ceiling</span><em>80% Common Standard</em></div>
+<input id="cap" type="hidden" value="80"/>
+<div aria-label="CLTV ceiling" class="sx-au-cat nr" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<button data-for="cap" data-value="80" style="justify-content:center;text-align:center" type="button"><span><b>80%</b><small>Most Common</small></span></button>
+<button data-for="cap" data-value="85" style="justify-content:center;text-align:center" type="button"><span><b>85%</b><small>Many Lenders</small></span></button>
+<button data-for="cap" data-value="90" style="justify-content:center;text-align:center" type="button"><span><b>90%</b><small>Fewer Lenders</small></span></button>
+</div>
+</div>
+<div>
+<div class="sx-au-l"><label for="draw">Desired Credit Line / Draw Amount</label><em class="mu" id="drawNote">Planned Draw</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="draw" inputmode="decimal" min="0" step="1000" type="number" value="80000"/></div>
+<div class="sx-au-range"><input aria-label="Draw amount slider" class="sx-range2" data-sync="draw" id="drawR" max="120000" min="0" step="1000" type="range" value="80000"/></div>
+</div>
+<div class="sx-hl-box">
+<div class="h"><b><span aria-hidden="true" class="msym">schedule</span>HELOC Amortization Phasing</b><span id="totTerm">30-Year Total Term</span></div>
+<div class="sx-au-g2" style="gap:10px">
+<div class="card"><label class="sub" for="dYrs">Draw Period (Interest-Only)</label><div class="sx-au-in np pc"><input id="dYrs" inputmode="numeric" max="15" min="1" step="1" type="number" value="10"/><span class="suf">yrs</span></div></div>
+<div class="card"><label class="sub" for="rYrs">Repayment Period (Principal + Int)</label><div class="sx-au-in np pc"><input id="rYrs" inputmode="numeric" max="30" min="1" step="1" type="number" value="20"/><span class="suf">yrs</span></div></div>
+<div class="card" style="grid-column:1/-1"><label class="sub" for="rate">Variable APR (Prime + Margin)</label><div class="sx-au-in np pc"><input id="rate" inputmode="decimal" max="25" min="0" step="0.05" type="number" value="8.25"/><span class="suf">%</span></div></div>
+</div>
+<div class="fx"><div><b>Fixed Rate Option (Loan Comparison)</b><span>Compare a fixed-rate home equity loan over the same total term</span></div><span class="sx-hl-sw"><input aria-label="Compare a fixed-rate home equity loan" id="hel" type="checkbox"/><i></i></span></div>
+<div class="sx-hl-hel" hidden="" id="helRow"><div class="card"><label class="sub" for="helRate">Home Equity Loan Fixed APR</label><div class="sx-au-in np pc"><input id="helRate" inputmode="decimal" max="25" min="0" step="0.05" type="number" value="7.75"/><span class="suf">%</span></div></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px;background:var(--sx-primary)" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compute Equity Line &amp; Payment Schedule</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-ry-eng">
+<div class="hd"><span style="color:var(--sx-pc)">Underwriting Assessment</span><span class="sx-ef-grade" id="zone">—</span></div>
+<div class="sx-hl-top">
+<div><div class="k">Maximum Available Equity Line</div><b id="resultValue">—</b><small id="maxNote">—</small></div>
+<div><div class="k">Combined LTV (CLTV)</div><b class="dk" id="cltv">—</b><small id="cltvNote">—</small></div>
+</div>
+<div class="sx-au-anat">Home Equity Distribution Stack<span id="stackVal">—</span></div>
+<div class="sx-au-bar" id="stack" style="height:10px"></div>
+<div class="sx-hl-lg" id="stackLg"></div>
+</section>
+<section class="sx-card r2 sx-ry-wf">
+<div class="hd"><b style="font-family:var(--font-display);font-size:18px">Payment Phasing Anatomy</b><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">stacked_line_chart</span></div>
+<div class="sx-hl-ph">
+<div><div class="k"><span id="p1Lbl">Phase 1: Years 1–10</span><em>Interest-Only</em></div><b><span id="p1">—</span> <small>/ mo</small></b><p>No principal paid down</p></div>
+<div><div class="k"><span id="p2Lbl">Phase 2: Years 11–30</span><em>Principal &amp; Interest</em></div><b><span id="p2">—</span> <small>/ mo</small></b><p id="p2Note">Full 240-month balance payoff</p></div>
+</div>
+<div class="sx-au-warn" id="shock" style="margin:0 0 14px"><span aria-hidden="true" class="msym">warning</span><span><b>Payment Shock Notice</b><br/>Monthly payment rises by <b id="shockAmt">—</b> when repayment starts in <span id="shockYr">Year 11</span>. Plan cash reserves for the reset — and remember the rate can change too.</span></div>
+<div class="sx-hl-heli" hidden="" id="helInfo"></div>
+<ul class="sx-ef-rows">
+<li><span id="i1Lbl">Total Interest Paid in Draw (Yrs 1-10):</span><b id="i1">—</b></li>
+<li><span id="i2Lbl">Total Interest in Repayment (Yrs 11-30):</span><b id="i2">—</b></li>
+<li class="on" style="color:var(--sx-on)">Cumulative Lifetime Finance Cost:<b id="i3" style="color:var(--sx-on)">—</b></li>
+</ul>
+</section>
+</div>
+</div>
+<section class="sx-card r2 sx-au-sec cp-hide" id="compare">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="font-size:22px;line-height:30px">HELOC vs. Home Equity Loan vs. Cash-Out Refinance</h2><p class="lead" style="margin-bottom:20px">Compare how each option pays out, what it costs to set up, and its rate risk before borrowing against your home.</p></div><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--sx-on)"><span aria-hidden="true" class="msym" style="font-size:16px">balance</span>Side-by-Side Matrix</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp">
+<thead><tr><th scope="col">Financing Vector</th><th scope="col">HELOC (Revolving Line)</th><th scope="col">Home Equity Loan (Fixed 2nd)</th><th scope="col">Cash-Out Refinance (1st Lien)</th></tr></thead>
+<tbody>
+<tr><td>Interest Rate Mechanism</td><td class="ok">Usually variable (prime rate + margin)</td><td>Fixed APR for the full term</td><td>New rate on your whole mortgage</td></tr>
+<tr><td>Capital Disbursement</td><td class="ok">Revolving draws as needed</td><td>Lump sum at closing</td><td>Lump sum cash-out at closing</td></tr>
+<tr><td>Upfront Closing Costs</td><td class="ok">Often low or waived; some lenders charge 2%–5%</td><td>Often 2%–5% of the loan</td><td>Typically 2%–6% of the new mortgage</td></tr>
+<tr><td>Monthly Repayment Flow</td><td class="ok">Interest-only in the draw period, then P&amp;I</td><td>Fixed level P&amp;I payment</td><td>One larger consolidated mortgage payment</td></tr>
+<tr><td>Rate Risk Exposure</td><td class="bad">Payment rises if the prime rate rises</td><td>None — payment is locked</td><td>Gives up your existing mortgage rate</td></tr>
+</tbody>
+</table></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">gavel</span>IRS Tax Deductibility Guidelines</h3>
+<p>Interest on a home equity loan or line of credit is deductible <b>only if</b> the money is used to buy, build, or substantially improve the home that secures the loan. These TCJA rules were made permanent in 2025, and you must itemize to benefit.</p>
+<div style="border:1px solid var(--sx-sch);background:var(--sx-low);border-radius:10px;padding:14px 16px">
+<ul class="ck" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+<li style="display:flex;gap:8px;font-size:12px"><span aria-hidden="true" class="msym" style="font-size:16px;color:var(--sx-pc)">check_circle</span><span><b>Deductible:</b> kitchen renovation, adding a bedroom, structural repairs, replacing the roof.</span></li>
+<li style="display:flex;gap:8px;font-size:12px"><span aria-hidden="true" class="msym" style="font-size:16px;color:var(--sx-err)">cancel</span><span><b>Not deductible:</b> credit card consolidation, student loan payoff, buying a car, travel.</span></li>
+</ul>
+</div>
+<p style="margin:12px 0 0;font-size:12px;font-style:italic;color:var(--sx-muted)">Combined mortgage debt cap: $750,000 ($375,000 married filing separately). Consult a tax professional for your situation.</p>
+</div>
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">functions</span>CLTV Computational Specification</h3>
+<p>Lenders size home equity credit with the combined loan-to-value ratio, which keeps an equity cushion in case home prices fall.</p>
+<div class="fx"><b>CLTV = (First Mortgage + Equity Line) ÷ Appraised Value</b><span>Max line = Value × CLTV cap − First mortgage balance</span></div>
+<ul class="sx-ef-rows" id="tiers">
+<li data-t="80">≤ 80% CLTV<b style="color:var(--sx-pc)">Widest lender choice, best pricing</b></li>
+<li data-t="85">80.1% – 85% CLTV<b>Widely available, often priced higher</b></li>
+<li data-t="90">&gt; 85% CLTV<b style="color:var(--sx-err)">Fewer lenders, stricter requirements</b></li>
+</ul>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How lenders determine your HELOC limit</h2>
+<p>Lenders typically cap total borrowing (your existing mortgage plus the new HELOC) at a combined loan-to-value ratio, commonly 80-85% of your home's appraised value. This calculator uses that combined limit to estimate your maximum available credit line, though your actual approved amount also depends on credit score, income, and debt-to-income ratio.</p>
+<p>A HELOC is secured by your home, similar to a second mortgage — this is why lenders can typically offer lower rates than unsecured credit, but it also means your home is collateral, making responsible borrowing especially important.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>How HELOC payments typically work</h2>
+<p>Most HELOCs have two phases: a draw period (often 5-10 years) where you can borrow as needed and typically only pay interest on what you've drawn, followed by a repayment period where you pay down both principal and interest on the outstanding balance. This calculator estimates both phases, assuming the full draw is outstanding and the rate stays the same.</p>
+<p>Because HELOCs commonly carry variable interest rates, your actual payment can change over time as rates move — unlike a fixed-rate home equity loan, where the rate and payment stay constant for the life of the loan.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between a HELOC and a home equity loan?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A HELOC is a revolving credit line you can draw from as needed, typically with a variable rate, while a home equity loan provides a lump sum upfront with a fixed rate and fixed payments.</p></details>
+<details class="sx-faq"><summary>Why is my payment only interest during the draw period?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Many HELOCs are structured to require interest-only payments during an initial draw period, with principal repayment beginning once the draw period ends and the repayment period begins.</p></details>
+<details class="sx-faq"><summary>What is a HELOC?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A Home Equity Line of Credit (HELOC) lets you borrow against the equity in your home, similar to a credit card with a credit limit. You can draw from it as needed during the draw period (typically 10 years), then repay it during the repayment period.</p></details>
+<details class="sx-faq"><summary>How is a HELOC payment calculated?<span aria-hidden="true" class="msym">expand_more</span></summary><p>During the draw period, most HELOCs require interest-only payments on the amount drawn. During the repayment period, payments cover both principal and interest. This calculator shows both phases based on your credit limit, rate, and terms.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Financing Calculators</h2><p>Plan the purchase, the mortgage, and the payoff.</p></div>
+<span class="sx-au-tag">4 Companion Models</span>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">real_estate_agent</span></span><b>House Affordability</b><span class="d">Maximum home price under front-end and back-end debt-to-income limits.</span><span class="f">Model Scenarios<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">home</span></span><b>Mortgage Calculator</b><span class="d">Fixed and ARM payments with taxes, insurance, PMI and extra payments.</span><span class="f">Model Scenarios<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">merge_type</span></span><b>Debt Payoff</b><span class="d">Snowball vs avalanche plans for credit cards and other debts.</span><span class="f">Model Scenarios<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Budget Calculator</b><span class="d">50/30/20 budgeting to fit the new payment into your cash flow.</span><span class="f">Model Scenarios<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/heloc-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -246,40 +199,9 @@ step="500"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/heloc.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/heloc.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

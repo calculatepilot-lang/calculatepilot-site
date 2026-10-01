@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House Affordability Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,check_circle,chevron_right,currency_exchange,expand_more,insights,menu_book,payments,real_estate_agent,refresh,savings,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,91 +38,138 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">House Affordability Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="annualIncome">Annual gross income ($)</label>
-          <input type="number" id="annualIncome" value="95000"
-step="1000"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="monthlyDebts">Monthly debt payments ($)</label>
-          <input type="number" id="monthlyDebts" value="400"
-step="10"min="0">
-        </div>
-        <div class="field">
-          <label for="downPayment">Down payment ($)</label>
-          <input type="number" id="downPayment" value="40000"
-step="1000"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="interestRate">Interest rate (%)</label>
-          <input type="number" id="interestRate" value="6.5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="loanTerm">Loan term (years)</label>
-          <input type="number" id="loanTerm" value="30"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated max home price</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Estimated max loan amount</span><span id="outMaxLoan">—</span></div>
-        <div class="embed-row"><span>Max monthly housing payment</span><span id="outMaxPayment">—</span></div>
-        <div class="embed-row"><span>28% front-end limit</span><span id="outFrontEnd">—</span></div>
-        <div class="embed-row"><span>36% back-end limit</span><span id="outBackEnd">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="haCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">House Affordability Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Mathematical Model: Front-End &amp; Back-End DTI Ratios</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>Client-Side Precision</span><span class="sx-badge" style="background:var(--sx-sc);color:var(--sx-emt)">28/36 Rule Based</span></div>
+<h1>House Affordability Calculator</h1>
+<p>Estimate how much house you can afford based on your income, existing debts, down payment, and standard debt-to-income qualification limits — including property tax, insurance and PMI.</p>
 </div>
+</header>
+<div class="sx-grid half">
+<div>
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Financial Parameters</h2><p>Adjust inputs to estimate your maximum purchase price</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">refresh</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="income">Annual Gross Household Income</label><em class="mu" id="incNote">Pre-tax annual base &amp; bonus</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="income" inputmode="decimal" min="0" step="1000" style="font-size:17px;font-weight:600" type="number" value="120000"/></div>
+<div class="sx-au-chips"><button data-for="income" data-value="75000" type="button">$75k</button><button data-for="income" data-value="100000" type="button">$100k</button><button data-for="income" data-value="120000" type="button">$120k</button><button data-for="income" data-value="150000" type="button">$150k</button><button data-for="income" data-value="200000" type="button">$200k</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="down">Cash Available for Down Payment</label><em class="mu">Liquid reserves &amp; savings</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="down" inputmode="decimal" min="0" step="1000" style="font-size:17px;font-weight:600" type="number" value="60000"/></div>
+<div class="sx-au-chips" id="dpChips"><button data-dp="10" type="button">10%</button><button data-dp="20" type="button">20% No PMI</button><button data-dp="30" type="button">30%</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="debts">Monthly Debt Obligations</label><em class="mu">Student, auto &amp; credit cards</em></div>
+<div class="sx-au-in pc"><span class="pre">$</span><input id="debts" inputmode="decimal" min="0" step="25" type="number" value="550"/><span class="suf">/ mo</span></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-lr"><div class="sx-au-l"><label for="rate">Mortgage Interest Rate</label></div></div><div class="sx-au-in np pc"><input id="rate" inputmode="decimal" max="20" min="0" step="0.05" type="number" value="6.50"/><span class="suf">%</span></div><div class="sx-au-chips">Quick set: <button data-for="rate" data-value="6" type="button">6.0%</button><button data-for="rate" data-value="6.5" type="button">6.5%</button><button data-for="rate" data-value="7" type="button">7.0%</button></div></div>
+<div><div class="sx-au-l"><span>Loan Term</span></div><input id="term" type="hidden" value="30"/><div aria-label="Loan term" class="sx-au-opts c2" role="group" style="margin-top:0"><button data-for="term" data-value="30" style="height:44px" type="button">30-Yr Fixed</button><button data-for="term" data-value="15" style="height:44px" type="button">15-Yr Fixed</button></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="tax">Property Tax Rate</label><em class="mu">of price / yr</em></div><div class="sx-au-in np pc"><input id="tax" inputmode="decimal" max="5" min="0" step="0.05" type="number" value="1.20"/><span class="suf">%</span></div></div>
+<div><div class="sx-au-l"><label for="ins">Homeowners Insurance</label></div><div class="sx-au-in pc"><span class="pre">$</span><input id="ins" inputmode="decimal" min="0" step="50" type="number" value="1200"/><span class="suf">/yr</span></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="std">Target Underwriting Standard</label></div><div class="sx-au-sel"><select id="std"><option selected="" value="conv">Conventional (28/36 Rule)</option><option value="fha">FHA Standard (31/43)</option><option value="aggr">Aggressive (36/45)</option></select></div></div>
+<div><div class="sx-au-l"><label for="pmi">PMI Rate</label><em class="mu">if under 20% down</em></div><div class="sx-au-in np pc"><input id="pmi" inputmode="decimal" max="3" min="0" step="0.05" type="number" value="0.50"/><span class="suf">% / yr</span></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px;background:var(--sx-primary)" type="submit"><span aria-hidden="true" class="msym">insights</span>Calculate Maximum Purchase Capacity</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-ry-eng">
+<div class="hd"><span style="display:flex;align-items:center;gap:8px;color:var(--sx-on)"><i style="width:8px;height:8px;border-radius:50%;background:var(--sx-pc);display:inline-block"></i>Estimated Purchasing Power</span><span class="sx-au-tag" id="bind">—</span></div>
+<div class="sx-ef-top" style="grid-template-columns:1fr;margin:0">
+<div><div class="k">Maximum Affordable Home Price</div><div class="big" id="resultValue" style="color:var(--sx-primary)">—</div><div class="sx-au-sub" style="margin:4px 0 0;padding:0;border:0"><span>Loan Amount: <b id="loan">—</b></span><i></i><span>Down Payment: <b id="dpOut">—</b></span></div></div>
+</div>
+<div class="sx-ha-out">
+<div class="r">Estimated Monthly Outlay (PITI + PMI)<b><span id="piti">—</span> <small>/ mo</small></b></div>
+<div class="bar" id="pitiBar"></div>
+<div class="lg">
+<span><span><i style="background:var(--sx-primary)"></i>Principal &amp; Interest</span><b id="oPI">—</b></span>
+<span><span><i style="background:var(--sx-fdim)"></i>Property Taxes</span><b id="oTax">—</b></span>
+<span><span><i style="background:var(--sx-sch)"></i>Homeowners Ins.</span><b id="oIns">—</b></span>
+<span><span><i style="background:var(--sx-ov)"></i>Private Mortg. Ins.</span><b id="oPmi">—</b></span>
+</div>
+</div>
+<div class="sx-ha-dti">
+<div class="h">Debt-to-Income (DTI) Stress Audit<span id="incMo">—</span></div>
+<div class="row"><div class="r"><span>Front-End DTI (Housing Only)</span><span><b id="fe">—</b><em id="feTag">—</em></span></div><div class="t"><span id="feBar"></span></div></div>
+<div class="row"><div class="r"><span id="beLbl">Back-End DTI (Housing + Debts)</span><span><b id="be">—</b><em id="beTag">—</em></span></div><div class="t"><span id="beBar"></span></div></div>
+</div>
+</section>
+<div class="sx-au-tiers" id="tiers">
+<div><span>Conservative</span><b id="t1">—</b><p>25% housing ratio, low financial friction.</p></div>
+<div class="sel"><span id="t2l">Recommended</span><b id="t2">—</b><p id="t2t">28/36 benchmark.</p></div>
+<div><span>Max Stretch</span><b id="t3">—</b><p>High risk: 43% total DTI ceiling.</p></div>
+</div>
+</div>
+</div>
+<section class="sx-card r2 sx-au-sec cp-hide" id="matrix">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="font-size:22px;line-height:30px">Multi-Scenario Affordability Matrix</h2><p class="lead" id="mxSub" style="margin-bottom:20px">—</p></div><span style="font-size:12px;color:var(--sx-muted)">Underwriting Rule: <b class="sx-au-tag" id="mxRule" style="margin-left:4px">28/36 Standard</b></span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr id="mxHead"></tr></thead>
+<tbody id="mxBody"></tbody>
+</table></div>
+</section>
+<section class="sx-card r2 sx-au-sec cp-hide">
+<div class="sx-ha-rule">
+<div>
+<h2><span aria-hidden="true" class="msym">menu_book</span>The 28/36 Underwriting Rule Explained</h2>
+<p class="lead" style="margin-bottom:14px">Lenders commonly use two debt-to-income ratios to decide how large a mortgage payment you can take on:</p>
+<ul class="sx-ef-store" style="display:block"><li style="display:flex;gap:8px;font-size:13px;line-height:20px;margin-bottom:10px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc);font-size:18px">check_circle</span><span><b>Front-End Ratio (≤ 28%):</b> no more than 28% of gross monthly income should go to housing costs — principal, interest, property taxes and insurance (PITI), plus PMI.</span></li>
+<li style="display:flex;gap:8px;font-size:13px;line-height:20px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc);font-size:18px">check_circle</span><span><b>Back-End Ratio (≤ 36%):</b> total monthly debt payments — the new housing payment plus student loans, credit cards and auto loans — should stay within 36% of gross income.</span></li></ul>
+</div>
+<div class="sx-ha-fbox">
+<div class="k">Formula</div>
+<code>Max PITI = min(Gross × 0.28, Gross × 0.36 − Debts)</code>
+<p>The maximum price is the one whose full monthly cost — P&amp;I on the loan, property tax, insurance and any PMI — exactly equals that allowed payment, with P&amp;I from the standard fixed-rate loan formula.</p>
+</div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>The 28/36 rule explained</h2>
+<p>Lenders commonly use two ratios to determine affordability: the front-end ratio caps housing costs at 28% of gross monthly income, while the back-end ratio caps total debt payments (housing plus all other debts) at 36%. This calculator uses whichever limit is more restrictive for your situation.</p>
+<p>These are guidelines, not hard rules — some lenders allow higher ratios (up to 43-50% back-end) for well-qualified borrowers, particularly with strong credit and stable income, while more conservative buyers may prefer to stay well under these limits.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>What this estimate doesn't include</h2>
+<p>Property tax is applied as a percentage of the home price and insurance as a yearly amount you enter; PMI is added at your chosen rate whenever the down payment is under 20%. Rates differ significantly by state and even by county, so use your local figures.</p>
+<p>It doesn't include HOA fees, closing costs, or your personal comfort level with a given payment — getting pre-approved by an actual lender remains the most accurate way to know your real number.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why is my back-end ratio lower than my front-end limit?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The back-end ratio subtracts your existing monthly debts (car payments, student loans, credit cards) from your total allowed debt load, which often makes it the more restrictive limit if you carry other debt.</p></details>
+<details class="sx-faq"><summary>Does this account for property taxes and insurance?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — enter your property tax rate and annual homeowners insurance, and PMI is added automatically when you put down less than 20%. All of them count toward the housing payment used in both ratios.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Real Estate Calculators</h2><p>Companion models for financing, amortization and property returns.</p></div>
+<a href="/financial-calculators.html">View all 52 tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Mortgage &amp; Amortization</b><span class="d">Monthly payments and a full amortization schedule with extra payments.</span><span class="f">Open Calculator<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/refinance-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">currency_exchange</span></span><b>Refinance Calculator</b><span class="d">Break-even horizon and interest savings from a new rate or term.</span><span class="f">Open Calculator<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/rental-yield-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">real_estate_agent</span></span><b>Rental Yield</b><span class="d">Cap rate, cash-on-cash return and cash flow for an investment property.</span><span class="f">Open Calculator<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/down-payment-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Down Payment Calculator</b><span class="d">Savings targets, timelines and PMI trade-offs for your deposit.</span><span class="f">Open Calculator<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/house-affordability-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -249,40 +178,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/house-affordability.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/house-affordability.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

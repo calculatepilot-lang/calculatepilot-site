@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hours Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calendar_month,chevron_right,clear_all,code,content_copy,download,event,expand_more,functions,lightbulb,lock,payments,person_check,picture_as_pdf,playlist_add,receipt_long,restart_alt,schedule,swap_horiz,tune,warning,work&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,53 +38,165 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Hours Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="startTime">Start time</label>
-          <input type="time" id="startTime" value="09:00"
->
-        </div>
-        <div class="field">
-          <label for="endTime">End time</label>
-          <input type="time" id="endTime" value="17:30"
->
-        </div>
-</div>        <div class="field">
-          <label for="breakMinutes">Break (minutes)</label>
-          <input type="number" id="breakMinutes" value="30"
-step="5"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Total hours</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total minutes</span><span id="outMinutes">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="hrCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Hours Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">schedule</span>Timecard, overtime and pay</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Hours &amp; Work Shift Calculator with Overtime</h1>
+<p>Enter your clock-in, meal break and clock-out times for the week or pay period. Get total hours in decimals and hours-and-minutes, regular and overtime hours under weekly or daily overtime rules, and your gross pay with an estimate of take-home. Overnight shifts are handled automatically.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Overtime rules follow the US Fair Labor Standards Act. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It rounds each punch as you choose, subtracts unpaid meals, wraps past midnight, then applies your overtime rule day by day.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Timecards, payroll and invoices all need hours in different formats. This shows every one and how overtime was reached.</p></section></div>
+</div>
+<div class="sx-card" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px">
+<div style="padding:14px 16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;width:100%;justify-content:space-between"><input id="mode" type="hidden" value="week"/><div aria-label="Timecard type" class="sx-seg" role="group"><button data-for="mode" data-value="week" type="button">Weekly timecard</button><button data-for="mode" data-value="bi" type="button">Bi-weekly (14 days)</button><button data-for="mode" data-value="one" type="button">Single shift</button><button data-for="mode" data-value="dec" type="button">Decimal ↔ H:MM</button></div><span class="sx-au-note" style="margin:0">Time fields show in your device's 12- or 24-hour format.</span></div>
+</div>
+<form id="calcForm" novalidate="">
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form" id="tcCard">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Pay rate and overtime rules</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="rate">Base hourly rate</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="rate" inputmode="decimal" min="0" step="0.25" type="number" value="24.5"/></div></div>
+<div><div class="sx-au-l"><label for="ot">Overtime rule</label></div><select class="sx-mt-sel" id="ot"><option selected="" value="wk">1.5× after 40 hours a week</option><option value="ca">1.5× after 8 hours a day (and 40 a week)</option><option value="dt">Daily 1.5× over 8, 2× over 12</option><option value="none">No overtime</option></select></div>
+<div><div class="sx-au-l"><label for="rnd">Punch rounding</label></div><select class="sx-mt-sel" id="rnd"><option selected="" value="q">7-minute rule (quarter hour)</option><option value="x">Exact minute</option><option value="5">5-minute</option><option value="6">Tenth of an hour (6 min)</option></select></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 8px"><button class="sx-reset" id="fillBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:6px 12px" type="button"><span aria-hidden="true" class="msym">playlist_add</span>Fill Mon–Fri 9 to 5</button><button class="sx-reset" id="clrBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:6px 12px" type="button"><span aria-hidden="true" class="msym">clear_all</span>Clear all punches</button></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="tc" style="min-width:640px"><thead><tr><th>Day</th><th>Shift in</th><th>Meal out</th><th>Meal in (unpaid)</th><th>Shift out</th><th class="n">Net hours</th><th class="n">Overtime</th><th class="n">Pay</th></tr></thead><tbody></tbody></table></div>
+<p class="sx-au-note" style="text-align:left">Leave a row empty for a day off. If the shift out is earlier than the shift in, the shift is treated as overnight. Leave the meal boxes empty if there was no unpaid break.</p>
+</div>
+<div class="sx-card r2 sx-au-form" hidden="" id="decCard">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">swap_horiz</span><h2 class="sx-h-md" style="margin:0">Decimal hours and hours:minutes</h2></div></div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="dh">Decimal hours</label></div><div class="sx-au-in sm np"><input id="dh" inputmode="decimal" min="0" step="0.01" type="number" value="8.75"/></div></div>
+<div><div class="sx-au-l"><label>Hours and minutes</label></div><div class="sx-au-g2" style="gap:8px"><div class="sx-au-in sm np"><input aria-label="Hours" id="hh" inputmode="numeric" min="0" placeholder="Hours" step="1" type="number"/></div><div class="sx-au-in sm np"><input aria-label="Minutes" id="hm" inputmode="numeric" max="59" min="0" placeholder="Minutes" step="1" type="number"/></div></div></div>
+</div>
+<p class="sx-au-note" style="text-align:left">Type in either side. Decimal hours convert as minutes ÷ 60, so 8.75 hours is 8 hours 45 minutes and 8 hours 20 minutes is 8.33 hours.</p>
+</div>
+</div>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Total hours worked</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small>hours</small></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Regular</span><b id="oReg">—</b></div><div><span>Overtime</span><b id="oOT">—</b></div><div><span>Hours and minutes</span><b id="oHM" style="font-size:16px">—</b></div><div><span>Gross pay</span><b id="oPay">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Pay breakdown</span><em class="mu" id="cycle">—</em></div>
+<div id="pb" style="display:flex;flex-direction:column"></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px"><label class="sx-au-l" for="tx" style="margin:0"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">receipt_long</span>Estimate take-home pay</span></label><label class="sx-toggle"><input checked="" id="tx" type="checkbox"/><i></i></label></div>
+<div id="txBox"><div class="sx-au-l"><label for="wh">Income tax withholding</label><em class="mu">% of gross</em></div><div class="sx-au-in sm np"><input id="wh" inputmode="decimal" max="60" min="0" step="0.5" type="number" value="12"/></div><div id="txl" style="display:flex;flex-direction:column;margin-top:10px"></div><p class="sx-au-note" style="text-align:left">FICA is 7.65% (6.2% Social Security plus 1.45% Medicare). Income tax varies, so set your own rate. This is an estimate only.</p></div>
+</section>
+<div class="sx-in-acts"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>CSV</button><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>The 7-minute rounding rule</h2><p>Under 29 CFR 785.48(b), employers may round punches to the nearest five minutes, tenth or quarter hour if the rounding averages out over time and does not favour the employer.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:640px">
+<thead><tr><th>Actual punch minutes</th><th>Rounded to</th><th class="n">Decimal</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td>:53 through :07</td><td>:00</td><td class="n">.00</td><td class="a">Rounds to the hour</td></tr>
+<tr><td>:08 through :22</td><td>:15</td><td class="n">.25</td><td class="a">Rounds to the first quarter</td></tr>
+<tr><td>:23 through :37</td><td>:30</td><td class="n">.50</td><td class="a">Rounds to the half hour</td></tr>
+<tr><td>:38 through :52</td><td>:45</td><td class="n">.75</td><td class="a">Rounds to the third quarter</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Minutes to decimal hours</h2><p>Quick conversion for timecards. Decimal hours are minutes divided by 60.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="mtd" style="min-width:560px"><thead><tr><th>Minutes</th><th class="n">Decimal hours</th><th>Minutes</th><th class="n">Decimal hours</th><th>Minutes</th><th class="n">Decimal hours</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>How hours and pay are worked out</h2>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Net hours</h3><code>(out − in) − (meal in − meal out), plus 24 h if the shift crosses midnight</code></div>
+<div><h3>Overtime (weekly)</h3><code>regular = min(hours, 40); overtime = hours − 40</code></div>
+<div><h3>Gross pay</h3><code>pay = regular × rate + overtime × rate × 1.5 + double time × rate × 2</code></div>
+</div>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Rules</span>
+<h2>Overtime varies by place</h2>
+<p>Federal law requires 1.5× pay after 40 hours in a workweek for covered, non-exempt employees. Some states add daily overtime, and California also pays double time after 12 hours in a day and has special rules for the seventh consecutive day. This tool does not apply that seventh-day rule.</p>
+<p>Bona fide meal periods of 30 minutes or more are generally unpaid if you are fully relieved of duty (29 CFR 785.19).</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative timecards, each checked by hand. The first is the default week.</p>
+<div class="sx-mt-3">
+<div><h3>Default week</h3><p>Mon–Thu 8:30–17:15 with 45 min meal, Fri 8:00–20:00 with 30 min, $24.50 an hour.</p><div class="sx-mt-ex">Mon–Thu: 8:45 − 0:45 = 8.00 h × 4 = 32.00<br/>Fri: 12:00 − 0:30 = 11.50 h<br/>total = <b>43.50 h</b> = 40 reg + 3.5 OT<br/>40 × 24.50 = 980.00<br/>3.5 × 36.75 = 128.63<br/>gross = <b>$1,108.63</b></div></div>
+<div><h3>Overnight shift</h3><p>22:00 to 06:30 with a 30 minute meal.</p><div class="sx-mt-ex">22:00 → 06:30 = 8.5 h (crosses midnight)<br/>− 0.5 h meal = <b>8.00 h</b></div></div>
+<div><h3>Decimal to hours and minutes</h3><p>8.75 hours.</p><div class="sx-mt-ex">0.75 × 60 = 45 min<br/><b>8 h 45 min</b><br/>and 8 h 20 min = 8 + 20/60 = <b>8.33 h</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to calculate hours worked</h2>
+<ul>
+<li>Record the time you clocked in and out each day, and any unpaid meal break.</li>
+<li>Subtract the break from the time between in and out.</li>
+<li>Add the daily hours, then apply your overtime rule to the week to find regular and overtime hours.</li>
+<li>Multiply by your rates to get gross pay, and subtract taxes to estimate take-home.</li>
+</ul>
+<p>Payroll rules depend on your employer, state and job type. Exempt employees are not entitled to overtime, so check your status before relying on the numbers.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>U.S. Department of Labor, <i>Fair Labor Standards Act</i>, overtime provisions (29 U.S.C. 207).</li>
+<li>29 CFR 785.19 (meal periods) and 785.48 (rounding practices).</li>
+<li>California Department of Industrial Relations, <i>Overtime</i> (daily and double-time rules).</li>
+<li>IRS, <i>Topic 751: Social Security and Medicare Withholding Rates</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How do I calculate hours worked with a lunch break?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Subtract the clock-in time from the clock-out time and then subtract the unpaid break. From 8:30 to 17:15 with a 45 minute lunch is 8 hours 45 minutes minus 45 minutes, which is 8.00 hours.</p></details>
+<details class="sx-faq"><summary>How do I turn minutes into a decimal?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the minutes by 60. Fifteen minutes is 0.25 hours, 30 minutes is 0.50, 45 minutes is 0.75 and 20 minutes is 0.33 hours.</p></details>
+<details class="sx-faq"><summary>How is overtime calculated?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Under federal law, non-exempt employees earn at least 1.5 times their regular rate for hours over 40 in a workweek. Some states also count hours over 8 in a day. Choose the rule that applies to you.</p></details>
+<details class="sx-faq"><summary>What is the 7-minute rule?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It is a common way of rounding time clocks to the nearest quarter hour: punches 1 to 7 minutes past a quarter round down and 8 to 14 minutes round up. Rounding is allowed if it averages out fairly over time.</p></details>
+<details class="sx-faq"><summary>Are meal breaks paid?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Generally not, if the break is at least 30 minutes and you are completely relieved of duty. Short rest breaks of about 5 to 20 minutes are normally paid under federal rules.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/time-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">schedule</span></span><b>Time Calculator</b><span class="d">Add and subtract times.</span><span class="f">Work with time<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">calendar_month</span></span><b>Date Calculator</b><span class="d">Days and business days.</span><span class="f">Count days<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Paycheck Calculator</b><span class="d">Take-home pay after taxes.</span><span class="f">Estimate your pay<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/salary-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">work</span></span><b>Salary Calculator</b><span class="d">Convert hourly and annual pay.</span><span class="f">Convert pay<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Hours Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/hours-calculator.html" width="100%" height="560" loading="lazy" title="Hours Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/hours-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -211,7 +205,8 @@ step="5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/hours.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/hours.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

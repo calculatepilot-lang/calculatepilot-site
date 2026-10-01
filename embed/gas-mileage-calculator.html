@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gas Mileage (MPG) Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,co2,code,content_copy,directions_car,electric_car,event,expand_more,functions,lightbulb,link,local_gas_station,lock,person_check,picture_as_pdf,restart_alt,speed,straighten,trending_down,tune,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,78 +38,169 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Gas Mileage (MPG) Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="milesDriven">Miles driven</label>
-          <input type="number" id="milesDriven" value="320"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="gallonsUsed">Gallons of gas used</label>
-          <input type="number" id="gallonsUsed" value="11"
-step="0.1"min="0.1">
-        </div>
-</div>        <div class="field">
-          <label for="fuelPrice">Price per gallon ($, optional)</label>
-          <input type="number" id="fuelPrice" value="3.5"
-step="0.01"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Fuel economy</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Cost per mile</span><span id="outCostPerMile">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="gmCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Gas Mileage (MPG) Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">speed</span>MPG = miles ÷ gallons</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Gas Mileage (MPG) &amp; Trip Fuel Cost Calculator</h1>
+<p>Work out your real fuel economy from a fill-up, or plan the fuel cost of a trip. See gallons and litres used, cost per mile, the split between passengers, the CO₂ produced, and what the same trip would cost in an electric vehicle.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Emission factors come from the US EPA. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It divides distance by fuel economy for gallons, multiplies by price, then converts to litres, CO₂ and an EV equivalent.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Your real MPG differs from the sticker. This measures it from your own fill-ups and prices trips from it.</p></section></div>
+</div>
+<form id="calcForm" novalidate="">
+<div class="sx-au-l" style="margin-bottom:8px"><label>What do you want to work out?</label></div>
+<input id="mode" type="hidden" value="trip"/>
+<div aria-label="Mode" class="sx-seg full" role="group" style="margin-bottom:20px"><button data-for="mode" data-value="trip" type="button">Trip fuel cost and distance planner</button><button data-for="mode" data-value="mpg" type="button">My MPG from a fill-up (odometer)</button></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formT" style="margin:0">Trip parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-stack" id="tripBox">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="dist">Trip distance</label><em class="mu" id="dU">miles</em></div><div class="sx-au-in sm np"><input id="dist" inputmode="decimal" min="0" step="0.1" type="number" value="340"/></div></div>
+<div><div class="sx-au-l"><label>Distance unit</label></div><input id="du" type="hidden" value="mi"/><div aria-label="Distance unit" class="sx-seg full" role="group"><button data-for="du" data-value="mi" type="button">Miles</button><button data-for="du" data-value="km" type="button">Kilometres</button></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="eff">Vehicle fuel economy</label><em class="mu">US MPG</em></div><div class="sx-au-in sm np"><input id="eff" inputmode="decimal" min="0" step="0.1" type="number" value="28.5"/></div>
+<div class="sx-qpills" id="vpre"><span class="lb">Vehicle presets</span><button data-m="52" type="button">Hybrid 52</button><button data-m="34" type="button">Compact 34</button><button data-m="24" type="button">Midsize SUV 24</button><button data-m="17" type="button">Pickup 17</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="price">Fuel price per gallon</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="price" inputmode="decimal" min="0" step="0.01" type="number" value="3.55"/></div><div class="sx-qpills"><button data-p="3.25" type="button">$3.25</button><button data-p="3.55" type="button">$3.55</button><button data-p="4.65" type="button">$4.65</button></div></div>
+<div><div class="sx-au-l"><label>Round trip</label><em class="mu">doubles the distance</em></div><input id="rt" type="hidden" value="0"/><div aria-label="Round trip" class="sx-seg full" role="group"><button data-for="rt" data-value="0" type="button">One way</button><button data-for="rt" data-value="1" type="button">Round trip</button></div></div>
+</div>
+<div><div class="sx-au-l"><label for="ppl">People sharing the cost</label><em id="pplV">1 person</em></div><input id="ppl" type="hidden" value="1"/><input aria-label="People sharing the cost" class="sx-range2" data-sync="ppl" max="8" min="1" step="1" type="range" value="1"/></div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Electric vehicle comparison</label><em class="mu">optional</em></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="evE">EV efficiency</label><em class="mu">miles per kWh</em></div><div class="sx-au-in sm np"><input id="evE" inputmode="decimal" min="0" step="0.1" type="number" value="3.5"/></div></div><div><div class="sx-au-l"><label for="evP">Electricity price per kWh</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="evP" inputmode="decimal" min="0" step="0.01" type="number" value="0.16"/></div></div></div>
+</div>
+</div>
+<div class="sx-au-stack" hidden="" id="mpgBox">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="o0">Odometer at last fill-up</label></div><div class="sx-au-in sm np"><input id="o0" inputmode="decimal" min="0" step="1" type="number" value="48250"/></div></div>
+<div><div class="sx-au-l"><label for="o1">Odometer at this fill-up</label></div><div class="sx-au-in sm np"><input id="o1" inputmode="decimal" min="0" step="1" type="number" value="48590"/></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="gal">Fuel added at this fill-up</label><em class="mu">gallons</em></div><div class="sx-au-in sm np"><input id="gal" inputmode="decimal" min="0" step="0.01" type="number" value="11.93"/></div></div>
+<div><div class="sx-au-l"><label for="gp">Price per gallon</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="gp" inputmode="decimal" min="0" step="0.01" type="number" value="3.55"/></div></div>
+</div>
+<p class="sx-au-note" style="text-align:left">Fill the tank completely each time, drive normally, and use the amount pumped at the next full fill-up. The odometer difference is the miles driven on that fuel.</p>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span><span id="ctaT">Calculate trip fuel cost</span></button></div>
+</div>
+</div>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroL">Trip fuel cost</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="g1L">Fuel used</span><b id="g1">—</b></div><div><span id="g2L">Litres</span><b id="g2">—</b></div><div><span id="g3L">CO₂ produced</span><b id="g3">—</b></div><div><span id="g4L">Per person</span><b id="g4">—</b></div></div>
+</section>
+<section class="sx-card" id="evCard" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">electric_car</span>Electric vehicle equivalent</span><em class="ok" id="evTag">—</em></div>
+<div class="sx-au-tiles"><div><span>Gasoline trip</span><b id="evG">—</b></div><div><span>EV charging</span><b id="evC">—</b></div></div>
+<p class="sx-au-note" id="evTxt" style="text-align:left">—</p>
+</section>
+<div class="sx-in-t4 c1"><div class="sx-card" style="border-left:4px solid var(--sx-pc)"><div class="k">Metric equivalents<span aria-hidden="true" class="msym">straighten</span></div><p id="metric" style="margin-top:6px">—</p></div></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Fuel economy by vehicle class</h2><p>Typical fuel economy for each class, priced at your fuel price above. These are class averages for illustration, not specific model ratings. Check fueleconomy.gov for your vehicle.</p></div><span class="sx-mt-tag" id="matP">—</span></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="matrix" style="min-width:720px"><thead><tr><th>Vehicle class</th><th class="n">City MPG</th><th class="n">Highway MPG</th><th class="n">Combined MPG</th><th class="n">Cost / 1,000 mi</th><th class="n">Cost / 15,000 mi</th><th></th></tr></thead><tbody></tbody></table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>MPG, L/100 km and km/L</h2>
+<p>US MPG converts to metric fuel economy with L/100 km = 235.215 ÷ MPG. Lower L/100 km is better, while higher MPG and km/L are better.</p>
+<div class="sx-tblwrap"><table class="sx-tbl" id="conv" style="min-width:520px"><thead><tr><th>MPG (US)</th><th class="n">L/100 km</th><th class="n">km/L</th><th class="n">Gallons per 100 miles</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>How the numbers are calculated</h2>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Fuel used and cost</h3><code>gallons = miles ÷ MPG<br/>cost = gallons × price</code></div>
+<div><h3>Measured MPG</h3><code>MPG = (odometer₂ − odometer₁) ÷ gallons</code></div>
+<div><h3>Emissions and EV</h3><code>CO₂ = gallons × 8.887 kg<br/>EV cost = miles ÷ (mi/kWh) × price</code></div>
+</div>
+<p style="margin-top:14px">One US gallon is 3.785412 litres and one mile is 1.609344 km. Burning a gallon of gasoline emits about 8.887 kg of CO₂ (US EPA).</p>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Real-world MPG</span>
+<h2>Why yours may differ</h2>
+<p>Speed, acceleration, tire pressure, cold weather, cargo, air conditioning and short trips all lower fuel economy. Highway cruising at moderate speed is usually the most efficient.</p>
+<p>Tracking several fill-ups gives a better average than a single one.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative trips, each checked by hand. The first is the default setup.</p>
+<div class="sx-mt-3">
+<div><h3>340-mile trip</h3><p>28.5 MPG, gas at $3.55 a gallon.</p><div class="sx-mt-ex">340 ÷ 28.5 = 11.93 gal<br/>11.93 × 3.55 = <b>$42.35</b><br/>CO₂ = 11.93 × 8.887 = 106.0 kg<br/>EV: 340 ÷ 3.5 = 97.1 kWh × 0.16 = <b>$15.54</b></div></div>
+<div><h3>MPG from a fill-up</h3><p>Odometer 48,250 to 48,590, and 11.93 gallons added.</p><div class="sx-mt-ex">340 miles ÷ 11.93 gal = <b>28.5 MPG</b><br/>235.215 ÷ 28.5 = 8.25 L/100 km<br/>cost per mile = 3.55 ÷ 28.5 = <b>$0.125</b></div></div>
+<div><h3>Splitting a road trip</h3><p>340 miles each way, four people.</p><div class="sx-mt-ex">round trip = 680 mi<br/>680 ÷ 28.5 × 3.55 = $84.70<br/>÷ 4 = <b>$21.18 each</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to calculate gas mileage</h2>
+<ul>
+<li>Fill the tank and note the odometer, or reset the trip meter.</li>
+<li>Drive as normal, then fill up again and record the gallons added.</li>
+<li>Divide the miles driven by the gallons added to get miles per gallon.</li>
+<li>Repeat a few times and average the results for a reliable figure.</li>
+</ul>
+<p>To budget a trip, divide its distance by your MPG for gallons, then multiply by the price of gas along the route.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>U.S. EPA, <i>Greenhouse Gas Emissions from a Typical Passenger Vehicle</i> (8,887 grams of CO₂ per gallon of gasoline).</li>
+<li>U.S. Department of Energy and EPA, <i>fueleconomy.gov</i>.</li>
+<li>NIST Special Publication 811, for gallon, litre, mile and kilometre conversion factors.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How do I calculate miles per gallon?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the miles you drove by the gallons of fuel you used. If you drove 340 miles and added 11.93 gallons at the next full fill-up, your fuel economy is 340 ÷ 11.93 = 28.5 MPG.</p></details>
+<details class="sx-faq"><summary>How do I convert MPG to L/100 km?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide 235.215 by the US MPG figure. For example, 28.5 MPG is 8.25 L/100 km. The same formula converts back: MPG = 235.215 ÷ L/100 km. UK gallons are larger, so UK MPG uses 282.481.</p></details>
+<details class="sx-faq"><summary>How is the carbon emission worked out?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The EPA gives 8,887 grams (8.887 kg) of CO₂ for each gallon of gasoline burned. Multiply gallons used by that factor for the tailpipe CO₂ of the trip. It does not include emissions from producing the fuel.</p></details>
+<details class="sx-faq"><summary>How does the EV comparison work?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Enter miles per kWh (many EVs manage 3 to 4) and your electricity price. Trip miles divided by miles per kWh gives kWh used, and multiplying by the price gives the charging cost. Public fast chargers cost more than home charging.</p></details>
+<details class="sx-faq"><summary>Why is my MPG lower in winter?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Cold engines run richer, cold air is denser, tires lose pressure, and winter fuel blends and heating use energy. Short trips make it worse because the engine spends more time warming up.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/fuel-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_gas_station</span></span><b>Fuel Cost</b><span class="d">Trip fuel cost from distance and price.</span><span class="f">Plan a trip<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/commute-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_car</span></span><b>Commute Cost</b><span class="d">Full cost of driving to work.</span><span class="f">Cost the commute<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/carbon-footprint-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">co2</span></span><b>Driving Carbon Footprint</b><span class="d">Emissions from your driving.</span><span class="f">See emissions<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/car-depreciation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_down</span></span><b>Car Depreciation</b><span class="d">Value loss and five-year ownership cost.</span><span class="f">Value your car<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Gas Mileage Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/gas-mileage-calculator.html" width="100%" height="560" loading="lazy" title="Gas Mileage Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/gas-mileage-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -236,40 +209,9 @@ step="0.01"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/gas-mileage.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/gas-mileage.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

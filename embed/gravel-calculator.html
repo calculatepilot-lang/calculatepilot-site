@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gravel Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add_circle,arrow_forward,aspect_ratio,calculate,chevron_right,code,content_copy,event,expand_more,format_paint,foundation,functions,grain,lightbulb,link,local_shipping,lock,nature,person_check,picture_as_pdf,restart_alt,scale,shopping_bag,straighten,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,54 +38,72 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Gravel Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="areaLength">Length (ft)</label>
-          <input type="number" id="areaLength" value="30"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="areaWidth">Width (ft)</label>
-          <input type="number" id="areaWidth" value="10"
-step="1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="depth">Depth (inches)</label>
-          <input type="number" id="depth" value="4"
-step="0.5"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Gravel needed</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Volume (cubic feet)</span><span id="outCuFt">—</span></div>
-        <div class="embed-row"><span>Estimated weight</span><span id="outTons">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="grCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Gravel Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">grain</span>Cubic yards and tons of stone</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Gravel, Crushed Stone &amp; Aggregate Calculator</h1><p>Work out how much gravel, crushed stone or decomposed granite you need for a driveway, path or bed. Get cubic yards, tons with a compaction allowance, bags of 50 lb, and a bulk delivery versus bagged cost comparison for one or several zones.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It finds the volume of the stone layer, multiplies by density and adds a compaction allowance to give tons.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Ordering too little stone means a second delivery fee. This shows the tonnage and the cost of delivery against bags.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">straighten</span><h2 class="sx-h-md" style="margin:0">Area, depth and stone</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>1. Area shape</label></div><input id="mode" type="hidden" value="r"/><div aria-label="Area shape" class="sx-seg full" role="group"><button data-for="mode" data-value="r" type="button">Driveway or trench</button><button data-for="mode" data-value="c" type="button">Circle or ring</button><button data-for="mode" data-value="a" type="button">Known area</button></div></div>
+<div class="sx-au-g2" id="g-r"><div><div class="sx-au-l"><label for="L">Length</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="L" inputmode="decimal" min="0" step="0.5" type="number" value="50"/></div></div><div><div class="sx-au-l"><label for="W">Width</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="W" inputmode="decimal" min="0" step="0.5" type="number" value="12"/></div></div></div>
+<div class="sx-au-g2" hidden="" id="g-c"><div><div class="sx-au-l"><label for="D">Outer diameter</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="D" inputmode="decimal" min="0" step="0.5" type="number" value="20"/></div></div><div><div class="sx-au-l"><label for="Di">Inner cutout (fire pit or core)</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="Di" inputmode="decimal" min="0" step="0.5" type="number" value="0"/></div></div></div>
+<div hidden="" id="g-a"><div class="sx-au-l"><label for="A">Total area</label><em class="mu">sq ft</em></div><div class="sx-au-in sm np"><input id="A" inputmode="decimal" min="0" step="10" type="number" value="600"/></div></div>
+<div hidden="" id="extraWrap"><div class="sx-au-l"><label>Extra zones</label><em class="mu">area in sq ft and depth in inches</em></div><div id="extras" style="display:flex;flex-direction:column;gap:8px"></div></div>
+<div><button class="sx-mt-add" id="addZone" type="button"><span aria-hidden="true" class="msym">add_circle</span>Add another zone</button></div>
+<div>
+<div class="sx-au-l"><label for="dep">2. Depth of the stone layer</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="dep" inputmode="decimal" min="0" step="0.25" type="number" value="4"/></div>
+<div class="sx-qpills"><span class="lb">Presets</span><button data-for="dep" data-value="2" type="button">2 in top dressing</button><button data-for="dep" data-value="3" type="button">3 in path</button><button data-for="dep" data-value="4" type="button">4 in standard</button><button data-for="dep" data-value="6" type="button">6 in heavy base</button></div>
 </div>
+<div><div class="sx-au-l"><label>3. Type of stone</label><em class="mu" id="aggN">—</em></div><input id="agg" type="hidden" value="57"/><div class="sx-au-opts rad c2 sm" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button data-for="agg" data-value="57" type="button"><i></i><span style="text-align:left"><b style="display:block;font-size:13px">Crushed stone #57</b><small style="font-weight:400;opacity:.8">2,700 lb/yd³ · driveways and drainage</small></span></button><button data-for="agg" data-value="pea" type="button"><i></i><span style="text-align:left"><b style="display:block;font-size:13px">Pea gravel</b><small style="font-weight:400;opacity:.8">2,600 lb/yd³ · paths and play areas</small></span></button><button data-for="agg" data-value="cr" type="button"><i></i><span style="text-align:left"><b style="display:block;font-size:13px">Crusher run / dense grade</b><small style="font-weight:400;opacity:.8">2,950 lb/yd³ · compacted base</small></span></button><button data-for="agg" data-value="river" type="button"><i></i><span style="text-align:left"><b style="display:block;font-size:13px">River rock</b><small style="font-weight:400;opacity:.8">2,500 lb/yd³ · beds and drains</small></span></button><button data-for="agg" data-value="dg" type="button"><i></i><span style="text-align:left"><b style="display:block;font-size:13px">Decomposed granite</b><small style="font-weight:400;opacity:.8">2,800 lb/yd³ · rustic paths</small></span></button></div>
+<div style="margin-top:10px"><div class="sx-au-l"><label for="cd">Or your quarry's density</label><em class="mu">lb per cubic yard, from the ticket</em></div><div class="sx-au-in sm np"><input id="cd" inputmode="decimal" min="0" placeholder="e.g. 2700" step="50" type="number"/></div></div></div>
+<div>
+<div class="sx-au-l"><label>4. Compaction and settling allowance</label><em id="cpV">+10%</em></div><input id="cp" type="hidden" value="10"/>
+<div class="sx-au-opts c4 sm"><button data-for="cp" data-value="0" type="button">0% <small>exact</small></button><button data-for="cp" data-value="5" type="button">5% <small>crushed</small></button><button data-for="cp" data-value="10" type="button">10% <small>base</small></button><button data-for="cp" data-value="15" type="button">15% <small>loose fill</small></button></div>
+</div>
+<div class="sx-au-box"><div class="sx-au-l"><label>Prices (optional)</label><em class="mu">edit to match your quarry and store</em></div>
+<div class="sx-au-g3"><div><div class="sx-au-l"><label for="pt">Per ton</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pt" inputmode="decimal" min="0" step="1" type="number" value="48"/></div></div><div><div class="sx-au-l"><label for="fr">Delivery fee</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="fr" inputmode="decimal" min="0" step="5" type="number" value="65"/></div></div><div><div class="sx-au-l"><label for="pb">Per 50 lb bag</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pb" inputmode="decimal" min="0" step="0.1" type="number" value="4.5"/></div></div></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate gravel</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Gravel to order</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small>tons</small></div><p id="interp">—</p>
+<div class="g2"><div><span>Cubic yards</span><b id="oYd">—</b></div><div><span>Cubic feet</span><b id="oFt">—</b></div><div><span>Weight without allowance</span><b id="oNet">—</b></div><div><span>Area covered</span><b id="oA">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">local_shipping</span>Buying it</span><em class="mu" id="costN">—</em></div>
+<div class="sx-au-tiles"><div><span>Bulk delivery</span><b id="cBulk">—</b><small id="cBulkN">—</small></div><div><span>50 lb bags</span><b id="cBag">—</b><small id="cBagN">—</small></div></div>
+<p class="sx-au-note" id="truck" style="text-align:left;margin-top:12px;font-size:13px;line-height:20px">—</p></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span>Common layer depths</span></div><div style="display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:19px;color:var(--sx-onv)"><div><b style="color:var(--sx-on)">Driveway base:</b> 4 to 6 in of crusher run, compacted.</div><div><b style="color:var(--sx-on)">Driveway surface:</b> 1.5 to 2 in of #57 stone.</div><div><b style="color:var(--sx-on)">Walkway:</b> 2.5 to 3 in of pea gravel over filter fabric.</div></div></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Stone sizes and uses</h2><p>Common ASTM D448 / AASHTO M 43 sizes. Densities are typical loose values and vary by quarry and moisture, so use your delivery ticket.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:680px"><thead><tr><th>Size</th><th>Particle size</th><th>Behaviour</th><th>Typical use</th><th class="n">Tons per yd³</th></tr></thead><tbody>
+<tr><td class="a"><b>#1</b></td><td class="a">2 to 4 in</td><td class="a" style="white-space:normal">Coarse, little interlock</td><td class="a" style="white-space:normal">Construction entrances, ballast, muddy sites</td><td class="n">about 1.3</td></tr>
+<tr><td class="a"><b>#3</b></td><td class="a">1 to 2 in</td><td class="a" style="white-space:normal">Clean, drains freely</td><td class="a" style="white-space:normal">French drains, dry wells, backfill</td><td class="n">about 1.35</td></tr>
+<tr style="background:var(--sx-low)"><td class="a"><b>#57</b></td><td class="a">about ¼ to 1 in</td><td class="a" style="white-space:normal">Angular, locks together, washed</td><td class="a" style="white-space:normal">Driveway surface, concrete mix, sub-slab drainage</td><td class="n">about 1.35</td></tr>
+<tr><td class="a"><b>#8</b> (pea gravel)</td><td class="a">about ⅜ to ½ in</td><td class="a" style="white-space:normal">Rounded, shifts under load</td><td class="a" style="white-space:normal">Paths, pipe bedding, play areas</td><td class="n">about 1.3</td></tr>
+<tr><td class="a"><b>Crusher run</b></td><td class="a">¾ in down to dust</td><td class="a" style="white-space:normal">Compacts hard when damp</td><td class="a" style="white-space:normal">Driveway base, paver base, wall backfill</td><td class="n">about 1.48</td></tr>
+</tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">straighten</span></div><h3>Volume</h3><p>Length times width times depth in feet, divided by 27 for cubic yards. In inches of depth: L × W × D ÷ 324.</p><code>yd³ = L × W × (D ÷ 12) ÷ 27</code></div><div><div class="ic"><span aria-hidden="true" class="msym">scale</span></div><h3>Weight</h3><p>Cubic yards times the stone density, with a compaction allowance added on top.</p><code>tons = yd³ × lb per yd³ × (1 + allowance) ÷ 2,000</code></div><div><div class="ic"><span aria-hidden="true" class="msym">shopping_bag</span></div><h3>Bags</h3><p>Total pounds divided by the bag size, rounded up.</p><code>bags = ⌈ pounds ÷ 50 ⌉</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>50 × 12 ft driveway, 4 in</h3><p>#57 stone at 2,700 lb per yd³, 10% allowance.</p><div class="sx-mt-ex">600 × 4/12 = 200 ft³ = 7.41 yd³<br/>7.41 × 2,700 = 20,000 lb = <b>10.00 tons</b><br/>+ 10% = <b>11.00 tons</b><br/>22,000 ÷ 50 = <b>440 bags</b></div></div><div><h3>Bulk or bags?</h3><p>The same job at $48 a ton plus $65 delivery, or $4.50 a bag.</p><div class="sx-mt-ex">bulk = 11 × 48 + 65 = <b>$593</b><br/>bags = 440 × 4.50 = <b>$1,980</b><br/>bulk saves <b>$1,387</b></div></div><div><h3>20 ft round bed with a fire pit</h3><p>3 in of pea gravel, 4 ft cutout, no allowance.</p><div class="sx-mt-ex">area = π × (10² − 2²) = 301.6 ft²<br/>× 3/12 = 75.4 ft³ = 2.79 yd³<br/>× 2,600 = 7,261 lb = <b>3.63 tons</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How much gravel do I need?</h2><ul><li>Measure the length and width of the area, or enter its total square feet.</li><li>Choose the depth. Four inches is common for driveways and two to three for paths.</li><li>Pick the stone, or enter the density from your quarry ticket.</li><li>Add a compaction allowance of about 10% for a compacted base, then compare bulk delivery with bags.</li></ul><p>Stone weighs different amounts depending on size, moisture and quarry. For a large order, ask your supplier for the weight per cubic yard and how they load, since they sell by the ton.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>ASTM D448, <i>Standard Classification for Sizes of Aggregate for Road and Bridge Construction</i>, and AASHTO M 43.</li><li>ASTM C29, <i>Standard Test Method for Bulk Density and Voids in Aggregate</i>.</li><li>NIST Special Publication 811, for cubic yard and ton conversion factors.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How many tons are in a cubic yard of gravel?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It depends on the stone, but most crushed stone weighs about 1.3 to 1.5 tons per cubic yard (2,600 to 3,000 pounds). This tool uses about 1.35 tons for #57 stone and lets you enter your own density.</p></details><details class="sx-faq"><summary>How deep should a gravel driveway be?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common build is a 4 to 6 inch compacted base of crusher run topped with 1.5 to 2 inches of #57 stone. Soft soil or heavy vehicles need more, so check local guidance.</p></details><details class="sx-faq"><summary>Why add a compaction allowance?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Loose stone settles and compacts once it is spread and driven on. Ordering 5% to 15% extra means the finished layer reaches the depth you planned.</p></details><details class="sx-faq"><summary>Is bulk delivery cheaper than bags?<span aria-hidden="true" class="msym">expand_more</span></summary><p>For anything over about half a ton, bulk is almost always cheaper per ton, even after a delivery fee. Bags suit small repairs. Enter your prices to compare.</p></details><details class="sx-faq"><summary>What size dump truck do I need?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A tandem dump truck typically carries about 10 to 14 tons, so most driveways fit in one load. The tool shows how many loads your total needs.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/concrete-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">foundation</span></span><b>Concrete Calculator</b><span class="d">Slabs, footings and bags.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/mulch-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">nature</span></span><b>Mulch Calculator</b><span class="d">Bulk yards for beds.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/square-footage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">aspect_ratio</span></span><b>Square Footage</b><span class="d">Measure the area.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/paint-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">format_paint</span></span><b>Paint Calculator</b><span class="d">Gallons for walls.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Gravel Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/gravel-calculator.html" width="100%" height="560" loading="lazy" title="Gravel Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/gravel-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -212,7 +112,8 @@ step="0.5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/gravel.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/gravel.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

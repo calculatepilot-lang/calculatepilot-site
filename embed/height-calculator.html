@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Height Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20260929d" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,cake,calculate,chevron_right,code,content_copy,event,expand_more,family_restroom,functions,health_and_safety,height,lightbulb,link,lock,monitor_weight,person_check,pets,picture_as_pdf,restart_alt,straighten,swap_horiz,trending_up,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,49 +38,51 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Height Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="feet">Feet</label>
-          <input type="number" id="feet" value="5"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="inches">Inches</label>
-          <input type="number" id="inches" value="9"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Height in centimeters</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total inches</span><span id="outTotalInches">—</span></div>
-        <div class="embed-row"><span>Meters</span><span id="outMeters">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="htCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Child Height Predictor</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">height</span>Mid-parental (Tanner) method</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Child Adult Height Predictor</h1><p>Estimate how tall a child may be as an adult. It uses the mid-parental (Tanner) formula from the parents' heights, gives a likely range, and compares the child with the typical height for their age.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It averages the parents' heights with a sex adjustment, adds a range of 8.5 cm either side, and separately projects the child's current position against typical growth.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Parents ask this all the time. This shows the standard formula and its uncertainty rather than a single confident number.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">height</span><h2 class="sx-h-md" style="margin:0">Child and parents</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label>Sex</label></div><input id="sex" type="hidden" value="m"/><div aria-label="Sex" class="sx-seg full" role="group"><button data-for="sex" data-value="m" type="button">Boy</button><button data-for="sex" data-value="f" type="button">Girl</button></div></div>
+<div><div class="sx-au-l"><label>Units</label></div><input id="un" type="hidden" value="m"/><div aria-label="Units" class="sx-seg full" role="group"><button data-for="un" data-value="m" type="button">cm</button><button data-for="un" data-value="i" type="button">ft and in</button></div></div></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="ay">Age</label><em class="mu">years</em></div><div class="sx-au-in sm np"><input id="ay" inputmode="numeric" max="20" min="0" step="1" type="number" value="8"/></div></div><div><div class="sx-au-l"><label for="am">Extra months</label></div><div class="sx-au-in sm np"><input id="am" inputmode="numeric" max="11" min="0" step="1" type="number" value="6"/></div></div></div>
+<div><div class="sx-au-l"><label for="ch">Child's current height</label></div><div class="m sx-au-in sm np"><input id="ch" inputmode="decimal" min="0" step="0.1" type="number" value="130.8"/><span class="suf">cm</span></div><div class="im sx-au-g2" hidden=""><div class="sx-au-in sm np"><input id="chf" inputmode="numeric" min="0" step="1" type="number" value="4"/><span class="suf">ft</span></div><div class="sx-au-in sm np"><input id="chi" inputmode="decimal" min="0" step="0.5" type="number" value="3.5"/><span class="suf">in</span></div></div></div>
+<div class="sx-au-box"><div class="sx-au-l"><label>Biological parents</label></div><div class="sx-au-stack"><div><div class="sx-au-l"><label for="fa">Father's height</label></div><div class="m sx-au-in sm np"><input id="fa" inputmode="decimal" min="0" step="0.1" type="number" value="180.3"/><span class="suf">cm</span></div><div class="im sx-au-g2" hidden=""><div class="sx-au-in sm np"><input id="faf" inputmode="numeric" min="0" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in sm np"><input id="fai" inputmode="decimal" min="0" step="0.5" type="number" value="11"/><span class="suf">in</span></div></div></div><div><div class="sx-au-l"><label for="mo">Mother's height</label></div><div class="m sx-au-in sm np"><input id="mo" inputmode="decimal" min="0" step="0.1" type="number" value="165.1"/><span class="suf">cm</span></div><div class="im sx-au-g2" hidden=""><div class="sx-au-in sm np"><input id="mof" inputmode="numeric" min="0" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in sm np"><input id="moi" inputmode="decimal" min="0" step="0.5" type="number" value="5"/><span class="suf">in</span></div></div></div></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Predict adult height</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Mid-parental target height</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span>Likely range</span><b id="oRg">—</b></div><div><span>In centimetres</span><b id="oCm">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-tiles"><div><span>If on the same growth channel</span><b id="oCh">—</b><small id="oChN">—</small></div><div><span>Typical height at this age</span><b id="oMd">—</b><small id="oMdN">—</small></div></div></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">health_and_safety</span>Reading the result</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Typical height by age</h2><p>Approximate median heights, rounded from the WHO and CDC growth references. Half of children are taller and half are shorter, and a healthy range is wide. Ask your doctor to plot your child on the official growth chart.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:420px"><thead><tr><th>Age</th><th class="n">Boys</th><th class="n">Girls</th></tr></thead><tbody><tr><td class="a">2 years</td><td class="n">87 cm · 2' 10"</td><td class="n">86 cm · 2' 10"</td></tr><tr><td class="a">4 years</td><td class="n">103 cm · 3' 5"</td><td class="n">103 cm · 3' 5"</td></tr><tr><td class="a">6 years</td><td class="n">116 cm · 3' 10"</td><td class="n">115 cm · 3' 9"</td></tr><tr><td class="a">8 years</td><td class="n">128 cm · 4' 2"</td><td class="n">127 cm · 4' 2"</td></tr><tr><td class="a">10 years</td><td class="n">138 cm · 4' 6"</td><td class="n">138 cm · 4' 6"</td></tr><tr><td class="a">12 years</td><td class="n">149 cm · 4' 11"</td><td class="n">151 cm · 4' 11"</td></tr><tr><td class="a">14 years</td><td class="n">163 cm · 5' 4"</td><td class="n">160 cm · 5' 3"</td></tr><tr><td class="a">16 years</td><td class="n">173 cm · 5' 8"</td><td class="n">162 cm · 5' 4"</td></tr><tr><td class="a">18 years</td><td class="n">177 cm · 5' 10"</td><td class="n">163 cm · 5' 4"</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">family_restroom</span></div><h3>Mid-parental (Tanner) height</h3><p>The average of the parents' heights, with 13 cm (5 in) added for a boy or taken off for a girl.</p><code>boy: (father + mother + 13) ÷ 2<br/>girl: (father + mother − 13) ÷ 2</code></div><div><div class="ic"><span aria-hidden="true" class="msym">trending_up</span></div><h3>Growth channel estimate</h3><p>If a child stays at the same position against the typical height for their age, the adult height scales the same way. A rough guide only.</p><code>adult ≈ height now × (median adult ÷ median at this age)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">straighten</span></div><h3>Likely range</h3><p>Adult height is usually within about 8.5 cm (3.3 in) of the mid-parental target.</p><code>range = target ± 8.5 cm</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Boy aged 8½</h3><p>Height 130.8 cm, father 180.3 cm, mother 165.1 cm (the default).</p><div class="sx-mt-ex">(180.3 + 165.1 + 13) ÷ 2 = <b>179.2 cm</b> (5 ft 10.6 in)<br/>range 170.7 to 187.7 cm</div></div><div><h3>Girl aged 10</h3><p>Height 142 cm, father 178 cm, mother 165 cm.</p><div class="sx-mt-ex">(178 + 165 − 13) ÷ 2 = <b>165 cm</b> (5 ft 5 in)</div></div><div><h3>Growth channel</h3><p>A boy aged 10 at 145 cm.</p><div class="sx-mt-ex">median at 10 is 138 cm, adult median 177 cm<br/>145 × 177 ÷ 138 = <b>186 cm</b> if he stays on that channel</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to predict a child's adult height</h2><ul><li>Choose sex and units, then enter age and current height.</li><li>Enter the biological father's and mother's heights.</li><li>Read the mid-parental target and range.</li><li>Compare it with the growth channel estimate. Differences are normal.</li></ul><p>These are estimates for children growing normally. They cannot account for puberty timing, illness or nutrition. Talk to a paediatrician if you are worried about growth, or if a child is far above or below their growth chart, and rely on their measurements.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>Tanner, J.M., Goldstein, H. &amp; Whitehouse, R.H., <i>Standards for children's height at ages 2 to 9 years allowing for height of parents</i>, Archives of Disease in Childhood, 1970.</li><li>Centers for Disease Control and Prevention, <i>Clinical Growth Charts, stature-for-age</i>.</li><li>World Health Organization, <i>Child Growth Standards</i> (2006).</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How accurate is a height prediction?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The mid-parental method is usually within about 8.5 cm (3.3 in) of adult height. It cannot see the timing of puberty, so it is an estimate, not a promise.</p></details><details class="sx-faq"><summary>How does the mid-parental formula work?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Add the parents' heights, add 13 cm for a boy or subtract 13 cm for a girl, and divide by two. The 13 cm is the average difference between adult men and women.</p></details><details class="sx-faq"><summary>Does the child's current height change the estimate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Not in the mid-parental method. The growth channel estimate does use it, by comparing the child's height with the typical height at their age.</p></details><details class="sx-faq"><summary>When do children stop growing?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Girls usually stop growing around 14 to 16, and boys around 16 to 18, though this varies. Growth plates close after puberty.</p></details><details class="sx-faq"><summary>What if my child is much taller or shorter than predicted?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Many healthy children are. If a child's growth crosses growth-chart lines or you are concerned, a paediatrician can assess it, sometimes with a bone age X-ray.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Body mass index.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/pet-age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pets</span></span><b>Pet Age Calculator</b><span class="d">Dog and cat age.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">cake</span></span><b>Age Calculator</b><span class="d">Exact age.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">swap_horiz</span></span><b>Unit Conversion</b><span class="d">Feet, inches and cm.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Child Height Predictor</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/height-calculator.html" width="100%" height="560" loading="lazy" title="Child Height Predictor"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/height-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -207,7 +91,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/height.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/height.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
