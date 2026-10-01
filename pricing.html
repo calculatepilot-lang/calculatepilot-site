@@ -262,6 +262,13 @@
 <span class="material-symbols-outlined text-[18px] check-fill">check_circle</span>
 <span>License key active. White-label mode is unlocked for your embeds.</span>
 </div>
+<div class="mt-4 pt-4 border-t border-border-subtle">
+<div class="mt-0 text-center font-body-sm text-body-sm text-text-secondary">
+<span>Can’t find your key? Check your spam folder or </span><button type="button" id="resendToggle" class="text-primary font-semibold hover:underline">email it to me again</button>.
+<form class="hidden mt-3 flex items-center justify-center gap-2 flex-wrap" id="resendForm"><input class="h-10 px-3 rounded-md border border-border-strong text-body-sm" style="width:16rem;max-width:100%" id="resendEmail" type="email" required maxlength="255" placeholder="Email used at checkout" aria-label="Email used at checkout"/><button class="h-10 px-4 bg-text-primary hover:bg-text-secondary text-white font-label-md text-label-md rounded-md transition-colors" type="submit">Resend key</button></form>
+<p class="mt-2 font-label-sm text-label-sm" id="resendStatus" aria-live="polite"></p>
+</div>
+</div>
 </section>
 <section class="max-w-5xl mx-auto space-y-6 pt-6">
 <div class="text-center max-w-2xl mx-auto space-y-2">
@@ -547,5 +554,6 @@
 
 <script src="/js/nav.js?v=3d1747f9"></script>
 <script src="/js/cp-pricing.js?v=20261001a" defer></script>
+<script src="/js/cp-resend.js?v=20261001a" defer></script>
 </body>
 </html>

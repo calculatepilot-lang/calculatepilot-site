@@ -234,6 +234,11 @@
 </div>
 <form class="flex flex-col w-full sm:w-auto gap-2" id="licenseForm"><div class="flex items-center gap-2"><input class="h-10 px-3 text-body-sm rounded-md border border-border-strong focus:border-primary focus:ring-1 focus:ring-primary w-full sm:w-64" id="licenseInput" maxlength="64" placeholder="Enter your license key" type="text" aria-label="License key"/><button class="h-10 px-4 bg-text-primary hover:bg-text-secondary text-white font-label-md text-label-md rounded-md transition-colors shrink-0" type="submit">Apply</button></div><p class="font-label-sm text-label-sm min-h-[1rem]" id="licenseStatus" aria-live="polite"></p></form>
 </div>
+<div class="mt-4 text-center font-body-sm text-body-sm text-text-secondary">
+<span>Can’t find your key? Check your spam folder or </span><button type="button" id="resendToggle" class="text-primary font-semibold hover:underline">email it to me again</button>.
+<form class="hidden mt-3 flex items-center justify-center gap-2 flex-wrap" id="resendForm"><input class="h-10 px-3 rounded-md border border-border-strong text-body-sm" style="width:16rem;max-width:100%" id="resendEmail" type="email" required maxlength="255" placeholder="Email used at checkout" aria-label="Email used at checkout"/><button class="h-10 px-4 bg-text-primary hover:bg-text-secondary text-white font-label-md text-label-md rounded-md transition-colors" type="submit">Resend key</button></form>
+<p class="mt-2 font-label-sm text-label-sm" id="resendStatus" aria-live="polite"></p>
+</div>
 </div>
 </section>
 <section class="mb-16" id="calculator-directory">
@@ -1367,5 +1372,6 @@
 
 <script src="/js/nav.js?v=3d1747f9"></script>
 <script src="/js/cp-core.js?v=20261001a" defer></script>
+<script src="/js/cp-resend.js?v=20261001a" defer></script>
 </body>
 </html>

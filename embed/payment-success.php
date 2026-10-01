@@ -29,8 +29,11 @@ $hasPaymentReference = $params['checkout_id'] !== '' || $params['request_id'] !=
 <h1><?php echo $hasPaymentReference ? 'Payment received' : 'Thank you'; ?></h1>
 <p>We are confirming your subscription securely with Creem.</p>
 <p>Your activation key is generated only after the signed payment webhook confirms the subscription. Once confirmed, it is automatically sent to the email address used during checkout.</p>
-<p>If you do not receive the email shortly, please check your spam folder and then contact help@calculatepilot.com.</p>
+<p>If you do not receive the email shortly, please check your spam folder, or request it again below. You can also contact help@calculatepilot.com.</p>
+<form id="resendForm" style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><input type="email" id="resendEmail" required maxlength="255" placeholder="Email used at checkout" aria-label="Email used at checkout" style="flex:1;min-width:220px;padding:10px;border:1px solid var(--line);border-radius:6px;font-size:1rem"><button type="submit" class="btn" style="margin-top:0;border:0;cursor:pointer;font-size:1rem">Resend my key</button></form>
+<p id="resendStatus" style="margin-top:10px;font-weight:600" aria-live="polite"></p>
 <a class="btn" href="/embed/">Back to calculator embeds →</a>
 </div></div></main>
+<script src="/js/cp-resend.js?v=20261001a" defer></script>
 </body>
 </html>
