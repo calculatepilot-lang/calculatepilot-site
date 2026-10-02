@@ -1,3 +1,382 @@
-<!doctype html><html lang="de"><head>
+<!DOCTYPE html>
+<html lang="de">
+<head>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
-<meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Investmentrechner | CalculatePilot</title><meta name="description" content="Berechnen Sie das mögliche Wachstum einer Investition mit Startkapital, monatlichen Einzahlungen und jährlicher Rendite."><link rel="canonical" href="https://www.calculatepilot.com/financial/investment-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=20260929d"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/investment-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/investment-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/investment-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/investment-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/investment-calculator.html"></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/de/health-calculators.html">Gesundheit</a></li><li><a href="/de/math-calculators.html">Mathematik</a></li><li><a href="/de/other-calculators.html">Alltag</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Investmentrechner</nav><section class="calc-page-head"><h1>Investmentrechner</h1><p class="lede">Prognostizieren Sie den möglichen zukünftigen Wert einer Investition mit regelmäßigen Einzahlungen.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Startkapital</label><input id="p" type="number" value="10000" min="0"></div><div class="field"><label>Monatliche Einzahlung</label><input id="m" type="number" value="300" min="0"></div><div class="field"><label>Jährliche Rendite (%)</label><input id="r" type="number" value="8" step="0.1"></div><div class="field"><label>Anlagedauer (Jahre)</label><input id="y" type="number" value="20" min="1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Prognostizierter Wert</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Einzahlungen</span><span id="inv">—</span></div><div class="readout-row"><span>Gewinn</span><span id="gain">—</span></div></div></aside></div><section class="content-block prose"><h2>Wie funktioniert der Rechner?</h2><p>Der Rechner modelliert monatliche Verzinsung des Startkapitals und der regelmäßigen Einzahlungen. Das Ergebnis ist eine Projektion und keine Garantie für zukünftige Renditen.</p><h2>Warum regelmäßig investieren?</h2><p>Regelmäßige Einzahlungen erhöhen mit der Zeit das Kapital, das vom Zinseszinseffekt profitieren kann. Tatsächliche Märkte schwanken; Gebühren, Steuern und wechselnde Renditen können das Ergebnis verändern.</p><h2>Weiterer Rechner</h2><p>Für den Einfluss steigender Preise auf Ihre Kaufkraft nutzen Sie den <a href="/de/financial/inflation-calculator.html">Inflationsrechner</a>.</p></section></div></main><script>function calc(){const p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,y=+document.getElementById('y').value||1,n=y*12;const f=r?p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n;const invested=p+m*n;const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=fmt(f);document.getElementById('inv').textContent=fmt(invested);document.getElementById('gain').textContent=fmt(f-invested)}calc();</script></body></html>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anlagerechner — Portfoliowachstum berechnen | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie, wie eine Geldanlage mit Zinseszins-Renditen und regelmäßigen Einzahlungen im Zeitverlauf wächst. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/investment-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/investment-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/investment-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/investment-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/investment-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/investment-calculator.html">
+<meta property="og:title" content="Anlagerechner — Portfoliowachstum berechnen | CalculatePilot">
+<meta property="og:description" content="Berechnen Sie, wie eine Geldanlage mit Zinseszins-Renditen und regelmäßigen Einzahlungen im Zeitverlauf wächst. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/investment-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anlagerechner — Portfoliowachstum berechnen | CalculatePilot">
+<meta name="twitter:description" content="Berechnen Sie, wie eine Geldanlage mit Zinseszins-Renditen und regelmäßigen Einzahlungen im Zeitverlauf wächst. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20260929d">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,calculate,chevron_right,compare_arrows,download,expand_more,flag,hourglass_bottom,insights,lightbulb,percent,print,query_stats,savings,schedule,trending_up,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Anlagerechner",
+ "url": "https://www.calculatepilot.com/de/financial/investment-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Berechnen Sie, wie eine Geldanlage mit Zinseszins-Renditen und regelmäßigen Einzahlungen im Zeitverlauf wächst. Keine Anmeldung nötig. CalculatePilot erklärt die Formel hinter jedem"
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Startseite",
+   "item": "https://www.calculatepilot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Finanzrechner",
+   "item": "https://www.calculatepilot.com/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Anlagerechner",
+   "item": "https://www.calculatepilot.com/de/financial/investment-calculator.html"
+  }
+ ]
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Ist eine Rendite von 8 % eine realistische Annahme?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sie liegt im historischen langfristigen Bereich für diversifizierte Aktienportfolios vor Inflation, aber die Wertentwicklung der Vergangenheit garantiert keine zukünftigen Ergebnisse."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie viel Unterschied machen monatliche Einzahlungen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Über lange Zeiträume sehr viel — dank des Zinseszinses machen regelmäßige Einzahlungen oft einen größeren Teil des Endbetrags aus als die Anfangsanlage selbst."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Sollte ich eine Einmalsumme anlegen oder verteilen (Cost-Average-Effekt)?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Historisch schneidet die sofortige Anlage einer Einmalsumme im Durchschnitt besser ab als die Verteilung, da Märkte langfristig steigen — der Cost-Average-Effekt kann jedoch für manche Anleger das Risiko späteren Bedauerns verringern und Schwankungen glätten."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Welche Gebühren sind bei Geldanlagen angemessen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Kostengünstige Indexfonds verlangen oft deutlich weniger als 0,5 % pro Jahr, während manche aktiv verwalteten Fonds 1 % oder mehr verlangen — Gebühren wirken wie Renditen über die Zeit als Zinseszins, daher fördern niedrigere Kosten das langfristige Wachstum spürbar."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was ist der Cost-Average-Effekt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dabei wird unabhängig vom Marktpreis in regelmäßigen Abständen ein fester Betrag investiert, was den Effekt des Markt-Timings glättet — und genau diese Strategie bildet die Funktion für monatliche Einzahlungen in diesem Rechner im Grunde ab."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Sollte ich für die langfristige Geldanlage ein steuerbegünstigtes Konto nutzen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Konten wie ein 401(k), IRA oder Roth IRA bieten Steuervorteile, die das langfristige Wachstum nach Steuern im Vergleich zu einem normalen steuerpflichtigen Brokerage-Konto spürbar verbessern können, weshalb sie für eine auf den Ruhestand ausgerichtete Geldanlage bevorzugt werden sollten."
+   }
+  }
+ ]
+}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/de/guides/">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="ivCalc">
+<nav class="sx-crumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/de/financial-calculators.html">Finanzrechner</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Anlagerechner</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <h1>Anlagerechner &amp; Portfolio-Wachstumssimulator</h1>
+    <p>Berechnen Sie, wie eine Anfangsinvestition samt regelmäßigen Einzahlungen im Laufe der Zeit wachsen kann — mit Zinseszins-Häufigkeit, steigenden Einzahlungen, inflationsbereinigtem Wert und Steuerbelastung.</p>
+  </div>
+  <div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">query_stats</span>Portfolio-Wachstumsrechner</span><span class="sx-badge"><span class="msym" aria-hidden="true">trending_up</span>Inflationsbereinigte reale Renditen</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Präzision im Browser</span></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Portfolio-Eingaben</h2></div>
+    <button type="button" class="sx-reset pri" data-action="reset">Standardwerte zurücksetzen</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="p0">Anfängliche Einmalanlage</label><em class="ok" id="p0Out">$25,000</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="p0" type="number" inputmode="decimal" min="0" step="1000" value="25000"></div>
+      <div class="sx-au-chips"><button type="button" data-for="p0" data-value="10000">10.000 $</button><button type="button" data-for="p0" data-value="25000">$25k</button><button type="button" data-for="p0" data-value="50000">$50k</button><button type="button" data-for="p0" data-value="100000">$100k</button><button type="button" data-for="p0" data-value="250000">$250k</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="c">Zusätzliche regelmäßige Einzahlung</label><em class="mu" id="cOut">500 $ / Monat</em></div>
+      <div class="sx-au-row"><div class="sx-au-in"><span class="pre">$</span><input id="c" type="number" inputmode="decimal" min="0" step="50" value="500"></div><div class="sx-au-sel" style="width:130px"><select id="cf" aria-label="Einzahlungshäufigkeit"><option value="12" selected>Monatlich</option><option value="1">Jährlich</option></select></div></div>
+      <div class="sx-iv-tog" style="margin-top:10px"><label for="esc" style="font-size:12px;color:var(--sx-muted)">Jährliche Steigerung (+3 %/Jahr)</label><span class="sx-hl-sw"><input id="esc" type="checkbox" checked aria-label="Einzahlungen jedes Jahr um 3 % erhöhen"><i></i></span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="nR">Anlagehorizont</label><em style="color:var(--sx-on)" id="nOut">20 Jahre</em></div>
+      <input type="hidden" id="n" value="20">
+      <input id="nR" class="sx-range2" type="range" min="1" max="50" step="1" value="20" data-sync="n" aria-label="Jahre">
+      <div class="sx-au-opts c5" role="group" aria-label="Voreinstellungen für den Horizont" style="margin-top:10px"><button type="button" data-for="n" data-value="5">5 J.</button><button type="button" data-for="n" data-value="10">10 J.</button><button type="button" data-for="n" data-value="15">15 J.</button><button type="button" data-for="n" data-value="20">20 J.</button><button type="button" data-for="n" data-value="30">30 J.</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="r">Geschätzte jährliche Rendite (nominal)</label><em style="color:var(--sx-on)" id="rOut">8.50%</em></div>
+      <div class="sx-au-in np pc"><input id="r" type="number" inputmode="decimal" min="-20" max="40" step="0.1" value="8.50"><span class="suf">%</span></div>
+      <div class="sx-iv-ret" role="group" aria-label="Voreinstellungen für die Rendite"><button type="button" data-for="r" data-value="5.5">Konservativ<b>5.5%</b></button><button type="button" data-for="r" data-value="7.5">Moderat<b>7.5%</b></button><button type="button" data-for="r" data-value="10">Aktienmarkt langfristig<b>~10%</b></button><button type="button" data-for="r" data-value="12">Offensiv<b>12.0%</b></button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Zinseszins-Häufigkeit</span></div>
+      <input type="hidden" id="m" value="12">
+      <div class="sx-seg" role="group" aria-label="Zinseszins-Häufigkeit" style="display:flex"><button type="button" data-for="m" data-value="1" style="flex:1">Jährlich</button><button type="button" data-for="m" data-value="2" style="flex:1">Halbjährlich</button><button type="button" data-for="m" data-value="4" style="flex:1">Vierteljährlich</button><button type="button" data-for="m" data-value="12" style="flex:1">Monatlich</button></div>
+    </div>
+    <div class="sx-au-box" style="display:flex;flex-direction:column;gap:14px">
+      <div class="sx-iv-tog"><div><b>Inflationsanpassung</b><span>Wert in heutiger Kaufkraft anzeigen bei <input id="inf" type="number" step="0.1" min="0" max="20" value="2.5" aria-label="Inflationsrate" style="width:48px;height:22px;border:1px solid var(--sx-border);border-radius:4px;padding:0 4px;font:inherit;font-size:11px;background:var(--sx-card);color:var(--sx-on)">%/Jahr</span></div><span class="sx-hl-sw"><input id="infOn" type="checkbox" checked aria-label="Inflation berücksichtigen"><i></i></span></div>
+      <div class="sx-iv-tog"><div><b>Steuerbelastung</b><span>Anteil der jährlichen Gewinne, der an Steuern verloren geht</span></div><div class="sx-au-sel" style="width:170px"><select id="tax" style="height:34px;font-size:12px"><option value="0" selected>Roth / 401(k) (0 %)</option><option value="15">Steuerpflichtiges Depot (15 %)</option><option value="20">Hoher Steuersatz (20 %)</option></select></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">insights</span>Vermögensentwicklung des Portfolios simulieren</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-sg-hero" aria-live="polite">
+    <span class="sx-kick" id="heroK">Prognostizierter Portfoliowert (Jahr 20)</span>
+    <div class="big"><span id="resultValue">—</span><small>nominal</small></div>
+    <div class="sx-in-hero" style="padding:0"><div class="loss"><em class="up" id="gPill"><span class="msym" aria-hidden="true">trending_up</span><span id="gTxt">—</span></em></div></div>
+    <div class="sx-au-tiles c4 card" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--sx-border)">
+      <div><span>Gesamte Hauptforderung</span><b id="prin">—</b><small id="prinN">—</small></div>
+      <div><span>Zinseszinserträge</span><b class="g" id="earn">—</b><small id="earnN">—</small></div>
+      <div><span>Reale Kaufkraft</span><b id="real">—</b><small id="realN">—</small></div>
+      <div><span>Passives Einkommen (4-%-Regel)</span><b class="g" id="inc">—</b><small>Grob geschätzte nachhaltige Entnahme</small></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-au-traj">
+    <div class="hd"><div><h3>Wachstumsverlauf: Einzahlungen vs. Zinseszinswachstum</h3><p id="trSub">—</p></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>Gesamtvermögen</span><span><i style="background:#cbd5e1"></i>Eingezahltes Kapital</span></div></div>
+    <svg id="chart" viewBox="0 0 520 220" role="img" aria-label="Portfoliowert im Vergleich zum eingezahlten Kapital"></svg>
+    <div class="sx-iv-ms" id="ms"></div>
+    <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Plan drucken</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Tabelle exportieren (.CSV)</button><a class="pri" href="/de/financial/compound-interest-calculator.html" style="background:none;border:0;color:var(--sx-primary)"><span class="msym" aria-hidden="true">compare_arrows</span>Verzinsungen vergleichen</a></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Mehrjährige Vermögensaufbau-Tabelle</h2><p>Jährliche Einzahlungen, Wachstum und inflationsbereinigter Endstand.</p></div><span style="font-size:12px;color:var(--sx-muted)">Anzeigeintervall: <span class="sx-au-tag">Meilensteinjahre</span></span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Horizont</th><th scope="col">Anfangsguthaben</th><th scope="col">Jährliche Einzahlungen</th><th scope="col">Jährlich erzieltes Wachstum</th><th scope="col">Kumuliertes Wachstum</th><th scope="col">Portfolio-Endstand</th><th scope="col" id="realH">Realer Wert</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-au-plain" style="border:0;padding-top:0">
+  <h2 style="font-size:22px;line-height:30px">Anlage-Leitfäden &amp; empirische Ratgeber</h2>
+  <p class="lead">Grundprinzipien des langfristigen Zinseszinswachstums.</p>
+  <div class="sx-au-2c" style="margin-bottom:0">
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">calculate</span></span><h3>Die 72er-Regel &amp; Beschleunigung durch den Zinseszins</h3><p id="r72">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span class="msym" aria-hidden="true" style="font-size:16px;color:var(--sx-pc)">lightbulb</span><span id="r72t">—</span></div></div>
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">hourglass_bottom</span></span><h3>Nominale vs. reale Renditen &amp; die Kosten des Abwartens</h3><p id="wait">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span class="msym" aria-hidden="true" style="font-size:16px;color:var(--sx-pc)">schedule</span><span>Früh zu beginnen und konsequent einzuzahlen ist der zuverlässigste Weg, den Zinseszins für sich arbeiten zu lassen.</span></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>So funktioniert dieser Rechner</h2>
+    <p>Der Rechner lässt Ihr Startkapital Monat für Monat mit dem äquivalenten Monatszins für die gewählte Zinseszins-Häufigkeit wachsen und addiert jede Einzahlung am Ende ihres Zeitraums (monatlich oder jährlich), wahlweise mit einer Erhöhung der Einzahlungen um 3 % pro Jahr. Die Steuerbelastung verringert das Wachstum jedes Zeitraums um den gewählten Anteil, und der reale Wert teilt das Ergebnis durch die kumulierte Inflation.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Von Suhaib Hassan · Formel geprüft am 27. Sep. 2026 · <a href="/methodology.html">So prüft CalculatePilot Formeln →</a></p>
+
+    <h2>Anlagerisiko verstehen</h2>
+    <p>Dieser Rechner geht der Einfachheit halber von einer konstanten jährlichen Rendite aus, doch die realen Märkte schwanken von Jahr zu Jahr. Verstehen Sie das Ergebnis als langfristige Durchschnittsprognose, nicht als Garantie — höhere erwartete Renditen gehen in der Regel mit höheren Schwankungen einher.</p>
+
+    <h2>Welche Rendite sollte ich tatsächlich ansetzen?</h2>
+    <p>Der eingegebene Zinssatz bestimmt alles Weitere. Daher lohnt es sich, ihn an realen Richtwerten auszurichten, statt zu raten.</p>
+    <ul>
+      <li><strong>Diversifizierte Aktienportfolios</strong> — historisch etwa 7–10 % pro Jahr vor Inflation über mehrere Jahrzehnte, wobei einzelne Jahre stark abweichen können.</li>
+      <li><strong>Anleihenfonds</strong> — in den letzten Jahren grob 4 % und mehr bei US-Staatsanleihen, mehr bei riskanteren Unternehmens- oder Hochzinsanleihen.</li>
+      <li><strong>Hochverzinste Sparkonten und Festgeldanlagen (CDs)</strong> — je nach Zinsumfeld und Laufzeit typischerweise 3–4 % und mehr.</li>
+    </ul>
+    <p>Ein praktischer Ansatz: Führen Sie den Rechner zweimal aus — einmal mit einem konservativen Zinssatz (2–3 Punkte unter dem historischen Durchschnitt) und einmal mit einem optimistischen (1–2 Punkte darüber) —, um eine realistische Bandbreite zu sehen statt einer einzelnen Zahl, die so vielleicht nie eintritt.</p>
+
+    <h2>Das Reihenfolgerisiko der Renditen verstehen</h2>
+    <p>Dieser Rechner geht von einer konstanten jährlichen Rendite aus, doch reale Märkte steigen und fallen von Jahr zu Jahr ungleichmäßig. Zwei Anleger mit derselben Durchschnittsrendite können je nach Zeitpunkt von Gewinnen und Verlusten ganz unterschiedliche Endbeträge erzielen — man spricht vom Reihenfolgerisiko (Sequence-of-Returns-Risiko).</p>
+    <p>Das ist besonders kurz vor Beginn der Entnahmen (z. B. im Ruhestand) relevant: Ein Abschwung früh in dieser Phase wirkt sich deutlich stärker negativ aus als derselbe Abschwung Jahre später, da weniger Zeit zur Erholung bleibt, bevor Geld entnommen wird.</p>
+
+    <h2>Ein Rechenbeispiel</h2>
+    <p>Wer 10.000 $ sofort plus 300 $/Monat bei einer durchschnittlichen Jahresrendite von 8 % (monatlich verzinst) über 20 Jahre anlegt, kommt auf rund 226.000 $. Davon stammen etwa 82.000 $ aus Einzahlungen und rund 144.000 $ aus Anlagewachstum — fast zwei Drittel des Endbetrags sind Wachstum, nicht Einzahlungen.</p>
+    <p>Das zeigt, warum ein früher Anlagebeginn meist wichtiger ist als die genaue Höhe der monatlichen Rate — der Wachstumsanteil wird unabhängig vom Einzahlungszeitpunkt verzinst, sodass frühere Dollar schlicht mehr Zeit zum Arbeiten hatten.</p>
+
+    <h2>Diversifikation und Risiko</h2>
+    <p>Dieser Rechner nimmt einen einzigen konstanten Zinssatz an, doch reale Anlagen bergen je nach Anlageklasse unterschiedliche Risiken — Aktien bieten historisch höhere langfristige Renditen als Anleihen, aber mit stärkeren Schwankungen von Jahr zu Jahr. Die Streuung über mehrere Anlageklassen ist eine gängige Strategie, um diese Schwankungen zu begrenzen und dennoch vom langfristigen Wachstum zu profitieren.</p>
+    <p>Auch die steuerliche Behandlung beeinflusst die realen Renditen. Wachstum in steuerbegünstigten Konten wie einem 401(k) oder einer IRA wird nicht jährlich besteuert, wie es bei einem normalen Brokerage-Konto oft der Fall ist, was die tatsächliche Wachstumsrate nach Steuern gegenüber einer einfachen Projektion spürbar verbessern kann. Prüfen Sie außerdem, wie viel dieses Wachstum in heutiger Kaufkraft wert ist, mit unserem <a href="/de/financial/inflation-calculator.html">Inflationsrechner</a>.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <details class="sx-faq"><summary>Ist eine Rendite von 8 % eine realistische Annahme?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Sie liegt im historischen langfristigen Bereich für diversifizierte Aktienportfolios vor Inflation, aber die Wertentwicklung der Vergangenheit garantiert keine zukünftigen Ergebnisse.</p></details>
+    <details class="sx-faq"><summary>Wie viel Unterschied machen monatliche Einzahlungen?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Über lange Zeiträume sehr viel — dank des Zinseszinses machen regelmäßige Einzahlungen oft einen größeren Teil des Endbetrags aus als die Anfangsanlage selbst.</p></details>
+    <details class="sx-faq"><summary>Sollte ich eine Einmalzahlung anlegen oder verteilen (Cost-Average-Effekt)?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Historisch schneidet die sofortige Anlage einer Einmalsumme im Durchschnitt besser ab als die Verteilung, da Märkte langfristig steigen — der Cost-Average-Effekt kann jedoch für manche Anleger das Risiko späteren Bedauerns verringern und Schwankungen glätten.</p></details>
+    <details class="sx-faq"><summary>Welche Gebühren sind bei Geldanlagen angemessen?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Kostengünstige Indexfonds verlangen oft deutlich weniger als 0,5 % pro Jahr, während manche aktiv verwalteten Fonds 1 % oder mehr verlangen — Gebühren wirken wie Renditen über die Zeit als Zinseszins, daher fördern niedrigere Kosten das langfristige Wachstum spürbar.</p></details>
+    <details class="sx-faq"><summary>Was ist der Cost-Average-Effekt (Dollar-Cost-Averaging)?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Dabei wird unabhängig vom Marktpreis in regelmäßigen Abständen ein fester Betrag investiert, was den Effekt des Markt-Timings glättet — und genau diese Strategie bildet die Funktion für monatliche Einzahlungen in diesem Rechner im Grunde ab.</p></details>
+    <details class="sx-faq"><summary>Sollte ich für die langfristige Geldanlage ein steuerbegünstigtes Konto nutzen?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Konten wie ein 401(k), IRA oder Roth IRA bieten Steuervorteile, die das langfristige Wachstum nach Steuern im Vergleich zu einem normalen steuerpflichtigen Brokerage-Konto spürbar verbessern können, weshalb sie für eine auf den Ruhestand ausgerichtete Geldanlage bevorzugt werden sollten.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Verwandte Vermögensrechner entdecken</h2><p>Verknüpfte Tools für die langfristige Planung.</p></div>
+  <a href="/de/financial-calculators.html">Alle 52 Rechner ansehen<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/de/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Zinseszins</b><span class="d">Wachstum bei täglicher, monatlicher und stetiger Verzinsung.</span><span class="f">Tool entdecken<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/roth-ira-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Roth-IRA-Rechner</b><span class="d">Steuerfreies Wachstum im Vergleich zu einem traditionellen, steueraufgeschobenen Konto.</span><span class="f">Tool entdecken<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>401(k)-Wachstumsrechner</b><span class="d">Arbeitgeberzuschuss, Einzahlungsgrenzen und Gehaltswachstum.</span><span class="f">Tool entdecken<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/savings-goal-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">flag</span></span><b>Sparziel-Rechner</b><span class="d">Monatlich nötige Ersparnisse, um ein bestimmtes Ziel zu erreichen.</span><span class="f">Tool entdecken<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot auf Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/de/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/de/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/de/financial/annuity-calculator.html">Rente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/de/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/de/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/de/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/de/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/de/other/age-calculator.html">Alter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/de/guides/">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — ziehen Sie für finanzielle oder medizinische Entscheidungen einen Fachmann hinzu. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span> <span><a href="/embed/investment-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/de/investment.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

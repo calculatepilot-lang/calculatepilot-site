@@ -11,6 +11,8 @@ for k, t in out.items():
     if k not in todo:
         bad.append(("unknown", k)); continue
     en = todo[k]
+    if isinstance(t, str):
+        t = re.sub(r'&(?!(?:[a-zA-Z]+|#\d+);)', '&amp;', t)
     if not isinstance(t, str) or not t.strip():
         bad.append(("empty", k)); continue
     if sorted(TAG.findall(en)) != sorted(TAG.findall(t)):
