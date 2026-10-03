@@ -49,67 +49,93 @@ SENDER_NAME = "Suhaib Hassan"
 QUERY_TEMPLATES_BY_CATEGORY = {
     "financial": [
         '"financial calculators" intitle:resources',
-        '"useful tools" "budgeting" inurl:resources',
         'site:.edu "personal finance" "calculators" links',
+        'site:.edu "financial literacy" "online calculators" resources',
+        'site:.gov "financial education" "calculators" resources',
+        'libguides "personal finance" "calculators" websites',
+        'libguides "budgeting" "online tools" resources',
         '"student loan calculator" "helpful resources"',
-        '"personal finance" "write for us"',
-        'inurl:guest-post "personal finance"',
         '"budgeting tools" "recommended resources"',
-        '"contribute" "personal finance blog"',
     ],
     "health": [
         '"fitness calculators" intitle:resources',
-        '"health tools" "useful resources" links',
-        '"BMI calculator" "helpful resources"',
         'site:.edu "nutrition" "calculators" resources',
-        '"fitness blog" "write for us"',
-        'inurl:guest-post "health and fitness"',
+        'site:.edu "health and wellness" "online tools" resources',
+        'site:.gov "healthy weight" "calculators" resources',
+        'libguides "nutrition" "calculators" websites',
+        'libguides "health sciences" "online calculators" resources',
+        '"BMI calculator" "helpful resources"',
         '"calorie calculator" "recommended tools"',
-        '"wellness resources" "free tools" links',
     ],
     "math": [
         '"math resources" "calculators" links page',
-        '"free calculators" intitle:resources',
         'site:.edu "math tools" resources links',
+        'site:.edu "statistics" "online calculators" resources',
+        'libguides "math" "calculators" websites',
+        'libguides "mathematics" "online tools" resources',
         '"math teacher" "useful websites" resources',
         '"scientific calculator" "helpful resources"',
-        'inurl:guest-post "math education"',
-        'libguides "math" "calculators" websites',
+        '"free calculators" intitle:resources',
     ],
     "everyday": [
         '"everyday calculators" intitle:resources',
-        '"useful online tools" "resources" links',
+        'site:.edu "study tools" "grade calculator" resources',
+        'libguides "student resources" "calculators" websites',
+        'libguides "college" "GPA calculator" resources',
         '"date calculator" "helpful resources"',
         '"unit converter" "recommended tools"',
-        '"life hacks" "useful tools" resources',
-        'inurl:guest-post "productivity tools"',
         '"free online tools" intitle:resources',
+        '"useful online tools" "resources" links',
     ],
 }
 ALL_CATEGORIES = list(QUERY_TEMPLATES_BY_CATEGORY.keys())
 
-# 2-3 representative CalculatePilot links per category, used to keep
-# outreach relevant to the page category actually found.
+# Pool of specific tool/guide pages per category (never category hubs).
+# draft_email() picks 3 at random so outreach rotates across pages,
+# including the long-tail pages we want to earn links to.
 CATEGORY_EXAMPLE_LINKS = {
     "financial": [
-        ("Mortgage & loan payment calculator", f"{SITE_URL}/financial/mortgage-calculator.html"),
+        ("Mortgage payment calculator", f"{SITE_URL}/financial/mortgage-calculator.html"),
         ("Debt payoff calculator", f"{SITE_URL}/financial/debt-payoff-calculator.html"),
-        ("Student loan calculator", f"{SITE_URL}/guides/student-loan-guide.html"),
+        ("Student loan calculator", f"{SITE_URL}/financial/student-loan-calculator.html"),
+        ("Student loan guide", f"{SITE_URL}/guides/student-loan-guide.html"),
+        ("Budget calculator", f"{SITE_URL}/financial/budget-calculator.html"),
+        ("Compound interest calculator", f"{SITE_URL}/financial/compound-interest-calculator.html"),
+        ("Savings goal calculator", f"{SITE_URL}/financial/savings-goal-calculator.html"),
+        ("Emergency fund calculator", f"{SITE_URL}/financial/emergency-fund-calculator.html"),
+        ("CD vs high-yield savings calculator", f"{SITE_URL}/financial/cd-vs-hysa-calculator.html"),
+        ("Credit utilization calculator", f"{SITE_URL}/financial/credit-utilization-calculator.html"),
     ],
     "health": [
         ("BMI calculator", f"{SITE_URL}/health/bmi-calculator.html"),
-        ("Calorie calculator", f"{SITE_URL}/health-calculators.html"),
-        ("Body composition tools", f"{SITE_URL}/health-calculators.html"),
+        ("Calorie calculator", f"{SITE_URL}/health/calorie-calculator.html"),
+        ("TDEE calculator", f"{SITE_URL}/health/tdee-calculator.html"),
+        ("Macro calculator", f"{SITE_URL}/health/macro-calculator.html"),
+        ("Steps to calories calculator", f"{SITE_URL}/health/steps-to-calories-calculator.html"),
+        ("Pregnancy weight gain calculator", f"{SITE_URL}/health/pregnancy-weight-gain-calculator.html"),
+        ("Healthy weight range calculator", f"{SITE_URL}/health/healthy-weight-range-calculator.html"),
+        ("Protein calculator", f"{SITE_URL}/health/protein-calculator.html"),
     ],
     "math": [
-        ("Scientific calculator", f"{SITE_URL}/math-calculators.html"),
+        ("Scientific calculator", f"{SITE_URL}/math/scientific-calculator.html"),
         ("Percentage calculator", f"{SITE_URL}/math/percentage-calculator.html"),
-        ("Triangle & slope calculators", f"{SITE_URL}/guides/triangle-calculator-guide.html"),
+        ("Quadratic formula calculator", f"{SITE_URL}/math/quadratic-formula-calculator.html"),
+        ("Weighted average calculator", f"{SITE_URL}/math/weighted-average-calculator.html"),
+        ("Fraction calculator", f"{SITE_URL}/math/fraction-calculator.html"),
+        ("Standard deviation calculator", f"{SITE_URL}/math/standard-deviation-calculator.html"),
+        ("Triangle calculator", f"{SITE_URL}/math/triangle-calculator.html"),
+        ("Triangle calculator guide", f"{SITE_URL}/guides/triangle-calculator-guide.html"),
+        ("Z-score calculator", f"{SITE_URL}/math/z-score-calculator.html"),
     ],
     "everyday": [
         ("Date calculator", f"{SITE_URL}/other/date-calculator.html"),
         ("GPA calculator", f"{SITE_URL}/other/gpa-calculator.html"),
-        ("Everyday tools", f"{SITE_URL}/other-calculators.html"),
+        ("Final grade calculator", f"{SITE_URL}/other/grade-needed-calculator.html"),
+        ("Age calculator", f"{SITE_URL}/other/age-calculator.html"),
+        ("Tip calculator", f"{SITE_URL}/other/tip-calculator.html"),
+        ("Unit and length converter", f"{SITE_URL}/other/conversion-calculator.html"),
+        ("Flight time calculator", f"{SITE_URL}/other/flight-time-calculator.html"),
+        ("Unit price calculator", f"{SITE_URL}/other/unit-price-calculator.html"),
     ],
 }
 
@@ -122,6 +148,33 @@ CATEGORY_KEYWORDS = {
 
 EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
 SKIP_EMAIL_DOMAINS = ("sentry.io", "wixpress.com", "example.com", "godaddy.com")
+
+# Domains that will never place a resource link (social platforms, big
+# publishers, freelance/PR marketplaces, Q&A/doc-sharing sites) and page
+# titles that mark a page as a guest-post/outreach listicle, not a
+# resource list. Matched against the domain and the page title.
+BLOCKED_DOMAIN_PARTS = (
+    "facebook.", "instagram.", "tiktok.", "reddit.", "quora.", "linkedin.",
+    "youtube.", "pinterest.", "snapchat.", "twitter.", "wikipedia.",
+    "scribd.", "slideserve.", "docsity.", "podcasts.apple.", "apps.apple.",
+    "play.google.", "forbes.", "cnbc.", "usatoday.", "nerdwallet.",
+    "upwork.", "fiverr.", "kwork.", "legiit.", "peopleperhour.",
+    "prposting.", "outreachdesk.", "constant-content.", "feedspot.",
+    "solarwinds.", "nvidia.", "developer.android.", "modelcontextprotocol.",
+    "sciencedirect.", "mdpi.", "medium.", "substack.",
+)
+BLOCKED_TITLE_PARTS = (
+    "guest post", "guest posting", "outreach software", "link building",
+    "backlink", "write for us", "seo services", "sponsored post", "pr posting",
+)
+
+
+def is_blocked(dom, title=""):
+    d = (dom or "").lower()
+    if any(part in d for part in BLOCKED_DOMAIN_PARTS):
+        return True
+    t = (title or "").lower()
+    return any(part in t for part in BLOCKED_TITLE_PARTS)
 
 
 def load_log():
@@ -193,7 +246,8 @@ def detect_category(query_category, title, url):
 
 
 def draft_email(page_title, page_url, category):
-    examples = CATEGORY_EXAMPLE_LINKS.get(category, CATEGORY_EXAMPLE_LINKS["financial"])
+    pool = CATEGORY_EXAMPLE_LINKS.get(category, CATEGORY_EXAMPLE_LINKS["financial"])
+    examples = random.sample(pool, k=min(3, len(pool)))
     example_lines = "\n".join(f"- {name}: {link}" for name, link in examples)
     subject = f"Free calculator resource for your \"{page_title}\" page"
     body = f"""Hi,
@@ -248,6 +302,8 @@ def main():
                 continue
             candidates.extend((u, cat) for u in urls)
     random.shuffle(candidates)
+    # Prefer university/library/government resource pages, then the rest.
+    candidates.sort(key=lambda c: 0 if re.search(r"\.(edu|gov)(/|$)|libguides|library|libraries|researchguides", c[0]) else 1)
     candidates = candidates[:MAX_CANDIDATES_TO_CHECK]
 
     sent = 0
@@ -257,10 +313,17 @@ def main():
         dom = domain_of(url)
         if not dom or dom in contacted or "calculatepilot" in dom:
             continue
+        if is_blocked(dom):
+            continue
 
         html = fetch_page(url)
         email = extract_email(html, dom)
         title = extract_title(html, dom)
+        if is_blocked(dom, title):
+            attempt = {"time": datetime.now(timezone.utc).isoformat(), "url": url, "domain": dom, "title": title, "status": "skipped-blocked"}
+            log["attempts"].append(attempt)
+            contacted.add(dom)
+            continue
         category = detect_category(query_category, title, url)
         attempt = {
             "time": datetime.now(timezone.utc).isoformat(),
