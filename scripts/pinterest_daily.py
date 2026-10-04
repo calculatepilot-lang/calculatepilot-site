@@ -2,7 +2,7 @@
 """
 CalculatePilot daily Pinterest planner.
 
-  python scripts/pinterest_daily.py plan [--max-new 3] [--variants 1]
+  python scripts/pinterest_daily.py plan [--max-new 1] [--calcs 3] [--variants 1]
       Picks guides that have not been pinned yet (newest first). If there is
       nothing new, picks one FAQ-question "variant" pin for the least-pinned
       guide. For every pick it renders a 1000x1500 pin image into
@@ -203,7 +203,88 @@ def kicker_for(board_key, cfg):
     return cfg["boards"][board_key]["kicker"]
 
 
-def plan(max_new, variants):
+def calc_list():
+    """All calculators from calculators.json, round-robin across categories."""
+    items = load_json("calculators.json", [])
+    by = {"financial": [], "health": [], "math": [], "other": []}
+    for it in items:
+        href = it["href"]
+        parts = href.strip("/").split("/")
+        if len(parts) == 2 and parts[0] in by and os.path.exists(href.lstrip("/")):
+            by[parts[0]].append({"slug": "calc:" + parts[0] + "/" + parts[1][:-5], "path": href.lstrip("/"), "href": href, "cat": parts[0], "name": it["name"]})
+    for k in by:
+        by[k].sort(key=lambda c: c["slug"])
+    out = []
+    while any(by.values()):
+        for k in ("financial", "health", "math", "other"):
+            if by[k]:
+                out.append(by[k].pop(0))
+    return out
+
+
+def calc_info(c):
+    s = io.open(c["path"], encoding="utf-8").read()
+    h1 = re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S)
+    name = strip(h1.group(1)) if h1 else c["name"]
+    if len(name) > 70 or not name:
+        name = c["name"]
+    desc = re.search(r'name="description" content="([^"]*)"', s)
+    desc = H.unescape(desc.group(1)).strip() if desc else ""
+    return name, desc
+
+
+def calc_description(name, desc, cat, cfg):
+    sec = cfg["calc_board"]["sections"][cat]
+    tags = list(sec["tags"])
+    skip = ("calculator", "converter", "generator", "checker")
+    for w in [w for w in re.findall(r"[A-Za-z]{5,}", name) if w.lower() not in skip][:2]:
+        t = "#" + w.lower()
+        if t not in tags:
+            tags.append(t)
+    tags.append("#freecalculator")
+    tail = " No sign-up needed, formula explained."
+    tg = " " + " ".join(tags[:7])
+    room = 800 - len(tail) - len(tg)
+    d = re.sub(r"\s+", " ", desc)
+    if len(d) > room:
+        d = d[: room - 1].rsplit(" ", 1)[0] + "."
+    return (d + tail + tg).strip()
+
+
+def pin_svg_calc(kicker, name, summary):
+    name = re.split(r"\s[—–|-]\s|:", name)[0].strip() or name
+    lines = wrap(name, 18)[:3]
+    fs = 92 if len(lines) <= 2 else 78
+    ty = 330
+    t = "".join(f'<text x="80" y="{ty + i * (fs + 16)}" {FONT} font-size="{fs}" font-weight="800" fill="#ffffff">{H.escape(l, quote=False)}</text>' for i, l in enumerate(lines))
+    sy = ty + len(lines) * (fs + 16) + 60
+    short = re.sub(r"^Free\s+.*?\b(calculator|converter|generator|checker|estimator|planner|tool|counter|roller|predictor|encoder)s?\b[:,]?\s*", "", summary, count=1, flags=re.I)
+    short = (short[:1].upper() + short[1:]) if len(short) > 20 else summary
+    first = re.split(r"(?<=[.!?])\s", short)[0]
+    first = first if len(first) <= 150 else first[:148].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+    sl = "".join(f'<text x="80" y="{sy + i * 58}" {FONT} font-size="42" fill="#e8f5f0">{H.escape(l, quote=False)}</text>' for i, l in enumerate(wrap(first, 30)[:6]))
+    chips = ""
+    x = 80
+    for label in ("Free", "No sign-up", "Formula explained"):
+        w = 36 + len(label) * 19
+        chips += f'<rect x="{x}" y="1130" width="{w}" height="64" rx="32" fill="#ffffff" opacity="0.16"/><text x="{x + w/2}" y="1172" {FONT} font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle">{label}</text>'
+        x += w + 16
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1500" viewBox="0 0 1000 1500">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="{DEEP}"/><stop offset="1" stop-color="#1b9a73"/></linearGradient></defs>
+<rect width="1000" height="1500" fill="url(#g)"/>
+<circle cx="880" cy="170" r="300" fill="#ffffff" opacity="0.06"/><circle cx="120" cy="1380" r="260" fill="#ffffff" opacity="0.06"/>
+<text x="80" y="150" {FONT} font-size="34" font-weight="700" fill="#b7e0d2" letter-spacing="4">{H.escape(kicker.upper(), quote=False)}</text>
+<rect x="80" y="190" width="120" height="8" rx="4" fill="#b7e0d2"/>
+{t}
+{sl}
+{chips}
+<rect x="80" y="1296" width="520" height="84" rx="42" fill="#ffffff"/>
+<text x="340" y="1352" {FONT} font-size="36" font-weight="800" fill="{DEEP}" text-anchor="middle">Use the calculator</text>
+<text x="920" y="1352" {FONT} font-size="32" font-weight="700" fill="#ffffff" text-anchor="end">calculatepilot.com</text>
+</svg>'''
+
+
+def plan(max_new, calcs, variants):
     cfg = load_json(CONFIG, None)
     if not cfg:
         raise SystemExit("missing " + CONFIG)
@@ -216,7 +297,8 @@ def plan(max_new, variants):
     new = [g for g in guides if g["slug"] not in pinned]
     new.sort(key=lambda g: order.get(g["slug"], ""), reverse=True)
     picks = [(g, None) for g in new[:max_new]]
-    if not picks:
+    calc_picks = [c for c in calc_list() if c["slug"] not in pinned][:calcs]
+    if not picks and not calc_picks:
         # variant pins: least-pinned, then least-recently pinned guide with an unused FAQ question
         cands = []
         for g in guides:
@@ -230,6 +312,21 @@ def plan(max_new, variants):
         picks = [(c[2], c[3]) for c in cands[:variants]]
     os.makedirs(OUT_DIR, exist_ok=True)
     result = []
+    for c in calc_picks:
+        name, desc = calc_info(c)
+        sec = cfg["calc_board"]["sections"][c["cat"]]
+        fname = c["slug"].replace("calc:", "calc-").replace("/", "-") + ".jpg"
+        out = os.path.join(OUT_DIR, fname)
+        render(pin_svg_calc(sec["kicker"], name, desc), out)
+        title = name[:100]
+        result.append({
+            "slug": c["slug"], "faq": None, "kind": "calculator", "board_id": cfg["calc_board"]["id"], "board_name": cfg["calc_board"]["name"],
+            "board_section_id": sec["id"], "section_name": sec["name"],
+            "title": title, "description": calc_description(name, desc, c["cat"], cfg),
+            "link": f"{BASE}{c['href']}?utm_source=pinterest&utm_medium=pin&utm_campaign=calculators",
+            "image_path": out.replace("\\", "/"), "image_url": f"{BASE}/{out.replace(os.sep, '/')}",
+            "alt_text": f"Pin graphic: {name}, a free online calculator"[:500],
+        })
     for g, faq_i in picks:
         info = parse_guide(g)
         bk = board_for(g, info, cfg)
@@ -266,10 +363,10 @@ def record(slug, pin_id, faq=None):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    p1 = sub.add_parser("plan"); p1.add_argument("--max-new", type=int, default=3); p1.add_argument("--variants", type=int, default=1)
+    p1 = sub.add_parser("plan"); p1.add_argument("--max-new", type=int, default=1); p1.add_argument("--calcs", type=int, default=3); p1.add_argument("--variants", type=int, default=1)
     p2 = sub.add_parser("record"); p2.add_argument("slug"); p2.add_argument("pin_id"); p2.add_argument("faq", nargs="?")
     a = ap.parse_args()
     if a.cmd == "plan":
-        plan(a.max_new, a.variants)
+        plan(a.max_new, a.calcs, a.variants)
     else:
         record(a.slug, a.pin_id, a.faq)
