@@ -139,7 +139,13 @@ def make_description(info, board_key, cfg, question=None):
     room = 800 - len(tail) - len(tags)
     if len(base) > room:
         base = base[: room - 1].rsplit(" ", 1)[0] + "."
-    return (base + tail + tags).strip()
+    return sanitize(base + tail + tags)
+
+
+def sanitize(t):
+    # Pinterest sometimes rejects odd hyphenation like '45- and 180-day'; normalise it
+    t = re.sub(r"(\d+)-\s+and\s+(\d+)-(\w+)", r"- and -", t)
+    return re.sub(r"\s+", " ", t).strip()
 
 
 def wrap(t, n):
@@ -254,7 +260,7 @@ def calc_description(name, desc, cat, cfg):
     d = re.sub(r"\s+", " ", desc)
     if len(d) > room:
         d = d[: room - 1].rsplit(" ", 1)[0] + "."
-    return (d + tail + tg).strip()
+    return sanitize(d + tail + tg)
 
 
 def pin_svg_calc(kicker, name, summary, formula_lines=None):
