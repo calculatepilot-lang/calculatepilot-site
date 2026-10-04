@@ -36,6 +36,9 @@ BROWSERS = [
 ]
 
 
+FORMULAS_PATH = "data/pinterest_formulas.json"
+
+
 def load_json(path, default):
     if os.path.exists(path):
         with io.open(path, encoding="utf-8") as f:
@@ -203,6 +206,9 @@ def kicker_for(board_key, cfg):
     return cfg["boards"][board_key]["kicker"]
 
 
+FORMULAS = {}
+
+
 def calc_list():
     """All calculators from calculators.json, round-robin across categories."""
     items = load_json("calculators.json", [])
@@ -251,18 +257,37 @@ def calc_description(name, desc, cat, cfg):
     return (d + tail + tg).strip()
 
 
-def pin_svg_calc(kicker, name, summary):
+def pin_svg_calc(kicker, name, summary, formula_lines=None):
     name = re.split(r"\s[—–|-]\s|:", name)[0].strip() or name
     lines = wrap(name, 18)[:3]
     fs = 92 if len(lines) <= 2 else 78
-    ty = 330
+    ty = 300
     t = "".join(f'<text x="80" y="{ty + i * (fs + 16)}" {FONT} font-size="{fs}" font-weight="800" fill="#ffffff">{H.escape(l, quote=False)}</text>' for i, l in enumerate(lines))
-    sy = ty + len(lines) * (fs + 16) + 60
+    sy = ty + len(lines) * (fs + 16) + 30
     short = re.sub(r"^Free\s+.*?\b(calculator|converter|generator|checker|estimator|planner|tool|counter|roller|predictor|encoder)s?\b[:,]?\s*", "", summary, count=1, flags=re.I)
     short = (short[:1].upper() + short[1:]) if len(short) > 20 else summary
     first = re.split(r"(?<=[.!?])\s", short)[0]
-    first = first if len(first) <= 150 else first[:148].rsplit(" ", 1)[0].rstrip(",;:") + "…"
-    sl = "".join(f'<text x="80" y="{sy + i * 58}" {FONT} font-size="42" fill="#e8f5f0">{H.escape(l, quote=False)}</text>' for i, l in enumerate(wrap(first, 30)[:6]))
+    # leave room for the formula box (fixed at y 800-1085)
+    max_lines = max(2, min(5, int((770 - sy) // 56)))
+    limit = 30 * max_lines - 8
+    first = first if len(first) <= limit else first[: limit - 2].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+    sl = "".join(f'<text x="80" y="{sy + 30 + i * 56}" {FONT} font-size="40" fill="#e8f5f0">{H.escape(l, quote=False)}</text>' for i, l in enumerate(wrap(first, 30)[:max_lines]))
+    box = ""
+    if formula_lines:
+        longest = max(len(l) for l in formula_lines)
+        ffs = 50 if longest <= 22 else (44 if longest <= 30 else (38 if longest <= 38 else 33))
+        per = int(780 / (ffs * 0.54))
+        fl = []
+        for l in formula_lines:
+            fl.extend(textwrap.wrap(l, per, break_long_words=False, break_on_hyphens=False) or [l])
+        fl = fl[:5]
+        lh = ffs + 22
+        bh = 300
+        by = 800
+        top = by + 70 + (bh - 70 - len(fl) * lh) / 2 + ffs * 0.8
+        body = "".join(f'<text x="500" y="{top + i * lh:.0f}" font-family="Cambria Math, Segoe UI, Arial, sans-serif" font-size="{ffs}" font-weight="700" fill="#ffffff" text-anchor="middle">{H.escape(l, quote=False)}</text>' for i, l in enumerate(fl))
+        box = (f'<rect x="80" y="{by}" width="840" height="{bh}" rx="30" fill="#ffffff" opacity="0.14"/>'
+               f'<text x="116" y="{by + 52}" {FONT} font-size="26" font-weight="800" fill="#b7e0d2" letter-spacing="3">FORMULA</text>{body}')
     chips = ""
     x = 80
     for label in ("Free", "No sign-up", "Formula explained"):
@@ -273,10 +298,11 @@ def pin_svg_calc(kicker, name, summary):
 <defs><linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="{DEEP}"/><stop offset="1" stop-color="#1b9a73"/></linearGradient></defs>
 <rect width="1000" height="1500" fill="url(#g)"/>
 <circle cx="880" cy="170" r="300" fill="#ffffff" opacity="0.06"/><circle cx="120" cy="1380" r="260" fill="#ffffff" opacity="0.06"/>
-<text x="80" y="150" {FONT} font-size="34" font-weight="700" fill="#b7e0d2" letter-spacing="4">{H.escape(kicker.upper(), quote=False)}</text>
-<rect x="80" y="190" width="120" height="8" rx="4" fill="#b7e0d2"/>
+<text x="80" y="130" {FONT} font-size="34" font-weight="700" fill="#b7e0d2" letter-spacing="4">{H.escape(kicker.upper(), quote=False)}</text>
+<rect x="80" y="165" width="120" height="8" rx="4" fill="#b7e0d2"/>
 {t}
 {sl}
+{box}
 {chips}
 <rect x="80" y="1296" width="520" height="84" rx="42" fill="#ffffff"/>
 <text x="340" y="1352" {FONT} font-size="36" font-weight="800" fill="{DEEP}" text-anchor="middle">Use the calculator</text>
@@ -285,6 +311,7 @@ def pin_svg_calc(kicker, name, summary):
 
 
 def plan(max_new, calcs, variants):
+    FORMULAS.update(load_json(FORMULAS_PATH, {}))
     cfg = load_json(CONFIG, None)
     if not cfg:
         raise SystemExit("missing " + CONFIG)
@@ -315,9 +342,9 @@ def plan(max_new, calcs, variants):
     for c in calc_picks:
         name, desc = calc_info(c)
         sec = cfg["calc_board"]["sections"][c["cat"]]
-        fname = c["slug"].replace("calc:", "calc-").replace("/", "-") + ".jpg"
+        fname = c["slug"].replace("calc:", "calc-").replace("/", "-") + "-f.jpg"
         out = os.path.join(OUT_DIR, fname)
-        render(pin_svg_calc(sec["kicker"], name, desc), out)
+        render(pin_svg_calc(sec["kicker"], name, desc, FORMULAS.get(c["slug"].replace("calc:", ""))), out)
         title = name[:100]
         result.append({
             "slug": c["slug"], "faq": None, "kind": "calculator", "board_id": cfg["calc_board"]["id"], "board_name": cfg["calc_board"]["name"],
