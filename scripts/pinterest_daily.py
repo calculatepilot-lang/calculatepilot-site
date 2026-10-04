@@ -143,8 +143,8 @@ def make_description(info, board_key, cfg, question=None):
 
 
 def sanitize(t):
-    # Pinterest sometimes rejects odd hyphenation like '45- and 180-day'; normalise it
-    t = re.sub(r"(\d+)-\s+and\s+(\d+)-(\w+)", r"- and -", t)
+    # Pinterest sometimes rejects odd hyphenation like "45- and 180-day"; normalise it
+    t = re.sub(r"(\d+)-\s+and\s+(\d+)-(\w+)", r"\1-\3 and \2-\3", t)
     return re.sub(r"\s+", " ", t).strip()
 
 
