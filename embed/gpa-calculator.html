@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GPA Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add_circle,arrow_forward,balance,calculate,chevron_right,code,content_copy,crisis_alert,event,expand_more,functions,lightbulb,link,lock,percent,person_check,picture_as_pdf,restart_alt,school,tune,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,115 +38,175 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">GPA Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="grade1">Course 1 grade</label>
-          <select id="grade1">
-            <option value="4" selected>A (4.0)</option>
-            <option value="3.7" >A- (3.7)</option>
-            <option value="3.3" >B+ (3.3)</option>
-            <option value="3" >B (3.0)</option>
-            <option value="2.7" >B- (2.7)</option>
-            <option value="2.3" >C+ (2.3)</option>
-            <option value="2" >C (2.0)</option>
-            <option value="1" >D (1.0)</option>
-            <option value="0" >F (0.0)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="credits1">Course 1 credits</label>
-          <input type="number" id="credits1" value="3"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="grade2">Course 2 grade</label>
-          <select id="grade2">
-            <option value="4" >A (4.0)</option>
-            <option value="3.7" selected>A- (3.7)</option>
-            <option value="3.3" >B+ (3.3)</option>
-            <option value="3" >B (3.0)</option>
-            <option value="2.7" >B- (2.7)</option>
-            <option value="2.3" >C+ (2.3)</option>
-            <option value="2" >C (2.0)</option>
-            <option value="1" >D (1.0)</option>
-            <option value="0" >F (0.0)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="credits2">Course 2 credits</label>
-          <input type="number" id="credits2" value="3"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="grade3">Course 3 grade</label>
-          <select id="grade3">
-            <option value="4" >A (4.0)</option>
-            <option value="3.7" >A- (3.7)</option>
-            <option value="3.3" selected>B+ (3.3)</option>
-            <option value="3" >B (3.0)</option>
-            <option value="2.7" >B- (2.7)</option>
-            <option value="2.3" >C+ (2.3)</option>
-            <option value="2" >C (2.0)</option>
-            <option value="1" >D (1.0)</option>
-            <option value="0" >F (0.0)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="credits3">Course 3 credits</label>
-          <input type="number" id="credits3" value="3"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="grade4">Course 4 grade</label>
-          <select id="grade4">
-            <option value="4" >A (4.0)</option>
-            <option value="3.7" >A- (3.7)</option>
-            <option value="3.3" >B+ (3.3)</option>
-            <option value="3" selected>B (3.0)</option>
-            <option value="2.7" >B- (2.7)</option>
-            <option value="2.3" >C+ (2.3)</option>
-            <option value="2" >C (2.0)</option>
-            <option value="1" >D (1.0)</option>
-            <option value="0" >F (0.0)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="credits4">Course 4 credits</label>
-          <input type="number" id="credits4" value="3"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Your GPA</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total credit hours</span><span id="outTotalCredits">—</span></div>
-        <div class="embed-row"><span>Total quality points</span><span id="outQualityPoints">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" data-def="gpa" id="gpCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">GPA Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">school</span>4.0, 4.33 and 5.0 scales</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>GPA Calculator &amp; Cumulative GPA Planner</h1>
+<p>Add your courses, grades and credits to get your semester GPA and your updated cumulative GPA on the 4.0, 4.33 or 5.0 weighted scale. Include your earlier record, see the grade distribution, and switch to the final exam solver to find the score you need.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Schools set their own grading rules, so check yours. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>GPA is the credit-weighted average of grade points. The final-exam solver rearranges the weighted-average formula to find the score you need.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Students need both answers: where their GPA stands, and what one exam must deliver to reach a target grade.</p></section></div>
+</div>
+<div style="margin-bottom:20px"><input id="mode" type="hidden" value="gpa"/><div aria-label="Mode" class="sx-seg full" role="group"><button data-for="mode" data-value="gpa" type="button">GPA calculator</button><button data-for="mode" data-value="final" type="button">Final exam grade needed</button></div></div>
+<form id="calcForm" novalidate="">
+<div id="gpaMode">
+<div class="sx-grid" style="margin-bottom:32px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Course ledger</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Grading scale</label><em class="mu" id="scNote">—</em></div><input id="scale" type="hidden" value="std"/><div aria-label="Grading scale" class="sx-seg full" role="group"><button data-for="scale" data-value="std" type="button">4.0 standard</button><button data-for="scale" data-value="pm" type="button">4.33 with +/−</button><button data-for="scale" data-value="w5" type="button">5.0 weighted (AP/honors)</button></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="courses" style="min-width:600px"><thead><tr><th>Course</th><th>Grade</th><th class="n">Credits</th><th>Weight</th><th></th></tr></thead><tbody></tbody></table></div>
+<div><button class="sx-mt-add" id="addCourse" type="button"><span aria-hidden="true" class="msym">add_circle</span>Add course</button></div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Prior record (optional)</label><em class="mu">adds your transcript history</em></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="pg">Prior cumulative GPA</label></div><div class="sx-au-in sm np"><input id="pg" inputmode="decimal" max="5" min="0" step="0.01" type="number" value="3.45"/></div></div><div><div class="sx-au-l"><label for="pc">Prior credits completed</label></div><div class="sx-au-in sm np"><input id="pc" inputmode="decimal" min="0" step="1" type="number" value="45"/></div></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0;display:flex;gap:8px;flex-wrap:wrap"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">functions</span>Calculate GPA</button><button class="sx-reset" id="clrCourses" style="border:1px solid var(--sx-border);border-radius:8px;padding:10px 14px;background:var(--sx-card)" type="button">Clear all courses</button></div>
+</div>
+</div>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Semester GPA</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Cumulative GPA</span><b id="oCum">—</b></div><div><span>Term credits</span><b id="oCr">—</b></div><div><span>Quality points</span><b id="oQp">—</b></div><div><span>Total credits</span><b id="oTc">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Grade distribution</span><em class="mu" id="distN">—</em></div>
+<div id="dbar" style="display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--sx-low);margin-bottom:10px"></div>
+<div id="dleg" style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--sx-onv)"></div>
+<p class="sx-au-note" id="honors" style="text-align:left;margin-top:12px">—</p>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</div>
+<div hidden="" id="finalMode">
+<div class="sx-grid" style="margin-bottom:32px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">crisis_alert</span><h2 class="sx-h-md" style="margin:0">Final exam grade needed</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="cg">Current grade</label><em class="mu">%</em></div><div class="sx-au-in sm np"><input id="cg" inputmode="decimal" min="0" step="0.1" type="number" value="84"/></div></div>
+<div><div class="sx-au-l"><label for="tg">Target grade</label><em class="mu">%</em></div><div class="sx-au-in sm np"><input id="tg" inputmode="decimal" min="0" step="0.1" type="number" value="90"/></div></div>
+<div><div class="sx-au-l"><label for="fw">Final exam weight</label><em class="mu">%</em></div><div class="sx-au-in sm np"><input id="fw" inputmode="decimal" max="100" min="0" step="1" type="number" value="25"/></div></div>
+</div>
+<div class="sx-qpills" id="tpre"><span class="lb">Target</span><button data-t="90" type="button">A · 90%</button><button data-t="80" type="button">B · 80%</button><button data-t="70" type="button">C · 70%</button><button data-t="60" type="button">D · 60%</button></div>
+<div><div class="sx-au-l"><label for="fp">Points possible on the final</label><em class="mu">optional</em></div><div class="sx-au-in sm np"><input id="fp" inputmode="decimal" min="0" step="1" type="number" value="250"/></div></div>
+<div class="sx-au-warn" hidden="" id="err2" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="err2T"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Find the score I need</button></div>
+</div>
+</div>
+</div>
+<div class="sx-r5">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Score needed on the final</span><span class="sx-ef-grade" id="ftag">—</span></div>
+<div class="big"><span id="fRes">—</span></div>
+<p id="fInterp">—</p>
+<div class="g2"><div><span>In points</span><b id="fPts">—</b></div><div><span>Coursework share</span><b id="fCw">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Score needed for each grade</span><em class="mu">same current grade and weight</em></div>
+<div id="fTab" style="display:flex;flex-direction:column"></div>
+</section>
+</div>
+</div>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Letter grades and grade points</h2><p>A typical US scale. Schools set their own percentage ranges and whether A+ counts as 4.0 or 4.33.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="lt" style="min-width:640px"><thead><tr><th>Letter</th><th>Typical percent</th><th class="n">4.0 scale</th><th class="n">4.33 scale</th><th class="n">Honors (+0.5)</th><th class="n">AP / IB (+1.0)</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>How the results are worked out</h2>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>GPA</h3><code>GPA = Σ(grade points × credits) ÷ Σ credits</code></div>
+<div><h3>Cumulative GPA</h3><code>(prior GPA × prior credits + term points) ÷ total credits</code></div>
+<div><h3>Final exam score needed</h3><code>needed = (target − current × (1 − w)) ÷ w</code></div>
+</div>
+<p style="margin-top:14px">Here w is the weight of the final as a decimal. Weighted scales add 0.5 for honors and 1.0 for AP or IB courses to a passing grade.</p>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Good to know</span>
+<h2>Why your school may differ</h2>
+<p>Some schools cap GPA at 4.0, some give A+ 4.33, and many high schools use their own weighting. Use your transcript key when in doubt.</p>
+<p>A required score above 100% means the target cannot be reached without extra credit.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative results, each checked by hand.</p>
+<div class="sx-mt-3">
+<div><h3>Semester GPA</h3><p>A (3 cr), A− (4), B+ (3), B (4), standard scale.</p><div class="sx-mt-ex">12 + 14.8 + 9.9 + 12 = 48.7 points<br/>credits = 14<br/>48.7 ÷ 14 = <b>3.48</b></div></div>
+<div><h3>Cumulative GPA</h3><p>Prior 3.45 over 45 credits, plus that semester.</p><div class="sx-mt-ex">3.45 × 45 = 155.25<br/>(155.25 + 48.7) ÷ 59 = <b>3.46</b></div></div>
+<div><h3>Final exam needed</h3><p>84% now, 90% target, final worth 25%.</p><div class="sx-mt-ex">(90 − 84 × 0.75) ÷ 0.25<br/>= (90 − 63) ÷ 0.25 = <b>108%</b><br/>not possible without extra credit</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to calculate GPA</h2>
+<ul>
+<li>Convert each letter grade to grade points using your school's scale.</li>
+<li>Multiply each course's grade points by its credit hours.</li>
+<li>Add the results and divide by the total credit hours.</li>
+<li>To include past terms, weight your earlier GPA by its credits.</li>
+</ul>
+<p>To plan for a final, enter your current grade, your target and the weight of the exam. If the score needed is over 100%, talk to your instructor about extra credit or adjust your goal.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>AACRAO, <i>Academic Records and Transcripts</i> guidance on grade point calculation.</li>
+<li>Your school's registrar or grading policy, which sets the official scale.</li>
+<li>U.S. Department of Education, <i>College Navigator</i>, for institution grading information.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How do I calculate my GPA?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply each course's grade points by its credits, add them up, and divide by total credits. A 4.0 in a 3-credit course and a 3.0 in a 4-credit course give (12 + 12) ÷ 7 = 3.43.</p></details>
+<details class="sx-faq"><summary>What is the difference between weighted and unweighted GPA?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Unweighted GPA uses a plain 4.0 scale. Weighted GPA adds points for harder courses, commonly 0.5 for honors and 1.0 for AP or IB, so it can go above 4.0.</p></details>
+<details class="sx-faq"><summary>How do I find the grade I need on a final?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use (target − current × (1 − weight)) ÷ weight. With 84% now, a 90% target and a final worth 25%, you need 108%, which means the target is out of reach without extra credit.</p></details>
+<details class="sx-faq"><summary>Does the tool include past semesters?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes. Enter your prior cumulative GPA and credits and the tool blends them with the current term to give a new cumulative GPA.</p></details>
+<details class="sx-faq"><summary>What GPA do I need for the Dean's List?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It varies by school, but a semester GPA of 3.5 or higher is a common requirement. Check your college's published standard.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/grade-needed-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">crisis_alert</span></span><b>Final Grade Needed</b><span class="d">Score needed on the final exam.</span><span class="f">Plan the final<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/weighted-average-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>Weighted Average</b><span class="d">Average with weights.</span><span class="f">Weigh the scores<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Percentage Calculator</b><span class="d">Percent of, change and difference.</span><span class="f">Work with percents<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This GPA Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/gpa-calculator.html" width="100%" height="560" loading="lazy" title="GPA Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/gpa-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -273,7 +215,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/gpa.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/gpa.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+/* Mortgage calculator dark-mode + sticky right column + comparison cards */
+#cp-mortgage,#cp-mortgage label,#cp-mortgage p,#cp-mortgage span,#cp-mortgage button,#cp-mortgage strong{color:var(--ink)}
+#cp-mortgage .bg-white,#amort-modal .bg-white,#mobile-dock,#cp-pay-card,#pmi-notice,.cp-term-card,.cp-panel,.cp-prepay{background:var(--paper-raised)!important;color:var(--ink)!important;border-color:var(--line)!important}
+#cp-mortgage input,#cp-mortgage select{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important}
+#cp-mortgage .text-slate-500,#cp-mortgage .text-slate-600,#prepay-insight,#cp-pay-card .pay-sub,#cp-pay-card .pay-kicker,#pmi-notice,.cp-term-sub{color:var(--slate)!important}
+#cp-mortgage .text-emerald-deep,#resultValue,#dock-piti,#outTotalInterest,#cp-pay-card .pay-hero,.cp-term-title,.cp-meth-h,.cp-term-amt.green{color:var(--signal-dark)!important}
+#cp-mortgage .bg-chip-idle{background:var(--line-soft)!important;color:var(--ink)!important}
+#cp-mortgage .bg-primary,#cp-mortgage .bg-primary *{background:#137456!important;color:#fff!important}
+html.cp-dark #cp-mortgage .bg-primary,html.cp-dark #cp-mortgage .bg-primary *{background:#1A7A5E!important;color:#fff!important}
+#cp-aside-actions .ghost,.ghost-btn{background:var(--paper-raised)!important;color:var(--ink)!important;border-color:var(--line)!important}
+.faq-acc{background:var(--paper-raised);border-color:var(--line);color:var(--ink)}
+.faq-acc>summary{color:var(--ink)}
+.faq-acc>p{color:var(--slate)}
+html.cp-dark #amort-modal{background:rgba(0,0,0,.65)}
+html.cp-dark #mobile-dock{border-top-color:var(--line)}
+html.cp-dark #cp-pay-card .piti-pill{background:var(--signal-soft);color:var(--signal-dark);border-color:var(--signal-soft-hover)}
+html.cp-dark .cp-term-card.rec{background:var(--signal-soft)!important;border-color:var(--signal-soft-hover)!important}
+html.cp-dark .cp-saved-row{background:var(--signal-soft);color:var(--signal-dark)}
+html.cp-dark .piti-item{background:var(--paper);border-color:var(--line)}
+
+#cp-mortgage{position:relative}
+#cp-mortgage>#cp-mortgage-grid,#cp-mortgage>.grid{align-items:start}
+@media(min-width:1024px){
+  #cp-mortgage aside,#cp-mortgage-aside{
+    position:sticky;top:84px;align-self:start;max-height:calc(100vh - 100px);
+    overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  }
+}
+@media(max-width:1023px){
+  #cp-mortgage aside,#cp-mortgage-aside{position:static;max-height:none;overflow:visible}
+}

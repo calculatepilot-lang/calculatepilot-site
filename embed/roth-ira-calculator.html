@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roth IRA Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance_wallet,arrow_forward,bolt,check_circle,chevron_right,compare_arrows,download,expand_more,finance_mode,lock_open,menu_book,pie_chart,print,receipt_long,refresh,savings,shield,trending_up,tune,verified_user,work&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,84 +38,207 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Roth IRA Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="currentBalance">Current balance ($)</label>
-          <input type="number" id="currentBalance" value="15000"
-step="500"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="monthlyContribution">Monthly contribution ($)</label>
-          <input type="number" id="monthlyContribution" value="500"
-step="25"min="0">
-        </div>
-        <div class="field">
-          <label for="annualReturn">Expected annual return (%)</label>
-          <input type="number" id="annualReturn" value="7"
-step="0.1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="yearsToGrow">Years to grow</label>
-          <input type="number" id="yearsToGrow" value="25"
-step="1"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Projected balance</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total contributed</span><span id="outContributed">—</span></div>
-        <div class="embed-row"><span>Tax-free growth</span><span id="outGrowth">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="rothCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b>Roth IRA Calculator</b></nav>
+<header class="sx-head">
+<div class="sx-badges">
+<span class="sx-badge em"><span class="dot"></span>Mathematical Model: Tax-Free Compound Growth</span>
+<span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>2026 IRS Limit: $7,500 / $8,600 (50+) • Zero Data Stored</span>
 </div>
+<h1>Roth IRA Calculator</h1>
+<p>Simulate your tax-free retirement growth, compound interest yields, and compare Roth vs Traditional IRA post-tax liquidation advantages.</p>
+</header>
+<div class="sx-grid">
+<form class="sx-card sx-params sx-left" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md">Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">refresh</span>Reset</button>
+</div>
+<div class="sx-2">
+<div><label class="sx-label" for="currentAge">Current Age</label><div class="sx-field r"><input id="currentAge" inputmode="numeric" max="90" min="18" type="number" value="28"/><span class="suf">yrs</span></div></div>
+<div><label class="sx-label" for="retireAge">Retirement Age</label><div class="sx-field r"><input id="retireAge" inputmode="numeric" max="99" min="40" type="number" value="65"/><span class="suf">yrs</span></div></div>
+</div>
+<div class="sx-strip"><span>Investment Horizon:</span><b id="horizonText">37 Years of Exponential Growth</b></div>
+<div>
+<label class="sx-label" for="startBalance">Starting Roth IRA Balance</label>
+<div class="sx-field cur"><span class="pre">$</span><input id="startBalance" inputmode="decimal" min="0" step="500" type="number" value="12000"/></div>
+<span class="sx-help">Current assets in your custodial Roth IRA account.</span>
+</div>
+<div>
+<div class="sx-row"><label class="sx-label" for="contribution">Annual Contribution</label><span class="sx-pill"><span id="contribYr">$7,500 / yr</span> <small id="contribMo">($625.00/mo)</small></span></div>
+<input class="sx-range" id="contribution" max="8600" min="0" step="50" type="range" value="7500"/>
+<div class="sx-max">
+<div><span aria-hidden="true" class="msym">bolt</span><div><p class="t" id="maxTitle">Max Out Annual Contribution ($7,500/yr)</p><p class="s" id="maxSub">2026 IRS statutory limit for individuals under 50</p></div></div>
+<label class="sx-toggle"><input aria-label="Max out annual contribution every year" checked="" id="maxOut" type="checkbox"/><i></i></label>
+</div>
+<p class="sx-warn" id="limitWarn"></p>
+</div>
+<div>
+<div class="sx-row"><label class="sx-label" for="rate">Expected Annual Return Rate</label><span class="sx-val" id="rateVal">8.0%</span></div>
+<div class="sx-field pct"><input id="rate" inputmode="decimal" max="30" min="0" step="0.1" type="number" value="8.0"/><span class="suf">%</span></div>
+<div class="sx-chips">
+<button class="sx-chip" data-for="rate" data-value="6" type="button">6.0% (Conservative)</button>
+<button class="sx-chip" data-for="rate" data-value="8" type="button">8.0% (S&amp;P Avg)</button>
+<button class="sx-chip" data-for="rate" data-value="10" type="button">10.0% (Equities)</button>
+</div>
+</div>
+<div class="sx-sep">
+<span class="sx-label">Expected Tax Bracket Comparison</span>
+<div class="sx-2">
+<div><label class="sx-sub" for="taxNow">Current Bracket</label><div class="sx-field sm pct"><input id="taxNow" inputmode="decimal" max="50" min="0" step="1" type="number" value="22"/><span class="suf">%</span></div></div>
+<div><label class="sx-sub" for="taxRet">Retirement Bracket</label><div class="sx-field sm pct"><input id="taxRet" inputmode="decimal" max="50" min="0" step="1" type="number" value="24"/><span class="suf">%</span></div></div>
+</div>
+</div>
+<details class="sx-more sx-sep">
+<summary>Income eligibility &amp; withdrawal assumptions<span aria-hidden="true" class="msym">expand_more</span></summary>
+<div class="sx-2">
+<div><label class="sx-sub" for="filing">Filing status</label><div class="sx-field"><select id="filing"><option value="single">Single / Head of household</option><option value="mfj">Married filing jointly</option><option value="mfs">Married filing separately</option></select></div></div>
+<div><label class="sx-sub" for="magi">Modified AGI</label><div class="sx-field sm cur"><span class="pre">$</span><input id="magi" inputmode="decimal" min="0" step="1000" type="number" value="90000"/></div></div>
+</div>
+<div class="sx-2">
+<div><label class="sx-sub" for="swr">Withdrawal rate</label><div class="sx-field sm pct"><input id="swr" inputmode="decimal" max="10" min="1" step="0.1" type="number" value="4"/><span class="suf">%</span></div></div>
+<div><label class="sx-sub" for="inflation">Inflation</label><div class="sx-field sm pct"><input id="inflation" inputmode="decimal" max="15" min="0" step="0.1" type="number" value="2.5"/><span class="suf">%</span></div></div>
+</div>
+<span class="sx-help" id="eligText">2026 phase-out for single filers: $153,000–$168,000 MAGI.</span>
+</details>
+<button class="sx-cta" type="submit"><span aria-hidden="true" class="msym">finance_mode</span>Recalculate Projections</button>
+</form>
+<div class="sx-right" id="results">
+<section aria-live="polite" class="sx-hero">
+<span aria-hidden="true" class="msym wm">account_balance_wallet</span>
+<div class="sx-hero-in">
+<div>
+<div class="sx-hero-pill"><span aria-hidden="true" class="msym">lock_open</span>100% Tax-Free Qualified Withdrawals</div>
+<h2>Projected Tax-Free Balance at Age <span id="retAgeLbl">65</span></h2>
+<div class="big"><span id="resultValue">—</span><small>at retirement</small></div>
+<p class="real" id="realText">—</p>
+</div>
+<div class="sx-hero-side">
+<span>Monthly Tax-Free Passive Yield:</span>
+<b id="monthlyIncome">—</b>
+<small id="swrLbl">(at safe 4.0% SWR rule)</small>
+</div>
+</div>
+</section>
+<div class="sx-kpis">
+<div class="sx-card sx-kpi">
+<div class="top"><span>Total Principal Invested</span><span aria-hidden="true" class="msym">savings</span></div>
+<div class="mid"><span class="v" id="outContrib">—</span><span class="s" id="outContribPct">—</span></div>
+<div class="bar"><span id="barContrib"></span></div>
+</div>
+<div class="sx-card sx-kpi g">
+<div class="top"><span>Tax-Free Compound Growth</span><span aria-hidden="true" class="msym">trending_up</span></div>
+<div class="mid"><span class="v" id="outGrowth">—</span><span class="s" id="outGrowthPct">—</span></div>
+<div class="bar"><span id="barGrowth"></span></div>
+</div>
+<div class="sx-card sx-kpi e" id="kpiTax">
+<div class="top"><span>Estimated Taxes Saved</span><span aria-hidden="true" class="msym">shield</span></div>
+<div class="mid"><span class="v" id="outTaxSaved">—</span><span class="s" id="outTaxSub">—</span></div>
+<div class="bar"><span id="barTax" style="width:100%"></span></div>
+</div>
+</div>
+<section class="sx-card sx-chartcard">
+<div class="sx-chart-head">
+<div><h3 class="sx-h-md" id="chartTitle">37-Year Wealth Accumulation Trajectory</h3><p class="sx-sm sx-muted" id="chartSub" style="margin:0">—</p></div>
+<div class="sx-legend"><span><i style="background:var(--sx-pc)"></i>Compound Earnings</span><span><i style="background:var(--sx-ov)"></i>Principal Invested</span></div>
+</div>
+<div aria-label="Stacked bars of principal invested and compound earnings by age" class="sx-chart" id="growthChart" role="img"></div>
+</section>
+<section class="sx-card" style="overflow:hidden">
+<div class="sx-vs-head">
+<div><h3 class="sx-h-md">Head-to-Head: Roth IRA vs. Traditional IRA</h3><p class="sx-sm sx-muted" id="vsSub" style="margin:0">—</p></div>
+<span class="sx-adv" id="advBadge">—</span>
+</div>
+<div class="sx-scroll"><table class="sx-vs">
+<thead><tr><th scope="col">Metric / Dimension</th><th class="r" scope="col">Roth IRA (Tax-Free Shell)</th><th scope="col">Traditional IRA (Pre-Tax Shell)</th></tr></thead>
+<tbody>
+<tr><td id="vsGrossLbl">Gross Ending Balance (Age 65)</td><td class="r b" id="vsGrossR">—</td><td id="vsGrossT">—</td></tr>
+<tr><td>Up-Front Tax Deduction on Contributions</td><td class="r m mu">$0 (after-tax dollars)</td><td class="sb g" id="vsDed">—</td></tr>
+<tr><td>Tax Due upon Qualified Withdrawal</td><td class="r sb g">$0.00 (0% Tax Rate)</td><td class="x" id="vsTax">—</td></tr>
+<tr><td>Net Spendable Retirement Capital</td><td class="r b p" id="vsNetR">—</td><td class="m mu" id="vsNetT">—</td></tr>
+<tr><td>Required Minimum Distributions (RMDs)</td><td class="r m">None during lifetime</td><td class="mu">Mandatory at Age 73 / 75</td></tr>
+<tr><td>Inheritance Tax Treatment</td><td class="r m g">Tax-Free to Beneficiaries*</td><td class="mu">Taxable as Ordinary Income</td></tr>
+</tbody>
+</table></div>
+<p class="sx-vs-note">Both accounts receive the same contributions and returns. Roth advantage = withdrawal tax avoided − Traditional's up-front deduction (not reinvested). *Most non-spouse heirs must empty an inherited IRA within 10 years; qualified Roth withdrawals stay income-tax-free.</p>
+</section>
+</div>
+</div>
+<section class="sx-card sx-ledger cp-hide" id="schedule">
+<div class="sx-sec-head">
+<div><h2 class="sx-h-md">Amortization &amp; Compound Ledger (Initial 10-Year Sample)</h2><p class="sx-sm sx-muted" id="ledgerSub" style="margin:0">—</p></div>
+<div class="sx-btns">
+<button class="sx-btn" id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button>
+<button class="sx-btn" data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button>
+</div>
+</div>
+<div class="sx-scroll" id="ledger"></div>
+<div class="sx-foot"><button aria-controls="ledger" aria-expanded="false" id="ledgerMore" type="button"><span id="ledgerMoreTxt">Show Full 37-Year Ledger</span><span aria-hidden="true" class="msym">expand_more</span></button></div>
+</section>
+<section class="sx-card sx-method cp-hide" id="formula">
+<div class="sx-method-in">
+<div class="sx-title"><span aria-hidden="true" class="msym">menu_book</span><h2 class="sx-h-md">Mathematical Methodology &amp; Computational Formulas</h2></div>
+<p>CalculatePilot models tax-free custodial accumulation through the standard future value formula of an annuity due (contributions made at the start of each year) compounded annually, integrated with initial lump-sum seed appreciation:</p>
+<div class="sx-formula">
+<div><b>FV = P × (1 + r)ⁿ + PMT × [ ((1 + r)ⁿ − 1) / r ] × (1 + r)</b></div>
+<div id="formulaVars">Where <strong>P</strong> = Starting Balance, <strong>r</strong> = Annual Rate, <strong>n</strong> = Years, <strong>PMT</strong> = Annual Contribution.</div>
+</div>
+<div class="sx-points">
+<div><h3><span aria-hidden="true" class="msym">check_circle</span>5-Year Rule &amp; Qualified Distributions</h3><p>Roth IRA earnings can be withdrawn completely tax-free and penalty-free once the account holder reaches age 59½ and has satisfied the IRS 5-year aging requirement, which starts on January 1 of the tax year of the first Roth IRA contribution.</p></div>
+<div><h3><span aria-hidden="true" class="msym">check_circle</span>Principal Liquidity Shield</h3><p>Because contributions are made with after-tax dollars, the <span id="principalTxt">$289,500</span> contribution basis may be withdrawn at any time, for any reason, without taxes or early withdrawal penalties under IRC Section 408A ordering rules.</p></div>
+</div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Why Roth IRA growth is tax-free</h2>
+<p>Roth IRA contributions are made with after-tax dollars — you don't get a tax deduction upfront, unlike a traditional IRA or 401(k). In exchange, both the growth and qualified withdrawals in retirement are entirely tax-free, which can be a significant advantage over a multi-decade investment horizon.</p>
+<p>This makes a Roth IRA particularly valuable if you expect to be in a similar or higher tax bracket in retirement, since you're locking in today's tax rate on contributions rather than paying tax on a potentially larger balance later. If you expect a lower bracket in retirement, the Traditional IRA's up-front deduction can come out ahead — the head-to-head table above shows which way your inputs point.</p>
+<h2>2026 Roth IRA contribution limits</h2>
+<p>For 2026 you can contribute up to <strong>$7,500</strong> across all your IRAs, or <strong>$8,600</strong> if you are 50 or older (a $1,100 catch-up). You can't contribute more than your taxable compensation for the year. With the max-out toggle on, this calculator switches to the catch-up limit automatically from the year you turn 50. Future limits are indexed to inflation, but the projection holds them at 2026 levels to stay conservative.</p>
+<table>
+<thead><tr><th>Filing status (2026)</th><th>Full contribution if MAGI below</th><th>No direct contribution at or above</th></tr></thead>
+<tbody>
+<tr><td>Single / head of household</td><td>$153,000</td><td>$168,000</td></tr>
+<tr><td>Married filing jointly</td><td>$242,000</td><td>$252,000</td></tr>
+<tr><td>Married filing separately*</td><td>—</td><td>$10,000</td></tr>
+</tbody>
+</table>
+<p>Inside the phase-out range the allowed contribution shrinks proportionally (rounded up to the next $10, with a $200 minimum). Enter your filing status and MAGI under <em>Income eligibility</em> and the calculator applies the reduced limit. *If you lived apart from your spouse all year, use the single ranges. Source: <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" rel="noopener" target="_blank">IRS — 2026 IRA limits and Roth phase-out ranges</a>.</p>
+<h2>How this calculator works</h2>
+<p>Each year the calculator adds your contribution at the start of the year (capped at that year's IRS limit for your age and income), then grows the whole balance at your expected return. The Traditional IRA comparison uses the same contributions and returns, taxes the full withdrawal at your retirement bracket, and credits the Traditional side with the tax deduction it would have earned at your current bracket. The monthly income figure applies your chosen safe withdrawal rate to the final balance, and the "today's dollars" figure discounts it by inflation.</p>
+<p>Unlike a 401(k), an IRA is opened independently through a brokerage rather than through an employer, giving you more control over investment choices but without an employer match. To see your full retirement picture across all accounts, try the <a href="/financial/retirement-calculator.html">Retirement Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between a Roth IRA and a traditional IRA?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Traditional IRA contributions are often tax-deductible now but taxed on withdrawal in retirement. Roth IRA contributions are made with after-tax money now, but qualified withdrawals in retirement are completely tax-free.</p></details>
+<details class="sx-faq"><summary>Is there an income limit for contributing to a Roth IRA?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes. For 2026, direct contributions phase out between $153,000 and $168,000 of modified AGI for single filers and between $242,000 and $252,000 for married couples filing jointly. Above the top of the range you can't contribute directly.</p></details>
+<details class="sx-faq"><summary>How much can I contribute to a Roth IRA in 2026?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Up to $7,500, or $8,600 if you are age 50 or older by the end of the year — but never more than your taxable compensation. The limit is shared across all your traditional and Roth IRAs.</p></details>
+<details class="sx-faq"><summary>When can I withdraw Roth IRA earnings tax-free?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Earnings come out tax- and penalty-free once you are 59½ and your first Roth IRA contribution was made at least five tax years earlier. Your own contributions can be withdrawn at any time without tax or penalty.</p></details>
+<details class="sx-faq"><summary>Do Roth IRAs have required minimum distributions?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. The original owner never has to take RMDs from a Roth IRA, so the balance can keep compounding tax-free for life. Traditional IRAs require distributions starting at age 73 (75 for people born in 1960 or later).</p></details>
+<p class="sx-trust">Limits checked against IRS guidance for tax year 2026 · <a href="/methodology.html">Our methodology</a> · Last updated September 2026</p>
+</div>
+</section>
+<section class="sx-related cp-hide">
+<div class="sx-rel-head">
+<div><h2 class="sx-h-md">Related Retirement &amp; Tax Calculators</h2><p class="sx-sm sx-muted" style="margin:0">Cross-reference your wealth building roadmap across other institutional wrappers</p></div>
+<a href="/financial-calculators.html">View All Financial Tools (52)<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-rel-grid">
+<a class="sx-card sx-rel" href="/financial/401k-calculator.html"><div><div class="ic"><span aria-hidden="true" class="msym">work</span></div><h3>401(k) Calculator</h3><p>Model employer matching, pre-tax contributions up to the annual limit, and long-term tax deferral.</p></div><div class="go"><span>Calculate Yield</span><span aria-hidden="true" class="msym">chevron_right</span></div></a>
+<a class="sx-card sx-rel" href="/financial/retirement-calculator.html"><div><div class="ic"><span aria-hidden="true" class="msym">compare_arrows</span></div><h3>Retirement Calculator</h3><p>Combine every account to see whether your savings rate reaches your retirement income target.</p></div><div class="go"><span>Run Comparison</span><span aria-hidden="true" class="msym">chevron_right</span></div></a>
+<a class="sx-card sx-rel" href="/financial/annuity-calculator.html"><div><div class="ic"><span aria-hidden="true" class="msym">pie_chart</span></div><h3>Annuity Calculator</h3><p>Turn a lump sum into a guaranteed income stream and compare payout periods and rates.</p></div><div class="go"><span>Explore Payouts</span><span aria-hidden="true" class="msym">chevron_right</span></div></a>
+<a class="sx-card sx-rel" href="/financial/compound-interest-calculator.html"><div><div class="ic"><span aria-hidden="true" class="msym">receipt_long</span></div><h3>Compound Interest Calculator</h3><p>Project growth with any compounding frequency, deposits or withdrawals, tax and inflation.</p></div><div class="go"><span>Estimate Growth</span><span aria-hidden="true" class="msym">chevron_right</span></div></a>
+</div>
+</section>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/roth-ira-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -242,40 +247,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/roth-ira.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/roth-ira.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

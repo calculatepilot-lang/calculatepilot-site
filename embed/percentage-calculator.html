@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Percentage Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,calculate,chevron_right,code,compare_arrows,content_copy,event,expand_more,functions,history,lightbulb,link,lock,percent,person_check,picture_as_pdf,restart_alt,scale,sell,storefront,swap_vert,trending_down,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,49 +38,127 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Percentage Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="valueX">Value X</label>
-          <input type="number" id="valueX" value="25"
-step="1">
-        </div>
-        <div class="field">
-          <label for="valueY">Value Y</label>
-          <input type="number" id="valueY" value="200"
-step="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">X is what % of Y</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>X% of Y</span><span id="outPercentOf">—</span></div>
-        <div class="embed-row"><span>Percentage change (X → Y)</span><span id="outChange">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pgCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Percentage Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Four percentage problems in one</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Percentage Calculator</h1>
+<p>Work out what P% of a number is, what percent one number is of another, the percentage change between two values, or the original value before a percentage increase or decrease — with the working shown for each.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Each formula and worked example is re-derived by hand before publishing. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts a percentage to a fraction of 100, scales the base by that fraction, and for the reverse problems divides by the growth factor (1 ± rate).</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Percent questions come in four shapes that are easy to mix up. Pick the one you have and see the answer, the fraction and the multiplier together.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">What is P% of X?</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Type of percentage problem" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">P% of X</button><button data-for="mode" data-value="s2" type="button">X is what % of Y</button><button data-for="mode" data-value="s3" type="button">% change</button><button data-for="mode" data-value="s4" type="button">Reverse %</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-v="8.875" type="button">NYC sales tax 8.875%</button><button data-v="20" type="button">Tip 20%</button><button data-v="15" type="button">Discount 15%</button><button data-v="35" type="button">Margin 35%</button></div>
+<div><div class="sx-au-l"><label for="a" id="aL">Percentage rate (P)</label><em class="mu" id="aH">percent</em></div><div class="sx-au-in np"><input id="a" inputmode="decimal" step="any" type="number" value="18.5"/></div></div>
+<div><div class="sx-au-l"><label for="b" id="bL">Base value (X)</label><em class="mu" id="bH">any number</em></div><div class="sx-au-in np"><input id="b" inputmode="decimal" step="any" type="number" value="450"/></div></div>
+<div id="fDir"><div class="sx-au-l"><span>The change applied was an…</span></div><input id="dir" type="hidden" value="s1"/><div aria-label="Increase or decrease" class="sx-seg full" role="group"><button data-for="dir" data-value="s1" type="button">Increase</button><button data-for="dir" data-value="s2" type="button">Decrease</button></div></div>
+<div><div class="sx-au-l"><label for="dp">Decimal places</label></div><select class="sx-mt-sel" id="dp"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option></select></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button><button class="rs" id="swap" type="button">Swap values</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Formula in use</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">P% of X</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<section class="sx-card" id="barCard" style="padding:16px 18px">
+<div class="sx-au-l" style="margin-bottom:10px"><span id="barT">Part-to-whole</span><em class="mu" id="barN">—</em></div>
+<div id="bar" style="display:flex;height:28px;border-radius:8px;overflow:hidden;background:var(--sx-hi2)"></div>
+<div id="barL" style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin-top:6px"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy equation</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>The three ideas behind every percentage problem</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">percent</span><h3>1. Percent means “per hundred”</h3><p>P% is the fraction P ÷ 100. To find a portion, scale the base by that fraction.</p><div class="sx-mt-ex" style="margin-top:10px">r = 18.5 ÷ 100 = 0.185<br/>Y = 0.185 × 450 = <b>83.25</b><br/>Check: 83.25 ÷ 450 × 100 = 18.5% ✓</div></div>
+<div><span aria-hidden="true" class="msym">swap_vert</span><h3>2. Increases and decreases are not symmetrical</h3><p>Percentage change is measured against the starting value, so undoing a change needs a different percentage.</p><div class="sx-mt-ex" style="margin-top:10px">100 → +50% → 150<br/>150 → −50% → <b>75</b> (not 100)<br/>To return: 150 → 100 is <b>−33.33%</b></div></div>
+<div><span aria-hidden="true" class="msym">history</span><h3>3. Reverse percentages divide, not subtract</h3><p>To recover the original before a change, divide the final value by the growth factor.</p><div class="sx-mt-ex" style="margin-top:10px">Final = X × (1 ± r)<br/>X = Final ÷ (1 ± r)<br/>$120 after 20% off: 120 ÷ 0.80 = <b>$150</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative figures, each checked by hand.</p>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">storefront</span><h3>Markup vs margin</h3><p>A retailer adds a 30% markup to a $100 cost, giving a $130 price.</p><div class="sx-mt-ex">Markup = 30 ÷ 100 = 30% of cost<br/>Margin = 30 ÷ 130 = <b>23.08%</b> of price</div><p style="margin-top:10px">The same $30 profit is a different percentage depending on the base.</p></div>
+<div><span aria-hidden="true" class="msym">trending_down</span><h3>Real pay after inflation</h3><p>A wage rises 3.0% while prices rise 4.5%.</p><div class="sx-mt-ex">Real change = 1.030 ÷ 1.045 − 1<br/>= <b>−1.44%</b> (about)</div><p style="margin-top:10px">Dividing growth factors is more accurate than subtracting 4.5 from 3.0.</p></div>
+<div><span aria-hidden="true" class="msym">sell</span><h3>Discount, then tax</h3><p>An $80 item is 25% off and then 8% sales tax is added.</p><div class="sx-mt-ex">80 × 0.75 = 60.00<br/>60.00 × 1.08 = <b>$64.80</b></div><p style="margin-top:10px">Tax is calculated on the discounted price, so the order matters only if the store applies them differently.</p></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is a percentage?</h2>
+<p>A percentage is a number expressed as a fraction of 100. “18.5%” means 18.5 out of every 100, or 0.185. Percentages make it easy to compare parts of wholes of different sizes.</p>
+<h2>The four formulas</h2>
+<ul>
+<li><strong>P% of X:</strong> Y = (P ÷ 100) × X</li>
+<li><strong>X is what % of Y:</strong> % = (X ÷ Y) × 100</li>
+<li><strong>Percentage change:</strong> % change = (new − old) ÷ |old| × 100</li>
+<li><strong>Reverse percentage:</strong> original = final ÷ (1 ± rate ÷ 100), using + for an increase and − for a decrease</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i> — treatment of the percent sign and dimensionless quantities.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why aren’t percentage increases and decreases symmetrical?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Percentage change is measured against the starting value. Going from 100 to 125 is +25%; going from 125 back to 100 is −25 ÷ 125 = −20%, because the base is now 125. A 25% increase therefore needs a 20% decrease to return to the original.</p></details>
+<details class="sx-faq"><summary>What is the difference between percentage points and percent change?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Percentage points are the simple difference between two percentages: going from 4% to 5% is 1 percentage point. Percent change compares them proportionally: 5 is 25% more than 4. Mixing the two up is a common source of misleading headlines.</p></details>
+<details class="sx-faq"><summary>How do I calculate a discount before sales tax?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply the price by (1 − discount rate) to get the sale price, then multiply by (1 + tax rate). For $80 with 25% off and 8% tax: 80 × 0.75 × 1.08 = $64.80. Some jurisdictions tax the pre-discount price in certain cases, so check the local rules.</p></details>
+<details class="sx-faq"><summary>How do I find the original price before a percentage change?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the final value by the growth factor. After a 20% discount the factor is 0.80, so a $120 price came from 120 ÷ 0.80 = $150. Subtracting 20% of $120 would give the wrong answer.</p></details>
+<details class="sx-faq"><summary>Can a percentage be greater than 100%?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes. 150% of a number is one and a half times it, and a value that doubles has increased by 100%. Only percentages of a fixed whole (such as a share of a total) are limited to 100%.</p></details>
+<details class="sx-faq"><summary>What if the starting value is zero?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Percentage change from zero is undefined because it divides by zero, and “X is what percent of 0” is undefined for the same reason. Report the absolute change instead.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with related maths.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/percent-error-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">compare_arrows</span></span><b>Percent Error</b><span class="d">Compare a measurement with an accepted value.</span><span class="f">Measurement error<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/ratio-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>Ratio Calculator</b><span class="d">Simplify ratios and solve proportions.</span><span class="f">Compare parts<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/weighted-average-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Weighted Average</b><span class="d">Averages where some values count more.</span><span class="f">Weighted mean<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/discount-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">sell</span></span><b>Discount Calculator</b><span class="d">Sale price, savings and stacked discounts.</span><span class="f">Shopping maths<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Percentage Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/percentage-calculator.html" width="100%" height="560" loading="lazy" title="Percentage Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/percentage-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -208,6 +168,8 @@ step="1">
 </div>
 
 
-<script src="https://www.calculatepilot.com/js/percentage.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/percentage.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commission Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,badge,calculate,call_split,chevron_right,content_copy,expand_more,lock,percent,print,real_estate_agent,receipt_long,restart_alt,stacked_bar_chart,tune,work&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,78 +38,114 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Commission Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="saleAmount">Sale amount ($)</label>
-          <input type="number" id="saleAmount" value="400000"
-step="1000"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="commissionRate">Commission rate (%)</label>
-          <input type="number" id="commissionRate" value="3"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="agentSplit">Your split of commission (%)</label>
-          <input type="number" id="agentSplit" value="70"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Your commission</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total commission (before split)</span><span id="outTotalCommission">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="cmCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Commission Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">percent</span>Flat or Tiered Rates</span><span class="sx-badge"><span aria-hidden="true" class="msym">call_split</span>Split &amp; Fees</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in Your Browser</span></div>
+<h1>Commission Calculator — Flat, Tiered &amp; Split Commission</h1>
+<p>Calculate sales or real estate commission at a flat or tiered rate, see your take-home after a brokerage split and fees, and find the sales volume you need to reach an income goal.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Sale &amp; Rates</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="sale">Sale Amount</label></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="sale" inputmode="decimal" min="0" step="1000" style="font-size:17px;font-weight:600" type="number" value="400000"/></div>
+<div class="sx-au-chips">Presets: <button data-for="sale" data-value="10000" type="button">$10k</button><button data-for="sale" data-value="50000" type="button">$50k</button><button data-for="sale" data-value="250000" type="button">$250k</button><button data-for="sale" data-value="400000" type="button">$400k</button></div>
+</div>
+<div><div class="sx-au-l"><span>Rate Structure</span></div><input id="mode" type="hidden" value="s1"/><div aria-label="Rate structure" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="s1" style="flex:1" type="button">Flat rate</button><button data-for="mode" data-value="s2" style="flex:1" type="button">Tiered</button></div></div>
+<div id="fRow"><div class="sx-au-l"><label for="rate">Commission Rate</label></div><div class="sx-au-in np"><input id="rate" inputmode="decimal" max="100" min="0" step="0.1" type="number" value="3"/><span class="suf">%</span></div></div>
+<div hidden="" id="tRow">
+<div class="sx-au-l"><span>Tiers (each rate applies to the part of the sale in that band)</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="sx-au-in"><span class="pre">Up to $</span><input aria-label="Tier 1 upper limit" id="t1" inputmode="decimal" min="0" step="1000" type="number" value="100000"/></div><div class="sx-au-in np"><input aria-label="Tier 1 rate" id="r1" inputmode="decimal" max="100" min="0" step="0.1" type="number" value="5"/><span class="suf">%</span></div>
+<div class="sx-au-in"><span class="pre">Up to $</span><input aria-label="Tier 2 upper limit" id="t2" inputmode="decimal" min="0" step="1000" type="number" value="300000"/></div><div class="sx-au-in np"><input aria-label="Tier 2 rate" id="r2" inputmode="decimal" max="100" min="0" step="0.1" type="number" value="3"/><span class="suf">%</span></div>
+<div class="sx-au-in np"><span class="pre" style="padding-left:12px">Above</span></div><div class="sx-au-in np"><input aria-label="Tier 3 rate" id="r3" inputmode="decimal" max="100" min="0" step="0.1" type="number" value="2"/><span class="suf">%</span></div>
+</div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="split">Your Split</label></div><div class="sx-au-in np"><input id="split" inputmode="decimal" max="100" min="0" step="1" type="number" value="70"/><span class="suf">%</span></div></div>
+<div><div class="sx-au-l"><label for="fee">Fees per Deal</label></div><div class="sx-au-in"><span class="pre">$</span><input id="fee" inputmode="decimal" min="0" step="25" type="number" value="0"/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="goal">Annual Income Goal (optional)</label></div><div class="sx-au-in"><span class="pre">$</span><input id="goal" inputmode="decimal" min="0" placeholder="e.g. 80000" step="1000" type="number" value=""/></div></div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Commission</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Your take-home commission</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Gross commission</span><b id="gross">—</b></div><div><span>Effective rate on the sale</span><b id="eff">—</b></div></div>
+<div class="g2"><div><span>Brokerage / house share</span><b id="house">—</b></div><div><span>Fees</span><b id="fees">—</b></div></div>
+<div class="gain" id="gBox"><span id="gL">Add an income goal to see the sales volume needed</span><b id="gV">—</b></div>
+</section>
+<section class="sx-card sx-vt-led" hidden="" id="tierCard" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">stacked_bar_chart</span>By Tier</span><span>Commission</span></div>
+<div id="tierL"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/financial/seller-net-sheet-calculator.html"><span aria-hidden="true" class="msym">real_estate_agent</span>Seller Net Sheet</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Commission at Different Sale Amounts</h2><p>Same rates, split and fees applied to other sale sizes.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Sale Amount</th><th scope="col">Gross Commission</th><th scope="col">Effective Rate</th><th scope="col">Your Take-Home</th></tr></thead>
+<tbody id="cmpTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Flat rate:</strong> gross commission = sale amount × rate.</li>
+<li><strong>Tiered (marginal):</strong> each rate applies only to the part of the sale within its band, like tax brackets — so crossing a threshold never lowers your total.</li>
+<li><strong>Take-home</strong> = gross commission × your split − fees per deal. The brokerage or house keeps the rest of the gross.</li>
+<li><strong>Sales volume for a goal</strong> = income goal ÷ (take-home per dollar of sales), using the current sale's take-home rate.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Formula verified 28 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A $400,000 sale at a flat 3% gives <strong>$12,000</strong> of gross commission. On a 70/30 split, you keep $8,400 and the brokerage keeps $3,600. With the tiered example (5% to $100,000, 3% to $300,000, 2% above), the same sale earns $5,000 + $6,000 + $2,000 = $13,000 gross — an effective rate of 3.25%.</p>
+<h2>How commission splits and rates work</h2>
+<p>In real estate and many sales roles, the commission on a deal is split between the individual and their brokerage or employer by a pre-agreed percentage — a "70/30 split" means you keep 70%. Splits often improve as you hit production milestones, and some firms use caps or flat desk fees instead. Real estate commissions are negotiable; since August 2024, National Association of REALTORS® rules no longer allow offers of compensation to buyers' agents on the MLS, and buyers sign written agreements with their agents.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.nar.realtor/the-facts" rel="noopener noreferrer">National Association of REALTORS® — The Facts (settlement practice changes, August 2024)</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is a 70/30 commission split typical?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Split arrangements vary widely by brokerage, industry and experience — 70/30 is a commonly cited example, but actual splits range broadly and are often negotiable, especially as your production increases.</p></details>
+<details class="sx-faq"><summary>Does this calculator handle tiered commission structures?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes. Choose "Tiered" and set up to three bands. Each rate applies only to the portion of the sale inside its band, the way marginal tax brackets work.</p></details>
+<details class="sx-faq"><summary>How do I calculate commission on a sale?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply the sale amount by the commission rate — for example, $50,000 × 5% = $2,500. Then multiply by your split percentage and subtract any per-deal fees to get your take-home.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>More for sales and real estate pros.</p></div>
+<a href="/financial-calculators.html">All Financial Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/seller-net-sheet-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">real_estate_agent</span></span><b>Seller Net Sheet</b><span class="d">Home sale proceeds after commission.</span><span class="f">Estimate proceeds<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/salary-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">badge</span></span><b>Salary Calculator</b><span class="d">Hourly, weekly and annual pay.</span><span class="f">Convert pay<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">work</span></span><b>Freelance Rate</b><span class="d">Set a rate that covers costs.</span><span class="f">Price your time<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/tax-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Income Tax Calculator</b><span class="d">Tax on your commission income.</span><span class="f">Estimate tax<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/commission-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -236,40 +154,9 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/commission.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/commission.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

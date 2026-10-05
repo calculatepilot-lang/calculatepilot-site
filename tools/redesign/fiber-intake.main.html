@@ -1,0 +1,108 @@
+<div class="sx" id="fbCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Fiber Intake Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>IOM Adequate Intake</span><span class="sx-badge"><span class="msym" aria-hidden="true">nutrition</span>14 g per 1,000 kcal</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Fiber Intake Calculator — Daily Target &amp; Food Plan</h1>
+    <p>Find your recommended daily fiber from your calorie intake, age and sex using the Institute of Medicine reference values, then see which foods close the gap and a gradual plan to get there.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><span>Sex</span></div><input type="hidden" id="sex" value="s2"><div class="sx-seg" role="group" aria-label="Sex" style="display:flex"><button type="button" data-for="sex" data-value="s1" style="flex:1">Male</button><button type="button" data-for="sex" data-value="s2" style="flex:1">Female</button></div></div>
+      <div><div class="sx-au-l"><label for="age">Age</label></div><div class="sx-au-in np"><input id="age" type="number" inputmode="numeric" min="1" max="110" step="1" value="35"><span class="suf">yrs</span></div></div>
+    </div>
+    <div id="lifeRow">
+      <div class="sx-au-l"><span>Life Stage</span></div>
+      <input type="hidden" id="life" value="s1">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Life stage"><button type="button" data-for="life" data-value="s1">None</button><button type="button" data-for="life" data-value="s2">Pregnant</button><button type="button" data-for="life" data-value="s3">Breastfeeding</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="kcal">Daily Calories</label><a href="/health/tdee-calculator.html" style="font-size:12px;font-weight:600">Don't know? →</a></div>
+      <div class="sx-au-in np"><input id="kcal" type="number" inputmode="numeric" min="800" max="6000" step="50" value="2000"><span class="suf">kcal</span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cur">Current Fiber (optional)</label></div>
+      <div class="sx-au-in np"><input id="cur" type="number" inputmode="decimal" min="0" max="120" step="1" value="" placeholder="For a step-up plan"><span class="suf">g/day</span></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Fiber Target</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Calorie-based fiber target</span><span class="sx-ef-grade" id="tag">14 g / 1,000 kcal</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>IOM reference for your age &amp; sex</span><b id="ai">—</b></div><div><span id="gapL">Gap from current intake</span><b id="gap">—</b></div></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">trending_up</span>Step-Up Plan</span><span id="planT">—</span></div>
+    <div id="plan"></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/macro-calculator.html"><span class="msym" aria-hidden="true">pie_chart</span>Macro Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>High-Fiber Foods</h2><p>Approximate fiber per serving, and servings of each food alone that would cover your remaining gap.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Food</th><th scope="col">Serving</th><th scope="col">Fiber</th><th scope="col">Servings for Gap</th></tr></thead>
+    <tbody id="fdTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>The <strong>calorie-based target is 14 g of fiber per 1,000 kcal</strong> you eat — the basis the Institute of Medicine (now the National Academies) used to set the Adequate Intake, and the figure used in the 2020–2025 Dietary Guidelines for Americans. The 2025–2030 edition advises prioritizing fiber-rich whole grains, vegetables and fruit without setting a gram target. The <strong>age and sex reference</strong> is the IOM Adequate Intake itself:</p>
+    <div class="sx-scroll"><table class="sx-au-cmp plain">
+      <thead><tr><th scope="col">Age</th><th scope="col">Males</th><th scope="col">Females</th></tr></thead>
+      <tbody><tr><td>1–3</td><td>19 g</td><td>19 g</td></tr><tr><td>4–8</td><td>25 g</td><td>25 g</td></tr><tr><td>9–13</td><td>31 g</td><td>26 g</td></tr><tr><td>14–18</td><td>38 g</td><td>26 g</td></tr><tr><td>19–50</td><td>38 g</td><td>25 g</td></tr><tr><td>51+</td><td>30 g</td><td>21 g</td></tr><tr><td>Pregnancy</td><td>—</td><td>28 g</td></tr><tr><td>Breastfeeding</td><td>—</td><td>29 g</td></tr></tbody>
+    </table></div>
+    <p>The two figures are usually close for someone eating a typical amount for their age and sex, but diverge if you eat notably more or less — the calorie-based figure moves with your intake, the reference does not. The UK's SACN recommends 30 g a day for adults.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the IOM Dietary Reference Intakes · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>A 35-year-old woman eating 2,000 kcal a day: 2,000 ÷ 1,000 × 14 = <strong>28 g</strong> of fiber. Her IOM reference is 25 g. If she currently eats 15 g, she has a 13 g gap — about one cup of cooked lentils would close it on its own.</p>
+
+    <h2>Why most people fall short — and how to close the gap</h2>
+    <p>Most people in Western diets eat well below these targets, largely because of low intake of whole grains, legumes, fruits and vegetables. Increase fiber gradually over a few weeks rather than all at once, and drink enough water alongside it, to help avoid bloating and gas. A varied mix of beans and lentils, whole grains, fruit with edible skins, vegetables, nuts and seeds works better than relying on one high-fiber food.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li>Institute of Medicine. Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. National Academies Press, 2005.</li>
+      <li><a href="https://realfood.gov/" rel="noopener noreferrer">Dietary Guidelines for Americans, 2025–2030</a> and the 2020–2025 edition</li>
+      <li>Scientific Advisory Committee on Nutrition (SACN). Carbohydrates and Health. 2015.</li>
+      <li><a href="https://fdc.nal.usda.gov/" rel="noopener noreferrer">USDA FoodData Central</a> (food fiber values, rounded)</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why do I get two different fiber numbers?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The calorie-based figure (14 g per 1,000 calories) scales with your actual intake, while the IOM reference is a population guideline by age and sex that doesn't account for individual calorie needs — they're usually similar but can differ for atypical calorie intakes.</p></details>
+    <details class="sx-faq"><summary>What happens if I increase fiber too quickly?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A sudden large increase can cause digestive discomfort like bloating or gas. Increasing gradually over a few weeks, along with adequate water, generally helps your digestive system adjust.</p></details>
+    <details class="sx-faq"><summary>Can I get too much fiber?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The IOM did not set an upper limit for fiber from food. Very high intakes can cause discomfort, and people with some digestive conditions may be advised to limit fiber, so follow any guidance from your doctor or dietitian.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Build out the rest of your diet.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/macro-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>Macro Calculator</b><span class="d">Protein, carbs and fat — includes a fiber line.</span><span class="f">Split macros<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/water-intake-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">water_drop</span></span><b>Water Intake</b><span class="d">Drink more as you add fiber.</span><span class="f">Check water<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Find your daily calories.</span><span class="f">Estimate TDEE<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/protein-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">egg_alt</span></span><b>Protein Calculator</b><span class="d">Daily protein by goal.</span><span class="f">Set protein<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

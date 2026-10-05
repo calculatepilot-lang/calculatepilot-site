@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Complex Number Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=architecture,arrow_forward,bolt,calculate,chevron_right,close,code,content_copy,event,expand_more,functions,grid_on,lightbulb,link,lock,north_east,person_check,picture_as_pdf,restart_alt,straighten,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,67 +38,122 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Complex Number Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="operation">Operation</label>
-          <select id="operation">
-            <option value="add" selected>Add</option>
-            <option value="subtract" >Subtract</option>
-            <option value="multiply" >Multiply</option>
-            <option value="divide" >Divide</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="a1">First number: real part (a)</label>
-          <input type="number" id="a1" value="3"
-step="0.5">
-        </div>
-        <div class="field">
-          <label for="b1">First number: imaginary part (b)</label>
-          <input type="number" id="b1" value="4"
-step="0.5">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="a2">Second number: real part (a)</label>
-          <input type="number" id="a2" value="1"
-step="0.5">
-        </div>
-        <div class="field">
-          <label for="b2">Second number: imaginary part (b)</label>
-          <input type="number" id="b2" value="2"
-step="0.5">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Magnitude of result</span><span id="outMagnitude">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="cxCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Complex Number Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Algebraic, polar &amp; De Moivre</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Complex Number Calculator</h1>
+<p>Add, subtract, multiply or divide two complex numbers; find the modulus, argument, conjugate and polar form of one; or compute integer powers and nth roots with De Moivre's theorem — with a plot on the complex plane and every step shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every identity is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>Arithmetic uses the standard algebraic rules (i² = −1); powers and roots use De Moivre's theorem on the polar form, r(cos θ + i sin θ).</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>It plots every number on the Argand plane, so the geometry behind the algebra is never hidden.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Complex arithmetic</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Arithmetic (z₁, z₂)</button><button data-for="mode" data-value="s2" type="button">Single number analysis</button><button data-for="mode" data-value="s3" type="button">Powers &amp; roots</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-a="3" data-b="4" data-c="1" data-d="-2" data-m="s1" type="button">z₁=3+4i, z₂=1−2i</button><button data-a="3" data-b="4" data-m="s2" type="button">|3+4i|</button><button data-a="1" data-b="1" data-m="s3" data-n="8" type="button">(1+i)⁸</button><button data-a="1" data-b="0" data-m="s3" data-n="4" data-root="1" type="button">4th roots of 1</button></div>
+<div id="fZ1"><div class="sx-au-l"><label>z₁ = a + bi</label></div>
+<div aria-label="z1" class="sx-mt-mat2 vec" role="group"><input aria-label="Re(z1)" id="a" step="any" type="number" value="3"/><input aria-label="Im(z1)" id="b" step="any" type="number" value="4"/></div>
+</div>
+<div hidden="" id="fOp"><div class="sx-au-l"><label>Operation</label></div><input id="op" type="hidden" value="mul"/><div aria-label="Operation" class="sx-seg full" role="group"><button data-for="op" data-value="add" type="button">z₁ + z₂</button><button data-for="op" data-value="sub" type="button">z₁ − z₂</button><button data-for="op" data-value="mul" type="button">z₁ × z₂</button><button data-for="op" data-value="div" type="button">z₁ ÷ z₂</button></div></div>
+<div hidden="" id="fZ2"><div class="sx-au-l"><label>z₂ = c + di</label></div>
+<div aria-label="z2" class="sx-mt-mat2 vec" role="group"><input aria-label="Re(z2)" id="c" step="any" type="number" value="1"/><input aria-label="Im(z2)" id="d" step="any" type="number" value="-2"/></div>
+</div>
+<div hidden="" id="fN"><div class="sx-au-l"><label for="nn">n (power or root index)</label></div><div class="sx-au-in np"><input id="nn" max="12" min="1" step="1" type="number" value="8"/></div>
+<div class="sx-au-l" style="margin-top:10px"><label>Compute</label></div><input id="powMode" type="hidden" value="pow"/><div aria-label="Power or root" class="sx-seg full" role="group"><button data-for="powMode" data-value="pow" type="button">zⁿ (power)</button><button data-for="powMode" data-value="root" type="button">ⁿ√z (all roots)</button></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compute</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Expression</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Result</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:28px;line-height:1.3;word-break:break-word"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Modulus |z|</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Argument</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2>Argand plane</h2><p>Each number plotted as a point (Re, Im).</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Complex numbers plotted on the Argand plane" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">close</span><h3>Multiplying</h3><p>(3+4i) × (1−2i)</p><div class="sx-mt-ex">3−6i+4i−8i² = 3−2i+8<br/><b>= 11 − 2i</b></div></div>
+<div><span aria-hidden="true" class="msym">straighten</span><h3>Modulus &amp; argument</h3><p>Find |3+4i| and Arg(3+4i).</p><div class="sx-mt-ex">|z| = √(3²+4²) = √25 = 5<br/>θ = atan2(4,3) ≈ 53.13°</div></div>
+<div><span aria-hidden="true" class="msym">bolt</span><h3>De Moivre power</h3><p>(1+i)⁸</p><div class="sx-mt-ex">r=√2, θ=45° → r⁸=16, 8θ=360°=0°<br/><b>(1+i)⁸ = 16</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Key formulas</h2>
+<ul>
+<li><strong>Multiplication:</strong> (a+bi)(c+di) = (ac−bd) + (ad+bc)i.</li>
+<li><strong>Division:</strong> multiply by the conjugate: z₁/z₂ = z₁z̄₂ / |z₂|².</li>
+<li><strong>Modulus:</strong> |z| = √(a²+b²). <strong>Argument:</strong> θ = atan2(b, a), in (−π, π].</li>
+<li><strong>De Moivre's theorem:</strong> [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ).</li>
+<li><strong>nth roots:</strong> ⁿ√z has n values, at angles (θ+2πk)/n for k = 0, …, n−1, each with modulus |z|^(1/n).</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Churchill, R. V., &amp; Brown, J. W. (2013). <i>Complex Variables and Applications</i> (9th ed.). McGraw-Hill, chapters 1–2.</li>
+<li>ISO 80000-2:2019, clause 8 (complex numbers).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why does dividing complex numbers use the conjugate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiplying the denominator by its conjugate z̄ turns it into the real number |z|², eliminating i from the denominator — the complex equivalent of rationalizing a square root.</p></details>
+<details class="sx-faq"><summary>What is the geometric meaning of multiplying complex numbers?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiplication multiplies the moduli and adds the arguments — geometrically, it scales and rotates. This is exactly what De Moivre's theorem generalizes to powers and roots.</p></details>
+<details class="sx-faq"><summary>Why does a complex number have n different nth roots?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Because angles that differ by a full turn (2π) describe the same point, but raising to the nth power multiplies the angle by n — so n different starting angles, spaced 2π/n apart, all land on the same result.</p></details>
+<details class="sx-faq"><summary>What is the complex conjugate used for?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Besides division, z·z̄ = |z|² always gives a real number, which is essential for finding magnitudes, normalizing vectors, and in signal processing for computing power from a complex amplitude.</p></details>
+<details class="sx-faq"><summary>How is Euler's formula related to polar form?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Euler's formula e^(iθ) = cos θ + i sin θ lets polar form r(cos θ + i sin θ) be written compactly as r·e^(iθ) — the same number, and the form that makes multiplication, powers and roots most natural.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with algebra.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/polynomial-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Polynomial Calculator</b><span class="d">Roots, division and factoring.</span><span class="f">Polynomials<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/vector-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">north_east</span></span><b>Vector Calculator</b><span class="d">Cross, dot products and angles.</span><span class="f">Vectors<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/matrix-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">grid_on</span></span><b>Matrix Calculator</b><span class="d">Determinant, inverse, eigenvalues.</span><span class="f">Matrices<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/trigonometry-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">architecture</span></span><b>Trigonometry Calculator</b><span class="d">Angles, sides and identities.</span><span class="f">Trig<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Complex Number Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/complex-number-calculator.html" width="100%" height="560" loading="lazy" title="Complex Number Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/complex-number-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -225,7 +162,8 @@ step="0.5">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/complex-number.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/complex-number.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

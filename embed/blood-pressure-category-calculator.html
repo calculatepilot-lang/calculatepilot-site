@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blood Pressure Category Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,content_copy,event,expand_more,functions,local_bar,monitor_heart,monitor_weight,print,restart_alt,straighten,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,45 +38,113 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Blood Pressure Category Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="systolic">Systolic (top number)</label>
-          <input type="number" id="systolic" value="118"
-step="1"min="50">
-        </div>
-        <div class="field">
-          <label for="diastolic">Diastolic (bottom number)</label>
-          <input type="number" id="diastolic" value="76"
-step="1"min="30">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Category</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="bpCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Blood Pressure Category Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>AHA/ACC 2025 Categories</span><span class="sx-badge"><span aria-hidden="true" class="msym">functions</span>Average of Readings</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Blood Pressure Category Calculator — AHA/ACC Categories</h1>
+<p>Check which American Heart Association category your blood pressure falls into, average up to three readings as guidelines recommend, and see your pulse pressure and mean arterial pressure.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Readings</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Reading 1</span><em style="color:var(--sx-muted);font-weight:500">mm Hg</em></div>
+<div class="sx-au-g2"><div class="sx-au-in np"><input aria-label="Reading 1 systolic" id="s1" inputmode="numeric" max="260" min="60" step="1" type="number" value="128"/><span class="suf">SYS</span></div><div class="sx-au-in np"><input aria-label="Reading 1 diastolic" id="d1" inputmode="numeric" max="160" min="30" step="1" type="number" value="82"/><span class="suf">DIA</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Reading 2 (optional)</span></div>
+<div class="sx-au-g2"><div class="sx-au-in np"><input aria-label="Reading 2 systolic" id="s2" inputmode="numeric" max="260" min="60" placeholder="—" step="1" type="number" value=""/><span class="suf">SYS</span></div><div class="sx-au-in np"><input aria-label="Reading 2 diastolic" id="d2" inputmode="numeric" max="160" min="30" placeholder="—" step="1" type="number" value=""/><span class="suf">DIA</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Reading 3 (optional)</span></div>
+<div class="sx-au-g2"><div class="sx-au-in np"><input aria-label="Reading 3 systolic" id="s3" inputmode="numeric" max="260" min="60" placeholder="—" step="1" type="number" value=""/><span class="suf">SYS</span></div><div class="sx-au-in np"><input aria-label="Reading 3 diastolic" id="d3" inputmode="numeric" max="160" min="30" placeholder="—" step="1" type="number" value=""/><span class="suf">DIA</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Any symptoms now?</span></div><input id="sym" type="hidden" value="s1"/>
+<div aria-label="Symptoms" class="sx-seg" role="group" style="display:flex"><button data-for="sym" data-value="s1" style="flex:1" type="button">No</button><button data-for="sym" data-value="s2" style="flex:1" type="button">Yes</button></div>
+<p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Chest pain, shortness of breath, back pain, numbness, weakness, change in vision or difficulty speaking.</p>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Check Category</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="hdL">Blood pressure category</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="sx-cu-spec" style="margin-top:14px">
+<div class="r">Systolic scale<span>You: <b class="c" id="specV">—</b></span></div>
+<div class="t" id="specBar"></div>
+<div class="lb" id="specLb"></div>
+</div>
+<div class="g2" style="margin-top:14px"><div><span>Pulse pressure</span><b id="pp">—</b></div><div><span>Mean arterial pressure</span><b id="map">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/target-heart-rate-calculator.html"><span aria-hidden="true" class="msym">monitor_heart</span>Heart Rate Zones</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>AHA Blood Pressure Categories</h2><p>Your category is set by whichever number — systolic or diastolic — falls in the higher band.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Category</th><th scope="col">Systolic (top)</th><th scope="col"></th><th scope="col">Diastolic (bottom)</th></tr></thead>
+<tbody id="catTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Average:</strong> if you enter more than one reading, the systolic and diastolic values are averaged separately, as guidelines recommend basing decisions on 2 or more readings.</li>
+<li><strong>Category:</strong> the higher of the systolic and diastolic categories, using the American Heart Association chart shown above (aligned with the 2025 AHA/ACC high blood pressure guideline).</li>
+<li><strong>Pulse pressure</strong> = systolic − diastolic. <strong>Mean arterial pressure</strong> ≈ diastolic + (systolic − diastolic) ÷ 3.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the AHA blood pressure chart · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>Readings of 128/82, 132/84 and 126/80 average to <strong>129/82 mm Hg</strong>. The systolic of 129 is "elevated", but the diastolic of 82 is in the 80–89 range, so the overall category is <strong>stage 1 hypertension</strong>. Pulse pressure is 47 mm Hg and mean arterial pressure about 98 mm Hg.</p>
+<h2>When to act</h2>
+<p>If a reading is higher than 180/120 mm Hg, the AHA advises waiting a minute and measuring again. If it's still that high and you have no symptoms, it's <strong>severe hypertension</strong> — call your healthcare professional. If you have symptoms such as chest pain, shortness of breath, back pain, numbness, weakness, vision changes or difficulty speaking, it may be a <strong>hypertensive emergency — call 911</strong> (or your local emergency number).</p>
+<p>This calculator categorizes readings for awareness only — it is not a diagnosis. Blood pressure varies through the day with stress, caffeine, activity and technique, so a clinician looks at the pattern of readings over time. For home readings, sit quietly for 5 minutes with your back supported, feet flat and arm at heart level, and avoid caffeine, exercise and smoking for 30 minutes beforehand.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings" rel="noopener noreferrer">American Heart Association — Understanding Blood Pressure Readings</a> (reviewed August 2025)</li>
+<li>Jones DW, Ferdinand KC, Taler SJ, et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults. Hypertension 2025.</li>
+<li><a href="https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home" rel="noopener noreferrer">American Heart Association — Monitoring Your Blood Pressure at Home</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Which number matters more, systolic or diastolic?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Both matter. Your category is set by whichever number falls in the higher band. After about age 50, systolic pressure becomes a stronger predictor of heart disease and stroke risk for most people.</p></details>
+<details class="sx-faq"><summary>Is one high reading a diagnosis of high blood pressure?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. Diagnosis is based on the average of two or more readings taken on two or more occasions. A single high reading is worth rechecking, and repeated high readings are worth discussing with a clinician.</p></details>
+<details class="sx-faq"><summary>What is a normal blood pressure?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Under the AHA categories, normal is a systolic below 120 and a diastolic below 80 mm Hg.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Other heart-health checks.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Weight is linked to blood pressure.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/waist-to-height-ratio-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">straighten</span></span><b>Waist-to-Height Ratio</b><span class="d">Central fat and heart risk.</span><span class="f">Check WHtR<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/target-heart-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_heart</span></span><b>Target Heart Rate</b><span class="d">Exercise zones for heart health.</span><span class="f">Find zones<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/alcohol-calories-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_bar</span></span><b>Alcohol Calories</b><span class="d">Drinking affects blood pressure too.</span><span class="f">Count drinks<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/blood-pressure-category-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -203,7 +153,8 @@ step="1"min="30">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/blood-pressure.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/blood-pressure-category.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Driving Carbon Footprint Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,chevron_right,code,commute,content_copy,eco,event,expand_more,functions,lightbulb,link,local_gas_station,lock,park,person_check,picture_as_pdf,restart_alt,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,56 +38,53 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Driving Carbon Footprint Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="milesDriven">Miles driven</label>
-          <input type="number" id="milesDriven" value="12000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="mpg">Fuel economy (MPG)</label>
-          <input type="number" id="mpg" value="28"
-step="1"min="1">
-        </div>
-</div>        <div class="field">
-          <label for="fuelType">Fuel type</label>
-          <select id="fuelType">
-            <option value="gasoline" selected>Gasoline</option>
-            <option value="diesel" >Diesel</option>
-          </select>
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated CO₂ emissions</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>In pounds</span><span id="outLb">—</span></div>
-        <div class="embed-row"><span>Gallons of fuel used</span><span id="outGallons">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="cbCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Driving Carbon Footprint Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">eco</span>EPA emission factors</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Driving Carbon Footprint Calculator</h1><p>Estimate the CO₂ from your driving. Enter your distance and fuel economy for a year or a single trip, compare with a hybrid or electric car on your local grid, and see the tree seedling equivalent and offset cost.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts distance and fuel economy to gallons or kilowatt-hours, then multiplies by EPA emission factors for the fuel or the grid.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>People ask how much their commute emits and whether an electric car would help. This shows both with the working laid out.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">eco</span><h2 class="sx-h-md" style="margin:0">Vehicle and driving</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-au-g2"><div><div class="sx-au-l"><label>Units</label></div><input id="un" type="hidden" value="i"/><div aria-label="Units" class="sx-seg full" role="group"><button data-for="un" data-value="i" type="button">Miles, mpg</button><button data-for="un" data-value="m" type="button">km, L/100 km</button></div></div>
+<div><div class="sx-au-l"><label>Distance covers</label></div><input id="per" type="hidden" value="y"/><div aria-label="Period" class="sx-seg full" role="group"><button data-for="per" data-value="y" type="button">One year</button><button data-for="per" data-value="t" type="button">One trip</button></div></div></div>
+<div><div class="sx-au-l"><label for="vt">Vehicle type</label></div><select class="sx-mt-sel" id="vt"><option selected="" value="g">Gasoline car</option><option value="d">Diesel car</option><option value="h">Hybrid (gasoline)</option><option value="e">Electric car</option></select></div>
+<div><div class="sx-au-l"><label for="ds" id="dsL">Distance driven per year</label><em class="mu" id="dsU">miles</em></div><div class="sx-au-in sm np"><input id="ds" inputmode="decimal" min="0" step="any" type="number" value="12000"/></div><div class="sx-qpills"><span class="lb">Typical year</span><button data-y="8000" type="button">8,000</button><button data-y="12000" type="button">12,000 US avg</button><button data-y="15000" type="button">15,000</button><button data-y="20000" type="button">20,000</button></div></div>
+<div><div class="sx-au-l"><label for="ef" id="efL">Fuel economy</label><em class="mu" id="efU">mpg, combined</em></div><div class="sx-au-in sm np"><input id="ef" inputmode="decimal" min="0" step="any" type="number" value="26"/></div><div class="sx-qpills" id="efP"><span class="lb">Typical</span><button data-e="33" type="button">Compact 33</button><button data-e="26" type="button">Midsize SUV 26</button><button data-e="18" type="button">Full-size truck 18</button></div></div>
+<div hidden="" id="gGrid"><div class="sx-au-l"><label for="gr">Electricity carbon intensity</label><em class="mu">grams CO₂e per kWh</em></div><div class="sx-au-in sm np"><input id="gr" inputmode="numeric" min="0" step="10" type="number" value="386"/></div><div class="sx-qpills"><span class="lb">Grid</span><button data-g="100" type="button">Very clean 100</button><button data-g="386" type="button">US average 386</button><button data-g="800" type="button">Coal heavy 800</button></div></div>
+<div><div class="sx-au-l"><label for="op">Offset price</label><em class="mu">per tonne of CO₂e</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="op" inputmode="decimal" min="0" step="1" type="number" value="15"/></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate footprint</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span id="hL">Emissions per year</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small id="resU">tonnes CO₂e</small></div><p id="interp">—</p>
+<div class="g2"><div><span>Per mile</span><b id="oPm">—</b></div><div><span>Per km</span><b id="oPk">—</b></div><div><span id="l3">Fuel used</span><b id="o3">—</b></div><div><span id="l4">Per month</span><b id="o4">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-tiles"><div><span>Tree seedlings, 10 years</span><b id="oTr">—</b><small>to absorb this much</small></div><div><span>Offset cost</span><b id="oOf">—</b><small id="oOfN">—</small></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Same distance, other options</span></div><div class="sx-tblwrap"><table class="sx-tbl" style="min-width:0"><thead><tr><th>Vehicle</th><th class="n">Tonnes CO₂e</th><th class="n">vs yours</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Emissions by vehicle</h2><p>Approximate emissions from the tailpipe (or from the grid for an electric car) over 12,000 miles. Manufacturing, fuel production and grid mix all move the real figure.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:520px"><thead><tr><th>Vehicle</th><th class="n">g CO₂e per mile</th><th class="n">Tonnes per 12,000 mi</th><th class="n">Tree seedlings</th></tr></thead><tbody><tr><td class="a">Full-size pickup, 17 mpg</td><td class="n">523</td><td class="n">6.27</td><td class="n">105</td></tr><tr><td class="a">Midsize SUV, 22 mpg</td><td class="n">404</td><td class="n">4.85</td><td class="n">81</td></tr><tr><td class="a">Midsize SUV, 26 mpg</td><td class="n">342</td><td class="n">4.10</td><td class="n">68</td></tr><tr><td class="a">Sedan, 32 mpg</td><td class="n">278</td><td class="n">3.33</td><td class="n">56</td></tr><tr><td class="a">Hybrid, 52 mpg</td><td class="n">171</td><td class="n">2.05</td><td class="n">34</td></tr><tr><td class="a">Electric, 0.30 kWh/mi, US average grid</td><td class="n">122</td><td class="n">1.46</td><td class="n">24</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">local_gas_station</span></div><h3>Fuel emissions</h3><p>Burning a US gallon of gasoline releases 8,887 g of CO₂ and a gallon of diesel 10,180 g (EPA). Divide distance by fuel economy for the gallons used.</p><code>CO₂ = (distance ÷ mpg) × 8,887 g</code></div><div><div class="ic"><span aria-hidden="true" class="msym">bolt</span></div><h3>Electric car emissions</h3><p>Electricity used, plus about 5% lost in transmission, times the grid's carbon intensity.</p><code>CO₂ = distance × kWh/mi × 1.05 × g per kWh</code></div><div><div class="ic"><span aria-hidden="true" class="msym">park</span></div><h3>Trees and offsets</h3><p>The EPA counts 0.060 tonnes of CO₂ absorbed by one urban tree seedling grown for 10 years.</p><code>seedlings = tonnes ÷ 0.060<br/>cost = tonnes × price per tonne</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Midsize SUV</h3><p>12,000 miles a year at 26 mpg (the default).</p><div class="sx-mt-ex">12,000 ÷ 26 = 461.5 gallons<br/>461.5 × 8,887 g = <b>4.10 tonnes CO₂</b><br/>= 342 g per mile, about 68 tree seedlings</div></div><div><h3>Switching to electric</h3><p>Same 12,000 miles, 0.30 kWh per mile, US average grid.</p><div class="sx-mt-ex">12,000 × 0.30 × 1.05 = 3,780 kWh<br/>× 386 g = <b>1.46 tonnes</b>, a saving of about 2.6 tonnes (64%)</div></div><div><h3>One road trip</h3><p>500 miles in a 30 mpg car.</p><div class="sx-mt-ex">500 ÷ 30 = 16.7 gallons<br/>16.7 × 8,887 g = <b>148 kg CO₂</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to calculate your driving emissions</h2><ul><li>Choose units and whether the distance is a year or one trip.</li><li>Pick the vehicle type and enter its fuel economy or electricity use.</li><li>For an electric car, set the grid's carbon intensity.</li><li>Read the emissions, the comparison with other vehicles and the offset cost.</li></ul><p>These are estimates from standard emission factors. They count the tailpipe (or the power plant) but not vehicle manufacturing or fuel production. Real fuel economy varies with driving style, load and temperature.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>U.S. EPA, <i>Greenhouse Gas Emissions from a Typical Passenger Vehicle</i> (8,887 g CO₂ per gallon of gasoline; 10,180 g per gallon of diesel).</li><li>U.S. EPA, <i>Greenhouse Gases Equivalencies Calculator, Calculations and References</i> (urban tree seedlings, 0.060 t CO₂ over 10 years).</li><li>U.S. EPA, <i>eGRID</i>, national average electricity emission rate.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How much CO₂ does a car emit per mile?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A gasoline car at 26 mpg emits about 342 g of CO₂ per mile. Each US gallon of gasoline burned releases 8,887 g of CO₂.</p></details><details class="sx-faq"><summary>Are electric cars really cleaner?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Usually, even on an average grid, because power plants are more efficient than engines and grids keep getting cleaner. On a very coal-heavy grid the gap narrows.</p></details><details class="sx-faq"><summary>How many trees offset a car?<span aria-hidden="true" class="msym">expand_more</span></summary><p>By the EPA equivalency, one urban tree seedling grown for 10 years absorbs 0.060 tonnes of CO₂, so a typical car needs about 68 seedlings for a year of driving.</p></details><details class="sx-faq"><summary>Does this include manufacturing?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. It covers running emissions only.</p></details><details class="sx-faq"><summary>Why does the offset price vary?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Offset prices depend on the project type and quality. The default of $15 per tonne is only a placeholder. Enter the price you are quoted.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/gas-mileage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_gas_station</span></span><b>Gas Mileage Calculator</b><span class="d">Miles per gallon.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/commute-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">commute</span></span><b>Commute Cost Calculator</b><span class="d">Cost of your commute.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/electricity-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">bolt</span></span><b>Electricity Cost Calculator</b><span class="d">Appliance running costs.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/fuel-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_gas_station</span></span><b>Fuel Cost Calculator</b><span class="d">Trip fuel cost.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Driving Carbon Footprint Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/carbon-footprint-calculator.html" width="100%" height="560" loading="lazy" title="Driving Carbon Footprint Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/carbon-footprint-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -214,7 +93,8 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/carbon-footprint.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/carbon-footprint.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

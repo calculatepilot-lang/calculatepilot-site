@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Length Conversion Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=architecture,arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,pin,restart_alt,restaurant_menu,science,speed,square_foot,straighten,swap_horiz,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,66 +38,50 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Length Conversion Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="value">Value</label>
-          <input type="number" id="value" value="10"
-step="0.01">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="fromUnit">From</label>
-          <select id="fromUnit">
-            <option value="m" selected>Meters</option>
-            <option value="km" >Kilometers</option>
-            <option value="cm" >Centimeters</option>
-            <option value="mm" >Millimeters</option>
-            <option value="in" >Inches</option>
-            <option value="ft" >Feet</option>
-            <option value="yd" >Yards</option>
-            <option value="mi" >Miles</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="toUnit">To</label>
-          <select id="toUnit">
-            <option value="m" >Meters</option>
-            <option value="km" >Kilometers</option>
-            <option value="cm" >Centimeters</option>
-            <option value="mm" >Millimeters</option>
-            <option value="in" >Inches</option>
-            <option value="ft" selected>Feet</option>
-            <option value="yd" >Yards</option>
-            <option value="mi" >Miles</option>
-          </select>
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Converted value</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="cvCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Length Conversion Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">straighten</span>Exact metric and imperial factors</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Length Converter: Metric, Imperial &amp; Tape Measure</h1><p>Convert between millimetres, centimetres, metres, kilometres, inches, feet, yards, miles and nautical miles. See every unit at once, plus the nearest tape-measure fraction of an inch.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts through the metre using the exact international definitions, so there is no rounding until the display.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Most converters give a decimal. On a job you want a tape-measure reading, and a quick look at the same length in every unit.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">straighten</span><h2 class="sx-h-md" style="margin:0">Length to convert</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label for="v">Value</label></div><div class="sx-au-in sm np"><input id="v" inputmode="decimal" step="any" type="number" value="240"/></div>
+<div class="sx-qpills"><span class="lb">Presets</span><button data-p="10,mm" type="button">10 mm</button><button data-p="240,mm" type="button">240 mm</button><button data-p="100,ft" type="button">100 ft</button><button data-p="26.2,mi" type="button">26.2 mi</button><button data-p="1,m" type="button">1 m</button></div></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="f">From</label></div><select class="sx-mt-sel" id="f"><option selected="" value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="m">Metres (m)</option><option value="km">Kilometres (km)</option><option value="um">Micrometres (µm)</option><option value="in">Inches (in)</option><option value="ft">Feet (ft)</option><option value="yd">Yards (yd)</option><option value="mi">Miles (mi)</option><option value="nm">Nautical miles (NM)</option></select></div><div><div class="sx-au-l"><label for="t">To</label></div><select class="sx-mt-sel" id="t"><option value="mm">Millimetres (mm)</option><option value="cm">Centimetres (cm)</option><option value="m">Metres (m)</option><option value="km">Kilometres (km)</option><option value="um">Micrometres (µm)</option><option selected="" value="in">Inches (in)</option><option value="ft">Feet (ft)</option><option value="yd">Yards (yd)</option><option value="mi">Miles (mi)</option><option value="nm">Nautical miles (NM)</option></select></div></div>
+<div><button class="sx-reset" id="swap" style="margin:0" type="button"><span aria-hidden="true" class="msym">swap_horiz</span>Swap units</button></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="dp">Decimal places</label></div><select class="sx-mt-sel" id="dp"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option><option value="8">8</option></select></div><div><div class="sx-au-l"><label for="tp">Tape measure rounding</label></div><select class="sx-mt-sel" id="tp"><option value="8">1/8 in</option><option selected="" value="16">1/16 in</option><option value="32">1/32 in</option><option value="64">1/64 in</option></select></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Convert</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Converted length</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small id="resU">in</small></div><p id="interp">—</p>
+<div class="g2"><div><span>Tape measure (inches)</span><b id="oTp">—</b></div><div><span>Scientific notation</span><b id="oSci">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Every unit</span></div><div class="sx-tblwrap"><table class="sx-tbl" style="min-width:0"><tbody id="rows"></tbody></table></div></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Length conversion factors</h2><p>Every length here is defined exactly in terms of the metre. Since 1959 the international yard has been exactly 0.9144 m, and so the inch is exactly 25.4 mm.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:480px"><thead><tr><th>Unit</th><th>Symbol</th><th class="n">Metres in one</th><th class="n">Status</th></tr></thead><tbody><tr><td class="a">Millimetres</td><td class="a">mm</td><td class="n">0.001</td><td class="n">exact</td></tr><tr><td class="a">Centimetres</td><td class="a">cm</td><td class="n">0.01</td><td class="n">exact</td></tr><tr><td class="a">Metres</td><td class="a">m</td><td class="n">1</td><td class="n">exact</td></tr><tr><td class="a">Kilometres</td><td class="a">km</td><td class="n">1,000</td><td class="n">exact</td></tr><tr><td class="a">Micrometres</td><td class="a">µm</td><td class="n">1e-06</td><td class="n">exact</td></tr><tr><td class="a">Inches</td><td class="a">in</td><td class="n">0.0254</td><td class="n">exact</td></tr><tr><td class="a">Feet</td><td class="a">ft</td><td class="n">0.3048</td><td class="n">exact</td></tr><tr><td class="a">Yards</td><td class="a">yd</td><td class="n">0.9144</td><td class="n">exact</td></tr><tr><td class="a">Miles</td><td class="a">mi</td><td class="n">1,609.344</td><td class="n">exact</td></tr><tr><td class="a">Nautical miles</td><td class="a">nm</td><td class="n">1,852</td><td class="n">exact</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">straighten</span></div><h3>Convert through metres</h3><p>Multiply by the source unit's length in metres, then divide by the target unit's length in metres.</p><code>result = value × (metres per source ÷ metres per target)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">architecture</span></div><h3>Tape measure reading</h3><p>Turn the length into inches and round to the nearest fraction.</p><code>fraction = round(inches × N) ÷ N, N = 8, 16, 32 or 64</code></div><div><div class="ic"><span aria-hidden="true" class="msym">pin</span></div><h3>Exact definitions</h3><p>These relationships are exact by definition, not approximations.</p><code>1 in = 25.4 mm<br/>1 mi = 1,609.344 m<br/>1 NM = 1,852 m</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>240 mm to inches</h3><p>The default.</p><div class="sx-mt-ex">240 × 0.001 ÷ 0.0254 = <b>9.4488 in</b><br/>tape: 9 7/16 in (9.4375), 0.0113 in under</div></div><div><h3>Marathon</h3><p>26.2 miles to kilometres.</p><div class="sx-mt-ex">26.2 × 1,609.344 ÷ 1,000 = <b>42.1648 km</b></div></div><div><h3>Construction</h3><p>100 feet to metres.</p><div class="sx-mt-ex">100 × 0.3048 = <b>30.48 m</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to convert lengths</h2><ul><li>Enter the value and choose the units to convert from and to.</li><li>Read the converted length and the tape-measure reading.</li><li>Check the table for the same length in every other unit.</li><li>Use decimal places to control precision.</li></ul><p>Conversions between these units are exact. Tape readings are rounded to the nearest fraction you choose, so they can differ from the true length by a fraction of that size.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>NIST, <i>Special Publication 811, Guide for the Use of the International System of Units (SI)</i>, Appendix B.</li><li>BIPM, <i>The International System of Units (SI Brochure)</i>, 9th edition.</li><li>International Yard and Pound Agreement, 1959.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How many millimetres are in an inch?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Exactly 25.4. This has been the international definition since 1959.</p></details><details class="sx-faq"><summary>How many feet are in a mile?<span aria-hidden="true" class="msym">expand_more</span></summary><p>5,280 international feet, which is exactly 1,609.344 metres.</p></details><details class="sx-faq"><summary>What is a nautical mile?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Exactly 1,852 metres. It is about one minute of latitude and is used in aviation and at sea.</p></details><details class="sx-faq"><summary>How do I read a tape measure fraction?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The result is the whole inches plus the nearest fraction, such as 9 7/16. Choose 1/32 or 1/64 for finer work.</p></details><details class="sx-faq"><summary>Why does the converter use metres in the middle?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Converting every unit to metres first and then to the target avoids compounding rounding errors across steps.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/density-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">science</span></span><b>Density Calculator</b><span class="d">Mass, volume and density.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/speed-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">speed</span></span><b>Speed Calculator</b><span class="d">Speed, pace and time.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/square-footage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">square_foot</span></span><b>Square Footage Calculator</b><span class="d">Area of rooms.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/recipe-conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">restaurant_menu</span></span><b>Recipe Conversion</b><span class="d">Cooking units.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Length Conversion Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/conversion-calculator.html" width="100%" height="560" loading="lazy" title="Length Conversion Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/conversion-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -224,7 +90,8 @@ step="0.01">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/conversion.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/conversion.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

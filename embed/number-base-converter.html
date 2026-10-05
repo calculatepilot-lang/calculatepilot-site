@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Number Base Converter | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,lightbulb,link,lock,memory,palette,person_check,picture_as_pdf,pin,restart_alt,superscript,swap_horiz,sync_alt,tag,tune,verified,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,61 +38,111 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Number Base Converter</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="inputValue">Number to convert</label>
-          <input type="text" id="inputValue" value="255"
->
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="fromBase">From base</label>
-          <select id="fromBase">
-            <option value="2" >Binary (base 2)</option>
-            <option value="8" >Octal (base 8)</option>
-            <option value="10" selected>Decimal (base 10)</option>
-            <option value="16" >Hexadecimal (base 16)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="toBase">To base</label>
-          <select id="toBase">
-            <option value="2" >Binary (base 2)</option>
-            <option value="8" >Octal (base 8)</option>
-            <option value="10" >Decimal (base 10)</option>
-            <option value="16" selected>Hexadecimal (base 16)</option>
-          </select>
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Converted value</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Decimal equivalent</span><span id="outDecimal">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="nbCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Number Base Converter</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact BigInt conversion</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Number Base Converter</h1>
+<p>Convert a whole or fractional number between any two bases from 2 to 36 — binary, octal, decimal, hexadecimal or a custom radix — with the positional-notation expansion and a quick-reference row for every common base.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every conversion is re-derived digit by digit. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">swap_horiz</span><section><b>How the engine works</b><p>The integer part converts by repeated division; the fractional part converts by repeated multiplication — both done with exact BigInt fractions, not floating point, so long digit strings stay exact.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>It shows every common base at once, so you can spot-check a hex color code or a binary flag against its decimal value instantly.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Convert between bases</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-from="10" data-to="2" data-v="255" type="button">255 (byte max)</button><button data-from="16" data-to="10" data-v="DEADBEEF" type="button">0xDEADBEEF</button><button data-from="10" data-to="2" data-v="42.625" type="button">42.625 (fractional)</button><button data-from="2" data-to="16" data-v="11111111" type="button">11111111₂</button></div>
+<div><div class="sx-au-l"><label for="v">Value</label></div><div class="sx-au-in np"><input autocomplete="off" id="v" inputmode="text" spellcheck="false" type="text" value="255"/></div></div>
+<div><div class="sx-au-l"><label for="from">From base</label></div><div class="sx-au-sel"><select id="from"></select></div></div>
+<div><div class="sx-au-l"><label for="to">To base</label></div><div class="sx-au-sel"><select id="to"></select></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Convert</button><button class="rs" id="swap" type="button">Swap from / to</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Converting</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Result</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:26px;line-height:1.3;word-break:break-all;font-family:var(--font-mono)"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Decimal value</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Positional expansion</span><b id="ex2" style="font-size:14px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2>Quick reference — every common base</h2><p>The same value shown in binary, octal, decimal and hexadecimal.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="The value shown in binary, octal, decimal and hexadecimal" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">tag</span><h3>Decimal to binary</h3><p>Convert 255 to binary.</p><div class="sx-mt-ex">255 ÷ 2 repeatedly: remainders read bottom-up<br/><b>255 = 11111111₂</b></div></div>
+<div><span aria-hidden="true" class="msym">palette</span><h3>Hex to decimal</h3><p>Convert 0xDEADBEEF to decimal.</p><div class="sx-mt-ex">D×16⁷+E×16⁶+…+F×16⁰<br/><b>0xDEADBEEF = 3,735,928,559</b></div></div>
+<div><span aria-hidden="true" class="msym">pin</span><h3>Fractional part</h3><p>Convert 42.625 to binary.</p><div class="sx-mt-ex">42 = 101010₂; 0.625 × 2 repeatedly gives .101₂<br/><b>42.625 = 101010.101₂</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How base conversion works</h2>
+<ul>
+<li><strong>Integer part, any base → decimal:</strong> multiply each digit by its place value (baseᵏ) and sum.</li>
+<li><strong>Decimal → any base:</strong> repeatedly divide by the target base; the remainders, read from last to first, are the digits.</li>
+<li><strong>Fractional part → any base:</strong> repeatedly multiply the fraction by the target base; the integer part produced each time is the next digit.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Knuth, D. E. (1997). <i>The Art of Computer Programming, Vol. 2</i> (3rd ed.), section 4.4 (radix conversion).</li>
+<li>ISO 80000-2:2019, clause 13 (positional number systems).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why do some fractions never terminate in another base?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A fraction terminates in base b exactly when its reduced denominator's only prime factors are also prime factors of b. 0.1 (1/10) terminates in decimal but repeats forever in binary, because 5 is not a factor of 2 — the same reason 1/3 repeats in decimal.</p></details>
+<details class="sx-faq"><summary>What digits does a base above 10 use?<span aria-hidden="true" class="msym">expand_more</span></summary><p>After 9, letters continue the sequence: A=10, B=11, … up to Z=35, allowing bases up to 36. Hexadecimal (base 16) uses 0–9 and A–F.</p></details>
+<details class="sx-faq"><summary>Why is base 16 so common in computing?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Each hex digit represents exactly 4 binary bits, so a byte is always exactly 2 hex digits — a much more compact and readable way to write binary data, used for memory addresses, color codes and more.</p></details>
+<details class="sx-faq"><summary>How large a number can this handle?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The integer part supports arbitrarily many digits (exact BigInt arithmetic); the fractional part is computed to 20 digits in the target base, noting if the expansion is truncated rather than exact.</p></details>
+<details class="sx-faq"><summary>What's the difference between octal and hexadecimal?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Both are shorthand for binary: octal (base 8) groups bits in 3s, hexadecimal (base 16) groups them in 4s. Hex is more common today because it aligns with 8-bit bytes; octal remains in use for Unix file permissions.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with number bases.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/binary-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">memory</span></span><b>Binary Calculator</b><span class="d">Bitwise ops and two's complement.</span><span class="f">Base 2<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/scientific-notation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">superscript</span></span><b>Scientific Notation</b><span class="d">Convert to and from a × 10ⁿ.</span><span class="f">Notation<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/modulo-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">sync_alt</span></span><b>Modulo Calculator</b><span class="d">Mod, congruence, modular inverse.</span><span class="f">Remainders<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/prime-number-checker.html"><span class="ic"><span aria-hidden="true" class="msym">verified</span></span><b>Prime Number Checker</b><span class="d">Primality and factorization.</span><span class="f">Primes<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Base Converter</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/number-base-converter.html" width="100%" height="560" loading="lazy" title="Number Base Converter"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/number-base-converter.html?ref=widget" target="_blank" rel="noopener">
@@ -219,7 +151,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/number-base.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/number-base-converter.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

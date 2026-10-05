@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pregnancy Weight Gain Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,child_friendly,content_copy,egg_alt,event,expand_more,monitor_weight,print,restart_alt,restaurant,timeline,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,63 +38,108 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Pregnancy Weight Gain Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="units">Units</label>
-          <select id="units">
-            <option value="imperial" selected>Imperial (lb / in)</option>
-            <option value="metric" >Metric (kg / cm)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="weight">Pre-pregnancy weight</label>
-          <input type="number" id="weight" value="140"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="height">Height (in)</label>
-          <input type="number" id="height" value="65"
-step="1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="multiples">Pregnancy type</label>
-          <select id="multiples">
-            <option value="singleton" selected>Singleton (one baby)</option>
-            <option value="twins" >Twins</option>
-          </select>
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Recommended weight gain</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Pre-pregnancy BMI</span><span id="outBMI">—</span></div>
-        <div class="embed-row"><span>BMI category</span><span id="outCategory">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pwCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Pregnancy Weight Gain Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>IOM 2009 · ACOG</span><span class="sx-badge"><span aria-hidden="true" class="msym">timeline</span>Week-by-Week Range</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Pregnancy Weight Gain Calculator — IOM Ranges by Week</h1>
+<p>Find your recommended total pregnancy weight gain from your pre-pregnancy BMI using the Institute of Medicine guidelines endorsed by ACOG, see the typical weekly rate, and check how your gain so far compares.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s1"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">lb / in</button><button data-for="u" data-value="s2" style="flex:1" type="button">kg / cm</button></div></div>
+<div><div class="sx-au-l"><span>Pregnancy</span></div><input id="tw" type="hidden" value="s1"/><div aria-label="Pregnancy type" class="sx-seg" role="group" style="display:flex"><button data-for="tw" data-value="s1" style="flex:1" type="button">One baby</button><button data-for="tw" data-value="s2" style="flex:1" type="button">Twins</button></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Height</span></div>
+<div class="sx-au-in np" hidden="" id="hMet"><input aria-label="Height in centimetres" id="cm" inputmode="decimal" max="220" min="120" step="0.5" type="number" value="165"/><span class="suf">cm</span></div>
+<div class="sx-au-g2" id="hImp"><div class="sx-au-in np"><input aria-label="Height in feet" id="ft" inputmode="numeric" max="7" min="4" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in np"><input aria-label="Height in inches" id="inch" inputmode="decimal" max="11.9" min="0" step="0.5" type="number" value="5"/><span class="suf">in</span></div></div>
+</div>
+<div><div class="sx-au-l"><label for="pw">Pre-Pregnancy Weight</label></div><div class="sx-au-in np"><input id="pw" inputmode="decimal" max="600" min="60" step="0.5" type="number" value="140"/><span class="suf" id="wU">lb</span></div></div>
+<div style="border-top:1px solid var(--sx-border);padding-top:14px">
+<div class="sx-au-l"><span>Track Progress (optional)</span></div>
+<div class="sx-au-g2">
+<div class="sx-au-in np"><input aria-label="Weeks pregnant" id="wk" inputmode="numeric" max="42" min="1" placeholder="Week" step="1" type="number" value=""/><span class="suf">weeks</span></div>
+<div class="sx-au-in np"><input aria-label="Current weight" id="cw" inputmode="decimal" max="700" min="60" placeholder="Current weight" step="0.5" type="number" value=""/><span class="suf" id="cU">lb</span></div>
+</div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Range</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Recommended total gain</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Pre-pregnancy BMI</span><b id="bmi">—</b></div><div><span>Weekly rate, 2nd–3rd trimester</span><b id="rate">—</b></div></div>
+<div class="gain neg" id="pBox"><span id="pL">Add your week and current weight to compare</span><b id="pV">—</b></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/pregnancy-calorie-needs-calculator.html"><span aria-hidden="true" class="msym">restaurant</span>Calorie Needs</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Target Gain by Week</h2><p>Cumulative gain range: first-trimester gain, then a steady path to the IOM total range at 40 weeks.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Week</th><th scope="col">Gain So Far</th><th scope="col">Weight Range</th></tr></thead>
+<tbody id="wkTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>Pre-pregnancy BMI = weight (kg) ÷ height (m)². The Institute of Medicine (IOM) 2009 guidelines, endorsed by ACOG, then set the total gain:</p>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Pre-pregnancy BMI</th><th scope="col">One baby</th><th scope="col">Weekly (2nd–3rd tri.)</th><th scope="col">Twins (provisional)</th></tr></thead>
+<tbody><tr><td>Underweight (&lt;18.5)</td><td>28–40 lb (12.5–18 kg)</td><td>1–1.3 lb (0.44–0.58 kg)</td><td>No recommendation</td></tr><tr><td>Normal (18.5–24.9)</td><td>25–35 lb (11.5–16 kg)</td><td>0.8–1 lb (0.35–0.50 kg)</td><td>37–54 lb (17–25 kg)</td></tr><tr><td>Overweight (25–29.9)</td><td>15–25 lb (7–11.5 kg)</td><td>0.5–0.7 lb (0.23–0.33 kg)</td><td>31–50 lb (14–23 kg)</td></tr><tr><td>Obese (≥30)</td><td>11–20 lb (5–9 kg)</td><td>0.4–0.6 lb (0.17–0.27 kg)</td><td>25–42 lb (11–19 kg)</td></tr></tbody>
+</table></div>
+<p>The week-by-week path assumes about 1.1–4.4 lb (0.5–2 kg) in the first trimester, as the IOM report does, then a steady rise to the total range at 40 weeks.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the IOM 2009 report and ACOG Committee Opinion 548 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>At 5′5″ (1.651 m) and 140 lb (63.5 kg) before pregnancy, BMI = 63.5 ÷ 1.651² = 23.3 — normal weight — so the recommended total gain is <strong>25–35 lb</strong>, a final weight of about 165–175 lb. At 20 weeks, the path suggests a gain of roughly 7–12 lb so far.</p>
+<h2>Why it matters</h2>
+<p>Gaining within the recommended range is linked with fewer complications for mother and baby. Gaining too much raises the chance of gestational diabetes, a large baby and keeping weight on after birth; too little is linked with preterm birth and low birth weight. The IOM did not set a twin range for underweight women because of limited evidence. <strong>This is information, not medical advice</strong> — your care team may set a different target for you.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://nap.nationalacademies.org/catalog/12584/weight-gain-during-pregnancy-reexamining-the-guidelines" rel="noopener noreferrer">Institute of Medicine. Weight Gain During Pregnancy: Reexamining the Guidelines. National Academies Press, 2009.</a></li>
+<li><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/01/weight-gain-during-pregnancy" rel="noopener noreferrer">ACOG Committee Opinion No. 548 — Weight Gain During Pregnancy</a> (2013, reaffirmed)</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How much weight should I gain in the first trimester?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The IOM report assumes a small first-trimester gain of about 1.1–4.4 lb (0.5–2 kg). Most of the gain comes in the second and third trimesters.</p></details>
+<details class="sx-faq"><summary>Why are twin ranges higher?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Carrying two babies needs more weight gain to support their growth. The IOM twin ranges are provisional, and no range was set for underweight women because the evidence was too limited.</p></details>
+<details class="sx-faq"><summary>What if I'm gaining more or less than the range?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Weight gain varies week to week. If you're consistently above or below the range, talk to your care team — they can look at your diet, activity and health and suggest changes safely.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Healthy pregnancy planning.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/pregnancy-calorie-needs-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">restaurant</span></span><b>Pregnancy Calorie Needs</b><span class="d">Extra energy by trimester.</span><span class="f">Check needs<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/due-date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">child_friendly</span></span><b>Due Date Calculator</b><span class="d">How many weeks along you are.</span><span class="f">Find due date<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Your pre-pregnancy BMI category.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/protein-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">egg_alt</span></span><b>Protein Calculator</b><span class="d">Includes pregnancy needs.</span><span class="f">Set protein<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/pregnancy-weight-gain-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -221,7 +148,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/pregnancy-weight-gain.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/pregnancy-weight-gain.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

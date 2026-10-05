@@ -1,0 +1,138 @@
+<div class="sx" id="mcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Macro Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>4 · 9 · 4 kcal per gram</span><span class="sx-badge"><span class="msym" aria-hidden="true">rule</span>Checked Against Official Ranges (AMDR)</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Macro Calculator — Protein, Fat &amp; Carb Targets</h1>
+    <p>Turn a daily calorie target into protein, fat and carbohydrate gram targets. Pick a split for your goal, check it against the Dietary Reference Intake ranges and protein-per-kilogram guidance, and see your macros per meal.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Calories &amp; Split</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="dailyCalories">Daily Calorie Target</label><a href="/health/tdee-calculator.html" style="font-size:12px;font-weight:600">Find yours →</a></div>
+      <div class="sx-au-in np"><input id="dailyCalories" type="number" inputmode="numeric" min="800" max="8000" step="50" value="2200" style="font-size:17px;font-weight:600"><span class="suf">kcal</span></div>
+      <div class="sx-au-chips"><button type="button" data-for="dailyCalories" data-value="1600">1,600</button><button type="button" data-for="dailyCalories" data-value="2000">2,000</button><button type="button" data-for="dailyCalories" data-value="2200">2,200</button><button type="button" data-for="dailyCalories" data-value="2500">2,500</button><button type="button" data-for="dailyCalories" data-value="3000">3,000</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Split Preset</span><em style="color:var(--sx-muted);font-weight:500">Protein / Fat / Carbs</em></div>
+      <div class="sx-au-cat nr" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Macro split presets" id="presets">
+        <button type="button" data-sp="30,30,40"><span><b>Balanced</b><small>30 / 30 / 40</small></span></button>
+        <button type="button" data-sp="40,30,30"><span><b>Higher protein</b><small>40 / 30 / 30</small></span></button>
+        <button type="button" data-sp="20,30,50"><span><b>Guideline midpoints</b><small>20 / 30 / 50</small></span></button>
+        <button type="button" data-sp="35,45,20"><span><b>Lower carb</b><small>35 / 45 / 20</small></span></button>
+        <button type="button" data-sp="20,75,5"><span><b>Ketogenic</b><small>20 / 75 / 5</small></span></button>
+        <button type="button" data-sp="20,25,55"><span><b>Endurance</b><small>20 / 25 / 55</small></span></button>
+      </div>
+    </div>
+    <div class="sx-au-g2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      <div><label for="proteinPercent" style="font-size:11px;color:var(--sx-muted)">Protein</label><div class="sx-au-in sm np pc"><input id="proteinPercent" type="number" inputmode="numeric" min="0" max="100" step="1" value="30"><span class="suf">%</span></div></div>
+      <div><label for="fatPercent" style="font-size:11px;color:var(--sx-muted)">Fat</label><div class="sx-au-in sm np pc"><input id="fatPercent" type="number" inputmode="numeric" min="0" max="100" step="1" value="30"><span class="suf">%</span></div></div>
+      <div><label for="carbPercent" style="font-size:11px;color:var(--sx-muted)">Carbs</label><div class="sx-au-in sm np pc"><input id="carbPercent" type="number" inputmode="numeric" min="0" max="100" step="1" value="40"><span class="suf">%</span></div></div>
+    </div>
+    <p class="sx-au-help" style="margin:-8px 0 0" id="sumN">—</p>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="bw">Body Weight (optional)</label></div><div class="sx-au-in np"><input id="bw" type="number" inputmode="decimal" min="0" max="700" step="0.5" value="" placeholder="for g/kg check"><span class="suf" id="bwU">kg</span></div></div>
+      <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s2"><div class="sx-seg" role="group" aria-label="Weight units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">lb</button><button type="button" data-for="u" data-value="s2" style="flex:1">kg</button></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Macros</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Daily macro targets</span><span class="sx-ef-grade" id="kTag">—</span></div>
+    <div class="sx-mc-grid">
+      <div class="sx-mc-pie" id="pie"><span id="pieC">—</span></div>
+      <div class="sx-mc-list">
+        <div><i style="background:var(--sx-primary)"></i><span>Protein</span><b id="resultValue">—</b><small id="pN">—</small></div>
+        <div><i style="background:#f59e0b"></i><span>Fat</span><b id="fG">—</b><small id="fN">—</small></div>
+        <div><i style="background:#34d399"></i><span>Carbohydrate</span><b id="cG">—</b><small id="cN">—</small></div>
+      </div>
+    </div>
+    <div class="note" id="note">—</div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">rule</span>Guideline Check</span><span>Adults</span></div>
+    <div class="l"><span>Protein 10–35% of calories (AMDR)</span><b id="a1">—</b></div>
+    <div class="l"><span>Fat 20–35% of calories (AMDR)</span><b id="a2">—</b></div>
+    <div class="l"><span>Carbohydrate 45–65% of calories (AMDR)</span><b id="a3">—</b></div>
+    <div class="l"><span id="a4L">Protein per kg of body weight</span><b id="a4">—</b></div>
+    <div class="l t"><span>Fiber target (14 g per 1,000 kcal)</span><b id="fib">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Macros</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/protein-calculator.html"><span class="msym" aria-hidden="true">egg_alt</span>Protein Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Macros per Meal</h2><p id="mealN">Your daily targets divided evenly across meals.</p></div><div class="hbt" style="align-items:center;gap:8px"><span style="font-size:12px;color:var(--sx-muted)">Meals per day:</span><input type="hidden" id="meals" value="3"><div class="sx-seg" role="group" aria-label="Meals per day"><button type="button" data-for="meals" data-value="3">3</button><button type="button" data-for="meals" data-value="4">4</button><button type="button" data-for="meals" data-value="5">5</button><button type="button" data-for="meals" data-value="6">6</button></div></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Per</th><th scope="col">Calories</th><th scope="col">Protein</th><th scope="col">Fat</th><th scope="col">Carbohydrate</th></tr></thead>
+    <tbody id="mealTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Compare Splits at Your Calories</h2><p id="cmpN">The same calories distributed by common splits.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Split</th><th scope="col">P / F / C</th><th scope="col">Protein</th><th scope="col">Fat</th><th scope="col">Carbohydrate</th><th scope="col">Within AMDR?</th></tr></thead>
+    <tbody id="cmpTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Protein and carbs provide 4 calories per gram, while fat provides 9 calories per gram — this calculator converts your percentage split into actual gram targets.</p>
+    <p><strong>Grams = (Calories × percent ÷ 100) ÷ calories per gram</strong> — protein &amp; carbs = 4 kcal/g · fat = 9 kcal/g</p>
+    <p>The guideline check uses the Acceptable Macronutrient Distribution Ranges (AMDR) for adults from the Institute of Medicine's Dietary Reference Intakes, also used by the 2020–2025 Dietary Guidelines for Americans: protein 10–35%, fat 20–35% and carbohydrate 45–65% of calories. Splits outside these ranges — such as ketogenic diets — are used by some people, but are outside general population guidance.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the Dietary Reference Intakes and ISSN guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Adjusting macro splits for different goals</h2>
+    <p>A 30/30/40 split works well as a general default, but different goals often call for different ratios. Higher protein (35-40%) is common for muscle-building or fat-loss phases to help preserve lean mass. Lower carb, higher fat splits are used in specific approaches like ketogenic diets.</p>
+    <p>Protein needs are the most consistent recommendation across goals — most guidance suggests prioritizing adequate protein intake first, then adjusting the fat-to-carb ratio based on personal preference and how your body responds. For people who exercise regularly, the International Society of Sports Nutrition suggests about 1.4–2.0 g of protein per kg of body weight per day; the RDA for adults in general is 0.8 g/kg.</p>
+
+    <h2>A worked example</h2>
+    <p>At 2,400 calories/day with a 35/25/40 split (higher protein): protein target is (2400 times 0.35) divided by 4, or 210g; fat is (2400 times 0.25) divided by 9, about 67g; and carbs are (2400 times 0.40) divided by 4, or 240g.</p>
+    <p>Compare that to a standard 30/30/40 split at the same calorie level: protein drops to 180g while fat rises to 80g — the same total calories, distributed differently based on which macro is prioritized. Note that 40% carbohydrate is just below the 45% lower end of the AMDR.</p>
+
+    <h2>Adjusting macros for different goals</h2>
+    <p>Higher protein (35-40%) tends to support muscle retention during fat loss, while endurance athletes often benefit from a higher carbohydrate percentage to fuel training. Protein needs are also often better set as a direct gram target based on body weight (see our <a href="/health/protein-calculator.html">Protein Calculator</a>) rather than a pure percentage, since protein needs don't scale purely with total calories the way fat and carbs more flexibly do.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li>Institute of Medicine. Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. National Academies Press, 2005 (AMDR; fiber 14 g per 1,000 kcal).</li>
+      <li><a href="https://realfood.gov/" rel="noopener noreferrer">Dietary Guidelines for Americans, 2025–2030</a> (saturated fat no more than 10% of calories; protein 1.2–1.6 g/kg/day)</li>
+      <li>Jäger R, et al. International Society of Sports Nutrition position stand: protein and exercise. J Int Soc Sports Nutr 2017;14:20.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What macro split should I use?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A 30/30/40 (protein/fat/carb) split is a common general-purpose starting point, but ideal splits vary by goal — higher protein for muscle building, higher fat for some low-carb approaches.</p></details>
+    <details class="sx-faq"><summary>What if my percentages don't add up to 100%?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Adjust the values so protein, fat, and carb percentages sum to 100% for the gram targets to match your total calorie goal exactly.</p></details>
+    <details class="sx-faq"><summary>Which macro is most important to prioritize?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Most nutrition guidance prioritizes protein intake first for muscle maintenance and satiety, then allows more flexibility in balancing fat and carbohydrate based on personal preference and performance.</p></details>
+    <details class="sx-faq"><summary>Do I need to hit my macros exactly every day?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Being consistently close over time matters more than hitting exact numbers daily — small day-to-day variation is normal and generally doesn't meaningfully affect results.</p></details>
+    <details class="sx-faq"><summary>Should my macro percentages change if I'm trying to lose fat?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many people increase protein percentage during fat loss to help preserve muscle mass, often to 35-40% of total calories, adjusting fat and carbs accordingly.</p></details>
+    <details class="sx-faq"><summary>What are the recommended macro ranges for adults?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The Acceptable Macronutrient Distribution Ranges for adults are 10–35% of calories from protein, 20–35% from fat and 45–65% from carbohydrate.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Nutrition Calculators</h2><p>Set calories first, then fine-tune protein and fiber.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Your maintenance calories from four BMR formulas.</span><span class="f">Find your calories<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calorie Calculator</b><span class="d">Targets to lose or gain weight, with a goal date.</span><span class="f">Set a target<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/protein-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">egg_alt</span></span><b>Protein Calculator</b><span class="d">Protein by body weight and activity.</span><span class="f">Set protein<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/fiber-intake-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">grass</span></span><b>Fiber Intake Calculator</b><span class="d">Daily fiber from your calories, age and sex.</span><span class="f">Check fiber<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

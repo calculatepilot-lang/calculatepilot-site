@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Permutation & Combination Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bar_chart,calculate,casino,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,priority_high,restart_alt,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,55 +38,151 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Permutation & Combination Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="calcType">Type</label>
-          <select id="calcType">
-            <option value="permutation" selected>Permutation (nPr) — order matters</option>
-            <option value="combination" >Combination (nCr) — order doesn't matter</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="nValue">n (total items)</label>
-          <input type="number" id="nValue" value="10"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="rValue">r (items chosen)</label>
-          <input type="number" id="rValue" value="3"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Formula</span><span id="outFormula">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pcCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Permutation &amp; Combination Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact integers, n up to 1,000</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Permutation &amp; Combination Calculator (nPr and nCr)</h1>
+<p>Count arrangements (order matters) and selections (order does not) — with or without repetition. Results are exact integers, however large, with the factorial cancellation shown step by step.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The counting formulas are standard and each example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It uses arbitrary-precision integer arithmetic, multiplying only the factors that do not cancel, so no rounding or overflow occurs even when n is in the hundreds.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Picking the wrong formula is the usual mistake. A decision guide and a side-by-side count of all four cases help you choose correctly.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">What do you want to count?</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="c"/>
+<div aria-label="Counting type" class="sx-seg full" role="group" style="flex-wrap:wrap"><button data-for="mode" data-value="c" type="button">Combinations nCr</button><button data-for="mode" data-value="p" type="button">Permutations nPr</button><button data-for="mode" data-value="cr" type="button">Combinations with repetition</button><button data-for="mode" data-value="pr" type="button">Permutations with repetition</button></div>
+<p class="sx-au-help" id="modeHelp" style="margin:-6px 0 0">—</p>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-m="c" data-n="49" data-r="6" type="button">Lottery, pick 6 of 49</button><button data-m="c" data-n="52" data-r="5" type="button">Poker hand (52, 5)</button><button data-m="c" data-n="12" data-r="4" type="button">Committee (12, 4)</button><button data-m="pr" data-n="36" data-r="8" type="button">Password (36, 8)</button></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="n">Total items in the set (n)</label><em class="mu">0 to 1,000</em></div><div class="sx-au-in np"><input id="n" inputmode="numeric" max="1000" min="0" step="1" type="number" value="52"/></div></div>
+<div><div class="sx-au-l"><label for="r">Items chosen (r)</label><em class="mu" id="rH">0 to n</em></div><div class="sx-au-in np"><input id="r" inputmode="numeric" max="1000" min="0" step="1" type="number" value="5"/></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button><button class="rs" id="swap" type="button">Swap n and r</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Formula in use</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">C(52, 5)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:36px;word-break:break-all"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="oneLbl">Chance of one specific selection</span><b id="one" style="font-size:16px">—</b></div><div><span>Number of digits</span><b id="digits">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:0;overflow:hidden">
+<div class="sx-scroll"><table class="sx-au-cmp plain" id="allTbl" style="min-width:0"><thead><tr><th scope="col">Count for n and r</th><th scope="col">Formula</th><th scope="col">Result</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-in-t4 c3">
+<div class="sx-card"><div class="k">n!</div><b id="fn" style="font-size:16px">—</b><p>Numerator</p></div>
+<div class="sx-card"><div class="k">r!</div><b id="fr" style="font-size:16px">—</b><p>Orderings of r items</p></div>
+<div class="sx-card"><div class="k">(n − r)!</div><b id="fnr" style="font-size:16px">—</b><p>Cancelled factors</p></div>
+</div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy exact value</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Permutation vs combination: does order matter?</h2>
+<p>A permutation counts each different ordering separately. A combination treats orderings of the same items as one selection, so every combination corresponds to r! permutations.</p>
+<div class="sx-mt-2">
+<div><h3>Permutations <span class="sx-mt-tag">order matters</span></h3><p>Three tokens A, B, C can be arranged in 3! = 6 different orders:</p><div class="sx-mt-ex">ABC · ACB · BAC · BCA · CAB · CBA</div><p style="margin-top:10px">Each ordered arrangement is a separate outcome — like the gold, silver and bronze places in a race.</p></div>
+<div><h3>Combinations <span class="sx-mt-tag">order does not matter</span></h3><p>All six orders contain the same three tokens, so they collapse into a single combination:</p><div class="sx-mt-ex"><b>{ A, B, C }</b> — 1 combination</div><p style="margin-top:10px">C(n, r) = P(n, r) ÷ r!  — like choosing a committee, where only membership counts.</p></div>
+</div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>The four counting formulas</h2>
+<div class="sx-mt-2" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div><h3>Combinations <span class="sx-mt-tag">no repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">C(n, r) = n! ÷ (r!(n − r)!)</span></div><p>Unordered selections where each element can be picked at most once.</p></div>
+<div><h3>Permutations <span class="sx-mt-tag">no repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">P(n, r) = n! ÷ (n − r)!</span></div><p>Ordered arrangements without reuse: n choices, then n − 1, and so on.</p></div>
+<div><h3>Combinations <span class="sx-mt-tag">with repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">C(n + r − 1, r)</span></div><p>Multisets of size r from n types (the “stars and bars” count), where items may repeat and order is ignored.</p></div>
+<div><h3>Permutations <span class="sx-mt-tag">with repetition</span></h3><div class="sx-mt-fx" style="padding:12px;margin-bottom:8px"><span class="eq" style="font-size:16px">nʳ</span></div><p>Ordered sequences where each of the r positions can independently be any of the n symbols.</p></div>
+</div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>When does order matter?</h2><p>A quick guide to choosing the right formula. All counts are exact.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+<thead><tr><th scope="col">Scenario</th><th scope="col">Order matters?</th><th scope="col">Formula</th><th scope="col">Setup</th><th scope="col">Exact result</th></tr></thead>
+<tbody>
+<tr><td style="white-space:normal">Locker padlock, distinct numbers</td><td style="font-family:inherit">Yes</td><td class="mono">P(n, r)</td><td style="font-family:inherit">3 different numbers from 0–39</td><td class="mono">59,280</td></tr>
+<tr><td style="white-space:normal">Lottery, pick 6</td><td style="font-family:inherit">No</td><td class="mono">C(n, r)</td><td style="font-family:inherit">6 from 49</td><td class="mono">13,983,816</td></tr>
+<tr><td style="white-space:normal">Race podium</td><td style="font-family:inherit">Yes</td><td class="mono">P(n, r)</td><td style="font-family:inherit">Top 3 of 8 sprinters</td><td class="mono">336</td></tr>
+<tr><td style="white-space:normal">Pizza toppings</td><td style="font-family:inherit">No</td><td class="mono">C(n, r)</td><td style="font-family:inherit">3 toppings from 10</td><td class="mono">120</td></tr>
+<tr><td style="white-space:normal">Password, characters may repeat</td><td style="font-family:inherit">Yes</td><td class="mono">nʳ</td><td style="font-family:inherit">62 characters, 8 slots</td><td class="mono">218,340,105,584,896</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><h3>Password key space</h3><p>An 8-character password from 26 lowercase + 26 uppercase + 10 digits (62 symbols), repetition allowed.</p><div class="sx-mt-ex">62⁸ = <b>218,340,105,584,896</b><br/>log₂ = 8 × 5.954 ≈ 47.6 bits</div></div>
+<div><h3>Choosing a trial group</h3><p>Select 20 participants from a pool of 100, order irrelevant.</p><div class="sx-mt-ex">C(100, 20) = <b>535,983,370,403,809,682,970</b><br/>≈ 5.36 × 10²⁰ possible groups</div></div>
+<div><h3>Mesh network links</h3><p>How many point-to-point links join 24 servers so that every pair is connected?</p><div class="sx-mt-ex">C(24, 2) = 24 × 23 ÷ 2 = <b>276</b> links</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What are permutations and combinations?</h2>
+<p>Permutations and combinations count the ways to select items from a set. A <strong>permutation</strong> is an ordered arrangement; a <strong>combination</strong> is an unordered selection. The factorial n! = n × (n − 1) × … × 1 underlies both, with 0! defined as 1.</p>
+<h2>How to choose the formula</h2>
+<ul>
+<li>Does the order of the chosen items create a different outcome? If yes, use permutations; if no, use combinations.</li>
+<li>Can the same item be chosen more than once? If yes, use the “with repetition” formulas.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>NIST Digital Library of Mathematical Functions, section 26.3 (Lattice paths: binomial coefficients) and chapter 26, <i>Combinatorial Analysis</i>.</li>
+<li>Knuth, D. E. (1997). <i>The Art of Computer Programming, Volume 1: Fundamental Algorithms</i>, 3rd ed. Addison-Wesley.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i> (notation for factorials and binomial coefficients).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What is the difference between a permutation and a combination?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A permutation counts ordered arrangements, so (1, 2, 3) and (3, 2, 1) are different. A combination counts unordered selections, so they are the same. Because each combination of size r can be arranged in r! ways, the number of permutations is always r! times the number of combinations.</p></details>
+<details class="sx-faq"><summary>Why is a “combination lock” really a permutation lock?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Because the order in which you enter the digits matters: 1-2-3 opens it but 3-2-1 does not. Strictly it is a count of ordered sequences, so it uses permutation formulas (with repetition if digits can be reused).</p></details>
+<details class="sx-faq"><summary>How does this calculator handle very large factorials?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It uses arbitrary-precision integer arithmetic, so results are exact rather than rounded to floating-point. Numbers with more than 18 digits are shown in scientific notation, and “Copy exact value” copies every digit.</p></details>
+<details class="sx-faq"><summary>What are “stars and bars”?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It is a method for counting combinations with repetition. Choosing r items from n types, with repeats allowed and order ignored, is equivalent to placing r stars and n − 1 bars in a row, which gives C(n + r − 1, r).</p></details>
+<details class="sx-faq"><summary>What is 0! and what if r = 0?<span aria-hidden="true" class="msym">expand_more</span></summary><p>By definition 0! = 1. Choosing zero items can be done in exactly one way, so C(n, 0) = P(n, 0) = 1, and n⁰ = 1.</p></details>
+<details class="sx-faq"><summary>Why can r not exceed n without repetition?<span aria-hidden="true" class="msym">expand_more</span></summary><p>You cannot pick more distinct items than exist, so the count is 0. The calculator asks you to enter r ≤ n for the no-repetition formulas; with repetition allowed, r may be larger than n.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with probability and factorials.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/binomial-probability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Binomial Probability</b><span class="d">Probability of k successes in n trials, built on nCr.</span><span class="f">Use nCr<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/probability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">casino</span></span><b>Probability Calculator</b><span class="d">Union, intersection, conditional probability and Bayes.</span><span class="f">Events and odds<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/factorial-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">priority_high</span></span><b>Factorial Calculator</b><span class="d">Factorials with exact results.</span><span class="f">n!<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">bar_chart</span></span><b>Standard Deviation</b><span class="d">Sample and population spread.</span><span class="f">Measure spread<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Permutation &amp; Combination Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/permutation-combination-calculator.html" width="100%" height="560" loading="lazy" title="Permutation and Combination Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/permutation-combination-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -213,7 +191,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/permutation-combination.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/permutation-combination.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

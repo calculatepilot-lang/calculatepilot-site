@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de probabilidad: eventos, Bayes y odds</title>
+<meta name="description" content="Calculadora de probabilidad gratuita: dos o tres eventos, independientes o mutuamente excluyentes, teorema de Bayes y odds.">
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/math/probability-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/math/probability-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/math/probability-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/math/probability-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/math/probability-calculator.html">
+<link rel="canonical" href="https://www.calculatepilot.com/es/math/probability-calculator.html"
+<meta property="og:locale" content="es_ES">>
+<meta property="og:title" content="Calculadora de probabilidad: eventos, Bayes y odds | CalculatePilot">
+<meta property="og:description" content="Calculadora de probabilidad gratuita: dos o tres eventos, independientes o mutuamente excluyentes, teorema de Bayes y odds, con diagrama de Venn y todos los pasos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/es/math/probability-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de probabilidad: eventos, Bayes y odds | CalculatePilot">
+<meta name="twitter:description" content="Calculadora de probabilidad gratuita: dos o tres eventos, independientes o mutuamente excluyentes, teorema de Bayes y odds, con diagrama de Venn y todos los pasos.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_tree,arrow_forward,bubble_chart,calculate,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,lock,percent,person_check,picture_as_pdf,restart_alt,show_chart,shuffle,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculadora de probabilidad",
+ "url": "https://www.calculatepilot.com/es/math/probability-calculator.html",
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calcula la probabilidad de dos o tres eventos (unión, intersección, condicional), aplica el teorema de Bayes y convierte entre probabilidad, odds y 1 de cada N, con diagrama de Venn y desarrollo paso a paso.",
+ "inLanguage": "es"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://www.calculatepilot.com/es/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculadoras de matemáticas",
+   "item": "https://www.calculatepilot.com/es/math-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculadora de probabilidad",
+   "item": "https://www.calculatepilot.com/es/math/probability-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Calculadora de probabilidad",
+ "url": "https://www.calculatepilot.com/es/math/probability-calculator.html",
+ "author": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ },
+ "dateModified": "2026-09-28",
+ "lastReviewed": "2026-09-28",
+ "citation": [
+  "Kolmogorov (1933) Grundbegriffe der Wahrscheinlichkeitsrechnung",
+  "Grinstead and Snell (1997) Introduction to Probability, 2nd ed., AMS",
+  "Gigerenzer and Hoffrage (1995) Psychological Review 102(4), 684-704"
+ ],
+ "inLanguage": "es"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cuál es la diferencia entre eventos mutuamente excluyentes e independientes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Los eventos mutuamente excluyentes no pueden ocurrir a la vez, por lo que P(A ∩ B) = 0. Los eventos independientes sí pueden ocurrir juntos, y que ocurra uno no cambia la probabilidad del otro, por lo que P(A ∩ B) = P(A) × P(B). Si ambos tienen probabilidad distinta de cero, los eventos no pueden ser ambas cosas."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Por qué no puedo simplemente sumar las probabilidades para «A o B»?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Si los eventos pueden solaparse, al sumar se cuenta dos veces el solapamiento. La regla de la suma resta P(A ∩ B) una vez para corregirlo. Sumar sin más solo es correcto para eventos mutuamente excluyentes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué hace el teorema de Bayes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Actualiza una probabilidad previa cuando observas nueva evidencia. Invierte una probabilidad condicional: pasa de P(B | A), la probabilidad de la evidencia si A es cierto, a P(A | B), la probabilidad de A dada la evidencia, teniendo en cuenta lo frecuente que era A al principio."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué es la falacia del jugador?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Es la creencia errónea de que los resultados independientes pasados cambian los futuros; por ejemplo, que «toca» cara tras una racha de cruces. Para eventos independientes, P(A | B) = P(A): la moneda no tiene memoria."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cómo convierto una probabilidad en odds?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Las odds a favor son p ÷ (1 − p). Una probabilidad de 0.4 da odds de 0.4 ÷ 0.6 = 2 a 3 a favor, o 3 a 2 en contra. Usa la pestaña Odds para convertir en cualquier sentido."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Puede una probabilidad ser mayor que 1 o negativa?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Toda probabilidad está entre 0 y 1, ambos incluidos (del 0 % al 100 %). La calculadora rechaza los valores fuera de ese rango y las probabilidades conjuntas que sean imposibles dados P(A) y P(B)."
+   }
+  }
+ ],
+ "inLanguage": "es"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/es/financial-calculators.html">Finanzas</a></li>
+      <li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+      <li><a href="/es/math-calculators.html">Matemáticas</a></li>
+      <li><a href="/es/other-calculators.html">Vida diaria</a></li>
+      <li><a href="/es/guides/">Guías</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="prCalc">
+<nav class="sx-crumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/es/math-calculators.html">Calculadoras de matemáticas</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculadora de probabilidad</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Axiomas de Kolmogorov aplicados</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Revisado el 28 de sep. de 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Se ejecuta en tu navegador</span></div>
+    <h1>Calculadora de probabilidad</h1>
+    <p>Calcula la probabilidad de que dos o tres eventos ocurran juntos o por separado, actualiza una probabilidad con el teorema de Bayes o convierte entre probabilidad, odds y «1 de cada N», con diagrama de Venn y cada paso del desarrollo.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Quién lo escribió</b><p>Escrito por <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Cada regla utilizada aquí es un teorema estándar y cada ejemplo resuelto se vuelve a deducir a mano. <a href="/methodology.html">Nuestra metodología</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>Cómo funciona el motor</b><p>Comprueba que tus datos sean probabilidades válidas y luego aplica la regla del producto, la regla de la suma, la regla del complemento y el teorema de Bayes tal como se indican más abajo.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Por qué la creamos</b><p>«Mutuamente excluyentes» e «independientes» se confunden a menudo. Esta página convierte la relación en una elección explícita y rechaza las combinaciones imposibles.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7" style="display:flex;flex-direction:column;gap:20px">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Eventos</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Restablecer</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Tipo de cálculo"><button type="button" data-for="mode" data-value="s1">Dos eventos</button><button type="button" data-for="mode" data-value="s2">Teorema de Bayes</button><button type="button" data-for="mode" data-value="s3">Tres eventos</button><button type="button" data-for="mode" data-value="s4">Odds</button></div>
+    <div id="fFmt"><input type="hidden" id="fmt" value="s1"><div class="sx-au-l"><span>Introduce las probabilidades como</span></div><div class="sx-seg" role="group" aria-label="Formato de probabilidad" style="display:flex"><button type="button" data-for="fmt" data-value="s1" style="flex:1">Decimales (0 a 1)</button><button type="button" data-for="fmt" data-value="s2" style="flex:1">Porcentaje (0 a 100)</button></div></div>
+
+    <div id="p1" class="sx-au-stack">
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="pa">Probabilidad del evento A, P(A)</label></div><div class="sx-au-in np"><input id="pa" type="number" inputmode="decimal" step="any" value="0.40"></div></div>
+        <div><div class="sx-au-l"><label for="pb">Probabilidad del evento B, P(B)</label></div><div class="sx-au-in np"><input id="pb" type="number" inputmode="decimal" step="any" value="0.35"></div></div>
+      </div>
+      <div><div class="sx-au-l"><span>Relación entre A y B</span></div><input type="hidden" id="rel" value="s1"><div class="sx-seg full" role="group" aria-label="Relación"><button type="button" data-for="rel" data-value="s1">Independientes</button><button type="button" data-for="rel" data-value="s2">Mutuamente excluyentes</button><button type="button" data-for="rel" data-value="s3">Conjunta personalizada</button></div><p class="sx-au-help" id="relHelp">—</p></div>
+      <div id="fJoint"><div class="sx-au-l"><label for="pj">Probabilidad conjunta, P(A ∩ B)</label><em class="mu" id="pjH">—</em></div><div class="sx-au-in np"><input id="pj" type="number" inputmode="decimal" step="any" value="0.14"></div></div>
+    </div>
+
+    <div id="p2" class="sx-au-stack" hidden>
+      <div><div class="sx-au-l"><label for="pr">Probabilidad previa, P(A)</label><em class="mu">qué tan frecuente es la condición antes de cualquier evidencia</em></div><div class="sx-au-in np"><input id="pr" type="number" inputmode="decimal" step="any" value="0.001"></div></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="se">P(B | A): tasa de verdaderos positivos</label></div><div class="sx-au-in np"><input id="se" type="number" inputmode="decimal" step="any" value="0.95"></div></div>
+        <div><div class="sx-au-l"><label for="fp">P(B | no A): tasa de falsos positivos</label></div><div class="sx-au-in np"><input id="fp" type="number" inputmode="decimal" step="any" value="0.05"></div></div>
+      </div>
+      <div><div class="sx-au-l"><label for="pn">Personas en la ilustración</label><em class="mu">vista de frecuencias naturales</em></div><div class="sx-au-in np"><input id="pn" type="number" inputmode="numeric" step="1" min="100" max="100000000" value="100000"></div></div>
+      <p class="sx-au-help">El evento A es lo que quieres saber (una condición, un defecto); el evento B es la evidencia observada (una prueba positiva, una alarma).</p>
+    </div>
+
+    <div id="p3" class="sx-au-stack" hidden>
+      <div class="sx-au-g3">
+        <div><div class="sx-au-l"><label for="qa">P(A)</label></div><div class="sx-au-in np"><input id="qa" type="number" inputmode="decimal" step="any" value="0.50"></div></div>
+        <div><div class="sx-au-l"><label for="qb">P(B)</label></div><div class="sx-au-in np"><input id="qb" type="number" inputmode="decimal" step="any" value="0.30"></div></div>
+        <div><div class="sx-au-l"><label for="qc">P(C)</label></div><div class="sx-au-in np"><input id="qc" type="number" inputmode="decimal" step="any" value="0.20"></div></div>
+      </div>
+      <div><div class="sx-au-l"><span>Relación</span></div><input type="hidden" id="rel3" value="s1"><div class="sx-seg full" role="group" aria-label="Relación entre tres eventos"><button type="button" data-for="rel3" data-value="s1">Independientes</button><button type="button" data-for="rel3" data-value="s2">Mutuamente excluyentes</button></div></div>
+    </div>
+
+    <div id="p4" class="sx-au-stack" hidden>
+      <div><div class="sx-au-l"><label for="ok">Conozco el/la…</label></div><select id="ok" class="sx-mt-sel"><option value="p">Probabilidad</option><option value="o">Odds a favor (a : b)</option><option value="n">Frecuencia «1 de cada N»</option></select></div>
+      <div id="o1"><div class="sx-au-l"><label for="op">Probabilidad</label></div><div class="sx-au-in np"><input id="op" type="number" inputmode="decimal" step="any" value="0.4"></div></div>
+      <div id="o2" class="sx-au-g2" hidden><div><div class="sx-au-l"><label for="oa">Odds a favor, a</label></div><div class="sx-au-in np"><input id="oa" type="number" inputmode="decimal" step="any" min="0" value="2"></div></div><div><div class="sx-au-l"><label for="ob">Odds en contra, b</label></div><div class="sx-au-in np"><input id="ob" type="number" inputmode="decimal" step="any" min="0" value="3"></div></div></div>
+      <div id="o3" hidden><div class="sx-au-l"><label for="on">1 in N, N =</label></div><div class="sx-au-in np"><input id="on" type="number" inputmode="decimal" step="any" min="1" value="10"></div></div>
+      <div><div class="sx-au-l"><label for="ot">Número de ensayos independientes</label><em class="mu">para el recuento esperado y «al menos una vez»</em></div><div class="sx-au-in np"><input id="ot" type="number" inputmode="numeric" step="1" min="1" value="10"></div></div>
+    </div>
+
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calcular probabilidades</button>
+  </div>
+</form>
+
+<div id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">Ocurren ambos eventos, P(A ∩ B)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copiar resultados</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Compartir enlace</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Imprimir</button></div>
+</div>
+</div>
+
+<div class="sx-r5">
+  <section class="sx-card r2" style="padding:20px" id="vennCard">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">bubble_chart</span>Diagrama de Venn</span><em class="mu" id="vennTag">sin escala</em></div>
+    <div class="sx-mt-plot" id="venn" role="img" aria-label="Diagrama de Venn de los eventos y sus probabilidades"></div>
+  </section>
+  <section class="sx-card r2" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">account_tree</span>Desarrollo paso a paso</span></div>
+    <ol class="sx-mt-steps" id="steps"></ol>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Los tres axiomas de Kolmogorov</h2>
+  <p>Toda la probabilidad moderna se apoya en tres reglas, formalizadas por Andréi Kolmogórov en 1933. Esta calculadora rechaza cualquier dato que las incumpla.</p>
+  <div class="sx-mt-3">
+    <div><h3>1. No negatividad</h3><div class="sx-mt-ex" style="margin-bottom:10px">P(E) ≥ 0</div><p>La probabilidad de cualquier evento nunca es negativa.</p></div>
+    <div><h3>2. Medida unitaria</h3><div class="sx-mt-ex" style="margin-bottom:10px">P(Ω) = 1</div><p>Algo del espacio muestral tiene que ocurrir, así que la probabilidad total es exactamente 1.</p></div>
+    <div><h3>3. Aditividad</h3><div class="sx-mt-ex" style="margin-bottom:10px">P(A ∪ B) = P(A) + P(B) si A ∩ B = ∅</div><p>Para eventos que no pueden ocurrir juntos, las probabilidades se suman.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Eventos mutuamente excluyentes frente a independientes</h2><p>Dos de las ideas que más se confunden en probabilidad. Son casi opuestas.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:640px">
+    <thead><tr><th scope="col">Propiedad</th><th scope="col">Mutuamente excluyentes</th><th scope="col">Independientes</th></tr></thead>
+    <tbody>
+      <tr><td>Significado</td><td style="font-family:inherit">A y B no pueden ocurrir a la vez: A ∩ B = ∅</td><td style="font-family:inherit">Saber que A ocurrió no te dice nada sobre B</td></tr>
+      <tr><td>Intersección P(A ∩ B)</td><td class="mono">0</td><td class="mono">P(A) × P(B)</td></tr>
+      <tr><td>Unión P(A ∪ B)</td><td class="mono">P(A) + P(B)</td><td class="mono">P(A) + P(B) − P(A)P(B)</td></tr>
+      <tr><td>Condicional P(A | B)</td><td class="mono">0</td><td class="mono">P(A)</td></tr>
+      <tr><td>¿Pueden darse ambas?</td><td colspan="2" style="font-family:inherit">Solo si P(A) = 0 o P(B) = 0. Si ambos eventos son posibles, ser mutuamente excluyentes significa que saber que uno ocurrió te dice que el otro no; por lo tanto, son dependientes.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Ejemplos resueltos</h2>
+  <p>Cada uno se ha comprobado a mano y puede reproducirse arriba.</p>
+  <div class="sx-mt-3">
+    <div><h3>Cribado de una condición poco frecuente</h3><p>Una condición afecta a 1 de cada 1,000 personas. Una prueba la detecta el 95 % de las veces y da un falso positivo el 5 % de las veces. Alguien da positivo: ¿cuál es la probabilidad de que la tenga?</p><div class="sx-mt-ex">P(B) = 0.95×0.001 + 0.05×0.999 = 0.05090<br>P(A|B) = 0.00095 ÷ 0.05090<br><b>= 0.0187 (aproximadamente 1.87 %)</b></div><p style="margin-top:10px">La mayoría de los positivos son falsos positivos porque la condición es muy poco frecuente. Usa la pestaña Teorema de Bayes.</p></div>
+    <div><h3>Al menos un seis en cuatro lanzamientos</h3><p>Lanzar cuatro veces un dado justo: la probabilidad de obtener al menos un seis.</p><div class="sx-mt-ex">P(ningún seis en un lanzamiento) = 5/6<br>P(ningún seis en cuatro) = (5/6)⁴ = 0.4823<br><b>P(al menos un seis) = 1 − 0.4823 = 0.5177</b></div><p style="margin-top:10px">Usa la pestaña Odds con p = 1/6 (0.1667) y 4 ensayos.</p></div>
+    <div><h3>Dos copias de seguridad independientes</h3><p>Cada uno de dos sistemas de respaldo independientes falla con probabilidad 0.02.</p><div class="sx-mt-ex">Fallan ambos: 0.02 × 0.02 = <b>0.0004</b><br>Falla al menos uno: 0.02 + 0.02 − 0.0004 = <b>0.0396</b></div><p style="margin-top:10px">Introduce 0.02 y 0.02 en la pestaña Dos eventos, con independientes.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>¿Qué es la probabilidad?</h2>
+    <p>La probabilidad mide qué tan probable es un evento, en una escala de 0 (imposible) a 1 (seguro). Puede expresarse como decimal, porcentaje, fracción, odds o una frecuencia como «1 de cada 20».</p>
+    <h2>Las reglas básicas</h2>
+    <ul>
+      <li><strong>Complemento:</strong> P(no A) = 1 − P(A).</li>
+      <li><strong>Suma (cualquiera de los eventos):</strong> P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Se resta la intersección para no contarla dos veces.</li>
+      <li><strong>Producto (ambos eventos), independientes:</strong> P(A ∩ B) = P(A) × P(B).</li>
+      <li><strong>Probabilidad condicional:</strong> P(A | B) = P(A ∩ B) ÷ P(B), para P(B) &gt; 0.</li>
+      <li><strong>Teorema de Bayes:</strong> P(A | B) = P(B | A) × P(A) ÷ P(B), donde P(B) = P(B | A)P(A) + P(B | no A)P(no A).</li>
+      <li><strong>Odds:</strong> odds a favor = p ÷ (1 − p); p = a ÷ (a + b) para odds a : b.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">Por <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Revisado el 28 de septiembre de 2026 · <a href="/methodology.html">Cómo verifica CalculatePilot las fórmulas →</a></p>
+    <h2>Fuentes</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Kolmogorov, A. N. (1933). <i>Grundbegriffe der Wahrscheinlichkeitsrechnung</i>. Springer, Berlín.</li>
+      <li>Grinstead, C. M. &amp; Snell, J. L. (1997). <i>Introduction to Probability</i>, 2.ª ed. American Mathematical Society.</li>
+      <li>Gigerenzer, G. &amp; Hoffrage, U. (1995). How to improve Bayesian reasoning without instruction: frequency formats. <i>Psychological Review</i> 102(4), 684–704.</li>
+    </ul>
+    <h2>Preguntas frecuentes</h2>
+    <details class="sx-faq"><summary>¿Cuál es la diferencia entre eventos mutuamente excluyentes e independientes?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Los eventos mutuamente excluyentes no pueden ocurrir a la vez, por lo que P(A ∩ B) = 0. Los eventos independientes sí pueden ocurrir juntos, y que ocurra uno no cambia la probabilidad del otro, por lo que P(A ∩ B) = P(A) × P(B). Si ambos tienen probabilidad distinta de cero, los eventos no pueden ser ambas cosas.</p></details>
+    <details class="sx-faq"><summary>¿Por qué no puedo simplemente sumar las probabilidades para «A o B»?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Si los eventos pueden solaparse, al sumar se cuenta dos veces el solapamiento. La regla de la suma resta P(A ∩ B) una vez para corregirlo. Sumar sin más solo es correcto para eventos mutuamente excluyentes.</p></details>
+    <details class="sx-faq"><summary>¿Qué hace el teorema de Bayes?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Actualiza una probabilidad previa cuando observas nueva evidencia. Invierte una probabilidad condicional: pasa de P(B | A), la probabilidad de la evidencia si A es cierto, a P(A | B), la probabilidad de A dada la evidencia, teniendo en cuenta lo frecuente que era A al principio.</p></details>
+    <details class="sx-faq"><summary>¿Qué es la falacia del jugador?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Es la creencia errónea de que los resultados independientes pasados cambian los futuros; por ejemplo, que «toca» cara tras una racha de cruces. Para eventos independientes, P(A | B) = P(A): la moneda no tiene memoria.</p></details>
+    <details class="sx-faq"><summary>¿Cómo convierto una probabilidad en odds?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Las odds a favor son p ÷ (1 − p). Una probabilidad de 0.4 da odds de 0.4 ÷ 0.6 = 2 a 3 a favor, o 3 a 2 en contra. Usa la pestaña Odds para convertir en cualquier sentido.</p></details>
+    <details class="sx-faq"><summary>¿Puede una probabilidad ser mayor que 1 o negativa?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Toda probabilidad está entre 0 y 1, ambos incluidos (del 0 % al 100 %). La calculadora rechaza los valores fuera de ese rango y las probabilidades conjuntas que sean imposibles dados P(A) y P(B).</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Calculadoras relacionadas</h2><p>Continúa con conteo y distribuciones.</p></div>
+  <a href="/es/math-calculators.html">Todas las calculadoras de matemáticas<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/es/math/binomial-probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Probabilidad binomial</b><span class="d">La probabilidad de k éxitos en n ensayos independientes.</span><span class="f">Ensayos repetidos<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/math/permutation-combination-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shuffle</span></span><b>Permutaciones y combinaciones</b><span class="d">Cuenta selecciones ordenadas y no ordenadas.</span><span class="f">Cuenta resultados<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/math/z-score-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">show_chart</span></span><b>Calculadora de puntuación Z</b><span class="d">Probabilidades y percentiles de la distribución normal.</span><span class="f">Curva normal<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/math/percentage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Calculadora de porcentajes</b><span class="d">Convierte y compara porcentajes.</span><span class="f">Trabajar con porcentajes<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Inserta esta calculadora de probabilidad</h2><p>Es gratuita y adaptable, y funciona en el navegador del visitante. Quitar la marca cuesta desde 7,99 $/mes.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/probability-calculator.html" width="100%" height="560" loading="lazy" title="Probability Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copiar código</span></button></div>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Calculadoras gratuitas y precisas para decisiones cotidianas — pensadas para la claridad, no para el desorden.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot en Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzas</h4>
+        <ul>
+          <li><a href="/es/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/es/financial/amortization-calculator.html">Amortización</a></li>
+          <li><a href="/es/financial/annuity-calculator.html">Anualidad</a></li>
+          <li><a href="/es/financial/mortgage-calculator.html">Hipoteca</a></li>
+          <li><a href="/es/financial/uk-stamp-duty-calculator.html">Stamp Duty (Reino Unido)</a></li>
+          <li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Salud</h4>
+        <ul>
+          <li><a href="/es/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
+          <li><a href="/es/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/es/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
+          <li><a href="/es/health/bmi-calculator.html">IMC</a></li>
+          <li><a href="/es/health/macro-calculator.html">Macros</a></li>
+          <li><a href="/es/health/calorie-calculator.html">Calorías</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Matemáticas y más</h4>
+        <ul>
+          <li><a href="/es/math/basic-calculator.html">Básica</a></li>
+          <li><a href="/es/math/area-calculator.html">Área</a></li>
+          <li><a href="/es/other/age-calculator.html">Edad</a></li>
+          <li><a href="/es/math/percentage-calculator.html">Porcentaje</a></li>
+          <li><a href="/es/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/es/math/quadratic-formula-calculator.html">Fórmula cuadrática</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/about.html">Acerca de</a></li>
+          <li><a href="/methodology.html">Nuestra metodología</a></li>
+          <li><a href="/es/guides/">Guías</a></li>
+          <li><a href="/embed/">Incrustar calculadoras</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Política de privacidad</a></li>
+          <li><a href="/terms.html">Términos de uso</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Mapa del sitio</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones: consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span> <span><a href="/embed/probability-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrusta esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
+    </div>
+  </div>
+</footer>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/es/probability.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

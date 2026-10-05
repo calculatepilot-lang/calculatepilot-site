@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Waist-to-Height Ratio Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=accessibility_new,arrow_forward,calculate,chevron_right,content_copy,event,expand_more,monitor_weight,print,query_stats,restart_alt,straighten,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,55 +38,112 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Waist-to-Height Ratio Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="units">Units (use the same for both)</label>
-          <select id="units">
-            <option value="in" selected>Inches</option>
-            <option value="cm" >Centimeters</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="waist">Waist circumference</label>
-          <input type="number" id="waist" value="34"
-step="0.5"min="0">
-        </div>
-        <div class="field">
-          <label for="height">Height</label>
-          <input type="number" id="height" value="68"
-step="0.5"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Waist-to-height ratio</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Risk category</span><span id="outCategory">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="whtrCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Waist-to-Height Ratio Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>NICE Classifications</span><span class="sx-badge"><span aria-hidden="true" class="msym">straighten</span>Target Waist</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Waist-to-Height Ratio Calculator — NICE Categories &amp; Target Waist</h1>
+<p>Calculate your waist-to-height ratio (WHtR), see which NICE central adiposity category it falls in, and find the waist size that keeps your waist below half your height.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Measurements</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s2"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">Inches</button><button data-for="u" data-value="s2" style="flex:1" type="button">Centimetres</button></div></div>
+<div>
+<div class="sx-au-l"><label for="waist">Waist Circumference</label></div>
+<div class="sx-au-in np"><input id="waist" inputmode="decimal" max="250" min="40" step="0.5" type="number" value="88"/><span class="suf" id="wU">cm</span></div>
+<p class="sx-au-help" style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Measure midway between your lowest rib and the top of your hip bone, after breathing out normally.</p>
+</div>
+<div>
+<div class="sx-au-l"><span>Height</span><em id="hAlt" style="color:var(--sx-muted);font-weight:500">—</em></div>
+<div class="sx-au-in np" id="hMet"><input aria-label="Height in centimetres" id="cm" inputmode="decimal" max="230" min="120" step="0.5" type="number" value="175"/><span class="suf">cm</span></div>
+<div class="sx-au-g2" hidden="" id="hImp"><div class="sx-au-in np"><input aria-label="Height in feet" id="ft" inputmode="numeric" max="7" min="4" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in np"><input aria-label="Height in inches" id="inch" inputmode="decimal" max="11.9" min="0" step="0.5" type="number" value="9"/><span class="suf">in</span></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Ratio</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Waist-to-height ratio</span><span class="sx-ef-grade" id="catTag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="sx-cu-spec" style="margin-top:14px">
+<div class="r">WHtR scale<span>You: <b class="c" id="specV">—</b></span></div>
+<div class="t" id="specBar"></div>
+<div class="lb" id="specLb"></div>
+</div>
+<div class="g2" style="margin-top:14px"><div><span>Waist for a ratio under 0.5</span><b id="t5">—</b></div><div><span>Healthy range (0.4–0.49)</span><b id="t4">—</b></div></div>
+<div class="gain neg" id="chgBox"><span id="chgL">—</span><b id="chgV">—</b></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/waist-to-hip-ratio-calculator.html"><span aria-hidden="true" class="msym">straighten</span>Waist-to-Hip Ratio</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Waist Thresholds by Height</h2><p>Waist sizes at each NICE boundary for heights near yours.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Height</th><th scope="col">0.4 (lower healthy)</th><th scope="col">0.5 (increased from)</th><th scope="col">0.6 (high from)</th></tr></thead>
+<tbody id="htTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p><strong>WHtR = waist circumference ÷ height</strong>, both in the same unit — so the ratio has no units. The result is classified using the NICE adult categories:</p>
+<ul>
+<li><strong>0.4 to 0.49:</strong> healthy central adiposity — no increased health risks</li>
+<li><strong>0.5 to 0.59:</strong> increased central adiposity — increased health risks</li>
+<li><strong>0.6 or more:</strong> high central adiposity — further increased health risks</li>
+</ul>
+<p>NICE recommends these classifications for adults with a BMI under 35, of both sexes and all ethnicities, including adults with high muscle mass. Ratios below 0.4 aren't a NICE category; if yours is that low, check your BMI to make sure you're not underweight.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against NICE guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>The 'keep your waist below half your height' guideline</h2>
+<p>Waist-to-height ratio is built around a simple public health message: keeping your waist circumference under half your height is associated with lower cardiometabolic risk. A 2012 meta-analysis by Ashwell and colleagues found WHtR was a better screening tool for cardiometabolic risk than waist circumference or BMI, because it captures fat carried around the middle — which is more strongly linked to health risk than overall body weight.</p>
+<h2>A worked example</h2>
+<p>Someone 170 cm tall with a 95 cm waist: 95 ÷ 170 = <strong>0.56</strong>, which is "increased central adiposity". Half their height is 85 cm, so a waist below 85 cm would bring the ratio under 0.5 — a reduction of 10 cm.</p>
+<h2>How it complements other measures</h2>
+<p>No single measure tells the whole story — waist-to-height ratio, BMI and waist-to-hip ratio each capture a different aspect of body composition and risk. NICE suggests using WHtR alongside BMI. This is a screening tool for general awareness, not a diagnosis; a healthcare provider can interpret it in the context of your full health picture.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.nice.org.uk/guidance/ng246" rel="noopener noreferrer">NICE guideline NG246 — Overweight and obesity management</a> (waist-to-height ratio recommendations)</li>
+<li>Ashwell M, Gunn P, Gibson S. Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis. Obes Rev 2012;13:275–286.</li>
+<li>World Health Organization. Waist circumference and waist–hip ratio: report of a WHO expert consultation. Geneva, 2008.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Do I need to convert units before entering my measurements?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No — just make sure both waist and height are in the same unit (both inches or both centimetres), since the ratio itself is unitless as long as they match.</p></details>
+<details class="sx-faq"><summary>Is waist-to-height ratio better than BMI?<span aria-hidden="true" class="msym">expand_more</span></summary><p>They measure different things. Research suggests waist-to-height ratio is a better indicator of central fat and related cardiometabolic risk, but most health professionals — including NICE — view the two as complementary rather than one replacing the other.</p></details>
+<details class="sx-faq"><summary>Where exactly should I measure my waist?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Find the bottom of your lowest rib and the top of your hip bone, and measure around your body midway between them, keeping the tape level and snug but not compressing the skin. Breathe out normally before reading the tape.</p></details>
+<details class="sx-faq"><summary>What waist-to-height ratio is healthy?<span aria-hidden="true" class="msym">expand_more</span></summary><p>NICE classes 0.4 to 0.49 as healthy central adiposity for adults. From 0.5 health risks are increased, and from 0.6 they are further increased.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Other views of body shape and composition.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/waist-to-hip-ratio-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">straighten</span></span><b>Waist-to-Hip Ratio</b><span class="d">WHO thresholds for fat distribution.</span><span class="f">Check WHR<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Use alongside WHtR, as NICE suggests.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/body-fat-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">accessibility_new</span></span><b>Body Fat Calculator</b><span class="d">Navy tape method uses your waist too.</span><span class="f">Estimate body fat<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Calorie Calculator</b><span class="d">Plan a gradual reduction.</span><span class="f">Plan your goal<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/waist-to-height-ratio-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -213,7 +152,8 @@ step="0.5"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/waist-to-height.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/waist-to-height-ratio.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

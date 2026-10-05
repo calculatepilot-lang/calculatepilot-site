@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Body Frame Size Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,calculate,chevron_right,content_copy,event,expand_more,fitness_center,monitor_weight,print,restart_alt,straighten,table_chart,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,62 +38,125 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Body Frame Size Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="units">Units</label>
-          <select id="units">
-            <option value="imperial" selected>Imperial (in)</option>
-            <option value="metric" >Metric (cm)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="sex">Sex</label>
-          <select id="sex">
-            <option value="male" selected>Male</option>
-            <option value="female" >Female</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="height">Height</label>
-          <input type="number" id="height" value="68"
-step="0.5"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="wrist">Wrist circumference</label>
-          <input type="number" id="wrist" value="6.5"
-step="0.1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Frame size</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Height-to-wrist ratio</span><span id="outRatio">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="bfsCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Body Frame Size Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Height ÷ Wrist Ratio</span><span class="sx-badge"><span aria-hidden="true" class="msym">table_chart</span>MedlinePlus Wrist Chart</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Body Frame Size Calculator — Wrist Method</h1>
+<p>Find out whether you have a small, medium or large frame from your height and wrist circumference using two published methods, and see how frame size shifts a reference ideal weight.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Measurements</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s1"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">in</button><button data-for="u" data-value="s2" style="flex:1" type="button">cm</button></div></div>
+<div><div class="sx-au-l"><span>Sex</span></div><input id="sex" type="hidden" value="s2"/><div aria-label="Sex" class="sx-seg" role="group" style="display:flex"><button data-for="sex" data-value="s1" style="flex:1" type="button">Male</button><button data-for="sex" data-value="s2" style="flex:1" type="button">Female</button></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Height</span><em id="hAlt" style="color:var(--sx-muted);font-weight:500">—</em></div>
+<div class="sx-au-in np" hidden="" id="hMet"><input aria-label="Height in centimetres" id="cm" inputmode="decimal" max="230" min="120" step="0.5" type="number" value="165"/><span class="suf">cm</span></div>
+<div class="sx-au-g2" id="hImp"><div class="sx-au-in np"><input aria-label="Height in feet" id="ft" inputmode="numeric" max="7" min="4" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in np"><input aria-label="Height in inches" id="inch" inputmode="decimal" max="11.9" min="0" step="0.5" type="number" value="5"/><span class="suf">in</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="wr">Wrist Circumference</label></div>
+<div class="sx-au-in np"><input id="wr" inputmode="decimal" max="30" min="3" step="0.05" type="number" value="6.25"/><span class="suf" id="wU">in</span></div>
+<p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Around the narrowest point just below the wrist bone, where a watch strap sits.</p>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Find Frame Size</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Frame size (height ÷ wrist)</span><span class="sx-ef-grade" id="agree">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="sx-cu-spec" style="margin-top:14px">
+<div class="r"><span id="specT">Height ÷ wrist ratio</span><span>You: <b class="c" id="specV">—</b></span></div>
+<div class="t" id="specBar"></div>
+<div class="lb" id="specLb"></div>
+</div>
+<div class="g2" style="margin-top:14px"><div><span>MedlinePlus wrist chart</span><b id="mlp">—</b></div><div><span>Medium-frame wrist at your height</span><b id="medW">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">monitor_weight</span>Reference Ideal Weight (Hamwi)</span><span id="ibwTag">—</span></div>
+<div class="l"><span>Small frame (−10%)</span><b id="i1">—</b></div>
+<div class="l"><span>Medium frame</span><b id="i2">—</b></div>
+<div class="l"><span>Large frame (+10%)</span><b id="i3">—</b></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/ideal-weight-calculator.html"><span aria-hidden="true" class="msym">monitor_weight</span>Ideal Weight</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Wrist Size Bands at Your Height</h2><p>Wrist circumferences for each frame size under the height ÷ wrist ratio method.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Height</th><th scope="col">Small</th><th scope="col">Medium</th><th scope="col">Large</th></tr></thead>
+<tbody id="bandTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p><strong>Method 1 — height ÷ wrist ratio (r).</strong> Divide your height by your wrist circumference (same unit), then classify (Grant, 1980):</p>
+<ul>
+<li><strong>Men:</strong> r above 10.4 = small · 9.6–10.4 = medium · below 9.6 = large</li>
+<li><strong>Women:</strong> r above 11.0 = small · 10.1–11.0 = medium · below 10.1 = large</li>
+</ul>
+<p><strong>Method 2 — MedlinePlus wrist chart</strong> (U.S. National Library of Medicine), by height band:</p>
+<ul>
+<li><strong>Women under 5′2″:</strong> small under 5.5″ · medium 5.5–5.75″ · large over 5.75″</li>
+<li><strong>Women 5′2″–5′5″:</strong> small under 6″ · medium 6–6.25″ · large over 6.25″</li>
+<li><strong>Women over 5′5″:</strong> small under 6.25″ · medium 6.25–6.5″ · large over 6.5″</li>
+<li><strong>Men over 5′5″:</strong> small 5.5–6.5″ · medium 6.5–7.5″ · large over 7.5″ (the chart doesn't cover men 5′5″ and under)</li>
+</ul>
+<p>The ideal-weight panel uses the Hamwi formula with the common ±10% frame adjustment, as a reference only.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the published charts · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Why frame size matters for weight goals</h2>
+<p>Ideal weight charts and BMI categories are based on averages that don't account for skeletal frame size — someone with a larger bone structure will naturally weigh more at the same body fat percentage than someone with a smaller frame. That's why frame size is sometimes used to adjust weight targets.</p>
+<h2>A worked example</h2>
+<p>A woman 5′5″ (65 in) tall with a 6.25″ wrist: 65 ÷ 6.25 = <strong>10.4</strong>, which is a medium frame for women (10.1–11.0). On the MedlinePlus chart she falls in the 5′2″–5′5″ band, where 6–6.25″ is also medium, so both methods agree.</p>
+<h2>Measuring your wrist correctly</h2>
+<p>Measure around the wrist at the narrowest point, just below the wrist bone, using a flexible tape measure snug but not compressing the skin. Elbow breadth, measured with calipers, is another frame-size method used in research, but it needs equipment most people don't have. Like other simple anthropometric methods, the wrist method is a general estimate, not a clinical measurement.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://medlineplus.gov/ency/imagepages/17182.htm" rel="noopener noreferrer">MedlinePlus Medical Encyclopedia — Calculating body frame size</a></li>
+<li>Grant JP. Handbook of Total Parenteral Nutrition. Philadelphia: WB Saunders, 1980.</li>
+<li>Hamwi GJ. Therapy: changing dietary concepts. In: Diabetes Mellitus: Diagnosis and Treatment. American Diabetes Association, 1964.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Does frame size change how much I should weigh?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It's one factor some ideal-weight frameworks consider — a larger frame generally supports a somewhat higher healthy weight than a smaller frame at the same height, commonly by about 10% either way, though it's just one of many relevant factors.</p></details>
+<details class="sx-faq"><summary>Where exactly should I measure my wrist?<span aria-hidden="true" class="msym">expand_more</span></summary><p>At the narrowest point of the wrist, just below the wrist bone — roughly where a watch strap would sit — using a flexible tape measure snug against the skin.</p></details>
+<details class="sx-faq"><summary>Why do the two methods sometimes disagree?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The ratio method scales smoothly with height, while the MedlinePlus chart uses broad height bands with fixed wrist ranges. Near a band edge they can land in neighbouring categories; if they differ, you're likely near the border between the two sizes.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Use your frame size.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/ideal-weight-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>Ideal Weight Calculator</b><span class="d">Four formulas with a frame-size option.</span><span class="f">Find ideal weight<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/healthy-weight-range-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>Healthy Weight Range</b><span class="d">Weight range for a healthy BMI.</span><span class="f">Check range<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/lean-body-mass-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">fitness_center</span></span><b>Lean Body Mass</b><span class="d">Fat-free mass and FFMI.</span><span class="f">Estimate lean mass<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">straighten</span></span><b>BMI Calculator</b><span class="d">Weight relative to height.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/body-frame-size-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -220,7 +165,8 @@ step="0.1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/body-frame-size.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/body-frame-size.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

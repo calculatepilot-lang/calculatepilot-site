@@ -1,0 +1,115 @@
+<div class="sx" id="chCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">CD vs HYSA Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Fixed Rate Lock vs Floating Rate</span><span class="sx-badge"><span class="msym" aria-hidden="true">monitoring</span>Rate-Cut Sensitivity</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock_clock</span>Early Withdrawal Penalty Check</span></div>
+    <h1>CD vs High-Yield Savings (HYSA) Calculator</h1>
+    <p>Compare a fixed-rate certificate of deposit with a high-yield savings account whose rate can fall — including rate-cut scenarios, monthly deposits, and what you'd net if you broke the CD early.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Deposit &amp; Rate Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="p">Initial Deposit</label><em style="color:var(--sx-muted);font-weight:500">Lump sum</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="p" type="number" inputmode="decimal" min="0" step="500" value="25000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips"><button type="button" data-for="p" data-value="5000">$5,000</button><button type="button" data-for="p" data-value="15000">$15,000</button><button type="button" data-for="p" data-value="25000">$25,000</button><button type="button" data-for="p" data-value="50000">$50,000</button><button type="button" data-for="p" data-value="100000">$100,000</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>CD Term</span><em style="color:var(--sx-on);font-family:var(--font-mono)" id="tOut">—</em></div>
+      <input type="hidden" id="t" value="24">
+      <div class="sx-au-opts c5" role="group" aria-label="CD term"><button type="button" data-for="t" data-value="6">6 Mo</button><button type="button" data-for="t" data-value="12">12 Mo</button><button type="button" data-for="t" data-value="24">24 Mo</button><button type="button" data-for="t" data-value="36">36 Mo</button><button type="button" data-for="t" data-value="60">60 Mo</button></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">lock</span>Certificate of Deposit</span></div>
+      <div class="sx-au-g2">
+        <div><label for="cd" style="font-size:11px;color:var(--sx-muted)">CD APY (fixed for the term)</label><div class="sx-au-in sm np pc"><input id="cd" type="number" inputmode="decimal" min="0" max="15" step="0.05" value="4.9"><span class="suf">%</span></div></div>
+        <div><label for="pen" style="font-size:11px;color:var(--sx-muted)">Early withdrawal penalty</label><div class="sx-au-sel"><select id="pen"><option value="90">90 days' interest</option><option value="180" selected>180 days' interest</option><option value="270">270 days' interest</option><option value="365">365 days' interest</option></select></div></div>
+      </div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">waves</span>High-Yield Savings Account</span></div>
+      <div class="sx-au-g2">
+        <div><label for="hy" style="font-size:11px;color:var(--sx-muted)">Starting HYSA APY (variable)</label><div class="sx-au-in sm np pc"><input id="hy" type="number" inputmode="decimal" min="0" max="15" step="0.05" value="4.6"><span class="suf">%</span></div></div>
+        <div><label for="mc" style="font-size:11px;color:var(--sx-muted)">Monthly deposits (both strategies)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="mc" type="number" inputmode="decimal" min="0" step="50" value="200"></div></div>
+      </div>
+      <div class="sx-au-l" style="margin:12px 0 6px"><span>Assumed HYSA Rate Path</span></div>
+      <input type="hidden" id="path" value="0.5">
+      <div class="sx-au-cat nr" style="grid-template-columns:repeat(3,minmax(0,1fr))" role="group" aria-label="Rate path"><button type="button" data-for="path" data-value="0"><span><b>Rates Hold</b><small>No change</small></span></button><button type="button" data-for="path" data-value="0.5"><span><b>Moderate Cuts</b><small>−0.50% a year</small></span></button><button type="button" data-for="path" data-value="1"><span><b>Aggressive Cuts</b><small>−1.00% a year</small></span></button></div>
+    </div>
+    <p class="sx-au-help" style="margin:-6px 0 0">Rates shown are examples — enter the APYs you're actually offered. HYSA rates can change at any time.</p>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">query_stats</span>Compare CD vs HYSA</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em><span class="msym" aria-hidden="true">verified</span>Strategy Verdict</em><span id="durT">—</span></div>
+    <div class="big" id="resultValue">—</div>
+    <p id="verdN">—</p>
+    <span class="msym wm" aria-hidden="true">balance</span>
+  </section>
+  <div class="sx-ur-cards">
+    <div class="sx-ur-card pri"><span class="rib" id="rib1">—</span><h3><span class="msym" aria-hidden="true">lock</span><span id="cdH">Fixed CD</span></h3><div class="v" id="cdB">—</div><div class="n g" id="cdI">—</div>
+      <dl><dt>Liquidity</dt><dd id="cdL">—</dd><dt>Rate risk</dt><dd>None until maturity</dd><dt>Extra deposits</dt><dd>Go to savings</dd></dl></div>
+    <div class="sx-ur-card io"><h3><span class="msym" aria-hidden="true">account_balance</span>Floating HYSA</h3><div class="v" id="hyB">—</div><div class="n" id="hyI">—</div>
+      <dl><dt>Liquidity</dt><dd class="g">Instant access</dd><dt>Average APY</dt><dd id="hyA">—</dd><dt>Extra deposits</dt><dd>Any time</dd></dl></div>
+  </div>
+  <section class="sx-card sx-au-traj" style="padding:16px">
+    <div class="hd" style="margin-bottom:8px"><div><h3 style="font-size:14px">Balance Divergence (initial deposit)</h3></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>CD</span><span><i style="background:#f59e0b"></i>HYSA</span></div></div>
+    <svg id="chart" viewBox="0 0 520 170" role="img" aria-label="CD and HYSA balances over time"></svg>
+  </section>
+  <section class="sx-card" style="padding:16px 18px">
+    <div style="display:flex;gap:10px"><span class="msym" aria-hidden="true" style="color:#f59e0b">warning</span><div><b style="display:block;font-size:13px;color:var(--sx-on)" id="beH">—</b><p style="margin:4px 0 0;font-size:12px;line-height:18px;color:var(--sx-onv)" id="beT">—</p></div></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_chart</span>Monthly Table (.CSV)</button><a href="/financial/cd-calculator.html"><span class="msym" aria-hidden="true">stairs</span>CD Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Month-by-Month Comparison</h2><p>Initial deposit only (monthly deposits earn the same in both strategies). "If broken" is the CD balance after the early withdrawal penalty.</p></div><span class="sx-au-tag" id="ledT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Month</th><th scope="col">CD Balance</th><th scope="col">HYSA APY</th><th scope="col">HYSA Balance</th><th scope="col">CD Advantage</th><th scope="col">CD If Broken</th><th scope="col">Status</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">psychology</span></span><h3>Reinvestment Risk: Why Locking a Rate Can Pay</h3><p>A high-yield savings rate is variable — banks usually cut it soon after the Federal Reserve lowers interest rates. A CD locks today's rate for the whole term, so if rates fall, the CD keeps paying the higher rate. If rates rise instead, the savings account catches up and the CD falls behind.</p><div class="sx-sg-take"><b>Trade-off:</b> the CD buys rate certainty with reduced access to your money.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">account_tree</span></span><h3>The Barbell: Split Your Cash</h3><p>You don't have to choose one. A common approach keeps an emergency fund — often 3 to 6 months of essential expenses — in a high-yield savings account for instant access, and puts money you won't need soon into CDs, often laddered so one matures every few months.</p><div class="sx-sg-take"><b>Both are safe:</b> at FDIC-insured banks (or NCUA-insured credit unions), deposits are covered up to $250,000 per depositor, per institution, per ownership category.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this comparison works</h2>
+    <p>The CD grows at its fixed APY for the full term. The savings account starts at its current APY and, depending on the rate path you pick, declines steadily each month (never below zero). Both balances compound monthly using the APY. Monthly deposits go into savings in both strategies — a CD can't accept new money — so they don't change which option wins on your initial deposit.</p>
+    <p>The early withdrawal penalty is modeled as the chosen number of days of simple interest at the CD rate on the deposit. Banks' exact penalty rules differ, and some can take principal if you break a CD very early.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is a CD or a high-yield savings account better?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A CD usually wins if you won't need the money before it matures and rates fall or stay flat. A high-yield savings account wins if you may need the money, or if rates rise during the term. Many savers use both.</p></details>
+    <details class="sx-faq"><summary>What happens if I withdraw from a CD early?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You pay an early withdrawal penalty, commonly a set number of days or months of interest. If you break the CD early enough, the penalty can exceed the interest earned and reduce your principal.</p></details>
+    <details class="sx-faq"><summary>Do high-yield savings account rates change?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. HYSA rates are variable and banks can change them at any time, typically following moves in the Federal Reserve's policy rate.</p></details>
+    <details class="sx-faq"><summary>Are CDs and high-yield savings accounts insured?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At FDIC-insured banks, both are covered up to $250,000 per depositor, per bank, per ownership category. Credit union accounts have equivalent NCUA coverage.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Savings Calculators</h2><p>Plan the rest of your cash strategy.</p></div>
+  <a href="/financial-calculators.html">Browse All Financial Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">lock_clock</span></span><b>CD Calculator</b><span class="d">Certificate growth, compounding and early withdrawal.</span><span class="f">Launch Tool<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/savings-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>High-Yield Savings Calculator</b><span class="d">Deposits, compounding, tax and inflation.</span><span class="f">Launch Tool<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/savings-goal-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">flag</span></span><b>Savings Goal Calculator</b><span class="d">Monthly deposits needed to hit a target.</span><span class="f">Launch Tool<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">health_and_safety</span></span><b>Emergency Fund Calculator</b><span class="d">How much cash to keep instantly available.</span><span class="f">Launch Tool<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+</div>
+</div>

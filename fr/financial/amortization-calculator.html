@@ -1,1 +1,333 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculateur d’amortissement | CalculatePilot</title><meta name="description" content="Calculez une mensualité de prêt et voyez la part des intérêts, du capital et le coût total du financement."><link rel="canonical" href="https://www.calculatepilot.com/fr/financial/amortization-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/amortization-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/amortization-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/amortization-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/amortization-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/amortization-calculator.html"><meta property="og:title" content="Calculateur d’amortissement | CalculatePilot"><meta property="og:description" content="Calculez mensualité, capital, intérêts et coût total."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/fr/financial/amortization-calculator.html"><meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260905" defer></script></head><body><header class="site-header"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/fr/financial-calculators.html">Finance</a></li><li><a href="/health-calculators.html">Santé</a></li><li><a href="/math-calculators.html">Maths</a></li><li><a href="/other-calculators.html">Quotidien</a></li><li><a href="/guides/">Guides</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculateurs financiers</a> / Amortissement</nav></div><section class="calc-page-head"><div class="container"><h1>Calculateur d’amortissement</h1><p class="lede">Calculez votre mensualité et la répartition entre capital et intérêts.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="f"><div class="field"><label>Montant du prêt</label><input id="p" type="number" value="300000" min="0"></div><div class="field-row"><div class="field"><label>Taux d’intérêt (%)</label><input id="r" type="number" value="6.5" step="0.1" min="0"></div><div class="field"><label>Durée (années)</label><input id="n" type="number" value="30" min="1"></div></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Mensualité</div><div class="readout-value big" id="m">—</div><div class="readout-breakdown"><div class="readout-row"><span>Capital au 1er paiement</span><span id="cp">—</span></div><div class="readout-row"><span>Intérêts au 1er paiement</span><span id="ci">—</span></div><div class="readout-row"><span>Intérêts totaux</span><span id="ti">—</span></div><div class="readout-row"><span>Total payé</span><span id="tp">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Comment fonctionne l’amortissement ?</h2><p>Chaque mensualité d’un prêt à taux fixe comprend des intérêts et une part de capital. Au début, les intérêts représentent une part plus importante car le solde restant est élevé.</p><h2>Pourquoi les paiements supplémentaires peuvent aider</h2><p>Réduire le capital plus tôt diminue le solde sur lequel les intérêts futurs sont calculés. Vérifiez toutefois les éventuelles pénalités ou conditions de remboursement anticipé.</p><h2>Questions fréquentes</h2><div class="faq-item"><h3>Pourquoi les premiers paiements contiennent-ils beaucoup d’intérêts ?</h3><p>Les intérêts sont calculés sur le solde restant, qui est maximal au début du prêt.</p></div><div class="faq-item"><h3>Le calculateur fournit-il un échéancier complet ?</h3><p>Il fournit la mensualité, la première répartition capital/intérêts et les totaux. Il ne remplace pas un échéancier bancaire complet.</p></div></div></section></main><footer class="site-footer"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a></div></footer><script>function c(){let p=+document.getElementById('p').value||0,r=(+document.getElementById('r').value||0)/1200,n=(+document.getElementById('n').value||1)*12,m=r?p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):p/n,interest=p*r,principal=m-interest,total=m*n;const f=x=>'$'+x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});document.getElementById('m').textContent=f(m);document.getElementById('cp').textContent=f(principal);document.getElementById('ci').textContent=f(interest);document.getElementById('ti').textContent=f(Math.max(0,total-p));document.getElementById('tp').textContent=f(total)}document.querySelectorAll('#f input').forEach(x=>x.addEventListener('input',c));c();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculatrice d'amortissement</title>
+<meta name="description" content="Calculatrice d'amortissement gratuite : échéancier mensuel ou annuel complet du capital et des intérêts, mois de bascule.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/financial/amortization-calculator.html"
+<meta property="og:locale" content="fr_FR">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/amortization-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/amortization-calculator.html">
+<meta property="og:title" content="Calculatrice d'amortissement — Échéancier et paiements supplémentaires | CalculatePilot">
+<meta property="og:description" content="Calculatrice d'amortissement gratuite : échéancier mensuel ou annuel complet du capital et des intérêts, mois de bascule, date de remboursement et économies grâce aux paiements supplémentaires.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/financial/amortization-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculatrice d'amortissement — Échéancier et paiements supplémentaires | CalculatePilot">
+<meta name="twitter:description" content="Calculatrice d'amortissement gratuite : échéancier mensuel ou annuel complet du capital et des intérêts, mois de bascule, date de remboursement et économies grâce aux paiements supplémentaires.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,calculate,chevron_right,content_copy,expand_more,home,lock,payments,print,receipt_long,restart_alt,sync_alt,table_rows,trending_down,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculatrice d'amortissement",
+ "url": "https://www.calculatepilot.com/fr/financial/amortization-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calculatrice d'amortissement de prêt avec échéancier mensuel et annuel complet, mois de bascule, date de remboursement et économie d'intérêts grâce aux paiements supplémentaires.",
+ "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://www.calculatepilot.com/fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculatrices financières",
+   "item": "https://www.calculatepilot.com/fr/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculatrice d'amortissement",
+   "item": "https://www.calculatepilot.com/fr/financial/amortization-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Pourquoi la majeure partie de mes premières mensualités va-t-elle aux intérêts ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Les intérêts sont calculés sur le capital restant dû, qui est le plus élevé au début du prêt — à mesure que le solde diminue avec chaque paiement, moins d'intérêts s'accumulent et une plus grande part de la mensualité sert à rembourser le capital."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Payer en plus sur le capital réduit-il le total des intérêts ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui, nettement — réduire le solde tôt signifie que moins d'intérêts s'accumulent dessus pendant le reste du prêt. Saisissez un paiement mensuel supplémentaire ci-dessus pour voir les intérêts et le temps économisés. Vérifiez que votre prêteur affecte les paiements supplémentaires au capital et ne facture pas de pénalité de remboursement anticipé."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "S'agit-il d'un échéancier d'amortissement complet ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. Basculez l'échéancier entre les totaux annuels et chaque mensualité, avec le capital, les intérêts et le solde restant dû, puis utilisez Imprimer pour l'enregistrer."
+   }
+  }
+ ],
+ "inLanguage": "fr"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/fr/guides/">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="amCalc">
+<nav class="sx-crumb" aria-label="Fil d'Ariane"><a href="/fr/">Accueil</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/fr/financial-calculators.html">Calculatrices financières</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculatrice d'amortissement</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Formule d'amortissement standard</span><span class="sx-badge"><span class="msym" aria-hidden="true">table_rows</span>Échéancier complet</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>S'exécute dans votre navigateur</span></div>
+    <h1>Calculatrice d'amortissement — Échéancier complet &amp; paiements supplémentaires</h1>
+    <p>Visualisez la répartition de chaque paiement entre capital et intérêts pour un prêt immobilier, un prêt auto ou un prêt personnel, avec un échéancier annuel ou mensuel complet, le mois où le capital dépasse les intérêts et l'économie réalisée grâce aux paiements supplémentaires.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Détails du prêt</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Réinitialiser</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="amt">Montant du prêt</label></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="amt" type="number" inputmode="decimal" min="0" step="1000" value="300000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Préréglages : <button type="button" data-for="amt" data-value="25000">25 k$</button><button type="button" data-for="amt" data-value="150000">150 k$</button><button type="button" data-for="amt" data-value="300000">300 k$</button><button type="button" data-for="amt" data-value="500000">500 k$</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="rate">Taux d'intérêt</label></div><div class="sx-au-in np"><input id="rate" type="number" inputmode="decimal" min="0" max="40" step="0.05" value="6.5"><span class="suf">% APR</span></div></div>
+      <div><div class="sx-au-l"><label for="yrs">Durée</label></div><div class="sx-au-in np"><input id="yrs" type="number" inputmode="decimal" min="0.5" max="50" step="0.5" value="30"><span class="suf">ans</span></div></div>
+    </div>
+    <div class="sx-au-chips" style="margin-top:-6px">Durée : <button type="button" data-for="yrs" data-value="5">5 ans</button><button type="button" data-for="yrs" data-value="10">10 ans</button><button type="button" data-for="yrs" data-value="15">15 ans</button><button type="button" data-for="yrs" data-value="30">30 ans</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="xtra">Paiement mensuel supplémentaire</label></div><div class="sx-au-in"><span class="pre">$</span><input id="xtra" type="number" inputmode="decimal" min="0" step="25" value="0"></div></div>
+      <div><div class="sx-au-l"><label for="start">Premier paiement</label></div><div class="sx-au-in np"><input id="start" type="month" aria-label="Mois du premier paiement"></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Générer l'échéancier</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Mensualité (capital &amp; intérêts)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Total des intérêts</span><b id="ti">—</b></div><div><span>Total payé</span><b id="tp">—</b></div></div>
+    <div class="g2"><div><span>Date de remboursement</span><b id="pd">—</b></div><div><span>Le capital dépasse les intérêts</span><b id="xo">—</b></div></div>
+    <div class="gain" id="svBox"><span id="svL">Ajoutez un paiement mensuel supplémentaire pour voir les économies</span><b id="svV">—</b></div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">receipt_long</span>Répartition du premier paiement</span><span id="fpT">—</span></div>
+    <div class="l"><span>Intérêts</span><b id="fi">—</b></div>
+    <div class="l"><span>Capital</span><b id="fp">—</b></div>
+    <div class="l t"><span>Part consacrée aux intérêts</span><b id="fs">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copier le résumé</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Imprimer le tableau</button><a href="/fr/financial/mortgage-calculator.html"><span class="msym" aria-hidden="true">home</span>Calculatrice de prêt immobilier</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Échéancier d'amortissement</h2><p id="schN">Capital, intérêts et solde restant dû pour chaque période.</p></div>
+    <div><input type="hidden" id="view" value="s1"><div class="sx-seg" role="group" aria-label="Affichage de l'échéancier" style="display:flex"><button type="button" data-for="view" data-value="s1">Annuel</button><button type="button" data-for="view" data-value="s2">Mensuel</button></div></div></div>
+  <div class="sx-scroll" style="max-height:560px"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col" id="thP">Année</th><th scope="col">Paiement</th><th scope="col">Capital</th><th scope="col">Intérêts</th><th scope="col">Solde</th></tr></thead>
+    <tbody id="schTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Comment fonctionne cette calculatrice</h2>
+    <ul>
+      <li><strong>Mensualité :</strong> M = P × r ÷ (1 − (1 + r)<sup>−n</sup>), où P est le montant du prêt, r le taux mensuel (TAEG ÷ 12) et n le nombre de paiements.</li>
+      <li><strong>Chaque mois :</strong> intérêts = solde × r ; capital = paiement − intérêts ; le solde diminue du capital remboursé plus tout paiement supplémentaire.</li>
+      <li><strong>Bascule :</strong> le premier mois où la part de capital du paiement est supérieure à la part d'intérêts.</li>
+    </ul>
+    <p>Les paiements couvrent uniquement le capital et les intérêts — la taxe foncière, l'assurance, l'assurance prêt (PMI) et les charges de copropriété ne sont pas incluses (utilisez la <a href="/fr/financial/mortgage-calculator.html">calculatrice de prêt immobilier</a> pour en tenir compte). Les montants sont arrondis au centime ; l'échéancier de votre prêteur peut différer de quelques centimes.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Par <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Formule vérifiée le 28 sept. 2026 · <a href="/methodology.html">Comment CalculatePilot vérifie ses formules →</a></p>
+
+    <h2>Un exemple détaillé</h2>
+    <p>Un prêt de 300 000 $ à 6,5 % sur 30 ans : r = 0,065 ÷ 12 = 0,0054167 et n = 360, soit une mensualité de <strong>1 896,20 $</strong>. Le premier paiement comprend 1 625,00 $ d'intérêts et seulement 271,20 $ de capital. Sur 30 ans, vous paieriez environ 382 637 $ d'intérêts, et le capital ne dépasse les intérêts qu'au paiement 233 — soit près de 20 ans plus tard. Ajouter 200 $ par mois rembourse le prêt 6 ans et 11 mois plus tôt et économise environ 103 450 $ d'intérêts.</p>
+
+    <h2>Pourquoi votre premier paiement est surtout composé d'intérêts</h2>
+    <p>Les intérêts sont calculés sur le solde restant dû, qui est le plus élevé au début. À mesure que le solde diminue, une part moindre de chaque paiement va aux intérêts et une part plus grande au capital. Sur un prêt de 30 ans aux taux actuels, la bascule intervient généralement après la moitié de la durée, et des paiements supplémentaires de capital effectués tôt la rapprochent nettement.</p>
+
+    <h2>Questions fréquentes</h2>
+    <details class="sx-faq"><summary>Pourquoi la majeure partie de mes premières mensualités va-t-elle aux intérêts ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Les intérêts sont calculés sur le capital restant dû, qui est le plus élevé au début du prêt — à mesure que le solde diminue avec chaque paiement, moins d'intérêts s'accumulent et une plus grande part de la mensualité sert à rembourser le capital.</p></details>
+    <details class="sx-faq"><summary>Payer en plus sur le capital réduit-il le total des intérêts ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Oui, nettement — réduire le solde tôt signifie que moins d'intérêts s'accumulent dessus pendant le reste du prêt. Saisissez un paiement mensuel supplémentaire ci-dessus pour voir les intérêts et le temps économisés. Vérifiez que votre prêteur affecte les paiements supplémentaires au capital et ne facture pas de pénalité de remboursement anticipé.</p></details>
+    <details class="sx-faq"><summary>S'agit-il d'un échéancier d'amortissement complet ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Oui. Basculez l'échéancier entre les totaux annuels et chaque mensualité, avec le capital, les intérêts et le solde restant dû, puis utilisez Imprimer pour l'enregistrer.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Calculatrices associées</h2><p>Planifiez le reste de vos emprunts.</p></div>
+  <a href="/fr/financial-calculators.html">Toutes les calculatrices financières<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/fr/financial/mortgage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home</span></span><b>Calculatrice de prêt immobilier</b><span class="d">Mensualité avec impôts, assurance et PMI.</span><span class="f">Estimer la mensualité<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/financial/loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Calculatrice de prêt</b><span class="d">Coût réel, frais inclus.</span><span class="f">Évaluer un prêt<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/financial/refinance-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">sync_alt</span></span><b>Calculatrice de renégociation de prêt</b><span class="d">Seuil de rentabilité d'un nouveau taux.</span><span class="f">Vérifier le refinancement<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/financial/debt-payoff-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_down</span></span><b>Calculatrice de remboursement de dettes</b><span class="d">Méthodes boule de neige et avalanche.</span><span class="f">Planifier le remboursement<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot sur X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot sur Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot sur Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul>
+          <li><a href="/fr/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/fr/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/fr/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/fr/financial/mortgage-calculator.html">Prêt immobilier</a></li>
+          <li><a href="/fr/financial/uk-stamp-duty-calculator.html">Stamp Duty (Royaume-Uni)</a></li>
+          <li><a href="/fr/financial/compound-interest-calculator.html">Intérêts composés</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Santé</h4>
+        <ul>
+          <li><a href="/fr/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/fr/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/fr/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+          <li><a href="/fr/health/bmi-calculator.html">IMC</a></li>
+          <li><a href="/fr/health/macro-calculator.html">Macros</a></li>
+          <li><a href="/fr/health/calorie-calculator.html">Calories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathématiques &amp; plus</h4>
+        <ul>
+          <li><a href="/fr/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/fr/math/area-calculator.html">Aire</a></li>
+          <li><a href="/fr/other/age-calculator.html">Âge</a></li>
+          <li><a href="/fr/math/percentage-calculator.html">Pourcentage</a></li>
+          <li><a href="/fr/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/fr/math/quadratic-formula-calculator.html">Formule quadratique</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/methodology.html">Notre méthodologie</a></li>
+          <li><a href="/fr/guides/">Guides</a></li>
+          <li><a href="/embed/">Intégrer des calculateurs</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Politique de confidentialité</a></li>
+          <li><a href="/terms.html">Conditions d'utilisation</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Plan du site</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Tous les calculs sont des estimations — consultez un professionnel pour toute décision financière ou médicale. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span> <span><a href="/embed/amortization-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer cette calculatrice</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Toutes les calculatrices →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/fr/amortization.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

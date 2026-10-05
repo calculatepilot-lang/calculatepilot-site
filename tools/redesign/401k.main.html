@@ -1,0 +1,189 @@
+<div class="sx" id="k401">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b>401(k) Calculator</b></nav>
+
+<header class="sx-head">
+  <div class="sx-badges">
+    <span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Mathematical Model: Compound Employer Match &amp; Tax Deferral</span>
+    <span class="sx-badge" style="background:var(--sx-sc2)"><span class="msym" aria-hidden="true">verified</span>Verified IRS 2026 Limits ($24,500 + $8,000 Catch-up) • Zero Data Stored</span>
+  </div>
+  <h1>401(k) Calculator &amp; Employer Match Planner</h1>
+  <p>Model your future retirement portfolio, employer match, tax savings, and salary growth trajectory with precision.</p>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<form id="calcForm" class="sx-card sx-params sx-left" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox"><span class="msym" aria-hidden="true">tune</span></span><div><h2 class="sx-h-md">Plan Assumptions</h2><p>Adjust sliders to re-simulate real-time</p></div></div>
+    <button type="button" class="sx-reset pri" data-action="reset"><span class="msym" aria-hidden="true">refresh</span>Reset</button>
+  </div>
+
+  <div class="sx-stack">
+    <div class="sx-between"><span class="sx-lbl-md">Timeline Span <span class="sx-lbl-sm" style="font-weight:400">(Ages)</span></span>
+      <span class="sx-agechips"><span class="sx-agechip" id="ageCurrentVal">32 yrs</span>→<span class="sx-agechip" id="ageRetireVal">65 yrs</span></span></div>
+    <div class="sx-2">
+      <div><label class="sx-mini" for="currentAge">Current Age</label><input class="sx-slider" id="currentAge" type="range" min="18" max="70" step="1" value="32"></div>
+      <div><label class="sx-mini" for="retireAge">Target Retirement</label><input class="sx-slider" id="retireAge" type="range" min="45" max="80" step="1" value="65"></div>
+    </div>
+    <div class="sx-horizon"><span>Investment Horizon: <strong id="horizonVal">33 years</strong></span><b id="periodsVal">396 Compound Periods</b></div>
+  </div>
+
+  <div class="sx-hr"></div>
+
+  <div class="sx-2">
+    <div><label class="sx-lbl-block" for="salary">Annual Gross Salary</label><div class="sx-field lite cur"><span class="pre">$</span><input id="salary" type="number" inputmode="decimal" min="0" step="1000" value="95000"></div></div>
+    <div><label class="sx-lbl-block" for="salaryGrowth">Annual Salary Growth</label><div class="sx-field lite pct"><input id="salaryGrowth" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="3.0"><span class="suf">%</span></div></div>
+  </div>
+  <div style="margin-top:-8px">
+    <label class="sx-lbl-block" for="balance">Current 401(k) Balance</label>
+    <div class="sx-field lite cur"><span class="pre">$</span><input id="balance" type="number" inputmode="decimal" min="0" step="500" value="48500"></div>
+  </div>
+
+  <div class="sx-hr"></div>
+
+  <div class="sx-stack">
+    <div class="sx-between"><span class="sx-lbl-md">Employee Contribution</span>
+      <input type="hidden" id="cmode" value="pct">
+      <div class="sx-seg" role="group" aria-label="Contribution entry mode"><button type="button" data-for="cmode" data-value="pct">Percentage (%)</button><button type="button" data-for="cmode" data-value="usd">Fixed ($)</button></div></div>
+    <div class="sx-sliderrow" id="rowPct"><input class="sx-slider" id="contribPct" type="range" min="1" max="25" step="0.5" value="8" aria-label="Contribution as a percentage of salary"><span class="sx-bigmono" id="contribPctDisplay">8.0%</span></div>
+    <div class="sx-sliderrow" id="rowUsd" hidden><input class="sx-slider" id="contribAmt" type="range" min="0" max="35750" step="50" value="7600" aria-label="Annual contribution in dollars"><span class="sx-bigmono" id="contribAmtDisplay">$7,600</span></div>
+    <div class="sx-gauge">
+      <div class="sx-between"><span>Monthly Contribution: <strong id="contribMonthly">$633/mo</strong></span><span>Annual: <strong class="p" id="contribAnnual">$7,600</strong> / <span id="capLimit">$24,500</span></span></div>
+      <div class="track"><span id="capBar" style="width:31%"></span></div>
+      <p><span id="capLabel">IRS 2026 Under 50 Cap: $24,500</span><b id="capRoom">$16,900 remaining limit</b></p>
+    </div>
+  </div>
+
+  <div class="sx-hr"></div>
+
+  <div class="sx-stack">
+    <div class="sx-between"><span class="sx-lbl-md">Employer Match Structure</span><span class="sx-tagb" title="Assumes you are fully vested in employer contributions">100% Vested</span></div>
+    <div class="sx-presets">
+      <button type="button" class="sx-preset" data-preset="50,6">50% match up to 6%<small>Captures 3.0% effective match</small></button>
+      <button type="button" class="sx-preset" data-preset="100,4">100% match up to 4%<small>Captures 4.0% effective match</small></button>
+    </div>
+    <div class="sx-2" style="gap:12px;padding-top:4px">
+      <div><label class="sx-mini" for="matchRate">Match Percentage (%)</label><div class="sx-field xs"><input id="matchRate" type="number" inputmode="decimal" min="0" max="200" step="5" value="50"><span class="suf">%</span></div></div>
+      <div><label class="sx-mini" for="matchCap">Up to % of Salary</label><div class="sx-field xs"><input id="matchCap" type="number" inputmode="decimal" min="0" max="25" step="1" value="6"><span class="suf">%</span></div></div>
+    </div>
+  </div>
+
+  <div class="sx-hr"></div>
+
+  <div class="sx-stack">
+    <div class="sx-between"><label class="sx-lbl-md" for="rate">Annual Expected Return</label><span class="sx-bigmono" style="min-width:0" id="rateDisplay">7.5%</span></div>
+    <div class="sx-pills3">
+      <button type="button" class="sx-pill3" data-for="rate" data-value="5">Conservative (5%)</button>
+      <button type="button" class="sx-pill3" data-for="rate" data-value="7.5">Balanced (7.5%)</button>
+      <button type="button" class="sx-pill3" data-for="rate" data-value="9.5">Aggressive (9.5%)</button>
+    </div>
+    <input class="sx-slider" id="rate" type="range" min="2" max="12" step="0.25" value="7.5" aria-label="Annual expected return">
+  </div>
+</form>
+
+<div class="sx-right" id="results">
+  <section class="sx-card sx-nest" aria-live="polite">
+    <div class="blob"></div>
+    <div class="hd"><span><span class="msym" aria-hidden="true">account_balance_wallet</span>Projected Total Nest Egg at Age <span id="heroRetireAge">65</span></span><span class="sx-tagb" style="padding:2px 10px" id="projBadge">33-Year Projection</span></div>
+    <div class="val"><b id="resultValue">—</b><span>adjusted for annual salary increases</span></div>
+    <div class="sx-call" id="matchCall">
+      <div class="ck"><span class="msym" aria-hidden="true" id="callIcon">check</span></div>
+      <div><h3 id="callTitle">Full Employer Match Captured!</h3><p id="callText">—</p></div>
+    </div>
+    <div class="sx-stats4">
+      <div class="sx-st"><div class="l"><i style="background:var(--sx-secondary)"></i>You Contributed</div><div class="v" id="statContrib">—</div><div class="s" id="statContribPct">—</div></div>
+      <div class="sx-st"><div class="l"><i style="background:var(--sx-fdim)"></i>Employer Match</div><div class="v" id="statMatch">—</div><div class="s g">Free sponsor money</div></div>
+      <div class="sx-st"><div class="l"><i style="background:var(--sx-pc)"></i>Compound Growth</div><div class="v p" id="statGrowth">—</div><div class="s" id="statGrowthPct">—</div></div>
+      <div class="sx-st"><div class="l"><span class="msym" aria-hidden="true">payments</span>4% Safe Draw</div><div class="v"><span id="statDraw">—</span><small>/mo</small></div><div class="s" id="statDrawAnnual">—</div></div>
+    </div>
+  </section>
+
+  <section class="sx-card sx-chartcard">
+    <div class="sx-between" style="margin-bottom:16px">
+      <div><h3 class="sx-h-md">Portfolio Growth Trajectory</h3><p class="sx-lbl-sm" style="margin:0">Visual breakdown of contributions vs. compound exponential interest</p></div>
+      <div class="sx-legend3"><span><i style="background:var(--sx-pc)"></i>Compound Interest</span><span><i style="background:var(--sx-fdim)"></i>Match</span><span><i style="background:var(--sx-secondary)"></i>Your Principal</span></div>
+    </div>
+    <div class="sx-area" id="areaChart" role="img" aria-label="Stacked area chart of your principal, employer match and compound interest by age"></div>
+    <div class="sx-xlabels" id="xLabels"></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-sched" id="schedule">
+  <div class="sx-sched-head">
+    <div><h2 class="sx-h-md">Year-by-Year Amortization &amp; Vesting Schedule</h2><p class="sx-sm sx-muted" style="margin:0">Exact breakdown of annual employee savings, sponsor matches, and interest capitalization.</p></div>
+    <div class="sx-btns">
+      <button type="button" class="sx-btn fill" id="csvBtn"><span class="msym" aria-hidden="true">file_download</span>Export CSV</button>
+      <button type="button" class="sx-btn fill" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Schedule</button>
+    </div>
+  </div>
+  <div class="sx-tblwrap"><table class="sx-t2">
+    <thead><tr><th scope="col">Age</th><th scope="col">Annual Salary</th><th scope="col">Starting Balance</th><th scope="col">Your Contribution</th><th scope="col">Employer Match</th><th scope="col">Annual Interest</th><th scope="col">Ending Balance</th></tr></thead>
+    <tbody id="schedBody"></tbody>
+  </table></div>
+  <div class="sx-schedfoot"><span id="schedNote">Showing representative horizon milestone intervals</span><button type="button" id="schedToggle" aria-controls="schedBody">View All 33 Annual Rows →</button></div>
+</section>
+
+<section class="sx-card sx-method" id="formula">
+  <div class="sx-method-in">
+    <div class="sx-title" style="margin-bottom:8px"><span class="msym" aria-hidden="true">functions</span><h2 class="sx-h-md">The 401(k) Future Value &amp; Tax Shield Formula</h2></div>
+    <p>CalculatePilot models employer retirement plans using discrete monthly compound interest with an annual salary escalation schedule.</p>
+    <div class="sx-fx">
+      <div class="eq">FV = PV × (1 + r)<sup>n</sup> + PMT × <span class="frac"><span>[(1 + r)<sup>n</sup> − 1]</span><span>r</span></span></div>
+      <div class="vars"><div><strong>FV:</strong> Future Portfolio Value</div><div><strong>PV:</strong> Initial Starting Balance</div><div><strong>PMT:</strong> Periodic Total Contribution</div><div><strong>r:</strong> Periodic Rate of Return</div></div>
+    </div>
+    <div class="sx-taxcards">
+      <div class="sx-taxcard"><div class="h"><span class="msym" aria-hidden="true">shield</span>Traditional 401(k) Tax Shield</div><p>Contributions are deducted directly from pre-tax earnings, lowering your taxable gross income today. For an individual in the 24% federal bracket contributing $10,000, out-of-pocket take-home pay is only reduced by $7,600, giving an immediate tax subsidy.</p></div>
+      <div class="sx-taxcard"><div class="h"><span class="msym" aria-hidden="true">savings</span>Roth 401(k) Post-Tax Freedom</div><p>Contributions are funded with after-tax compensation. In exchange, investment growth and qualified distributions after age 59½ (once the account is at least 5 years old) are free from federal income tax.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Each month, your contribution and your employer's match are added to the balance, which compounds monthly at your expected annual return. Your salary rises by the growth rate once a year, so contributions set as a percentage rise with it. Your own contributions are capped at the IRS elective-deferral limit for your age in each year, and the employer match is calculated on the contribution you actually make.</p>
+    <p>The match is modeled the way most plans describe it: the employer contributes a percentage of your contribution, on the part of your contribution up to a percentage of salary. With "50% up to 6%", contributing 6% or more earns the full 3% of salary; contributing 4% earns only 2%.</p>
+
+    <h2>2026 401(k) contribution limits</h2>
+    <table>
+      <thead><tr><th>Your age in 2026</th><th>Employee deferral limit</th></tr></thead>
+      <tbody>
+        <tr><td>Under 50</td><td>$24,500</td></tr>
+        <tr><td>50–59 or 64+</td><td>$32,500 ($24,500 + $8,000 catch-up)</td></tr>
+        <tr><td>60–63</td><td>$35,750 ($24,500 + $11,250 super catch-up)</td></tr>
+      </tbody>
+    </table>
+    <p>The calculator applies the right limit for your age in every projected year, holding the 2026 amounts flat (future limits are indexed to inflation, so this is conservative). Employer contributions don't count toward the employee limit, though a separate, higher overall cap applies to combined employee and employer contributions. Source: <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" rel="noopener" target="_blank">IRS — 2026 401(k) and IRA limits</a>.</p>
+
+    <h2>A worked example</h2>
+    <p id="workedExample">A 30-year-old earning $70,000 with 3% annual raises, contributing 6% with a 50% match up to 6%, starting from $15,000 and earning 7% until 65, reaches about $1.51 million. Their own contributions total about $254,000 and the employer adds about $127,000 — the rest is compound growth on top of those deposits and the starting balance.</p>
+    <p>Notice the employer match alone contributes six figures over a career — which is why capturing the full match is often called one of the highest-value financial moves available to most workers.</p>
+
+    <h2>Vesting schedules</h2>
+    <p>Employer matching contributions are sometimes subject to a vesting schedule, meaning you only fully own the matched funds after working at the company for a certain period. Leaving before you're fully vested can mean forfeiting some or all of the employer match. This calculator assumes you are 100% vested — check your plan's schedule.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Should I contribute enough to get the full employer match?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Generally yes — an employer match is effectively free money, and missing it is one of the most common ways people leave value on the table. The callout under your projected balance shows how much match you're capturing.</p></details>
+    <details class="sx-faq"><summary>Does this account for contribution limits?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Your contributions are capped at the 2026 IRS limit for your age each year: $24,500 under 50, $32,500 from 50 (with the $8,000 catch-up) and $35,750 at ages 60–63.</p></details>
+    <details class="sx-faq"><summary>What happens if I leave my job — can I keep my 401(k)?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — you can typically leave it with your former employer's plan, roll it into your new employer's plan, or roll it into an IRA, each with different pros and cons worth researching.</p></details>
+    <details class="sx-faq"><summary>Is Roth or traditional 401(k) better?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Traditional contributions reduce taxable income now with taxes owed on withdrawal; Roth contributions are taxed now but grow tax-free. The better choice often depends on whether you expect to be in a higher or lower tax bracket in retirement.</p></details>
+    <details class="sx-faq"><summary>What happens to my employer match if I leave my job?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on your plan's vesting schedule — some employers require a certain number of years of service before you fully own matched contributions, so check your specific plan documents.</p></details>
+    <details class="sx-faq"><summary>Is there a penalty for withdrawing from a 401(k) early?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Withdrawals before age 59½ generally incur a 10% early withdrawal penalty on top of ordinary income tax, with some exceptions for specific circumstances — early withdrawal is generally discouraged given the impact on long-term growth.</p></details>
+
+    <p class="sx-trust">Limits checked against IRS guidance for tax year 2026 · <a href="/methodology.html">Our methodology</a> · Last updated September 2026</p>
+  </div>
+</section>
+
+<section class="sx-related" style="margin-bottom:48px">
+  <div class="sx-rel-head">
+    <div><h2 class="sx-h-md">Complementary Retirement Engines</h2><p class="sx-sm sx-muted" style="margin:0">Interlink your fiscal roadmap across tax-advantaged vehicles</p></div>
+    <a class="lg" href="/financial-calculators.html">Explore all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+  </div>
+  <div class="sx-rel2grid">
+    <a class="sx-card sx-rel2" href="/financial/roth-ira-calculator.html"><div><div class="ic"><span class="msym" aria-hidden="true">paid</span></div><h3>Roth IRA Calculator</h3><p>Determine maximum contribution limits, income phase-outs, and tax-free nest egg growth.</p></div><div class="ft"><span>IRS $7,500 Limit</span><span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel2" href="/financial/retirement-calculator.html"><div><div class="ic"><span class="msym" aria-hidden="true">local_fire_department</span></div><h3>Retirement Calculator</h3><p>Find out whether your savings across every account reach your retirement income target.</p></div><div class="ft"><span>Savings Target</span><span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel2" href="/financial/paycheck-calculator.html"><div><div class="ic"><span class="msym" aria-hidden="true">assured_workload</span></div><h3>Paycheck Calculator</h3><p>See how pre-tax 401(k) deferrals change your take-home pay after federal and payroll taxes.</p></div><div class="ft"><span>Take-Home Pay</span><span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel2" href="/financial/annuity-calculator.html"><div><div class="ic"><span class="msym" aria-hidden="true">hourglass_bottom</span></div><h3>Annuity Calculator</h3><p>Turn a lump sum into a guaranteed income stream and compare payout periods and rates.</p></div><div class="ft"><span>Guaranteed Payout</span><span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+  </div>
+</section>
+</div>

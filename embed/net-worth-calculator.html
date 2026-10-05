@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Net Worth Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,account_balance_wallet,arrow_forward,beach_access,calculate,chevron_right,content_copy,expand_more,groups,lock,print,restart_alt,savings,trending_down,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,114 +38,124 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Net Worth Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="cashSavings">Cash & savings ($)</label>
-          <input type="number" id="cashSavings" value="15000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="investments">Investments ($)</label>
-          <input type="number" id="investments" value="25000"
-step="500"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="retirementAccounts">Retirement accounts ($)</label>
-          <input type="number" id="retirementAccounts" value="40000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="realEstate">Real estate value ($)</label>
-          <input type="number" id="realEstate" value="350000"
-step="1000"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="otherAssets">Other assets ($)</label>
-          <input type="number" id="otherAssets" value="10000"
-step="500"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="mortgageBalance">Mortgage balance ($)</label>
-          <input type="number" id="mortgageBalance" value="260000"
-step="1000"min="0">
-        </div>
-        <div class="field">
-          <label for="creditCardDebt">Credit card debt ($)</label>
-          <input type="number" id="creditCardDebt" value="3000"
-step="100"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="autoLoans">Auto loans ($)</label>
-          <input type="number" id="autoLoans" value="12000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="studentLoans">Student loans ($)</label>
-          <input type="number" id="studentLoans" value="8000"
-step="500"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="otherDebts">Other debts ($)</label>
-          <input type="number" id="otherDebts" value="0"
-step="100"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Net worth</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total assets</span><span id="outTotalAssets">—</span></div>
-        <div class="embed-row"><span>Total liabilities</span><span id="outTotalLiabilities">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="nwCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Net Worth Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Fed SCF 2022 Benchmarks</span><span class="sx-badge"><span aria-hidden="true" class="msym">account_balance</span>Assets vs Liabilities</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in Your Browser</span></div>
+<h1>Net Worth Calculator — Compare With Your Age Group</h1>
+<p>Add up what you own and what you owe to get your net worth, see your debt-to-asset ratio and liquid assets, and compare your result with the Federal Reserve's median and average net worth for your age.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">What You Own &amp; Owe</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-l" style="margin-bottom:-6px"><span style="color:var(--sx-pc);font-weight:700">Assets</span></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="cash">Cash &amp; Savings</label></div><div class="sx-au-in"><span class="pre">$</span><input id="cash" inputmode="decimal" min="0" step="500" type="number" value="15000"/></div></div>
+<div><div class="sx-au-l"><label for="inv">Investments</label></div><div class="sx-au-in"><span class="pre">$</span><input id="inv" inputmode="decimal" min="0" step="500" type="number" value="25000"/></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="ret">Retirement Accounts</label></div><div class="sx-au-in"><span class="pre">$</span><input id="ret" inputmode="decimal" min="0" step="1000" type="number" value="60000"/></div></div>
+<div><div class="sx-au-l"><label for="home">Home &amp; Real Estate</label></div><div class="sx-au-in"><span class="pre">$</span><input id="home" inputmode="decimal" min="0" step="5000" type="number" value="350000"/></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="veh">Vehicles</label></div><div class="sx-au-in"><span class="pre">$</span><input id="veh" inputmode="decimal" min="0" step="500" type="number" value="18000"/></div></div>
+<div><div class="sx-au-l"><label for="oth">Other Assets</label></div><div class="sx-au-in"><span class="pre">$</span><input id="oth" inputmode="decimal" min="0" step="500" type="number" value="0"/></div></div>
+</div>
+<div class="sx-au-l" style="margin:6px 0 -6px"><span style="color:var(--sx-err);font-weight:700">Liabilities</span></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="mort">Mortgage Balance</label></div><div class="sx-au-in"><span class="pre">$</span><input id="mort" inputmode="decimal" min="0" step="5000" type="number" value="240000"/></div></div>
+<div><div class="sx-au-l"><label for="auto">Auto Loans</label></div><div class="sx-au-in"><span class="pre">$</span><input id="auto" inputmode="decimal" min="0" step="500" type="number" value="12000"/></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="stu">Student Loans</label></div><div class="sx-au-in"><span class="pre">$</span><input id="stu" inputmode="decimal" min="0" step="500" type="number" value="18000"/></div></div>
+<div><div class="sx-au-l"><label for="cc">Credit Cards</label></div><div class="sx-au-in"><span class="pre">$</span><input id="cc" inputmode="decimal" min="0" step="100" type="number" value="4000"/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="od">Other Debts</label></div><div class="sx-au-in"><span class="pre">$</span><input id="od" inputmode="decimal" min="0" step="500" type="number" value="0"/></div></div>
+<div class="sx-au-g2" style="border-top:1px solid var(--sx-border);padding-top:14px">
+<div><div class="sx-au-l"><label for="age">Your Age</label></div><div class="sx-au-in np"><input id="age" inputmode="numeric" max="100" min="18" step="1" type="number" value="38"/><span class="suf">yrs</span></div></div>
+<div><div class="sx-au-l"><label for="inc">Household Income (optional)</label></div><div class="sx-au-in"><span class="pre">$</span><input id="inc" inputmode="decimal" min="0" placeholder="Pre-tax" step="1000" type="number" value=""/></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Net Worth</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Your net worth</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Total assets</span><b id="ta">—</b></div><div><span>Total liabilities</span><b id="tl">—</b></div></div>
+<div class="g2"><div><span>Debt-to-asset ratio</span><b id="dar">—</b></div><div><span>Liquid assets (cash + investments)</span><b id="liq">—</b></div></div>
+<div class="gain" id="stBox"><span id="stL">Add household income for the expected net worth rule of thumb</span><b id="stV">—</b></div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">groups</span>Your Age Group (Fed SCF 2022)</span><span id="agT">—</span></div>
+<div class="l"><span>Median net worth</span><b id="med">—</b></div>
+<div class="l"><span>Mean (average) net worth</span><b id="mean">—</b></div>
+<div class="l t"><span>You vs the median</span><b id="vs">—</b></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/financial/retirement-calculator.html"><span aria-hidden="true" class="msym">beach_access</span>Retirement Calculator</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Net Worth by Age — US Families</h2><p>Federal Reserve Survey of Consumer Finances, 2022 (in 2022 dollars). The median is the middle family; the mean is pulled up by the wealthiest households.</p></div><span class="sx-au-tag">Fed SCF 2022</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Age of Head of Family</th><th scope="col">Median</th><th scope="col">Mean</th></tr></thead>
+<tbody id="scfTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Net worth</strong> = total assets − total liabilities.</li>
+<li><strong>Debt-to-asset ratio</strong> = total liabilities ÷ total assets — lower means more of what you own is truly yours.</li>
+<li><strong>Liquid assets</strong> = cash + non-retirement investments you could access without penalties.</li>
+<li><strong>Expected net worth (rule of thumb)</strong> = age × pre-tax household income ÷ 10, from <em>The Millionaire Next Door</em> (Stanley &amp; Danko). The authors call households at twice this figure or more "prodigious accumulators of wealth" and those at half or less "under accumulators".</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Benchmarks checked against the Federal Reserve Bulletin (October 2023) on 28 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>Using the default figures: assets of $15,000 + $25,000 + $60,000 + $350,000 + $18,000 = $468,000, and liabilities of $240,000 + $12,000 + $18,000 + $4,000 = $274,000, give a net worth of <strong>$194,000</strong>. That's a debt-to-asset ratio of 59%. For a 38-year-old, the SCF 2022 median for ages 35–44 is $135,600, so this household is above the median for its age group.</p>
+<h2>Why net worth matters more than income</h2>
+<p>Income measures cash flow; net worth measures your actual financial position. Someone with a high income but heavy debt and little saved can have a lower net worth than someone with a modest income and steady saving habits. Tracking it over time — quarterly or yearly — shows whether you're moving in the right direction. Home equity and retirement accounts count toward net worth but aren't easy to spend, which is why liquid assets are shown separately.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.federalreserve.gov/publications/files/scf23.pdf" rel="noopener noreferrer">Aladangady A, et al. Changes in U.S. Family Finances from 2019 to 2022: Evidence from the Survey of Consumer Finances. Federal Reserve Bulletin, October 2023 (Table 2).</a></li>
+<li>Stanley TJ, Danko WD. The Millionaire Next Door. Longstreet Press, 1996.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Should I include my car's value as an asset?<span aria-hidden="true" class="msym">expand_more</span></summary><p>You can include it for a complete picture — use its current resale value, not what you paid. Many people leave depreciating items like vehicles out when tracking wealth-building, since they lose value every year.</p></details>
+<details class="sx-faq"><summary>How often should I recalculate my net worth?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Many people track it quarterly or annually — often enough to see meaningful trends, but not so often that normal market swings feel misleading.</p></details>
+<details class="sx-faq"><summary>What is the median net worth in the US?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In the Federal Reserve's 2022 Survey of Consumer Finances, the median US family net worth was $192,900 and the mean was about $1.06 million. The mean is much higher because a small number of very wealthy families pull the average up.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Grow your net worth.</p></div>
+<a href="/financial-calculators.html">All Financial Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/retirement-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">beach_access</span></span><b>Retirement Calculator</b><span class="d">FIRE number and withdrawals.</span><span class="f">Plan retirement<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_down</span></span><b>Debt Payoff Calculator</b><span class="d">Cut liabilities faster.</span><span class="f">Plan payoff<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance_wallet</span></span><b>Budget Calculator</b><span class="d">Find money to save each month.</span><span class="f">Build a budget<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Emergency Fund</b><span class="d">How much cash to keep liquid.</span><span class="f">Size your fund<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/net-worth-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -272,40 +164,9 @@ step="100"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/net-worth.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/net-worth.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

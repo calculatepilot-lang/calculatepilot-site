@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bond Price Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,arrow_forward,calculate,chevron_right,expand_more,payments,percent,picture_as_pdf,restart_alt,savings,shield,speed,swap_vert,table_view,trending_up,tune,unfold_more,verified&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,88 +38,121 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Bond Price Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="faceValue">Face value ($)</label>
-          <input type="number" id="faceValue" value="1000"
-step="100"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="couponRate">Annual coupon rate (%)</label>
-          <input type="number" id="couponRate" value="5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="marketRate">Current market rate / yield (%)</label>
-          <input type="number" id="marketRate" value="6"
-step="0.1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="years">Years to maturity</label>
-          <input type="number" id="years" value="10"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="paymentsPerYear">Coupon payments per year</label>
-          <input type="number" id="paymentsPerYear" value="2"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Bond price</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Coupon payment per period</span><span id="outCouponPayment">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="bdCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Bond Price Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Yield-to-Maturity (YTM)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Modified Duration &amp; Convexity</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Zero-Coupon &amp; Coupon Pricing</span></div>
+<h1>Bond Price Calculator: Price, Yield &amp; Duration</h1>
+<p>Calculate a bond's fair price from its face value, coupon rate, time to maturity and current market yield — then see whether it trades at a discount or premium, its current yield, duration and how much the price moves when rates change.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Bond Parameters</h2><p>Bond terms and prevailing market yield</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="faceValue">Par / Face Value</label><em style="color:var(--sx-muted);font-weight:500">Principal repaid at maturity</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="faceValue" inputmode="decimal" min="0" step="100" style="font-size:17px;font-weight:600" type="number" value="1000"/></div>
+<div class="sx-au-chips">Presets: <button data-for="faceValue" data-value="1000" type="button">$1,000</button><button data-for="faceValue" data-value="5000" type="button">$5,000</button><button data-for="faceValue" data-value="10000" type="button">$10,000</button><button data-for="faceValue" data-value="100000" type="button">$100,000</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="couponRate">Annual Coupon Rate</label></div><div class="sx-au-in np pc"><input id="couponRate" inputmode="decimal" max="30" min="0" step="0.05" type="number" value="4.5"/><span class="suf">%</span></div><div class="sx-au-chips"><button data-for="couponRate" data-value="0" type="button">0%</button><button data-for="couponRate" data-value="3.5" type="button">3.5%</button><button data-for="couponRate" data-value="4.5" type="button">4.5%</button><button data-for="couponRate" data-value="6" type="button">6.0%</button></div></div>
+<div><div class="sx-au-l"><label for="marketRate">Market Yield (YTM)</label></div><div class="sx-au-in np pc"><input id="marketRate" inputmode="decimal" max="30" min="0" step="0.05" type="number" value="5.25"/><span class="suf">%</span></div><p class="sx-au-help" id="scen">—</p></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="years">Years to Maturity</label><em id="yOut" style="color:var(--sx-on);font-family:var(--font-mono)">—</em></div>
+<div class="sx-au-in np"><input id="years" inputmode="decimal" max="50" min="0.5" step="0.5" type="number" value="10"/><span class="suf">years</span></div>
+<div class="sx-au-chips">Terms: <button data-for="years" data-value="2" type="button">2 Yr</button><button data-for="years" data-value="5" type="button">5 Yr</button><button data-for="years" data-value="10" type="button">10 Yr</button><button data-for="years" data-value="20" type="button">20 Yr</button><button data-for="years" data-value="30" type="button">30 Yr</button></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Coupon Frequency</span></div>
+<input id="paymentsPerYear" type="hidden" value="2"/>
+<div aria-label="Coupon frequency" class="sx-seg" role="group" style="display:flex"><button data-for="paymentsPerYear" data-value="1" style="flex:1" type="button">Annual</button><button data-for="paymentsPerYear" data-value="2" style="flex:1" type="button">Semi-Annual</button><button data-for="paymentsPerYear" data-value="4" style="flex:1" type="button">Quarterly</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="cat">Bond Category &amp; Tax Treatment</label></div>
+<div class="sx-au-sel"><select id="cat"><option value="t">US Treasury — state &amp; local tax-exempt</option><option selected="" value="c">Corporate — fully taxable</option><option value="m">Municipal — federal tax-exempt</option></select></div>
+<div class="sx-vt-in" id="mRow"><label for="br">Your federal tax bracket (for tax-equivalent yield):</label><div class="sx-au-sel" style="width:110px"><select id="br"><option value="10">10%</option><option value="12">12%</option><option value="22">22%</option><option selected="" value="24">24%</option><option value="32">32%</option><option value="35">35%</option><option value="37">37%</option></select></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Price Bond &amp; Measure Duration</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-vt-set">
+<div class="hd"><div><b><span aria-hidden="true" class="msym">verified</span>Pricing Verdict</b><small>Clean price on a coupon date</small></div><span class="sx-ef-grade" id="kind">—</span></div>
+<div class="sx-vt-gross"><span>Bond Price (Fair Value)</span><div class="big" id="resultValue">—</div>
+<div class="r"><span id="prem">—</span><span id="why">—</span></div></div>
+<div class="sx-in-t4" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="sx-card"><div class="k">Current Yield<span aria-hidden="true" class="msym">percent</span></div><b id="cy">—</b><p id="cyN">—</p></div>
+<div class="sx-card"><div class="k" id="ytmL">Yield to Maturity<span aria-hidden="true" class="msym">trending_up</span></div><b id="ytm">—</b><p id="ytmN">—</p></div>
+<div class="sx-card"><div class="k">Total Coupon Payments<span aria-hidden="true" class="msym">payments</span></div><b id="outCoupon">—</b><p id="cpN">—</p></div>
+<div class="sx-card"><div class="k">Total Return at Maturity<span aria-hidden="true" class="msym">savings</span></div><b id="tr">—</b><p id="trN">—</p></div>
+</div>
+<div class="sx-vt-led" style="margin-top:14px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">speed</span>Duration &amp; Rate Sensitivity</span><span>Interest-rate risk</span></div>
+<div class="l"><span>Macaulay duration</span><b id="mac">—</b></div>
+<div class="l"><span>Modified duration</span><b id="mod">—</b></div>
+<div class="l"><span>Convexity</span><b id="cvx">—</b></div>
+<div class="l"><span>+100 bp rate rise (+1.00%)</span><b class="r" id="up">—</b></div>
+<div class="l"><span>−100 bp rate cut (−1.00%)</span><b id="dn" style="color:var(--sx-pc)">—</b></div>
+</div>
+<div class="sx-in-acts" style="margin-top:16px"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export (.PDF)</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_view</span>Cash Flow Ledger (.CSV)</button></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2 id="ledH">Cash Flow &amp; Accretion Ledger</h2><p>Coupons, effective-interest earnings, discount accretion (or premium amortization), book value and the present value of each cash flow.</p></div><div class="hbt"><button id="expBtn" style="border-color:var(--sx-hover);background:var(--sx-emb);color:var(--sx-emt)" type="button"><span aria-hidden="true" class="msym">unfold_more</span><span id="expTxt">Expand All Periods</span></button></div></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Period</th><th scope="col">Timeline</th><th scope="col">Coupon Payment</th><th id="ieH" scope="col">Interest Earned</th><th id="acH" scope="col">Accretion</th><th scope="col">Book Value</th><th scope="col">Present Value</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<div class="ft"><span>*Assumes settlement on a coupon date (no accrued interest) and a flat yield curve. Real trades add accrued interest to the clean price.</span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">swap_vert</span></span><h3>The Bond Seesaw: Why Prices Fall When Rates Rise</h3><p>A bond's coupon is fixed when it's issued. When market rates rise, new bonds pay more, so an older, lower-coupon bond has to sell for less than face value until its yield to maturity matches the market. When rates fall, the opposite happens.</p><div class="sx-sg-take"><b>Key takeaway:</b> YTM above the coupon rate → discount bond. YTM below the coupon rate → premium bond. Equal → trades at par.</div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">shield</span></span><h3>Macaulay vs Modified Duration</h3><p>Macaulay duration is the weighted-average time until you receive the bond's cash flows. Modified duration turns that into price sensitivity: a modified duration of <span id="mdEx">7.7</span> means the price moves roughly <span id="mdEx2">7.7</span>% in the opposite direction for each 1-percentage-point change in yield. Convexity explains why the real move is a little smaller for rises and larger for falls.</p><div class="sx-sg-take"><b>Rule of thumb:</b> longer maturities and lower coupons mean higher duration — and bigger price swings.</div></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Why bond prices move opposite to interest rates</h2>
+<p>A bond's fixed coupon rate is set when it's issued, but market interest rates move over time. When market rates rise above a bond's coupon rate, the bond becomes less attractive relative to newer bonds paying more, so its price falls below face value (trading 'at a discount') to compensate buyers. When market rates fall below the coupon rate, the bond becomes more attractive and trades above face value ('at a premium').</p>
+<p>This inverse relationship is one of the most fundamental concepts in bond investing — it's why bond prices and interest rates are often described as moving in opposite directions.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>What this price represents</h2>
+<p>This calculator computes fair value using present value math — discounting all future coupon payments and the final face value repayment back to today's dollars using the current market rate. This is the standard approach used throughout fixed-income valuation.</p>
+<p><strong>Price = C × [1 − (1 + y)^−n] ÷ y + F ÷ (1 + y)^n</strong> — C = coupon per period · y = market yield per period · n = number of periods · F = face value</p>
+<p>Real-world bond prices can differ slightly from this theoretical fair value due to factors like credit risk (perceived risk of default), liquidity, and specific market supply and demand — this calculator provides the baseline valuation these real-world factors adjust from.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why would a bond trade below its face value?<span aria-hidden="true" class="msym">expand_more</span></summary><p>When current market interest rates are higher than the bond's fixed coupon rate, the bond becomes less attractive compared to newer bonds, so its price falls below face value to compensate buyers with a better effective return.</p></details>
+<details class="sx-faq"><summary>What happens to a bond's price at maturity?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A bond's price converges to its face value as it approaches maturity, since at maturity the holder receives exactly the face value back — any premium or discount gradually shrinks to zero over the bond's remaining life.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Calculators</h2><p>Interest, deposit and annuity tools.</p></div>
+<a href="/financial-calculators.html">View All Financial Tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/simple-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Simple Interest Calculator</b><span class="d">Non-compounding notes and short-term debt.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>CD Calculator</b><span class="d">Certificate of deposit growth and APY.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_up</span></span><b>Compound Interest Calculator</b><span class="d">Long-term growth with reinvested returns.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/annuity-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Annuity Calculator</b><span class="d">Present and future value of payment streams.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/bond-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -246,40 +161,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/bond.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/bond.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

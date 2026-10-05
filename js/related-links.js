@@ -2,6 +2,9 @@
   // Curated, contextual relations per page. Any page not listed here falls back
   // automatically to same-category picks pulled from /calculators.json.
   var RELATIONS = {
+    "/financial/cd-vs-hysa-calculator.html": ["/financial/cd-calculator.html", "/financial/savings-calculator.html", "/financial/emergency-fund-calculator.html"],
+    "/financial/1031-exchange-calculator.html": ["/financial/rental-yield-calculator.html", "/financial/seller-net-sheet-calculator.html", "/financial/house-flip-calculator.html"],
+    "/financial/seller-net-sheet-calculator.html": ["/financial/house-affordability-calculator.html", "/financial/1031-exchange-calculator.html", "/financial/house-flip-calculator.html"],
     "/financial/mortgage-calculator.html": ["/financial/refinance-calculator.html","/financial/heloc-calculator.html","/financial/house-affordability-calculator.html","/financial/down-payment-calculator.html","/financial/amortization-calculator.html","/financial/debt-to-income-ratio-calculator.html"],
     "/financial/refinance-calculator.html": ["/financial/mortgage-calculator.html","/financial/heloc-calculator.html","/financial/amortization-calculator.html","/financial/loan-calculator.html"],
     "/financial/heloc-calculator.html": ["/financial/mortgage-calculator.html","/financial/refinance-calculator.html","/financial/house-affordability-calculator.html","/financial/net-worth-calculator.html"],

@@ -1,0 +1,105 @@
+<div class="sx" id="hwrCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Healthy Weight Range Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>WHO BMI 18.5–24.9</span><span class="sx-badge"><span class="msym" aria-hidden="true">diversity_3</span>NICE Ethnicity Thresholds</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Healthy Weight Range Calculator — By Height</h1>
+    <p>Find the weight range that gives a healthy adult BMI at your height, including the lower thresholds NICE recommends for some ethnic backgrounds, and see how far your current weight is from it.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s1"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">Imperial</button><button type="button" data-for="u" data-value="s2" style="flex:1">Metric</button></div></div>
+    <div>
+      <div class="sx-au-l"><span>Height</span><em style="color:var(--sx-muted);font-weight:500" id="hAlt">—</em></div>
+      <div class="sx-au-in np" id="hMet" hidden><input id="cm" type="number" inputmode="decimal" min="120" max="230" step="0.5" value="170" aria-label="Height in centimetres"><span class="suf">cm</span></div>
+      <div class="sx-au-g2" id="hImp"><div class="sx-au-in np"><input id="ft" type="number" inputmode="numeric" min="4" max="7" step="1" value="5" aria-label="Height in feet"><span class="suf">ft</span></div><div class="sx-au-in np"><input id="inch" type="number" inputmode="decimal" min="0" max="11.9" step="0.5" value="7" aria-label="Height in inches"><span class="suf">in</span></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Thresholds</span></div>
+      <input type="hidden" id="std" value="s1">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(2,minmax(0,1fr))" role="group" aria-label="BMI thresholds"><button type="button" data-for="std" data-value="s1">Standard (WHO)</button><button type="button" data-for="std" data-value="s2">NICE lower thresholds</button></div>
+      <p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)" id="stdHelp">—</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cw">Current Weight (optional)</label></div>
+      <div class="sx-au-in np"><input id="cw" type="number" inputmode="decimal" min="0" max="700" step="0.5" value="" placeholder="To compare"><span class="suf" id="wU">lb</span></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Find My Range</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Healthy weight range</span><span class="sx-ef-grade" id="bmiTag">BMI 18.5–24.9</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="g2"><div><span>Middle of the range (BMI 21.7)</span><b id="mid">—</b></div><div><span id="owL">Overweight from</span><b id="ow">—</b></div></div>
+    <div class="gain neg" id="cmpBox"><span id="cmpL">Add your current weight to compare</span><b id="cmpV">—</b></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k">Your BMI<span class="msym" aria-hidden="true">monitor_weight</span></div><b id="bmi">—</b><p id="bmiN">Enter your weight</p></div>
+    <div class="sx-card"><div class="k">Time to Reach Range<span class="msym" aria-hidden="true">schedule</span></div><b id="wk">—</b><p id="wkN">At a steady 1–2 lb (0.5–0.9 kg) a week</p></div>
+  </div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/bmi-calculator.html"><span class="msym" aria-hidden="true">monitor_weight</span>BMI Calculator</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Weight at Each BMI Boundary</h2><p>Healthy range and the weights where overweight and obesity begin, at heights near yours.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Height</th><th scope="col">Healthy Range</th><th scope="col" id="thOw">Overweight from</th><th scope="col" id="thOb">Obesity from</th></tr></thead>
+    <tbody id="htTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this range is calculated</h2>
+    <p>BMI is weight (kg) ÷ height (m)². Working backwards, the weight at any BMI is <strong>BMI × height (m)²</strong>. The healthy range runs from BMI 18.5 to 24.9 using the WHO adult categories, where 25 marks overweight and 30 marks obesity.</p>
+    <p>NICE recommends lower thresholds for people with a South Asian, Chinese, other Asian, Middle Eastern, Black African or African-Caribbean family background, because cardiometabolic risk occurs at a lower BMI: overweight from 23 and obesity from 27.5. With that option on, the upper end of the healthy range becomes 22.9.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against WHO, NICE and CDC guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>A worked example</h2>
+    <p>At 5′7″ (1.702 m), height squared is 2.897 m². The healthy range is 18.5 × 2.897 = 53.6 kg to 24.9 × 2.897 = 72.1 kg, or about <strong>118 to 159 lb</strong>. With the NICE lower thresholds, the upper end is 22.9 × 2.897 = 66.3 kg (146 lb).</p>
+
+    <h2>Using this as one reference point, not a strict target</h2>
+    <p>Because it's derived from BMI, this range carries the same limitations — it doesn't distinguish muscle from fat, so very muscular people may sit above it while still having a healthy body composition, and the reverse can be true for people with low muscle mass. Pairing it with waist measurements or body composition, and ideally advice from a healthcare provider, gives a fuller picture. The range applies to adults; children and teens use age- and sex-specific BMI percentiles.</p>
+    <p>If you're above the range, the CDC notes that people who lose weight gradually — about 1 to 2 pounds a week — are more likely to keep it off.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html" rel="noopener noreferrer">CDC — Adult BMI categories</a></li>
+      <li><a href="https://www.nice.org.uk/guidance/ng246" rel="noopener noreferrer">NICE guideline NG246 — Overweight and obesity management</a> (recommendation 1.9.11, ethnicity-specific thresholds)</li>
+      <li>World Health Organization. Obesity: preventing and managing the global epidemic. WHO Technical Report Series 894, 2000.</li>
+      <li><a href="https://www.cdc.gov/healthy-weight-growth/losing-weight/index.html" rel="noopener noreferrer">CDC — Losing weight</a></li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Does this account for muscle mass?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — like standard BMI, this range doesn't distinguish between muscle and fat, so very muscular individuals may fall above this range while still being at a healthy body composition.</p></details>
+    <details class="sx-faq"><summary>Should I try to hit the exact middle of this range?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not necessarily — this range is a general statistical reference, not a personalized target. Where you sit within (or even slightly outside) this range depends on individual factors like frame size and muscle mass.</p></details>
+    <details class="sx-faq"><summary>Why is there a lower range for some ethnic backgrounds?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Research shows people from South Asian, Chinese, other Asian, Middle Eastern, Black African and African-Caribbean backgrounds tend to develop weight-related conditions such as type 2 diabetes at a lower BMI, so NICE recommends treating a BMI of 23 as the start of overweight for these groups.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Look at your weight from other angles.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Your BMI and category.</span><span class="f">Check BMI<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/ideal-weight-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Ideal Weight Calculator</b><span class="d">Devine, Robinson, Miller and Hamwi.</span><span class="f">Find ideal weight<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/waist-to-height-ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">straighten</span></span><b>Waist-to-Height Ratio</b><span class="d">Fat around the middle — use alongside BMI.</span><span class="f">Check WHtR<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calorie Calculator</b><span class="d">Calories and a timeline to your goal.</span><span class="f">Plan your goal<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

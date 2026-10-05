@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Body Fat Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=accessibility_new,arrow_forward,calculate,chevron_right,compare_arrows,content_copy,event,expand_more,fitness_center,local_fire_department,monitor_weight,pinch,print,restart_alt,straighten,tune,verified_user,water_drop&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,65 +38,144 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Body Fat Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="sex">Sex</label>
-          <select id="sex">
-            <option value="male" selected>Male</option>
-            <option value="female" >Female</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="heightCm">Height (cm)</label>
-          <input type="number" id="heightCm" value="175"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="neckCm">Neck circumference (cm)</label>
-          <input type="number" id="neckCm" value="38"
-step="0.5"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="waistCm">Waist circumference (cm)</label>
-          <input type="number" id="waistCm" value="85"
-step="0.5"min="0">
-        </div>
-        <div class="field">
-          <label for="hipCm">Hip circumference (cm, women only)</label>
-          <input type="number" id="hipCm" value="95"
-step="0.5"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated body fat</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Category</span><span id="outCategory">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="bfCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Body Fat Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>U.S. Navy Tape Method</span><span class="sx-badge"><span aria-hidden="true" class="msym">straighten</span>Jackson-Pollock 3-Site Skinfolds</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Body Fat Calculator — U.S. Navy &amp; Skinfold Methods</h1>
+<p>Estimate your body fat percentage with a tape measure (U.S. Navy method) or skinfold calipers (Jackson-Pollock 3-site), compare it with a BMI-based estimate, and see your fat mass, lean mass and body-fat category.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Measurements</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Method</span></div>
+<input id="meth" type="hidden" value="s1"/>
+<div aria-label="Method" class="sx-seg" role="group" style="display:flex"><button data-for="meth" data-value="s1" style="flex:1" type="button">Tape measure (Navy)</button><button data-for="meth" data-value="s2" style="flex:1" type="button">Skinfold calipers</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s2"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">Inches / lb</button><button data-for="u" data-value="s2" style="flex:1" type="button">cm / kg</button></div></div>
+<div><div class="sx-au-l"><span>Sex</span></div><input id="sex" type="hidden" value="s1"/><div aria-label="Sex" class="sx-seg" role="group" style="display:flex"><button data-for="sex" data-value="s1" style="flex:1" type="button">Male</button><button data-for="sex" data-value="s2" style="flex:1" type="button">Female</button></div></div>
+</div>
+<div class="sx-au-g2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div><label for="age" style="font-size:11px;color:var(--sx-muted)">Age</label><div class="sx-au-in sm np"><input id="age" inputmode="numeric" max="100" min="18" step="1" type="number" value="35"/><span class="suf">yrs</span></div></div>
+<div><label for="wt" style="font-size:11px;color:var(--sx-muted)">Weight</label><div class="sx-au-in sm np"><input id="wt" inputmode="decimal" max="700" min="30" step="0.5" type="number" value="80"/><span class="suf" id="wU">kg</span></div></div>
+<div><label for="ht" style="font-size:11px;color:var(--sx-muted)">Height</label><div class="sx-au-in sm np"><input id="ht" inputmode="decimal" max="250" min="40" step="0.5" type="number" value="178"/><span class="suf" id="hU">cm</span></div></div>
+</div>
+<div class="sx-card" id="navyBox" style="padding:14px;background:var(--sx-low)">
+<div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:18px">straighten</span>Tape Measurements</span></div>
+<div class="sx-au-g2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div><label for="neck" style="font-size:11px;color:var(--sx-muted)">Neck</label><div class="sx-au-in sm np"><input id="neck" inputmode="decimal" max="80" min="10" step="0.5" type="number" value="38"/><span class="suf" id="u1">cm</span></div></div>
+<div><label for="waist" style="font-size:11px;color:var(--sx-muted)">Waist</label><div class="sx-au-in sm np"><input id="waist" inputmode="decimal" max="250" min="30" step="0.5" type="number" value="90"/><span class="suf" id="u2">cm</span></div></div>
+<div id="hipBox"><label for="hip" style="font-size:11px;color:var(--sx-muted)">Hip</label><div class="sx-au-in sm np"><input id="hip" inputmode="decimal" max="250" min="30" step="0.5" type="number" value="95"/><span class="suf" id="u3">cm</span></div></div>
+</div>
+<p class="sx-au-help" style="margin:8px 0 0">Neck just below the larynx; waist at the navel for men and at the narrowest point for women; hips at the widest point (women only).</p>
+</div>
+<div class="sx-card" hidden="" id="jpBox" style="padding:14px;background:var(--sx-low)">
+<div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:18px">pinch</span>Skinfolds (mm)</span></div>
+<div class="sx-au-g2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div><label for="s1" id="s1L" style="font-size:11px;color:var(--sx-muted)">Chest</label><div class="sx-au-in sm np"><input id="s1" inputmode="decimal" max="80" min="1" step="0.5" type="number" value="15"/><span class="suf">mm</span></div></div>
+<div><label for="s2" id="s2L" style="font-size:11px;color:var(--sx-muted)">Abdomen</label><div class="sx-au-in sm np"><input id="s2" inputmode="decimal" max="80" min="1" step="0.5" type="number" value="25"/><span class="suf">mm</span></div></div>
+<div><label for="s3" id="s3L" style="font-size:11px;color:var(--sx-muted)">Thigh</label><div class="sx-au-in sm np"><input id="s3" inputmode="decimal" max="80" min="1" step="0.5" type="number" value="18"/><span class="suf">mm</span></div></div>
+</div>
+<p class="sx-au-help" id="jpHelp" style="margin:8px 0 0">—</p>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Body Fat</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="mL">Estimated body fat</span><span class="sx-ef-grade" id="catTag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small>% body fat</small></div>
+<p id="catN">—</p>
+<div class="sx-cu-spec" style="margin-top:14px">
+<div class="r">ACE categories<span>You: <b class="c" id="specV">—</b></span></div>
+<div class="t" id="specBar"></div>
+<div class="lb" id="specLb"></div>
+</div>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k">Fat Mass<span aria-hidden="true" class="msym">water_drop</span></div><b id="fm">—</b><p>Body fat % × weight</p></div>
+<div class="sx-card"><div class="k">Lean Body Mass<span aria-hidden="true" class="msym">fitness_center</span></div><b id="lm">—</b><p>Everything that isn't fat</p></div>
+<div class="sx-card"><div class="k" id="oL">Other method<span aria-hidden="true" class="msym">compare_arrows</span></div><b id="oV">—</b><p id="oN">—</p></div>
+<div class="sx-card"><div class="k">BMI-Based Estimate<span aria-hidden="true" class="msym">monitor_weight</span></div><b id="dV">—</b><p id="dN">Deurenberg formula (BMI, age, sex)</p></div>
+</div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/lean-body-mass-calculator.html"><span aria-hidden="true" class="msym">fitness_center</span>Lean Body Mass</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Body Fat Categories (American Council on Exercise)</h2><p>General reference ranges for adults. Healthy ranges also rise somewhat with age.</p></div><span class="sx-au-tag" id="catSex">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Category</th><th scope="col">Men</th><th scope="col">Women</th></tr></thead>
+<tbody id="catTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>The U.S. Navy method estimates body fat from circumference measurements using a logarithmic formula, and is a widely used field method that doesn't require calipers or special equipment.</p>
+<ul>
+<li><strong>Navy — men (cm):</strong> 495 ÷ (1.0324 − 0.19077 × log₁₀(waist − neck) + 0.15456 × log₁₀(height)) − 450</li>
+<li><strong>Navy — women (cm):</strong> 495 ÷ (1.29579 − 0.35004 × log₁₀(waist + hip − neck) + 0.22100 × log₁₀(height)) − 450</li>
+<li><strong>Jackson-Pollock 3-site:</strong> body density from the sum of three skinfolds and age (men: chest, abdomen, thigh; women: triceps, suprailiac, thigh), converted to body fat with the Siri equation: 495 ÷ density − 450.</li>
+<li><strong>Deurenberg (BMI-based):</strong> 1.20 × BMI + 0.23 × age − 10.8 × sex (1 = male, 0 = female) − 5.4. A rough population estimate, shown for comparison only.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the original published equations · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Accuracy of this method</h2>
+<p>The Navy method can be useful for consistent at-home tracking, but the size and direction of its error vary between people and it should not be presented as interchangeable with DEXA. Skinfold results also depend heavily on measurement technique and operator skill.</p>
+<h2>Comparing measurement methods</h2>
+<p>Besides the Navy circumference and skinfold methods used here, other common body fat estimation methods include bioelectrical impedance scales and DEXA scans. DEXA is generally considered the most accurate but requires specialized equipment, while circumference and caliper methods offer a reasonable free or low-cost alternative.</p>
+<p>For tracking progress over time, consistency in measurement method and technique matters more than absolute accuracy — comparing this month's Navy method result to last month's using the same technique is more meaningful than comparing to a one-time DEXA scan result.</p>
+<h2>A worked example</h2>
+<p>A man with a 90 cm waist, 38 cm neck, and 178 cm height: using the Navy formula, this works out to about 20% body fat, in the "average" ACE category.</p>
+<p>If his waist measured 100 cm instead (all else equal), the estimate rises to about 27% — illustrating how sensitive this method is to waist measurement specifically, making consistent, careful measurement technique important for tracking change over time.</p>
+<p>Once you have a body fat estimate, our <a href="/health/lean-body-mass-calculator.html">Lean Body Mass Calculator</a> and the lean-mass formulas in the <a href="/health/tdee-calculator.html">TDEE Calculator</a> can use it. <strong>Medical information, not medical advice.</strong></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/Guide_4-Body_Composition_Assessment_Final.pdf" rel="noopener noreferrer">U.S. Navy Body Composition Assessment guidance</a></li>
+<li>Hodgdon JA, Beckett MB. Prediction of percent body fat for U.S. Navy men and women from body circumferences and height. Naval Health Research Center, 1984.</li>
+<li>Jackson AS, Pollock ML. Generalized equations for predicting body density of men. Br J Nutr 1978;40:497–504. Jackson AS, Pollock ML, Ward A. Generalized equations for predicting body density of women. Med Sci Sports Exerc 1980;12:175–181.</li>
+<li>Deurenberg P, Weststrate JA, Seidell JC. Body mass index as a measure of body fatness. Br J Nutr 1991;65:105–114.</li>
+<li>American Council on Exercise — body fat percentage categories.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How accurate is the U.S. Navy body fat method?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It is a field estimate and measurement error can be meaningful. Accuracy varies with body composition, measurement technique and the method used; it should not be treated as equivalent to a clinical body-composition measurement.</p></details>
+<details class="sx-faq"><summary>Why does the formula differ for men and women?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Body fat distribution patterns differ by sex, so the formula includes hip measurement for women to account for typical fat distribution differences.</p></details>
+<details class="sx-faq"><summary>What is a healthy body fat percentage?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Reference ranges for body fat vary by age, sex, population and source. These categories are educational reference points, not personalized medical targets or diagnoses.</p></details>
+<details class="sx-faq"><summary>How often should I re-measure my body fat?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Monthly is a reasonable cadence for tracking meaningful change — body fat percentage doesn't shift dramatically week to week, so frequent measurement mostly captures measurement noise rather than real change.</p></details>
+<details class="sx-faq"><summary>How does the Navy method compare to a DEXA scan?<span aria-hidden="true" class="msym">expand_more</span></summary><p>DEXA and circumference methods use different measurement approaches. A DEXA result should not be treated as a simple conversion or guaranteed ground truth for an individual; the Navy result is best used as a consistent field estimate.</p></details>
+<details class="sx-faq"><summary>Where exactly should I measure my waist and neck?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Waist is typically measured at the navel level, and neck just below the larynx — consistent placement each time you measure matters more than the exact spot, for tracking change over time.</p></details>
+<details class="sx-faq"><summary>Tape measure or skinfold calipers — which is better?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Both are estimates. Skinfolds taken by a trained person can be quite accurate, but results vary a lot with technique; the tape method is easier to repeat consistently at home. Pick one and use it the same way each time.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Next Steps</h2><p>Use your body-fat estimate in other calculators.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/lean-body-mass-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">fitness_center</span></span><b>Lean Body Mass Calculator</b><span class="d">Fat-free mass from height, weight and sex.</span><span class="f">Check lean mass<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Katch-McArdle and Cunningham use your body fat.</span><span class="f">Calorie needs<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/waist-to-height-ratio-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">accessibility_new</span></span><b>Waist-to-Height Ratio</b><span class="d">A quick check of fat around the middle.</span><span class="f">Heart-health screen<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">BMI category and healthy-weight range.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/body-fat-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -223,7 +184,8 @@ step="0.5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/body-fat.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/body-fat.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

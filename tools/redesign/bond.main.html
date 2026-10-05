@@ -1,0 +1,115 @@
+<div class="sx" id="bdCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Bond Price Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Yield-to-Maturity (YTM)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Modified Duration &amp; Convexity</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Zero-Coupon &amp; Coupon Pricing</span></div>
+    <h1>Bond Price Calculator: Price, Yield &amp; Duration</h1>
+    <p>Calculate a bond's fair price from its face value, coupon rate, time to maturity and current market yield — then see whether it trades at a discount or premium, its current yield, duration and how much the price moves when rates change.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Bond Parameters</h2><p>Bond terms and prevailing market yield</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="faceValue">Par / Face Value</label><em style="color:var(--sx-muted);font-weight:500">Principal repaid at maturity</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="faceValue" type="number" inputmode="decimal" min="0" step="100" value="1000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="faceValue" data-value="1000">$1,000</button><button type="button" data-for="faceValue" data-value="5000">$5,000</button><button type="button" data-for="faceValue" data-value="10000">$10,000</button><button type="button" data-for="faceValue" data-value="100000">$100,000</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="couponRate">Annual Coupon Rate</label></div><div class="sx-au-in np pc"><input id="couponRate" type="number" inputmode="decimal" min="0" max="30" step="0.05" value="4.5"><span class="suf">%</span></div><div class="sx-au-chips"><button type="button" data-for="couponRate" data-value="0">0%</button><button type="button" data-for="couponRate" data-value="3.5">3.5%</button><button type="button" data-for="couponRate" data-value="4.5">4.5%</button><button type="button" data-for="couponRate" data-value="6">6.0%</button></div></div>
+      <div><div class="sx-au-l"><label for="marketRate">Market Yield (YTM)</label></div><div class="sx-au-in np pc"><input id="marketRate" type="number" inputmode="decimal" min="0" max="30" step="0.05" value="5.25"><span class="suf">%</span></div><p class="sx-au-help" id="scen">—</p></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="years">Years to Maturity</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="yOut">—</em></div>
+      <div class="sx-au-in np"><input id="years" type="number" inputmode="decimal" min="0.5" max="50" step="0.5" value="10"><span class="suf">years</span></div>
+      <div class="sx-au-chips">Terms: <button type="button" data-for="years" data-value="2">2 Yr</button><button type="button" data-for="years" data-value="5">5 Yr</button><button type="button" data-for="years" data-value="10">10 Yr</button><button type="button" data-for="years" data-value="20">20 Yr</button><button type="button" data-for="years" data-value="30">30 Yr</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Coupon Frequency</span></div>
+      <input type="hidden" id="paymentsPerYear" value="2">
+      <div class="sx-seg" role="group" aria-label="Coupon frequency" style="display:flex"><button type="button" data-for="paymentsPerYear" data-value="1" style="flex:1">Annual</button><button type="button" data-for="paymentsPerYear" data-value="2" style="flex:1">Semi-Annual</button><button type="button" data-for="paymentsPerYear" data-value="4" style="flex:1">Quarterly</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cat">Bond Category &amp; Tax Treatment</label></div>
+      <div class="sx-au-sel"><select id="cat"><option value="t">US Treasury — state &amp; local tax-exempt</option><option value="c" selected>Corporate — fully taxable</option><option value="m">Municipal — federal tax-exempt</option></select></div>
+      <div class="sx-vt-in" id="mRow"><label for="br">Your federal tax bracket (for tax-equivalent yield):</label><div class="sx-au-sel" style="width:110px"><select id="br"><option value="10">10%</option><option value="12">12%</option><option value="22">22%</option><option value="24" selected>24%</option><option value="32">32%</option><option value="35">35%</option><option value="37">37%</option></select></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Price Bond &amp; Measure Duration</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-vt-set" aria-live="polite">
+    <div class="hd"><div><b><span class="msym" aria-hidden="true">verified</span>Pricing Verdict</b><small>Clean price on a coupon date</small></div><span class="sx-ef-grade" id="kind">—</span></div>
+    <div class="sx-vt-gross"><span>Bond Price (Fair Value)</span><div class="big" id="resultValue">—</div>
+      <div class="r"><span id="prem">—</span><span id="why">—</span></div></div>
+    <div class="sx-in-t4" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="sx-card"><div class="k">Current Yield<span class="msym" aria-hidden="true">percent</span></div><b id="cy">—</b><p id="cyN">—</p></div>
+      <div class="sx-card"><div class="k" id="ytmL">Yield to Maturity<span class="msym" aria-hidden="true">trending_up</span></div><b id="ytm">—</b><p id="ytmN">—</p></div>
+      <div class="sx-card"><div class="k">Total Coupon Payments<span class="msym" aria-hidden="true">payments</span></div><b id="outCoupon">—</b><p id="cpN">—</p></div>
+      <div class="sx-card"><div class="k">Total Return at Maturity<span class="msym" aria-hidden="true">savings</span></div><b id="tr">—</b><p id="trN">—</p></div>
+    </div>
+    <div class="sx-vt-led" style="margin-top:14px">
+      <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">speed</span>Duration &amp; Rate Sensitivity</span><span>Interest-rate risk</span></div>
+      <div class="l"><span>Macaulay duration</span><b id="mac">—</b></div>
+      <div class="l"><span>Modified duration</span><b id="mod">—</b></div>
+      <div class="l"><span>Convexity</span><b id="cvx">—</b></div>
+      <div class="l"><span>+100 bp rate rise (+1.00%)</span><b class="r" id="up">—</b></div>
+      <div class="l"><span>−100 bp rate cut (−1.00%)</span><b id="dn" style="color:var(--sx-pc)">—</b></div>
+    </div>
+    <div class="sx-in-acts" style="margin-top:16px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Cash Flow Ledger (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 id="ledH">Cash Flow &amp; Accretion Ledger</h2><p>Coupons, effective-interest earnings, discount accretion (or premium amortization), book value and the present value of each cash flow.</p></div><div class="hbt"><button type="button" id="expBtn" style="border-color:var(--sx-hover);background:var(--sx-emb);color:var(--sx-emt)"><span class="msym" aria-hidden="true">unfold_more</span><span id="expTxt">Expand All Periods</span></button></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Period</th><th scope="col">Timeline</th><th scope="col">Coupon Payment</th><th scope="col" id="ieH">Interest Earned</th><th scope="col" id="acH">Accretion</th><th scope="col">Book Value</th><th scope="col">Present Value</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Assumes settlement on a coupon date (no accrued interest) and a flat yield curve. Real trades add accrued interest to the clean price.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">swap_vert</span></span><h3>The Bond Seesaw: Why Prices Fall When Rates Rise</h3><p>A bond's coupon is fixed when it's issued. When market rates rise, new bonds pay more, so an older, lower-coupon bond has to sell for less than face value until its yield to maturity matches the market. When rates fall, the opposite happens.</p><div class="sx-sg-take"><b>Key takeaway:</b> YTM above the coupon rate → discount bond. YTM below the coupon rate → premium bond. Equal → trades at par.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">shield</span></span><h3>Macaulay vs Modified Duration</h3><p>Macaulay duration is the weighted-average time until you receive the bond's cash flows. Modified duration turns that into price sensitivity: a modified duration of <span id="mdEx">7.7</span> means the price moves roughly <span id="mdEx2">7.7</span>% in the opposite direction for each 1-percentage-point change in yield. Convexity explains why the real move is a little smaller for rises and larger for falls.</p><div class="sx-sg-take"><b>Rule of thumb:</b> longer maturities and lower coupons mean higher duration — and bigger price swings.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Why bond prices move opposite to interest rates</h2>
+    <p>A bond's fixed coupon rate is set when it's issued, but market interest rates move over time. When market rates rise above a bond's coupon rate, the bond becomes less attractive relative to newer bonds paying more, so its price falls below face value (trading 'at a discount') to compensate buyers. When market rates fall below the coupon rate, the bond becomes more attractive and trades above face value ('at a premium').</p>
+    <p>This inverse relationship is one of the most fundamental concepts in bond investing — it's why bond prices and interest rates are often described as moving in opposite directions.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>What this price represents</h2>
+    <p>This calculator computes fair value using present value math — discounting all future coupon payments and the final face value repayment back to today's dollars using the current market rate. This is the standard approach used throughout fixed-income valuation.</p>
+    <p><strong>Price = C × [1 − (1 + y)^−n] ÷ y + F ÷ (1 + y)^n</strong> — C = coupon per period · y = market yield per period · n = number of periods · F = face value</p>
+    <p>Real-world bond prices can differ slightly from this theoretical fair value due to factors like credit risk (perceived risk of default), liquidity, and specific market supply and demand — this calculator provides the baseline valuation these real-world factors adjust from.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why would a bond trade below its face value?<span class="msym" aria-hidden="true">expand_more</span></summary><p>When current market interest rates are higher than the bond's fixed coupon rate, the bond becomes less attractive compared to newer bonds, so its price falls below face value to compensate buyers with a better effective return.</p></details>
+    <details class="sx-faq"><summary>What happens to a bond's price at maturity?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A bond's price converges to its face value as it approaches maturity, since at maturity the holder receives exactly the face value back — any premium or discount gradually shrinks to zero over the bond's remaining life.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Calculators</h2><p>Interest, deposit and annuity tools.</p></div>
+  <a href="/financial-calculators.html">View All Financial Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/simple-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Simple Interest Calculator</b><span class="d">Non-compounding notes and short-term debt.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>CD Calculator</b><span class="d">Certificate of deposit growth and APY.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>Compound Interest Calculator</b><span class="d">Long-term growth with reinvested returns.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/annuity-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Annuity Calculator</b><span class="d">Present and future value of payment streams.</span><span class="f">Explore Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

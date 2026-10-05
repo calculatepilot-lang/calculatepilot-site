@@ -1,0 +1,127 @@
+<div class="sx" id="xcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">1031 Exchange Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">IRC Section 1031 Deferral</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Depreciation Recapture</span><span class="sx-badge em" style="border-color:var(--sx-hover)">45/180-Day Deadlines</span></div>
+    <h1>1031 Exchange Calculator: Capital Gains Tax Deferral &amp; Boot</h1>
+    <p>Estimate the capital gains and depreciation recapture tax a like-kind exchange lets you defer, check whether your replacement property avoids taxable boot, and see your 45-day identification and 180-day closing deadlines.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">domain_disabled</span><h2 class="sx-h-md" style="margin:0">Relinquished Property (the one you're selling)</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">refresh</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="buy">Original Purchase Price</label></div><div class="sx-au-in"><span class="pre">$</span><input id="buy" type="number" inputmode="decimal" min="0" step="1000" value="400000"></div></div>
+      <div><div class="sx-au-l"><label for="imp">Capital Improvements</label></div><div class="sx-au-in"><span class="pre">$</span><input id="imp" type="number" inputmode="decimal" min="0" step="1000" value="50000"></div></div>
+      <div><div class="sx-au-l"><label for="dep">Depreciation Claimed</label><em style="color:var(--sx-muted);font-weight:500">Reduces basis</em></div><div class="sx-au-in"><span class="pre">$</span><input id="dep" type="number" inputmode="decimal" min="0" step="1000" value="110000"></div></div>
+      <div><div class="sx-au-l"><label for="sale">Sale Price</label></div><div class="sx-au-in"><span class="pre">$</span><input id="sale" type="number" inputmode="decimal" min="0" step="1000" value="850000"></div></div>
+      <div><div class="sx-au-l"><label for="exp">Selling &amp; Exchange Costs</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="expP">—</em></div><div class="sx-au-in"><span class="pre">$</span><input id="exp" type="number" inputmode="decimal" min="0" step="250" value="55250"></div></div>
+      <div><div class="sx-au-l"><label for="odebt">Mortgage Paid Off at Sale</label></div><div class="sx-au-in"><span class="pre">$</span><input id="odebt" type="number" inputmode="decimal" min="0" step="1000" value="220000"></div></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span>Tax Rate Assumptions</span></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><span>Federal Long-Term Capital Gains</span></div><input type="hidden" id="cg" value="20"><div class="sx-seg" role="group" aria-label="Capital gains rate" style="display:flex"><button type="button" data-for="cg" data-value="0" style="flex:1">0%</button><button type="button" data-for="cg" data-value="15" style="flex:1">15%</button><button type="button" data-for="cg" data-value="20" style="flex:1">20%</button></div></div>
+        <div><div class="sx-au-l"><label for="rc">Depreciation Recapture (max)</label></div><div class="sx-au-in sm np pc"><input id="rc" type="number" inputmode="decimal" min="0" max="25" step="1" value="25"><span class="suf">%</span></div></div>
+        <div><div class="sx-au-l"><label for="st">State Capital Gains Rate</label></div><div class="sx-au-in sm np pc"><input id="st" type="number" inputmode="decimal" min="0" max="15" step="0.1" value="9.3"><span class="suf">%</span></div></div>
+        <div><div class="sx-au-l"><span>Net Investment Income Tax</span></div><div style="display:flex;align-items:center;gap:8px;height:40px;font-size:12px;color:var(--sx-onv)"><label class="sx-toggle"><input type="checkbox" id="niit" checked aria-label="Apply 3.8% NIIT"><i></i></label>Apply 3.8% NIIT (income over $200k single / $250k MFJ)</div></div>
+      </div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">domain_add</span>Replacement Property</span></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="rep">Replacement Purchase Price</label></div><div class="sx-au-in"><span class="pre">$</span><input id="rep" type="number" inputmode="decimal" min="0" step="1000" value="950000"></div><p class="sx-au-help" id="repN">—</p></div>
+        <div><div class="sx-au-l"><label for="ndebt">New Mortgage on Replacement</label></div><div class="sx-au-in"><span class="pre">$</span><input id="ndebt" type="number" inputmode="decimal" min="0" step="1000" value="320000"></div><p class="sx-au-help" id="debtN">—</p></div>
+        <div><div class="sx-au-l"><label for="close">Relinquished Property Closing Date</label></div><div class="sx-au-in np"><input id="close" type="date" value="2026-09-27" aria-label="Closing date"></div></div>
+        <div><div class="sx-au-l"><span>Property Use</span></div><label style="display:flex;align-items:center;gap:8px;height:40px;font-size:12px;color:var(--sx-onv)"><input type="checkbox" id="inv" checked> Both properties held for investment or business (not a main home)</label></div>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">shield</span>Check 1031 Deferral &amp; Boot</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em><span class="msym" aria-hidden="true">verified</span><span id="verd">—</span></em><span id="bootT">—</span></div>
+    <div class="k">Tax Deferred by the Exchange</div>
+    <div class="big" id="resultValue">—</div>
+    <p id="defN">—</p>
+    <span class="msym wm" aria-hidden="true">sync_alt</span>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h">Tax on a Regular Sale<span id="gainT">—</span></div>
+    <div class="l"><span id="t1L">Depreciation recapture</span><b id="t1">—</b></div>
+    <div class="l"><span id="t2L">Federal capital gains</span><b id="t2">—</b></div>
+    <div class="l"><span>Net investment income tax (3.8%)</span><b id="t3">—</b></div>
+    <div class="l"><span id="t4L">State tax</span><b id="t4">—</b></div>
+    <div class="l t"><span>Total tax if you sell outright</span><b id="tt">—</b></div>
+  </section>
+  <section class="sx-card" style="padding:16px 18px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">trending_up</span>Reinvestment Purchasing Power</span></div>
+    <div class="sx-ur-cards"><div class="sx-ur-card pri" style="padding:14px"><h3>With 1031 exchange</h3><div class="v" style="font-size:24px" id="eq1">—</div><div class="n">Cash equity to reinvest</div></div><div class="sx-ur-card io" style="padding:14px"><h3>Taxable sale</h3><div class="v" style="font-size:24px" id="eq2">—</div><div class="n">After paying tax now</div></div></div>
+    <p style="margin:10px 0 0;font-size:12px;color:var(--sx-onv)" id="eqN">—</p>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">fact_check</span>1031 Rules Check</span><span id="rulesT">—</span></div>
+    <div class="l"><span>Replacement value ≥ net sale price</span><b id="r1">—</b></div>
+    <div class="l"><span>Debt replaced (or offset with added cash)</span><b id="r2">—</b></div>
+    <div class="l"><span>All net equity reinvested</span><b id="r3">—</b></div>
+    <div class="l"><span>Investment / business property</span><b id="r4">—</b></div>
+  </section>
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k">Identification Deadline<span class="msym" aria-hidden="true">timer</span></div><b id="d45">—</b><p>45 days to identify replacements in writing</p></div>
+    <div class="sx-card"><div class="k">Exchange Deadline<span class="msym" aria-hidden="true">event_available</span></div><b id="d180">—</b><p>180 days to close (or your tax return due date, if earlier)</p></div>
+  </div>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Ledger (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Taxable Sale vs 1031 Exchange</h2><p>Side-by-side reconciliation of gain, tax and cash to reinvest.</p></div><span class="sx-au-tag" id="ledT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Item</th><th scope="col">Taxable Sale</th><th scope="col">1031 Exchange</th><th scope="col">Difference</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Estimate. Recapture is taxed at ordinary rates up to the 25% maximum; the NIIT depends on your total income. Consult a tax adviser and a qualified intermediary before relying on it.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">gavel</span></span><h3>The Three Identification Rules</h3><ol style="margin:0;padding-left:18px;font-size:14px;line-height:22px;color:var(--sx-onv)"><li><b>Three-property rule:</b> identify up to three potential replacements of any value.</li><li><b>200% rule:</b> identify any number, as long as their total value is no more than 200% of the relinquished property's value (<span id="r200">$1,700,000</span> here).</li><li><b>95% rule:</b> if you exceed both, you must actually acquire at least 95% of the total value you identified.</li></ol></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">account_balance</span></span><h3>Cash Boot &amp; Mortgage Boot</h3><p><b>Cash boot</b> is sale proceeds you don't reinvest — including money you receive directly rather than through the qualified intermediary. <b>Mortgage boot</b> arises when your new debt is less than the debt paid off, unless you make up the difference with additional cash. Boot is taxable up to the amount of your gain.</p><div class="sx-sg-take"><b>Full deferral:</b> buy at least the net sale price, reinvest all net equity, and replace the debt (or cover the shortfall with new cash).</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this 1031 exchange calculator works</h2>
+    <p><strong>Adjusted basis</strong> = purchase price + improvements − depreciation. <strong>Realized gain</strong> = sale price − selling costs − adjusted basis. In a taxable sale, gain up to the depreciation taken is taxed as recapture (up to 25%), the rest at the long-term capital gains rate, plus the 3.8% net investment income tax if it applies and your state's rate.</p>
+    <p>In an exchange, only boot is taxed: <strong>cash boot</strong> = net equity − cash put into the replacement; <strong>mortgage boot</strong> = old debt − new debt − any extra cash added. The recognized gain is the smaller of total boot and the realized gain; the rest is deferred and carried into the replacement property's basis.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 against IRC §1031 and IRS Form 8824 instructions · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is a 1031 exchange?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A 1031 exchange lets you sell real property held for investment or business use and buy another like-kind property while deferring the capital gains and depreciation recapture tax, under Section 1031 of the Internal Revenue Code.</p></details>
+    <details class="sx-faq"><summary>What is boot in a 1031 exchange?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Boot is any value you receive that isn't like-kind property — cash you take out, or a reduction in mortgage debt that you don't offset with added cash. Boot is taxable up to the amount of your realized gain.</p></details>
+    <details class="sx-faq"><summary>What are the 45-day and 180-day deadlines?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You must identify potential replacement properties in writing within 45 days of selling the relinquished property, and complete the purchase within 180 days of the sale or by your tax return due date (including extensions), whichever comes first.</p></details>
+    <details class="sx-faq"><summary>Does a 1031 exchange eliminate the tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No, it defers it. The deferred gain reduces the basis of the replacement property and becomes taxable when you eventually sell without exchanging again — although heirs may receive a stepped-up basis.</p></details>
+    <details class="sx-faq"><summary>Can I use a 1031 exchange on my home?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not on a main home. Section 1031 applies to real property held for investment or used in a business. A main home may instead qualify for the Section 121 exclusion of up to $250,000 of gain ($500,000 married filing jointly).</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Real Estate Calculators</h2><p>Analyze the properties on both sides of the exchange.</p></div>
+  <a href="/financial-calculators.html">Explore all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/rental-yield-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">real_estate_agent</span></span><b>Rental Yield Calculator</b><span class="d">Cap rate, cash-on-cash return and NOI.</span><span class="f">Calculate Yield<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/seller-net-sheet-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Seller Net Sheet Calculator</b><span class="d">Net proceeds after commission and closing costs.</span><span class="f">Calculate Net<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/house-flip-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home_repair_service</span></span><b>House Flip Calculator</b><span class="d">Profit after rehab, financing and selling costs.</span><span class="f">Calculate Flip ROI<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/refinance-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">currency_exchange</span></span><b>Refinance Calculator</b><span class="d">Break-even on a new mortgage rate.</span><span class="f">Analyze Refi<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+</div>
+</div>

@@ -1,0 +1,167 @@
+<div class="sx" id="cmCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Commute Cost Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">directions_car</span>Fuel, wear, tolls and parking</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Commute Cost &amp; Transit Comparison Calculator</h1>
+    <p>Find what your commute really costs each month and year, including fuel or charging, wear and maintenance, tolls, parking and the value of your time. Compare driving with public transit and rideshare, and see what working from home a few days a week would save.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Cost-per-mile inputs are editable estimates. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>Round-trip miles times commute days give monthly miles, which are priced for fuel and wear. Tolls, parking and time are added per day.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Most people count only fuel. This shows the full cost and how a pass, a carpool or a remote day changes it.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your commute</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="dist">One-way distance</label><em class="mu" id="dU">miles</em></div><div class="sx-au-in sm np"><input id="dist" type="number" inputmode="decimal" step="0.5" min="0" value="18.5"></div></div>
+      <div><div class="sx-au-l"><label>Distance unit</label></div><input type="hidden" id="du" value="mi"><div class="sx-seg full" role="group" aria-label="Distance unit"><button type="button" data-for="du" data-value="mi">Miles</button><button type="button" data-for="du" data-value="km">Kilometres</button></div></div>
+    </div>
+    <div class="sx-qpills"><span class="lb">Typical</span><button type="button" data-d="5">Short urban 5 mi</button><button type="button" data-d="18.5">Suburban 18.5 mi</button><button type="button" data-d="45">Long 45 mi</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label>Days on site per week</label></div><input type="hidden" id="dpw" value="5"><div class="sx-au-opts c3 sm"><button type="button" data-for="dpw" data-value="3">3 <small>hybrid</small></button><button type="button" data-for="dpw" data-value="5">5 <small>standard</small></button><button type="button" data-for="dpw" data-value="6">6 <small>long week</small></button></div></div>
+      <div><div class="sx-au-l"><label for="wpy">Working weeks per year</label></div><select id="wpy" class="sx-mt-sel"><option value="52">52 weeks</option><option value="50">50 weeks (2 weeks off)</option><option value="48" selected>48 weeks (4 weeks off)</option><option value="44">44 weeks (extended breaks)</option></select></div>
+    </div>
+
+    <div class="sx-au-box">
+      <div class="sx-au-l"><label>Vehicle and energy</label><em class="mu" id="engNote">gasoline</em></div>
+      <input type="hidden" id="pt" value="ice"><div class="sx-seg full" role="group" aria-label="Powertrain"><button type="button" data-for="pt" data-value="ice">Gasoline</button><button type="button" data-for="pt" data-value="ev">Electric</button></div>
+      <div class="sx-au-g2" style="margin-top:12px">
+        <div><div class="sx-au-l"><label for="eff" id="effL">Fuel economy (MPG)</label></div><div class="sx-au-in sm np"><input id="eff" type="number" inputmode="decimal" step="0.5" min="0" value="28.5"></div></div>
+        <div><div class="sx-au-l"><label for="fp" id="fpL">Fuel price per gallon</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="fp" type="number" inputmode="decimal" step="0.01" min="0" value="3.55"></div></div>
+      </div>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="toll">Tolls per day (round trip)</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="toll" type="number" inputmode="decimal" step="0.5" min="0" value="4.5"></div></div>
+      <div><div class="sx-au-l"><label for="park">Parking per day</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="park" type="number" inputmode="decimal" step="1" min="0" value="12"></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label>Vehicle wear and depreciation</label><em class="mu" id="wearNote">—</em></div>
+      <input type="hidden" id="wm" value="w"><div class="sx-au-opts rad c2 sm"><button type="button" data-for="wm" data-value="w"><i></i>Wear and maintenance</button><button type="button" data-for="wm" data-value="irs"><i></i>IRS standard rate</button></div>
+      <div class="sx-au-g2" style="margin-top:10px"><div id="wearBox"><div class="sx-au-l"><label for="wr">Wear cost per mile</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="wr" type="number" inputmode="decimal" step="0.005" min="0" value="0.092"></div></div><div id="irsBox" hidden><div class="sx-au-l"><label for="irs">IRS rate per mile</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="irs" type="number" inputmode="decimal" step="0.005" min="0" value="0.76"></div></div></div>
+      <p class="sx-au-note" style="text-align:left">The IRS business standard mileage rate covers fuel, wear, insurance and depreciation together. It was 72.5¢ per mile from January 2026 and 76¢ per mile from 1 July 2026. Choosing it replaces the fuel and wear lines.</p>
+    </div>
+
+    <div class="sx-au-box">
+      <div class="sx-between" style="display:flex;justify-content:space-between;gap:12px;align-items:center"><label class="sx-au-l" style="margin:0" for="tv">Include the value of commuting time</label><label class="sx-toggle"><input type="checkbox" id="tv" checked><i></i></label></div>
+      <div class="sx-au-g2" style="margin-top:12px"><div><div class="sx-au-l"><label for="mins">One-way travel time</label><em class="mu">minutes</em></div><div class="sx-au-in sm np"><input id="mins" type="number" inputmode="decimal" step="5" min="0" value="45"></div></div><div><div class="sx-au-l"><label for="hr">Your time is worth</label><em class="mu">per hour</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="hr" type="number" inputmode="decimal" step="1" min="0" value="42"></div></div></div>
+    </div>
+    <div class="sx-au-box">
+      <div class="sx-au-l"><label>Alternatives to compare</label><em class="mu">optional</em></div>
+      <div class="sx-au-g3"><div><div class="sx-au-l"><label for="pass">Transit pass / month</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pass" type="number" inputmode="decimal" step="1" min="0" value="120"></div></div><div><div class="sx-au-l"><label for="ride">Rideshare per trip</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="ride" type="number" inputmode="decimal" step="0.5" min="0" value="18.5"></div></div><div><div class="sx-au-l"><label for="wfh">Remote days per week</label></div><div class="sx-au-in sm np"><input id="wfh" type="number" inputmode="numeric" step="1" min="0" max="5" value="2"></div></div></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate commute cost</button></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Direct monthly commute cost</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>/ month</small></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Per year</span><b id="oY">—</b></div><div><span>Per commute day</span><b id="oD">—</b></div><div><span>Miles per month</span><b id="oMi">—</b></div><div><span>Cost per mile</span><b id="oPm">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span>Where the money goes</span><em class="mu">per month</em></div>
+    <div id="break" style="display:flex;flex-direction:column"></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="color:var(--sx-pc)">trending_up</span>Remote-work saving</span><em class="mu" id="wfhTag">—</em></div>
+    <p class="sx-au-note" id="wfhTxt" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span>Monthly comparison</span><em class="mu" id="cmpNote">—</em></div>
+    <div id="cmp" style="display:flex;flex-direction:column"></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>How distance changes the cost</h2><p>Monthly driving cost for other commute lengths, using your fuel, wear, tolls and parking inputs above.</p></div></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:600px" id="sens"><thead><tr><th>One-way distance</th><th class="n">Miles / month</th><th class="n">Fuel or charging</th><th class="n">Wear</th><th class="n">Tolls and parking</th><th class="n">Monthly total</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<div class="sx-ev-two">
+  <section class="sx-card">
+    <span class="eyebrow">Formulas</span>
+    <h2>How the cost is calculated</h2>
+    <div class="sx-au-fx" style="grid-template-columns:1fr">
+      <div><h3>Monthly commute days</h3><code>days = days per week × weeks per year ÷ 12</code></div>
+      <div><h3>Monthly cost</h3><code>cost = 2 × distance × days × (fuel price ÷ mpg + wear) + (tolls + parking) × days</code></div>
+      <div><h3>Time value</h3><code>time = 2 × minutes ÷ 60 × days × hourly value</code></div>
+    </div>
+  </section>
+  <section class="sx-card">
+    <span class="eyebrow">Ownership costs</span>
+    <h2>Fuel is only part of it</h2>
+    <p>Depreciation, insurance, maintenance, tires and registration all rise with the miles you drive or with owning the car at all. A per-mile figure such as the IRS rate bundles these together.</p>
+    <p>For a fuller picture of what a vehicle costs each year, see our <a href="/other/car-depreciation-calculator.html">car depreciation calculator</a>.</p>
+  </section>
+</div>
+
+<section class="sx-mt-sec sx-card">
+  <h2>Worked examples</h2>
+  <p>Illustrative commutes, each checked by hand. The first is the default setup.</p>
+  <div class="sx-mt-3">
+    <div><h3>18.5 mi each way, 5 days</h3><p>28.5 MPG, $3.55 gas, $0.092 wear, $16.50 tolls and parking.</p><div class="sx-mt-ex">days = 5 × 48 ÷ 12 = 20<br>miles = 37 × 20 = 740<br>fuel = 740 ÷ 28.5 × 3.55 = $92.18<br>wear = 740 × 0.092 = $68.08<br>tolls + parking = 16.50 × 20 = $330.00<br><b>total = $490.26 a month</b></div></div>
+    <div><h3>Value of time</h3><p>45 minutes each way at $42 an hour.</p><div class="sx-mt-ex">90 min × 20 days = 1,800 min = 30 h<br>30 × 42 = <b>$1,260 a month</b></div></div>
+    <div><h3>Two remote days a week</h3><p>Same commute, 3 days on site.</p><div class="sx-mt-ex">per day = 490.26 ÷ 20 = $24.51<br>days saved = 2 × 48 ÷ 12 = 8<br>saving = 8 × 24.51 = <b>$196.10 a month</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How to work out the cost of a commute</h2>
+    <ul>
+      <li>Enter the one-way distance, how many days a week you go in, and how many weeks a year you work.</li>
+      <li>Add your vehicle's fuel economy and the local fuel or electricity price.</li>
+      <li>Include tolls and parking, and either a wear cost per mile or the IRS standard rate.</li>
+      <li>Optionally value your time, then compare with a transit pass, rideshare or working from home.</li>
+    </ul>
+    <p>Only fuel, tolls and parking are cash costs each day. Wear, depreciation and time are real but paid over a longer period, which is why the tool shows them separately.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Internal Revenue Service, <i>Standard mileage rates</i> (2026 business rate: 72.5 cents per mile, 76 cents from 1 July 2026).</li>
+      <li>U.S. Department of Energy and EPA, <i>fueleconomy.gov</i>, for vehicle fuel economy ratings.</li>
+      <li>U.S. Census Bureau, <i>American Community Survey</i>, commuting and travel time data.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>How much does a daily commute cost?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on distance, vehicle, fuel price, tolls and parking. A 37-mile round trip in a 28.5 MPG car with $3.55 gas costs about $4.60 in fuel per day, more when wear, tolls and parking are included. Enter your numbers above for an exact figure.</p></details>
+    <details class="sx-faq"><summary>Should I use the IRS mileage rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The IRS business rate is designed to cover the full running cost of a vehicle, including depreciation and insurance, so it gives a higher and more complete per-mile figure than fuel alone. Note that it is a tax rate for business travel, and commuting from home to a regular workplace is generally not deductible.</p></details>
+    <details class="sx-faq"><summary>Is my commute time worth counting?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is not a cash cost, but it is a real trade-off. Valuing an hour of your time at a fraction of your wage shows what a shorter commute or a remote day is worth. Turn the option off to see cash costs only.</p></details>
+    <details class="sx-faq"><summary>How is an electric vehicle handled?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Switch to Electric and enter miles per kWh and your price per kWh. Energy cost per mile is price divided by miles per kWh, and wear and other costs work as before.</p></details>
+    <details class="sx-faq"><summary>When is transit cheaper than driving?<span class="msym" aria-hidden="true">expand_more</span></summary><p>When a monthly pass costs less than your monthly driving cost, including parking and tolls. The comparison panel shows the difference, and parking charges are usually what tips it.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+  <a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/other/gas-mileage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">local_gas_station</span></span><b>Gas Mileage (MPG)</b><span class="d">Miles per gallon and trip fuel cost.</span><span class="f">Check efficiency<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/fuel-cost-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">ev_charger</span></span><b>Fuel Cost</b><span class="d">Trip fuel cost from distance and price.</span><span class="f">Plan a trip<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/carbon-footprint-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">co2</span></span><b>Driving Carbon Footprint</b><span class="d">Emissions from your driving.</span><span class="f">See emissions<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/car-depreciation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">directions_car</span></span><b>Car Depreciation</b><span class="d">Value loss and five-year ownership cost.</span><span class="f">Value your car<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Commute Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/commute-cost-calculator.html" width="100%" height="560" loading="lazy" title="Commute Cost Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

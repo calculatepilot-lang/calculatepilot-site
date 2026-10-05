@@ -1,0 +1,108 @@
+{
+ "title": "Scientific Calculator - Trig, Logs, Powers & PEMDAS",
+ "description": "Type an expression with trig functions, logarithms, powers, roots and parentheses, evaluated with correct order of operations (PEMDAS), in degrees or radians.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=architecture,arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,lock,person_check,picture_as_pdf,superscript,verified_user&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "Scientific Calculator",
+   "url": "https://www.calculatepilot.com/math/scientific-calculator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Scientific calculator for expressions with trigonometry, logarithms, powers and PEMDAS order of operations"
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Scientific Calculator",
+     "item": "https://www.calculatepilot.com/math/scientific-calculator.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Scientific Calculator",
+   "url": "https://www.calculatepilot.com/math/scientific-calculator.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": []
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Why does 2 + 3 × 4 equal 14 here, not 20?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "This calculator evaluates full algebraic expressions using standard order of operations (PEMDAS): multiplication before addition, so 3×4=12 is computed first, then 2+12=14. Our Basic Calculator instead applies operators immediately left to right, like a simple handheld calculator."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does 2^3^2 equal 512, not 64?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Exponentiation is right-associative: 2^3^2 means 2^(3^2) = 2^9 = 512, not (2^3)^2 = 64. This matches standard mathematical convention."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What's the difference between DEG and RAD mode?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It controls the units trig functions expect (and return, for inverse functions). sin(30) in degree mode is 0.5; in radian mode, 30 is interpreted as 30 radians instead, giving a very different result."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this safe — does it use eval()?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It uses a hand-written recursive-descent parser that only recognizes numbers, named functions and arithmetic operators — it cannot execute arbitrary code, unlike JavaScript's eval()."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does log vs. ln mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "log is base-10 logarithm (log₁₀); ln is the natural logarithm (loge, base e ≈ 2.71828). Use our Log Calculator for any other base."
+     }
+    }
+   ]
+  }
+ ]
+}

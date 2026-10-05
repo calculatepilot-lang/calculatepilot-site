@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>529 College Savings Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,arrow_forward,check_circle,chevron_right,expand_more,flag,insights,lock,monitoring,north_east,payments,percent,picture_as_pdf,query_stats,receipt_long,restart_alt,savings,schedule,school,shield,shield_with_heart,speed,table_chart,trending_up,tune,verified,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,84 +38,151 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">529 College Savings Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="currentBalance">Current balance ($)</label>
-          <input type="number" id="currentBalance" value="5000"
-step="500"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="monthlyContribution">Monthly contribution ($)</label>
-          <input type="number" id="monthlyContribution" value="250"
-step="25"min="0">
-        </div>
-        <div class="field">
-          <label for="annualReturn">Expected annual return (%)</label>
-          <input type="number" id="annualReturn" value="6"
-step="0.1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="yearsUntilCollege">Years until college</label>
-          <input type="number" id="yearsUntilCollege" value="15"
-step="1"min="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Projected balance at college</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total contributed</span><span id="outContributed">—</span></div>
-        <div class="embed-row"><span>Investment growth</span><span id="outGrowth">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="csCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">529 College Savings Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">trending_up</span>College Cost Inflation Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">shield</span>Tax-Free Compound Growth</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>State Tax Deduction Estimate</span></div>
+<h1>529 College Savings Calculator &amp; Tuition Inflation Forecaster</h1>
+<p>Project how your college savings plan will grow with regular monthly contributions, estimate future college costs, and see the monthly deposit needed to close any gap.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Student &amp; College Plan Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="age">Child Current Age</label><em id="ageOut" style="color:var(--sx-on);font-family:var(--font-mono)">3 Years Old</em></div>
+<div class="sx-au-in np"><input id="age" inputmode="numeric" max="17" min="0" step="1" type="number" value="3"/><span class="suf">years</span></div>
+<div class="sx-au-chips"><button data-for="age" data-value="0" type="button">Newborn</button><button data-for="age" data-value="3" type="button">3 Yrs</button><button data-for="age" data-value="7" type="button">7 Yrs</button><button data-for="age" data-value="12" type="button">12 Yrs</button><button data-for="age" data-value="15" type="button">15 Yrs</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="enr">College Enrollment Age</label></div>
+<div class="sx-au-in np"><input id="enr" inputmode="numeric" max="30" min="1" step="1" type="number" value="18"/><span class="suf">years old</span></div>
+<p class="sx-au-help" style="display:flex;align-items:center;gap:5px"><span aria-hidden="true" class="msym" style="font-size:15px">schedule</span><span id="hzTxt">—</span></p>
+</div>
+<div>
+<div class="sx-au-l"><span>Target Institution Type (Today's Annual Cost)</span></div>
+<div aria-label="Institution type" class="sx-au-cat nr" role="group">
+<button data-for="cost" data-value="28500" type="button"><span><b>In-State 4-Yr Public</b><small>~$28,500 / yr total cost</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="cost" data-value="45000" type="button"><span><b>Out-of-State Public</b><small>~$45,000 / yr total cost</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="cost" data-value="62000" type="button"><span><b>Private Non-Profit 4-Yr</b><small>~$62,000 / yr total cost</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="cost" data-value="88000" type="button"><span><b>Elite Private</b><small>~$88,000 / yr total cost</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+</div>
+<div class="sx-au-row" style="margin-top:8px"><span style="font-size:12px;color:var(--sx-muted)">Or enter a cost:</span><div class="sx-au-in sm" style="max-width:170px"><span class="pre">$</span><input aria-label="Annual cost of attendance" id="cost" inputmode="decimal" min="0" step="500" type="number" value="28500"/><span class="suf">/yr</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="bal">Current 529 Plan Balance</label></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="bal" inputmode="decimal" min="0" step="500" type="number" value="10000"/></div>
+<div class="sx-au-chips"><button data-for="bal" data-value="0" type="button">$0</button><button data-for="bal" data-value="5000" type="button">$5k</button><button data-for="bal" data-value="10000" type="button">$10k</button><button data-for="bal" data-value="25000" type="button">$25k</button><button data-for="bal" data-value="50000" type="button">$50k</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="mo">Monthly Contribution</label></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="mo" inputmode="decimal" min="0" step="25" type="number" value="450"/></div>
+<div class="sx-au-chips"><button data-for="mo" data-value="250" type="button">$250</button><button data-for="mo" data-value="450" type="button">$450</button><button data-for="mo" data-value="750" type="button">$750</button><button data-for="mo" data-value="1000" type="button">$1,000</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="ret">Expected Return</label><em id="retOut" style="color:var(--sx-on);font-family:var(--font-mono)">—</em></div><input id="ret" type="hidden" value="7"/><input aria-label="Expected return" class="sx-range2" data-sync="ret" id="retR" max="10" min="1" step="0.5" type="range" value="7"/><p class="sx-au-help">Age-based portfolios get more conservative near college.</p></div>
+<div><div class="sx-au-l"><label for="infR">College Cost Inflation</label><em id="infOut" style="color:var(--sx-on);font-family:var(--font-mono)">—</em></div><input id="inf" type="hidden" value="5"/><input aria-label="College cost inflation" class="sx-range2" data-sync="inf" id="infR" max="8" min="0" step="0.5" type="range" value="5"/><p class="sx-au-help">Long-run college prices have outpaced general CPI.</p></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Target Degree Coverage</span></div>
+<input id="cov" type="hidden" value="100"/>
+<div aria-label="Coverage" class="sx-seg" role="group" style="display:flex"><button data-for="cov" data-value="50" style="flex:1" type="button">50%</button><button data-for="cov" data-value="75" style="flex:1" type="button">75%</button><button data-for="cov" data-value="100" style="flex:1" type="button">100% Full</button></div>
+</div>
+<div class="sx-an-cola"><span aria-hidden="true" class="msym">account_balance</span><div><b>State Tax Deduction</b><small>If your state deducts 529 contributions (limits vary)</small></div><div class="sx-au-in sm np pc" style="width:88px"><input aria-label="State income tax rate" id="stR" inputmode="decimal" max="15" min="0" step="0.1" type="number" value="5"/><span class="suf">%</span></div><label class="sx-toggle"><input aria-label="State tax deduction" checked="" id="stOn" type="checkbox"/><i></i></label></div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">insights</span>Forecast 529 Fund &amp; Inflation Trajectory</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:16px">
+<section aria-live="polite" class="sx-card r2 sx-cs-v">
+<div class="hd"><b><span aria-hidden="true" class="msym">school</span>Education Funding Verdict</b><span class="sx-ef-grade" id="msTag">—</span></div>
+<div class="two">
+<div><span id="costL">Projected 4-Yr Cost</span><b id="need">—</b><em id="infAdd"><span aria-hidden="true" class="msym">north_east</span><span id="infAddT">—</span></em></div>
+<div><span>Projected 529 Balance</span><b class="g" id="resultValue">—</b><em class="g"><span aria-hidden="true" class="msym">verified</span><span id="retTag">—</span></em></div>
+</div>
+<div class="sx-cs-rd">
+<div class="r"><span>Degree Funding Readiness</span><span id="pct">—</span></div>
+<div class="t"><span id="pctBar" style="width:0"></span></div>
+<div class="l"><span id="fund">—</span><span id="gapL">—</span></div>
+</div>
+<div class="sx-cs-vel" id="vel"><span aria-hidden="true" class="msym">speed</span><div><b class="h" id="velH">—</b><span id="velT">—</span></div></div>
+</section>
+<section class="sx-card sx-cs-sh">
+<ul>
+<li><span><span aria-hidden="true" class="msym">lock</span>Tax-Free Investment Growth</span><b id="gains">—</b></li>
+<li><span><span aria-hidden="true" class="msym">savings</span>Est. Capital-Gains Tax Avoided (15%)</span><b class="g" id="cg">—</b></li>
+<li><span><span aria-hidden="true" class="msym">receipt_long</span>Annual State Income Tax Saving</span><b class="g" id="stSave">—</b></li>
+</ul>
+</section>
+<section class="sx-card sx-hy-stack">
+<div class="hd">Account Capital Composition<span id="compN">—</span></div>
+<div class="bar" id="compBar"></div>
+<div class="lg" id="compLg"></div>
+</section>
+<div class="sx-in-acts"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Download PDF</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_chart</span>Export .CSV</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2 id="ledH">Higher Education Growth &amp; Cost Progression Ledger</h2><p>Deposits, compound growth and rising college costs, year by year.</p></div><span class="sx-au-tag" id="ledTag">—</span></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Child Age</th><th scope="col">Year</th><th scope="col">Annual Deposits</th><th scope="col">Cumulative Principal</th><th scope="col">Total Gains Earned</th><th scope="col">529 Balance</th><th scope="col">4-Yr Cost at That Year's Prices</th><th scope="col">Net Funding Gap</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<div class="ft"><span>*Year-end balances, monthly contributions compounded monthly. The 4-year cost uses prices in the enrollment year for all four years; later years of college usually cost a little more.</span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">account_balance</span></span><h3>The 529 Tax Advantage: Federal Exemption, State Deductions and Roth Rollovers</h3><p>529 earnings grow free of federal income tax, and withdrawals are tax-free when used for qualified education expenses such as tuition, fees, books and — for students enrolled at least half-time — room and board. More than 30 states offer a state income tax deduction or credit for contributions, usually with an annual limit.</p><p>Under SECURE 2.0, leftover funds in a 529 that has been open at least 15 years can be rolled into the beneficiary's Roth IRA — up to a $35,000 lifetime limit, subject to the annual Roth contribution limit.</p><div class="sx-sg-take"><b>Source:</b> IRC § 529 and IRS Publication 970 (Tax Benefits for Education).</div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">monitoring</span></span><h3>College Cost Inflation: Why Tuition Outpaces Headline CPI</h3><p>Over the long run, published college prices have risen faster than general consumer inflation — higher education is labor-intensive, and its costs don't fall with productivity gains the way many goods do. Increases have slowed in recent years, so treat the inflation rate as a planning assumption and revisit it.</p><div class="sx-sg-take"><b>Why it matters:</b> at <span id="infEx">5%</span> a year, today's cost roughly doubles in about <span id="dbl">14</span> years — plan for the price in the enrollment year, not today's sticker price.</div></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Why starting early matters so much for college savings</h2>
+<p>Because compound growth needs time to build momentum, starting a college fund when a child is young — even with modest monthly contributions — can outperform larger contributions started later. This calculator makes that time advantage visible: try comparing a 15-year timeline against a 5-year timeline with the same monthly contribution to see the difference.</p>
+<p>529 plans specifically offer tax-advantaged growth for education expenses in many jurisdictions, which can make the effective growth rate meaningfully better than a comparable taxable account — though specific tax treatment varies by location, so it's worth confirming the rules that apply to your plan.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Adjusting your plan as college costs become clearer</h2>
+<p>Education costs vary enormously depending on the type of institution (public in-state, public out-of-state, private) and are likely to change between now and when your child enrolls. It's worth revisiting this projection periodically and adjusting your monthly contribution as you get a clearer sense of the actual target amount you're aiming for.</p>
+<p>This calculator assumes a constant contribution and return rate for simplicity — in practice, many families increase contributions over time as income grows, which would reach the goal faster than this straight-line projection suggests.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Are 529 plan earnings tax-free?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In the US, 529 plan growth is generally tax-free when used for qualified education expenses, though specific rules and any state tax benefits vary — check your specific plan and jurisdiction's rules for details.</p></details>
+<details class="sx-faq"><summary>What if I don't know exactly how much college will cost yet?<span aria-hidden="true" class="msym">expand_more</span></summary><p>That's normal this far in advance — many families use a general savings target and adjust contributions over time as costs and the child's education path become clearer, rather than trying to pinpoint an exact number today.</p></details>
+<details class="sx-faq"><summary>How much will my 529 grow in 10 years?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A 529 plan with $10,000 starting balance and $250/month contributions at 6% annual return grows to approximately $59,000 after 10 years. Use this calculator to project your specific 529 growth.</p></details>
+<details class="sx-faq"><summary>What is the average 529 plan growth rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Most 529 plan age-based portfolios target 5-7% annual growth for long investment horizons, shifting to more conservative allocations (2-4%) as college approaches. Use your fund's historical return as your estimate.</p></details>
+<details class="sx-faq"><summary>How much should I have in a 529 by age 10?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common benchmark is saving roughly one-third of expected college costs by the time the child is 10. For a $60,000 target, that's around $20,000 by age 10. This calculator helps you see if your current savings pace will hit your goal.</p></details>
+<details class="sx-faq"><summary>How much should I have saved in a 529 plan by age?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common benchmark: save roughly 1/3 of expected 4-year college costs by age 10, 2/3 by age 15, and 100% by the time the child starts college. For a $80,000 4-year college goal: $27,000 by age 10, $53,000 by age 15. Use this calculator to find your required monthly savings.</p></details>
+<details class="sx-faq"><summary>What is the average 529 plan return rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Most age-based 529 portfolios target 5-8% annual returns for children 10+ years from college, gradually shifting to more conservative investments (2-4%) as college approaches. Historical average for a diversified stock fund is approximately 7% annually, though past performance does not guarantee future results.</p></details>
+<details class="sx-faq"><summary>How do I choose between a 529 plan calculator for different states?<span aria-hidden="true" class="msym">expand_more</span></summary><p>You are not required to use your home state's 529 plan. Compare your state's plan (which may offer a state tax deduction) with other states' plans on fees and investment options. Use this calculator to compare projected growth across different contribution levels and return rates.</p></details>
+<details class="sx-faq"><summary>What is a 529 college savings plan?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A 529 plan is a tax-advantaged savings account specifically for education expenses. Contributions grow tax-free, and withdrawals for qualified education expenses (tuition, books, room and board) are also tax-free. Most US states offer their own 529 plan, but you can use any state's plan regardless of where you live or where your child attends college.</p></details>
+<details class="sx-faq"><summary>How much should I save per month in a 529 plan?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It depends on your target and timeline. If you expect college to cost $60,000 and have 10 years to save at a 6% return, saving the full amount takes about $366/month, while covering one-third ($20,000) takes about $122/month. Use this calculator to model your specific situation based on your child's age and your target college fund amount.</p></details>
+<details class="sx-faq"><summary>What is the average return on a 529 plan?<span aria-hidden="true" class="msym">expand_more</span></summary><p>529 plans invested in age-based portfolios (which automatically shift from stocks to bonds as college approaches) have historically returned 5-7% annually when the child is young, declining to 2-4% as college nears. A conservative planning estimate is 5-6% average annual return over a long horizon.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Wealth &amp; Education Calculators</h2><p>Plan education costs alongside your other goals.</p></div>
+<a href="/financial-calculators.html">All Financial Tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/student-loan-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Student Loan Calculator</b><span class="d">Repayment schedules and income-driven plans.</span><span class="f">Calculate Repayment<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Compound Interest Calculator</b><span class="d">Balance growth with regular contributions.</span><span class="f">Model Compounding<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/roth-ira-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">shield_with_heart</span></span><b>Roth IRA Calculator</b><span class="d">Tax-free retirement growth and contribution limits.</span><span class="f">Analyze Retirement<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/investment-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Investment Calculator</b><span class="d">Long-term portfolio growth projections.</span><span class="f">Explore Portfolios<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/college-savings-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -242,40 +191,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/college-savings.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/college-savings.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

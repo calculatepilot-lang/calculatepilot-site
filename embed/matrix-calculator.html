@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matrix Calculator (2×2) | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,chevron_right,code,content_copy,event,expand_more,functions,grid_on,lightbulb,link,lock,north_east,person_check,picture_as_pdf,restart_alt,show_chart,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,87 +38,142 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Matrix Calculator (2×2)</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="operation">Operation</label>
-          <select id="operation">
-            <option value="add" selected>Add (A + B)</option>
-            <option value="subtract" >Subtract (A − B)</option>
-            <option value="multiply" >Multiply (A × B)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="a1">A row 1, col 1</label>
-          <input type="number" id="a1" value="1"
-step="1">
-        </div>
-        <div class="field">
-          <label for="a2">A row 1, col 2</label>
-          <input type="number" id="a2" value="2"
-step="1">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="a3">A row 2, col 1</label>
-          <input type="number" id="a3" value="3"
-step="1">
-        </div>
-        <div class="field">
-          <label for="a4">A row 2, col 2</label>
-          <input type="number" id="a4" value="4"
-step="1">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="b1">B row 1, col 1</label>
-          <input type="number" id="b1" value="5"
-step="1">
-        </div>
-        <div class="field">
-          <label for="b2">B row 1, col 2</label>
-          <input type="number" id="b2" value="6"
-step="1">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="b3">B row 2, col 1</label>
-          <input type="number" id="b3" value="7"
-step="1">
-        </div>
-        <div class="field">
-          <label for="b4">B row 2, col 2</label>
-          <input type="number" id="b4" value="8"
-step="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result matrix</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Operation</span><span id="outLabel">—</span></div>
-        <div class="embed-row"><span>Determinant of A</span><span id="outDeterminant">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="mxCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Matrix Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>2×2 matrices, exact where possible</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Matrix Calculator (2×2)</h1>
+<p>Determinant, inverse, trace and transpose · multiply two 2×2 matrices · eigenvalues, eigenvectors and the characteristic polynomial · solve Ax = b with Cramer's rule — every step and, where exact, the rational form too.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every worked example below is re-derived by hand from the formulas. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">grid_on</span><section><b>How the engine works</b><p>Determinant and inverse use the standard 2×2 adjugate formula; eigenvalues solve the characteristic quadratic λ² − tr(A)λ + det(A) = 0; the system solver uses Cramer's rule.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Linear algebra homework and quick graphics/engineering checks need exact fractions, not just decimals — this shows both.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Determinant, inverse &amp; trace</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Determinant &amp; inverse</button><button data-for="mode" data-value="s2" type="button">Multiply A × B</button><button data-for="mode" data-value="s3" type="button">Eigenvalues</button><button data-for="mode" data-value="s4" type="button">Solve Ax = b</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-a="3,2,1,4" type="button">Standard [3,2;1,4]</button><button data-a="4,1,1,3" type="button">Symmetric [4,1;1,3]</button><button data-a="0.7071,-0.7071,0.7071,0.7071" type="button">Rotation 45°</button><button data-a="2,4,1,2" type="button">Singular [2,4;1,2]</button><button data-a="1,2,0,1" type="button">Shear [1,2;0,1]</button></div>
+<div class="sx-au-l"><label>Matrix A</label></div>
+<div aria-label="Matrix A entries" class="sx-mt-mat2" role="group">
+<input aria-label="Row 1, column 1" id="a11" step="any" type="number" value="3"/><input aria-label="Row 1, column 2" id="a12" step="any" type="number" value="2"/>
+<input aria-label="Row 2, column 1" id="a21" step="any" type="number" value="1"/><input aria-label="Row 2, column 2" id="a22" step="any" type="number" value="4"/>
+</div>
+<div hidden="" id="fB"><div class="sx-au-l"><label>Matrix B</label></div>
+<div aria-label="Matrix B entries" class="sx-mt-mat2" role="group">
+<input aria-label="B row 1, column 1" id="b11" step="any" type="number" value="2"/><input aria-label="B row 1, column 2" id="b12" step="any" type="number" value="0"/>
+<input aria-label="B row 2, column 1" id="b21" step="any" type="number" value="1"/><input aria-label="B row 2, column 2" id="b22" step="any" type="number" value="2"/>
+</div>
+</div>
+<div hidden="" id="fRHS"><div class="sx-au-l"><label>Right-hand side vector b</label></div>
+<div aria-label="Vector b" class="sx-mt-mat2 vec" role="group">
+<input aria-label="b, row 1" id="r1" step="any" type="number" value="8"/><input aria-label="b, row 2" id="r2" step="any" type="number" value="7"/>
+</div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compute</button><button class="rs" id="ident" type="button">Set A to identity</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Matrix A</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Determinant det(A)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:30px;line-height:1.2;word-break:break-word"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Rational form</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Classification</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2>Geometric effect of A on the unit square</h2><p>How A maps the basis vectors e₁ = (1, 0) and e₂ = (0, 1).</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Transformation of the unit square by matrix A" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Matrix classes at a glance</h2><p>How a 2×2 matrix can behave.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+<thead><tr><th scope="col">Class</th><th scope="col">Condition</th><th scope="col">det(A)</th><th scope="col">Geometric action</th></tr></thead>
+<tbody>
+<tr><td>Non-singular</td><td class="mono">rank(A) = 2</td><td class="mono">≠ 0</td><td style="font-family:inherit">Bijective map; area scales by |det(A)|</td></tr>
+<tr><td>Singular</td><td class="mono">rank(A) &lt; 2</td><td class="mono">= 0</td><td style="font-family:inherit">Collapses the plane onto a line or a point</td></tr>
+<tr><td>Orthogonal</td><td class="mono">AᵀA = I</td><td class="mono">±1</td><td style="font-family:inherit">Rigid motion — a rotation or reflection</td></tr>
+<tr><td>Symmetric</td><td class="mono">A = Aᵀ</td><td style="font-family:inherit">—</td><td style="font-family:inherit">Real eigenvalues, perpendicular eigenvectors</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">grid_on</span><h3>Determinant &amp; inverse</h3><p>For A = [[3, 2], [1, 4]], find det(A) and A⁻¹.</p><div class="sx-mt-ex">det(A) = 3·4 − 2·1 = 10<br/>A⁻¹ = (1/10)[[4, −2], [−1, 3]]<br/><b>= [[0.4, −0.2], [−0.1, 0.3]]</b></div></div>
+<div><span aria-hidden="true" class="msym">bolt</span><h3>Eigenvalues</h3><p>Find the eigenvalues of the same matrix A.</p><div class="sx-mt-ex">tr(A) = 7, det(A) = 10<br/>λ² − 7λ + 10 = 0 → (λ − 5)(λ − 2) = 0<br/><b>λ₁ = 5, λ₂ = 2</b></div></div>
+<div><span aria-hidden="true" class="msym">functions</span><h3>Cramer's rule</h3><p>Solve Ax = b for b = (8, 7) with the same A.</p><div class="sx-mt-ex">x₁ = det([[8,2],[7,4]]) / det(A) = 18/10 = 1.8<br/>x₂ = det([[3,8],[1,7]]) / det(A) = 13/10 = 1.3<br/><b>x = (1.8, 1.3)</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Key 2×2 formulas</h2>
+<ul>
+<li><strong>Determinant:</strong> det(A) = a·d − b·c for A = [[a, b], [c, d]].</li>
+<li><strong>Inverse:</strong> A⁻¹ = (1/det A)·[[d, −b], [−c, a]], defined only when det(A) ≠ 0.</li>
+<li><strong>Trace:</strong> tr(A) = a + d, the sum of the diagonal entries.</li>
+<li><strong>Characteristic polynomial:</strong> p(λ) = λ² − tr(A)λ + det(A); its roots are the eigenvalues.</li>
+<li><strong>Cramer's rule:</strong> for Ax = b, xᵢ = det(Aᵢ) / det(A), where Aᵢ replaces column i of A with b.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Cayley, A. (1858). A memoir on the theory of matrices. <i>Philosophical Transactions of the Royal Society of London</i> 148, 17–37.</li>
+<li>Strang, G. (2016). <i>Introduction to Linear Algebra</i> (5th ed.). Wellesley-Cambridge Press. Chapters 4 &amp; 6.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>, clause 11 (matrices).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What does det(A) = 0 mean?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The rows (or columns) of A are linearly dependent — one is a scalar multiple of the other. The matrix has no inverse, and it maps the plane onto a line or a single point rather than a full 2D region.</p></details>
+<details class="sx-faq"><summary>How do I check that an inverse is correct?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply A by the computed A⁻¹: the result should be the identity matrix I = [[1, 0], [0, 1]], up to rounding. This calculator performs that check for you.</p></details>
+<details class="sx-faq"><summary>Can a 2×2 matrix have complex eigenvalues?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — whenever the discriminant tr(A)² − 4·det(A) is negative, such as for a rotation matrix (with angle not a multiple of 180°). The eigenvalues then form a complex conjugate pair.</p></details>
+<details class="sx-faq"><summary>Why does Cramer's rule fail when det(A) = 0?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Because it divides by det(A). A singular system either has no solution or infinitely many, and Cramer's rule cannot distinguish those cases — use row reduction instead.</p></details>
+<details class="sx-faq"><summary>What do the eigenvalues tell you geometrically?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Along each eigenvector direction, A acts as pure scaling by the corresponding eigenvalue — no rotation. Real eigenvalues mean the map stretches or flips along fixed directions; complex ones mean the map includes rotation.</p></details>
+<details class="sx-faq"><summary>Is A⁻¹A always equal to AA⁻¹?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, for a square invertible matrix, A⁻¹A = AA⁻¹ = I. This is a special property of square matrices; it does not hold for non-square matrices, which only have one-sided inverses at best.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with algebra.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/polynomial-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Polynomial Calculator</b><span class="d">Roots, division and factoring.</span><span class="f">Degree n<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/vector-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">north_east</span></span><b>Vector Calculator</b><span class="d">Cross, dot products and angles.</span><span class="f">Vectors<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/quadratic-formula-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">show_chart</span></span><b>Quadratic Formula</b><span class="d">Roots of ax² + bx + c.</span><span class="f">Degree 2<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/gcd-lcm-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">calculate</span></span><b>GCD &amp; LCM Calculator</b><span class="d">Euclid's algorithm, Bézout.</span><span class="f">Integers<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Matrix Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/matrix-calculator.html" width="100%" height="560" loading="lazy" title="Matrix Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/matrix-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -245,7 +182,8 @@ step="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/matrix.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/matrix.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

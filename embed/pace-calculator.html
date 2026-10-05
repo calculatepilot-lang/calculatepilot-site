@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Running Pace Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=air,arrow_forward,calculate,chevron_right,content_copy,directions_run,emoji_events,event,expand_more,monitor_heart,print,restart_alt,tune,verified_user,water_drop&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,66 +38,120 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Running Pace Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="distance">Distance</label>
-          <input type="number" id="distance" value="5"
-step="0.01"min="0">
-        </div>
-        <div class="field">
-          <label for="distanceUnit">Unit</label>
-          <select id="distanceUnit">
-            <option value="mi" selected>Miles</option>
-            <option value="km" >Kilometers</option>
-          </select>
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="hours">Hours</label>
-          <input type="number" id="hours" value="0"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="minutes">Minutes</label>
-          <input type="number" id="minutes" value="45"
-step="1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="seconds">Seconds</label>
-          <input type="number" id="seconds" value="0"
-step="1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Pace</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Pace (other unit)</span><span id="outOtherPace">—</span></div>
-        <div class="embed-row"><span>Average speed</span><span id="outSpeed">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pcCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Running Pace Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Pace · Time · Splits</span><span class="sx-badge"><span aria-hidden="true" class="msym">emoji_events</span>Riegel Race Predictor</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Running Pace Calculator — Pace, Finish Time &amp; Splits</h1>
+<p>Work out your pace per mile and per kilometre from a race time, or the finish time for a target pace, get checkpoint splits, and predict your times at other race distances with Riegel's formula.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Run</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><span>Calculate</span></div><input id="mode" type="hidden" value="s1"/><div aria-label="Calculate" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="s1" style="flex:1" type="button">Pace from time</button><button data-for="mode" data-value="s2" style="flex:1" type="button">Time from pace</button></div></div>
+<div>
+<div class="sx-au-l"><span>Distance</span></div>
+<input id="rc" type="hidden" value="s3"/>
+<div aria-label="Race distance" class="sx-au-opts" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr))"><button data-for="rc" data-value="s1" type="button">1 mile</button><button data-for="rc" data-value="s2" type="button">5K</button><button data-for="rc" data-value="s3" type="button">10K</button><button data-for="rc" data-value="s4" type="button">Half</button><button data-for="rc" data-value="s5" type="button">Marathon</button><button data-for="rc" data-value="s6" type="button">Custom</button></div>
+</div>
+<div class="sx-au-g2" hidden="" id="cRow">
+<div class="sx-au-in np"><input aria-label="Custom distance" id="cd" inputmode="decimal" max="200" min="0.1" step="0.01" type="number" value="8"/></div>
+<div><input id="du" type="hidden" value="s2"/><div aria-label="Distance unit" class="sx-seg" role="group" style="display:flex"><button data-for="du" data-value="s1" style="flex:1" type="button">mi</button><button data-for="du" data-value="s2" style="flex:1" type="button">km</button></div></div>
+</div>
+<div id="tRow">
+<div class="sx-au-l"><span>Finish Time</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div class="sx-au-in np"><input aria-label="Hours" id="th" inputmode="numeric" max="48" min="0" step="1" type="number" value="0"/><span class="suf">h</span></div>
+<div class="sx-au-in np"><input aria-label="Minutes" id="tm" inputmode="numeric" max="59" min="0" step="1" type="number" value="55"/><span class="suf">m</span></div>
+<div class="sx-au-in np"><input aria-label="Seconds" id="ts" inputmode="numeric" max="59" min="0" step="1" type="number" value="0"/><span class="suf">s</span></div>
+</div>
+</div>
+<div hidden="" id="pRow">
+<div class="sx-au-l"><span>Target Pace</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div class="sx-au-in np"><input aria-label="Pace minutes" id="pm" inputmode="numeric" max="30" min="2" step="1" type="number" value="9"/><span class="suf">m</span></div>
+<div class="sx-au-in np"><input aria-label="Pace seconds" id="ps" inputmode="numeric" max="59" min="0" step="1" type="number" value="0"/><span class="suf">s</span></div>
+<div><input id="pu" type="hidden" value="s1"/><div aria-label="Pace unit" class="sx-seg" role="group" style="display:flex"><button data-for="pu" data-value="s1" style="flex:1" type="button">/mi</button><button data-for="pu" data-value="s2" style="flex:1" type="button">/km</button></div></div>
+</div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="hdL">Pace</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Pace per mile</span><b id="pmi">—</b></div><div><span>Pace per km</span><b id="pkm">—</b></div></div>
+<div class="g2"><div><span>Speed</span><b id="spd">—</b></div><div><span>Finish time</span><b id="fin">—</b></div></div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">emoji_events</span>Predicted Race Times</span><span>Riegel, exponent 1.06</span></div>
+<div id="pred"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/vo2max-calculator.html"><span aria-hidden="true" class="msym">air</span>VO2 Max</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Even-Pace Splits</h2><p>Elapsed time at each checkpoint if you hold the same pace the whole way.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Checkpoint</th><th scope="col">Distance</th><th scope="col">Elapsed Time</th></tr></thead>
+<tbody id="spTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Pace</strong> = finish time ÷ distance · <strong>Finish time</strong> = pace × distance · <strong>Speed</strong> = distance ÷ time</li>
+<li>1 mile = 1.609344 km. Race distances: 5K = 5 km, 10K = 10 km, half marathon = 21.0975 km, marathon = 42.195 km.</li>
+<li><strong>Race prediction (Riegel, 1981):</strong> T₂ = T₁ × (D₂ ÷ D₁)<sup>1.06</sup> — your time over a new distance, based on a recent race.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A 10K in 55:00 is 3,300 seconds ÷ 10 km = 330 s, or a <strong>5:30 per km</strong> pace — 8:51 per mile and 10.9 km/h. Riegel's formula predicts a half marathon of 55:00 × (21.0975 ÷ 10)<sup>1.06</sup> ≈ 2:01:21.</p>
+<h2>Using pace to plan a race</h2>
+<p>Splits let you check at each checkpoint whether you're on track for a goal time. Many runners train across several paces — easy conversational runs, tempo runs at a comfortably hard sustained pace, and intervals faster than race pace — rather than running every session at the same effort.</p>
+<p>Race predictions assume similar training for the longer distance. They tend to be optimistic for the marathon unless you've done the long runs, and they don't account for heat, hills or course differences.</p>
+<h2>Sources</h2>
+<ul>
+<li>Riegel PS. Athletic records and human endurance. American Scientist 1981;69:285–290.</li>
+<li><a href="https://worldathletics.org/about-iaaf/documents/book-of-rules" rel="noopener noreferrer">World Athletics — Book of Rules</a> (road race distances)</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why is my pace per mile a bigger number than my pace per km?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A mile is about 1.61 km, so it takes longer to cover at the same speed. Your pace per mile is always about 1.61 times your pace per kilometre.</p></details>
+<details class="sx-faq"><summary>How accurate are race time predictions?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Riegel's formula works well between similar distances for runners trained for both. The further apart the distances — for example predicting a marathon from a 5K — the more likely the prediction is too fast.</p></details>
+<details class="sx-faq"><summary>What's a good pace for a beginner?<span aria-hidden="true" class="msym">expand_more</span></summary><p>There's no single number. Most beginners do best running at a conversational pace — one where you can speak in full sentences — and let speed come with consistent training.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>More for runners.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/vo2max-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">air</span></span><b>VO2 Max Calculator</b><span class="d">Cooper 12-minute and 1.5-mile run tests.</span><span class="f">Estimate VO2 max<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_run</span></span><b>Calories Burned</b><span class="d">Running at 5–10 mph and more.</span><span class="f">Estimate burn<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/target-heart-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_heart</span></span><b>Target Heart Rate</b><span class="d">Easy, tempo and hard zones.</span><span class="f">Find zones<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/water-intake-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">water_drop</span></span><b>Water Intake</b><span class="d">Hydration with sweat loss.</span><span class="f">Check water<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/pace-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -224,7 +160,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/pace.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/pace.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

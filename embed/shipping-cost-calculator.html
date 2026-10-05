@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shipping Cost Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,balance,calculate,chevron_right,code,content_copy,download,event,expand_more,functions,lightbulb,local_shipping,lock,package_2,payments,person_check,picture_as_pdf,query_stats,receipt_long,restart_alt,scale,view_in_ar,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,89 +38,95 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Shipping Cost Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="actualWeight">Actual weight (lb)</label>
-          <input type="number" id="actualWeight" value="3"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="pricePerLb">Carrier rate ($/lb)</label>
-          <input type="number" id="pricePerLb" value="1.2"
-step="0.05"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="length">Length (in)</label>
-          <input type="number" id="length" value="14"
-step="0.5"min="0">
-        </div>
-        <div class="field">
-          <label for="width">Width (in)</label>
-          <input type="number" id="width" value="10"
-step="0.5"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="height">Height (in)</label>
-          <input type="number" id="height" value="8"
-step="0.5"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated shipping cost</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Billable weight (used for cost)</span><span id="outBillableWeight">—</span></div>
-        <div class="embed-row"><span>Dimensional weight</span><span id="outDimWeight">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="spCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Shipping Cost Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">local_shipping</span>Actual vs dimensional weight</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Shipping Cost &amp; Dimensional Weight Calculator</h1><p>Find the billable weight of a package from its size and scale weight, then price it with your own carrier rates. See dimensional weight against actual weight, how far the package travels, residential, insurance and signature charges, and how a smaller box could cut the bill.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts the box size to a dimensional weight, takes the larger of that and the scale weight, and prices it at your rates.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Carriers charge for the space a box takes, not just its weight. This shows what you pay and where a smaller box saves money.</p></section></div></div>
+<form id="calcForm" novalidate="">
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">package_2</span><h2 class="sx-h-md" style="margin:0">Package, distance and surcharges</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Units</label></div><input id="u" type="hidden" value="in"/><div aria-label="Units" class="sx-seg" role="group"><button data-for="u" data-value="in" type="button">Inches and pounds</button><button data-for="u" data-value="cm" type="button">Centimetres and kilograms</button></div></div>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="L">Length</label><em class="mu" data-du="">in</em></div><div class="sx-au-in sm np"><input id="L" inputmode="decimal" min="0" step="0.1" type="number" value="16"/></div></div>
+<div><div class="sx-au-l"><label for="W">Width</label><em class="mu" data-du="">in</em></div><div class="sx-au-in sm np"><input id="W" inputmode="decimal" min="0" step="0.1" type="number" value="12"/></div></div>
+<div><div class="sx-au-l"><label for="H">Height</label><em class="mu" data-du="">in</em></div><div class="sx-au-in sm np"><input id="H" inputmode="decimal" min="0" step="0.1" type="number" value="10"/></div></div>
 </div>
+<div class="sx-strip"><span>Package volume</span><b id="vol">—</b></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="wt">Actual weight</label><em class="mu" data-dw="">lb</em></div><div class="sx-au-in sm np"><input id="wt" inputmode="decimal" min="0" step="0.1" type="number" value="8.5"/></div></div>
+<div><div class="sx-au-l"><label for="dv">Dimensional divisor</label><em class="mu">cubic in per lb</em></div><select class="sx-mt-sel" id="dv"><option selected="" value="139">139 · daily or commercial rates</option><option value="166">166 · retail rates</option><option value="custom">Custom divisor</option></select><div class="sx-au-in sm np" hidden="" id="cdBox" style="margin-top:8px"><input aria-label="Custom divisor" id="cdv" inputmode="decimal" min="1" step="1" type="number" value="139"/></div></div>
+</div>
+<div class="sx-au-note" id="dimV" style="text-align:left;margin:0;font-size:13px">—</div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Distance and delivery</label></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="mi">Distance</label><em class="mu">miles</em></div><div class="sx-au-in sm np"><input id="mi" inputmode="decimal" min="0" step="10" type="number" value="2451"/></div></div>
+<div><div class="sx-au-l"><label for="ad">Address type</label></div><select class="sx-mt-sel" id="ad"><option selected="" value="res">Residential</option><option value="com">Commercial</option></select></div>
+<div><div class="sx-au-l"><label for="sv">Service speed</label></div><select class="sx-mt-sel" id="sv"><option selected="" value="1">Ground (about 1 to 7 days)</option><option value="2.2">2-day air</option><option value="3.2">Overnight</option></select></div>
+<div><div class="sx-au-l"><label for="sg">Signature</label></div><select class="sx-mt-sel" id="sg"><option selected="" value="none">None</option><option value="direct">Direct signature</option><option value="adult">Adult signature</option></select></div>
+</div>
+<div class="sx-au-note" id="zoneV" style="text-align:left;margin:10px 0 0;font-size:13px">—</div>
+</div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Your rates</label><em class="mu">from your carrier or rate card</em></div>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><label for="r1">Carrier A per billable lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="r1" inputmode="decimal" min="0" step="0.05" type="number" value="1.55"/></div></div>
+<div><div class="sx-au-l"><label for="r2">Carrier B per billable lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="r2" inputmode="decimal" min="0" step="0.05" type="number" value="1.7"/></div></div>
+<div><div class="sx-au-l"><label for="r3">Carrier C per billable lb</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="r3" inputmode="decimal" min="0" step="0.05" type="number" value="1.75"/></div></div>
+</div>
+<div class="sx-au-g3" style="margin-top:10px">
+<div><div class="sx-au-l"><label for="rs">Residential fee</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="rs" inputmode="decimal" min="0" step="0.05" type="number" value="4.85"/></div></div>
+<div><div class="sx-au-l"><label for="dvv">Declared value</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="dvv" inputmode="decimal" min="0" step="10" type="number" value="250"/></div></div>
+<div><div class="sx-au-l"><label for="ir">Insurance per $100</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="ir" inputmode="decimal" min="0" step="0.05" type="number" value="1.4"/></div></div>
+</div>
+<div class="sx-au-g2" style="margin-top:10px">
+<div><div class="sx-au-l"><label for="fs">Fuel surcharge</label><em class="mu">% of base</em></div><div class="sx-au-in sm np"><input id="fs" inputmode="decimal" min="0" step="0.25" type="number" value="0"/></div></div>
+<div><div class="sx-au-l"><label for="qty">Packages</label></div><div class="sx-au-in sm np"><input id="qty" inputmode="numeric" min="1" step="1" type="number" value="1"/></div></div>
+</div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compare shipping costs</button></div>
+</div>
+</div>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Billable weight</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small>lb</small></div><p id="interp">—</p>
+<div class="g2"><div><span>Actual weight</span><b id="oAct">—</b></div><div><span>Dimensional weight</span><b id="oDim">—</b></div><div><span>Extra billed</span><b id="oPen">—</b></div><div><span>Zone (by distance)</span><b id="oZone">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Cost by carrier</span><em class="mu" id="cmpN">—</em></div><div id="cmp" style="display:flex;flex-direction:column"></div></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">lightbulb</span>Cost-saving idea</span></div><p class="sx-au-note" id="tip" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p><div class="sx-tblwrap" style="margin-top:12px"><table class="sx-tbl" id="opt" style="min-width:300px"><thead><tr><th>Smaller box</th><th class="n">Dim. weight</th><th class="n">Billable</th><th class="n">Saves</th></tr></thead><tbody></tbody></table></div></section>
+<div class="sx-in-acts"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>CSV</button><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Shipping zones by distance</h2><p>US parcel carriers price by zone, which rises with the distance between the origin and destination ZIP codes. Exact zones come from your carrier's zone chart.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="zones" style="min-width:560px"><thead><tr><th>Zone</th><th>Distance</th><th>Typical ground transit</th></tr></thead><tbody>
+<tr><td class="a"><b>Zone 1 – 2</b></td><td class="a">0 to 150 miles</td><td class="a">1 to 2 days</td></tr>
+<tr><td class="a"><b>Zone 3</b></td><td class="a">151 to 300 miles</td><td class="a">2 to 3 days</td></tr>
+<tr><td class="a"><b>Zone 4</b></td><td class="a">301 to 600 miles</td><td class="a">2 to 4 days</td></tr>
+<tr><td class="a"><b>Zone 5</b></td><td class="a">601 to 1,000 miles</td><td class="a">3 to 5 days</td></tr>
+<tr><td class="a"><b>Zone 6</b></td><td class="a">1,001 to 1,400 miles</td><td class="a">3 to 5 days</td></tr>
+<tr><td class="a"><b>Zone 7</b></td><td class="a">1,401 to 1,800 miles</td><td class="a">4 to 6 days</td></tr>
+<tr><td class="a"><b>Zone 8</b></td><td class="a">1,801 miles and more</td><td class="a">4 to 7 days</td></tr>
+</tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">view_in_ar</span></div><h3>Dimensional weight</h3><p>Volume in cubic inches divided by the divisor your carrier uses.</p><code>DIM weight = L × W × H ÷ divisor</code></div><div><div class="ic"><span aria-hidden="true" class="msym">balance</span></div><h3>Billable weight</h3><p>The larger of actual and dimensional weight, rounded up to the next whole pound.</p><code>billable = ⌈ max(actual, DIM) ⌉</code></div><div><div class="ic"><span aria-hidden="true" class="msym">payments</span></div><h3>Shipping cost</h3><p>Billable weight times your rate, plus fuel, residential, insurance and signature charges.</p><code>cost = billable × rate × (1 + fuel) + fees</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>16 × 12 × 10 in, 8.5 lb</h3><p>Divisor 139, rate $1.55 per billable lb.</p><div class="sx-mt-ex">16 × 12 × 10 = 1,920 cu in<br/>1,920 ÷ 139 = 13.81 lb<br/>billable = <b>14 lb</b>, 5.5 lb over actual<br/>14 × 1.55 = $21.70 before fees</div></div><div><h3>Using a shorter box</h3><p>The same items in a 16 × 12 × 8 in box.</p><div class="sx-mt-ex">16 × 12 × 8 = 1,536 cu in<br/>1,536 ÷ 139 = 11.05 lb → <b>12 lb</b><br/>saves 2 billable lb, or <b>$3.10</b> at $1.55</div></div><div><h3>Retail divisor 166</h3><p>The original box at retail rates.</p><div class="sx-mt-ex">1,920 ÷ 166 = 11.57 lb<br/>billable = <b>12 lb</b><br/>a higher divisor means a lower dimensional weight</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to estimate shipping cost</h2><ul><li>Measure the length, width and height of the packed box and weigh it.</li><li>Enter the divisor your carrier uses for dimensional weight.</li><li>Enter your carrier rates per billable pound and any surcharges.</li><li>Compare carriers and check whether a smaller box lowers the billable weight.</li></ul><p>Carriers publish their own rate tables, zones, surcharges and dimensional rules, and they change often. The rates here are placeholders that you should replace with your quotes. Always confirm with the carrier or your shipping software.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>UPS, <i>Dimensional Weight Pricing</i> and FedEx, <i>Dimensional Weight</i> rules, showing the divisors used for daily and retail rates.</li><li>USPS, <i>Domestic Mail Manual</i> on dimensional weight pricing and zones.</li><li>IATA, <i>Air Cargo Rates</i> guidance on volumetric weight for air freight.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>What is dimensional weight?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Dimensional (DIM) weight is a size-based weight that carriers use to price bulky, light packages. It is the box volume divided by a divisor, and you are billed for whichever is larger, DIM weight or actual weight.</p></details><details class="sx-faq"><summary>Which divisor should I use?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Many carriers use 139 cubic inches per pound for daily or commercial rates and 166 for retail rates. USPS applies dimensional weight only to larger packages. Check your own carrier agreement, or choose a custom divisor.</p></details><details class="sx-faq"><summary>How can I reduce dimensional weight?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use a box that fits the item snugly, cut the tallest dimension first, and avoid extra void fill. The table shows how much a smaller box would save.</p></details><details class="sx-faq"><summary>Why does the zone matter?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The farther a package travels, the higher its zone and its rate. Zones are set by the distance between the ZIP codes, so the same parcel costs more to ship across the country than across town.</p></details><details class="sx-faq"><summary>Do residential deliveries cost more?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Many carriers add a residential delivery surcharge on top of the base rate. Enter the fee on your rate card, or set it to zero for commercial addresses.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/unit-price-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Unit Price Calculator</b><span class="d">Compare package sizes.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/invoice-late-fee-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Invoice Late Fee</b><span class="d">Late fees on invoices.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/moving-cost-estimator.html"><span class="ic"><span aria-hidden="true" class="msym">local_shipping</span></span><b>Moving Cost Estimator</b><span class="d">Budget a household move.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/break-even-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Break-Even Calculator</b><span class="d">Units to cover your costs.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Shipping Cost Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/shipping-cost-calculator.html" width="100%" height="560" loading="lazy" title="Shipping Cost Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/shipping-cost-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -247,40 +135,9 @@ step="0.5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/hipping-cost.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/shipping-cost.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

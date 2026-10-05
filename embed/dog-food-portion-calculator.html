@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dog Food Portion Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,chevron_right,code,content_copy,event,expand_more,functions,health_and_safety,lightbulb,link,local_fire_department,lock,person_check,pets,picture_as_pdf,restart_alt,restaurant,restaurant_menu,scale,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,63 +38,63 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Dog Food Portion Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="units">Units</label>
-          <select id="units">
-            <option value="imperial" selected>Imperial (lb)</option>
-            <option value="metric" >Metric (kg)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="weight">Dog's weight</label>
-          <input type="number" id="weight" value="40"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="activityLevel">Activity level</label>
-          <select id="activityLevel">
-            <option value="low" >Low (senior / less active)</option>
-            <option value="moderate" selected>Moderate (typical adult dog)</option>
-            <option value="high" >High (very active / working dog)</option>
-          </select>
-        </div>
-</div>        <div class="field">
-          <label for="foodCalorieDensity">Food calorie density (kcal per cup)</label>
-          <input type="number" id="foodCalorieDensity" value="350"
-step="10"min="50">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Recommended daily food</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Estimated daily calories needed</span><span id="outDailyCalories">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="dfCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Dog Food Portion Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">pets</span>Calories from RER and DER</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Dog Food Portion &amp; Daily Calorie Calculator</h1><p>Find how much to feed your dog each day. It works out your dog's resting and daily calorie needs from weight, life stage and body condition, then turns them into cups of your food, portions per meal, a treat allowance and how long a bag lasts.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It uses the standard resting energy formula, multiplies by a life-stage factor, and divides by the calories in your food.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Feeding by the bag chart often overfeeds. This starts from your dog's own calorie needs and your food's real calorie count.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">pets</span><h2 class="sx-h-md" style="margin:0">Your dog and its food</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="w">Body weight</label><em class="mu" id="wU">lb</em></div><div class="sx-au-in sm np"><input id="w" inputmode="decimal" min="0" step="0.1" type="number" value="55"/></div></div>
+<div><div class="sx-au-l"><label>Weight unit</label></div><input id="u" type="hidden" value="lb"/><div aria-label="Weight unit" class="sx-seg full" role="group"><button data-for="u" data-value="lb" type="button">Pounds</button><button data-for="u" data-value="kg" type="button">Kilograms</button></div></div>
 </div>
+<div><div class="sx-au-l"><label for="ls">Life stage and activity</label><em class="mu" id="lsN">—</em></div><select class="sx-mt-sel" id="ls"><option value="1.8">Intact adult · 1.8 × RER</option><option selected="" value="1.6">Neutered or spayed adult · 1.6 × RER</option><option value="1.4">Inactive or obese-prone · 1.4 × RER</option><option value="1.0">Weight loss · 1.0 × RER</option><option value="2">Working or very active · 2 × RER</option><option value="3">Puppy under 4 months · 3 × RER</option><option value="2.0p">Puppy 4 to 12 months · 2 × RER</option></select></div>
+<div><div class="sx-au-l"><label>Body condition score</label><em id="bcsV">5 of 9 · ideal</em></div><input id="bcs" type="hidden" value="5"/><input aria-label="Body condition score" class="sx-range2" data-sync="bcs" max="9" min="1" step="1" type="range" value="5"/><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted)"><span>1–3 thin</span><span>4–5 ideal</span><span>6–7 heavy</span><span>8–9 obese</span></div></div>
+<div><div class="sx-au-l"><label for="kc">Calories in your dog food</label><em class="mu">kcal per cup, from the bag</em></div><div class="sx-au-in sm np"><input id="kc" inputmode="decimal" min="0" step="5" type="number" value="375"/></div><div class="sx-qpills"><span class="lb">Typical</span><button data-k="300" type="button">Light 300</button><button data-k="375" type="button">Standard 375</button><button data-k="450" type="button">Puppy 450</button></div></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="mp">Meals per day</label></div><div class="sx-au-in sm np"><input id="mp" inputmode="numeric" max="6" min="1" step="1" type="number" value="2"/></div></div><div class="sx-au-box" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0"><label for="tr" style="font-size:13px;font-weight:500">Keep treats to 10% of calories</label><label class="sx-toggle"><input checked="" id="tr" type="checkbox"/><i></i></label></div></div>
+<div class="sx-au-box"><div class="sx-au-l"><label>Bag and cost (optional)</label></div><div class="sx-au-g3"><div><div class="sx-au-l"><label for="bg">Bag size</label><em class="mu">lb</em></div><div class="sx-au-in sm np"><input id="bg" inputmode="decimal" min="0" step="1" type="number" value="30"/></div></div><div><div class="sx-au-l"><label for="cl">Cups per lb</label></div><div class="sx-au-in sm np"><input id="cl" inputmode="decimal" min="0" step="0.1" type="number" value="4"/></div></div><div><div class="sx-au-l"><label for="bp">Price per bag</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="bp" inputmode="decimal" min="0" step="1" type="number" value="60"/></div></div></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate daily portion</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Food per day</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span><small>cups</small></div><p id="interp">—</p>
+<div class="g2"><div><span>Daily calories (DER)</span><b id="oDer">—</b></div><div><span>Per meal</span><b id="oMeal">—</b></div><div><span>Resting calories (RER)</span><b id="oRer">—</b></div><div><span>Treat allowance</span><b id="oTreat">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Bag and budget</span><em class="mu" id="bagN">—</em></div><div class="sx-au-tiles"><div><span>One bag lasts</span><b id="oDays">—</b><small id="oCups">—</small></div><div><span>Food per year</span><b id="oYear">—</b><small id="oYearN">—</small></div></div></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">health_and_safety</span>Feeding note</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Calorie multipliers by life stage</h2><p>Resting energy requirement (RER) is multiplied by a factor for the dog's stage and activity, as used in veterinary nutrition guidelines. They are starting points, since individual dogs vary by 20% or more.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:560px"><thead><tr><th>Life stage</th><th class="n">Multiplier × RER</th><th>Notes</th></tr></thead><tbody>
+<tr><td class="a">Neutered or spayed adult</td><td class="n">1.6</td><td class="a" style="white-space:normal">Typical pet dog</td></tr>
+<tr><td class="a">Intact adult</td><td class="n">1.8</td><td class="a" style="white-space:normal">Higher energy needs</td></tr>
+<tr><td class="a">Inactive or obese-prone</td><td class="n">1.2 – 1.4</td><td class="a" style="white-space:normal">Low activity, seniors</td></tr>
+<tr><td class="a">Weight loss</td><td class="n">1.0</td><td class="a" style="white-space:normal">Applied to the ideal weight; vet supervised</td></tr>
+<tr><td class="a">Working or active</td><td class="n">2 – 5</td><td class="a" style="white-space:normal">Depends on the work and climate</td></tr>
+<tr><td class="a">Puppy under 4 months</td><td class="n">3.0</td><td class="a" style="white-space:normal">Rapid growth</td></tr>
+<tr><td class="a">Puppy 4 to 12 months</td><td class="n">2.0</td><td class="a" style="white-space:normal">Still growing</td></tr>
+</tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">functions</span></div><h3>Resting energy (RER)</h3><p>The calories a dog needs at rest, from body weight in kilograms.</p><code>RER = 70 × kg<sup>0.75</sup></code></div><div><div class="ic"><span aria-hidden="true" class="msym">bolt</span></div><h3>Daily energy (DER)</h3><p>RER times the multiplier for life stage and activity. For an overweight dog, use the estimated ideal weight.</p><code>DER = RER × multiplier</code></div><div><div class="ic"><span aria-hidden="true" class="msym">restaurant</span></div><h3>Cups per day</h3><p>Daily calories, less the treat allowance, divided by the calories in one cup.</p><code>cups = (DER − treats) ÷ kcal per cup</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>55 lb neutered adult</h3><p>375 kcal per cup, treats kept to 10%.</p><div class="sx-mt-ex">55 lb = 24.95 kg<br/>RER = 70 × 24.95<sup>0.75</sup> = <b>781 kcal</b><br/>DER = 781 × 1.6 = <b>1,250 kcal</b><br/>treats 125 kcal, food 1,125 kcal ÷ 375 = <b>3.0 cups</b></div></div><div><h3>Overweight dog</h3><p>80 lb, body condition score 7 of 9.</p><div class="sx-mt-ex">ideal ≈ 80 ÷ (1 + 0.10 × 2) = 66.7 lb = 30.2 kg<br/>RER = 70 × 30.2<sup>0.75</sup> = 903 kcal<br/>DER = 903 × 1.6 = <b>1,444 kcal</b></div></div><div><h3>How long a bag lasts</h3><p>30 lb bag, 4 cups per lb, 3.0 cups a day.</p><div class="sx-mt-ex">30 × 4 = 120 cups<br/>120 ÷ 3.0 = <b>40 days</b><br/>≈ 9 bags a year</div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to work out how much to feed a dog</h2><ul><li>Enter your dog's weight and choose its life stage and activity.</li><li>Set the body condition score. Heavier dogs are fed for their ideal weight.</li><li>Enter the kcal per cup from the food label.</li><li>Read the daily cups and split them across meals, then adjust with your vet over a few weeks.</li></ul><p>This is a starting estimate, not veterinary advice. Watch your dog's weight and body condition, and ask a vet about puppies, seniors, and any health condition or weight-loss plan.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>WSAVA Global Nutrition Committee, <i>Global Nutrition Guidelines</i> and Nutritional Assessment Guidelines.</li><li>AAHA, <i>Nutrition and Weight Management Guidelines for Dogs and Cats</i> (2021).</li><li>National Research Council, <i>Nutrient Requirements of Dogs and Cats</i> (2006).</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How many calories does my dog need each day?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply resting energy (70 × weight in kg to the power 0.75) by a factor for life stage and activity. A typical neutered adult uses about 1.6 times resting energy. A 55 lb dog needs roughly 1,250 kcal.</p></details><details class="sx-faq"><summary>How many cups of food is that?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the calories by the kcal per cup on your food label. Foods range from about 300 to 450 kcal per cup, so the same dog can need very different cup amounts.</p></details><details class="sx-faq"><summary>How do treats fit in?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common guideline is that treats should be no more than 10% of daily calories. Reduce the meal portion by the same number of calories.</p></details><details class="sx-faq"><summary>What is body condition score?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It is a 1 to 9 scale where 4 to 5 is ideal. You should feel the ribs under a thin fat layer and see a waist from above. A score of 7 or more means the dog is overweight.</p></details><details class="sx-faq"><summary>How often should I feed my dog?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Most adult dogs do well on two meals a day, and puppies on three or four. Weigh the food rather than scooping, since a cup can vary by 20%.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/pet-age-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pets</span></span><b>Pet Age Calculator</b><span class="d">Dog and cat age in human years.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/recipe-conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">restaurant_menu</span></span><b>Recipe Conversion</b><span class="d">Scale and convert cooking units.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/unit-price-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Unit Price Calculator</b><span class="d">Compare food prices per pound.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_fire_department</span></span><b>Calorie Calculator</b><span class="d">Daily calories for people.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Dog Food Portion Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/dog-food-portion-calculator.html" width="100%" height="560" loading="lazy" title="Dog Food Portion Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/dog-food-portion-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -221,7 +103,8 @@ step="10"min="50">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/dog-food.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/dog-food-portion.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

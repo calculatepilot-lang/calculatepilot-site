@@ -1,1 +1,448 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de préstamo para coche | CalculatePilot</title><meta name="description" content="Calcula la cuota mensual, los intereses y el coste total de un préstamo para coche con CalculatePilot."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html"><meta property="og:title" content="Calculadora de préstamo para coche | CalculatePilot"><meta property="og:description" content="Estima la cuota y el coste total de tu préstamo para coche."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260906" defer></script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/es/financial-calculators.html">Finanzas</a></li><li><a href="/health-calculators.html">Salud</a></li><li><a href="/math-calculators.html">Matemáticas</a></li><li><a href="/other-calculators.html">Vida diaria</a></li><li><a href="/guides/index.html">Guías</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Préstamo para coche</nav></div><section class="calc-page-head"><div class="container"><h1>Calculadora de préstamo para coche</h1><p class="lede">Calcula una cuota mensual estimada, los intereses y el coste total de la financiación.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Precio del vehículo <input id="price" type="number" value="25000" min="0"></label><label>Entrada <input id="down" type="number" value="5000" min="0"></label><label>Interés anual (%) <input id="rate" type="number" value="6.5" min="0" step="0.01"></label><label>Plazo (años) <input id="years" type="number" value="5" min="1"></label><button id="calc">Calcular</button><div id="result" class="result" aria-live="polite"></div></div></div></section><section class="content-block"><div class="container prose"><h2>Cómo funciona</h2><p>El cálculo descuenta la entrada del precio del vehículo y aplica el interés y el plazo para estimar una financiación amortizable. Prueba distintos escenarios para comparar cuotas y costes.</p><h2>Importante</h2><p>Es una estimación y no incluye necesariamente impuestos, comisiones, seguros ni condiciones específicas del prestamista.</p></div></section></main><script>const f=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n);document.getElementById('calc').onclick=()=>{let p=+price.value||0,d=+down.value||0,r=(+rate.value||0)/1200,n=(+years.value||0)*12,L=Math.max(p-d,0),m=r?L*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):n?L/n:0;result.innerHTML='<strong>Cuota mensual estimada: '+f(m)+'</strong><br>Capital financiado: '+f(L)+'<br>Intereses totales: '+f(m*n-L)+'<br>Coste total: '+f(m*n)};document.getElementById('calc').click();</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de préstamo de coche: pago mensual</title>
+<meta name="description" content="Calcula tu pago mensual del coche incluyendo el valor de entrega y el impuesto sobre las ventas. Gratis e instantáneo.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"
+<meta property="og:locale" content="es_ES">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/auto-loan-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/auto-loan-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/auto-loan-calculator.html">
+<meta property="og:title" content="Calculadora de préstamo de coche: pago mensual | CalculatePilot">
+<meta property="og:description" content="Calcula tu pago mensual del coche incluyendo el valor de entrega y el impuesto sobre las ventas. Gratis e instantáneo. Gratuito, instantáneo, con la fórmula a la vista. Sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/es/financial/auto-loan-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de préstamo de coche: pago mensual | CalculatePilot">
+<meta name="twitter:description" content="Calcula tu pago mensual del coche incluyendo el valor de entrega y el impuesto sobre las ventas. Gratis e instantáneo. Gratuito, instantáneo, con la fórmula a la vista. Sin registro.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,check_circle,chevron_right,compare_arrows,download,expand_more,functions,key,lock,picture_as_pdf,pie_chart,precision_manufacturing,print,published_with_changes,restart_alt,share,shield,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculadora de préstamo para automóvil",
+ "url": "https://www.calculatepilot.com/es/financial/auto-loan-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calcula tu pago mensual del coche incluyendo el valor de entrega y el impuesto sobre las ventas. Gratis e instantáneo. Sin registro. CalculatePilot explica la fórmula detrás de cada",
+ "inLanguage": "es"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://www.calculatepilot.com/es/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculadoras financieras",
+   "item": "https://www.calculatepilot.com/es/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculadora de préstamo para automóvil",
+   "item": "https://www.calculatepilot.com/es/financial/auto-loan-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿El valor de entrega del coche usado reduce el impuesto sobre las ventas?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En la mayoría de los estados de EE. UU., sí: el impuesto sobre las ventas se calcula sobre el precio tras restar el valor de tu coche entregado, no sobre el precio total del vehículo."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Debo incluir las tarifas de destino o del concesionario?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí: introdúcelas en el campo Tarifas del concesionario, título y documentación (o súmalas al precio del vehículo). Normalmente se incluyen en el préstamo, así que omitirlas subestima el importe financiado."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Es mejor hacer leasing o financiar un coche?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Financiar crea patrimonio y no tiene límite de kilometraje, mientras que el leasing suele ofrecer pagos mensuales más bajos pero sin propiedad al final. La mejor opción depende de cuánto tiempo conserves los vehículos y de cuánto conduzcas."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuánto debería ser mi pago inicial?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El 20% es una pauta habitual para coches nuevos y el 10% para usados, aunque es razonable cualquier importe que evite estar «en negativo» (deber más de lo que vale el coche) a medida que se deprecia."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Debo elegir un plazo de préstamo de coche más corto o más largo?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Los plazos más cortos (36-48 meses) minimizan el interés total y reducen el riesgo de deber más de lo que vale el coche, mientras que los plazos más largos reducen el pago mensual a un coste total mayor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Vale la pena negociar el precio del vehículo por separado de la financiación?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí: negociar el precio y la financiación por separado, en lugar de centrarte solo en el pago mensual, suele conducir a un mejor trato global, ya que los concesionarios pueden ajustar cualquiera de las dos variables para alcanzar una cuota mensual objetivo."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Un reembolso del fabricante también reduce mi impuesto sobre las ventas?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Depende de tu estado. La mayoría de los estados gravan el precio total del vehículo antes del reembolso, por lo que un reembolso reduce el importe de tu préstamo pero no tu factura de impuestos. Unos pocos estados (entre ellos Arizona, Iowa, Kansas, Minnesota, Misuri, Nebraska, Texas y Wyoming) gravan en cambio el precio posterior al reembolso."
+   }
+  }
+ ],
+ "inLanguage": "es"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/es/financial-calculators.html">Finanzas</a></li>
+      <li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+      <li><a href="/es/math-calculators.html">Matemáticas</a></li>
+      <li><a href="/es/other-calculators.html">Vida diaria</a></li>
+      <li><a href="/es/guides/">Guías</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="autoCalc">
+<nav class="sx-crumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/es/financial-calculators.html">Calculadoras financieras</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculadora de préstamo para automóvil</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Motor de financiación de vehículos</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Precisión en tu navegador • Sin almacenar datos</span><span class="sx-badge" style="background:var(--sx-hi2)">Fórmula verificada en sep 2026</span></div>
+    <h1>Calculadora de préstamo para automóvil</h1>
+    <p>Calcula pagos mensuales exactos del coche, el coste total del préstamo, opciones de financiación del concesionario, impuesto sobre las ventas, valor de entrega y calendarios de amortización.</p>
+  </div>
+  <div class="sx-au-hbtns">
+    <button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Imprimir hoja</button>
+    <button type="button" data-action="share"><span class="msym" aria-hidden="true">share</span>Compartir cálculo</button>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Parámetros de financiación</h2><p>Introduce los datos de la operación, el pago inicial y la estructura del préstamo</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Restablecer valores</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-lr"><label class="sx-lbl-md" for="price">Precio de compra del vehículo</label><div class="sx-inl w144"><span class="pre">$</span><input id="price" type="number" inputmode="decimal" min="0" step="500" value="35000"></div></div>
+      <input class="sx-range2" type="range" min="5000" max="100000" step="500" value="35000" data-sync="price" aria-label="Control deslizante del precio del vehículo">
+      <div class="sx-au-chips">Valores predefinidos: <button type="button" data-for="price" data-value="20000">$20k</button><button type="button" data-for="price" data-value="35000">$35k</button><button type="button" data-for="price" data-value="50000">$50k</button><button type="button" data-for="price" data-value="75000">$75k</button></div>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="trade">Valor del vehículo entregado</label></div><div class="sx-au-in"><span class="pre">$</span><input id="trade" type="number" inputmode="decimal" min="0" step="250" value="5000"></div></div>
+      <div><div class="sx-au-l"><label for="owed">Préstamo pendiente del vehículo entregado</label><em class="mu" id="tradeNote"></em></div><div class="sx-au-in"><span class="pre">$</span><input id="owed" type="number" inputmode="decimal" min="0" step="250" value="0"></div></div>
+    </div>
+
+    <div>
+      <div class="sx-au-lr"><div class="sx-au-l"><label for="down">Pago inicial en efectivo</label></div><div class="sx-au-chips r" id="dpChips"><button type="button" data-dp="10">10%</button><button type="button" data-dp="15">15%</button><button type="button" data-dp="20">20%</button></div></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="down" type="number" inputmode="decimal" min="0" step="250" value="4000"></div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><label for="tax">Tasa del impuesto sobre las ventas (%)</label></div>
+      <div class="sx-au-row"><div class="sx-au-in np pc"><input id="tax" type="number" inputmode="decimal" min="0" max="20" step="0.25" value="6.5"><span class="suf">%</span></div><label class="sx-au-ck"><input id="rollTax" type="checkbox" checked>Incluir el impuesto sobre las ventas en el préstamo</label></div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><span>Duración del préstamo</span><em id="termNote">60 meses (estándar recomendado)</em></div>
+      <input type="hidden" id="term" value="60">
+      <div class="sx-au-opts c5 ol" role="group" aria-label="Plazo del préstamo"><button type="button" data-for="term" data-value="36">36 meses</button><button type="button" data-for="term" data-value="48">48 meses</button><button type="button" data-for="term" data-value="60">60 meses</button><button type="button" data-for="term" data-value="72">72 meses</button><button type="button" data-for="term" data-value="84">84 meses</button></div>
+      <div class="sx-au-warn" id="termWarn" hidden><span class="msym" aria-hidden="true">warning</span><span><b>Aviso de plazo extendido:</b> Financiar más allá de 60 meses aumenta el riesgo de patrimonio negativo. El coche suele perder valor más rápido de lo que baja el saldo del préstamo durante más tiempo, por lo que conviene considerar la cobertura GAP.</span></div>
+    </div>
+
+    <div>
+      <div class="sx-au-lr"><div class="sx-au-l"><label for="apr">Tasa de interés / TAE</label></div><div class="sx-au-chips r">Ajuste rápido: <button type="button" data-for="apr" data-value="4.9">4.9%</button><button type="button" data-for="apr" data-value="6.8">6.8%</button><button type="button" data-for="apr" data-value="11.5">11.5%</button></div></div>
+      <div class="sx-au-in np pc"><input id="apr" type="number" inputmode="decimal" min="0" max="36" step="0.01" value="5.99"><span class="suf">%</span></div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><label for="fees">Tarifas del concesionario, título y documentación</label></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="fees" type="number" inputmode="decimal" min="0" step="25" value="650"></div>
+      <p class="sx-au-help">Incluye documentación habitual, matriculación y gastos de envío. Se financian con el préstamo.</p>
+    </div>
+
+    <button type="submit" class="sx-cta big"><span class="msym" aria-hidden="true">functions</span>Calcular el pago del préstamo de coche</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-pay" aria-live="polite">
+    <div class="deco"></div>
+    <div class="hd"><span class="sx-kick">Obligación mensual estimada</span><span class="sx-pill2">Tasa fija</span></div>
+    <div class="phero"><b id="resultValue">—</b><span>/ mes</span></div>
+    <div class="sx-au-tiles mono card">
+      <div><span>Importe financiado</span><b id="financed">—</b></div>
+      <div><span>Total de intereses pagados</span><b id="totInt">—</b></div>
+      <div><span>Coste total de la compra</span><b id="totCost">—</b></div>
+      <div><span>Pago inicial a la firma</span><b id="upfront">—</b></div>
+    </div>
+    <div class="sx-au-chart">
+      <div class="h">Evolución del patrimonio del vehículo<span id="chartTerm">Evolución a 60 meses</span></div>
+      <p>Donde se cruzan las líneas, el coche pasa a valer más de lo que debes por él.</p>
+      <svg id="eqChart" viewBox="0 0 320 170" role="img" aria-label="Saldo del préstamo frente al valor estimado del coche durante el plazo del préstamo"></svg>
+      <div class="lg"><span><i style="background:var(--sx-pc)"></i>Saldo del préstamo</span><span><i style="background:#64748b"></i>Valor justo del coche</span><span><i style="background:#fca5a5"></i>Patrimonio negativo</span></div>
+      <div class="be">Punto de equilibrio estimado del patrimonio: <b id="breakeven">—</b></div>
+    </div>
+    <div class="sx-au-tt">Comparación de estrategias de plazo</div>
+    <div class="sx-au-terms3" id="termCmp"></div>
+    <div class="sx-au-acts c2">
+      <button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Amortización en PDF</button>
+      <a href="/es/financial/lease-calculator.html"><span class="msym" aria-hidden="true">compare_arrows</span>Comparar leasing y compra</a>
+    </div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="schedule">
+  <div class="hd">
+    <div><h2>Calendario de amortización y valor del vehículo</h2><p>Reducción del capital, interés y relación préstamo-valor (LTV) estimada durante la vida del préstamo.</p></div>
+    <input type="hidden" id="view" value="year">
+    <div class="sx-seg md" role="group" aria-label="Vista del calendario"><button type="button" data-for="view" data-value="year">Vista anual</button><button type="button" data-for="view" data-value="month">Vista mensual</button></div>
+  </div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col" id="sPer">Periodo / año</th><th scope="col">Saldo inicial</th><th scope="col">Pagos programados</th><th scope="col">Capital pagado</th><th scope="col">Interés pagado</th><th scope="col">Saldo final</th><th scope="col">Valor est. del vehículo</th><th scope="col">Relación LTV</th></tr></thead>
+    <tbody id="schedBody"></tbody>
+  </table></div>
+  <div class="ft"><span>*El valor estimado del vehículo supone una caída del 20% el primer año y del 15% anual después (una regla práctica habitual; la depreciación real varía según el modelo).</span><span style="display:flex;gap:16px"><button type="button" id="moreBtn" hidden><span id="moreTxt">Mostrar todos los meses</span></button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Exportar calendario completo (.CSV)</button></span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">precision_manufacturing</span>Fórmula matemática del préstamo</h3>
+    <p>CalculatePilot usa la fórmula estándar de pago mensual para préstamos a plazos de tasa fija. El pago (M) se obtiene del importe financiado (P), la tasa de interés mensual (r) y el número de pagos (n).</p>
+    <div class="fx"><b>M = P × [ r(1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> − 1) ]</b><span>Donde: r = TAE / 12 | n = meses del préstamo | P = precio + tarifas + impuesto (si se incluye) − pago inicial − valor neto de entrega</span></div>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">check_circle</span><span><b>Convención de interés simple:</b> La mayoría de los préstamos de coche en EE. UU. cobran interés simple sobre el saldo pendiente. El método de la «Regla del 78», que carga los intereses al principio, está prohibido en los préstamos al consumo de EE. UU. de más de 61 meses.</span></li>
+      <li><span class="msym" aria-hidden="true">check_circle</span><span><b>Eficiencia del pago anticipado:</b> En un préstamo de interés simple sin penalización por pago anticipado, los pagos extra van directamente al capital y reducen el interés que se habría generado sobre él.</span></li>
+    </ul>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">shield</span>Anatomía de la protección GAP</h3>
+    <p>La Protección de Activos Garantizada (GAP) cubre la diferencia entre lo que paga tu seguro (el valor de mercado del coche) y el saldo pendiente del préstamo si el vehículo sufre pérdida total o es robado.</p>
+    <div class="sx-au-gapbox">
+      <b>¿Cuándo conviene considerar la cobertura GAP?</b>
+      <ul id="gapList">
+        <li data-gap="down">Pago inicial inferior al 20% en la compra</li>
+        <li data-gap="term">Plazos de financiación superiores a 60 meses</li>
+        <li data-gap="neg">Incluir en el nuevo préstamo el patrimonio negativo del vehículo entregado</li>
+        <li data-gap="dep">Vehículos de alta depreciación (algunos modelos de lujo y eléctricos)</li>
+      </ul>
+    </div>
+    <div class="sx-au-gapft"><span>Los elementos en negrita se aplican a tus datos. El GAP es opcional; compara los precios del prestamista y de la aseguradora.</span><a href="/guides/car-depreciation-guide.html">Lee la guía de depreciación →</a></div>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Cómo funciona esta calculadora</h2>
+    <p>El impuesto sobre las ventas se aplica al precio menos el valor de tu vehículo entregado, y luego se suma al préstamo o se paga a la firma. Las tarifas del concesionario se suman al préstamo, y cualquier importe que aún debas por el vehículo entregado se resta de su valor (el patrimonio negativo se traslada al nuevo préstamo). El saldo restante se amortiza a tu tasa de interés durante el plazo del préstamo, igual que cualquier préstamo de tasa fija.</p>
+    <p><strong>Importe financiado = Precio + Tarifas − Pago inicial − (Valor de entrega − Saldo pendiente) + Impuesto sobre las ventas</strong></p>
+    <p>A continuación, el importe financiado se calcula con la fórmula estándar de amortización de préstamos.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Por Suhaib Hassan · Fórmula verificada el 27 sep 2026 · <a href="/methodology.html">Cómo verifica CalculatePilot las fórmulas →</a></p>
+
+    <h2>Valor de entrega e impuesto sobre las ventas</h2>
+    <p>La mayoría de los estados de EE. UU. solo cobran el impuesto sobre las ventas sobre el precio menos el valor de tu vehículo entregado, por lo que entregar un vehículo puede reducir de forma notable el importe total de tu préstamo, incluso antes de contar el crédito de la propia entrega.</p>
+
+    <h2>Reembolsos e incentivos del fabricante</h2>
+    <p>Los reembolsos en efectivo de los fabricantes reducen lo que financias, pero que también reduzcan tu impuesto sobre las ventas depende por completo de tu estado.</p>
+    <ul>
+      <li><strong>Reembolso gravado sobre el precio total</strong>: la mayoría de los estados calculan el impuesto sobre las ventas sobre el precio del vehículo antes de aplicar el reembolso. Un reembolso de $2,000 en un coche de $40,000 sigue significando que el impuesto se cobra sobre $40,000, no sobre $38,000.</li>
+      <li><strong>Reembolso no gravado</strong>: un grupo menor de estados (entre ellos Arizona, Iowa, Kansas, Minnesota, Misuri, Nebraska, Texas y Wyoming) gravan el precio posterior al reembolso, por lo que el reembolso también reduce tu factura de impuestos.</li>
+    </ul>
+    <p>El crédito por entrega de un vehículo es una cuestión distinta de la tributación del reembolso: consulta la norma de tu estado para cada uno antes de dar por hecho que el tratamiento fiscal predeterminado de la entrega en esta calculadora coincide con el de un reembolso.</p>
+    <p>Para modelar un reembolso aquí, réstalo del precio del vehículo antes de introducirlo y luego ajusta manualmente la tasa del impuesto sobre las ventas si tu estado grava el importe previo al reembolso.</p>
+
+    <h2>Un ejemplo resuelto</h2>
+    <p>Un coche de $28,000 con un vehículo entregado de $3,000 y $2,000 de pago inicial, con un 7% de impuesto sobre las ventas y un 6.5% de TAE a 60 meses (sin tarifas del concesionario): el importe imponible es de $25,000 (precio menos valor de entrega), el impuesto sobre las ventas es de $1,750 y el importe financiado es de $28,000 menos $2,000 menos $3,000 más $1,750, es decir, $24,750.</p>
+    <p>Al 6.5% a 60 meses, eso resulta en un pago mensual de unos $484, con unos $4,306 de interés total durante el préstamo.</p>
+
+    <h2>Tasas de préstamo de coches nuevos y usados</h2>
+    <p>Los préstamos para coches nuevos suelen tener tasas de interés más bajas que los de coches usados, ya que los prestamistas consideran los vehículos nuevos una garantía de menor riesgo. La diferencia puede ser de un punto porcentual completo o más, lo que importa en un préstamo a varios años.</p>
+    <p>El plazo del préstamo también afecta al coste total más de lo que muchos compradores esperan: alargar un préstamo de coche a 72 u 84 meses reduce el pago mensual, pero a menudo supone deber más de lo que vale el coche durante buena parte del préstamo, una situación conocida como estar «en negativo» con el préstamo. Si estás sopesando comprar frente a hacer leasing, compara las cifras con nuestra <a href="/es/financial/lease-calculator.html">calculadora de leasing</a>.</p>
+
+    <h2>Preguntas frecuentes</h2>
+    <details class="sx-faq"><summary>¿El valor de entrega del coche usado reduce el impuesto sobre las ventas?<span class="msym" aria-hidden="true">expand_more</span></summary><p>En la mayoría de los estados de EE. UU., sí: el impuesto sobre las ventas se calcula sobre el precio tras restar el valor de tu coche entregado, no sobre el precio total del vehículo.</p></details>
+    <details class="sx-faq"><summary>¿Debo incluir las tarifas de destino o del concesionario?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Sí: introdúcelas en el campo Tarifas del concesionario, título y documentación (o súmalas al precio del vehículo). Normalmente se incluyen en el préstamo, así que omitirlas subestima el importe financiado.</p></details>
+    <details class="sx-faq"><summary>¿Es mejor hacer leasing o financiar un coche?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Financiar crea patrimonio y no tiene límite de kilometraje, mientras que el leasing suele ofrecer pagos mensuales más bajos pero sin propiedad al final. La mejor opción depende de cuánto tiempo conserves los vehículos y de cuánto conduzcas.</p></details>
+    <details class="sx-faq"><summary>¿Cuánto debería ser mi pago inicial?<span class="msym" aria-hidden="true">expand_more</span></summary><p>El 20% es una pauta habitual para coches nuevos y el 10% para usados, aunque es razonable cualquier importe que evite estar «en negativo» (deber más de lo que vale el coche) a medida que se deprecia.</p></details>
+    <details class="sx-faq"><summary>¿Debo elegir un plazo de préstamo de coche más corto o más largo?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Los plazos más cortos (36-48 meses) minimizan el interés total y reducen el riesgo de deber más de lo que vale el coche, mientras que los plazos más largos reducen el pago mensual a un coste total mayor.</p></details>
+    <details class="sx-faq"><summary>¿Vale la pena negociar el precio del vehículo por separado de la financiación?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Sí: negociar el precio y la financiación por separado, en lugar de centrarte solo en el pago mensual, suele conducir a un mejor trato global, ya que los concesionarios pueden ajustar cualquiera de las dos variables para alcanzar una cuota mensual objetivo.</p></details>
+    <details class="sx-faq"><summary>¿Un reembolso del fabricante también reduce mi impuesto sobre las ventas?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Depende de tu estado. La mayoría de los estados gravan el precio total del vehículo antes del reembolso, por lo que un reembolso reduce el importe de tu préstamo pero no tu factura de impuestos. Unos pocos estados (entre ellos Arizona, Iowa, Kansas, Minnesota, Misuri, Nebraska, Texas y Wyoming) gravan en cambio el precio posterior al reembolso; consulta la norma de tu estado antes de dar por hecho una u otra opción.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Calculadoras relacionadas de automoción y financiación</h2><p>Herramientas para el coste total de propiedad y la reestructuración de deudas.</p></div>
+  <a href="/es/financial-calculators.html">Ver las 52 herramientas<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/es/financial/lease-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">key</span></span><b>Calculadora de arrendamiento de automóvil</b><span class="d">Calcula el factor de dinero, la depreciación del valor residual y los costes de adquisición de contratos de leasing de vehículos.</span><span class="f">Leasing o compra<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/car-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>Calculadora de la regla 20/4/10</b><span class="d">Encuentra un presupuesto de coche basado en un 20% de pago inicial, un plazo de 4 años y el 10% de los ingresos mensuales brutos.</span><span class="f">Referencia de asequibilidad<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/guides/car-loan-refinance-calculator-guide.html"><span class="ic"><span class="msym" aria-hidden="true">published_with_changes</span></span><b>Guía de refinanciación de coche</b><span class="d">Calcula el ahorro neto de intereses y los plazos de equilibrio al reducir la TAE de tu vehículo o cambiar el plazo restante.</span><span class="f">Análisis de refinanciación<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Calculadora general de préstamos</b><span class="d">Pago mensual e interés total de cualquier préstamo a plazos de tasa fija.</span><span class="f">Herramienta universal de deuda<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Calculadoras gratuitas y precisas para decisiones cotidianas — pensadas para la claridad, no para el desorden.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot en Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzas</h4>
+        <ul>
+          <li><a href="/es/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/es/financial/amortization-calculator.html">Amortización</a></li>
+          <li><a href="/es/financial/annuity-calculator.html">Anualidad</a></li>
+          <li><a href="/es/financial/mortgage-calculator.html">Hipoteca</a></li>
+          <li><a href="/es/financial/uk-stamp-duty-calculator.html">Stamp Duty (Reino Unido)</a></li>
+          <li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Salud</h4>
+        <ul>
+          <li><a href="/es/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
+          <li><a href="/es/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/es/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
+          <li><a href="/es/health/bmi-calculator.html">IMC</a></li>
+          <li><a href="/es/health/macro-calculator.html">Macros</a></li>
+          <li><a href="/es/health/calorie-calculator.html">Calorías</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Matemáticas y más</h4>
+        <ul>
+          <li><a href="/es/math/basic-calculator.html">Básica</a></li>
+          <li><a href="/es/math/area-calculator.html">Área</a></li>
+          <li><a href="/es/other/age-calculator.html">Edad</a></li>
+          <li><a href="/es/math/percentage-calculator.html">Porcentaje</a></li>
+          <li><a href="/es/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/es/math/quadratic-formula-calculator.html">Fórmula cuadrática</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/about.html">Acerca de</a></li>
+          <li><a href="/methodology.html">Nuestra metodología</a></li>
+          <li><a href="/es/guides/">Guías</a></li>
+          <li><a href="/embed/">Incrustar calculadoras</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Política de privacidad</a></li>
+          <li><a href="/terms.html">Términos de uso</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Mapa del sitio</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones: consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span> <span><a href="/embed/auto-loan-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrusta esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/es/auto-loan.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

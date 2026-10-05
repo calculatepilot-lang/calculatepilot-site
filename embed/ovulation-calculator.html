@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ovulation Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,calendar_month,chevron_right,child_friendly,content_copy,event,expand_more,monitor_weight,print,restart_alt,restaurant,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,49 +38,105 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Ovulation Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="lastPeriodDate">First day of last period</label>
-          <input type="date" id="lastPeriodDate" value="2026-07-01"
->
-        </div>
-        <div class="field">
-          <label for="cycleLength">Average cycle length (days)</label>
-          <input type="number" id="cycleLength" value="28"
-step="1"min="20">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated ovulation date</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Fertile window start</span><span id="outFertileStart">—</span></div>
-        <div class="embed-row"><span>Fertile window end</span><span id="outFertileEnd">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ovCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Ovulation Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>6-Day Fertile Window</span><span class="sx-badge"><span aria-hidden="true" class="msym">calendar_month</span>Next 6 Cycles</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Ovulation Calculator — Fertile Window for the Next 6 Cycles</h1>
+<p>Estimate your ovulation day and six-day fertile window from your last period and cycle length, with a wider range for irregular cycles and a calendar for your next six cycles.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Cycle</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label for="d">First Day of Last Period</label></div><div class="sx-au-in np"><input aria-label="First day of last period" id="d" type="date"/></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="cl">Average Cycle</label></div><div class="sx-au-in np"><input id="cl" inputmode="numeric" max="45" min="20" step="1" type="number" value="28"/><span class="suf">days</span></div></div>
+<div><div class="sx-au-l"><label for="lp">Luteal Phase</label></div><div class="sx-au-in np"><input id="lp" inputmode="numeric" max="17" min="9" step="1" type="number" value="14"/><span class="suf">days</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Cycles Vary?</span></div><input id="irr" type="hidden" value="s1"/>
+<div aria-label="Irregular cycles" class="sx-seg" role="group" style="display:flex"><button data-for="irr" data-value="s1" style="flex:1" type="button">Regular</button><button data-for="irr" data-value="s2" style="flex:1" type="button">They vary</button></div>
+</div>
+<div class="sx-au-g2" hidden="" id="vRow">
+<div><div class="sx-au-l"><label for="sh">Shortest Cycle</label></div><div class="sx-au-in np"><input id="sh" inputmode="numeric" max="45" min="18" step="1" type="number" value="26"/><span class="suf">days</span></div></div>
+<div><div class="sx-au-l"><label for="lo">Longest Cycle</label></div><div class="sx-au-in np"><input id="lo" inputmode="numeric" max="60" min="18" step="1" type="number" value="32"/><span class="suf">days</span></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Find Fertile Days</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Estimated ovulation</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Fertile window</span><b id="fw">—</b></div><div><span>Most fertile days</span><b id="mf">—</b></div></div>
+<div class="g2"><div><span>Next period expected</span><b id="np">—</b></div><div><span id="wideL">Wider window (varying cycles)</span><b id="wide">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Dates</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/period-calculator.html"><span aria-hidden="true" class="msym">calendar_month</span>Period Calculator</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Your Next 6 Cycles</h2><p>Estimated fertile window, ovulation day and next period for each cycle.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Cycle Starts</th><th scope="col">Fertile Window</th><th scope="col">Ovulation</th><th scope="col">Next Period</th></tr></thead>
+<tbody id="cyTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Ovulation</strong> ≈ next period − luteal phase. The luteal phase (after ovulation) is usually about 14 days, so ovulation ≈ cycle day (cycle length − 14). If you know your luteal phase from tracking, enter it.</li>
+<li><strong>Fertile window</strong> = the 5 days before ovulation plus ovulation day. Sperm can survive up to about 5 days, while the egg survives about a day. In Wilcox et al.'s study (NEJM, 1995), pregnancies only occurred from intercourse within this 6-day window, with the highest chances on the 2 days before and the day of ovulation.</li>
+<li><strong>Varying cycles:</strong> the classic calendar rule (Ogino-Knaus) marks days from (shortest cycle − 18) to (longest cycle − 11) as potentially fertile.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the Wilcox studies and ACOG guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A last period starting 1 September with a 28-day cycle: next period ≈ 29 September, so ovulation ≈ 15 September (cycle day 15), and the fertile window runs 10–15 September. With cycles varying from 26 to 32 days, the wider calendar window is cycle days 8–21 (8–21 September).</p>
+<h2>How reliable is this estimate?</h2>
+<p>Calendar estimates work best for regular cycles. Even then, ovulation timing varies: a follow-up study (Wilcox et al., BMJ 2000) found only about 30% of women had their fertile window entirely within days 10–17 of the cycle. Ovulation predictor kits (which detect the LH surge), basal body temperature and cervical mucus tracking give more precise, cycle-by-cycle signals.</p>
+<p><strong>Not for contraception on its own.</strong> Calendar-based estimates are much less reliable than other birth control methods. If you want to use fertility awareness to avoid pregnancy, learn a full method with a healthcare professional.</p>
+<h2>Sources</h2>
+<ul>
+<li>Wilcox AJ, Weinberg CR, Baird DD. Timing of sexual intercourse in relation to ovulation. N Engl J Med 1995;333:1517–1521.</li>
+<li>Wilcox AJ, Dunson D, Baird DD. The timing of the "fertile window" in the menstrual cycle: day specific estimates from a prospective study. BMJ 2000;321:1259–1262.</li>
+<li><a href="https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning" rel="noopener noreferrer">ACOG — Fertility Awareness-Based Methods of Family Planning</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How many days is the fertile window?<span aria-hidden="true" class="msym">expand_more</span></summary><p>About six days: the five days before ovulation and the day of ovulation. The chance of conception is highest on the two days before ovulation and on ovulation day itself.</p></details>
+<details class="sx-faq"><summary>Does ovulation always happen on day 14?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. Day 14 applies only to a 28-day cycle with a 14-day luteal phase. With a 32-day cycle, ovulation is more likely around day 18, and timing can shift from cycle to cycle.</p></details>
+<details class="sx-faq"><summary>How can I confirm ovulation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Ovulation predictor kits detect the hormone surge 1–2 days before ovulation, and a sustained rise in basal body temperature confirms it has happened. Tracking over several cycles also shows your personal pattern.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Plan ahead.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/period-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">calendar_month</span></span><b>Period Calculator</b><span class="d">Upcoming periods and cycle regularity.</span><span class="f">Predict periods<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/due-date-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">child_friendly</span></span><b>Due Date Calculator</b><span class="d">From your last period or conception.</span><span class="f">Find due date<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Weight can affect cycles and fertility.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/pregnancy-calorie-needs-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">restaurant</span></span><b>Pregnancy Calorie Needs</b><span class="d">Energy needs by trimester.</span><span class="f">Check needs<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/ovulation-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -207,7 +145,8 @@ step="1"min="20">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/ovulation.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/ovulation.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

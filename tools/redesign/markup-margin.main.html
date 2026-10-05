@@ -1,0 +1,174 @@
+<div class="sx" id="beCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Markup &amp; Margin Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">query_stats</span>Markup on cost vs margin on price</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Markup &amp; Margin Calculator with Break-Even Analysis</h1>
+    <p>Convert between markup and gross margin, and find the selling price, cost and profit per unit from any two of them. Then check your break-even volume and the profit target for your business in the same page.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Formulas follow standard managerial accounting. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It finds the contribution of each unit, divides fixed costs by it for break-even, and converts between margin and markup.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Pricing goes wrong when margin and markup are mixed up or break-even is a guess. This gets both right.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:32px" id="mmSec">
+<div class="sx-l7">
+<form id="mmForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">percent</span><h2 class="sx-h-md" style="margin:0">Markup and margin converter</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><label>I know</label></div><input type="hidden" id="mk" value="cm"><div class="sx-au-opts c4 sm"><button type="button" data-for="mk" data-value="cm">Cost + margin</button><button type="button" data-for="mk" data-value="cu">Cost + markup</button><button type="button" data-for="mk" data-value="cp">Cost + price</button><button type="button" data-for="mk" data-value="pm">Price + margin</button></div></div>
+    <div class="sx-au-g2">
+      <div id="gCost"><div class="sx-au-l"><label for="mc">Cost per unit</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="mc" type="number" inputmode="decimal" step="1" min="0" value="100"></div></div>
+      <div id="gPrice" hidden><div class="sx-au-l"><label for="mpr">Selling price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="mpr" type="number" inputmode="decimal" step="1" min="0" value="166.67"></div></div>
+      <div id="gMargin"><div class="sx-au-l"><label for="mg">Gross margin</label><em class="mu">% of price</em></div><div class="sx-au-in sm np"><input id="mg" type="number" inputmode="decimal" step="0.5" min="0" max="99.9" value="40"></div></div>
+      <div id="gMarkup" hidden><div class="sx-au-l"><label for="mu">Markup</label><em class="mu">% of cost</em></div><div class="sx-au-in sm np"><input id="mu" type="number" inputmode="decimal" step="0.5" min="0" value="66.67"></div></div>
+    </div>
+    <div class="sx-au-warn" id="err2" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="err2T"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Convert</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Formulas</span><span class="eq" style="font-size:14px">markup = margin ÷ (1 − margin) · margin = markup ÷ (1 + markup)</span></div>
+  </div>
+</form>
+</div>
+<div class="sx-r5">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Selling price</span><span class="sx-ef-grade" id="mtag">—</span></div>
+    <div class="big"><span id="mPrice">—</span></div>
+    <p id="mInterp">—</p>
+    <div class="g2"><div><span>Profit per unit</span><b id="mProfit">—</b></div><div><span>Cost</span><b id="mCost">—</b></div><div><span>Markup on cost</span><b id="mMarkup">—</b></div><div><span>Gross margin</span><b id="mMargin">—</b></div></div>
+  </section>
+  <div class="sx-in-t4 c1"><div class="sx-card" style="border-left:4px solid var(--sx-pc)"><div class="k">Do not mix them up<span class="msym" aria-hidden="true">info</span></div><p style="margin-top:6px">A 40% margin needs a 66.7% markup. Pricing with a 40% markup only gives a 28.6% margin, so the gap can quietly eat your profit.</p></div></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn2"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt2">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Margin and markup lookup</h2><p>What each gross margin means as a markup and as a selling price on a given cost.</p></div></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:640px" id="mmT"><thead><tr><th>Gross margin</th><th class="n">Markup needed</th><th class="n">Price on $50 cost</th><th class="n">Price on $100 cost</th><th class="n">Profit per $100 cost</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<div class="sx-grid" style="margin-bottom:32px" id="cvpSec">
+<div class="sx-l7">
+<form id="cvpForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">query_stats</span><h2 class="sx-h-md" style="margin:0">Break-even: costs and revenue</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-qpills bd" id="bpre" style="padding-top:0"><span class="lb">Illustrative presets</span><button type="button" data-p="saas">SaaS or digital</button><button type="button" data-p="ecom">Online store</button><button type="button" data-p="agency">Agency or services</button><button type="button" data-p="food">Food and dining</button></div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="fc">Fixed costs per month</label><em class="mu">rent, salaries, software</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="fc" type="number" inputmode="decimal" step="100" min="0" value="12500"></div></div>
+      <div><div class="sx-au-l"><label for="vc">Variable cost per unit</label><em class="mu">materials, fees, shipping</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="vc" type="number" inputmode="decimal" step="0.5" min="0" value="24.5"></div></div>
+      <div><div class="sx-au-l"><label for="pr">Selling price per unit</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pr" type="number" inputmode="decimal" step="0.5" min="0" value="65"></div></div>
+      <div><div class="sx-au-l"><label for="tp">Target profit per month</label><em class="mu">optional</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="tp" type="number" inputmode="decimal" step="500" min="0" value="5000"></div></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0;display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate break-even</button><button type="button" class="sx-reset" id="csvBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:10px 14px;background:var(--sx-card)"><span class="msym" aria-hidden="true">download</span>Export CSV</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Working</span><span class="eq" id="proof" style="font-size:14px">—</span></div>
+  </div>
+</form>
+</div>
+<div class="sx-r5" id="cvpRes">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Break-even volume</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>units a month</small></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Break-even revenue</span><b id="beR">—</b></div><div><span>Contribution per unit</span><b id="cmU">—</b></div><div><span>Contribution margin</span><b id="cmR">—</b></div><div><span>Margin of safety</span><b id="mos">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span>To earn the target profit</span><em class="mu" id="tpN">—</em></div>
+    <div class="sx-au-tiles"><div><span>Units needed</span><b id="tU">—</b><small id="tUd">—</small></div><div><span>Revenue needed</span><b id="tR">—</b><small>at your price</small></div></div>
+    <div class="sx-strip" style="margin-top:12px"><span>Operating leverage at that volume</span><b id="dol">—</b></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:6px"><span>Cost and revenue by volume</span><em class="mu">monthly</em></div><div class="cpx-chart" id="chart" style="min-height:220px"></div>
+    <div style="display:flex;height:10px;border-radius:99px;overflow:hidden;background:var(--sx-low);margin:12px 0 6px"><div id="bF" style="background:var(--sx-primary)"></div><div id="bV" style="background:#0891b2"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--sx-onv)"><span id="lF">—</span><span id="lV">—</span></div>
+    <p class="sx-au-note" id="ins" style="text-align:left;margin-top:12px;font-size:13px;line-height:20px">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Break-even price and cost sensitivity</h2><p>How the break-even volume changes if your price or variable cost moves, from your inputs above.</p></div></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:560px" id="sens"><thead><tr><th>Change</th><th class="n">Price</th><th class="n">Break-even units (price change)</th><th class="n">Variable cost</th><th class="n">Break-even units (cost change)</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<div class="sx-ev-two">
+  <section class="sx-card">
+    <span class="eyebrow">Formulas</span>
+    <h2>Cost-volume-profit basics</h2>
+    <div class="sx-au-fx" style="grid-template-columns:1fr">
+      <div><h3>Break-even units</h3><code>Q = fixed costs ÷ (price − variable cost)</code></div>
+      <div><h3>Contribution margin</h3><code>ratio = (price − variable cost) ÷ price</code></div>
+      <div><h3>Target profit</h3><code>units = (fixed costs + target profit) ÷ contribution per unit</code></div>
+    </div>
+    <p style="margin-top:14px">Operating leverage is total contribution ÷ operating income. It shows how much profit changes for a 1% change in sales.</p>
+  </section>
+  <section class="sx-card">
+    <span class="eyebrow">Good to know</span>
+    <h2>Margin, markup and break-even</h2>
+    <p>Margin is profit as a share of the selling price, while markup is profit as a share of cost. The same sale gives a higher markup than margin, which is why they must not be swapped.</p>
+    <p>Break-even assumes a steady price and cost per unit. Discounts, volume pricing and step costs will move it.</p>
+  </section>
+</div>
+
+<section class="sx-mt-sec sx-card">
+  <h2>Worked examples</h2>
+  <p>Illustrative businesses, each checked by hand. The first is the default setup.</p>
+  <div class="sx-mt-3">
+    <div><h3>Break-even volume</h3><p>Fixed costs $12,500, variable cost $24.50, price $65.</p><div class="sx-mt-ex">contribution = 65 − 24.50 = 40.50<br>12,500 ÷ 40.50 = 308.64<br><b>309 units</b>, revenue 309 × 65 = <b>$20,085</b></div></div>
+    <div><h3>Target profit</h3><p>Same business, $5,000 profit wanted.</p><div class="sx-mt-ex">(12,500 + 5,000) ÷ 40.50 = 432.1<br><b>433 units</b>, revenue = <b>$28,145</b></div></div>
+    <div><h3>Margin to markup</h3><p>Cost $100 and a 40% gross margin.</p><div class="sx-mt-ex">price = 100 ÷ (1 − 0.40) = <b>$166.67</b><br>profit = 66.67<br>markup = 66.67 ÷ 100 = <b>66.67%</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How to find your break-even point</h2>
+    <ul>
+      <li>Add up your fixed costs for the period, such as rent, salaries and subscriptions.</li>
+      <li>Work out the variable cost of one unit, and its selling price.</li>
+      <li>Divide fixed costs by the contribution per unit (price minus variable cost).</li>
+      <li>Round up to whole units, because you cannot sell part of a unit.</li>
+    </ul>
+    <p>If the price is at or below the variable cost, you never break even, however much you sell. Raise the price, cut variable costs, or reduce fixed costs.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Garrison, Noreen and Brewer, <i>Managerial Accounting</i>, chapter on cost-volume-profit relationships.</li>
+      <li>Horngren, Datar and Rajan, <i>Cost Accounting: A Managerial Emphasis</i>.</li>
+      <li>U.S. Small Business Administration, <i>Calculate your startup costs</i> and break-even guidance.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is the break-even point?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is the sales volume at which total revenue equals total costs, so profit is exactly zero. Above it you make a profit and below it you make a loss.</p></details>
+    <details class="sx-faq"><summary>What is the difference between margin and markup?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Margin is profit divided by the selling price, and markup is profit divided by the cost. A product costing $100 sold at $150 has a 33.3% margin but a 50% markup.</p></details>
+    <details class="sx-faq"><summary>What is contribution margin?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is the selling price minus the variable cost of a unit. It is the amount each sale contributes toward covering fixed costs and then profit.</p></details>
+    <details class="sx-faq"><summary>What is the margin of safety?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is how far sales can fall before you hit break-even, shown here as a percentage of your target volume. A bigger cushion means lower risk.</p></details>
+    <details class="sx-faq"><summary>How do I lower my break-even point?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Raise the price, reduce variable costs per unit, or cut fixed costs. The sensitivity table shows how much a 5% or 10% change in price or variable cost moves the number of units.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+  <a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/other/break-even-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Break-Even Calculator</b><span class="d">Break-even units and profit targets.</span><span class="f">Open<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/unit-price-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">scale</span></span><b>Unit Price Calculator</b><span class="d">Compare package sizes.</span><span class="f">Compare prices<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/invoice-late-fee-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Invoice Late Fee</b><span class="d">Late fees on overdue invoices.</span><span class="f">Calculate fees<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/discount-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">sell</span></span><b>Discount Calculator</b><span class="d">Sale price after a discount.</span><span class="f">Find the price<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Markup and Margin Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/markup-margin-calculator.html" width="100%" height="560" loading="lazy" title="Markup and Margin Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

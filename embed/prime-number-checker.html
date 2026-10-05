@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prime Number Checker | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,chevron_right,code,content_copy,event,expand_more,exposure_plus_1,functions,lightbulb,link,lock,person_check,picture_as_pdf,restart_alt,sync_alt,tune,verified,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,43 +38,123 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Prime Number Checker</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="numberInput">Number</label>
-          <input type="number" id="numberInput" value="97"
-step="1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Prime factors</span><span id="outFactors">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pnCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Prime Number Checker</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Deterministic Miller–Rabin</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Prime Number Checker</h1>
+<p>Check whether a number is prime, see its full prime factorization and nearest neighboring primes, sieve all primes in a range, or test a Mersenne number 2ᵖ − 1 for primality with the Lucas–Lehmer test.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every algorithm is standard and independently re-checked. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">verified</span><section><b>How the engine works</b><p>Primality uses a deterministic Miller–Rabin test (exact, not probabilistic, for every integer below 2⁶⁴); factorization uses trial division; Mersenne numbers use the Lucas–Lehmer test.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>It shows the actual divisibility trials and the Lucas–Lehmer iterations — not just a yes/no answer.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Is n prime?</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Single check</button><button data-for="mode" data-value="s2" type="button">Range sieve</button><button data-for="mode" data-value="s3" type="button">Mersenne 2ᵖ − 1</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-m="s1" data-n="104729" type="button">104,729 (10,000th prime)</button><button data-m="s1" data-n="561" type="button">561 (Carmichael)</button><button data-hi="100200" data-lo="100000" data-m="s2" type="button">Sieve 100,000–100,200</button><button data-m="s3" data-p="13" type="button">Mersenne p=13</button></div>
+<div id="fN"><div class="sx-au-l"><label for="n">Candidate integer n</label></div><div class="sx-au-in np"><input autocomplete="off" id="n" inputmode="numeric" type="text" value="104729"/></div></div>
+<div hidden="" id="fRange">
+<div><div class="sx-au-l"><label for="lo">Range start</label></div><div class="sx-au-in np"><input id="lo" min="2" step="1" type="number" value="100000"/></div></div>
+<div><div class="sx-au-l"><label for="hi">Range end</label></div><div class="sx-au-in np"><input id="hi" min="2" step="1" type="number" value="100200"/></div></div>
+<p class="sx-au-help">Range width is limited to 200,000 numbers.</p>
+</div>
+<div hidden="" id="fMers">
+<div class="sx-au-l"><label for="pp">Exponent p (tests 2<sup>p</sup> − 1)</label></div><div class="sx-au-in np"><input id="pp" max="4000" min="2" step="1" type="number" value="13"/></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compute</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Checking</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Primality</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:30px;line-height:1.2;word-break:break-word"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Prime factorization</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">Nearest primes</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2>Primes near n</h2><p>Prime gaps around the candidate.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Number line showing primes near the candidate number" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">verified</span><h3>A well-known prime</h3><p>Is 104,729 prime?</p><div class="sx-mt-ex">No divisor up to √104729 ≈ 323.6 divides it evenly<br/><b>Yes — it's the 10,000th prime</b></div></div>
+<div><span aria-hidden="true" class="msym">warning</span><h3>A Carmichael number</h3><p>Is 561 prime?</p><div class="sx-mt-ex">561 = 3 × 11 × 17<br/><b>No — composite</b>, though it famously passes the simpler Fermat test for every base</div></div>
+<div><span aria-hidden="true" class="msym">bolt</span><h3>A Mersenne prime</h3><p>Is 2¹³ − 1 = 8191 prime?</p><div class="sx-mt-ex">Lucas–Lehmer: sequence reaches 0 mod 8191 after 11 steps<br/><b>Yes — 8191 is prime</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is a prime number?</h2>
+<p>A prime number is a whole number greater than 1 with exactly two positive divisors: 1 and itself. Every other whole number greater than 1 is composite, and by the Fundamental Theorem of Arithmetic, every composite number factors uniquely into primes.</p>
+<h2>How the tests work</h2>
+<ul>
+<li><strong>Trial division:</strong> test divisibility by every integer up to √n; if none divide evenly, n is prime.</li>
+<li><strong>Miller–Rabin (deterministic here):</strong> a fast primality test that, using a fixed, proven set of witness bases, gives an exact yes/no answer for any n below 2⁶⁴ — no randomness or uncertainty involved.</li>
+<li><strong>Lucas–Lehmer:</strong> for Mersenne numbers Mₚ = 2ᵖ − 1 with p prime, iterate s ← s² − 2 (mod Mₚ) starting from s = 4; Mₚ is prime exactly when the result is 0 after p − 2 steps.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Pomerance, C., Selfridge, J. L., &amp; Wagstaff, S. S. (1980). The pseudoprimes to 25·10⁹. <i>Mathematics of Computation</i> 35(151), 1003–1026.</li>
+<li>Crandall, R., &amp; Pomerance, C. (2005). <i>Prime Numbers: A Computational Perspective</i> (2nd ed.). Springer, chapters 3–4 (Miller–Rabin, Lucas–Lehmer).</li>
+<li>ISO 80000-2:2019, clause 6 (number theory notation).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is 1 a prime number?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. By definition a prime has exactly two distinct positive divisors; 1 has only one (itself), so it is classified as neither prime nor composite.</p></details>
+<details class="sx-faq"><summary>Why does trial division only need to check up to √n?<span aria-hidden="true" class="msym">expand_more</span></summary><p>If n = a × b with a ≤ b, then a ≤ √n. So if no divisor up to √n is found, no divisor beyond √n can exist either — every composite number has at least one factor at or below its square root.</p></details>
+<details class="sx-faq"><summary>What makes Carmichael numbers tricky?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A Carmichael number is composite but satisfies Fermat's little theorem for every base coprime to it, so the simple Fermat primality test wrongly calls it prime. Miller–Rabin with proper witnesses correctly identifies it as composite.</p></details>
+<details class="sx-faq"><summary>What is a Mersenne prime?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A prime of the form 2ᵖ − 1. p itself must be prime (a necessary but not sufficient condition) — for example, 2¹¹ − 1 = 2047 = 23 × 89 is composite even though 11 is prime. The largest known primes today are almost all Mersenne primes, found via the Lucas–Lehmer test.</p></details>
+<details class="sx-faq"><summary>How many primes are there?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Infinitely many — proved by Euclid around 300 BCE: assuming a finite list of primes and multiplying them together plus 1 always produces a number with a prime factor not on the list, a contradiction.</p></details>
+<details class="sx-faq"><summary>Why are primes important in cryptography?<span aria-hidden="true" class="msym">expand_more</span></summary><p>RSA encryption relies on the fact that multiplying two large primes is fast, but factoring their product back into those primes is computationally hard — this asymmetry is what keeps the encryption secure.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with number theory.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/gcd-lcm-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">calculate</span></span><b>GCD &amp; LCM Calculator</b><span class="d">Euclidean algorithm, Bézout.</span><span class="f">Integers<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/modulo-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">sync_alt</span></span><b>Modulo Calculator</b><span class="d">Mod, congruence, modular inverse.</span><span class="f">Remainders<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/factorial-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">exposure_plus_1</span></span><b>Factorial Calculator</b><span class="d">n!, double and Gamma.</span><span class="f">Factorials<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/sequence-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Sequence Calculator</b><span class="d">Arithmetic, geometric, Fibonacci.</span><span class="f">Sequences<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Prime Checker</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/prime-number-checker.html" width="100%" height="560" loading="lazy" title="Prime Number Checker"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/prime-number-checker.html?ref=widget" target="_blank" rel="noopener">
@@ -201,7 +163,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/prime-checker.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/prime-number-checker.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

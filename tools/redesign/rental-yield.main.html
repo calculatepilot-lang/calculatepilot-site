@@ -1,0 +1,152 @@
+<div class="sx" id="ryCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Rental Yield Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>Real Estate Return Model</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">tune</span>Cap Rate &amp; Cash-on-Cash Precision</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Zero Tracking</span></div>
+    <h1>Rental Property Yield &amp; Cash Flow Calculator</h1>
+    <p>Calculate the gross and net rental yield on an investment property — plus cap rate, cash-on-cash return, monthly cash flow after the mortgage, and debt service coverage.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">real_estate_agent</span></span><h2 class="sx-h-md" style="margin:0">Acquisition &amp; Operating Inputs</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="price">Property Purchase Price</label><em class="mu">Asset Base</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="price" type="number" inputmode="decimal" min="0" step="5000" value="350000" style="font-size:18px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="price" data-value="200000">$200k</button><button type="button" data-for="price" data-value="350000">$350k</button><button type="button" data-for="price" data-value="500000">$500k</button><button type="button" data-for="price" data-value="750000">$750k</button></div>
+    </div>
+
+    <div class="sx-au-box">
+      <b><span class="msym" aria-hidden="true">account_balance</span>Financing &amp; Capital Structure</b>
+      <div class="sx-au-g2" style="gap:12px">
+        <div><label class="sub" for="down" id="downLbl">Down Payment (25%)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="down" type="number" inputmode="decimal" min="0" step="1000" value="87500"></div></div>
+        <div><label class="sub" for="rate">Loan Interest Rate (APR)</label><div class="sx-au-in sm np pc"><input id="rate" type="number" inputmode="decimal" min="0" max="20" step="0.05" value="6.75"><span class="suf">%</span></div></div>
+        <div><label class="sub" for="term">Loan Term</label><div class="sx-au-sel"><select id="term" style="height:38px;font-size:13px"><option value="30" selected>30-Year Fixed</option><option value="20">20-Year Fixed</option><option value="15">15-Year Fixed</option></select></div></div>
+        <div><label class="sub" for="closing">Closing Costs &amp; Make-Ready</label><div class="sx-au-in sm"><span class="pre">$</span><input id="closing" type="number" inputmode="decimal" min="0" step="500" value="12500"></div></div>
+      </div>
+      <p class="sx-au-help">Total initial out-of-pocket cash: <b id="cashIn">$100,000</b></p>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="rent">Gross Monthly Rent</label></div><div class="sx-au-in pc"><span class="pre">$</span><input id="rent" type="number" inputmode="decimal" min="0" step="50" value="2600"><span class="suf">/mo</span></div><p class="sx-au-help" id="rentYr">Annualized: $31,200/yr</p></div>
+      <div>
+        <div class="sx-au-l"><label for="vacR">Vacancy Buffer</label><em id="vacNote">5.0% (18 days/yr)</em></div>
+        <input type="hidden" id="vac" value="5">
+        <div class="sx-au-range"><input id="vacR" class="sx-range2" type="range" min="0" max="15" step="0.5" value="5" data-sync="vac" aria-label="Vacancy percent"></div>
+        <div class="sx-au-range"><div class="sx-scale"><span>0% (Full)</span><span>5%</span><span>15% (Conservative)</span></div></div>
+      </div>
+    </div>
+
+    <div class="sx-ry-opx open" id="opx">
+      <button type="button" aria-expanded="true" aria-controls="opxList"><span><span class="msym" aria-hidden="true">receipt_long</span>Operating Expenses Breakdown <em>5 Itemized</em></span><span style="gap:10px"><b id="opxTot">—</b><span class="msym chev" aria-hidden="true">expand_more</span></span></button>
+      <ul id="opxList">
+        <li><span class="msym" aria-hidden="true">support_agent</span><label for="mgmt">Property Management Fee (% of rent collected)</label><div class="sx-au-in np pc"><input id="mgmt" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="8"><span class="suf">%</span></div><b id="mgmtMo">—</b></li>
+        <li><span class="msym" aria-hidden="true">account_balance_wallet</span><label for="ptax">Annual Property Tax</label><div class="sx-au-in"><span class="pre">$</span><input id="ptax" type="number" inputmode="decimal" min="0" step="100" value="3800"></div><b id="ptaxMo">—</b></li>
+        <li><span class="msym" aria-hidden="true">shield</span><label for="ins">Landlord Insurance (Annual)</label><div class="sx-au-in"><span class="pre">$</span><input id="ins" type="number" inputmode="decimal" min="0" step="50" value="1400"></div><b id="insMo">—</b></li>
+        <li><span class="msym" aria-hidden="true">build</span><label for="maint">Maintenance &amp; CapEx Reserves (% of rent)</label><div class="sx-au-in np pc"><input id="maint" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="10"><span class="suf">%</span></div><b id="maintMo">—</b></li>
+        <li><span class="msym" aria-hidden="true">holiday_village</span><label for="hoa">HOA / Community Dues (Monthly)</label><div class="sx-au-in"><span class="pre">$</span><input id="hoa" type="number" inputmode="decimal" min="0" step="10" value="50"></div><b id="hoaMo">—</b></li>
+      </ul>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="appr">Annual Appreciation</label><em class="mu">Forecast</em></div><div class="sx-au-in sm np pc"><input id="appr" type="number" inputmode="decimal" min="-10" max="15" step="0.1" value="3"><span class="suf">%</span></div></div>
+      <div><div class="sx-au-l"><label for="rg">Annual Rent &amp; Cost Growth</label><em class="mu">Forecast</em></div><div class="sx-au-in sm np pc"><input id="rg" type="number" inputmode="decimal" min="-5" max="15" step="0.1" value="2.5"><span class="suf">%</span></div></div>
+    </div>
+
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px;background:var(--sx-primary)"><span class="msym" aria-hidden="true">insights</span>Analyze Property Yield &amp; Returns<span class="msym" aria-hidden="true">arrow_forward</span></button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-ry-eng" aria-live="polite">
+    <div class="hd"><span>Investment Yield Engine</span><span class="sx-au-tag">Unleveraged + Leveraged</span></div>
+    <div class="sx-ry-cap"><div><div class="k">Net Capitalization Rate (Cap Rate)</div><div class="big" id="resultValue">—</div></div><div class="rt"><em id="capTag">—</em><br>NOI / Purchase Price</div></div>
+    <div class="sx-au-tiles card">
+      <div><span>Gross Rental Yield</span><b id="gross">—</b><small>Rent / Purchase Price</small></div>
+      <div><span>Cash-on-Cash (CoC)</span><b id="coc">—</b><small>Pre-tax / Total Cash In</small></div>
+    </div>
+    <div class="sx-ry-cf" id="cfBox"><div><span class="msym" aria-hidden="true">payments</span><div><span>Monthly Net Free Cash Flow</span><b id="cfMo">—</b> <small style="font-size:12px;color:var(--sx-muted)">/ month</small></div></div><div class="rt"><span id="cfLbl">Annual Liquid Surplus</span><b id="cfYr">—</b></div></div>
+  </section>
+
+  <section class="sx-card r2 sx-ry-wf">
+    <div class="hd"><b><span class="msym" aria-hidden="true">waterfall_chart</span>Annual Cash Flow Waterfall</b><span>Year 1</span></div>
+    <ul>
+      <li>Gross Potential Rent<b id="w1">—</b></li>
+      <li class="m"><span id="w2l">(−) Vacancy Loss (5%)</span><b id="w2">—</b></li>
+      <li class="s">(=) Effective Gross Income<b id="w3">—</b></li>
+      <li class="m"><span id="w4l">(−) Total Operating Expenses</span><b id="w4">—</b></li>
+      <li class="noi"><span><span class="msym" aria-hidden="true">domain</span>(=) Net Operating Income (NOI)</span><b id="w5">—</b></li>
+      <li class="m" style="color:var(--sx-muted)">(−) Annual Debt Service (P&amp;I)<b id="w6">—</b></li>
+      <li class="tot" id="wTot">(=) Net Pre-Tax Cash Flow<b id="w7">—</b></li>
+    </ul>
+  </section>
+
+  <section class="sx-card r2 sx-ry-risk">
+    <h3><span class="msym" aria-hidden="true">security</span>Risk &amp; Debt Underwriting Metrics</h3>
+    <div class="r">Debt Service Coverage Ratio (DSCR)<b id="dscr">—</b></div>
+    <div class="t"><span id="dscrBar"></span></div>
+    <div class="s"><span>Typical lender minimum: 1.20–1.25x</span><b id="dscrTxt">—</b></div>
+    <div class="r">1% Rule Score<b id="onep" style="font-size:18px">—</b></div>
+    <p id="onepTxt">—</p>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="forecast">
+  <div class="hd">
+    <div><h2>10-Year Cumulative Wealth &amp; Equity Forecast</h2><p id="fcSub">—</p></div>
+    <span class="sx-au-tag"><span class="msym" aria-hidden="true" style="font-size:14px;vertical-align:-2px">auto_graph</span> Amortization Engine</span>
+  </div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Year</th><th scope="col">Property Value</th><th scope="col">Gross Rent / Yr</th><th scope="col">Loan Principal Balance</th><th scope="col">Total Accumulated Equity</th><th scope="col">Cumulative Free Cash</th><th scope="col">Total Estimated ROI</th></tr></thead>
+    <tbody id="fcBody"></tbody>
+  </table></div>
+  <div class="ft"><span>*Excludes tax depreciation deductions, selling costs and capital gains tax on sale. ROI = (equity + cumulative cash flow − cash invested) ÷ cash invested.</span><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export 10-Year Ledger (.CSV)</button></div>
+</section>
+
+<section class="sx-au-plain" style="border:0;padding-top:0">
+  <h2>Methodology &amp; Underwriting Definitions</h2>
+  <p class="lead">The formulas behind each real estate metric on this page.</p>
+  <div class="sx-au-fx">
+    <div><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><h3>Net Cap Rate (Capitalization Rate)</h3><code><b>Cap Rate = NOI ÷ Purchase Price</b></code><p style="margin-top:12px">Measures unleveraged yield, as if the property were bought entirely in cash. Leaving out financing makes properties and markets directly comparable.</p></div>
+    <div><span class="ic"><span class="msym" aria-hidden="true">monetization_on</span></span><h3>Cash-on-Cash Return (CoC)</h3><code><b>CoC = Annual Pre-Tax Cash Flow ÷ Total Cash Invested</b></code><p style="margin-top:12px">Compares the cash you actually keep each year with the cash you put in: down payment, closing costs and make-ready or renovation spending.</p></div>
+    <div><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><h3>The 50% Rule Benchmark</h3><code><b>Opex ≈ 50% × Gross Rent</b></code><p style="margin-top:12px">A rough screening rule of thumb: operating costs (excluding the mortgage) often run 40–50% of rent once vacancy, repairs and capital replacements are counted. <span id="opexRatio"></span></p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Gross yield vs. net yield</h2>
+    <p>Gross yield is a quick, simple comparison metric — annual rent divided by property price — useful for quickly screening properties, but it ignores all ongoing costs. Net yield subtracts annual expenses (property management, maintenance, insurance, property tax, vacancy allowance) before dividing by price, giving a more realistic picture of actual return. On this page, net yield is the cap rate.</p>
+    <p>Two properties with identical gross yields can have very different net yields depending on their expense profile — an older property may need more maintenance, while a newer one might carry higher property tax, both of which erode the gross number differently.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>What counts as an expense in this calculation</h2>
+    <p>A thorough net yield calculation should include property management fees (if using a manager), routine maintenance and repairs, property insurance, property tax, HOA fees if applicable, and a reasonable allowance for vacancy periods between tenants — leaving any of these out will overstate your actual return.</p>
+    <p>Mortgage payments are not an operating expense, so they don't affect cap rate or net yield. They are subtracted afterwards to get cash flow, cash-on-cash return and DSCR — the numbers that show how the property performs with your financing.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What's considered a good rental yield?<span class="msym" aria-hidden="true">expand_more</span></summary><p>This varies significantly by market and property type, but gross yields in the 5-8% range are commonly cited as solid in many markets, while some higher-risk or lower-cost markets can show higher yields — always compare within your specific local market rather than against a universal benchmark.</p></details>
+    <details class="sx-faq"><summary>Should I use gross or net yield to compare properties?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Net yield gives a more accurate picture since it accounts for actual holding costs, though gross yield is useful as a quick first-pass screening tool before digging into expense details.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Property Valuation Engines</h2><p>Cross-reference financing, exit strategies, and home equity.</p></div>
+  <a href="/financial-calculators.html">All 52 Financial Calculators<span class="msym" aria-hidden="true">chevron_right</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/house-flip-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">hardware</span></span><b>House Flip Calculator</b><span class="d">Model purchase, rehab and holding costs against the sale price.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/refinance-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">currency_exchange</span></span><b>Refinance Calculator</b><span class="d">Break-even horizon and monthly savings from a new mortgage rate or term.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Mortgage Calculator</b><span class="d">P&amp;I amortization, property tax, insurance, PMI and extra payments.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/heloc-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">swap_horiz</span></span><b>HELOC Calculator</b><span class="d">Tap home equity for your next purchase: draw and repayment payments.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

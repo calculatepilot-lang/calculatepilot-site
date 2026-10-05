@@ -1,0 +1,123 @@
+<div class="sx" id="stCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Sales Tax Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>State + Local Combined Rates</span><span class="sx-badge"><span class="msym" aria-hidden="true">gavel</span>Wayfair Nexus Rules</span><span class="sx-badge"><span class="msym" aria-hidden="true">sync_alt</span>Tax-Inclusive vs Tax-Exclusive</span></div>
+    <h1>Sales Tax Calculator: Tax Amount &amp; Final Price</h1>
+    <p>Calculate the sales tax and final total on a purchase — split into state, county, city and special-district rates — or work backwards from a tax-inclusive total.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Transaction &amp; Tax Jurisdiction</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Calculation Direction</span></div>
+      <input type="hidden" id="mode" value="s1">
+      <div class="sx-seg" role="group" aria-label="Calculation direction" style="display:flex"><button type="button" data-for="mode" data-value="s1" style="flex:1"><span class="msym" aria-hidden="true" style="font-size:16px;vertical-align:-3px">add_circle</span> Add Sales Tax</button><button type="button" data-for="mode" data-value="s2" style="flex:1"><span class="msym" aria-hidden="true" style="font-size:16px;vertical-align:-3px">remove_circle</span> Extract from Total</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="price" id="priceL">Price Before Tax</label><em style="color:var(--sx-muted);font-weight:500">USD</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="price" type="number" inputmode="decimal" min="0" step="0.01" value="1250" style="font-size:17px;font-weight:600"><span class="suf">USD</span></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="price" data-value="100">$100</button><button type="button" data-for="price" data-value="500">$500</button><button type="button" data-for="price" data-value="1250">$1,250</button><button type="button" data-for="price" data-value="3000">$3,000</button><button type="button" data-for="price" data-value="10000">$10,000</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="jur">Jurisdiction Example</label><em style="color:var(--sx-muted);font-weight:500">Verify the current rate for the exact address</em></div>
+      <div class="sx-au-sel"><select id="jur">
+        <option value="ny">New York City, NY — 8.875%</option>
+        <option value="la">Los Angeles (city), CA — 9.75%</option>
+        <option value="tx">Austin, TX — 8.25%</option>
+        <option value="tn">Nashville, TN — 9.25%</option>
+        <option value="or">Oregon (no sales tax) — 0.00%</option>
+        <option value="custom" selected>Custom rates (edit below)</option>
+      </select></div>
+    </div>
+    <div class="sx-card" style="padding:16px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">account_balance</span>Tax Rate Breakdown</span><em style="color:var(--sx-muted);font-weight:500">Editable</em></div>
+      <div class="sx-au-g2" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+        <div><label for="r1" style="font-size:11px;color:var(--sx-muted)">State</label><div class="sx-au-in sm np pc"><input id="r1" type="number" inputmode="decimal" min="0" max="20" step="0.001" value="6"><span class="suf">%</span></div></div>
+        <div><label for="r2" style="font-size:11px;color:var(--sx-muted)">County</label><div class="sx-au-in sm np pc"><input id="r2" type="number" inputmode="decimal" min="0" max="20" step="0.001" value="1.25"><span class="suf">%</span></div></div>
+        <div><label for="r3" style="font-size:11px;color:var(--sx-muted)">City</label><div class="sx-au-in sm np pc"><input id="r3" type="number" inputmode="decimal" min="0" max="20" step="0.001" value="1.5"><span class="suf">%</span></div></div>
+        <div><label for="r4" style="font-size:11px;color:var(--sx-muted)">Special / Transit</label><div class="sx-au-in sm np pc"><input id="r4" type="number" inputmode="decimal" min="0" max="20" step="0.001" value="0.75"><span class="suf">%</span></div></div>
+      </div>
+      <div class="sx-au-l" style="margin:12px 0 0;padding-top:10px;border-top:1px solid var(--sx-border)"><span>Combined Rate:</span><b style="font-family:var(--font-mono);font-size:16px;color:var(--sx-primary)" id="comb">—</b></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Product Classification</span></div>
+      <input type="hidden" id="cls" value="s1">
+      <div class="sx-au-cat nr" role="group" aria-label="Product classification">
+        <button type="button" data-for="cls" data-value="s1"><span><b>General Merchandise</b><small>Taxed at the full combined rate</small></span></button>
+        <button type="button" data-for="cls" data-value="s2"><span><b>Groceries / Unprepared Food</b><small>Exempt in most states; some tax at a reduced rate</small></span></button>
+        <button type="button" data-for="cls" data-value="s3"><span><b>Prescription Drugs</b><small>Exempt in virtually every state</small></span></button>
+        <button type="button" data-for="cls" data-value="s4"><span><b>Digital Products &amp; SaaS</b><small>Taxable in some states, exempt in others</small></span></button>
+      </div>
+      <div class="sx-vt-in" id="grRow"><label for="gr">Grocery rate in your state (0 if exempt):</label><div class="sx-au-in sm np pc" style="max-width:120px"><input id="gr" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="0"><span class="suf">%</span></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">functions</span>Compute Sales Tax</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-vt-set" aria-live="polite">
+    <div class="hd"><div><b><span class="msym" aria-hidden="true">analytics</span>Sales Tax Assessment</b><small id="clsN">—</small></div><span class="sx-ef-grade"><span class="msym" aria-hidden="true" style="font-size:14px;vertical-align:-2px">check_circle</span> <span id="rTag">—</span></span></div>
+    <div class="sx-vt-gross"><span>Total Price (Customer Pays)</span><div class="big" id="resultValue">—</div>
+      <div class="r"><span>Pre-tax price: <b id="net">—</b></span><span>Sales tax: <b id="tax">—</b></span></div></div>
+    <div class="sx-vt-led">
+      <div class="h">Tax by Jurisdiction<span>Remitted to each authority</span></div>
+      <div class="l"><span>State</span><b id="t1">—</b></div>
+      <div class="l"><span>County</span><b id="t2">—</b></div>
+      <div class="l"><span>City / municipal</span><b id="t3">—</b></div>
+      <div class="l"><span>Special district / transit</span><b id="t4">—</b></div>
+      <div class="l t"><span>Total sales tax</span><b id="tt">—</b></div>
+    </div>
+    <div class="sx-vt-f"><b style="display:flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">lightbulb</span>Check &amp; Reverse Formula</b><code id="fx">—</code><span id="fxN">—</span></div>
+    <div class="sx-in-acts" style="margin-top:16px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export Tax Slip (PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">csv</span>Download (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="bench">
+  <div class="hd"><div><h2>State Sales Tax Base Rates (2026)</h2><p>Statewide base rates. Most states also allow local sales taxes, so the rate you pay at the register is usually higher.</p></div><span class="sx-au-tag">Load any state rate</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">State</th><th scope="col">State Base Rate</th><th scope="col">Local Sales Taxes</th><th scope="col">Groceries</th><th scope="col"><span class="sx-sr">Action</span></th></tr></thead>
+    <tbody id="bTbl"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">gavel</span></span><h3>South Dakota v. Wayfair &amp; Economic Nexus</h3><p>The Supreme Court's 2018 <i>Wayfair</i> decision let states require out-of-state sellers to collect sales tax based on their sales into the state, not just physical presence. The most common threshold is <b>$100,000 in annual sales</b> into a state — some states also use a count of 200 transactions, though many have dropped it.</p><div class="sx-sg-take"><b>For sellers:</b> track sales by destination state and register once you pass each state's threshold.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">local_shipping</span></span><h3>Origin-Based vs Destination-Based Sourcing</h3><p>Most states use <b>destination-based sourcing</b>: the rate is set by where the buyer receives the goods, including local and special-district rates at that address. A handful of states use origin-based sourcing for some in-state sales, where the seller's location sets the rate.</p><div class="sx-sg-take"><b>Tip:</b> rates can differ between neighboring ZIP codes — use the state revenue department's address lookup for the exact rate.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How sales tax is calculated</h2>
+    <p>Tax = price × rate. Total = price + tax. To reverse a taxed total, divide by (1 + rate).</p>
+    <p>US rates are state and local, not federal. Groceries and prescriptions are often exempt. Outside the US, most countries use VAT instead — see the <a href="/financial/vat-calculator.html">VAT Calculator</a>.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>How do I calculate sales tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the pre-tax price by the combined sales tax rate as a decimal. For example, $1,250 at 9.5% is $1,250 × 0.095 = $118.75 in tax, for a total of $1,368.75.</p></details>
+    <details class="sx-faq"><summary>How do I remove sales tax from a total?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the tax-inclusive total by (1 + rate). A $1,368.75 total at 9.5% tax is $1,368.75 ÷ 1.095 = $1,250 before tax, so the tax was $118.75.</p></details>
+    <details class="sx-faq"><summary>Which states have no sales tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Delaware, Montana, New Hampshire and Oregon have no statewide or local general sales tax. Alaska has no state sales tax, but many Alaskan localities charge their own.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Calculators</h2><p>Pricing, tax and pay tools.</p></div>
+  <a href="/financial-calculators.html">View all tools<span class="msym" aria-hidden="true">chevron_right</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/vat-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">euro</span></span><b>VAT Calculator</b><span class="d">Add or remove UK, EU and international VAT.</span><span class="f">Explore<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/discount-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">sell</span></span><b>Discount Calculator</b><span class="d">Sale price and savings from a discount.</span><span class="f">Explore<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Paycheck Calculator</b><span class="d">Federal withholding, FICA and take-home pay.</span><span class="f">Explore<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">badge</span></span><b>Freelance Rate Calculator</b><span class="d">Billable rates that cover overheads and tax.</span><span class="f">Explore<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

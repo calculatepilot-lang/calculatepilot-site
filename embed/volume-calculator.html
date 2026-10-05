@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Volume Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=architecture,arrow_forward,calculate,chevron_right,circle,code,content_copy,event,expand_more,foundation,functions,lightbulb,link,lock,medication,person_check,picture_as_pdf,propane_tank,restart_alt,square_foot,tune,verified_user,view_in_ar,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,63 +38,145 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Volume Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="shape">Shape</label>
-          <select id="shape">
-            <option value="cube" selected>Cube</option>
-            <option value="box" >Rectangular box</option>
-            <option value="cylinder" >Cylinder</option>
-            <option value="sphere" >Sphere</option>
-            <option value="cone" >Cone</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="dim1">Side / radius</label>
-          <input type="number" id="dim1" value="5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="dim2">Width / height (if needed)</label>
-          <input type="number" id="dim2" value="5"
-step="0.1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="dim3">Length (box only)</label>
-          <input type="number" id="dim3" value="5"
-step="0.1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Volume</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Shape used</span><span id="outShape">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="voCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Volume Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>12 solids, exact formulas</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Volume Calculator</h1>
+<p>Find the volume and surface area of cubes, boxes, cylinders, spheres, hemispheres, cones, frustums, pyramids, triangular prisms, capsules, ellipsoids and tori — with liquid-capacity conversions (litres, US and imperial gallons, barrels) and the working shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every formula is standard solid geometry, and the worked examples are re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It substitutes your dimensions into the closed-form volume and surface formulas, then converts cubic units to litres and gallons with exact factors.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Volume questions usually end in a tank, a pour or a shipment. This page goes straight from dimensions to capacity in the unit you need.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Cylinder</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label for="shape">Solid</label></div><select class="sx-mt-sel" id="shape"><option value="cube">Cube</option><option value="box">Rectangular box</option><option selected="" value="cyl">Cylinder</option><option value="sph">Sphere</option><option value="hemi">Hemisphere</option><option value="cone">Cone</option><option value="frus">Frustum (truncated cone)</option><option value="pyr">Pyramid (rectangular base)</option><option value="tpr">Triangular prism</option><option value="cap">Capsule</option><option value="ell">Ellipsoid</option><option value="tor">Torus</option></select></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-s="cyl" data-u="cm" data-v="28.5,85" type="button">55-gallon drum</button><button data-s="cyl" data-u="m" data-v="1.5,5" type="button">Storage tank</button><button data-s="sph" data-u="m" data-v="0.11" type="button">Soccer ball (approx.)</button><button data-s="cone" data-u="cm" data-v="4,9" type="button">Cone 4 × 9</button></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="un">Length unit</label></div><select class="sx-mt-sel" id="un"><option value="mm">millimetres (mm)</option><option selected="" value="cm">centimetres (cm)</option><option value="m">metres (m)</option><option value="in">inches (in)</option><option value="ft">feet (ft)</option><option value="yd">yards (yd)</option></select></div>
+<div><div class="sx-au-l"><label for="dp">Decimal places</label></div><select class="sx-mt-sel" id="dp"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option></select></div>
+</div>
+<div class="sx-au-g2">
+<div id="g1"><div class="sx-au-l"><label for="p1" id="l1">Radius (r)</label></div><div class="sx-au-in np"><input id="p1" inputmode="decimal" min="0" step="any" type="number" value="28.5"/></div></div>
+<div id="g2"><div class="sx-au-l"><label for="p2" id="l2">Height (h)</label></div><div class="sx-au-in np"><input id="p2" inputmode="decimal" min="0" step="any" type="number" value="85"/></div></div>
+<div hidden="" id="g3"><div class="sx-au-l"><label for="p3" id="l3">—</label></div><div class="sx-au-in np"><input id="p3" inputmode="decimal" min="0" step="any" type="number" value="0"/></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate volume</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Live formula</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Total volume (V)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Capacity in litres</span><b id="lit" style="font-size:17px">—</b></div><div><span>Total surface area</span><b id="sa" style="font-size:17px">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Volume in other units</h2><p>The same volume as capacity or cubic measure. Exact conversion factors.</p></div><span class="sx-au-tag" id="cvTag">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" id="cvTbl" style="min-width:520px"><thead><tr><th scope="col">Unit</th><th scope="col">Volume</th><th scope="col">Typical use</th></tr></thead><tbody></tbody></table></div>
+<div class="ft"><span id="massN">—</span></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Drawing</h2><p>A schematic of the solid using your proportions.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Schematic drawing of the solid" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Volume and surface-area reference</h2><p>All twelve solids on this page.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:720px">
+<thead><tr><th scope="col">Solid</th><th scope="col">Volume</th><th scope="col">Total surface area</th></tr></thead>
+<tbody>
+<tr><td>Cube (edge a)</td><td class="mono">a³</td><td class="mono">6a²</td></tr>
+<tr><td>Box (l, w, h)</td><td class="mono">l·w·h</td><td class="mono">2(lw + lh + wh)</td></tr>
+<tr><td>Cylinder</td><td class="mono">πr²h</td><td class="mono">2πr(r + h)</td></tr>
+<tr><td>Sphere</td><td class="mono">(4/3)πr³</td><td class="mono">4πr²</td></tr>
+<tr><td>Hemisphere</td><td class="mono">(2/3)πr³</td><td class="mono">3πr² (with the flat base)</td></tr>
+<tr><td>Cone</td><td class="mono">(1/3)πr²h</td><td class="mono">πr(r + √(r² + h²))</td></tr>
+<tr><td>Frustum</td><td class="mono">(1/3)πh(R² + Rr + r²)</td><td class="mono">π[R² + r² + (R + r)s], s = √((R−r)² + h²)</td></tr>
+<tr><td>Rectangular pyramid</td><td class="mono">(1/3)lwh</td><td class="mono">lw + l√(h² + w²/4) + w√(h² + l²/4)</td></tr>
+<tr><td>Triangular prism (isosceles)</td><td class="mono">½·b·t·L</td><td class="mono">b·t + (b + 2√(t² + b²/4))·L</td></tr>
+<tr><td>Capsule</td><td class="mono">πr²L + (4/3)πr³</td><td class="mono">2πrL + 4πr²</td></tr>
+<tr><td>Ellipsoid</td><td class="mono">(4/3)πabc</td><td class="mono">≈ Thomsen (p = 1.6075)</td></tr>
+<tr><td>Torus</td><td class="mono">2π²Rr²</td><td class="mono">4π²Rr</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">propane_tank</span><h3>Storage tank</h3><p>A vertical tank is 3 m across (r = 1.5 m) and 5 m tall, filled to 95%.</p><div class="sx-mt-ex">V = π × 1.5² × 5 = <b>35.343 m³</b> = 35,343 L<br/>95% fill = <b>33,576 L</b></div></div>
+<div><span aria-hidden="true" class="msym">foundation</span><h3>Concrete pier</h3><p>A round pier is 0.9 m in diameter and 12 m deep; order 5% extra.</p><div class="sx-mt-ex">V = π × 0.45² × 12 = <b>7.634 m³</b><br/>with 5% extra: <b>8.016 m³</b></div></div>
+<div><span aria-hidden="true" class="msym">medication</span><h3>Capsule tank</h3><p>A tank is a 4 m cylinder with hemispherical ends, r = 1.2 m.</p><div class="sx-mt-ex">cylinder: π × 1.44 × 4 = 18.096<br/>two ends: (4/3)π × 1.728 = 7.238<br/><b>V = 25.334 m³</b></div></div>
+</div>
+<div class="sx-mt-fx" style="margin-top:16px"><span class="k">Why a can is about as tall as it is wide</span><span class="eq" style="font-size:16px">for a fixed volume, surface area is smallest when h = 2r</span><p>Setting the derivative of the cylinder’s surface area to zero at constant volume gives h = 2r: the height equals the diameter.</p></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is volume?</h2>
+<p>Volume measures the space a solid occupies, in cubic units: a 1 m cube holds 1 m³, which is 1,000 litres. Capacity is the same idea applied to containers. Surface area, by contrast, is the total area of the solid’s outside.</p>
+<h2>Cavalieri’s principle</h2>
+<p>If two solids have the same height and every horizontal slice at the same level has equal area, the solids have equal volume. This is why a slanted cylinder has the same volume as a straight one, and why a cone is exactly one third of the cylinder with the same base and height.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Archimedes, <i>On the Sphere and Cylinder</i> (c. 225 BCE) — the volume and surface area of the sphere.</li>
+<li>Cavalieri, B. (1635). <i>Geometria indivisibilibus continuorum</i>.</li>
+<li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i> — the litre, gallon and barrel definitions used in the conversion table.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why is a cylinder’s surface area smallest when its height equals its diameter?<span aria-hidden="true" class="msym">expand_more</span></summary><p>For a fixed volume V = πr²h, the surface area is 2πr² + 2V ÷ r. Setting its derivative with respect to r to zero gives h = 2r, so a cylinder that uses the least material for its volume is as tall as it is wide.</p></details>
+<details class="sx-faq"><summary>What is the difference between volume, capacity and displacement?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Volume is the space the solid occupies. Capacity is how much a container can hold, so it uses the internal dimensions. Displacement is the volume of fluid a submerged object pushes aside, which equals the object’s own volume.</p></details>
+<details class="sx-faq"><summary>Are US and imperial gallons the same?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. A US liquid gallon is exactly 3.785411784 litres, while an imperial (UK) gallon is exactly 4.54609 litres, about 20% larger. The table shows both.</p></details>
+<details class="sx-faq"><summary>How do I find the volume of a partly filled horizontal cylinder?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The liquid’s cross-section is a circular segment of depth d in a circle of radius r, with area r²·arccos((r − d) ÷ r) − (r − d)√(2rd − d²). Multiply that area by the cylinder’s length. This calculator handles the full solid; use the Circle Calculator’s segment tool for the cross-section.</p></details>
+<details class="sx-faq"><summary>How is the ellipsoid’s surface area calculated?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Its volume, 4πabc ÷ 3, is exact. Its surface area has no elementary closed form, so the calculator uses Thomsen’s approximation with exponent 1.6075, which is accurate to about 1%.</p></details>
+<details class="sx-faq"><summary>Which units should I enter?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use the same length unit for every dimension. The volume is in that unit cubed, and the conversion table shows it in litres, gallons, cubic feet and other units.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with geometry.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/area-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">square_foot</span></span><b>Area Calculator</b><span class="d">Areas of 11 flat shapes with unit conversion.</span><span class="f">Shape areas<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/circle-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">circle</span></span><b>Circle Calculator</b><span class="d">Circumference, sector, segment and annulus.</span><span class="f">Circles<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/distance-3d-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">view_in_ar</span></span><b>3D Distance</b><span class="d">Distance between two points in space.</span><span class="f">Space distance<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/pythagorean-theorem-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">architecture</span></span><b>Pythagorean Theorem</b><span class="d">Hypotenuse, legs and 3D distance.</span><span class="f">Right triangles<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Volume Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/volume-calculator.html" width="100%" height="560" loading="lazy" title="Volume Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/volume-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -221,7 +185,8 @@ step="0.1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/volume.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/volume.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

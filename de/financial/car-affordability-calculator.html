@@ -1,1 +1,375 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Autokosten- und Leistbarkeitsrechner | CalculatePilot</title><meta name="description" content="Schätzen Sie, welchen Fahrzeugpreis Ihr gewünschtes Monatsbudget finanzieren kann, mit dem Rechner von CalculatePilot."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/car-affordability-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/car-affordability-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/car-affordability-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/car-affordability-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/car-affordability-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/car-affordability-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260906" defer></script></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/health-calculators.html">Gesundheit</a></li><li><a href="/math-calculators.html">Mathematik</a></li><li><a href="/other-calculators.html">Alltag</a></li><li><a href="/guides/index.html">Ratgeber</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Fahrzeugbudget</nav></div><section class="calc-page-head"><div class="container"><h1>Autokosten- und Leistbarkeitsrechner</h1><p class="lede">Schätzen Sie den Fahrzeugpreis anhand Ihrer maximalen monatlichen Finanzierungsrate.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Maximale Monatsrate <input id="payment" type="number" value="450" min="0"></label><label>Anzahlung <input id="down" type="number" value="5000" min="0"></label><label>Jahreszins (%) <input id="rate" type="number" value="6.5" min="0" step="0.01"></label><label>Laufzeit (Jahre) <input id="years" type="number" value="5" min="1"></label><button id="calc">Berechnen</button><div id="result" class="result" aria-live="polite"></div></div></div></section><section class="content-block"><div class="container prose"><h2>Welches Auto können Sie sich leisten?</h2><p>Der Rechner bestimmt den finanzierbaren Kreditbetrag aus Monatsrate, Zinssatz und Laufzeit und addiert anschließend die Anzahlung.</p><p>Berücksichtigen Sie zusätzlich Versicherung, Kraftstoff, Wartung, Steuern und sonstige laufende Fahrzeugkosten.</p></div></section></main><script>const f=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n);document.getElementById('calc').onclick=()=>{let p=+payment.value||0,d=+down.value||0,r=(+rate.value||0)/1200,n=(+years.value||0)*12,loan=r?p*(1-Math.pow(1+r,-n))/r:p*n;result.innerHTML='<strong>Geschätzter Fahrzeugpreis: '+f(loan+d)+'</strong><br>Finanzierter Betrag: '+f(loan)+'<br>Anzahlung: '+f(d)};document.getElementById('calc').click();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autoerschwinglichkeitsrechner | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie den maximalen Autopreis, den Sie sich leisten können, anhand Ihres Monatsbudgets, Zinssatzes und Ihrer Anzahlung. Kostenlos, sofort, mit Formel.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/car-affordability-calculator.html"
+<meta property="og:locale" content="de_DE">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/car-affordability-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/car-affordability-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/car-affordability-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/car-affordability-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/car-affordability-calculator.html">
+<meta property="og:title" content="Autoerschwinglichkeitsrechner | CalculatePilot">
+<meta property="og:description" content="Berechnen Sie den maximalen Autopreis, den Sie sich leisten können, anhand Ihres Monatsbudgets, Zinssatzes und Ihrer Anzahlung. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/car-affordability-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Autoerschwinglichkeitsrechner | CalculatePilot">
+<meta name="twitter:description" content="Berechnen Sie den maximalen Autopreis, den Sie sich leisten können, anhand Ihres Monatsbudgets, Zinssatzes und Ihrer Anzahlung. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Auto-Erschwinglichkeitsrechner",
+ "url": "https://www.calculatepilot.com/de/financial/car-affordability-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Berechnen Sie den maximalen Autopreis, den Sie sich leisten können, anhand Ihres Monatsbudgets, Zinssatzes und Ihrer Anzahlung. Keine Anmeldung nötig. CalculatePilot erklärt die Formel",
+ "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Startseite",
+   "item": "https://www.calculatepilot.com/de/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Finanzrechner",
+   "item": "https://www.calculatepilot.com/de/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Auto-Erschwinglichkeitsrechner",
+   "item": "https://www.calculatepilot.com/de/financial/car-affordability-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Sollte meine monatliche Rate das Einzige sein, was ich bei meinem Autobudget berücksichtige?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nein – Versicherung, Kraftstoff und Wartung kommen spürbar zur Kreditrate hinzu. Eine gängige Richtlinie empfiehlt, die gesamten Fahrzeugkosten auf etwa 15–20 % des Nettoeinkommens zu begrenzen, nicht nur die Kreditrate allein."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Kann ich mir mit einer längeren Kreditlaufzeit ein teureres Auto leisten?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sie senkt bei gleicher Kreditsumme die monatliche Rate, wodurch ein teureres Auto auf dem Papier in Ihr Budget passen kann. Sie erhöht aber auch die insgesamt gezahlten Zinsen und verlängert die Dauer Ihrer Verschuldung – das sollten Sie gegen den unmittelbaren Vorteil der Erschwinglichkeit abwägen."
+   }
+  }
+ ],
+ "inLanguage": "de"
+}
+</script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,balance,bolt,calculate,calendar_month,cancel,car_repair,check_circle,chevron_right,description,directions_car,expand_more,file_download,key,local_gas_station,lock,pie_chart,restart_alt,share,task_alt,terminal,trending_down,tune,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/de/guides/">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="affCalc">
+<nav class="sx-crumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/de/financial-calculators.html">Finanzrechner</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Auto-Erschwinglichkeitsrechner</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>20/4/10-Budgetmodell</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Kein Tracking</span><span class="sx-badge"><span class="msym" aria-hidden="true">terminal</span>Berechnung auf Ihrem Gerät</span></div>
+    <h1>Autoerschwinglichkeitsrechner (20/4/10-Regel)</h1>
+    <p>Ermitteln Sie den maximalen Fahrzeugkaufpreis, den Ihr Budget dauerhaft tragen kann, anhand der 20/4/10-Regel und von Richtwerten für das Verhältnis von Schulden zu Einkommen.</p>
+  </div>
+  <div class="sx-au-hbtns">
+    <button type="button" data-action="print"><span class="msym" aria-hidden="true">file_download</span>Prüfbericht exportieren</button>
+    <button type="button" data-action="share"><span class="msym" aria-hidden="true">share</span>Teilen</button>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Einkommens- &amp; Ausgabenparameter</h2><p>Geben Sie Ihre Haushalts-Geldflüsse ein</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Auf Ausgangswerte zurücksetzen</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-mode"><span>Einkommensmodus</span><input type="hidden" id="incMode" value="month"><div class="sx-seg" role="group" aria-label="Bruttoeinkommen eingegeben als"><button type="button" data-for="incMode" data-value="month">Monatlich brutto</button><button type="button" data-for="incMode" data-value="year">Jährlich brutto</button></div></div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="gross" id="grossLbl">Monatliches Bruttoeinkommen</label><em class="mu" id="grossAlt">78.000 $ / Jahr</em></div><div class="sx-au-in"><span class="pre">$</span><input id="gross" type="number" inputmode="decimal" min="0" step="100" value="6500"></div></div>
+      <div><div class="sx-au-l"><label for="net">Nettoeinkommen</label><em class="mu">Monatlich</em></div><div class="sx-au-in"><span class="pre">$</span><input id="net" type="number" inputmode="decimal" min="0" step="100" value="5000"></div></div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><span>Bezugsgröße für die 10-%-Regel</span></div>
+      <input type="hidden" id="anchor" value="net">
+      <div class="sx-au-opts c2 rad" role="group" aria-label="10-%-Grenze anwenden auf"><button type="button" data-for="anchor" data-value="net"><i></i>Nettoeinkommen</button><button type="button" data-for="anchor" data-value="gross"><i></i>Bruttoeinkommen</button></div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><label for="down">Verfügbares Bargeld für die Anzahlung</label><em class="ok" id="downNote">Erfüllt die 20-%-Basis</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="down" type="number" inputmode="decimal" min="0" step="500" value="8000"></div>
+      <p class="sx-au-help">Regelanforderung: mindestens 20 % Anzahlung in bar, um den starken Wertverlust im ersten Jahr abzufedern.</p>
+    </div>
+
+    <div class="sx-au-box">
+      <b><span class="msym" aria-hidden="true">local_gas_station</span>Monatliche Betriebskosten des Fahrzeugs (geschätzt)</b>
+      <div class="sx-au-g2" style="gap:12px">
+        <div><label class="sub" for="ins">Kfz-Versicherung</label><div class="sx-au-in sm"><span class="pre">$</span><input id="ins" type="number" inputmode="decimal" min="0" step="10" value="160"></div></div>
+        <div><label class="sub" for="ops">Kraftstoff / Energie / Wartung</label><div class="sx-au-in sm"><span class="pre">$</span><input id="ops" type="number" inputmode="decimal" min="0" step="10" value="140"></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><label for="debts">Bestehende monatliche Schuldenverpflichtungen</label><em class="mu" id="dtiNote"></em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="debts" type="number" inputmode="decimal" min="0" step="25" value="450"></div>
+      <p class="sx-au-help">Studienkredite, Mindestbeträge für Kreditkarten, Privatkredite.</p>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="term">Kreditlaufzeit</label><em class="mu">20/4/10-Obergrenze</em></div><div class="sx-au-sel"><select id="term"><option value="36">36 Monate (konservativ)</option><option value="48" selected>48 Monate (strikt 4 Jahre)</option><option value="60">60 Monate (über 20/4/10 hinaus)</option><option value="72">72 Monate (langfristig)</option></select></div></div>
+      <div><div class="sx-au-l"><label for="apr">Erwarteter effektiver Jahreszins (APR, %)</label></div><div class="sx-au-in np pc"><input id="apr" type="number" inputmode="decimal" min="0" max="36" step="0.1" value="6.5"><span class="suf">%</span></div></div>
+    </div>
+
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Tragbaren Fahrzeugpreis berechnen</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-au-max" aria-live="polite">
+    <div class="hd"><span class="sx-kick">Maximaler tragbarer Kaufpreis</span><div class="rt"><span class="sx-au-st8" id="status">Status: Vorsichtig</span><br><span id="loanCost">Gesamtkosten des Kredits: —</span></div></div>
+    <div class="big" id="resultValue">—</div>
+    <p class="bs" id="basis">—</p>
+    <div class="sx-au-ceil">
+      <div class="r"><span><span class="msym" aria-hidden="true">pie_chart</span><span id="ceilLbl">Maximale Obergrenze für Gesamtmobilitätskosten (10 % des Nettoeinkommens)</span></span><b><span id="ceil">—</span> <small>/ Monat</small></b></div>
+      <div class="bar"><span id="barLoan" style="background:var(--sx-pc)"></span><span id="barOps" style="background:var(--sx-fixed)"></span></div>
+      <div class="lg"><span><i style="background:var(--sx-pc)"></i>Maximale Autokreditrate:<b id="loanPay">—</b></span><span><i style="background:var(--sx-fixed)"></i>Eingeplante Versicherung &amp; Betrieb:<b id="opsPay">—</b></span></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-au-audit">
+    <h3><span class="msym" aria-hidden="true">task_alt</span>Prüfung der Einhaltung der 20/4/10-Regel</h3>
+    <ul>
+      <li id="a1"><span class="msym" aria-hidden="true">check_circle</span><div><div class="t">20 % Mindestanzahlung<em>BESTANDEN</em></div><p id="a1t">—</p></div></li>
+      <li id="a2"><span class="msym" aria-hidden="true">check_circle</span><div><div class="t"><span id="a2h">Maximale Kreditlaufzeit von 4 Jahren (48 Monate)</span><em>PASSED</em></div><p id="a2t">—</p></div></li>
+      <li id="a3"><span class="msym" aria-hidden="true">check_circle</span><div><div class="t"><span id="a3h">Grenze von 10 % des Nettoeinkommens</span><em>PASSED</em></div><p id="a3t">—</p></div></li>
+    </ul>
+  </section>
+
+  <div class="sx-au-tiers" id="tiers">
+    <div><span>Konservativ (8 %)</span><b id="t8">—</b><p id="t8t">—</p></div>
+    <div class="on"><span>Ziel (10 % nach 20/4/10)</span><b id="t10">—</b><p id="t10t">—</p></div>
+    <div class="hi"><span>Aggressiv (12 %)</span><b id="t12">—</b><p id="t12t">—</p></div>
+  </div>
+
+  <div class="sx-au-acts c2 lo">
+    <button type="button" data-action="print"><span class="msym" aria-hidden="true">description</span>Erschwinglichkeitsübersicht herunterladen</button>
+    <a id="loanLink" href="/de/financial/auto-loan-calculator.html"><span class="msym" aria-hidden="true">calendar_month</span>Autokredit-Tilgungsplan anzeigen</a>
+  </div>
+</div>
+</div>
+
+<section class="sx-au-plain">
+  <h2>Die 20/4/10-Regel der Autofinanzierung erklärt</h2>
+  <p class="lead">Eine weit verbreitete Richtlinie der privaten Finanzplanung, die verhindert, dass ein Auto – ein Gegenstand, der an Wert verliert – das Sparen und Anlegen verdrängt.</p>
+  <div class="sx-au-rules">
+    <div><span class="n">20%</span><h3>Hürde Anzahlung</h3><p>Neuwagen verlieren im ersten Jahr oft rund 20 % ihres Werts. Mit mindestens 20 % Anzahlung vermeiden Sie eher eine <em>negative Eigenkapitalposition</em> („unter Wasser“), bei der Sie mehr schulden, als das Auto wert ist.</p></div>
+    <div><span class="n">4 Jahre</span><h3>Maximaler Kredit über 48 Monate</h3><p>Laufzeiten von 72 und 84 Monaten lassen teure Autos durch kleine Raten erschwinglich wirken. Eine Begrenzung auf 48 Monate hält die Gesamtzinsen niedrig und tilgt die Schuld meist, solange das Auto noch unter der üblichen Werksgarantie steht.</p></div>
+    <div><span class="n">10%</span><h3>Gesamtkosten des Besitzes</h3><p>Erschwinglichkeit bedeutet nicht nur die Kreditrate. Die hier angesetzte 10-%-Grenze umfasst die Rate plus Versicherung, Kraftstoff oder Strom und laufende Wartung. Manche Versionen der Regel beziehen sie auf das Bruttoeinkommen; stellen Sie oben die Bezugsgröße um, um zu vergleichen.</p></div>
+  </div>
+</section>
+
+<section class="sx-au-plain">
+  <div class="relh2"><div><h2 style="margin:0;font-family:var(--font-display);font-size:30px;line-height:38px;font-weight:600;color:var(--sx-on)">Preisklassen über Fahrzeugklassen hinweg</h2><p class="lead">Typische Preisklassen für Neuwagen mit geschätzter Kreditrate auf Basis Ihrer Anzahlung, Ihres Zinssatzes und Ihrer Laufzeit.</p></div><small>Beispielhafte UVP-Klassen</small></div>
+  <div class="sx-au-bands" id="bands">
+    <div data-lo="22000" data-hi="28000"><span class="tag">Ihr Treffer</span><div class="k">Einstieg<em>Konservative Stufe</em></div><h3>Kompaktlimousine</h3><div class="p">$22,000 – $28,000</div><p>Kompaktlimousinen und Schrägheckmodelle. Sehr sparsam im Verbrauch und meist mit niedrigeren Versicherungskosten.</p><div class="f"><span class="est">Gesch. Kredit: —</span><span class="msym" aria-hidden="true">directions_car</span></div></div>
+    <div data-lo="28000" data-hi="36000"><span class="tag">Ihr Treffer</span><div class="k">Nutzfahrzeug-Crossover<em class="st">Mittelklasse</em></div><h3>Kompakt-SUV</h3><div class="p">$28,000 – $36,000</div><p>Verbindet Sicherheit, Laderaum und in der Regel robuste Wiederverkaufswerte.</p><div class="f"><span class="est">Gesch. Kredit: —</span><span class="msym" aria-hidden="true">check_circle</span></div></div>
+    <div data-lo="36000" data-hi="48000"><span class="tag">Ihr Treffer</span><div class="k">Batterieelektrisch<em class="st">Gehobene Stufe</em></div><h3>Elektrofahrzeug</h3><div class="p">$36,000 – $48,000</div><p>Geringere Kraftstoff- und Wartungskosten, oft ausgeglichen durch einen höheren Listenpreis und höhere Versicherungskosten.</p><div class="f"><span class="est">Gesch. Kredit: —</span><span class="msym" aria-hidden="true">bolt</span></div></div>
+    <div data-lo="48000" data-hi="65000"><span class="tag">Ihr Treffer</span><div class="k">Premiumstufe<em class="bad">Premium</em></div><h3>Luxus-Crossover</h3><div class="p">$48,000 – $65,000+</div><p>Höhere Preise, Versicherungs- und Wartungskosten erfordern in der Regel ein höheres Einkommen und eine größere Anzahlung.</p><div class="f"><span class="est">Gesch. Kredit: —</span><span class="msym" aria-hidden="true">warning</span></div></div>
+    <p class="note">Die Klassen sind grobe Orientierungswerte; die tatsächlichen Preise variieren je nach Modell, Ausstattung, Region und Rabatten. „Ihr Treffer“ markiert die Klasse, in der Ihr Höchstpreis liegt.</p>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>So funktioniert dieser Rechner</h2>
+    <p>Ihre monatliche Mobilitätsobergrenze beträgt 10 % des Nettoeinkommens (oder des Bruttoeinkommens, wenn Sie die Bezugsgröße umstellen). Versicherung und Betriebskosten werden abgezogen, um die maximale Kreditrate zu erhalten, die mit der Standardformel für Kredite mit festem Zinssatz bei Ihrem effektiven Jahreszins und Ihrer Laufzeit in einen maximalen Kreditbetrag umgerechnet wird. Addiert man Ihre Anzahlung, ergibt sich der Höchstpreis – begrenzt so, dass die Anzahlung weiterhin mindestens 20 % des Preises beträgt. Verkaufssteuer und Händlergebühren sind nicht enthalten, planen Sie dafür also Spielraum ein.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Von Suhaib Hassan · Formel geprüft am 27. Sep. 2026 · <a href="/methodology.html">So prüft CalculatePilot Formeln →</a></p>
+
+    <h2>Ihr Monatsbudget realistisch festlegen</h2>
+    <p>Eine gängige Richtlinie empfiehlt, die gesamten Fahrzeugkosten (Rate, Versicherung, Kraftstoff und Wartung zusammen) auf etwa 15–20 % des Nettoeinkommens zu begrenzen – das heißt, Ihre Kreditrate allein sollte in der Regel unter diesem Gesamtprozentsatz liegen, da Versicherung und Kraftstoff spürbar hinzukommen. Die oben verwendete strengere 20/4/10-Regel begrenzt die Gesamtkosten auf 10 %.</p>
+    <p>Es lohnt sich, diese zusätzlichen Kosten einzuplanen, bevor Sie Ihre maximale Monatsrate festlegen – ein Auto, das allein von der Rate her erschwinglich ist, kann das Budget belasten, sobald Versicherung, Kraftstoff und Wartung hinzukommen, besonders bei neueren oder leistungsstärkeren Fahrzeugen.</p>
+
+    <h2>Wie die Kreditlaufzeit beeinflusst, was Sie sich leisten können</h2>
+    <p>Eine längere Kreditlaufzeit senkt bei gleicher Kreditsumme die monatliche Rate, wodurch ein teureres Auto „erschwinglich“ wirken kann – es bedeutet aber auch, insgesamt mehr Zinsen zu zahlen und länger verschuldet zu bleiben, manchmal länger als die Nutzungsdauer oder der Garantiezeitraum des Autos.</p>
+    <p>Es lohnt sich, diesen Rechner mit mehreren Laufzeiten durchzuspielen, um den Zielkonflikt direkt zu sehen – eine kürzere Laufzeit mit niedrigerem Höchstpreis ist oft die finanziell vorsichtigere Wahl, selbst wenn Sie dafür ein günstigeres Fahrzeug kaufen.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <details class="sx-faq"><summary>Sollte meine monatliche Rate das Einzige sein, was ich bei meinem Autobudget berücksichtige?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Nein – Versicherung, Kraftstoff und Wartung kommen spürbar zur Kreditrate hinzu. Eine gängige Richtlinie empfiehlt, die gesamten Fahrzeugkosten auf etwa 15–20 % des Nettoeinkommens zu begrenzen, nicht nur die Kreditrate allein.</p></details>
+    <details class="sx-faq"><summary>Kann ich mir mit einer längeren Kreditlaufzeit ein teureres Auto leisten?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Sie senkt bei gleicher Kreditsumme die monatliche Rate, wodurch ein teureres Auto auf dem Papier in Ihr Budget passen kann. Sie erhöht aber auch die insgesamt gezahlten Zinsen und verlängert die Dauer Ihrer Verschuldung – das sollten Sie gegen den unmittelbaren Vorteil der Erschwinglichkeit abwägen.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Verwandte Präzisionsrechner</h2><p>Schuldentragfähigkeit und Vermögensplanung im Abgleich.</p></div>
+  <a href="/de/financial-calculators.html">Alle 52 Tools ansehen<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/de/financial/auto-loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">car_repair</span></span><b>Autokreditrechner</b><span class="d">Monatliche Raten, Gesamtzinsen und Tilgungsplan für Ihren Autokredit.</span><span class="f">Rechner starten<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/lease-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">key</span></span><b>Autoleasing-Rechner</b><span class="d">Berechnen Sie Money Factor, Restwertabschreibung und die Kosten von Leasing vs. Kauf.</span><span class="f">Rechner starten<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>50/30/20-Budgetrechner</b><span class="d">Vergleichen Sie wesentliche Lebenshaltungskosten mit frei verfügbaren Ausgaben und Sparzielen.</span><span class="f">Rechner starten<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/debt-payoff-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_down</span></span><b>Schuldentilgungsrechner</b><span class="d">Avalanche- vs. Snowball-Pläne, um Cashflow für die Mobilität freizusetzen.</span><span class="f">Rechner starten<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot auf Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/de/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/de/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/de/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/de/financial/mortgage-calculator.html">Hypothek</a></li>
+          <li><a href="/de/financial/uk-stamp-duty-calculator.html">Stamp Duty (UK)</a></li>
+          <li><a href="/de/financial/compound-interest-calculator.html">Zinseszins</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/de/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/de/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/de/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+          <li><a href="/de/health/bmi-calculator.html">BMI</a></li>
+          <li><a href="/de/health/macro-calculator.html">Makros</a></li>
+          <li><a href="/de/health/calorie-calculator.html">Kalorien</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/de/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/de/other/age-calculator.html">Alter</a></li>
+          <li><a href="/de/math/percentage-calculator.html">Prozent</a></li>
+          <li><a href="/de/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/de/math/quadratic-formula-calculator.html">Quadratische Formel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/de/guides/">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — ziehen Sie für finanzielle oder medizinische Entscheidungen einen Fachmann hinzu. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span> <span><a href="/embed/car-affordability-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/de/car-affordability.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

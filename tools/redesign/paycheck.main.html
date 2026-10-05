@@ -1,0 +1,148 @@
+<div class="sx" id="pcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Paycheck Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>2026 US Federal Tax Engine</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">tune</span>Pre-Tax &amp; Post-Tax Deductions</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Precision</span></div>
+    <h1>Paycheck Calculator (Take-Home Pay)</h1>
+    <p>Estimate your net take-home pay per paycheck after 2026 federal income tax, FICA (Social Security &amp; Medicare), state income tax, and pre-tax payroll deductions.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">account_balance_wallet</span></span><h2 class="sx-h-md" style="margin:0">Earnings &amp; Withholding</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-lr"><div class="sx-au-l"><label for="pay">Gross Compensation</label></div><input type="hidden" id="mode" value="annual"><div class="sx-seg xs" role="group" aria-label="Pay entered as"><button type="button" data-for="mode" data-value="annual">Annual</button><button type="button" data-for="mode" data-value="hourly" id="hrBtn">Hourly</button></div></div>
+      <div class="sx-au-in pc"><span class="pre">$</span><input id="pay" type="number" inputmode="decimal" min="0" step="500" value="85000"><span class="suf" id="payUnit">/yr</span></div>
+      <p class="sx-au-help" id="hrsRow" hidden><label for="hrs">Hours per week:</label> <input id="hrs" type="number" min="1" max="80" step="1" value="40" style="width:60px;height:26px;border:1px solid var(--sx-border);border-radius:6px;padding:0 6px;font:inherit;background:var(--sx-card);color:var(--sx-on)"></p>
+    </div>
+
+    <div>
+      <div class="sx-au-l"><span>Pay Frequency</span></div>
+      <input type="hidden" id="freq" value="26">
+      <div class="sx-au-cat nr" role="group" aria-label="Pay frequency">
+        <button type="button" data-for="freq" data-value="52"><span><b>Weekly</b><small>52 paychecks</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="freq" data-value="26"><span><b>Bi-Weekly</b><small>26 paychecks</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="freq" data-value="24"><span><b>Semi-Monthly</b><small>24 paychecks</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="freq" data-value="12"><span><b>Monthly</b><small>12 paychecks</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+      </div>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="status">Filing Status</label></div><div class="sx-au-sel"><select id="status"><option value="single" selected>Single</option><option value="mfj">Married Filing Jointly</option><option value="mfs">Married Filing Separately</option><option value="hoh">Head of Household</option></select></div></div>
+      <div><div class="sx-au-l"><label for="state">State Income Tax</label></div><div class="sx-au-sel"><select id="state"><option value="custom" selected>Other state (enter rate)</option><option value="none">No wage income tax (TX, FL, WA, NV…)</option><option value="il">Illinois (4.95% flat)</option><option value="pa">Pennsylvania (3.07% flat)</option></select></div></div>
+    </div>
+    <div id="stRow"><div class="sx-au-l"><label for="stRate">Your State Income Tax Rate (effective)</label><em class="mu">Check a recent pay stub</em></div><div class="sx-au-in sm np pc"><input id="stRate" type="number" inputmode="decimal" min="0" max="15" step="0.1" value="4.0"><span class="suf">%</span></div></div>
+
+    <div class="sx-ry-opx open" id="ptx">
+      <button type="button" aria-expanded="true" aria-controls="ptxList"><span><span class="msym" aria-hidden="true">shield</span>Pre-Tax Deductions (Per Paycheck)</span><span class="msym chev" aria-hidden="true">expand_more</span></button>
+      <ul id="ptxList">
+        <li style="display:block"><div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px"><label for="k401">401(k) / 403(b) Traditional Deferral</label><b id="k401Amt" style="width:auto;color:var(--sx-pc)">—</b></div><input type="hidden" id="k401" value="6"><div class="sx-pc-slider"><input class="sx-range2" type="range" min="0" max="50" step="1" value="6" data-sync="k401" aria-label="401(k) percent of pay"><b id="k401Pct">6%</b></div><span class="sx-au-help" style="display:block">Reduces income tax, not FICA.</span></li>
+        <li><span class="msym" aria-hidden="true">health_and_safety</span><label for="health">Health Insurance (Sec. 125)<br><small style="color:var(--sx-muted)">Medical, dental &amp; vision</small></label><div class="sx-au-in"><span class="pre">$</span><input id="health" type="number" inputmode="decimal" min="0" step="5" value="120"></div></li>
+        <li><span class="msym" aria-hidden="true">medical_services</span><label for="hsa">HSA / FSA Contribution<br><small style="color:var(--sx-muted)">Via payroll (cafeteria plan)</small></label><div class="sx-au-in"><span class="pre">$</span><input id="hsa" type="number" inputmode="decimal" min="0" step="5" value="75"></div></li>
+        <li><span class="msym" aria-hidden="true">directions_bus</span><label for="commute">Commuter Benefits<br><small style="color:var(--sx-muted)">Transit &amp; parking</small></label><div class="sx-au-in"><span class="pre">$</span><input id="commute" type="number" inputmode="decimal" min="0" step="5" value="30"></div></li>
+      </ul>
+    </div>
+
+    <div class="sx-pc-mini">
+      <div><b>Post-Tax Deductions (Per Paycheck)</b><label for="roth">Roth 401(k) <span class="sx-au-in"><span class="pre">$</span><input id="roth" type="number" min="0" step="10" value="0"></span></label><label for="other">Other (charity, etc.) <span class="sx-au-in"><span class="pre">$</span><input id="other" type="number" min="0" step="5" value="0"></span></label></div>
+      <div><b>Form W-4 Details</b><label for="deps">Step 3 credits ($/yr) <span class="sx-au-in"><span class="pre">$</span><input id="deps" type="number" min="0" step="100" value="0"></span></label><label for="xtra">Extra withholding <span class="sx-au-in"><span class="pre">$</span><input id="xtra" type="number" min="0" step="5" value="0"></span></label></div>
+    </div>
+
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Net Paycheck</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-pc-hero" aria-live="polite">
+    <div class="top">
+      <div><span class="sx-kick">Estimated Net Take-Home Paycheck</span><div class="big"><span id="resultValue">—</span><small id="perLbl">/ bi-weekly paycheck</small></div><div class="ann">Annualized equivalent: <b id="annNet">—</b></div></div>
+      <div class="rt">Gross Baseline<b id="grossPer">—</b><span id="grossNote">—</span></div>
+    </div>
+    <div class="sx-pc-stats">
+      <div><span>Effective Tax Rate</span><b id="effRate">—</b></div>
+      <div><span>Total Deductions</span><b id="dedRate">—</b></div>
+      <div><span>Taxable Wages</span><b id="taxWages">—</b></div>
+      <div><span>Pre-Tax Shield</span><b class="g" id="shield">—</b></div>
+    </div>
+    <div class="sx-pc-dist">
+      <div class="r">Paycheck Allocation Distribution<span>100% Total Gross</span></div>
+      <div class="bar" id="distBar"></div>
+      <div class="lg" id="distLg"></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-pc-items">
+    <div class="hd"><h3>Itemized Paycheck Deductions Breakdown</h3><span id="cycleLbl">Bi-Weekly Pay Cycle</span></div>
+    <ul id="items"></ul>
+  </section>
+
+  <section class="sx-card r2 sx-pc-freq">
+    <h3>Equivalent Net Pay Across Frequencies</h3>
+    <div class="g" id="freqs"></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card r2 sx-pc-br" id="brackets">
+  <div class="hd"><div><h2>Federal Marginal Tax Bracket Distribution</h2><p id="brSub">—</p></div><em><span class="msym" aria-hidden="true">info</span><span id="brTag">2026 IRS brackets after standard deduction</span></em></div>
+  <div id="brRows"></div>
+  <div class="sx-pc-shield"><span class="msym" aria-hidden="true">savings</span><span id="shieldTxt">—</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">rule</span>The Mechanics of Paycheck Withholding</h3>
+    <p>Knowing how payroll taxes are calculated helps you avoid a surprise balance due — or an unnecessarily large refund — at tax time.</p>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Social Security wage cap:</b> the 6.2% Social Security tax applies only to the first <b>$184,500</b> of wages in 2026. Medicare (1.45%) has no cap.</span></li>
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Additional Medicare Tax:</b> employers withhold an extra <b>0.9%</b> on wages above $200,000 in a year, whatever your filing status.</span></li>
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Pre-tax isn't all the same:</b> traditional 401(k) deferrals cut income tax but not FICA; Section 125 health premiums, payroll HSA contributions and commuter benefits cut both.</span></li>
+      <li><span class="msym" aria-hidden="true">check</span><span><b>Form W-4 (2020+):</b> allowances are gone. You adjust withholding with dollar amounts — credits for dependents in Step 3 and extra withholding in Step 4(c).</span></li>
+    </ul>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">pie_chart</span>Gross vs Net vs Total Compensation</h3>
+    <p>Your gross salary is only part of what your employer spends to employ you.</p>
+    <ul class="ck">
+      <li><span class="msym" aria-hidden="true">domain</span><span><b>Employer FICA match:</b> your employer pays its own 7.65% on top of yours — <b id="erFica">—</b> a year at your pay.</span></li>
+      <li><span class="msym" aria-hidden="true">health_and_safety</span><span><b>Employer health contributions:</b> employers often pay most of the health insurance premium; your benefits statement shows the exact amount.</span></li>
+      <li><span class="msym" aria-hidden="true">trending_up</span><span><b>Total cost before benefits:</b> salary plus employer FICA comes to about <b id="erTotal">—</b> a year, before health, retirement match and unemployment insurance.</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Federal income tax withholding is estimated by annualizing your pay: annual wages minus pre-tax deductions minus the 2026 standard deduction for your filing status, run through the 2026 IRS tax brackets, less any Form W-4 Step 3 credits, then divided by your number of paychecks. Social Security (6.2% up to $184,500) and Medicare (1.45%, plus 0.9% above $200,000) are applied to wages after Section 125 deductions. State tax uses a flat rate on your wages after pre-tax deductions. Real employer withholding follows IRS Publication 15-T, so individual paychecks can differ by a few dollars.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · 2026 figures verified 27 Sep 2026 against IRS Rev. Proc. 2025-32 and the SSA 2026 fact sheet · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>What counts as a pre-tax deduction</h2>
+    <p>Pre-tax deductions reduce your taxable income before tax is calculated — common examples include traditional 401(k) contributions, health insurance premiums, and health savings account (HSA) contributions. Post-tax deductions, like Roth 401(k) contributions or wage garnishments, don't reduce taxable income, so they're entered separately.</p>
+    <p>Getting this distinction right matters for accuracy — including a post-tax deduction as pre-tax would understate your taxable income and therefore your estimated tax, throwing off the final take-home figure. For a federal-only estimate on a known taxable income, use the <a href="/financial/tax-calculator.html">Tax Calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Which tax figures does this calculator use?<span class="msym" aria-hidden="true">expand_more</span></summary><p>2026 federal tax brackets and standard deductions from IRS Rev. Proc. 2025-32, the 2026 Social Security wage base of $184,500, and Medicare at 1.45% plus 0.9% on wages above $200,000. State income tax uses a flat rate you choose, since state rules vary widely.</p></details>
+    <details class="sx-faq"><summary>Where can I find my actual effective tax rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the total tax withheld on a recent pay stub or tax return by your gross income for that period — that gives a reasonably accurate personal effective rate to use here.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Financial Calculation Engines</h2><p>Put your take-home pay to work.</p></div>
+  <a href="/financial-calculators.html">Explore all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>50/30/20 Budget Calculator</b><span class="d" id="relBudget">Structure your net pay across needs, wants, and savings.</span><span class="f">Run budget scenario<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>401(k) Calculator</b><span class="d">Model compound growth and your employer match over a 30-year horizon.</span><span class="f">Project retirement wealth<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">currency_pound</span></span><b>UK Take-Home Pay Calculator</b><span class="d">PAYE income tax bands and National Insurance for UK salaries.</span><span class="f">Calculate UK salary<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">contract</span></span><b>Freelance Rate Calculator</b><span class="d">Convert a salary into the hourly rate you'd need as a 1099 contractor.</span><span class="f">Calculate billing rate<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

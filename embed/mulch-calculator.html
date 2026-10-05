@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mulch Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add_circle,arrow_forward,aspect_ratio,calculate,chevron_right,code,content_copy,event,expand_more,format_paint,foundation,functions,grain,inventory_2,lightbulb,link,local_shipping,lock,person_check,picture_as_pdf,restart_alt,shopping_bag,square_foot,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,54 +38,172 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Mulch Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="bedLength">Bed length (ft)</label>
-          <input type="number" id="bedLength" value="20"
-step="0.5"min="0">
-        </div>
-        <div class="field">
-          <label for="bedWidth">Bed width (ft)</label>
-          <input type="number" id="bedWidth" value="5"
-step="0.5"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="depth">Depth (inches)</label>
-          <input type="number" id="depth" value="3"
-step="0.5"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Mulch needed</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Volume (cubic feet)</span><span id="outCuFt">—</span></div>
-        <div class="embed-row"><span>Bags needed (2 cu ft each)</span><span id="outBags">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="muCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Mulch &amp; Topsoil Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">inventory_2</span>Cubic yards, tons and bags</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Mulch, Compost &amp; Topsoil Calculator</h1>
+<p>Work out how much mulch, compost, topsoil or stone a garden needs. Get cubic yards and cubic feet, the weight of the load, bags of 1.5, 2 and 3 cu ft, and a bulk-versus-bagged cost check for one or several beds.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Weights are typical values and change with moisture. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It multiplies bed area by depth, adds a settling allowance, and converts cubic feet to yards, bags and weight.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Bulk yards and bagged cubic feet are hard to compare by eye. This shows both and what each option costs.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">square_foot</span><h2 class="sx-h-md" style="margin:0">Bed, depth and material</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>1. Bed shape</label></div><input id="mode" type="hidden" value="r"/><div aria-label="Bed shape" class="sx-seg full" role="group"><button data-for="mode" data-value="r" type="button">Rectangular</button><button data-for="mode" data-value="c" type="button">Circular</button><button data-for="mode" data-value="a" type="button">Known area</button></div></div>
+<div class="sx-au-g2" id="g-r"><div><div class="sx-au-l"><label for="bl">Length</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="bl" inputmode="decimal" min="0" step="0.5" type="number" value="30"/></div></div><div><div class="sx-au-l"><label for="bw">Width</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="bw" inputmode="decimal" min="0" step="0.5" type="number" value="6"/></div></div></div>
+<div hidden="" id="g-c"><div class="sx-au-l"><label for="bd">Diameter</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="bd" inputmode="decimal" min="0" step="0.5" type="number" value="10"/></div></div>
+<div hidden="" id="g-a"><div class="sx-au-l"><label for="ba">Area</label><em class="mu">sq ft</em></div><div class="sx-au-in sm np"><input id="ba" inputmode="decimal" min="0" step="1" type="number" value="180"/></div></div>
+<div class="sx-strip"><span>Bed area</span><b id="area">—</b></div>
+<div hidden="" id="extraWrap"><div class="sx-au-l"><label>Additional areas</label><em class="mu">square feet each</em></div><div id="extras" style="display:flex;flex-direction:column;gap:8px"></div></div>
+<div><button class="sx-mt-add" id="addArea" type="button"><span aria-hidden="true" class="msym">add_circle</span>Add another area</button></div>
+<div>
+<div class="sx-au-l"><label>2. Depth</label><em id="depthV">2 in</em></div>
+<input id="depth" type="hidden" value="2"/>
+<div class="sx-au-opts c4 sm"><button data-for="depth" data-value="1" type="button">1 in <small>refresh</small></button><button data-for="depth" data-value="2" type="button">2 in <small>weed control</small></button><button data-for="depth" data-value="3" type="button">3 in <small>new bed</small></button><button data-for="depth" data-value="4" type="button">4 in <small>paths</small></button></div>
+<div class="sx-au-l" style="margin-top:12px"><label for="depthC">Or a custom depth</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="depthC" inputmode="decimal" max="24" min="0" placeholder="e.g. 2.5" step="0.25" type="number"/></div>
+</div>
+<div>
+<div class="sx-au-l"><label>3. Material</label><em class="mu" id="matNote">—</em></div>
+<input id="mat" type="hidden" value="hardwood"/>
+<div class="sx-au-opts c2 rad sm" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button data-for="mat" data-value="hardwood" type="button"><i></i>Shredded hardwood mulch</button><button data-for="mat" data-value="pine" type="button"><i></i>Pine bark or straw</button><button data-for="mat" data-value="topsoil" type="button"><i></i>Screened topsoil</button><button data-for="mat" data-value="compost" type="button"><i></i>Compost</button><button data-for="mat" data-value="gravel" type="button"><i></i>Pea gravel or river stone</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label>4. Settling allowance</label><em id="setV">+10%</em></div>
+<input id="settle" type="hidden" value="10"/>
+<div class="sx-au-opts c3 sm"><button data-for="settle" data-value="0" type="button">None <small>0%</small></button><button data-for="settle" data-value="5" type="button">Standard <small>5%</small></button><button data-for="settle" data-value="10" type="button">Fluffy mulch <small>10%</small></button></div>
+</div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Cost comparison (optional)</label><em class="mu">edit your local prices</em></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="pby">Bulk price per yd³</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pby" inputmode="decimal" min="0" step="1" type="number" value="45"/></div></div><div><div class="sx-au-l"><label for="pbg">Price per 2 cu ft bag</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pbg" inputmode="decimal" min="0" step="0.25" type="number" value="4.50"/></div></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate material</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Material needed</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small>cubic yards</small></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Cubic feet</span><b id="oFt">—</b></div><div><span>Weight (approx.)</span><b id="oW">—</b></div><div><span>Total area</span><b id="oA">—</b></div><div><span>Cubic metres</span><b id="oM">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">shopping_bag</span>Bags at the store</span><em class="mu">rounded up</em></div>
+<div class="sx-au-tiles c3 mono"><div><span>2 cu ft bags</span><b id="g20">—</b><small id="g20c">—</small></div><div><span>1.5 cu ft bags</span><b id="g15">—</b><small id="g15c">—</small></div><div><span>3 cu ft bags</span><b id="g30">—</b><small id="g30c">—</small></div></div>
+<p class="sx-au-note" style="text-align:left">Buy one or two spare bags for edges and settling. Bag prices scale from your 2 cu ft price.</p>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">local_shipping</span>Hauling and cost</span><em class="mu" id="costNote">—</em></div>
+<div class="sx-au-note" id="haul" style="text-align:left;margin:0 0 12px;font-size:13px;line-height:20px">—</div>
+<div class="sx-au-tiles"><div><span>Bulk pick-up</span><b id="cBulk">—</b><small id="cBulkN">—</small></div><div><span>Bagged retail</span><b id="cBag">—</b><small id="cBagN">—</small></div></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Depth and coverage guide</h2><p>Area covered by one cubic yard or one 2 cu ft bag at common depths. One yard is 27 cubic feet.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:720px">
+<thead><tr><th>Application</th><th>Depth</th><th class="n">Sq ft per yd³</th><th class="n">Sq ft per 2 cu ft bag</th><th>Refresh</th></tr></thead>
+<tbody>
+<tr><td class="a">Mulch top-dressing (existing beds)</td><td>1 – 2 in</td><td class="n">162 – 324</td><td class="n">12 – 24</td><td class="a">Annually</td></tr>
+<tr><td class="a">New landscape bed</td><td>3 in</td><td class="n">108</td><td class="n">8</td><td class="a">Every 2 – 3 years</td></tr>
+<tr><td class="a">Lawn topdressing with soil</td><td>¼ – ½ in</td><td class="n">648 – 1,296</td><td class="n">48 – 96</td><td class="a">Spring or fall</td></tr>
+<tr><td class="a">Raised vegetable bed fill</td><td>6 – 8 in</td><td class="n">40 – 54</td><td class="n">3 – 4</td><td class="a">Top up yearly</td></tr>
+<tr><td class="a">Garden path (stone or bark)</td><td>3 – 4 in</td><td class="n">81 – 108</td><td class="n">6 – 8</td><td class="a">As it thins</td></tr>
+</tbody>
+</table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>How the volume is calculated</h2>
+<p>Area in square feet times depth in feet gives cubic feet. Divide by 27 for cubic yards.</p>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Rectangle</h3><code>ft³ = L × W × (depth ÷ 12)</code></div>
+<div><h3>Circle</h3><code>ft³ = π × (d ÷ 2)² × (depth ÷ 12)</code></div>
+<div><h3>Order size</h3><code>yd³ = ft³ × (1 + settling) ÷ 27</code></div>
+</div>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Typical weights</span>
+<h2>Approximate weight per cubic yard</h2>
+<div class="sx-au-note" style="text-align:left;margin:0 0 8px;font-size:13px"><b>Shredded hardwood mulch</b> · about 750 lb</div>
+<div class="sx-au-note" style="text-align:left;margin:0 0 8px;font-size:13px"><b>Pine bark nuggets or straw</b> · about 550 lb</div>
+<div class="sx-au-note" style="text-align:left;margin:0 0 8px;font-size:13px"><b>Screened topsoil</b> · about 2,200 lb</div>
+<div class="sx-au-note" style="text-align:left;margin:0 0 8px;font-size:13px"><b>Compost</b> · about 1,300 lb</div>
+<div class="sx-au-note" style="text-align:left;margin:0 0 8px;font-size:13px"><b>Pea gravel or river stone</b> · about 2,700 lb</div>
+<p style="margin-top:10px">Wet material can weigh far more. Ask your supplier for the actual load weight before towing.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative jobs, each checked by hand. The first is the default setup.</p>
+<div class="sx-mt-3">
+<div><h3>30 × 6 ft bed, 2 in</h3><p>10% settling allowance.</p><div class="sx-mt-ex">180 ft² × 2/12 = 30 ft³<br/>× 1.10 = 33 ft³<br/>33 ÷ 27 = <b>1.22 yd³</b><br/>33 ÷ 2 = 16.5 → <b>17 bags (2 cu ft)</b></div></div>
+<div><h3>10 ft round bed, 3 in</h3><p>Standard 5% allowance.</p><div class="sx-mt-ex">area = π × 5² = 78.54 ft²<br/>× 3/12 = 19.63 ft³<br/>× 1.05 = 20.61 ft³ = <b>0.76 yd³</b></div></div>
+<div><h3>Bulk or bags?</h3><p>1.22 yd³ at $45 per yd³ against 17 bags at $4.50.</p><div class="sx-mt-ex">bulk = 1.222 × 45 = <b>$55.00</b><br/>bags = 17 × 4.50 = <b>$76.50</b><br/>bulk is cheaper by $21.50</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How much mulch do I need?</h2>
+<ul>
+<li>Measure the bed and work out its area, or enter a known area in square feet.</li>
+<li>Pick a depth. Two to three inches of mulch controls weeds without smothering roots.</li>
+<li>Choose the material and a settling allowance, since mulch and compost compact over time.</li>
+<li>Buy in bulk for beds over about a cubic yard and in bags for small jobs.</li>
+</ul>
+<p>Keep mulch a few inches away from tree trunks and house walls. Deep piles against bark can cause rot.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Colorado State University Extension, <i>Mulches for Home Grounds</i>, on mulch depth and placement.</li>
+<li>NIST Special Publication 811, for cubic foot, cubic yard and cubic metre conversion factors.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How much does a cubic yard of mulch cover?<span aria-hidden="true" class="msym">expand_more</span></summary><p>One cubic yard (27 cubic feet) covers about 162 square feet at 2 inches deep, 108 square feet at 3 inches, and 324 square feet at 1 inch.</p></details>
+<details class="sx-faq"><summary>How deep should mulch be?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Two to three inches is typical for flower and shrub beds. Use about one inch when refreshing existing mulch. Very deep layers can hold too much moisture against plant stems.</p></details>
+<details class="sx-faq"><summary>Is bulk or bagged mulch cheaper?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Bulk is usually cheaper per cubic foot once you need more than about a cubic yard, but you must collect it or pay for delivery. Enter your local prices above to compare the two.</p></details>
+<details class="sx-faq"><summary>Why add a settling allowance?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Fresh mulch and compost compress and break down. Adding 5% to 10% means the bed is still at the right depth after it settles.</p></details>
+<details class="sx-faq"><summary>Will a pickup truck carry a cubic yard?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Often yes for light mulch, but soil and stone are heavy. A full yard of topsoil or gravel can be well over a ton, so check your truck's payload rating.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More project tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/gravel-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">grain</span></span><b>Gravel Calculator</b><span class="d">Tons and yards of base stone.</span><span class="f">Plan the base<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/square-footage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">aspect_ratio</span></span><b>Square Footage</b><span class="d">Measure beds and lots.</span><span class="f">Measure area<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/concrete-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">foundation</span></span><b>Concrete Calculator</b><span class="d">Slabs, footings and bags.</span><span class="f">Estimate a pour<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/paint-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">format_paint</span></span><b>Paint Calculator</b><span class="d">Gallons for walls and ceilings.</span><span class="f">Plan the paint<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Mulch Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/mulch-calculator.html" width="100%" height="560" loading="lazy" title="Mulch Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/mulch-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -212,7 +212,8 @@ step="0.5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/mulch.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/mulch.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

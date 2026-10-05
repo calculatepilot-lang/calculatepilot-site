@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VAT Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance_wallet,arrow_forward,badge,check_circle,chevron_right,east,expand_more,functions,info,language,payments,picture_as_pdf,point_of_sale,receipt_long,restart_alt,sell,sync_alt,table_view,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,81 +38,131 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">VAT Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="mode">Calculation</label>
-          <select id="mode">
-            <option value="add" selected>Add VAT to a net (pre-VAT) price</option>
-            <option value="extract" >Extract VAT from a gross (VAT-included) price</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="amount">Amount ($)</label>
-          <input type="number" id="amount" value="100"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="vatRate">VAT rate (%)</label>
-          <input type="number" id="vatRate" value="20"
-step="0.5"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Gross amount</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Net (pre-VAT) amount</span><span id="outNet">—</span></div>
-        <div class="embed-row"><span>VAT amount</span><span id="outVATAmount">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="vtCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">VAT Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Standard &amp; Reduced Rates</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Reverse Charge (B2B)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Input vs Output Tax Offset</span></div>
+<h1>VAT Calculator: Add or Remove VAT (UK, EU &amp; International)</h1>
+<p>Add VAT to a net price, or work out how much VAT is included in a gross price — with UK, EU and international rates, and an input-tax offset for VAT-registered businesses.</p>
 </div>
+<div class="sx-au-badges" style="flex-direction:column;align-items:flex-end;gap:4px"><span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>Rates checked Sep 2026</span></div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">VAT Calculation Parameters</h2><p>Jurisdiction, calculation direction and transaction type</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Calculation Direction &amp; Mode</span></div>
+<input id="mode" type="hidden" value="s2"/>
+<div aria-label="Calculation mode" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="s1" style="flex:1" type="button">Gross to Net (Extract VAT)</button><button data-for="mode" data-value="s2" style="flex:1" type="button">Net to Gross (Add VAT)</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="amt" id="amtL">Net Amount (Before VAT)</label><em id="curL" style="color:var(--sx-muted);font-weight:500">Currency: GBP (£)</em></div>
+<div class="sx-au-in"><span class="pre" id="sym">£</span><input id="amt" inputmode="decimal" min="0" step="0.01" style="font-size:17px;font-weight:600" type="number" value="2500"/><span class="suf" id="iso">GBP</span></div>
+<div class="sx-au-chips">Presets: <button data-for="amt" data-value="250" type="button">250</button><button data-for="amt" data-value="1000" type="button">1,000</button><button data-for="amt" data-value="2500" type="button">2,500</button><button data-for="amt" data-value="5000" type="button">5,000</button><button data-for="amt" data-value="10000" type="button">10,000</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="ctry">Jurisdiction &amp; Tax Authority</label></div>
+<div class="sx-au-sel"><select id="ctry">
+<option selected="" value="GB">United Kingdom (Standard 20%, Reduced 5%, Zero 0%)</option>
+<option value="DE">Germany (Standard 19%, Reduced 7%)</option>
+<option value="FR">France (Standard 20%, Intermediate 10%, Reduced 5.5%)</option>
+<option value="IE">Ireland (Standard 23%, Reduced 13.5%, Second reduced 9%)</option>
+<option value="ES">Spain (Standard 21%, Reduced 10%, Super-reduced 4%)</option>
+<option value="IT">Italy (Standard 22%, Reduced 10%, Super-reduced 4%)</option>
+<option value="AU">Australia (GST 10%)</option>
+<option value="NZ">New Zealand (GST 15%)</option>
+<option value="AE">United Arab Emirates (VAT 5%)</option>
+</select></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="rate">Rate Tier Applied</label><div class="sx-au-in sm np pc" style="width:110px"><input aria-label="VAT rate" id="rate" inputmode="decimal" max="50" min="0" step="0.1" type="number" value="20"/><span class="suf">%</span></div></div>
+<div aria-label="Rate tier" class="sx-vt-tier" id="tiers" role="group"></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Transaction Profile &amp; Tax Treatment</span></div>
+<input id="prof" type="hidden" value="s1"/>
+<div aria-label="Transaction profile" class="sx-au-cat nr" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<button data-for="prof" data-value="s1" type="button"><span><b>B2C Domestic Retail</b><small>VAT charged at the point of sale</small></span></button>
+<button data-for="prof" data-value="s2" type="button"><span><b>B2B Registered</b><small>Input VAT on purchases offsets output VAT</small></span></button>
+<button data-for="prof" data-value="s3" type="button"><span><b>Cross-Border B2B</b><small>Reverse charge — customer accounts for VAT</small></span></button>
+</div>
+<div class="sx-vt-in" id="inRow"><label for="inV">Known input VAT on business purchases (optional offset):</label><div class="sx-au-in sm" style="max-width:160px"><span class="pre" id="sym2">£</span><input id="inV" inputmode="decimal" min="0" step="0.01" type="number" value="185"/></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">sync_alt</span>Compute VAT &amp; Reconcile</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-vt-set">
+<div class="hd"><div><b><span aria-hidden="true" class="msym">receipt_long</span>VAT Settlement Assessment</b><small>Liability and settlement breakdown</small></div><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="sx-vt-gross"><span>Total Gross Invoiced Amount (Customer Pays)</span><div class="big" id="resultValue">—</div>
+<div class="r"><span>Net Value: <b id="net">—</b></span><span>VAT: <b id="vat">—</b></span></div></div>
+<div class="sx-vt-led" id="led">
+<div class="h">Input vs Output Tax Offset Ledger<span id="ledSrc">—</span></div>
+<div class="l"><span>Output VAT (collected on this sale)</span><b id="oV">—</b></div>
+<div class="l"><span>Input VAT (reclaimable on business purchases)</span><b class="r" id="iV">—</b></div>
+<div class="l t"><span id="remL">Net VAT Payable</span><b id="rem">—</b></div>
+</div>
+<div class="sx-vt-f"><b style="display:flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">functions</span>Reverse Formula &amp; Factor Check</b><code id="fx">—</code><span id="fac">—</span></div>
+<div class="sx-vt-note"><span aria-hidden="true" class="msym">info</span><span id="note">—</span></div>
+<div class="sx-in-acts" style="margin-top:16px"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export (.PDF)</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_view</span>Export Ledger (.CSV)</button></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="bench">
+<div class="hd"><div><span class="sx-kick">Benchmark Matrix</span><h2>UK, EU &amp; International VAT Rate Benchmark (2026)</h2><p>Headline rates by country. Which goods qualify for reduced rates varies — check the tax authority's guidance.</p></div>
+<div class="hbt" style="align-items:center;gap:8px"><span style="font-size:12px;color:var(--sx-muted)">Filter:</span><input id="flt" type="hidden" value="s1"/><div aria-label="Filter" class="sx-seg" role="group"><button data-for="flt" data-value="s1" type="button">All</button><button data-for="flt" data-value="s2" type="button">EU Members</button><button data-for="flt" data-value="s3" type="button">Non-EU</button></div></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Jurisdiction</th><th scope="col">ISO Code</th><th scope="col">Standard Rate</th><th scope="col">Reduced Rate(s)</th><th scope="col">Super-Reduced / Zero</th><th scope="col">B2B Reverse Charge</th></tr></thead>
+<tbody id="bTbl"></tbody>
+</table></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">account_balance_wallet</span></span><h3>The Mechanics of Input Tax Credits (Reclaimable VAT)</h3><p>VAT is a multi-stage consumption tax designed to fall on the final consumer. VAT-registered businesses avoid tax on tax by deducting the <b>input VAT</b> paid on business purchases from the <b>output VAT</b> charged to customers, and paying (or reclaiming) the difference.</p><p><b>Valid invoices:</b> to reclaim input VAT you normally need a proper VAT invoice showing the supplier's VAT registration number.</p><p><b>Exempt supplies:</b> businesses that also make VAT-exempt sales may only be able to reclaim part of their input VAT (partial exemption).</p></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">language</span></span><h3>B2B Reverse Charge on Cross-Border Services</h3><p>For many cross-border business-to-business services, the <b>reverse charge</b> shifts the obligation to account for VAT from the supplier to the business customer. The supplier invoices without VAT and notes that the reverse charge applies; the customer records both output and input VAT on its own return.</p><p><b>Check the VAT number:</b> suppliers should verify an EU customer's VAT number through the EU VIES system before invoicing without VAT.</p><p><b>UK returns:</b> the reverse-charged VAT goes in Box 1 (output) and, where recoverable, Box 4 (input), so the net effect is usually nil.</p></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Adding vs. extracting VAT</h2>
+<p>These are two different calculations that people often mix up. If you have a price before VAT and want to know the final price, you're adding VAT — multiply the net price by (1 + VAT rate). If you have a final price that already includes VAT and want to know the pre-VAT amount, you're extracting VAT — dividing by (1 + VAT rate), not simply subtracting the VAT percentage from the total.</p>
+<p>This distinction matters because naively subtracting the VAT percentage from a gross price gives an incorrect (too low) net amount — the correct extraction requires dividing, since the VAT percentage in extraction mode applies to the net amount, not the gross amount.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Rates verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>VAT rates vary by country and category</h2>
+<p>Standard VAT rates differ significantly by country — for example, the UK standard rate is 20%, while other countries use different standard and reduced rates for specific categories like food, children's items, or books. Some goods and services may be zero-rated or exempt entirely.</p>
+<p>Always verify the correct VAT rate for your specific product category and country, since applying the wrong rate is one of the most common invoicing errors for businesses working across borders. For US sales tax, use the <a href="/financial/sales-tax-calculator.html">Sales Tax Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Can I just subtract the VAT percentage from a gross price to get the net price?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No — that gives an incorrect result. To correctly extract VAT from a gross price, divide by (1 + VAT rate) rather than subtracting the percentage directly, since the VAT rate applies to the net amount, not the gross total.</p></details>
+<details class="sx-faq"><summary>Do all products have the same VAT rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No — many countries apply reduced rates or exemptions to specific categories like food, children's clothing, or books, alongside a standard rate for most other goods and services.</p></details>
+<details class="sx-faq"><summary>How much is VAT in the UK?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The standard UK VAT rate is 20%. A reduced rate of 5% applies to some goods like domestic energy and children's car seats. Some goods are zero-rated (0%) including most food and children's clothing.</p></details>
+<details class="sx-faq"><summary>How do I calculate VAT?<span aria-hidden="true" class="msym">expand_more</span></summary><p>To add VAT: multiply the price by 1.20 (for 20% VAT). To find the VAT amount in a VAT-inclusive price: multiply the gross price by 1/6 (for 20% VAT). This calculator handles both automatically — just enter the price and select whether to add or remove VAT.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Calculators</h2><p>Tax and pricing tools for businesses and freelancers.</p></div>
+<a href="/financial-calculators.html">View all tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/sales-tax-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">point_of_sale</span></span><b>Sales Tax Calculator</b><span class="d">Add US state and local sales tax to a price.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">east</span></span></a>
+<a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>UK Take-Home Pay Calculator</b><span class="d">Income tax, National Insurance and pension.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">east</span></span></a>
+<a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">badge</span></span><b>Freelance Rate Calculator</b><span class="d">Day rates that cover downtime and overheads.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">east</span></span></a>
+<a class="sx-card" href="/financial/discount-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">sell</span></span><b>Discount Calculator</b><span class="d">Sale price and savings from a percentage off.</span><span class="f">Explore Engine<span aria-hidden="true" class="msym">east</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/vat-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -239,40 +171,9 @@ step="0.5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/vat.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/vat.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

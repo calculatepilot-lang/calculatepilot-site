@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alcohol Calories Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,content_copy,directions_run,event,expand_more,local_bar,print,query_stats,restart_alt,science,trending_down,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,53 +38,121 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Alcohol Calories Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="drinkType">Drink type</label>
-          <select id="drinkType">
-            <option value="beerRegular" selected>Regular beer (12 oz)</option>
-            <option value="beerLight" >Light beer (12 oz)</option>
-            <option value="wine" >Wine (5 oz glass)</option>
-            <option value="spirits" >Spirits / shot (1.5 oz, 80-proof)</option>
-            <option value="cocktail" >Mixed cocktail (average)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="numDrinks">Number of drinks</label>
-          <input type="number" id="numDrinks" value="2"
-step="1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Total calories</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Calories per drink</span><span id="outPerDrink">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="acCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Alcohol Calories Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Size × ABV Formula</span><span class="sx-badge"><span aria-hidden="true" class="msym">local_bar</span>Standard Drinks &amp; UK Units</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Alcohol Calories Calculator — Per Drink, Week &amp; Year</h1>
+<p>Calculate the calories in any drink from its size, strength (ABV) and sugar, see how many standard drinks and UK units it contains, and what your weekly drinking adds up to over a year.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Drink</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s1"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">fl oz</button><button data-for="u" data-value="s2" style="flex:1" type="button">mL</button></div></div>
+<div>
+<div class="sx-au-l"><label for="dt">Drink Type</label></div>
+<div class="sx-au-sel"><select aria-label="Drink type" id="dt">
+<option value="0">Regular beer (12 oz, 5%)</option><option value="1">Light beer (12 oz, 4.2%)</option><option value="2">Wine (5 oz, 12%)</option><option value="3">Spirits shot (1.5 oz, 40%)</option><option value="4">Spirit + 6 oz regular soda</option><option value="5">Hard seltzer (12 oz, 5%)</option><option value="6">Custom</option>
+</select></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="sz">Size</label></div><div class="sx-au-in np"><input id="sz" inputmode="decimal" max="1000" min="0.5" step="0.5" type="number" value="12"/><span class="suf" id="szU">fl oz</span></div></div>
+<div><div class="sx-au-l"><label for="abv">Strength (ABV)</label></div><div class="sx-au-in np"><input id="abv" inputmode="decimal" max="70" min="0" step="0.1" type="number" value="5"/><span class="suf">%</span></div></div>
+</div>
+<div><div class="sx-au-l"><label for="cb">Carbs / Sugar per Drink</label></div><div class="sx-au-in np"><input id="cb" inputmode="decimal" max="150" min="0" step="0.5" type="number" value="13"/><span class="suf">g</span></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="n">Drinks per Occasion</label></div><div class="sx-au-in np"><input id="n" inputmode="numeric" max="30" min="0" step="1" type="number" value="3"/></div></div>
+<div><div class="sx-au-l"><label for="occ">Occasions per Week</label></div><div class="sx-au-in np"><input id="occ" inputmode="decimal" max="7" min="0" step="1" type="number" value="2"/></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Calories</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Calories per week</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small> kcal</small></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Per drink</span><b id="pd">—</b></div><div><span>Per occasion</span><b id="po">—</b></div></div>
+<div class="g2"><div><span>Per year</span><b id="py">—</b></div><div><span>Energy equivalent per year</span><b id="eq">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">science</span>One Drink, Broken Down</span><span id="brT">—</span></div>
+<div class="l"><span>Pure alcohol</span><b id="ag">—</b></div>
+<div class="l"><span>Calories from alcohol (7 kcal/g)</span><b id="ak">—</b></div>
+<div class="l"><span>Calories from carbs (4 kcal/g)</span><b id="ck">—</b></div>
+<div class="l"><span>US standard drinks (14 g)</span><b id="sd">—</b></div>
+<div class="l"><span>UK units (8 g)</span><b id="uk">—</b></div>
+<div class="l t"><span>UK units per week</span><b id="ukw">—</b></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/bac-calculator.html"><span aria-hidden="true" class="msym">local_bar</span>BAC Calculator</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Common Drinks Compared</h2><p>Calories, standard drinks and UK units per serving, calculated with the same formula.</p></div><span class="sx-au-tag">Per serving</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Drink</th><th scope="col">Serving</th><th scope="col">Calories</th><th scope="col">Std Drinks</th><th scope="col">UK Units</th></tr></thead>
+<tbody id="cmpTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>Calories in a drink come from two sources — the alcohol itself and any carbohydrate (sugar and starch):</p>
+<ul>
+<li><strong>Alcohol (g)</strong> = volume (mL) × ABV ÷ 100 × 0.789 (the density of ethanol)</li>
+<li><strong>Calories</strong> = alcohol (g) × 7 + carbs (g) × 4</li>
+<li><strong>US standard drinks</strong> = alcohol (g) ÷ 14 · <strong>UK units</strong> = alcohol (g) ÷ 8 (10 mL of pure alcohol)</li>
+</ul>
+<p>Preset carb values are typical figures from USDA FoodData Central; check the label for your brand, as beers, ciders and cocktails vary widely.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against NIAAA, UK CMO and U.S. Dietary Guidelines · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A 12-oz (355 mL) regular beer at 5% ABV: 355 × 0.05 × 0.789 = 14.0 g of alcohol — exactly one US standard drink — giving 98 kcal. Its 13 g of carbs add 52 kcal, for about <strong>150 kcal</strong>. Three beers twice a week is 900 kcal a week, or about 47,000 kcal a year.</p>
+<h2>What the guidelines say</h2>
+<p>The Dietary Guidelines for Americans, 2025–2030 advise consuming less alcohol for better overall health, and say pregnant women, people recovering from alcohol use disorder, and people whose medications or conditions interact with alcohol should avoid it completely. (The previous 2020–2025 edition set limits of 2 drinks or fewer a day for men and 1 or fewer for women.) The UK Chief Medical Officers advise drinking no more than 14 units a week, spread over three or more days.</p>
+<h2>Why alcohol calories are easy to overlook</h2>
+<p>At about 7 kcal per gram, alcohol is more energy-dense than carbohydrate or protein (4 kcal/g) and just below fat (9 kcal/g). Drinks are rarely tracked as closely as food, and sugary mixers, syrups and juices can double a cocktail's calories.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink" rel="noopener noreferrer">NIAAA — What is a standard drink?</a></li>
+<li><a href="https://realfood.gov/" rel="noopener noreferrer">Dietary Guidelines for Americans, 2025–2030</a></li>
+<li>UK Chief Medical Officers. UK Chief Medical Officers' Low Risk Drinking Guidelines. Department of Health, 2016.</li>
+<li><a href="https://fdc.nal.usda.gov/" rel="noopener noreferrer">USDA FoodData Central</a> (typical carbohydrate per serving)</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why does alcohol have more calories than carbs or protein?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Alcohol provides about 7 calories per gram, compared with 4 calories per gram for carbohydrates and protein — a big part of why drinks add up faster than their serving size might suggest.</p></details>
+<details class="sx-faq"><summary>Are cocktails always higher in calories than beer or wine?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Often, but not always — it depends on the recipe. Cocktails with sugary mixers, syrups or cream can be far higher in calories than a spirit with soda water or a glass of dry wine.</p></details>
+<details class="sx-faq"><summary>What is a standard drink?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In the United States, one standard drink contains about 14 grams (0.6 fl oz) of pure alcohol — roughly a 12-oz beer at 5%, a 5-oz glass of wine at 12%, or a 1.5-oz shot of 40% spirits. A UK unit is smaller, at 8 grams.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>See the bigger picture.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/bac-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_bar</span></span><b>BAC Calculator</b><span class="d">Estimated blood alcohol from your drinks.</span><span class="f">Estimate BAC<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Calorie Calculator</b><span class="d">Fit drinks into your daily target.</span><span class="f">Plan calories<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/weight-loss-calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_down</span></span><b>Weight Loss Calorie</b><span class="d">Plan a deficit that accounts for drinks.</span><span class="f">Plan deficit<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_run</span></span><b>Calories Burned</b><span class="d">What it takes to burn it off.</span><span class="f">Estimate burn<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/alcohol-calories-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -211,7 +161,8 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/alcohol-calories.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/alcohol-calories.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unit Price Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add,arrow_forward,balance,calculate,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,local_gas_station,lock,person_check,print,query_stats,receipt_long,restart_alt,savings,sell,skillet,star,swap_horiz,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,84 +38,212 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Unit Price Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="priceA">Product A price ($)</label>
-          <input type="number" id="priceA" value="4.99"
-step="0.01"min="0">
-        </div>
-        <div class="field">
-          <label for="quantityA">Product A quantity</label>
-          <input type="number" id="quantityA" value="12"
-step="0.1"min="0.01">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="priceB">Product B price ($)</label>
-          <input type="number" id="priceB" value="8.49"
-step="0.01"min="0">
-        </div>
-        <div class="field">
-          <label for="quantityB">Product B quantity</label>
-          <input type="number" id="quantityB" value="24"
-step="0.1"min="0.01">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Better deal</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Product A unit price</span><span id="outUnitPriceA">—</span></div>
-        <div class="embed-row"><span>Product B unit price</span><span id="outUnitPriceB">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="upCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Unit Price &amp; Grocery Comparison</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">swap_horiz</span>Converts weight, volume and count</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Unit Price &amp; Grocery Comparison Calculator</h1>
+<p>Compare up to six products by price per ounce, pound, litre, sheet or any other unit. Mixed package units are converted for you, so a 16 oz jar and a 1 kg tub can be compared fairly.</p>
 </div>
+<div class="sx-au-hbtns" style="display:flex;gap:8px;flex-wrap:wrap"><button class="sx-reset" data-action="print" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 12px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">print</span>Print comparison</button><button class="sx-reset" data-action="reset" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 12px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Conversion factors come from NIST Special Publication 811. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts every package to one base unit, divides the shelf price by the quantity, and ranks products by the resulting unit price.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Shelf labels use different units and pack sizes. This puts them on one scale and shows what the bigger pack really saves.</p></section></div>
+</div>
+<form id="calcForm" novalidate="">
+<section aria-label="Comparison settings" class="sx-card sx-ev-bar">
+<div class="g">
+<span class="lb">Compare by</span>
+<input id="dim" type="hidden" value="w"/>
+<div aria-label="Dimension" class="sx-seg" role="group"><button data-for="dim" data-value="w" type="button">Weight</button><button data-for="dim" data-value="v" type="button">Volume</button><button data-for="dim" data-value="c" type="button">Count / sheets</button></div>
+<span class="lb">Show price per</span>
+<select aria-label="Unit to show prices in" class="sx-mt-sel" id="tu" style="width:auto;min-width:150px"></select>
+</div>
+<div class="sx-mt-chips" id="presets"><span>Quick presets</span><button data-p="oil" type="button">Olive oil</button><button data-p="towels" type="button">Paper towels</button><button data-p="soap" type="button">Detergent</button></div>
+</section>
+<div class="sx-ev-items" id="items">
+<article class="sx-card sx-ev-item" id="it0">
+<div class="flag"><span aria-hidden="true" class="msym">star</span>Lowest unit price<span id="fl0"></span></div>
+<div class="top">
+<div class="hd"><div><span class="ltr">A</span><h3 id="h0">Standard baseline</h3></div><span class="tagx" id="tg0">Baseline</span></div>
+<div><div class="sx-au-l"><label for="l0">Product label</label></div><input class="txt" id="l0" maxlength="40" type="text" value="Brand Pantry Standard"/></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="p0">Shelf price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="p0" inputmode="decimal" min="0" step="0.01" type="number" value="4.99"/></div></div>
+<div><div class="sx-au-l"><label for="q0">Package quantity</label></div><div class="sx-au-in sm np"><input id="q0" inputmode="decimal" min="0" step="any" type="number" value="16"/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="u0">Package unit</label></div><select class="sx-mt-sel" id="u0"></select></div>
+</div>
+<div class="out"><span class="k">Unit price</span><div class="v"><span id="up0">—</span><small id="us0">/ oz</small></div><div class="eq" id="eq0">—</div><div class="dl" id="dl0">—</div></div>
+</article>
+<article class="sx-card sx-ev-item" id="it1">
+<div class="flag"><span aria-hidden="true" class="msym">star</span>Lowest unit price<span id="fl1"></span></div>
+<div class="top">
+<div class="hd"><div><span class="ltr">B</span><h3 id="h1">Value pack</h3></div><span class="tagx" id="tg1">—</span></div>
+<div><div class="sx-au-l"><label for="l1">Product label</label></div><input class="txt" id="l1" maxlength="40" type="text" value="Brand Family Value Pack"/></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="p1">Shelf price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="p1" inputmode="decimal" min="0" step="0.01" type="number" value="8.49"/></div></div>
+<div><div class="sx-au-l"><label for="q1">Package quantity</label></div><div class="sx-au-in sm np"><input id="q1" inputmode="decimal" min="0" step="any" type="number" value="32"/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="u1">Package unit</label></div><select class="sx-mt-sel" id="u1"></select></div>
+</div>
+<div class="out"><span class="k">Unit price</span><div class="v"><span id="up1">—</span><small id="us1">/ oz</small></div><div class="eq" id="eq1">—</div><div class="dl" id="dl1">—</div></div>
+</article>
+<article class="sx-card sx-ev-item" id="it2">
+<div class="flag"><span aria-hidden="true" class="msym">star</span>Lowest unit price<span id="fl2"></span></div>
+<div class="top">
+<div class="hd"><div><span class="ltr">C</span><h3 id="h2">Club size</h3></div><span class="tagx" id="tg2">—</span></div>
+<div><div class="sx-au-l"><label for="l2">Product label</label></div><input class="txt" id="l2" maxlength="40" type="text" value="Warehouse Club Economy Tub"/></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="p2">Shelf price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="p2" inputmode="decimal" min="0" step="0.01" type="number" value="15.99"/></div></div>
+<div><div class="sx-au-l"><label for="q2">Package quantity</label></div><div class="sx-au-in sm np"><input id="q2" inputmode="decimal" min="0" step="any" type="number" value="64"/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="u2">Package unit</label></div><select class="sx-mt-sel" id="u2"></select></div>
+</div>
+<div class="out"><span class="k">Unit price</span><div class="v"><span id="up2">—</span><small id="us2">/ oz</small></div><div class="eq" id="eq2">—</div><div class="dl" id="dl2">—</div></div>
+</article>
+<article class="sx-card sx-ev-item" hidden="" id="it3">
+<div class="flag"><span aria-hidden="true" class="msym">star</span>Lowest unit price<span id="fl3"></span></div>
+<div class="top">
+<div class="hd"><div><span class="ltr">D</span><h3 id="h3">Extra option</h3></div><span class="tagx" id="tg3">—</span></div>
+<div><div class="sx-au-l"><label for="l3">Product label</label></div><input class="txt" id="l3" maxlength="40" type="text" value="Option D"/></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="p3">Shelf price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="p3" inputmode="decimal" min="0" step="0.01" type="number" value=""/></div></div>
+<div><div class="sx-au-l"><label for="q3">Package quantity</label></div><div class="sx-au-in sm np"><input id="q3" inputmode="decimal" min="0" step="any" type="number" value=""/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="u3">Package unit</label></div><select class="sx-mt-sel" id="u3"></select></div>
+</div>
+<div class="out"><span class="k">Unit price</span><div class="v"><span id="up3">—</span><small id="us3">/ oz</small></div><div class="eq" id="eq3">—</div><div class="dl" id="dl3">—</div></div>
+</article>
+<article class="sx-card sx-ev-item" hidden="" id="it4">
+<div class="flag"><span aria-hidden="true" class="msym">star</span>Lowest unit price<span id="fl4"></span></div>
+<div class="top">
+<div class="hd"><div><span class="ltr">E</span><h3 id="h4">Extra option</h3></div><span class="tagx" id="tg4">—</span></div>
+<div><div class="sx-au-l"><label for="l4">Product label</label></div><input class="txt" id="l4" maxlength="40" type="text" value="Option E"/></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="p4">Shelf price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="p4" inputmode="decimal" min="0" step="0.01" type="number" value=""/></div></div>
+<div><div class="sx-au-l"><label for="q4">Package quantity</label></div><div class="sx-au-in sm np"><input id="q4" inputmode="decimal" min="0" step="any" type="number" value=""/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="u4">Package unit</label></div><select class="sx-mt-sel" id="u4"></select></div>
+</div>
+<div class="out"><span class="k">Unit price</span><div class="v"><span id="up4">—</span><small id="us4">/ oz</small></div><div class="eq" id="eq4">—</div><div class="dl" id="dl4">—</div></div>
+</article>
+<article class="sx-card sx-ev-item" hidden="" id="it5">
+<div class="flag"><span aria-hidden="true" class="msym">star</span>Lowest unit price<span id="fl5"></span></div>
+<div class="top">
+<div class="hd"><div><span class="ltr">F</span><h3 id="h5">Extra option</h3></div><span class="tagx" id="tg5">—</span></div>
+<div><div class="sx-au-l"><label for="l5">Product label</label></div><input class="txt" id="l5" maxlength="40" type="text" value="Option F"/></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="p5">Shelf price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="p5" inputmode="decimal" min="0" step="0.01" type="number" value=""/></div></div>
+<div><div class="sx-au-l"><label for="q5">Package quantity</label></div><div class="sx-au-in sm np"><input id="q5" inputmode="decimal" min="0" step="any" type="number" value=""/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="u5">Package unit</label></div><select class="sx-mt-sel" id="u5"></select></div>
+</div>
+<div class="out"><span class="k">Unit price</span><div class="v"><span id="up5">—</span><small id="us5">/ oz</small></div><div class="eq" id="eq5">—</div><div class="dl" id="dl5">—</div></div>
+</article>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<section aria-live="polite" class="sx-card sx-ev-summary">
+<div class="l"><div class="ic"><span aria-hidden="true" class="msym">savings</span></div><div><h3>What the best buy saves</h3><p id="sumTxt">—</p></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="sx-cta" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compare unit prices</button><button class="sx-reset" id="addBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 14px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">add</span>Add item</button><button class="sx-reset" id="copyBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 14px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button class="sx-reset" data-action="share" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 14px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button></div>
+</section>
+<div class="sx-ev-two">
+<section class="sx-card">
+<span class="eyebrow">Conversion factors</span>
+<h2>Unit conversions used</h2>
+<p>Prices are compared after converting every package to grams, millilitres or single items. The factors below are exact or standard values from NIST Special Publication 811.</p>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:520px">
+<thead><tr><th>Dimension</th><th>Unit</th><th>Equals</th><th>Metric</th></tr></thead>
+<tbody>
+<tr><td class="a">Weight</td><td>1 pound (lb)</td><td>16 ounces (oz)</td><td>453.59237 g</td></tr>
+<tr><td class="a">Weight</td><td>1 kilogram (kg)</td><td>35.274 oz</td><td>1,000 g</td></tr>
+<tr><td class="a">Liquid</td><td>1 US gallon (gal)</td><td>128 fl oz</td><td>3.785412 L</td></tr>
+<tr><td class="a">Liquid</td><td>1 US pint (pt)</td><td>16 fl oz</td><td>473.1765 mL</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Shrinkflation check</span>
+<h2>Did the pack get smaller?</h2>
+<p>Makers sometimes cut the pack size and keep the price. Enter the old and new sizes to see the hidden price rise per unit.</p>
+<div class="sx-ev-audit">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="s0">Previous size</label></div><div class="sx-au-in sm np"><input id="s0" inputmode="decimal" min="0" step="any" type="number" value="16"/></div></div>
+<div><div class="sx-au-l"><label for="s1">New size</label></div><div class="sx-au-in sm np"><input id="s1" inputmode="decimal" min="0" step="any" type="number" value="14.5"/></div></div>
+</div>
+<div class="res"><div><span style="display:block;font-size:11px;color:var(--sx-muted)">Hidden price increase per unit</span><b id="shr">—</b></div><span class="sx-mt-tag" id="shrLoss">—</span></div>
+</div>
+</section>
+</div>
+</form>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>How unit price is calculated</h2>
+<p>Every package is converted to a common base unit first, then compared.</p>
+<div class="sx-au-fx">
+<div><div class="ic"><span aria-hidden="true" class="msym">balance</span></div><h3>1. Normalise</h3><p>Convert the package quantity to a base unit (grams, millilitres or items) using the factors in the table.</p><code>base qty = qty × factor</code></div>
+<div><div class="ic"><span aria-hidden="true" class="msym">sell</span></div><h3>2. Unit price</h3><p>Divide the shelf price by the base quantity, then scale to the unit you want to see.</p><code>unit price = price ÷ base qty × unit factor</code></div>
+<div><div class="ic"><span aria-hidden="true" class="msym">savings</span></div><h3>3. Savings</h3><p>Compare each unit price with the baseline (item A) to see the percentage saved per unit.</p><code>saving = 1 − (unit price ÷ baseline price)</code></div>
+</div>
+</section>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative prices, each checked by hand. The first is the default comparison.</p>
+<div class="sx-mt-3">
+<div><h3>Three sizes, one product</h3><p>16 oz for $4.99, 32 oz for $8.49 and 64 oz for $15.99.</p><div class="sx-mt-ex">A: 4.99 ÷ 16 = $0.3119/oz<br/>B: 8.49 ÷ 32 = $0.2653/oz<br/>C: 15.99 ÷ 64 = <b>$0.2498/oz</b><br/>C saves 1 − 0.2498/0.3119 = <b>19.9%</b></div></div>
+<div><h3>Mixed units</h3><p>A 1 lb bag at $3.20 against a 500 g bag at $2.10.</p><div class="sx-mt-ex">1 lb = 453.59 g<br/>3.20 ÷ 453.59 = $0.00705/g<br/>2.10 ÷ 500 = <b>$0.00420/g</b><br/>the 500 g bag is 40% cheaper per gram</div></div>
+<div><h3>Shrinkflation</h3><p>A 16 oz pack becomes 14.5 oz at the same price.</p><div class="sx-mt-ex">price per oz rises by 16 ÷ 14.5 − 1<br/>= <b>+10.34%</b><br/>pack size falls by 1 − 14.5 ÷ 16 = 9.38%</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to compare unit prices</h2>
+<ul>
+<li>Pick what the products are measured in: weight, volume, or a count such as sheets.</li>
+<li>Enter each shelf price and the net quantity printed on the package, and choose the unit that the label uses.</li>
+<li>Read the unit price on each card. The lowest is marked as the best buy.</li>
+<li>Check the bigger pack will actually be used before it expires or goes stale.</li>
+</ul>
+<p>Unit price is only one part of value. A larger pack is not a saving if some of it is thrown away, and store brands can differ in quality.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i>, and NIST conversion factors for pounds, ounces, gallons and pints.</li>
+<li>NIST Handbook 130, <i>Uniform Laws and Regulations in the Areas of Legal Metrology and Engine Fuel Quality</i>, which includes a model unit pricing regulation for states to adopt.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Are stores required to show unit prices?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It depends on the state. NIST Handbook 130 publishes a model unit pricing regulation, and some states or retailers follow it or similar rules, but there is no single US federal requirement. Where shown, the shelf label gives the price per a set unit such as an ounce or 100 sheets.</p></details>
+<details class="sx-faq"><summary>What is the difference between ounces and fluid ounces?<span aria-hidden="true" class="msym">expand_more</span></summary><p>An ounce measures weight (about 28.35 g) and a fluid ounce measures volume (about 29.57 mL). They are not interchangeable: 16 fl oz of honey weighs roughly 22 to 24 oz. That is why this tool compares weight, volume and count separately.</p></details>
+<details class="sx-faq"><summary>How do I compare paper towels or toilet paper fairly?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Roll names such as "mega" or "double" are not standard. Compare the total sheet count, or total area, printed on the pack: price ÷ (rolls × sheets per roll). Use the Count option and enter the total sheets.</p></details>
+<details class="sx-faq"><summary>Is the bigger pack always cheaper per unit?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Not always. Bulk packs are usually cheaper per unit, but promotions, store brands and multi-buy deals can make a smaller pack the better value. That is what the comparison is for.</p></details>
+<details class="sx-faq"><summary>How is the shrinkflation percentage worked out?<span aria-hidden="true" class="msym">expand_more</span></summary><p>If the price stays the same and the pack shrinks, the price per unit rises by old size ÷ new size − 1. A 16 oz pack that becomes 14.5 oz raises the price per ounce by 10.34%.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/break-even-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Break-Even Calculator</b><span class="d">Find how many units cover your fixed and variable costs.</span><span class="f">Find break-even<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/tip-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Tip Calculator</b><span class="d">Add a tip and split the bill fairly.</span><span class="f">Split the bill<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/recipe-conversion-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">skillet</span></span><b>Recipe Conversion</b><span class="d">Scale recipes and convert cooking units.</span><span class="f">Scale a recipe<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/fuel-cost-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_gas_station</span></span><b>Fuel Cost Calculator</b><span class="d">Trip fuel cost from distance and fuel price.</span><span class="f">Plan a trip<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Unit Price Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/unit-price-calculator.html" width="100%" height="560" loading="lazy" title="Unit Price Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/unit-price-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -242,40 +252,9 @@ step="0.1"min="0.01">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/unit-price.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/unit-price.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

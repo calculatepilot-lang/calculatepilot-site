@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Standard Deviation Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add,align_horizontal_center,arrow_forward,calculate,candlestick_chart,chevron_right,code,content_copy,download,event,expand_more,factory,functions,lightbulb,lock,percent,person_check,picture_as_pdf,restart_alt,scale,science,show_chart,straighten,superscript,swap_horiz,tag,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,52 +38,173 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Standard Deviation Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="numbersList">Numbers (comma-separated)</label>
-          <input type="text" id="numbersList" value="4, 8, 6, 5, 3, 9, 7"
->
-        </div>
-        <div class="field">
-          <label for="dataType">Data type</label>
-          <select id="dataType">
-            <option value="sample" selected>Sample</option>
-            <option value="population" >Population</option>
-          </select>
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Standard deviation</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Mean</span><span id="outMean">—</span></div>
-        <div class="embed-row"><span>Variance</span><span id="outVariance">—</span></div>
-        <div class="embed-row"><span>Count</span><span id="outCount">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="sdCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Standard Deviation Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Sample &amp; population formulas</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Standard Deviation Calculator</h1>
+<p>Paste a list of numbers to get the sample or population standard deviation, variance, mean, sum of squares, coefficient of variation and a 95% confidence interval for the mean — with every step of the working shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The formulas follow the NIST/SEMATECH Engineering Statistics Handbook. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It uses the two-pass method — find the mean, then sum the squared deviations from it — which avoids the rounding errors of the shortcut formula.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Most calculators return a bare number. This one shows the deviation table, says which divisor it used, and plots your data against the matching bell curve.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Data set</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Data type</span></div>
+<input id="basis" type="hidden" value="s1"/>
+<div aria-label="Data type" class="sx-seg full" role="group"><button data-for="basis" data-value="s1" type="button">Sample (n − 1)</button><button data-for="basis" data-value="s2" type="button">Population (N)</button></div>
+<p class="sx-au-help" id="basisHelp">—</p>
+</div>
+<div>
+<div class="sx-au-l"><label for="data">Numbers</label><em class="mu" id="dataN">—</em></div>
+<textarea aria-describedby="dataHelp" class="sx-mt-ta" id="data" spellcheck="false">12, 15, 18, 20, 22, 25, 28, 30, 32, 38</textarea>
+<p class="sx-au-help" id="dataHelp">Separate values with commas, spaces or new lines. Anything that is not a number is ignored.</p>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="ex">Load an example</label></div><select class="sx-mt-sel" id="ex"><option value="">Choose…</option><option value="12, 15, 18, 20, 22, 25, 28, 30, 32, 38">Ten whole numbers</option><option value="72, 85, 90, 66, 78, 94, 81, 88, 70, 75">Test marks (illustrative)</option><option value="25.002, 25.008, 24.996, 25.004, 25.000, 24.998, 25.006, 25.002">Bearing diameters in mm (illustrative)</option><option value="14.2, 15.8, 13.9, 16.4, 15.1, 14.7, 17.0, 15.5, 13.6, 16.1">Daily temperatures in °C (illustrative)</option></select></div>
+<div><div class="sx-au-l"><label for="prec">Decimal places</label></div><select class="sx-mt-sel" id="prec"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option><option value="8">8</option></select></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button><button class="rs" id="rand" type="button">Random sample</button><button class="rs" id="clear" type="button">Clear</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Formula in effect</span><span class="eq" id="fxNow" style="font-size:16px">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Sample standard deviation (s)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Variance</span><b id="vr">—</b></div><div><span>Mean</span><b id="mean">—</b></div></div>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k">Count (n)<span aria-hidden="true" class="msym">tag</span></div><b id="cnt">—</b><p>Values used</p></div>
+<div class="sx-card"><div class="k">Sum (Σx)<span aria-hidden="true" class="msym">add</span></div><b id="sum">—</b><p>Total of all values</p></div>
+<div class="sx-card"><div class="k">Sum of squares (SS)<span aria-hidden="true" class="msym">superscript</span></div><b id="ss">—</b><p>Σ(x − mean)²</p></div>
+<div class="sx-card"><div class="k">Coefficient of variation<span aria-hidden="true" class="msym">percent</span></div><b id="cv">—</b><p>SD ÷ |mean| × 100</p></div>
+<div class="sx-card"><div class="k">Standard error of mean<span aria-hidden="true" class="msym">straighten</span></div><b id="se">—</b><p id="seN">SD ÷ √n</p></div>
+<div class="sx-card"><div class="k">95% CI for the mean<span aria-hidden="true" class="msym">swap_horiz</span></div><b id="ci" style="font-size:17px">—</b><p id="ciN">—</p></div>
+</div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Your data against a normal curve</h2><p>The curve is a normal distribution with your mean and standard deviation; dots are your values. The shaded band is one standard deviation either side of the mean.</p></div><span class="sx-au-tag" id="within">—</span></div>
+<div aria-label="Data points plotted against a normal curve with the same mean and standard deviation" class="sx-mt-plot" id="plot" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps" style="margin-bottom:18px"></ol>
+<div class="sx-scroll"><table class="sx-au-cmp plain" id="devTbl" style="min-width:560px"><thead><tr><th scope="col">#</th><th scope="col">Value (x)</th><th scope="col">Deviation (x − mean)</th><th scope="col">Squared deviation</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+<div class="ft"><span id="devNote">—</span></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Population vs sample standard deviation</h2>
+<p>The two formulas differ only in the divisor. The sample version divides by n − 1 so that the variance estimate is not biased low when the mean is itself estimated from the same data.</p>
+<div class="sx-mt-2">
+<div><h3>Population SD (σ) <span class="sx-mt-tag">divisor N</span></h3><p>Use when your list is every member of the group you care about — every employee, every unit in a batch.</p><div class="sx-mt-fx" style="padding:14px"><span class="eq">σ = √[ Σ(xᵢ − μ)² ÷ N ]</span></div></div>
+<div><h3>Sample SD (s) <span class="sx-mt-tag">Bessel-corrected, divisor n − 1</span></h3><p>Use when your list is a sample drawn from a larger population — the usual case in surveys and experiments.</p><div class="sx-mt-fx" style="padding:14px"><span class="eq">s = √[ Σ(xᵢ − x̄)² ÷ (n − 1) ]</span></div></div>
+</div>
+<p style="margin:16px 0 0"><strong>Why n − 1?</strong> Deviations are measured from the sample mean, which sits closer to the data than the true population mean does, so Σ(x − x̄)² tends to be smaller than Σ(x − μ)². Dividing by n − 1 instead of n corrects that on average: the sample variance s² is then an unbiased estimator of σ². (The square root s is still very slightly biased for small n.)</p>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Symbols glossary</h2><p>What each symbol on this page means.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:560px">
+<thead><tr><th scope="col">Symbol</th><th scope="col">Name</th><th scope="col">Meaning</th></tr></thead>
+<tbody>
+<tr><td class="mono">s</td><td style="font-family:inherit">Sample standard deviation</td><td style="font-family:inherit">Square root of the sample variance (divisor n − 1).</td></tr>
+<tr><td class="mono">σ</td><td style="font-family:inherit">Population standard deviation</td><td style="font-family:inherit">Square root of the population variance (divisor N).</td></tr>
+<tr><td class="mono">x̄ , μ</td><td style="font-family:inherit">Sample mean, population mean</td><td style="font-family:inherit">The arithmetic average of the values.</td></tr>
+<tr><td class="mono">n , N</td><td style="font-family:inherit">Sample size, population size</td><td style="font-family:inherit">How many values there are.</td></tr>
+<tr><td class="mono">SS</td><td style="font-family:inherit">Sum of squares</td><td style="font-family:inherit">Σ(x − mean)², the total squared distance from the mean.</td></tr>
+<tr><td class="mono">CV</td><td style="font-family:inherit">Coefficient of variation</td><td style="font-family:inherit">Standard deviation as a percentage of the mean; compares spread across different scales.</td></tr>
+<tr><td class="mono">SE</td><td style="font-family:inherit">Standard error of the mean</td><td style="font-family:inherit">s ÷ √n — how much a sample mean is expected to vary.</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked example: checking a batch of ball bearings</h2>
+<p>Eight bearings are measured (mm): 25.002, 25.008, 24.996, 25.004, 25.000, 24.998, 25.006, 25.002. How consistent is the process? (Load this data from the examples menu to see it above.)</p>
+<ol class="sx-mt-steps">
+<li><span class="n">1</span><h4>Mean</h4><p>Add the eight values and divide by 8.</p><span class="eq">x̄ = 200.016 ÷ 8 = <b>25.002 mm</b></span></li>
+<li><span class="n">2</span><h4>Squared deviations</h4><p>Deviations are 0, +0.006, −0.006, +0.002, −0.002, −0.004, +0.004, 0.</p><span class="eq">Σ(x − x̄)² = 0.000112</span></li>
+<li><span class="n">3</span><h4>Sample variance and SD</h4><p>The bearings are a sample from a production run, so divide by n − 1 = 7.</p><span class="eq">s² = 0.000112 ÷ 7 = 0.000016 → s = <b>0.004 mm</b></span></li>
+</ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Where standard deviation is used</h2>
+<p>Any time you need to describe how spread out measurements are, not just where their centre is.</p>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">factory</span><h3>Quality control</h3><p>Process capability and control charts compare the standard deviation of a measurement with the tolerance the part must meet.</p><span class="f">Consistency of a process</span></div>
+<div><span aria-hidden="true" class="msym">show_chart</span><h3>Finance</h3><p>The standard deviation of an asset's returns is a common volatility measure and the risk axis in mean–variance analysis.</p><span class="f">Volatility &amp; risk</span></div>
+<div><span aria-hidden="true" class="msym">science</span><h3>Research &amp; medicine</h3><p>Studies report results as mean ± SD to show how much individuals differ, and use the SD to plan sample sizes.</p><span class="f">Describing variability</span></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is standard deviation?</h2>
+<p>Standard deviation measures how far values typically sit from their mean. A small standard deviation means the values cluster tightly around the average; a large one means they are spread out. It is expressed in the same units as the data, which is why it is used more often than variance.</p>
+<h2>How to calculate standard deviation</h2>
+<ul>
+<li>Find the mean of the values.</li>
+<li>Subtract the mean from each value and square the result.</li>
+<li>Add the squares to get the sum of squares (SS).</li>
+<li>Divide SS by n − 1 (sample) or N (population) to get the variance.</li>
+<li>Take the square root of the variance.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>The 95% confidence interval for the mean</h2>
+<p>For a sample, the interval is x̄ ± t × s ÷ √n, where t is the Student t critical value with n − 1 degrees of freedom (2.262 for n = 10). It is shown only for the sample setting, because a population mean is known exactly and needs no interval.</p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.5.6 Measures of scale</a></li>
+<li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.5.2 Confidence limits for the mean</a></li>
+<li>ISO 3534-1:2006, <i>Statistics — Vocabulary and symbols — Part 1: General statistical terms and terms used in probability</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why do we divide by n − 1 for a sample?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Because the deviations are measured from the sample mean rather than the unknown true mean, the raw sum of squares runs low. Dividing by n − 1 (Bessel's correction) makes the sample variance an unbiased estimate of the population variance.</p></details>
+<details class="sx-faq"><summary>What is the difference between standard deviation and standard error?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Standard deviation describes the spread of individual values. Standard error of the mean, s ÷ √n, describes how much the sample mean itself would vary from sample to sample, so it shrinks as the sample grows while the standard deviation does not.</p></details>
+<details class="sx-faq"><summary>How much do outliers affect standard deviation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A great deal, because deviations are squared. One extreme value can inflate the standard deviation substantially. If outliers are a concern, compare it with the interquartile range, which is far less sensitive.</p></details>
+<details class="sx-faq"><summary>Can standard deviation be negative?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. It is the square root of a sum of squares, so it is zero or positive. It is zero only when every value is identical.</p></details>
+<details class="sx-faq"><summary>Should I choose sample or population?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Choose population only if your list contains every member of the group you are describing. If it is a sample used to learn about a larger group, choose sample. When in doubt, sample is the standard choice.</p></details>
+<details class="sx-faq"><summary>What does the coefficient of variation tell me?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It expresses the standard deviation as a percentage of the mean, so you can compare the relative spread of data measured on different scales. It is only meaningful when the mean is not close to zero and the data is on a ratio scale.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related statistics calculators</h2><p>Continue your analysis.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/z-score-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Z-Score Calculator</b><span class="d">Convert a value to standard deviations from the mean, with percentile.</span><span class="f">Standardise values<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/mean-median-mode-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">align_horizontal_center</span></span><b>Mean, Median &amp; Mode</b><span class="d">Central tendency measures for a list of numbers.</span><span class="f">Find the centre<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/quartile-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">candlestick_chart</span></span><b>Quartile &amp; IQR</b><span class="d">Quartiles and the interquartile range, robust to outliers.</span><span class="f">Robust spread<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/weighted-average-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Weighted Average</b><span class="d">Averages where some values count more than others.</span><span class="f">Weighted mean<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Standard Deviation Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/standard-deviation-calculator.html" width="100%" height="560" loading="lazy" title="Standard Deviation Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/standard-deviation-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -210,7 +213,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/tandard-deviation.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/standard-deviation.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

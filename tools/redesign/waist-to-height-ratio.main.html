@@ -1,0 +1,108 @@
+<div class="sx" id="whtrCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Waist-to-Height Ratio Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>NICE Classifications</span><span class="sx-badge"><span class="msym" aria-hidden="true">straighten</span>Target Waist</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span></div>
+    <h1>Waist-to-Height Ratio Calculator — NICE Categories &amp; Target Waist</h1>
+    <p>Calculate your waist-to-height ratio (WHtR), see which NICE central adiposity category it falls in, and find the waist size that keeps your waist below half your height.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Your Measurements</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><span>Units</span></div><input type="hidden" id="u" value="s2"><div class="sx-seg" role="group" aria-label="Units" style="display:flex"><button type="button" data-for="u" data-value="s1" style="flex:1">Inches</button><button type="button" data-for="u" data-value="s2" style="flex:1">Centimetres</button></div></div>
+    <div>
+      <div class="sx-au-l"><label for="waist">Waist Circumference</label></div>
+      <div class="sx-au-in np"><input id="waist" type="number" inputmode="decimal" min="40" max="250" step="0.5" value="88"><span class="suf" id="wU">cm</span></div>
+      <p class="sx-au-help" style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">Measure midway between your lowest rib and the top of your hip bone, after breathing out normally.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Height</span><em style="color:var(--sx-muted);font-weight:500" id="hAlt">—</em></div>
+      <div class="sx-au-in np" id="hMet"><input id="cm" type="number" inputmode="decimal" min="120" max="230" step="0.5" value="175" aria-label="Height in centimetres"><span class="suf">cm</span></div>
+      <div class="sx-au-g2" id="hImp" hidden><div class="sx-au-in np"><input id="ft" type="number" inputmode="numeric" min="4" max="7" step="1" value="5" aria-label="Height in feet"><span class="suf">ft</span></div><div class="sx-au-in np"><input id="inch" type="number" inputmode="decimal" min="0" max="11.9" step="0.5" value="9" aria-label="Height in inches"><span class="suf">in</span></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Ratio</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Waist-to-height ratio</span><span class="sx-ef-grade" id="catTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="rN">—</p>
+    <div class="sx-cu-spec" style="margin-top:14px">
+      <div class="r">WHtR scale<span>You: <b class="c" id="specV">—</b></span></div>
+      <div class="t" id="specBar"></div>
+      <div class="lb" id="specLb"></div>
+    </div>
+    <div class="g2" style="margin-top:14px"><div><span>Waist for a ratio under 0.5</span><b id="t5">—</b></div><div><span>Healthy range (0.4–0.49)</span><b id="t4">—</b></div></div>
+    <div class="gain neg" id="chgBox"><span id="chgL">—</span><b id="chgV">—</b></div>
+    <div class="note" id="warn">—</div>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy Results</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print</button><a href="/health/waist-to-hip-ratio-calculator.html"><span class="msym" aria-hidden="true">straighten</span>Waist-to-Hip Ratio</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Waist Thresholds by Height</h2><p>Waist sizes at each NICE boundary for heights near yours.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Height</th><th scope="col">0.4 (lower healthy)</th><th scope="col">0.5 (increased from)</th><th scope="col">0.6 (high from)</th></tr></thead>
+    <tbody id="htTbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p><strong>WHtR = waist circumference ÷ height</strong>, both in the same unit — so the ratio has no units. The result is classified using the NICE adult categories:</p>
+    <ul>
+      <li><strong>0.4 to 0.49:</strong> healthy central adiposity — no increased health risks</li>
+      <li><strong>0.5 to 0.59:</strong> increased central adiposity — increased health risks</li>
+      <li><strong>0.6 or more:</strong> high central adiposity — further increased health risks</li>
+    </ul>
+    <p>NICE recommends these classifications for adults with a BMI under 35, of both sexes and all ethnicities, including adults with high muscle mass. Ratios below 0.4 aren't a NICE category; if yours is that low, check your BMI to make sure you're not underweight.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against NICE guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>The 'keep your waist below half your height' guideline</h2>
+    <p>Waist-to-height ratio is built around a simple public health message: keeping your waist circumference under half your height is associated with lower cardiometabolic risk. A 2012 meta-analysis by Ashwell and colleagues found WHtR was a better screening tool for cardiometabolic risk than waist circumference or BMI, because it captures fat carried around the middle — which is more strongly linked to health risk than overall body weight.</p>
+
+    <h2>A worked example</h2>
+    <p>Someone 170 cm tall with a 95 cm waist: 95 ÷ 170 = <strong>0.56</strong>, which is "increased central adiposity". Half their height is 85 cm, so a waist below 85 cm would bring the ratio under 0.5 — a reduction of 10 cm.</p>
+
+    <h2>How it complements other measures</h2>
+    <p>No single measure tells the whole story — waist-to-height ratio, BMI and waist-to-hip ratio each capture a different aspect of body composition and risk. NICE suggests using WHtR alongside BMI. This is a screening tool for general awareness, not a diagnosis; a healthcare provider can interpret it in the context of your full health picture.</p>
+
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://www.nice.org.uk/guidance/ng246" rel="noopener noreferrer">NICE guideline NG246 — Overweight and obesity management</a> (waist-to-height ratio recommendations)</li>
+      <li>Ashwell M, Gunn P, Gibson S. Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis. Obes Rev 2012;13:275–286.</li>
+      <li>World Health Organization. Waist circumference and waist–hip ratio: report of a WHO expert consultation. Geneva, 2008.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Do I need to convert units before entering my measurements?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — just make sure both waist and height are in the same unit (both inches or both centimetres), since the ratio itself is unitless as long as they match.</p></details>
+    <details class="sx-faq"><summary>Is waist-to-height ratio better than BMI?<span class="msym" aria-hidden="true">expand_more</span></summary><p>They measure different things. Research suggests waist-to-height ratio is a better indicator of central fat and related cardiometabolic risk, but most health professionals — including NICE — view the two as complementary rather than one replacing the other.</p></details>
+    <details class="sx-faq"><summary>Where exactly should I measure my waist?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Find the bottom of your lowest rib and the top of your hip bone, and measure around your body midway between them, keeping the tape level and snug but not compressing the skin. Breathe out normally before reading the tape.</p></details>
+    <details class="sx-faq"><summary>What waist-to-height ratio is healthy?<span class="msym" aria-hidden="true">expand_more</span></summary><p>NICE classes 0.4 to 0.49 as healthy central adiposity for adults. From 0.5 health risks are increased, and from 0.6 they are further increased.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Calculators</h2><p>Other views of body shape and composition.</p></div>
+  <a href="/health-calculators.html">All Health Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/health/waist-to-hip-ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">straighten</span></span><b>Waist-to-Hip Ratio</b><span class="d">WHO thresholds for fat distribution.</span><span class="f">Check WHR<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Use alongside WHtR, as NICE suggests.</span><span class="f">Check BMI<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/body-fat-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">accessibility_new</span></span><b>Body Fat Calculator</b><span class="d">Navy tape method uses your waist too.</span><span class="f">Estimate body fat<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calorie Calculator</b><span class="d">Plan a gradual reduction.</span><span class="f">Plan your goal<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

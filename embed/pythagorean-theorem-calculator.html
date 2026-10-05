@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pythagorean Theorem Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,change_history,chevron_right,code,construction,content_copy,event,expand_more,functions,lightbulb,link,lock,person_check,picture_as_pdf,restart_alt,square_foot,trending_up,tune,tv,verified_user,view_in_ar,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,45 +38,143 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Pythagorean Theorem Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="sideA">Side a</label>
-          <input type="number" id="sideA" value="3"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="sideB">Side b</label>
-          <input type="number" id="sideB" value="4"
-step="0.1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Hypotenuse (c)</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pyCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Pythagorean Theorem Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>a² + b² = c²</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Pythagorean Theorem Calculator</h1>
+<p>Find the hypotenuse or a missing leg of a right triangle, measure the distance between two points in 3D, or test whether three whole numbers form a Pythagorean triple — with exact radical answers, angles, area and every step shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The theorem is Euclid’s Proposition I.47, and every worked example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It squares the known sides, adds or subtracts, and takes the square root. Whole-number results are shown as exact values, and other roots as simplified radicals like 6√2.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>One page for the four common jobs: hypotenuse, missing leg, 3D distance and triple checking — with the geometry drawn to scale.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Find the hypotenuse</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="What to find" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Hypotenuse (c)</button><button data-for="mode" data-value="s2" type="button">Missing leg</button><button data-for="mode" data-value="s3" type="button">3D distance</button><button data-for="mode" data-value="s4" type="button">Triple checker</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-a="3" data-b="4" data-c="5" type="button">3-4-5</button><button data-a="5" data-b="12" data-c="13" type="button">5-12-13</button><button data-a="8" data-b="15" data-c="17" type="button">8-15-17</button><button data-a="1" data-b="1" data-c="1.4142135623730951" type="button">Isosceles (1, 1)</button><button data-a="9" data-b="12" data-c="15" type="button">9-12-15</button></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="un">Unit</label></div><select class="sx-mt-sel" id="un"><option value="mm">millimetres (mm)</option><option selected="" value="cm">centimetres (cm)</option><option value="m">metres (m)</option><option value="km">kilometres (km)</option><option value="in">inches (in)</option><option value="ft">feet (ft)</option><option value="yd">yards (yd)</option><option value="mi">miles (mi)</option><option value="">no unit</option></select></div>
+<div><div class="sx-au-l"><label for="dp">Decimal places</label></div><select class="sx-mt-sel" id="dp"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option></select></div>
+</div>
+<div class="sx-au-g2" id="fLegs">
+<div><div class="sx-au-l"><label for="a" id="aL">Side a (leg 1)</label><em class="mu" id="aH">above 0</em></div><div class="sx-au-in np"><input id="a" inputmode="decimal" min="0" step="any" type="number" value="9"/></div></div>
+<div><div class="sx-au-l"><label for="b" id="bL">Side b (leg 2)</label><em class="mu" id="bH">above 0</em></div><div class="sx-au-in np"><input id="b" inputmode="decimal" min="0" step="any" type="number" value="12"/></div></div>
+</div>
+<div class="sx-au-stack" hidden="" id="fPts">
+<div class="sx-au-g3"><div><div class="sx-au-l"><label for="x1">Point 1: x₁</label></div><div class="sx-au-in np"><input id="x1" inputmode="decimal" step="any" type="number" value="1"/></div></div><div><div class="sx-au-l"><label for="y1">y₁</label></div><div class="sx-au-in np"><input id="y1" inputmode="decimal" step="any" type="number" value="2"/></div></div><div><div class="sx-au-l"><label for="z1">z₁</label></div><div class="sx-au-in np"><input id="z1" inputmode="decimal" step="any" type="number" value="3"/></div></div></div>
+<div class="sx-au-g3"><div><div class="sx-au-l"><label for="x2">Point 2: x₂</label></div><div class="sx-au-in np"><input id="x2" inputmode="decimal" step="any" type="number" value="4"/></div></div><div><div class="sx-au-l"><label for="y2">y₂</label></div><div class="sx-au-in np"><input id="y2" inputmode="decimal" step="any" type="number" value="6"/></div></div><div><div class="sx-au-l"><label for="z2">z₂</label></div><div class="sx-au-in np"><input id="z2" inputmode="decimal" step="any" type="number" value="15"/></div></div></div>
+<p class="sx-au-help">Set point 1 to (0, 0, 0) to find the space diagonal of a box with edges x₂, y₂, z₂.</p>
+</div>
+<div class="sx-au-g3" hidden="" id="fTrip"><div><div class="sx-au-l"><label for="t1">First number</label></div><div class="sx-au-in np"><input id="t1" inputmode="numeric" min="1" step="1" type="number" value="5"/></div></div><div><div class="sx-au-l"><label for="t2">Second number</label></div><div class="sx-au-in np"><input id="t2" inputmode="numeric" min="1" step="1" type="number" value="13"/></div></div><div><div class="sx-au-l"><label for="t3">Third number</label></div><div class="sx-au-in np"><input id="t3" inputmode="numeric" min="1" step="1" type="number" value="12"/></div></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button><button class="rs" id="swap" type="button">Swap legs</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Live formula</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Hypotenuse (c)</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Exact form</span><b id="ex1" style="font-size:17px">—</b></div><div><span id="ex2L">Square of the result</span><b id="ex2" style="font-size:17px">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<section class="sx-card" id="eqCard" style="padding:16px 18px">
+<div class="sx-au-l" style="margin-bottom:8px"><span>Unit equivalents of the result</span></div>
+<div class="sx-au-g2" id="eqv" style="gap:8px 16px"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2>Geometric proof: the squares on the sides</h2><p>Euclid’s Proposition I.47: the square on the hypotenuse has the same area as the two squares on the legs added together.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Right triangle with squares drawn on each side" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Special right triangles</h2>
+<div class="sx-mt-2">
+<div><h3>3-4-5 triangle <span class="sx-mt-tag">ratio 3 : 4 : 5</span></h3><p>The smallest Pythagorean triple. Builders use it to check that a corner is square: measure 3 along one edge and 4 along the other, and the diagonal must be exactly 5 (or any multiple, such as 9-12-15).</p></div>
+<div><h3>45°-45°-90° triangle <span class="sx-mt-tag">ratio 1 : 1 : √2</span></h3><p>Half of a square cut along its diagonal. The legs are equal and the hypotenuse is the leg multiplied by √2 (about 1.4142).</p></div>
+<div><h3>30°-60°-90° triangle <span class="sx-mt-tag">ratio 1 : √3 : 2</span></h3><p>Half of an equilateral triangle. The hypotenuse is twice the shortest leg and the other leg is the shortest leg times √3.</p></div>
+<div><h3>Euclid’s formula for triples <span class="sx-mt-tag">m &gt; n &gt; 0</span></h3><p>For whole numbers m &gt; n &gt; 0, the numbers a = m² − n², b = 2mn, c = m² + n² always form a triple. If m and n are coprime and of opposite parity, the triple is primitive.</p></div>
+</div>
+<div class="sx-mt-fx" style="margin-top:16px"><span class="k">Distance in 3D space</span><span class="eq" style="font-size:17px">d = √[(x₂ − x₁)² + (y₂ − y₁)² + (z₂ − z₁)²]</span><p>This applies the theorem twice: first across the floor, then up the height.</p></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">construction</span><h3>Squaring a foundation</h3><p>Marking a rectangle 3 m by 4 m, the diagonal should be exactly 5 m if the corner is a true right angle.</p><div class="sx-mt-ex">c = √(3² + 4²) = √25 = <b>5 m</b></div><p style="margin-top:10px">A diagonal off by even 2 cm means the corner is not square.</p></div>
+<div><span aria-hidden="true" class="msym">tv</span><h3>Screen size</h3><p>A 16:9 television has a 55-inch diagonal. What are its width and height?</p><div class="sx-mt-ex">diagonal ratio = √(16² + 9²) = √337 = 18.358<br/>width = 55 × 16 ÷ 18.358 = <b>47.94 in</b><br/>height = 55 × 9 ÷ 18.358 = <b>26.96 in</b></div></div>
+<div><span aria-hidden="true" class="msym">view_in_ar</span><h3>3D distance</h3><p>Two points, (1, 2, 3) and (4, 6, 15).</p><div class="sx-mt-ex">Δ = (3, 4, 12)<br/>d = √(9 + 16 + 144) = √169 = <b>13</b></div><p style="margin-top:10px">A whole number, because (3, 4, 12, 13) is a Pythagorean quadruple.</p></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is the Pythagorean theorem?</h2>
+<p>In a right triangle, the square of the hypotenuse (the side opposite the right angle) equals the sum of the squares of the other two sides, the legs: <strong>a² + b² = c²</strong>. It is a special case of the Law of Cosines, in which the term −2ab·cos C vanishes because cos 90° = 0.</p>
+<h2>How to use it</h2>
+<ul>
+<li><strong>Hypotenuse:</strong> c = √(a² + b²).</li>
+<li><strong>Missing leg:</strong> a = √(c² − b²), and the hypotenuse must be the longest side.</li>
+<li><strong>Angles:</strong> tan α = a ÷ b, so α = arctan(a ÷ b) and the other acute angle is 90° − α.</li>
+<li><strong>Area and radii:</strong> area = ½ab; inradius = (a + b − c) ÷ 2; circumradius = c ÷ 2.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Euclid, <i>Elements</i>, Book I, Proposition 47 (the Pythagorean theorem) and Proposition 48 (its converse).</li>
+<li>Maor, E. (2007). <i>The Pythagorean Theorem: A 4,000-Year History</i>. Princeton University Press.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why does a² + b² = c² only work for right triangles?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The general rule is the Law of Cosines, c² = a² + b² − 2ab·cos C. For a right angle, cos 90° = 0 and the last term disappears. For an acute angle c² is smaller than a² + b²; for an obtuse angle it is larger.</p></details>
+<details class="sx-faq"><summary>What is a primitive Pythagorean triple?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A set of whole numbers (a, b, c) with a² + b² = c² whose greatest common divisor is 1, such as 3-4-5 or 5-12-13. Multiples like 6-8-10 are still triples but not primitive.</p></details>
+<details class="sx-faq"><summary>How do I find the distance between two points in 3D?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Square the differences in x, y and z, add them, and take the square root. It is the Pythagorean theorem applied twice, and it also gives the space diagonal of a box with edges Δx, Δy and Δz.</p></details>
+<details class="sx-faq"><summary>What does an exact radical answer like 6√2 mean?<span aria-hidden="true" class="msym">expand_more</span></summary><p>When the number under the root is not a perfect square, the root is irrational. It can be simplified by pulling out square factors: √72 = √(36 × 2) = 6√2, which equals about 8.4853. The exact form avoids rounding.</p></details>
+<details class="sx-faq"><summary>Can the hypotenuse be shorter than a leg?<span aria-hidden="true" class="msym">expand_more</span></summary><p>No. The hypotenuse is always the longest side of a right triangle, because c² = a² + b² is larger than either a² or b². When solving for a leg, the hypotenuse you enter must exceed the known leg.</p></details>
+<details class="sx-faq"><summary>Does it work for any units?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, as long as all sides use the same unit. The result is in that unit; areas are in square units. The unit-equivalent panel converts the answer to other common lengths.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with geometry.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/triangle-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">change_history</span></span><b>Triangle Calculator</b><span class="d">Solve any triangle: SSS, SAS, ASA, AAS and SSA.</span><span class="f">Any triangle<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/distance-3d-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">view_in_ar</span></span><b>3D Distance</b><span class="d">Distance between two points in space.</span><span class="f">Space distance<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/slope-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_up</span></span><b>Slope Calculator</b><span class="d">Slope, angle and distance between two points.</span><span class="f">Rise and run<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/area-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">square_foot</span></span><b>Area Calculator</b><span class="d">Areas of common shapes.</span><span class="f">Shape areas<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Pythagorean Theorem Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/pythagorean-theorem-calculator.html" width="100%" height="560" loading="lazy" title="Pythagorean Theorem Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/pythagorean-theorem-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -203,7 +183,8 @@ step="0.1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/pythagorean.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/pythagorean-theorem.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

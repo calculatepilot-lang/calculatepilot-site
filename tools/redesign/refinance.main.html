@@ -1,0 +1,130 @@
+<div class="sx" id="rfCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Refinance Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">analytics</span>Amortization Reset &amp; Break-Even Modeling</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">calculate</span>Closing Cost Recovery</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Verified Client-Side</span></div>
+    <h1>Mortgage Refinance Calculator</h1>
+    <p>Compare your current loan with a refinance offer: monthly savings, the month you break even on closing costs, and whether resetting the loan term costs you more interest in the long run.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Loan Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-rf-box">
+      <div class="h"><b><i></i>Current Loan Baseline</b><em>Fixed Baseline</em></div>
+      <label class="sub" for="bal" style="margin-top:0">Remaining Mortgage Balance</label>
+      <div class="sx-au-in"><span class="pre">$</span><input id="bal" type="number" inputmode="decimal" min="0" step="1000" value="320000"></div>
+      <div class="sx-au-g2" style="gap:12px">
+        <div><label class="sub" for="r1">Current Rate</label><div class="sx-au-in np pc"><input id="r1" type="number" inputmode="decimal" min="0" max="20" step="0.125" value="7.25"><span class="suf">%</span></div></div>
+        <div><label class="sub" for="n1">Remaining Term</label><div class="sx-au-in np pc"><input id="n1" type="number" inputmode="numeric" min="1" max="40" step="1" value="26"><span class="suf">Yrs</span></div></div>
+      </div>
+      <div class="ft"><span>Current Monthly P&amp;I:</span><b id="p1">—</b></div>
+    </div>
+
+    <div class="sx-rf-box new">
+      <div class="h"><b><i></i>Proposed Refinance Loan</b><em id="drop">—</em></div>
+      <label class="sub" style="margin-top:0">New Loan Term</label>
+      <input type="hidden" id="n2" value="30">
+      <div class="sx-au-opts c3" role="group" aria-label="New loan term"><button type="button" data-for="n2" data-value="30">30-Year Fixed</button><button type="button" data-for="n2" data-value="20">20-Year Fixed</button><button type="button" data-for="n2" data-value="15">15-Year Fixed</button></div>
+      <label class="sub" for="r2">New Interest Rate</label>
+      <div class="sx-au-in np pc"><input id="r2" type="number" inputmode="decimal" min="0" max="20" step="0.125" value="5.875"><span class="suf">%</span></div>
+      <div class="sx-au-l" style="margin-top:10px"><label for="cc" style="font-size:12px;font-weight:500;color:var(--sx-muted)">Estimated Closing Costs &amp; Fees</label><em class="mu" id="ccPct">—</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="cc" type="number" inputmode="decimal" min="0" step="100" value="5500"></div>
+      <input type="hidden" id="roll" value="pay">
+      <div class="sx-au-opts c2 rad" role="group" aria-label="How closing costs are paid" style="margin-top:10px"><button type="button" data-for="roll" data-value="pay"><i></i>Pay Out-of-Pocket</button><button type="button" data-for="roll" data-value="roll"><i></i>Roll Into Loan</button></div>
+      <div class="sx-au-lr" style="margin:12px 0 0"><label for="co" style="font-size:12px;color:var(--sx-on);font-weight:600">Cash-Out Amount<br><small style="font-weight:400;color:var(--sx-muted)">Extract equity into refinance</small></label><div class="sx-au-in sm" style="width:120px"><span class="pre">$</span><input id="co" type="number" inputmode="decimal" min="0" step="1000" value="0"></div></div>
+      <input type="hidden" id="match" value="0">
+    </div>
+
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px;background:var(--sx-primary)">Calculate Refinance Economics<span class="msym" aria-hidden="true">arrow_forward</span></button>
+  </div>
+</form>
+<div class="sx-rf-privacy"><span class="msym" aria-hidden="true">lock</span><span><b>Zero Data Retention:</b> every calculation runs in your browser. No credit profile or loan data is sent anywhere.</span></div>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-rf-ver" aria-live="polite">
+    <div class="hd"><div><small>Refinance Viability Verdict</small><h2 id="resultValue">—</h2></div><span class="sx-ef-grade" id="viab">—</span></div>
+    <div class="sx-au-tiles c3 card">
+      <div><span>Monthly Cashflow Delta</span><b id="dMo">—</b><small id="dMoN">—</small></div>
+      <div><span>5-Year Net Benefit</span><b id="d5">—</b><small id="d5N">—</small></div>
+      <div><span>Lifetime Interest Delta</span><b id="dLife">—</b><small>Remaining old loan vs full new loan</small></div>
+    </div>
+    <div class="sx-rf-ch">
+      <div class="h"><span><span class="msym" aria-hidden="true">show_chart</span>Cumulative Net Benefit (Break-Even Trajectory)</span><span id="chRange">Month 0 to Month 60</span></div>
+      <svg id="chart" viewBox="0 0 560 220" role="img" aria-label="Cumulative net benefit of refinancing by month"></svg>
+    </div>
+    <div class="sx-rf-note" id="reset">
+      <div class="h"><span class="msym" aria-hidden="true">warning</span>Amortization Reset Check<em>Term Notice</em></div>
+      <p id="resetTxt">—</p>
+      <div class="f"><span id="matchLbl">Payment to keep your original payoff date: <b id="matchPay">—</b></span><button type="button" id="matchBtn"><span id="matchBtnTxt">Apply accelerated payoff</span><span class="msym" aria-hidden="true">arrow_forward</span></button></div>
+    </div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="schedule">
+  <div class="hd">
+    <div><h2 style="display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">table_chart</span>Year-by-Year Amortization Comparison</h2><p>Interest burden, principal paid and cumulative net benefit over the first 10 years.</p></div>
+    <div class="hbt"><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export CSV</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Report</button></div>
+  </div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Year</th><th scope="col">Current Loan Int.</th><th scope="col">Refinance Int.</th><th scope="col">Annual Int. Savings</th><th scope="col">Refi Principal Paid</th><th scope="col">Cumulative Net Benefit</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>Net benefit = payments saved + (old loan balance − new loan balance) − upfront costs paid + cash-out received. It accounts for slower principal payoff when the term is reset.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">functions</span>Mathematical Methodology</h3>
+    <p>The quick rule of thumb divides closing costs by the monthly payment saving. This calculator also tracks the loan balances, because a longer new term lowers the payment partly by paying off principal more slowly.</p>
+    <div class="sx-ha-fbox"><div class="k">Quick Break-Even (Payment Method)</div><code>Break-Even (Months) = Closing Costs ÷ (Old P&amp;I − New P&amp;I)</code><p id="quickBe">—</p></div>
+    <p style="margin:14px 0 0;font-size:13px">The verdict above uses the fuller net-benefit method, so it can be later than the quick estimate when the term is reset — and it still works when costs are rolled into the loan or you take cash out.</p>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">gavel</span>When NOT to Refinance</h3>
+    <p>A lower rate alone doesn't guarantee a good decision. Be cautious when:</p>
+    <ul class="sx-rf-no">
+      <li><span class="msym" aria-hidden="true">home_pin</span><div><b>You'll move before breaking even</b><p id="noMove">If you sell or refinance again before the break-even month, closing costs exceed your savings.</p></div></li>
+      <li><span class="msym" aria-hidden="true">history</span><div><b>You're deep into your current loan</b><p>Years into a 30-year loan, most of each payment goes to principal. Restarting a new 30-year term puts you back at the interest-heavy start.</p></div></li>
+      <li><span class="msym" aria-hidden="true">trending_up</span><div><b>Switching from a fixed rate to an ARM</b><p>An adjustable rate can reset higher after the intro period, which can erase the savings.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What breakeven point means</h2>
+    <p>The breakeven point is how many months it takes for your monthly savings to cover the closing costs of refinancing. If you plan to stay in the home (or keep the loan) longer than the breakeven period, refinancing is generally worth it purely on the numbers.</p>
+    <p>If you expect to sell or pay off the loan before reaching breakeven, the closing costs may outweigh the savings — timeline is often the single biggest factor in whether refinancing makes sense.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Beyond the monthly payment</h2>
+    <p>A lower monthly payment doesn't always mean less total interest — resetting to a new 30-year term after already paying down several years of a loan can sometimes increase total interest paid over time, even with a lower rate, because you're extending how long interest accrues.</p>
+    <p>Comparing total interest between the current loan's remaining term and the new loan's full term (as this calculator does) gives a more complete picture than the monthly payment difference alone. If you're still deciding on your original loan terms, the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> covers that first step.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is refinancing worth it if I'm planning to move soon?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Generally not, if you'd move before reaching the breakeven point — the closing costs may not be recovered through monthly savings in that case.</p></details>
+    <details class="sx-faq"><summary>Can refinancing increase my total interest even with a lower rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — resetting to a longer term (e.g., back to 30 years after already paying several years) extends how long interest accrues, which can offset some or all of the benefit of a lower rate.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Financial Calculators</h2><p>Complementary tools for mortgage and debt decisions.</p></div>
+  <a href="/financial-calculators.html">Explore all 52 tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/mortgage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Mortgage &amp; Amortization</b><span class="d">Principal and interest breakdown with a full schedule and CSV export.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/uk-mortgage-overpayment-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Mortgage Overpayment</b><span class="d">Keep your rate and pay extra: years cut and interest saved.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/heloc-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>HELOC &amp; Second Mortgage</b><span class="d">Tap equity without refinancing your first mortgage.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/debt-payoff-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Debt Payoff Avalanche</b><span class="d">Compare a cash-out refinance with paying down high-interest debt directly.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

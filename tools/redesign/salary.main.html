@@ -1,0 +1,137 @@
+<div class="sx" id="saCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Salary Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>Total Compensation</span><span class="sx-badge"><span class="msym" aria-hidden="true">schedule</span>2,080-Hour Standard</span><span class="sx-badge"><span class="msym" aria-hidden="true">trending_up</span>PTO &amp; Benefits Value</span></div>
+    <h1>Salary Calculator: Hourly to Annual Pay &amp; Total Compensation</h1>
+    <p>Convert your pay rate between hourly, weekly, monthly and annual figures — then see your real hourly wage after unpaid overtime and paid time off, the value of your benefits, and the contractor rate that would match it.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Compensation &amp; Schedule</h2><p>Pay, hours, time off and benefits</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>You Entered</span></div>
+      <input type="hidden" id="payType" value="s2">
+      <div class="sx-seg" role="group" aria-label="Pay type" style="display:flex"><button type="button" data-for="payType" data-value="s2" style="flex:1">An Annual Salary</button><button type="button" data-for="payType" data-value="s1" style="flex:1">An Hourly Rate</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="payRate" id="rateL">Annual Base Salary</label><em style="color:var(--sx-muted);font-weight:500">Gross, before tax</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="payRate" type="number" inputmode="decimal" min="0" step="0.5" value="90000" style="font-size:17px;font-weight:600"><span class="suf" id="rateU">/ year</span></div>
+      <div class="sx-au-chips" id="salP">Presets: <button type="button" data-for="payRate" data-value="50000">$50k</button><button type="button" data-for="payRate" data-value="75000">$75k</button><button type="button" data-for="payRate" data-value="90000">$90k</button><button type="button" data-for="payRate" data-value="120000">$120k</button><button type="button" data-for="payRate" data-value="160000">$160k</button></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">more_time</span>Working Schedule</span></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="hoursPerWeek">Paid Hours / Week</label></div><div class="sx-au-in np"><input id="hoursPerWeek" type="number" inputmode="decimal" min="1" max="100" step="1" value="40"><span class="suf">hrs</span></div><div class="sx-au-chips"><button type="button" data-for="hoursPerWeek" data-value="20">20h</button><button type="button" data-for="hoursPerWeek" data-value="37.5">37.5h</button><button type="button" data-for="hoursPerWeek" data-value="40">40h</button></div></div>
+        <div><div class="sx-au-l"><label for="wks">Weeks Paid / Year</label></div><div class="sx-au-in np"><input id="wks" type="number" inputmode="decimal" min="1" max="52" step="1" value="52"><span class="suf">wks</span></div><p class="sx-au-help">52 × 40 = the 2,080-hour standard.</p></div>
+      </div>
+      <div style="margin-top:10px"><div class="sx-au-l"><label for="ot" id="otL">Unpaid Extra Hours / Week</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="otOut">—</em></div><div class="sx-au-in np" style="max-width:160px"><input id="ot" type="number" inputmode="decimal" min="0" max="60" step="1" value="5"><span class="suf">hrs</span></div><p class="sx-au-help" id="otHelp">Salaried roles often involve hours beyond the contract.</p></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">beach_access</span>Paid Time Off &amp; Holidays</span><em style="color:var(--sx-on);font-family:var(--font-mono)" id="ptoOut">—</em></div>
+      <div class="sx-au-g2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div><label for="vac" style="font-size:11px;color:var(--sx-muted)">Vacation</label><div class="sx-au-in sm np"><input id="vac" type="number" inputmode="numeric" min="0" max="80" step="1" value="15"><span class="suf">days</span></div></div>
+        <div><label for="sick" style="font-size:11px;color:var(--sx-muted)">Sick leave</label><div class="sx-au-in sm np"><input id="sick" type="number" inputmode="numeric" min="0" max="60" step="1" value="5"><span class="suf">days</span></div></div>
+        <div><label for="hol" style="font-size:11px;color:var(--sx-muted)">Holidays</label><div class="sx-au-in sm np"><input id="hol" type="number" inputmode="numeric" min="0" max="30" step="1" value="10"><span class="suf">days</span></div></div>
+      </div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">shield</span>Employer Benefits &amp; Equity</span><em class="ok" id="benOut">—</em></div>
+      <div class="sx-au-g2">
+        <div><label for="k401" style="font-size:11px;color:var(--sx-muted)">401(k) match (% of salary)</label><div class="sx-au-in sm np pc"><input id="k401" type="number" inputmode="decimal" min="0" max="25" step="0.5" value="4"><span class="suf">%</span></div></div>
+        <div><label for="hlth" style="font-size:11px;color:var(--sx-muted)">Health &amp; dental subsidy</label><div class="sx-au-in sm"><span class="pre">$</span><input id="hlth" type="number" inputmode="decimal" min="0" step="100" value="7200"><span class="suf">/yr</span></div></div>
+        <div><label for="bon" style="font-size:11px;color:var(--sx-muted)">Bonus target (% of salary)</label><div class="sx-au-in sm np pc"><input id="bon" type="number" inputmode="decimal" min="0" max="200" step="1" value="10"><span class="suf">%</span></div></div>
+        <div><label for="eq" style="font-size:11px;color:var(--sx-muted)">Equity / RSU vest</label><div class="sx-au-in sm"><span class="pre">$</span><input id="eq" type="number" inputmode="decimal" min="0" step="500" value="5000"><span class="suf">/yr</span></div></div>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">bolt</span>Calculate True Hourly Wage &amp; Total Package</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em>Annual Salary (Gross)</em><span id="hrsT">—</span></div>
+    <div class="big" id="resultValue">—</div>
+    <p>Hourly <b id="outHourly">—</b> · Weekly <b id="outWeekly">—</b> · Monthly <b id="outMonthly">—</b></p>
+    <span class="msym wm" aria-hidden="true">payments</span>
+  </section>
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k">Actual Hourly Wage<span class="msym" aria-hidden="true">timer_off</span></div><b id="real">—</b><p id="realN">—</p></div>
+    <div class="sx-card"><div class="k">Per Hour at Your Desk<span class="msym" aria-hidden="true">event_available</span></div><b id="desk">—</b><p id="deskN">—</p></div>
+    <div class="sx-card"><div class="k">Total Package<span class="msym" aria-hidden="true">workspace_premium</span></div><b class="g" id="tco">—</b><p id="tcoN">—</p></div>
+    <div class="sx-card"><div class="k">Contractor (1099) Parity Rate<span class="msym" aria-hidden="true">work</span></div><b id="c1099">—</b><p id="c1099N">—</p></div>
+  </div>
+  <section class="sx-card sx-hy-stack">
+    <div class="hd">Compensation Anatomy<span id="anN">—</span></div>
+    <div class="bar" id="anBar"></div>
+    <div class="lg" id="anLg"></div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">insights</span>Key Multipliers</span><span>Per year</span></div>
+    <div class="l"><span>Total compensation ÷ base pay</span><b id="k1">—</b></div>
+    <div class="l"><span>Hours actually worked</span><b id="k2">—</b></div>
+    <div class="l"><span>Value of paid time off</span><b id="k3">—</b></div>
+    <div class="l t"><span id="k4L">Unpaid extra hours (value at base rate)</span><b id="k4">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Export PDF</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Pay Scales (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="scales">
+  <div class="hd"><div><h2>Equivalent Pay Across All Frequencies</h2><p>Base pay, base plus cash bonus, and the full package — converted to every common pay period.</p></div><span class="sx-au-tag" id="scTag">—</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Pay Frequency</th><th scope="col">Base Pay</th><th scope="col" id="thB">With Cash Bonus</th><th scope="col" id="thT">Total Package</th><th scope="col">Periods / Year</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">history_toggle_off</span></span><h3>The 2,080-Hour Rule vs Time Actually Worked</h3><p>Payroll converts salary to an hourly rate by dividing by 2,080 hours (52 weeks × 40 hours). That treats paid holidays and vacation as working time. Take them out and your pay per hour actually worked is higher — which is why extra vacation days are worth weighing like a raise.</p><div class="sx-sg-take" id="p1">—</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">work</span></span><h3>W-2 Salary vs 1099 Contractor Equivalent</h3><p>A contractor pays both halves of Social Security and Medicare (an extra 7.65% on top of what an employee pays), gets no paid leave, and funds their own benefits and retirement. To match an employee package, the contract rate has to cover all of that from billable hours only.</p><div class="sx-sg-take"><b>Parity rate</b> = (total package + 7.65% × base pay) ÷ hours actually worked. Contract rates well above the W-2 hourly figure are normal — they also need to cover gaps between contracts and business costs.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this conversion works</h2>
+    <p>This calculator assumes 52 working weeks a year unless you change it. If you take unpaid time off, your actual annual take-home will be somewhat lower than the figure shown here.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Gross pay vs. take-home pay</h2>
+    <p>The figures here represent gross pay — your earnings before taxes, retirement contributions, and other deductions. Take-home (net) pay is typically 70-80% of gross for most US employees, though the exact percentage depends heavily on tax bracket, state of residence, and benefit elections. For take-home pay, use the <a href="/financial/paycheck-calculator.html">paycheck calculator</a>.</p>
+    <p>When comparing job offers or negotiating pay, converting between hourly and annual figures using this calculator can help you evaluate offers on equal footing, especially when one role is quoted hourly and another as a salary.</p>
+
+    <h2>A worked example</h2>
+    <p>At $32/hour and 40 hours/week, annual salary works out to 32 times 40 times 52, or $66,560, with a weekly figure of $1,280 and monthly of about $5,547.</p>
+    <p>Going the other direction, a $75,000 annual salary at 40 hours/week works out to roughly $36.06/hour — useful for comparing an hourly job offer against a salaried one on equal footing.</p>
+    <p>When comparing job offers, it's worth looking beyond the base salary number entirely — employer 401(k) matching, health insurance quality, paid time off, and bonus structures can add substantial value that a simple hourly-to-annual conversion doesn't capture.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Does this include taxes?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — this shows gross pay only. Actual take-home pay depends on your tax bracket, deductions, and location.</p></details>
+    <details class="sx-faq"><summary>How many work weeks does this assume per year?<span class="msym" aria-hidden="true">expand_more</span></summary><p>52 weeks. If you have unpaid vacation or leave, reduce the annual figure proportionally.</p></details>
+    <details class="sx-faq"><summary>How do I estimate my actual take-home pay?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Subtract federal and state income tax, Social Security, Medicare, and any pre-tax deductions like 401(k) contributions or health insurance from your gross pay — typically leaving 70-80% as net pay, depending on your situation.</p></details>
+    <details class="sx-faq"><summary>Is a higher hourly rate always better than a salary?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not necessarily — salaried roles often include benefits like paid time off and health insurance that hourly roles may lack, so total compensation matters more than the base rate alone.</p></details>
+    <details class="sx-faq"><summary>Does this show take-home pay or gross pay?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Gross pay — before taxes and deductions. Actual take-home pay is typically lower, depending on your tax bracket, benefits elections, and location.</p></details>
+    <details class="sx-faq"><summary>How is overtime pay calculated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In the US, non-exempt employees are generally entitled to 1.5x their regular hourly rate for hours worked beyond 40 in a week, though this calculator does not include overtime in its standard conversion.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Calculators</h2><p>Take-home pay, contracting and budgeting tools.</p></div>
+  <a href="/financial-calculators.html">Explore all tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Paycheck Calculator</b><span class="d">US take-home pay after federal tax and FICA.</span><span class="f">Calculate Net Pay<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">badge</span></span><b>Freelance Rate Calculator</b><span class="d">Billing rates that cover overhead and downtime.</span><span class="f">Estimate Rates<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>UK Take-Home Pay</b><span class="d">PAYE, National Insurance and student loan.</span><span class="f">Calculate<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>401(k) Calculator</b><span class="d">Capture the full employer match.</span><span class="f">Maximize Match<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+</div>
+</div>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Concrete Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,aspect_ratio,calculate,chevron_right,circle,code,content_copy,event,expand_more,functions,grain,grid_view,horizontal_distribute,inventory_2,lightbulb,link,lock,nature,person_check,picture_as_pdf,restart_alt,square,stairs,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,55 +38,175 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Concrete Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="slabLength">Length (ft)</label>
-          <input type="number" id="slabLength" value="10"
-step="0.5"min="0">
-        </div>
-        <div class="field">
-          <label for="slabWidth">Width (ft)</label>
-          <input type="number" id="slabWidth" value="10"
-step="0.5"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="thickness">Thickness (inches)</label>
-          <input type="number" id="thickness" value="4"
-step="0.5"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Concrete needed</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Volume (cubic feet)</span><span id="outCuFt">—</span></div>
-        <div class="embed-row"><span>80 lb bags needed</span><span id="outBags80">—</span></div>
-        <div class="embed-row"><span>60 lb bags needed</span><span id="outBags60">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ccCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Concrete Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Volume ÷ 27 = cubic yards</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Concrete Volume &amp; Bag Calculator</h1>
+<p>Estimate concrete for slabs, footings, round columns and steps. Get cubic yards and cubic feet with a waste allowance, the weight of the pour, how many 80, 60 and 50 lb bags you need, and a quick cost comparison against a ready-mix truck.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Bag yields follow the figures printed on standard premix bags. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It finds the solid volume of the shape in cubic feet, adds your waste allowance, and converts to cubic yards, weight and bags.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Ordering short is expensive and a cold joint ruins a pour. This shows the volume with a buffer and when a truck makes more sense than bags.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Structure and dimensions</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>1. Shape</label></div><input id="shape" type="hidden" value="slab"/><div class="sx-au-opts sm"><button data-for="shape" data-value="slab" type="button"><span aria-hidden="true" class="msym">square</span>Slab / patio</button><button data-for="shape" data-value="footing" type="button"><span aria-hidden="true" class="msym">horizontal_distribute</span>Footing / trench</button><button data-for="shape" data-value="column" type="button"><span aria-hidden="true" class="msym">circle</span>Round column</button><button data-for="shape" data-value="steps" type="button"><span aria-hidden="true" class="msym">stairs</span>Steps</button></div></div>
+<div class="sx-au-g2" id="g-slab">
+<div><div class="sx-au-l"><label for="sl">Length</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="sl" inputmode="decimal" min="0" step="0.5" type="number" value="20"/></div></div>
+<div><div class="sx-au-l"><label for="sw">Width</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="sw" inputmode="decimal" min="0" step="0.5" type="number" value="15"/></div></div>
+<div style="grid-column:1/-1"><div class="sx-au-l"><label for="st">Thickness</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="st" inputmode="decimal" min="0" step="0.5" type="number" value="4"/></div><div class="sx-qpills"><span class="lb">Presets</span><button data-for="st" data-value="4" type="button">4 in · patio, walk</button><button data-for="st" data-value="6" type="button">6 in · driveway</button></div></div>
+</div>
+<div class="sx-au-g2" hidden="" id="g-footing">
+<div style="grid-column:1/-1"><div class="sx-au-l"><label for="fl">Total run length</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="fl" inputmode="decimal" min="0" step="0.5" type="number" value="60"/></div></div>
+<div><div class="sx-au-l"><label for="fw">Footing width</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="fw" inputmode="decimal" min="0" step="0.5" type="number" value="16"/></div></div>
+<div><div class="sx-au-l"><label for="fd">Footing depth</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="fd" inputmode="decimal" min="0" step="0.5" type="number" value="8"/></div></div>
+</div>
+<div class="sx-au-g2" hidden="" id="g-column">
+<div><div class="sx-au-l"><label for="cdi">Diameter</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="cdi" inputmode="decimal" min="0" step="0.5" type="number" value="12"/></div></div>
+<div><div class="sx-au-l"><label for="chh">Height / depth</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="chh" inputmode="decimal" min="0" step="0.5" type="number" value="4"/></div></div>
+</div>
+<div class="sx-au-g2" hidden="" id="g-steps">
+<div><div class="sx-au-l"><label for="sn">Number of steps</label></div><div class="sx-au-in sm np"><input id="sn" inputmode="numeric" min="1" step="1" type="number" value="4"/></div></div>
+<div><div class="sx-au-l"><label for="swd">Step width</label><em class="mu">ft</em></div><div class="sx-au-in sm np"><input id="swd" inputmode="decimal" min="0" step="0.5" type="number" value="4"/></div></div>
+<div><div class="sx-au-l"><label for="sr">Rise per step</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="sr" inputmode="decimal" min="0" step="0.25" type="number" value="7"/></div></div>
+<div><div class="sx-au-l"><label for="sru">Tread depth (run)</label><em class="mu">inches</em></div><div class="sx-au-in sm np"><input id="sru" inputmode="decimal" min="0" step="0.25" type="number" value="11"/></div></div>
+</div>
+<div><div class="sx-au-l"><label for="qty">Quantity of identical pours</label></div><div class="sx-au-in sm np"><input id="qty" inputmode="numeric" min="1" step="1" type="number" value="1"/></div></div>
+<div>
+<div class="sx-au-l"><label>Waste and spillage allowance</label><em id="wasteV">10%</em></div>
+<input id="waste" type="hidden" value="10"/><input aria-label="Waste allowance" class="sx-range2" data-sync="waste" max="25" min="0" step="1" type="range" value="10"/>
+<div class="sx-au-opts c3 sm"><button data-for="waste" data-value="5" type="button">5% <small>tight forms</small></button><button data-for="waste" data-value="10" type="button">10% <small>standard</small></button><button data-for="waste" data-value="15" type="button">15% <small>rough ground</small></button></div>
+</div>
+<div class="sx-au-box">
+<div class="sx-au-l"><label>Cost comparison (optional)</label><em class="mu">edit your local prices</em></div>
+<div class="sx-au-g2"><div><div class="sx-au-l"><label for="pyd">Ready-mix per yd³</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pyd" inputmode="decimal" min="0" step="5" type="number" value="140"/></div></div><div><div class="sx-au-l"><label for="pbg">80 lb bag price</label></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pbg" inputmode="decimal" min="0" step="0.1" type="number" value="5.85"/></div></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate concrete</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Concrete needed</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small>cubic yards</small></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Cubic feet</span><b id="oFt">—</b></div><div><span>Cubic metres</span><b id="oM">—</b></div><div><span>Weight of pour</span><b id="oW">—</b></div><div><span>Solid volume (no waste)</span><b id="oNet">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">inventory_2</span>Premix bags needed</span><em class="mu">dry mix</em></div>
+<div class="sx-au-tiles c3 mono"><div><span>80 lb bags</span><b id="b80">—</b><small>0.60 ft³ each</small></div><div><span>60 lb bags</span><b id="b60">—</b><small>0.45 ft³ each</small></div><div><span>50 lb bags</span><b id="b50">—</b><small>0.375 ft³ each</small></div></div>
+<div class="sx-au-note" id="advice" style="text-align:left;margin-top:12px;font-size:13px;line-height:20px">—</div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span>Estimated material cost</span><em class="mu" id="costNote">—</em></div>
+<div class="sx-au-tiles"><div><span>Ready-mix truck</span><b id="cTruck">—</b><small id="cTruckN">—</small></div><div><span>80 lb bags</span><b id="cBag">—</b><small id="cBagN">—</small></div></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Slab quick guide</h2><p>Volume and 80 lb bags for common slab sizes, including a 10% waste allowance. Bags are rounded up.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:760px">
+<thead><tr><th>Slab size</th><th>Area</th><th class="n">4 in (yd³)</th><th class="n">4 in (bags)</th><th class="n">6 in (yd³)</th><th class="n">6 in (bags)</th><th>Typical use</th></tr></thead>
+<tbody>
+<tr><td class="a">10 × 10 ft</td><td>100 ft²</td><td class="n">1.36</td><td class="n">62</td><td class="n">2.04</td><td class="n">92</td><td class="a" style="white-space:normal">Shed base, small hot-tub pad</td></tr>
+<tr><td class="a">12 × 12 ft</td><td>144 ft²</td><td class="n">1.96</td><td class="n">88</td><td class="n">2.93</td><td class="n">132</td><td class="a" style="white-space:normal">Patio, gazebo platform</td></tr>
+<tr><td class="a">16 × 20 ft</td><td>320 ft²</td><td class="n">4.35</td><td class="n">196</td><td class="n">6.52</td><td class="n">294</td><td class="a" style="white-space:normal">One-car driveway, workshop</td></tr>
+<tr><td class="a">20 × 20 ft</td><td>400 ft²</td><td class="n">5.43</td><td class="n">245</td><td class="n">8.15</td><td class="n">367</td><td class="a" style="white-space:normal">Two-car detached garage</td></tr>
+<tr><td class="a">24 × 24 ft</td><td>576 ft²</td><td class="n">7.82</td><td class="n">352</td><td class="n">11.73</td><td class="n">528</td><td class="a" style="white-space:normal">Large garage, equipment pad</td></tr>
+</tbody>
+</table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>How the volume is calculated</h2>
+<p>All sizes are converted to feet first, then divided by 27 because one cubic yard is 27 cubic feet.</p>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Slab or footing</h3><code>yd³ = L × W × (T ÷ 12) ÷ 27 × (1 + waste)</code></div>
+<div><h3>Round column</h3><code>ft³ = π × (d ÷ 24)² × h</code></div>
+<div><h3>Steps</h3><code>ft³ = width × (run ÷ 12) × (rise ÷ 12) × n(n + 1) ÷ 2</code></div>
+</div>
+<p style="margin-top:14px">One cubic yard is 27 ft³ or 46,656 in³. Normalweight concrete weighs about 145 lb per cubic foot (roughly 3,900 lb per yd³).</p>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Strength</span>
+<h2>Common compressive strengths</h2>
+<div class="sx-au-note" style="text-align:left;margin:0 0 10px;font-size:13px"><b>2,500 psi</b> · low-traffic residential. Interior floors, footings, small pads and garden walks.</div>
+<div class="sx-au-note" style="text-align:left;margin:0 0 10px;font-size:13px"><b>3,000 – 3,500 psi</b> · standard exterior. Driveways, patios and garage aprons.</div>
+<div class="sx-au-note" style="text-align:left;margin:0 0 10px;font-size:13px"><b>4,000+ psi</b> · heavy or freeze-thaw exposure. Loading docks and equipment pads.</div>
+<p style="margin-top:12px">Check local code and your supplier, since required strength depends on climate, use and load.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative jobs, each checked by hand. The first is the default setup.</p>
+<div class="sx-mt-3">
+<div><h3>20 × 15 ft patio, 4 in</h3><p>10% waste allowance.</p><div class="sx-mt-ex">20 × 15 × 4/12 = 100 ft³<br/>× 1.10 = 110 ft³<br/>110 ÷ 27 = <b>4.07 yd³</b><br/>110 ÷ 0.60 = <b>184 bags (80 lb)</b></div></div>
+<div><h3>Round post hole</h3><p>12 in diameter, 4 ft deep, no waste.</p><div class="sx-mt-ex">radius = 0.5 ft<br/>π × 0.5² × 4 = <b>3.14 ft³</b><br/>3.14 ÷ 0.60 = 5.2 → <b>6 bags (80 lb)</b></div></div>
+<div><h3>Four steps</h3><p>7 in rise, 11 in run, 4 ft wide.</p><div class="sx-mt-ex">n(n+1)/2 = 10<br/>4 ft × (11/12) ft × (7/12) ft × 10<br/>= <b>21.39 ft³</b> = 0.79 yd³</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How much concrete do I need?</h2>
+<ul>
+<li>Measure the length, width and thickness of the pour, or the size of the footing, column or steps.</li>
+<li>Add a waste allowance of about 5% to 10% for uneven ground and spillage, and 10% to 15% for rough subgrades.</li>
+<li>Under about 1 cubic yard, premix bags are practical. Above that, ready-mix is usually easier and gives a more even pour.</li>
+<li>Order ready-mix by the cubic yard and ask about any minimum-load or short-load charge.</li>
+</ul>
+<p>This estimate covers the concrete only. It does not include gravel base, forms, reinforcement or finishing, and slabs may need thicker edges.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>ACI CODE-318, <i>Building Code Requirements for Structural Concrete</i>, American Concrete Institute (normalweight concrete unit weight).</li>
+<li>ACI CODE-332, <i>Residential Code Requirements for Structural Concrete</i>, American Concrete Institute.</li>
+<li>Portland Cement Association, <i>Design and Control of Concrete Mixtures</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How many 80 lb bags make a cubic yard?<span aria-hidden="true" class="msym">expand_more</span></summary><p>An 80 lb bag yields about 0.60 cubic feet, so one cubic yard (27 ft³) needs about 45 bags. A 60 lb bag yields about 0.45 ft³ (60 bags per yard) and a 50 lb bag about 0.375 ft³ (72 bags per yard).</p></details>
+<details class="sx-faq"><summary>How much extra concrete should I order?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Most people add 5% to 10%. Use more for rough or uneven subgrade, deep forms or long trenches. Running short mid-pour can cause a cold joint, which is a weak seam in the slab.</p></details>
+<details class="sx-faq"><summary>Should I use bags or a ready-mix truck?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Bags suit small jobs such as post holes and small pads. Once a pour passes about a cubic yard, mixing by hand is slow and the mix can vary, so a truck is usually the better choice. Compare the totals above with your local quote.</p></details>
+<details class="sx-faq"><summary>How much does a cubic yard of concrete weigh?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Normalweight concrete weighs about 145 to 150 pounds per cubic foot, so roughly 3,900 to 4,050 pounds per cubic yard. This tool uses 145 lb/ft³ for the weight estimate.</p></details>
+<details class="sx-faq"><summary>How thick should a concrete slab be?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A 4 inch slab is common for patios and walkways. Driveways and garage floors are often 5 to 6 inches, and heavy loads need more. Confirm the thickness with your local building code or an engineer.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More project tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/square-footage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">aspect_ratio</span></span><b>Square Footage</b><span class="d">Area of rooms and lots.</span><span class="f">Measure area<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/gravel-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">grain</span></span><b>Gravel Calculator</b><span class="d">Tons and yards of base gravel.</span><span class="f">Plan the base<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/mulch-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">nature</span></span><b>Mulch Calculator</b><span class="d">Bulk yards for garden beds.</span><span class="f">Cover the beds<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/tile-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">grid_view</span></span><b>Tile Calculator</b><span class="d">Tiles and boxes with waste.</span><span class="f">Count tiles<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Concrete Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/concrete-calculator.html" width="100%" height="560" loading="lazy" title="Concrete Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/concrete-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -213,7 +215,8 @@ step="0.5"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/concrete.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/concrete.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -1,1 +1,427 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rentenrechner | CalculatePilot</title><meta name="description" content="Schätzen Sie Ihre mögliche Altersvorsorge anhand von Alter, aktuellem Guthaben, Einzahlungen und Rendite."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/retirement-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/retirement-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/retirement-calculator.html"></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Rentenrechner</nav><section class="calc-page-head"><h1>Rentenrechner</h1><p class="lede">Projizieren Sie Ihr mögliches Sparguthaben bis zum Ruhestand.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Aktuelles Alter</label><input id="a" type="number" value="30" min="18"></div><div class="field"><label>Rentenalter</label><input id="t" type="number" value="65" min="19"></div><div class="field"><label>Aktuelles Guthaben</label><input id="p" type="number" value="20000" min="0"></div><div class="field"><label>Monatliche Einzahlung</label><input id="m" type="number" value="500" min="0"></div><div class="field"><label>Jährliche Rendite (%)</label><input id="r" type="number" value="7" step="0.1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Prognostiziertes Guthaben</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Einzahlungen</span><span id="inv">—</span></div><div class="readout-row"><span>Wachstum</span><span id="gain">—</span></div></div></aside></div><section class="content-block prose"><h2>So funktioniert der Rechner</h2><p>Das Modell wendet monatlichen Zinseszinseffekt auf Ihr aktuelles Guthaben und regelmäßige Einzahlungen bis zum gewählten Rentenalter an.</p><h2>Eine Projektion, keine Garantie</h2><p>Tatsächliche Renditen schwanken. Inflation, Gebühren, Steuern und Marktbewegungen können das Ergebnis deutlich verändern. Vergleichen Sie mehrere Annahmen.</p><h2>Verwandte Rechner</h2><p>Vergleichen Sie auch den <a href="/de/financial/401k-calculator.html">401(k)-Rechner</a> und den <a href="/de/financial/investment-calculator.html">Investmentrechner</a>.</p></section></div></main><script>function calc(){const a=+document.getElementById('a').value||30,t=+document.getElementById('t').value||65,p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,n=Math.max(0,t-a)*12;const f=r?p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n,i=p+m*n;const fmt=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=fmt(f);document.getElementById('inv').textContent=fmt(i);document.getElementById('gain').textContent=fmt(f-i)}calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruhestandsrechner – FIRE-Zahl &amp; Entnahmen</title>
+<meta name="description" content="Kostenloser Ruhestands- und FIRE-Rechner: Ermitteln Sie Ihre FIRE-Zahl mit der 4-%-Regel, wann Sie sie erreichen, Coast FIRE und wie lange Ihr Geld reicht.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html"
+<meta property="og:locale" content="de_DE">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/retirement-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
+<meta property="og:title" content="Ruhestandsrechner – FIRE-Zahl & Entnahmen | CalculatePilot">
+<meta property="og:description" content="Kostenloser Ruhestands- und FIRE-Rechner: Ermitteln Sie Ihre FIRE-Zahl mit der 4-%-Regel, wann Sie sie erreichen, Coast FIRE und wie lange Ihr Geld reicht.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/retirement-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ruhestandsrechner – FIRE-Zahl & Entnahmen | CalculatePilot">
+<meta name="twitter:description" content="Kostenloser Ruhestands- und FIRE-Rechner: Ermitteln Sie Ihre FIRE-Zahl mit der 4-%-Regel, wann Sie sie erreichen, Coast FIRE und wie lange Ihr Geld reicht.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=account_balance_wallet,arrow_forward,assured_workload,auto_graph,calendar_today,check_circle,chevron_right,download,expand_more,flag,functions,health_and_safety,info,pie_chart,restart_alt,savings,schedule,sync_saved_locally,table_rows,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Startseite",
+   "item": "https://www.calculatepilot.com/de/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Finanzrechner",
+   "item": "https://www.calculatepilot.com/de/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Rentenrechner",
+   "item": "https://www.calculatepilot.com/de/financial/retirement-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Ruhestands- und Entnahmeraten-Rechner (FIRE)",
+ "url": "https://www.calculatepilot.com/de/financial/retirement-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Any",
+ "browserRequirements": "Requires JavaScript",
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "description": "Berechnen Sie Ihre FIRE-Zahl anhand einer sicheren Entnahmerate, wann Sie finanzielle Unabhängigkeit erreichen, Coast FIRE und wie lange ein inflationsbereinigtes Ruhestandsportfolio reicht.",
+ "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Was ist die 4-%-Entnahmeregel?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Eine Faustregel aus der Forschung von William Bengen aus dem Jahr 1994: Entnehmen Sie im ersten Ruhestandsjahr 4 % Ihres Portfolios und erhöhen Sie diesen Dollarbetrag danach jedes Jahr um die Inflation. Historisch hielt dies bei einem ausgewogenen US-Portfolio aus Aktien und Anleihen mindestens 30 Jahre. Daraus ergibt sich ein Sparziel von etwa dem 25-Fachen Ihrer jährlichen Ausgaben."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie viel brauche ich für den Ruhestand?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Teilen Sie Ihre erwarteten jährlichen Ausgaben durch Ihre sichere Entnahmerate: 60.000 $ pro Jahr bei 4 % erfordern 1,5 Millionen $, bei 3,5 % etwa 1,71 Millionen $. Ziehen Sie zuvor Einkünfte aus Social Security oder Pensionen von den Ausgaben ab."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was ist Coast FIRE?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Coast FIRE ist der Punkt, an dem Ihre bestehenden Geldanlagen – ohne neue Einzahlungen und nur durch Wertzuwachs – bis zu Ihrem angestrebten Rentenalter Ihre volle FIRE-Zahl erreichen. Danach müssen Sie nur noch genug verdienen, um Ihre laufenden Ausgaben zu decken."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Berücksichtigt der Rechner die Inflation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Die Entnahmen im Ruhestand steigen jedes Jahr mit Ihrer Inflationsrate, die FIRE-Prognose vergleicht Ihr Portfolio mit einem inflationsbereinigten Ziel, und das Diagramm zeigt die Kontostände in heutigen Dollar."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Welche Rendite sollte ich annehmen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Langfristig lagen die Renditen von US-Aktien im Schnitt bei rund 10 % pro Jahr vor Inflation, bei einem ausgewogenen Portfolio darunter. Viele Planer rechnen in der Sparphase mit 6–8 % und im Ruhestand mit 4–6 %, wenn Portfolios meist mehr Anleihen enthalten. Die Renditen schwanken von Jahr zu Jahr stark und sind nicht garantiert."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie verändert Social Security den benötigten Sparbetrag?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Social Security deckt einen Teil der Ausgaben der meisten Ruheständler, ziehen Sie also Ihre erwartete jährliche Leistung von Ihren Zielausgaben ab, bevor Sie die Entnahmerate anwenden – Sie benötigen wahrscheinlich weniger Erspartes, als ein Rechner ohne diese Leistung nahelegt."
+   }
+  }
+ ],
+ "inLanguage": "de"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/de/guides/">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="retCalc">
+<div class="sx-toprow">
+  <nav class="sx-crumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/de/financial-calculators.html">Finanzrechner</a><span class="msym" aria-hidden="true">chevron_right</span><b>Ruhestandsrechner</b></nav>
+  <div class="sx-badges">
+    <span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="background:var(--sx-secondary);animation:none"></span>Mathematisches Modell: Bengen, Trinity-Studie &amp; sichere Entnahmerate</span>
+    <span class="sx-badge" style="color:var(--sx-muted)"><span class="msym" aria-hidden="true" style="color:var(--sx-muted)">verified_user</span>Präzision im Browser • Kein Tracking</span>
+  </div>
+</div>
+
+<header class="sx-head tight">
+  <h1>Ruhestands- &amp; Entnahmeraten-Rechner (FIRE)</h1>
+  <p>Ermitteln Sie Ihre genaue Zahl für finanzielle Unabhängigkeit, analysieren Sie sichere Entnahmeraten der Trinity-Studie (3,0 % - 4,5 %) und bewerten Sie, wie lange Ihr Portfolio reicht.</p>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<section class="sx-card sx-left" style="padding:24px">
+  <div class="sx-params-head" style="margin-bottom:24px">
+    <div><span class="sx-ibox sm"><span class="msym" aria-hidden="true">tune</span></span><h2 class="sx-h-md">Parameter &amp; Lebensstilziele</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Zurücksetzen</button>
+  </div>
+  <form id="calcForm" class="sx-form" novalidate>
+    <div class="sx-2">
+      <div><label class="sx-lbl-on" for="currentAge">Aktuelles Alter</label><div class="sx-field w age"><input id="currentAge" type="number" inputmode="numeric" min="18" max="90" value="35"><span class="suf">J.</span></div></div>
+      <div><label class="sx-lbl-on" for="retireAge">Angestrebtes Rentenalter</label><div class="sx-field w age"><input id="retireAge" type="number" inputmode="numeric" min="25" max="94" value="55"><span class="suf">J.</span></div></div>
+    </div>
+    <div>
+      <div class="sx-row"><label class="sx-lbl-on" for="spending">Gewünschte jährliche Ausgaben (nach FIRE)</label><span class="aux" id="spendMo">6.000 $ / Monat</span></div>
+      <div class="sx-field w cur"><span class="pre">$</span><input id="spending" type="number" inputmode="decimal" min="0" step="1000" value="72000"><span class="suf">/ Jahr</span></div>
+    </div>
+    <div>
+      <div class="sx-row"><label class="sx-lbl-on" for="netWorth">Aktuelles investiertes Vermögen</label><span class="aux s">Liquide Mittel &amp; Indexanlagen</span></div>
+      <div class="sx-field w cur"><span class="pre">$</span><input id="netWorth" type="number" inputmode="decimal" min="0" step="1000" value="320000"><span class="suf">USD</span></div>
+    </div>
+    <div>
+      <div class="sx-row"><label class="sx-lbl-on" for="savings">Jährliche Sparrate &amp; Investitionen</label><span class="aux" id="saveMo">3.000 $ / Monat</span></div>
+      <div class="sx-field w cur"><span class="pre">$</span><input id="savings" type="number" inputmode="decimal" min="0" step="1000" value="36000"><span class="suf">/ Jahr</span></div>
+    </div>
+    <div class="sx-sepline">
+      <div class="sx-row" style="margin-bottom:8px"><span class="sx-lbl-on" style="font-weight:600;display:flex;align-items:center;gap:6px">Sichere Entnahmerate (SWR)<span class="msym sx-help-ic" title="The share of your portfolio withdrawn in year one; later withdrawals rise with inflation. Trinity-style studies test 3–4.5% over 30+ years." aria-hidden="true">info</span></span><span class="aux b" id="swrTag">4,0 % Bengen-Klassiker</span></div>
+      <input type="hidden" id="swrMode" value="4">
+      <div class="sx-swr" role="group" aria-label="Sichere Entnahmerate">
+        <button type="button" data-for="swrMode" data-value="3.25"><b>3,25 %</b><span>Dauerhaft (50+ Jahre)</span></button>
+        <button type="button" data-for="swrMode" data-value="3.5"><b>3,50 %</b><span>Hohe Sicherheit</span></button>
+        <button type="button" data-for="swrMode" data-value="4"><b>4,00 %</b><span>Klassische Trinity-Regel</span></button>
+        <button type="button" data-for="swrMode" data-value="custom"><b>Eigener Wert in %</b><span>Manuelle Eingabe</span></button>
+      </div>
+      <div id="swrCustomRow" hidden style="margin-top:8px"><div class="sx-field t"><input id="swrCustom" type="number" inputmode="decimal" min="1" max="10" step="0.05" value="4.5" aria-label="Eigene sichere Entnahmerate"><span class="suf">%</span></div></div>
+    </div>
+    <div class="sx-sepline sx-3">
+      <div><label class="sx-lbl-on" for="preRoi" title="Erwartete nominale Rendite Ihres Portfolios, solange Sie noch sparen" style="margin-bottom:4px">Rendite vor Ruhestand</label><div class="sx-field t"><input id="preRoi" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="7.5"><span class="suf">%</span></div></div>
+      <div><label class="sx-lbl-on" for="postRoi" title="Erwartete nominale Rendite ab Beginn der Entnahmen (meist eine konservativere Mischung)" style="margin-bottom:4px">Rendite im Ruhestand</label><div class="sx-field t"><input id="postRoi" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="5.0"><span class="suf">%</span></div></div>
+      <div><label class="sx-lbl-on" for="inflation" title="Langfristige Inflation, mit der die Ausgaben fortgeschrieben und die Ergebnisse in heutigen Dollar dargestellt werden" style="margin-bottom:4px">Inflation</label><div class="sx-field t"><input id="inflation" type="number" inputmode="decimal" min="0" max="15" step="0.1" value="2.5"><span class="suf">%</span></div></div>
+    </div>
+    <div style="padding-top:8px"><button type="submit" class="sx-cta dk"><span class="msym" aria-hidden="true">sync_saved_locally</span>Entwicklung der Laufzeit neu berechnen</button></div>
+  </form>
+</section>
+
+<div class="sx-right" id="results">
+  <section class="sx-card sx-fire" aria-live="polite">
+    <div class="blob"></div>
+    <div class="top">
+      <div><span class="sx-kick">Ziel-FIRE-Zahl</span><div class="big" id="resultValue">—</div><p id="fireSub">—</p></div>
+      <div class="sx-proj" id="projBox"><span class="k">FIRE-Prognose</span><div class="d" id="projDate">—</div><span class="a" id="projAge">—</span></div>
+    </div>
+    <div class="sx-velo">
+      <div class="sx-between"><span>Aufbautempo</span><b id="fundedTxt">—</b></div>
+      <div class="track"><span id="fundedBar" style="width:0"></span></div>
+      <div class="sx-between"><span id="curTxt">—</span><span id="remTxt">—</span></div>
+    </div>
+  </section>
+
+  <div class="sx-lg">
+    <div class="sx-card span2">
+      <div class="ib" id="lgIcon"><span class="msym" aria-hidden="true">health_and_safety</span></div>
+      <div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="v" id="lgValue">—</span><span class="bd" id="lgBadge">—</span></div><p id="lgText">—</p></div>
+    </div>
+    <div class="sx-card coast"><span class="k">Coast-FIRE-Basiswert</span><span class="v" id="coastValue">—</span><span class="s" id="coastTxt">—</span></div>
+  </div>
+
+  <section class="sx-card sx-chartcard">
+    <div class="sx-between" style="margin-bottom:16px">
+      <div><h3 class="sx-h-md">Simulation der Vermögensentwicklung</h3><p class="sx-sm sx-muted" style="margin:0" id="chartSub">—</p></div>
+      <div class="sx-legend2"><span><i style="width:12px;height:12px;border-radius:2px;background:var(--sx-primary)"></i>Portfoliowert</span><span><i style="width:12px;height:2px;background:var(--sx-sc)"></i><span id="thrLegend">FIRE-Schwelle</span></span></div>
+    </div>
+    <div class="sx-traj"><div class="plot" id="trajChart" role="img" aria-label="Portfoliowert in heutigen Dollar von heute bis zum Alter von 95 Jahren mit der Schwelle der FIRE-Zahl"></div><div class="xl" id="trajX"></div></div>
+  </section>
+
+  <div class="sx-m4" id="miles"></div>
+</div>
+</div>
+
+<section class="sx-card sx-sched" id="schedule">
+  <div class="sx-sched-head">
+    <div><h2 class="sx-h-md">Cashflow-Übersicht nach Jahrzehnten</h2><p class="sx-sm sx-muted" style="margin:0">Bündelt Anlagerenditen, inflationsbereinigte Entnahmen und tragfähige Ausgabenspielräume.</p></div>
+    <div class="sx-btns" style="gap:8px">
+      <button type="button" class="sx-btn" id="csvBtn"><span class="msym" aria-hidden="true">download</span>CSV exportieren</button>
+      <button type="button" class="sx-btn" id="expandBtn" aria-controls="ledgerBody"><span class="msym" aria-hidden="true">table_rows</span><span id="expandTxt">Alle 60 Jahre anzeigen</span></button>
+    </div>
+  </div>
+  <div class="sx-scroll"><table class="sx-t3">
+    <thead><tr><th scope="col">Meilensteinalter</th><th scope="col">Portfoliowert zu Beginn</th><th scope="col">Jährliche Einzahlung / Ersparnis</th><th scope="col">Entnahme (inflationsbereinigt)</th><th scope="col">Anlagewachstum</th><th scope="col">Endguthaben</th></tr></thead>
+    <tbody id="ledgerBody"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-mech">
+  <div class="sx-card a" id="formula">
+    <div>
+      <div class="sx-title"><span class="msym" aria-hidden="true">functions</span><h2 class="sx-h-md">Die mathematische Mechanik &amp; die Bengen-Regel</h2></div>
+      <p>Erstmals in William Bengens Aufsatz von 1994 formalisiert und 1998 von Forschern der Trinity University (Cooley, Hubbard und Walz) erweitert, ist die sichere Entnahmerate der Anteil eines diversifizierten Aktien-/Anleihenportfolios, den ein Ruheständler im ersten Jahr entnimmt und danach jährlich nur um die Inflation erhöht. Eine Rate von 4 % überstand in Bengens US-Daten jeden historischen 30-Jahres-Zeitraum – eine starke Bilanz, aber keine Garantie.</p>
+      <div class="sx-firefx">
+        <span>FIRE-Zahl =</span><span class="fr2"><span class="n">Jährliche Lebenshaltungskosten</span><span class="d">Sichere Entnahmerate (SWR)</span></span>
+        <span class="ex2" id="fxExample">Bei 4,0 % SWR: 72.000 $ / 0,04 = <strong>1.800.000 $</strong> (die 25-fache Regel der Jahresausgaben)</span>
+      </div>
+    </div>
+    <div class="sx-foot2"><span class="msym" aria-hidden="true">auto_graph</span><span id="assumeTxt">Angenommene deterministische Renditen: 7,5 % vor dem Ruhestand, 5,0 % danach, 2,5 % Inflation.</span></div>
+  </div>
+  <div class="sx-card b">
+    <div>
+      <h3>Reihenfolgerisiko der Renditen (SORR)</h3>
+      <p>Die größte Schwachstelle einer frühen finanziellen Unabhängigkeit ist ein deutlicher Bärenmarkt in den ersten 3–5 Jahren des Ruhestands. Wenn der Portfoliowert sinkt, während die Entnahmen weiterlaufen, werden die Verluste dauerhaft.</p>
+      <div class="sx-tips">
+        <div><b>Guyton-Klinger-Leitplanken</b><p>Wer nach Verlustjahren auf die Inflationsanpassung verzichtet und die Ausgaben kürzt, wenn die Entnahmerate zu hoch wird, kann mit einer höheren Anfangsrate historische Abschwünge überstehen.</p></div>
+        <div><b>Cash-Puffer-Strategie („Zelt“)</b><p>Wer 24–36 Monate der grundlegenden Lebenshaltungskosten in bar oder in kurzlaufenden Anleihen hält, vermeidet es, zu Beginn des Ruhestands gedrückte Aktien zu verkaufen.</p></div>
+      </div>
+    </div>
+    <div class="more"><a href="#sequence-risk">Umfassenden Leitfaden zum Reihenfolgerisiko lesen<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>So funktioniert dieser Rechner</h2>
+    <p>Solange Sie arbeiten, wächst Ihr investiertes Vermögen jeden Monat mit der Rendite vor dem Ruhestand, und Ihre jährlichen Ersparnisse kommen in Monatsraten hinzu. Ab Ihrem angestrebten Rentenalter enden die Einzahlungen, und Sie entnehmen Ihre gewünschten Ausgaben, jedes Jahr um die Inflation erhöht, während der Rest des Portfolios die Rendite im Ruhestand erwirtschaftet. Die Prognose reicht bis zum Alter von 95 Jahren.</p>
+    <p>Ihre FIRE-Zahl entspricht Ihren jährlichen Ausgaben geteilt durch die sichere Entnahmerate, in heutigen Dollar. Die FIRE-Prognose zeigt den ersten Monat, in dem Ihr Portfolio – wenn Sie weiter sparen – diese Zahl nach Inflationsbereinigung erreichen würde. Coast FIRE ist der Betrag, den Sie heute angelegt haben müssten, um Ihre FIRE-Zahl bis zu Ihrem Zielalter ohne weitere Einzahlungen zu erreichen.</p>
+
+    <h2 id="sequence-risk">Das Reihenfolgerisiko der Renditen erklärt</h2>
+    <p>Zwei Ruheständler mit derselben Durchschnittsrendite können je nach Reihenfolge der Renditen sehr unterschiedlich abschneiden. Verluste zu Beginn des Ruhestands schaden am meisten, weil die Entnahmen die niedrigeren Kurse festschreiben und weniger Kapital zur Erholung bleibt. Deshalb orientiert sich die sichere Entnahmerate an den schlechtesten historischen Startjahren statt am Durchschnitt – und deshalb sollte die glatte Durchschnittsprognose dieses Rechners als Mittelwertschätzung verstanden werden, nicht als Worst Case.</p>
+    <ul>
+      <li><strong>Senken Sie Ihre Anfangsrate.</strong> 3,25–3,5 % bieten mehr Spielraum für ein schlechtes erstes Jahrzehnt, insbesondere bei Ruhestandsphasen von mehr als 30 Jahren.</li>
+      <li><strong>Bleiben Sie flexibel.</strong> Leitplankenregeln, die die Ausgaben nach schwachen Jahren moderat kürzen, haben es Ruheständlern historisch ermöglicht, höher zu starten und dennoch sicher ans Ziel zu kommen.</li>
+      <li><strong>Halten Sie einen Puffer.</strong> Ein paar Jahre Ausgaben in bar oder in kurzfristigen Anleihen bedeuten, dass Sie nach einem Crash nur selten Aktien verkaufen müssen.</li>
+    </ul>
+
+    <h2>Welche Rolle Social Security spielt</h2>
+    <p>Dieser Rechner projiziert nur Ihre eigenen Geldanlagen – Social Security ist nicht enthalten. Das reguläre Rentenalter liegt für alle ab Jahrgang 1960 bei 67 Jahren; Sie können die Leistung bereits ab 62 mit Abschlägen beantragen oder bis 70 aufschieben und so einen höheren Betrag erhalten. Ziehen Sie Ihre erwartete jährliche Leistung von Ihren Ausgaben ab, bevor Sie diese hier eingeben, und Ihre FIRE-Zahl sinkt entsprechend.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <details class="sx-faq"><summary>Was ist die 4-%-Entnahmeregel?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Eine Faustregel aus der Forschung von William Bengen aus dem Jahr 1994: Entnehmen Sie im ersten Ruhestandsjahr 4 % Ihres Portfolios und erhöhen Sie diesen Dollarbetrag danach jedes Jahr um die Inflation. Historisch hielt dies bei einem ausgewogenen US-Portfolio aus Aktien und Anleihen mindestens 30 Jahre. Daraus ergibt sich ein Sparziel von etwa dem 25-Fachen Ihrer jährlichen Ausgaben.</p></details>
+    <details class="sx-faq"><summary>Wie viel brauche ich für den Ruhestand?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Teilen Sie Ihre erwarteten jährlichen Ausgaben durch Ihre sichere Entnahmerate: 60.000 $ pro Jahr bei 4 % erfordern 1,5 Millionen $, bei 3,5 % etwa 1,71 Millionen $. Ziehen Sie zuvor Einkünfte aus Social Security oder Pensionen von den Ausgaben ab.</p></details>
+    <details class="sx-faq"><summary>Was ist Coast FIRE?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Coast FIRE ist der Punkt, an dem Ihre bestehenden Geldanlagen – ohne neue Einzahlungen und nur durch Wertzuwachs – bis zu Ihrem angestrebten Rentenalter Ihre volle FIRE-Zahl erreichen. Danach müssen Sie nur noch genug verdienen, um Ihre laufenden Ausgaben zu decken.</p></details>
+    <details class="sx-faq"><summary>Berücksichtigt der Rechner die Inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Ja. Die Entnahmen im Ruhestand steigen jedes Jahr mit Ihrer Inflationsrate, die FIRE-Prognose vergleicht Ihr Portfolio mit einem inflationsbereinigten Ziel, und das Diagramm zeigt die Kontostände in heutigen Dollar.</p></details>
+    <details class="sx-faq"><summary>Welche Rendite sollte ich annehmen?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Langfristig lagen die Renditen von US-Aktien im Schnitt bei rund 10 % pro Jahr vor Inflation, bei einem ausgewogenen Portfolio darunter. Viele Planer rechnen in der Sparphase mit 6–8 % und im Ruhestand mit 4–6 %, wenn Portfolios meist mehr Anleihen enthalten. Die Renditen schwanken von Jahr zu Jahr stark und sind nicht garantiert.</p></details>
+    <details class="sx-faq"><summary>Wie verändert Social Security den benötigten Sparbetrag?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Social Security deckt einen Teil der Ausgaben der meisten Ruheständler, ziehen Sie also Ihre erwartete jährliche Leistung von Ihren Zielausgaben ab, bevor Sie die Entnahmerate anwenden – Sie benötigen wahrscheinlich weniger Erspartes, als ein Rechner ohne diese Leistung nahelegt.</p></details>
+
+    <p class="sx-trust">Methodik nach Bengen (1994) und Cooley, Hubbard &amp; Walz (1998) · <a href="/methodology.html">Unsere Methodik</a> · Zuletzt aktualisiert im September 2026</p>
+  </div>
+</section>
+
+<section class="sx-related" style="margin-bottom:48px">
+  <div class="sx-rel-head">
+    <div><h2 class="sx-h-md">Verwandte Rechner für Treuhand &amp; Steuern</h2><p class="sx-sm sx-muted" style="margin:0">Kombinieren Sie Ihre Prognosen zur sicheren Entnahme mit der Optimierung steuerbegünstigter Konten.</p></div>
+    <a class="lg" href="/de/financial-calculators.html">Alle Finanzwerkzeuge entdecken<span class="msym" aria-hidden="true">arrow_forward</span></a>
+  </div>
+  <div class="sx-rel2grid">
+    <a class="sx-card sx-rel3" href="/de/financial/401k-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">savings</span></div><h3>401(k)-Rechner</h3><p>Kalkulieren Sie Arbeitgeberzuschuss, Gehaltserhöhungen und die jährlichen IRS-Höchstgrenzen für Beiträge vor Steuern 2026.</p><div class="go">Tool starten<span class="msym" aria-hidden="true">chevron_right</span></div></a>
+    <a class="sx-card sx-rel3" href="/de/financial/roth-ira-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">pie_chart</span></div><h3>Roth-IRA-Rechner</h3><p>Vergleichen Sie steuerfreies Roth-Wachstum mit einer Traditional IRA bei Ihrem aktuellen und Ihrem Steuersatz im Ruhestand.</p><div class="go">Tool starten<span class="msym" aria-hidden="true">chevron_right</span></div></a>
+    <a class="sx-card sx-rel3" href="/de/financial/annuity-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">assured_workload</span></div><h3>Rentenzahlungsrechner (Annuität)</h3><p>Wandeln Sie einen Teil Ihres Portfolios in garantiertes Einkommen um, um die Grundausgaben zu decken.</p><div class="go">Tool starten<span class="msym" aria-hidden="true">chevron_right</span></div></a>
+    <a class="sx-card sx-rel3" href="/de/financial/net-worth-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">account_balance_wallet</span></div><h3>Nettovermögensrechner</h3><p>Addieren Sie Geldanlagen, Immobilienkapital und Schulden, um den Startbetrag für Ihren Plan zu ermitteln.</p><div class="go">Tool starten<span class="msym" aria-hidden="true">chevron_right</span></div></a>
+  </div>
+</section>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot auf Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/de/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/de/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/de/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/de/financial/mortgage-calculator.html">Hypothek</a></li>
+          <li><a href="/de/financial/uk-stamp-duty-calculator.html">Stamp Duty (UK)</a></li>
+          <li><a href="/de/financial/compound-interest-calculator.html">Zinseszins</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/de/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/de/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/de/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+          <li><a href="/de/health/bmi-calculator.html">BMI</a></li>
+          <li><a href="/de/health/macro-calculator.html">Makros</a></li>
+          <li><a href="/de/health/calorie-calculator.html">Kalorien</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/de/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/de/other/age-calculator.html">Alter</a></li>
+          <li><a href="/de/math/percentage-calculator.html">Prozent</a></li>
+          <li><a href="/de/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/de/math/quadratic-formula-calculator.html">Quadratische Formel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/de/guides/">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — ziehen Sie für finanzielle oder medizinische Entscheidungen einen Fachmann hinzu. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span> <span><a href="/embed/retirement-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/de/retirement.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

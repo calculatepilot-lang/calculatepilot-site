@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ratio Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,code,construction,content_copy,crop_16_9,event,expand_more,functions,lightbulb,link,lock,percent,person_check,picture_as_pdf,pie_chart,receipt_long,restart_alt,scale,tag,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,53 +38,147 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Ratio Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="a">A</label>
-          <input type="number" id="a" value="12"
-step="1">
-        </div>
-        <div class="field">
-          <label for="b">B</label>
-          <input type="number" id="b" value="18"
-step="1">
-        </div>
-</div>        <div class="field">
-          <label for="scaledA">If A becomes</label>
-          <input type="number" id="scaledA" value="2"
-step="1">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Simplified ratio</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Then B becomes</span><span id="outScaledB">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="rtCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Ratio Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact integer arithmetic</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Ratio Calculator</h1>
+<p>Simplify a ratio to lowest terms, solve a missing value in a proportion (A : B = C : X), scale a ratio to a target, or split a total across multi-part ratios like 1 : 2 : 3 — with the Euclidean algorithm shown step by step.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The method is Euclid’s greatest-common-divisor algorithm and cross-multiplication, both re-derived by hand here. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>Decimals are scaled to whole numbers, divided by their greatest common divisor, and scaled back — so 1.5 : 2.5 becomes 3 : 5 with no rounding.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Ratio questions come in different shapes. One page covers simplifying, missing values, scaling and splitting, and shows the working for each.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Simplify a ratio</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Ratio task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Simplify A : B</button><button data-for="mode" data-value="s2" type="button">Solve proportion</button><button data-for="mode" data-value="s3" type="button">Scale ratio</button><button data-for="mode" data-value="s4" type="button">Multi-part</button></div>
+<div class="sx-mt-chips" id="pre2"><span>Presets</span><button data-a="16" data-b="9" type="button">Aspect 16:9</button><button data-a="4" data-b="3" type="button">Screen 4:3</button><button data-a="21" data-b="9" type="button">Ultrawide 21:9</button><button data-a="1" data-b="1.618" type="button">Golden 1:1.618</button><button data-a="3.73" data-b="1" type="button">Axle 3.73:1</button></div>
+<div class="sx-mt-chips" hidden="" id="pre4"><span>Presets</span><button data-p="1, 2, 3" data-t="18" type="button">Concrete mix 1:2:3</button><button data-p="5, 3, 2" data-t="1200" type="button">Bill split 5:3:2</button><button data-p="3, 4, 5" data-t="" type="button">3:4:5</button></div>
+<div class="sx-au-g2" id="f2">
+<div><div class="sx-au-l"><label for="ra" id="raL">Antecedent (A)</label></div><div class="sx-au-in np"><input id="ra" inputmode="decimal" step="any" type="number" value="1920"/></div></div>
+<div><div class="sx-au-l"><label for="rb" id="rbL">Consequent (B)</label></div><div class="sx-au-in np"><input id="rb" inputmode="decimal" step="any" type="number" value="1080"/></div></div>
+</div>
+<div hidden="" id="fProp">
+<div class="sx-au-l"><span>Which value is unknown?</span></div><input id="unk" type="hidden" value="s2"/>
+<div aria-label="Unknown value" class="sx-seg full" role="group" style="margin-bottom:12px"><button data-for="unk" data-value="s1" type="button">Solve for C (A : B = ? : D)</button><button data-for="unk" data-value="s2" type="button">Solve for D (A : B = C : ?)</button></div>
+<div class="sx-au-g2"><div id="fC"><div class="sx-au-l"><label for="rc">Known C</label></div><div class="sx-au-in np"><input id="rc" inputmode="decimal" step="any" type="number" value="16"/></div></div><div id="fD"><div class="sx-au-l"><label for="rd">Known D</label></div><div class="sx-au-in np"><input id="rd" inputmode="decimal" step="any" type="number" value="1080"/></div></div></div>
+</div>
+<div hidden="" id="fScale">
+<div class="sx-au-l"><label for="tgt">Scale so that…</label></div><select class="sx-mt-sel" id="tgt" style="margin-bottom:12px"><option value="a">A becomes the target</option><option value="b">B becomes the target</option><option value="t">A + B (the total) becomes the target</option><option value="k">Multiply both by a factor</option></select>
+<div class="sx-au-l"><label for="tv" id="tvL">Target value</label></div><div class="sx-au-in np"><input id="tv" inputmode="decimal" step="any" type="number" value="1280"/></div>
+</div>
+<div hidden="" id="fParts">
+<div class="sx-au-l"><label for="parts">Parts of the ratio</label><em class="mu" id="partsN">—</em></div><input aria-describedby="partsH" class="sx-mt-sel" id="parts" inputmode="decimal" style="padding:0 12px;font-family:var(--font-mono)" type="text" value="1, 2, 3"/>
+<p class="sx-au-help" id="partsH">Two to eight numbers separated by commas or colons.</p>
+<div class="sx-au-l" style="margin-top:12px"><label for="tot">Total to divide (optional)</label></div><div class="sx-au-in np"><input id="tot" inputmode="decimal" step="any" type="number" value="18"/></div>
+</div>
+<div><div class="sx-au-l"><label for="dp">Decimal places</label></div><select class="sx-mt-sel" id="dp"><option value="2">2</option><option selected="" value="4">4</option><option value="6">6</option></select></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button><button class="rs" id="swap" type="button">Invert (B : A)</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Live formulation</span><span class="eq" id="fxNow" style="font-size:15px">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Simplified ratio</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:40px"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<section class="sx-card" style="padding:16px 18px">
+<div class="sx-au-l" style="margin-bottom:10px"><span id="vizT">Ratio shape</span><em class="mu" id="vizN">—</em></div>
+<div aria-label="Diagram of the ratio" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy equation</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Ratio types compared</h2><p>Four different jobs that all use the word “ratio”.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+<thead><tr><th scope="col">Type</th><th scope="col">Form</th><th scope="col">Units</th><th scope="col">Key property</th><th scope="col">Example</th></tr></thead>
+<tbody>
+<tr><td>Part-to-part</td><td class="mono">A : B</td><td style="font-family:inherit">Same units</td><td style="font-family:inherit">Unchanged when both parts are scaled</td><td style="font-family:inherit">16 wide : 9 high</td></tr>
+<tr><td>Part-to-whole</td><td class="mono">A ÷ (A + B)</td><td style="font-family:inherit">Fraction or percent, at most 100%</td><td style="font-family:inherit">Parts add to 1</td><td style="font-family:inherit">16 of 25 units = 64%</td></tr>
+<tr><td>Rate</td><td class="mono">Δy ÷ Δx</td><td style="font-family:inherit">Compound units</td><td style="font-family:inherit">Constant rate means a straight line</td><td style="font-family:inherit">60 miles per hour</td></tr>
+<tr><td>Inverse proportion</td><td class="mono">y = k ÷ x</td><td style="font-family:inherit">Reciprocal pairing</td><td style="font-family:inherit">The product x·y stays constant</td><td style="font-family:inherit">Speed vs time for a fixed distance</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative figures, each checked by hand. All can be reproduced above.</p>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">crop_16_9</span><h3>Video aspect ratio</h3><p>A 16 : 9 video player is 1,280 px wide. How tall must it be?</p><div class="sx-mt-ex">16 : 9 = 1280 : X<br/>X = 9 × 1280 ÷ 16 = <b>720 px</b></div></div>
+<div><span aria-hidden="true" class="msym">construction</span><h3>Concrete mix</h3><p>A 1 : 2 : 3 mix (cement : sand : gravel, by volume) is needed for 18 m³.</p><div class="sx-mt-ex">Parts = 1 + 2 + 3 = 6<br/>Each part = 18 ÷ 6 = 3 m³<br/><b>cement 3 · sand 6 · gravel 9</b> m³</div></div>
+<div><span aria-hidden="true" class="msym">receipt_long</span><h3>Splitting a bill</h3><p>A $1,200 bill is shared 5 : 3 : 2.</p><div class="sx-mt-ex">Parts = 10, each = $120<br/><b>$600 · $360 · $240</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is a ratio?</h2>
+<p>A ratio compares two or more quantities of the same kind, written A : B or A ÷ B. Two ratios are equivalent if they have the same value: 16 : 9 and 1920 : 1080 are the same ratio. A <strong>proportion</strong> states that two ratios are equal, A : B = C : D.</p>
+<h2>How to calculate with ratios</h2>
+<ul>
+<li><strong>Simplify:</strong> divide every part by their greatest common divisor (GCD).</li>
+<li><strong>Missing value:</strong> cross-multiply. From A : B = C : D, A × D = B × C, so D = B × C ÷ A.</li>
+<li><strong>Scale:</strong> multiply every part by the same factor.</li>
+<li><strong>Split a total:</strong> add the parts, divide the total by that sum to get the value of one part, then multiply by each part.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>Euclid, <i>Elements</i>, Book VII, Propositions 1 and 2 — the Euclidean algorithm for the greatest common divisor.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+<li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i> — quantities of dimension one.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What is the difference between a ratio and a proportion?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A ratio compares quantities, such as 16 : 9. A proportion is an equation that says two ratios are equal, such as 16 : 9 = 1920 : 1080. Proportions let you find a missing value by cross-multiplying.</p></details>
+<details class="sx-faq"><summary>How does Euclid’s algorithm simplify a ratio?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It finds the greatest common divisor by repeatedly replacing the larger number with the remainder of dividing it by the smaller, until the remainder is zero. The last non-zero remainder is the GCD, and dividing both parts by it gives the lowest terms. It never needs to factorise the numbers.</p></details>
+<details class="sx-faq"><summary>Can ratios include decimals or negative numbers?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Decimals work: the calculator scales them to whole numbers first (1.5 : 2.5 becomes 15 : 25, then 3 : 5). Ratios of physical quantities are normally positive, so this calculator asks for values above zero.</p></details>
+<details class="sx-faq"><summary>What does a ratio of 1 : 2 mean as a fraction or percent?<span aria-hidden="true" class="msym">expand_more</span></summary><p>As a part-to-part ratio, 1 : 2 means the second part is twice the first. As shares of the whole, the parts are 1 ÷ 3 = 33.3% and 2 ÷ 3 = 66.7%. Always check whether a ratio is part-to-part or part-to-whole.</p></details>
+<details class="sx-faq"><summary>How do I scale a recipe using a ratio?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use “Scale ratio” to set the quantity you want for one ingredient (or the total), and the calculator returns the factor and scaled amounts. Multiply every ingredient by that same factor.</p></details>
+<details class="sx-faq"><summary>What if one part of the ratio is zero?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A ratio with a zero part, such as 5 : 0, is degenerate — it cannot be scaled back or used to find a missing value, and dividing by zero is undefined. This calculator asks for parts greater than zero.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with related maths.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Percentage Calculator</b><span class="d">Percent of, change and reverse percentages.</span><span class="f">Work with percents<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/gcd-lcm-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">tag</span></span><b>GCD &amp; LCM</b><span class="d">Greatest common divisor and least common multiple.</span><span class="f">Euclid’s algorithm<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/fraction-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>Fraction Calculator</b><span class="d">Add, subtract, multiply and divide fractions.</span><span class="f">Fractions<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/weighted-average-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">scale</span></span><b>Weighted Average</b><span class="d">Averages where some values count more.</span><span class="f">Weighted mean<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Ratio Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/ratio-calculator.html" width="100%" height="560" loading="lazy" title="Ratio Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/ratio-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -211,7 +187,8 @@ step="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/ratio.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/ratio.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

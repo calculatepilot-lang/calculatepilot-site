@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exponent Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,function,functions,lightbulb,link,lock,memory,person_check,picture_as_pdf,radioactive,restart_alt,savings,science,show_chart,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,140 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Exponent Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="baseNum">Base</label>
-          <input type="number" id="baseNum" value="2"
-step="0.1">
-        </div>
-        <div class="field">
-          <label for="exponentNum">Exponent</label>
-          <input type="number" id="exponentNum" value="10"
-step="0.1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Expression</span><span id="outExpression">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="exCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Exponent Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>bˣ, roots and eˣ</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Exponent Calculator</h1>
+<p>Raise any base to any power, including negative and fractional exponents, find nth roots, convert scientific notation, and model exponential growth or decay — with exact results where they exist and every step shown.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The laws of exponents are standard, and each worked example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>Whole-number powers use exact big integers. Other powers use double-precision floating point, with rational exponents recognised so that results such as 4^2.5 = 32 come out exact.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>It explains what a fractional or negative exponent means, warns you when a result is complex, and shows the curve the answer lies on.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Power bˣ</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Power bˣ</button><button data-for="mode" data-value="s2" type="button">Scientific notation</button><button data-for="mode" data-value="s3" type="button">Growth &amp; decay</button><button data-for="mode" data-value="s4" type="button">Root b^(1/n)</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-b="4" data-x="2" type="button">Square</button><button data-b="4" data-x="3" type="button">Cube</button><button data-b="4" data-x="0.5" type="button">Square root</button><button data-b="4" data-x="-1" type="button">Inverse</button><button data-b="2" data-x="32" type="button">2³² (bytes)</button><button data-b="4" data-x="2.5" type="button">4^2.5</button></div>
+<div class="sx-au-g2" id="p1">
+<div><div class="sx-au-l"><label for="bb">Base (b)</label></div><div class="sx-au-in np"><input id="bb" inputmode="decimal" step="any" type="number" value="4"/></div></div>
+<div><div class="sx-au-l"><label for="bx">Exponent (x)</label></div><div class="sx-au-in np"><input id="bx" inputmode="decimal" step="any" type="number" value="2.5"/></div></div>
+</div>
+<div class="sx-au-stack" hidden="" id="p2">
+<div><div class="sx-au-l"><label for="sn">Number</label><em class="mu">standard, or E-notation like 6.02e23</em></div><div class="sx-au-in np"><input autocomplete="off" id="sn" inputmode="decimal" type="text" value="299792458"/></div></div>
+</div>
+<div class="sx-au-g3" hidden="" id="p3">
+<div><div class="sx-au-l"><label for="g0">Starting amount N₀</label></div><div class="sx-au-in np"><input id="g0" inputmode="decimal" step="any" type="number" value="1000"/></div></div>
+<div><div class="sx-au-l"><label for="gk">Rate k (per unit time)</label><em class="mu">negative = decay</em></div><div class="sx-au-in np"><input id="gk" inputmode="decimal" step="any" type="number" value="0.05"/></div></div>
+<div><div class="sx-au-l"><label for="gt">Time t</label></div><div class="sx-au-in np"><input id="gt" inputmode="decimal" step="any" type="number" value="10"/></div></div>
+</div>
+<div class="sx-au-g2" hidden="" id="p4">
+<div><div class="sx-au-l"><label for="rb">Number (b)</label></div><div class="sx-au-in np"><input id="rb" inputmode="decimal" step="any" type="number" value="64"/></div></div>
+<div><div class="sx-au-l"><label for="rn">Root index (n)</label><em class="mu">whole number, 2 or more</em></div><div class="sx-au-in np"><input id="rn" inputmode="numeric" min="2" step="1" type="number" value="3"/></div></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Live evaluation</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Result</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:36px;word-break:break-all;line-height:1.15"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Scientific notation</span><b id="ex1" style="font-size:16px;word-break:break-all">—</b></div><div><span id="ex2L">Exact form</span><b id="ex2" style="font-size:16px;word-break:break-all">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="vizCard">
+<div class="hd"><div><h2 id="vizH">Exponential curve</h2><p id="vizNote">The curve y = bᵗ with your point marked.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+<div aria-label="Graph of the exponential function with the result marked" class="sx-mt-plot" id="viz" role="img"></div>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Laws of exponents</h2><p>These hold whenever the expressions are defined.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:680px">
+<thead><tr><th scope="col">Rule</th><th scope="col">Identity</th><th scope="col">Example</th><th scope="col">Condition</th></tr></thead>
+<tbody>
+<tr><td>Product</td><td class="mono">bᵐ · bⁿ = bᵐ⁺ⁿ</td><td class="mono">4² · 4³ = 4⁵ = 1024</td><td style="font-family:inherit">Same base</td></tr>
+<tr><td>Quotient</td><td class="mono">bᵐ ÷ bⁿ = bᵐ⁻ⁿ</td><td class="mono">4⁵ ÷ 4² = 4³ = 64</td><td style="font-family:inherit">b ≠ 0</td></tr>
+<tr><td>Power of a power</td><td class="mono">(bᵐ)ⁿ = bᵐⁿ</td><td class="mono">(4²)³ = 4⁶ = 4096</td><td style="font-family:inherit">b &gt; 0 for non-integer exponents</td></tr>
+<tr><td>Negative exponent</td><td class="mono">b⁻ⁿ = 1 ÷ bⁿ</td><td class="mono">4⁻² = 1/16 = 0.0625</td><td style="font-family:inherit">b ≠ 0</td></tr>
+<tr><td>Zero exponent</td><td class="mono">b⁰ = 1</td><td class="mono">4⁰ = 1</td><td style="font-family:inherit">b ≠ 0 (0⁰ is indeterminate)</td></tr>
+<tr><td>Fractional exponent</td><td class="mono">b^(m/n) = (ⁿ√b)ᵐ</td><td class="mono">64^(1/3) = 4</td><td style="font-family:inherit">b ≥ 0 for even n</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">memory</span><h3>Addressable memory</h3><p>How many bytes can a 32-bit and a 64-bit address reach?</p><div class="sx-mt-ex">2³² = <b>4,294,967,296</b> (4.29 GB)<br/>2⁶⁴ = <b>18,446,744,073,709,551,616</b> (≈ 18.4 exabytes)</div></div>
+<div><span aria-hidden="true" class="msym">savings</span><h3>Continuous compounding</h3><p>$1,000 at 5% compounded continuously for 10 years.</p><div class="sx-mt-ex">A = P·e^(rt) = 1000 · e^0.5<br/>= <b>$1,648.72</b></div></div>
+<div><span aria-hidden="true" class="msym">radioactive</span><h3>Radioactive decay</h3><p>Carbon-14 has a half-life of 5,730 years. What fraction remains after 11,460 years?</p><div class="sx-mt-ex">(½)^(11460 ÷ 5730) = (½)² = <b>25%</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>What is an exponent?</h2>
+<p>An exponent says how many times to use a base as a factor: b³ = b × b × b. It extends to zero (b⁰ = 1), negative numbers (b⁻ⁿ = 1 ÷ bⁿ) and fractions (b^(1/n) is the nth root of b). Real exponents are defined through the exponential function: bˣ = eˣ ˡⁿ ᵇ for b &gt; 0.</p>
+<h2>Scientific notation</h2>
+<p>A number is in scientific notation when written a × 10ⁿ with 1 ≤ |a| &lt; 10. Engineering notation restricts n to multiples of 3 so it lines up with SI prefixes (kilo, mega, milli…). E-notation such as 6.02e23 means 6.02 × 10²³.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>NIST Digital Library of Mathematical Functions, chapter 4, section 4.2 (definitions of the logarithm and exponential).</li>
+<li>IEEE 754-2019, <i>Standard for Floating-Point Arithmetic</i> — the double-precision format used for non-integer powers.</li>
+<li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How is a fractional power like 4^2.5 calculated?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Write the exponent as a fraction, 2.5 = 5/2. The denominator is the root and the numerator the power: 4^(5/2) = (√4)⁵ = 2⁵ = 32. The calculator detects such fractions automatically and shows the exact value when it exists.</p></details>
+<details class="sx-faq"><summary>What happens with a negative base and a fractional exponent?<span aria-hidden="true" class="msym">expand_more</span></summary><p>If the exponent is a fraction with an odd denominator the result is real ((−8)^(1/3) = −2). With an even denominator, such as (−4)^(1/2), there is no real result; the principal complex value is 0 + 2i, which this page reports when it applies.</p></details>
+<details class="sx-faq"><summary>Why is 0⁰ undefined?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Two rules conflict: x⁰ = 1 for every non-zero x, but 0ˣ = 0 for every positive x. Neither wins, so 0⁰ is left indeterminate in analysis. Many programming languages and combinatorics texts define it as 1 by convention; this calculator reports it as indeterminate.</p></details>
+<details class="sx-faq"><summary>What precision limits apply to large results?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Whole-number powers of whole numbers are exact big integers. Other results use IEEE 754 double precision: about 15–17 significant digits, with overflow to ∞ above about 1.8 × 10³⁰⁸ and underflow to 0 below about 5 × 10⁻³²⁴.</p></details>
+<details class="sx-faq"><summary>What is the difference between exponential growth and a power function?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In a power function like x², the base varies and the exponent is fixed. In an exponential function like 2ˣ the base is fixed and the exponent varies — so it eventually outgrows every power function.</p></details>
+<details class="sx-faq"><summary>How do I find the doubling time?<span aria-hidden="true" class="msym">expand_more</span></summary><p>For continuous growth N = N₀eᵏᵗ, the doubling time is ln 2 ÷ k. At k = 0.05 per year that is 0.693147 ÷ 0.05 ≈ 13.86 years. For decay, the half-life is ln 2 ÷ |k|.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with algebra.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/log-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">function</span></span><b>Log Calculator</b><span class="d">log₁₀, ln, log₂ and change of base.</span><span class="f">Logarithms<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/scientific-notation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">science</span></span><b>Scientific Notation</b><span class="d">Convert and compute with a × 10ⁿ.</span><span class="f">Notation<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Compound Interest</b><span class="d">Growth with regular compounding.</span><span class="f">Money growth<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/quadratic-formula-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">show_chart</span></span><b>Quadratic Formula</b><span class="d">Roots, vertex and graph.</span><span class="f">Algebra<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Exponent Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/exponent-calculator.html" width="100%" height="560" loading="lazy" title="Exponent Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/exponent-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +180,8 @@ step="0.1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/exponent.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/exponent.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

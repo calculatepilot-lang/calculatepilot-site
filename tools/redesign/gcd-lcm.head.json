@@ -1,0 +1,121 @@
+{
+ "title": "GCD & LCM Calculator with Euclid Steps | CalculatePilot",
+ "description": "Free GCD and LCM calculator: greatest common divisor and least common multiple of two numbers or a list, with Euclid steps, prime factors and Bezout.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,balance,calculate,chevron_right,code,content_copy,directions_bus,event,expand_more,functions,grid_view,lightbulb,link,lock,numbers,percent,person_check,picture_as_pdf,pie_chart,restart_alt,settings,tune,verified_user,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "GCD & LCM Calculator",
+   "url": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Find the greatest common divisor (GCD) and least common multiple (LCM) of two integers or a list, with Euclid's algorithm step by step, prime factorisations, a coprimality test and Bezout's identity."
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "GCD & LCM Calculator",
+     "item": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "GCD & LCM Calculator",
+   "url": "https://www.calculatepilot.com/math/gcd-lcm-calculator.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": [
+    "Euclid Elements Book VII Propositions 1 and 2",
+    "Gauss (1801) Disquisitiones Arithmeticae",
+    "Knuth (1997) The Art of Computer Programming, Vol. 2, section 4.5.2",
+    "ISO 80000-2:2019 Quantities and units - Mathematics"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Does gcd(a, b) · lcm(a, b) = a · b hold for three or more numbers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The product identity is true only for two numbers. For a list you compute the GCD by repeatedly taking gcd of the running result with the next number, and the LCM likewise. For 4, 6 and 10: gcd = 2 and lcm = 60, but 2 × 60 = 120 while 4 × 6 × 10 = 240."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens if one or both inputs are zero?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "gcd(a, 0) = |a| because every number divides 0. gcd(0, 0) is conventionally 0. lcm with 0 is 0 by convention. Negative inputs give the same results as their absolute values."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is Euclid’s algorithm so much faster than factorisation?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Each division at least halves the larger number every two steps, so it needs about log₂(min(a, b)) × 2 steps at most. Factorising large numbers has no known comparably fast method, which is why RSA cryptography relies on it being hard."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is Bézout’s identity used for?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It guarantees integers x and y with ax + by = gcd(a, b). When gcd(a, b) = 1, x is the modular inverse of a modulo b, which is how RSA computes a private key from a public exponent."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I use the GCD to simplify a fraction?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Divide the numerator and denominator by their GCD. For 48/180, gcd = 12, so 48/180 = 4/15. If the GCD is 1 the fraction is already in lowest terms."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does “coprime” mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Two integers are coprime (relatively prime) when their only common positive divisor is 1, i.e. gcd = 1. They need not be prime themselves: 8 and 15 are coprime. A set is pairwise coprime if every pair in it is coprime."
+     }
+    }
+   ]
+  }
+ ]
+}

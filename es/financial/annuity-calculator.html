@@ -1,1 +1,376 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculadora de anualidades | CalculatePilot</title><meta name="description" content="Calcula el valor futuro de aportaciones periódicas con interés compuesto."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/annuity-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/annuity-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/annuity-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/annuity-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/annuity-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/annuity-calculator.html"><meta property="og:title" content="Calculadora de anualidades | CalculatePilot"><meta property="og:description" content="Calcula el valor futuro de aportaciones periódicas."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/es/financial/annuity-calculator.html"><meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><script src="/js/language-selector.js?v=20260905" defer></script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/es/financial-calculators.html">Finanzas</a></li><li><a href="/health-calculators.html">Salud</a></li><li><a href="/math-calculators.html">Matemáticas</a></li><li><a href="/other-calculators.html">Vida diaria</a></li><li><a href="/guides/">Guías</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a> / <a href="/es/financial-calculators.html">Calculadoras financieras</a> / Anualidades</nav></div><section class="calc-page-head"><div class="container"><h1>Calculadora de anualidades</h1><p class="lede">Estima el valor futuro de una serie de aportaciones periódicas.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="f"><div class="field"><label>Aportación mensual</label><input id="p" type="number" value="500" min="0"></div><div class="field-row"><div class="field"><label>Rendimiento anual (%)</label><input id="r" type="number" value="6" step="0.1" min="0"></div><div class="field"><label>Plazo (años)</label><input id="n" type="number" value="20" min="1"></div></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Valor futuro</div><div class="readout-value big" id="v">—</div><div class="readout-breakdown"><div class="readout-row"><span>Total aportado</span><span id="c">—</span></div><div class="readout-row"><span>Intereses generados</span><span id="i">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Cómo funciona</h2><p>Las aportaciones periódicas pueden crecer con el interés compuesto. Los rendimientos obtenidos también pueden generar nuevos rendimientos.</p><h2>Importancia del plazo</h2><p>Un plazo más largo o una rentabilidad mayor puede aumentar el valor final, pero el rendimiento real nunca está garantizado.</p><h2>Preguntas frecuentes</h2><div class="faq-item"><h3>¿Cuándo se realizan las aportaciones?</h3><p>El cálculo supone que se realizan al final de cada mes.</p></div><div class="faq-item"><h3>¿El resultado está garantizado?</h3><p>No. La rentabilidad introducida es una hipótesis para realizar la proyección.</p></div></div></section></main><footer class="site-footer"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a></div></footer><script>function c(){let p=+document.getElementById('p').value||0,r=(+document.getElementById('r').value||0)/1200,n=(+document.getElementById('n').value||1)*12,v=r?p*(Math.pow(1+r,n)-1)/r:p*n,con=p*n;const f=x=>'$'+x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});document.getElementById('v').textContent=f(v);document.getElementById('c').textContent=f(con);document.getElementById('i').textContent=f(Math.max(0,v-con))}document.querySelectorAll('#f input').forEach(x=>x.addEventListener('input',c));c();</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de anualidades: ingresos vitalicios y valor</title>
+<meta name="description" content="Calculadora de anualidades gratuita: estima los ingresos vitalicios de una anualidad inmediata o diferida.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/annuity-calculator.html"
+<meta property="og:locale" content="es_ES">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/annuity-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/annuity-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/annuity-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/annuity-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/annuity-calculator.html">
+<meta property="og:title" content="Calculadora de anualidades: ingresos vitalicios y valor | CalculatePilot">
+<meta property="og:description" content="Calculadora de anualidades gratuita: estima los ingresos vitalicios de una anualidad inmediata o diferida, compara opciones de pago y calcula el valor futuro y el valor presente.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/es/financial/annuity-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de anualidades: ingresos vitalicios y valor | CalculatePilot">
+<meta name="twitter:description" content="Calculadora de anualidades gratuita: estima los ingresos vitalicios de una anualidad inmediata o diferida, compara opciones de pago y calcula el valor futuro y el valor presente.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculadora de anualidades",
+ "url": "https://www.calculatepilot.com/es/financial/annuity-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calcula el valor futuro y el valor presente de una serie de pagos regulares (una anualidad ordinaria). Sin registro. CalculatePilot explica la fórmula detrás de",
+ "inLanguage": "es"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://www.calculatepilot.com/es/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculadoras financieras",
+   "item": "https://www.calculatepilot.com/es/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculadora de anualidades",
+   "item": "https://www.calculatepilot.com/es/financial/annuity-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cuál es la diferencia entre una anualidad ordinaria y una anualidad anticipada?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En una anualidad ordinaria, los pagos se realizan al final de cada periodo; en una anualidad anticipada, al principio. Esta calculadora modela una anualidad ordinaria, que es la estructura más común en préstamos y planes de ahorro estándar."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuándo debería usar el valor presente en lugar del valor futuro?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El valor presente es útil para comparar un flujo de pagos futuros (como una pensión o un acuerdo) con una suma global equivalente ofrecida hoy: te dice cuánto vale realmente ese flujo de ingresos futuros en dólares de hoy."
+   }
+  }
+ ],
+ "inLanguage": "es"
+}
+</script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,balance,check_circle,chevron_right,expand_more,functions,groups,lock_clock,picture_as_pdf,query_stats,receipt_long,refresh,restart_alt,savings,table_view,trending_up,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/es/financial-calculators.html">Finanzas</a></li>
+      <li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+      <li><a href="/es/math-calculators.html">Matemáticas</a></li>
+      <li><a href="/es/other-calculators.html">Vida diaria</a></li>
+      <li><a href="/es/guides/">Guías</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="anCalc">
+<nav class="sx-crumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/es/financial-calculators.html">Calculadoras financieras</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculadora de anualidades</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Modelado de anualidades fijas y variables</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Pagos inmediatos frente a diferidos</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Motor actuarial en tu navegador</span></div>
+    <h1>Calculadora de anualidades y simulador de ingresos vitalicios</h1>
+    <p>Modela anualidades de ingresos inmediatas y diferidas, estima los pagos vitalicios con distintas opciones de garantía, comprueba cómo funciona un calendario de rescate y calcula el valor futuro y el valor presente de cualquier serie de pagos regulares.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Parámetros del contrato</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Restablecer</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Modalidad de distribución del contrato</span></div>
+      <input type="hidden" id="mode" value="s2">
+      <div class="sx-seg" role="group" aria-label="Modalidad del contrato" style="display:flex"><button type="button" data-for="mode" data-value="s1" style="flex:1">Anualidad inmediata (SPIA)</button><button type="button" data-for="mode" data-value="s2" style="flex:1">Anualidad diferida (DIA/FIA)</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="prem">Inversión inicial de capital</label><em style="color:var(--sx-muted);font-weight:500">Compra con prima única</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="prem" type="number" inputmode="decimal" min="0" step="1000" value="250000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips"><button type="button" data-for="prem" data-value="100000">$100k</button><button type="button" data-for="prem" data-value="250000">$250k</button><button type="button" data-for="prem" data-value="500000">$500k</button><button type="button" data-for="prem" data-value="1000000">$1M</button></div>
+    </div>
+    <div id="defBox">
+      <div class="sx-au-l"><label for="defR">Periodo de acumulación / horizonte de diferimiento</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="defOut">10 años</em></div>
+      <input type="hidden" id="def" value="10"><input id="defR" class="sx-range2" type="range" min="1" max="30" step="1" value="10" data-sync="def" aria-label="Años de diferimiento">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin-top:4px"><span>1 año</span><span>15 años</span><span>30 años</span></div>
+      <div class="sx-au-l" style="margin-top:16px"><label for="g">Tasa de crecimiento anual esperada durante el diferimiento</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="gOut">5.40% APY</em></div>
+      <div class="sx-au-g2"><div class="sx-au-in np pc"><input id="g" type="number" inputmode="decimal" min="0" max="15" step="0.05" value="5.4"><span class="suf">%</span></div><div class="sx-au-chips" style="margin:0;align-self:center"><button type="button" data-for="g" data-value="4.25">Fija 4.25%</button><button type="button" data-for="g" data-value="5.4">Indexada 5.40%</button><button type="button" data-for="g" data-value="7.8">Variable 7.80%</button></div></div>
+      <p class="sx-au-help">Supuestos ilustrativos: las tasas fijas están garantizadas por el contrato; los rendimientos indexados y variables no.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Opción de pago y garantía de longevidad</span></div>
+      <input type="hidden" id="opt" value="s2">
+      <div class="sx-au-cat nr" role="group" aria-label="Opción de pago">
+        <button type="button" data-for="opt" data-value="s1"><span><b>Solo vida</b><small>Pago más alto. Termina con el fallecimiento del rentista: nada pasa a los herederos.</small></span></button>
+        <button type="button" data-for="opt" data-value="s2"><span><b>Vida con 10 años garantizados</b><small>Paga de por vida y al menos 120 pagos a los herederos.</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="opt" data-value="s3"><span><b>Conjunta y de supervivencia 100%</b><small>Continúa hasta que fallece el segundo cónyuge (se supone un cónyuge de la misma edad).</small></span></button>
+        <button type="button" data-for="opt" data-value="s4"><span><b>Periodo fijo (20 años)</b><small>Plazo cierto: exactamente 240 pagos mensuales, sin contingencia de vida.</small></span></button>
+      </div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="age">Edad actual del rentista</label></div><div class="sx-au-in np"><input id="age" type="number" inputmode="numeric" min="30" max="90" step="1" value="55"><span class="suf">Años de edad</span></div></div>
+      <div><div class="sx-au-l"><span>Edad de inicio del pago de jubilación</span></div><div class="sx-an-age"><span id="payAge">—</span><em>Edad + diferimiento</em></div></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="pr">Tasa de valoración de la aseguradora</label></div><div class="sx-au-in np pc"><input id="pr" type="number" inputmode="decimal" min="0" max="12" step="0.05" value="4.5"><span class="suf">%</span></div></div>
+      <div><div class="sx-au-l"><label for="hz">Ilustrar pagos hasta</label></div><div class="sx-au-sel"><select id="hz"><option value="85" selected>85 años</option><option value="90">90 años</option><option value="95">95 años</option></select></div></div>
+    </div>
+    <div class="sx-an-cola"><span class="msym" aria-hidden="true">trending_up</span><div><b>Cláusula de ajuste por costo de vida (COLA)</b><small>Los pagos aumentan <span id="colaTxt">2.0%</span> al año; el pago inicial es menor para costearlo</small></div><div class="sx-au-in sm np pc" style="width:88px"><input id="colaR" type="number" inputmode="decimal" min="0" max="5" step="0.5" value="2" aria-label="Tasa COLA"><span class="suf">%</span></div><label class="sx-toggle"><input type="checkbox" id="cola" checked aria-label="Cláusula de ajuste por costo de vida"><i></i></label></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">refresh</span>Simular pagos de la anualidad y flujo de caja</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:16px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Flujo de caja vitalicio estimado</span><span id="ageTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>/mes</small></div>
+    <p id="yrTxt">—</p>
+    <div class="g2"><div><span id="balL">Saldo acumulado</span><b id="bal">—</b></div><div><span id="totL">Pagos totales</span><b id="tot">—</b></div></div>
+    <div class="gain" id="gainBox"><span id="gainL">Pagos por encima del valor de la cuenta:</span><b id="gain">—</b></div>
+    <div class="note" id="note">—</div>
+  </section>
+  <section class="sx-card sx-an-wf">
+    <h3>Cascada de composición del capital</h3>
+    <p id="wfN">Desglose de los pagos totales esperados.</p>
+    <div class="bar" id="wfBar"></div>
+    <ul id="wfList"></ul>
+  </section>
+  <section class="sx-card sx-an-sur" id="surBox">
+    <div class="hd"><h3><span class="msym" aria-hidden="true">lock_clock</span>Calendario de cargos por rescate</h3><span>Típico decreciente a 7 años</span></div>
+    <div class="t"><div>Año 1<b>7%</b></div><div>Año 2<b>6%</b></div><div>Año 3<b>5%</b></div><div>Año 4<b>4%</b></div><div>Año 5<b>3%</b></div><div>Año 6<b>2%</b></div><div>Año 7+<b>0%</b></div></div>
+    <p id="surTxt">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Calendario en PDF</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Exportar CSV</button><a href="#tvm"><span class="msym" aria-hidden="true">balance</span>VP / VF</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Libro actuarial de varias décadas y calendario de flujos de caja</h2><p>Crecimiento de la acumulación, aumentos escalonados por COLA y retiros de ingresos. La cuenta teórica muestra lo que cubriría el dinero por sí solo: los pagos continúan de por vida cuando se agota.</p></div>
+    <div class="hbt" style="align-items:center;gap:8px"><span style="font-size:12px;color:var(--sx-muted)">Intervalo de visualización:</span><input type="hidden" id="step" value="5"><div class="sx-seg" role="group" aria-label="Intervalo de visualización"><button type="button" data-for="step" data-value="5">Intervalos de 5 años</button><button type="button" data-for="step" data-value="1" id="allBtn">Anual</button></div></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Año del contrato</th><th scope="col">Edad del rentista</th><th scope="col">Fase</th><th scope="col">Saldo inicial</th><th scope="col">Pago anual</th><th scope="col">Efectivo acumulado cobrado</th><th scope="col">Cuenta teórica (final)</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span id="ledFt">*Las edades de pago suponen que el rentista está vivo. La cuenta teórica crece a la tasa de valoración menos los pagos, sin créditos de mortalidad.</span></div>
+</section>
+
+<section class="sx-card sx-an-tvm" id="tvm">
+  <div class="sx-au-l" style="margin-bottom:6px"><h2 class="sx-h-md" style="margin:0">Valor futuro y valor presente de la anualidad</h2><span class="sx-au-tag">Anualidad ordinaria · mensual</span></div>
+  <p style="margin:0 0 18px;font-size:13px;color:var(--sx-onv)">Calcula el valor futuro y el valor presente de una serie de pagos regulares con las fórmulas estándar de anualidades.</p>
+  <div class="g">
+    <div class="sx-au-stack" style="gap:14px">
+      <div><div class="sx-au-l"><label for="payment">Importe del pago regular</label></div><div class="sx-au-in"><span class="pre">$</span><input id="payment" type="number" inputmode="decimal" min="0" step="25" value="500"></div></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="annualRate">Tasa de interés anual</label></div><div class="sx-au-in np pc"><input id="annualRate" type="number" inputmode="decimal" min="0" step="0.1" value="5"><span class="suf">%</span></div></div>
+        <div><div class="sx-au-l"><label for="years">Número de años</label></div><div class="sx-au-in np"><input id="years" type="number" inputmode="numeric" min="1" step="1" value="20"><span class="suf">años</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sx-au-tiles c3 card">
+        <div class="hl"><span>Valor futuro</span><b class="g" id="fv">—</b><small>En lo que se convierten los pagos</small></div>
+        <div><span>Valor presente</span><b id="pv">—</b><small>Suma global equivalente hoy</small></div>
+        <div><span>Total aportado</span><b id="paid">—</b><small id="paidN">—</small></div>
+      </div>
+      <p class="sx-au-help" style="margin-top:10px">VF = PMT × [(1+i)^n − 1] / i · VP = PMT × [1 − (1+i)^−n] / i — con i = tasa anual ÷ 12 y n = años × 12.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">groups</span></span><h3>La mecánica de los créditos de mortalidad y la mancomunación del riesgo de longevidad</h3><p>Una anualidad vitalicia mancomuna el riesgo de longevidad. El dinero que dejan los rentistas que fallecen antes del promedio ayuda a financiar los pagos de quienes viven más: el «crédito de mortalidad». Por eso una anualidad vitalicia puede pagar más cada año de lo que podrías retirar con seguridad de esos mismos ahorros por tu cuenta, donde tendrías que planificar para vivir hasta los 95 años o más.</p><p>La contrapartida: con un contrato solo vida, si falleces pronto el valor restante se queda en el fondo común. Los periodos garantizados y las opciones conjuntas reducen el pago a cambio de proteger a los herederos o al cónyuge.</p><div class="sx-sg-take"><b>Modelo utilizado aquí:</b> mortalidad de Gompertz (edad modal 90, dispersión de 10 años), aproximadamente la longevidad de un rentista. Las cotizaciones reales también reflejan el sexo, la salud, los gastos de la aseguradora y los rendimientos actuales de los bonos.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">receipt_long</span></span><h3>Tributación de anualidades calificadas y no calificadas</h3><p>El tratamiento fiscal depende de cómo se financió la anualidad. Las <b>anualidades calificadas</b> compradas con dinero de una IRA o un 401(k) antes de impuestos suelen tributar como ingresos ordinarios al cobrarse y están sujetas a las reglas de Distribución Mínima Requerida (RMD, que empiezan a los 73 años, o a los 75 para las personas nacidas en 1960 o después).</p><p>Las <b>anualidades no calificadas</b> compradas con ahorros ya gravados usan una <em>razón de exclusión</em> (IRC § 72): parte de cada pago es una devolución libre de impuestos de tu prima y parte son ganancias imponibles, hasta que se recupera tu base de costo.</p><div class="sx-sg-take"><b>Fuentes:</b> Publicación 575 del IRS (ingresos de pensiones y anualidades) y Publicación 939 (regla general para pensiones y anualidades).</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Valor futuro frente a valor presente</h2>
+    <p>El valor futuro te indica en qué se convertirá una serie de pagos regulares al final del plazo, teniendo en cuenta el interés compuesto: útil para proyectar aportaciones a la jubilación o planes de ahorro sistemático.</p>
+    <p>El valor presente te indica la suma global equivalente hoy que valdría lo mismo que todo ese flujo de pagos futuros: útil para comparar el pago de una anualidad con una oferta de liquidación única, o para valorar un flujo de pensión.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Por Suhaib Hassan · Fórmula verificada el 27 sep 2026 · <a href="/methodology.html">Cómo verifica CalculatePilot las fórmulas →</a></p>
+
+    <h2>Esta calculadora modela una anualidad ordinaria</h2>
+    <p>La sección de valor futuro y valor presente supone una «anualidad ordinaria», en la que los pagos se realizan al final de cada periodo (la estructura más común en préstamos y muchos planes de ahorro), en lugar de una «anualidad anticipada», en la que se realizan al principio de cada periodo. La diferencia produce una variación pequeña pero real en el resultado, así que comprueba qué estructura se aplica a tu situación.</p>
+    <p>También supone una capitalización mensual que coincide con los pagos mensuales: para calendarios de pago anuales o trimestrales, las matemáticas son las mismas, pero habría que ajustar la frecuencia de capitalización.</p>
+
+    <h2>Cómo funciona la estimación de ingresos vitalicios</h2>
+    <p>Durante el diferimiento, la prima crece a la tasa que supongas. A la edad de pago, el saldo se convierte en un ingreso mensual dividiéndolo por un factor de anualidad: el valor presente, a la tasa de valoración de la aseguradora, de $1 al mes pagado mientras la opción elegida siga pagando, ponderado por la probabilidad de que el rentista (o cualquiera de los cónyuges) siga con vida, con los meses garantizados contados en su totalidad y los aumentos por COLA incluidos. Es una estimación para comparar opciones, no una cotización de la aseguradora.</p>
+
+    <h2>Preguntas frecuentes</h2>
+    <details class="sx-faq"><summary>¿Cuál es la diferencia entre una anualidad ordinaria y una anualidad anticipada?<span class="msym" aria-hidden="true">expand_more</span></summary><p>En una anualidad ordinaria, los pagos se realizan al final de cada periodo; en una anualidad anticipada, al principio. Esta calculadora modela una anualidad ordinaria, que es la estructura más común en préstamos y planes de ahorro estándar.</p></details>
+    <details class="sx-faq"><summary>¿Cuándo debería usar el valor presente en lugar del valor futuro?<span class="msym" aria-hidden="true">expand_more</span></summary><p>El valor presente es útil para comparar un flujo de pagos futuros (como una pensión o un acuerdo) con una suma global equivalente ofrecida hoy: te dice cuánto vale realmente ese flujo de ingresos futuros en dólares de hoy.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Calculadoras complementarias de jubilación y finanzas</h2><p>Seguridad de ingresos, ahorro para la jubilación y alternativas de rendimiento fijo.</p></div>
+  <a href="/es/financial-calculators.html">Todas las herramientas financieras<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/es/financial/retirement-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Calculadora de jubilación</b><span class="d">Proyecta ahorros y retiros seguros en la jubilación.</span><span class="f">Abrir motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Calculadora de CD</b><span class="d">Crecimiento de depósitos a plazo fijo y rendimientos escalonados.</span><span class="f">Abrir motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Calculadora de 401(k)</b><span class="d">Aportación del empleador, crecimiento compuesto y saldos antes de impuestos.</span><span class="f">Abrir motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/es/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Calculadora de interés compuesto</b><span class="d">Crecimiento con aportaciones periódicas.</span><span class="f">Abrir motor<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Calculadoras gratuitas y precisas para decisiones cotidianas — pensadas para la claridad, no para el desorden.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot en Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzas</h4>
+        <ul>
+          <li><a href="/es/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/es/financial/amortization-calculator.html">Amortización</a></li>
+          <li><a href="/es/financial/annuity-calculator.html">Anualidad</a></li>
+          <li><a href="/es/financial/mortgage-calculator.html">Hipoteca</a></li>
+          <li><a href="/es/financial/uk-stamp-duty-calculator.html">Stamp Duty (Reino Unido)</a></li>
+          <li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Salud</h4>
+        <ul>
+          <li><a href="/es/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
+          <li><a href="/es/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/es/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
+          <li><a href="/es/health/bmi-calculator.html">IMC</a></li>
+          <li><a href="/es/health/macro-calculator.html">Macros</a></li>
+          <li><a href="/es/health/calorie-calculator.html">Calorías</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Matemáticas y más</h4>
+        <ul>
+          <li><a href="/es/math/basic-calculator.html">Básica</a></li>
+          <li><a href="/es/math/area-calculator.html">Área</a></li>
+          <li><a href="/es/other/age-calculator.html">Edad</a></li>
+          <li><a href="/es/math/percentage-calculator.html">Porcentaje</a></li>
+          <li><a href="/es/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/es/math/quadratic-formula-calculator.html">Fórmula cuadrática</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/about.html">Acerca de</a></li>
+          <li><a href="/methodology.html">Nuestra metodología</a></li>
+          <li><a href="/es/guides/">Guías</a></li>
+          <li><a href="/embed/">Incrustar calculadoras</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Política de privacidad</a></li>
+          <li><a href="/terms.html">Términos de uso</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Mapa del sitio</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones: consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span> <span><a href="/embed/annuity-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrusta esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/es/annuity.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

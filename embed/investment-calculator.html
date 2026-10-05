@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Investment Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,arrow_forward,calculate,chevron_right,compare_arrows,download,expand_more,flag,hourglass_bottom,insights,lightbulb,percent,print,query_stats,savings,schedule,trending_up,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,84 +38,145 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Investment Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="initialInvestment">Initial investment</label>
-          <input type="number" id="initialInvestment" value="10000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="monthlyContribution">Monthly contribution</label>
-          <input type="number" id="monthlyContribution" value="300"
-step="25"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="annualReturn">Expected annual return (%)</label>
-          <input type="number" id="annualReturn" value="8"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="years">Investment period (years)</label>
-          <input type="number" id="years" value="20"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Projected value</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total invested</span><span id="outInvested">—</span></div>
-        <div class="embed-row"><span>Total return</span><span id="outReturn">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ivCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Investment Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<h1>Investment Calculator &amp; Portfolio Growth Simulator</h1>
+<p>Project how an initial investment plus regular contributions could grow over time — with compounding frequency, contribution increases, inflation-adjusted value and tax drag.</p>
 </div>
+<div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">query_stats</span>Portfolio Growth Engine</span><span class="sx-badge"><span aria-hidden="true" class="msym">trending_up</span>Inflation-Adjusted Real Returns</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>Client-Side Precision</span></div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Portfolio Inputs</h2></div>
+<button class="sx-reset pri" data-action="reset" type="button">Reset Defaults</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="p0">Initial Principal Investment</label><em class="ok" id="p0Out">$25,000</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="p0" inputmode="decimal" min="0" step="1000" type="number" value="25000"/></div>
+<div class="sx-au-chips"><button data-for="p0" data-value="10000" type="button">$10k</button><button data-for="p0" data-value="25000" type="button">$25k</button><button data-for="p0" data-value="50000" type="button">$50k</button><button data-for="p0" data-value="100000" type="button">$100k</button><button data-for="p0" data-value="250000" type="button">$250k</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="c">Additional Periodic Contribution</label><em class="mu" id="cOut">$500 / month</em></div>
+<div class="sx-au-row"><div class="sx-au-in"><span class="pre">$</span><input id="c" inputmode="decimal" min="0" step="50" type="number" value="500"/></div><div class="sx-au-sel" style="width:130px"><select aria-label="Contribution frequency" id="cf"><option selected="" value="12">Monthly</option><option value="1">Annually</option></select></div></div>
+<div class="sx-iv-tog" style="margin-top:10px"><label for="esc" style="font-size:12px;color:var(--sx-muted)">Annual Escalation (+3%/yr)</label><span class="sx-hl-sw"><input aria-label="Increase contributions 3% a year" checked="" id="esc" type="checkbox"/><i></i></span></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="nR">Investment Horizon</label><em id="nOut" style="color:var(--sx-on)">20 Years</em></div>
+<input id="n" type="hidden" value="20"/>
+<input aria-label="Years" class="sx-range2" data-sync="n" id="nR" max="50" min="1" step="1" type="range" value="20"/>
+<div aria-label="Horizon presets" class="sx-au-opts c5" role="group" style="margin-top:10px"><button data-for="n" data-value="5" type="button">5 Yr</button><button data-for="n" data-value="10" type="button">10 Yr</button><button data-for="n" data-value="15" type="button">15 Yr</button><button data-for="n" data-value="20" type="button">20 Yr</button><button data-for="n" data-value="30" type="button">30 Yr</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="r">Estimated Annual Return (Nominal)</label><em id="rOut" style="color:var(--sx-on)">8.50%</em></div>
+<div class="sx-au-in np pc"><input id="r" inputmode="decimal" max="40" min="-20" step="0.1" type="number" value="8.50"/><span class="suf">%</span></div>
+<div aria-label="Return presets" class="sx-iv-ret" role="group"><button data-for="r" data-value="5.5" type="button">Conservative<b>5.5%</b></button><button data-for="r" data-value="7.5" type="button">Moderate<b>7.5%</b></button><button data-for="r" data-value="10" type="button">Stock market long-run<b>~10%</b></button><button data-for="r" data-value="12" type="button">Aggressive<b>12.0%</b></button></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Compounding Frequency</span></div>
+<input id="m" type="hidden" value="12"/>
+<div aria-label="Compounding frequency" class="sx-seg" role="group" style="display:flex"><button data-for="m" data-value="1" style="flex:1" type="button">Annually</button><button data-for="m" data-value="2" style="flex:1" type="button">Semi-Ann</button><button data-for="m" data-value="4" style="flex:1" type="button">Quarterly</button><button data-for="m" data-value="12" style="flex:1" type="button">Monthly</button></div>
+</div>
+<div class="sx-au-box" style="display:flex;flex-direction:column;gap:14px">
+<div class="sx-iv-tog"><div><b>Inflation Adjustment</b><span>Show today's-dollar value at <input aria-label="Inflation rate" id="inf" max="20" min="0" step="0.1" style="width:48px;height:22px;border:1px solid var(--sx-border);border-radius:4px;padding:0 4px;font:inherit;font-size:11px;background:var(--sx-card);color:var(--sx-on)" type="number" value="2.5"/>%/yr</span></div><span class="sx-hl-sw"><input aria-label="Adjust for inflation" checked="" id="infOn" type="checkbox"/><i></i></span></div>
+<div class="sx-iv-tog"><div><b>Tax Drag</b><span>Share of each year's gains lost to tax</span></div><div class="sx-au-sel" style="width:170px"><select id="tax" style="height:34px;font-size:12px"><option selected="" value="0">Roth / 401(k) (0%)</option><option value="15">Taxable Account (15%)</option><option value="20">High Bracket (20%)</option></select></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">insights</span>Simulate Portfolio Wealth Trajectory</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-sg-hero">
+<span class="sx-kick" id="heroK">Projected Portfolio Value (Year 20)</span>
+<div class="big"><span id="resultValue">—</span><small>nominal</small></div>
+<div class="sx-in-hero" style="padding:0"><div class="loss"><em class="up" id="gPill"><span aria-hidden="true" class="msym">trending_up</span><span id="gTxt">—</span></em></div></div>
+<div class="sx-au-tiles c4 card" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--sx-border)">
+<div><span>Total Principal</span><b id="prin">—</b><small id="prinN">—</small></div>
+<div><span>Compound Earnings</span><b class="g" id="earn">—</b><small id="earnN">—</small></div>
+<div><span>Real Purchasing Power</span><b id="real">—</b><small id="realN">—</small></div>
+<div><span>Passive Income (4% rule)</span><b class="g" id="inc">—</b><small>Rough sustainable withdrawal</small></div>
+</div>
+</section>
+<section class="sx-card r2 sx-au-traj">
+<div class="hd"><div><h3>Growth Trajectory: Principal vs. Compound Growth</h3><p id="trSub">—</p></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>Total Wealth</span><span><i style="background:#cbd5e1"></i>Principal Contributed</span></div></div>
+<svg aria-label="Portfolio value versus principal contributed" id="chart" role="img" viewbox="0 0 520 220"></svg>
+<div class="sx-iv-ms" id="ms"></div>
+<div class="sx-in-acts"><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print Schedule</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export Ledger (.CSV)</button><a class="pri" href="/financial/compound-interest-calculator.html" style="background:none;border:0;color:var(--sx-primary)"><span aria-hidden="true" class="msym">compare_arrows</span>Compare Compounding</a></div>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2>Multi-Year Wealth Accumulation Ledger</h2><p>Yearly contributions, growth and inflation-adjusted ending balance.</p></div><span style="font-size:12px;color:var(--sx-muted)">Display Interval: <span class="sx-au-tag">Milestone Years</span></span></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Horizon</th><th scope="col">Starting Balance</th><th scope="col">Annual Contributions</th><th scope="col">Annual Growth Earned</th><th scope="col">Cumulative Growth</th><th scope="col">Ending Portfolio Balance</th><th id="realH" scope="col">Real Value</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+</section>
+<section class="sx-au-plain cp-hide" style="border:0;padding-top:0">
+<h2 style="font-size:22px;line-height:30px">Investing Playbooks &amp; Empirical Guides</h2>
+<p class="lead">Core principles of long-term compound growth.</p>
+<div class="sx-au-2c" style="margin-bottom:0">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">calculate</span></span><h3>The Rule of 72 &amp; Compound Acceleration</h3><p id="r72">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span aria-hidden="true" class="msym" style="font-size:16px;color:var(--sx-pc)">lightbulb</span><span id="r72t">—</span></div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">hourglass_bottom</span></span><h3>Nominal vs Real Returns &amp; the Cost of Waiting</h3><p id="wait">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span aria-hidden="true" class="msym" style="font-size:16px;color:var(--sx-pc)">schedule</span><span>Starting early and contributing consistently is the most reliable way to let compounding work in your favor.</span></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>It grows your starting balance month by month at the equivalent monthly rate for your chosen compounding frequency, and adds each contribution at the end of its period (monthly or yearly), optionally raising contributions 3% a year. Tax drag reduces each period's growth by the chosen share, and the real value divides the result by cumulative inflation.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Understanding investment risk</h2>
+<p>This calculator assumes a constant annual return for simplicity, but real markets fluctuate year to year. Treat the result as a long-term average projection, not a guarantee — higher expected returns generally come with higher volatility.</p>
+<h2>What return rate should I actually assume?</h2>
+<p>The rate you enter drives everything else, so it's worth grounding it in real benchmarks rather than guessing.</p>
+<ul>
+<li><strong>Diversified stock portfolios</strong> — historically around 7–10% annually before inflation over multi-decade periods, though any single year can vary widely.</li>
+<li><strong>Bond funds</strong> — roughly 4%+ for U.S. government bonds as of recent years, more for higher-risk corporate or high-yield bonds.</li>
+<li><strong>High-yield savings accounts and CDs</strong> — typically 3–4%+ depending on the rate environment and term.</li>
+</ul>
+<p>A practical approach: run the calculator twice — once with a conservative rate (2–3 points below the historical average) and once with an optimistic rate (1–2 points above) — to see a realistic range rather than a single number that may not happen.</p>
+<h2>Understanding sequence of returns</h2>
+<p>This calculator assumes a constant annual return, but real markets rise and fall unevenly year to year. Two investors with the same average return can end up with very different balances depending on when the gains and losses occurred — a concept called sequence of returns risk.</p>
+<p>This matters most near the point of withdrawal (like retirement), where a downturn early in that phase has an outsized negative impact compared to the same downturn occurring years later, since there's less time to recover before money is withdrawn.</p>
+<h2>A worked example</h2>
+<p>Investing $10,000 upfront plus $300/month at an 8% average annual return (compounded monthly) for 20 years grows to roughly $226,000. Of that, about $82,000 came from contributions and roughly $144,000 came from investment growth — nearly two-thirds of the final balance is growth, not deposits.</p>
+<p>This illustrates why starting to invest early tends to matter more than the exact monthly amount — the growth portion compounds regardless of when contributions were made, so earlier dollars have simply had more time to work.</p>
+<h2>Diversification and risk</h2>
+<p>This calculator assumes a single constant return rate, but real investments carry risk that varies by asset type — stocks historically offer higher long-term returns than bonds, but with more year-to-year volatility. Diversifying across asset types is a common strategy to manage that volatility while still capturing long-term growth.</p>
+<p>Tax treatment also affects real-world returns. Growth inside tax-advantaged accounts like a 401(k) or IRA isn't taxed annually the way a standard brokerage account often is, which can meaningfully improve actual after-tax growth compared to what a simple projection shows. Also worth checking: how much that growth is worth in today's dollars using our <a href="/financial/inflation-calculator.html">Inflation Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is 8% a realistic return assumption?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It's within the historical long-term range for diversified equity portfolios before inflation, but past performance doesn't guarantee future results.</p></details>
+<details class="sx-faq"><summary>How much difference do monthly contributions make?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A great deal over long periods — consistent contributions often account for more of the final balance than the initial investment itself, thanks to compounding.</p></details>
+<details class="sx-faq"><summary>Should I invest a lump sum or spread it out (dollar-cost averaging)?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Historically, investing a lump sum immediately outperforms spreading it out on average, since markets trend upward over time — but dollar-cost averaging can reduce regret risk and smooth out volatility for some investors.</p></details>
+<details class="sx-faq"><summary>What's a reasonable fee to pay on investments?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Low-cost index funds often charge well under 0.5% annually, while some actively managed funds charge 1% or more — fees compound over time just like returns, so lower costs meaningfully help long-term growth.</p></details>
+<details class="sx-faq"><summary>What is dollar-cost averaging?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Investing a fixed amount at regular intervals regardless of market price, which smooths out the effect of market timing and is the strategy this calculator's monthly contribution feature effectively models.</p></details>
+<details class="sx-faq"><summary>Should I use a tax-advantaged account for long-term investing?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Accounts like a 401(k), IRA, or Roth IRA offer tax benefits that can meaningfully improve long-term after-tax growth compared to a standard taxable brokerage account, making them worth prioritizing for retirement-focused investing.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Explore Related Wealth Calculators</h2><p>Connected tools for long-term planning.</p></div>
+<a href="/financial-calculators.html">View all 52 calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Compound Interest</b><span class="d">Growth across daily, monthly and continuous compounding.</span><span class="f">Explore Tool<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/roth-ira-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>Roth IRA Calculator</b><span class="d">Tax-free growth versus a traditional, tax-deferred account.</span><span class="f">Explore Tool<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>401(k) Growth Engine</b><span class="d">Employer match, contribution limits and salary growth.</span><span class="f">Explore Tool<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/savings-goal-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">flag</span></span><b>Savings Goal Target</b><span class="d">Monthly savings needed to reach a specific goal.</span><span class="f">Explore Tool<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/investment-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -242,40 +185,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/investment.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/investment.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Golf Handicap Differential Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add_circle,arrow_forward,calculate,casino,chevron_right,code,content_copy,event,expand_more,flag,functions,golf_course,info,lightbulb,lock,person_check,picture_as_pdf,restart_alt,school,speed,sports_golf,warning,work_history&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,50 +38,67 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Golf Handicap Differential Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="score">Your score (total strokes)</label>
-          <input type="number" id="score" value="92"
-step="1"min="18">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="courseRating">Course rating</label>
-          <input type="number" id="courseRating" value="72"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="slopeRating">Slope rating</label>
-          <input type="number" id="slopeRating" value="125"
-step="1"min="55">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Handicap differential</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="gfCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Golf Handicap Calculator</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">sports_golf</span>World Handicap System method</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Golf Handicap Index &amp; Course Handicap Calculator</h1><p>Work out your Handicap Index from your recent scores using the World Handicap System method, then turn it into a Course Handicap and Playing Handicap for any set of tees.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts each round to a score differential, averages your best differentials as the World Handicap System specifies, and scales the result to a course.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>To see what index a run of scores produces, and how many strokes you get on a given course, without waiting for the club to update.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">golf_course</span><h2 class="sx-h-md" style="margin:0">Your scores</h2></div><button class="sx-reset" id="gfReset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Score history</label><em class="mu" id="cntN">8 rounds</em></div>
+<div class="sx-au-presets" style="margin-bottom:8px"><div class="sx-qpills"><span class="lb">Course presets</span><button data-cr="74.2" data-sr="138" type="button">Championship 74.2 / 138</button><button data-cr="70.8" data-sr="122" type="button">Resort 70.8 / 122</button><button data-cr="66.4" data-sr="114" type="button">Executive 66.4 / 114</button></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="gfT" style="min-width:560px"><thead><tr><th class="n">#</th><th class="n">Adj. gross score</th><th class="n">Course rating</th><th class="n">Slope</th><th class="n">PCC</th><th class="n">Differential</th><th></th></tr></thead><tbody id="gfRows"></tbody></table></div>
+<div class="sx-ctarow" style="padding:10px 0 0;justify-content:flex-start;gap:10px"><button class="sx-cta" id="gfAdd" style="background:transparent;color:var(--sx-primary);border:1px solid var(--sx-primary)" type="button"><span aria-hidden="true" class="msym">add_circle</span>Add round</button></div>
+<p class="sx-au-note" style="text-align:left;margin:8px 0 0;font-size:12px">Enter your adjusted gross score (net double bogey cap applied), the tee's course rating and slope, and the Playing Conditions Calculation (PCC, usually 0). Use × to remove a round. Up to 20 rounds.</p></div>
+<div class="sx-au-box"><div class="sx-au-l"><label>Course to play (optional)</label><em class="mu">turns your index into strokes</em></div>
+<div class="sx-au-g3"><div><div class="sx-au-l"><label for="cr">Course rating</label></div><div class="sx-au-in sm np"><input id="cr" inputmode="decimal" min="0" step="0.1" type="number" value="72.1"/></div></div><div><div class="sx-au-l"><label for="sr">Slope</label></div><div class="sx-au-in sm np"><input id="sr" inputmode="numeric" max="155" min="55" step="1" type="number" value="132"/></div></div><div><div class="sx-au-l"><label for="par">Par</label></div><div class="sx-au-in sm np"><input id="par" inputmode="numeric" max="80" min="27" step="1" type="number" value="72"/></div></div></div>
+<div style="margin-top:12px"><div class="sx-au-l"><label for="al">Format allowance</label></div><select class="sx-mt-sel" id="al"><option selected="" value="0.95">95% · individual stroke play</option><option value="1">100% · singles match play</option><option value="0.9">90% · four-ball match play</option><option value="0.85">85% · four-ball stroke play</option></select></div>
+<div style="margin-top:12px"><div class="sx-au-l"><label for="mi">Handicap Index override</label><em class="mu">leave blank to use the index above</em></div><div class="sx-au-in sm np"><input id="mi" inputmode="decimal" max="54" min="-10" placeholder="auto" step="0.1" type="number" value=""/></div></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Handicap Index</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Handicap Index</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p>
+<div class="g2"><div><span>Course Handicap</span><b id="oCh">—</b></div><div><span>Playing Handicap</span><b id="oPh">—</b></div><div><span>Best differentials used</span><b id="oUsed">—</b></div><div><span>Average of those</span><b id="oAvg">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:8px"><span>Formulas at work</span></div><p class="sx-au-note" id="wk" style="text-align:left;margin:0;font-size:13px;line-height:22px">—</p></section>
+<section class="sx-card" style="padding:20px;border-left:4px solid var(--sx-pc)"><div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">info</span>Note</span></div><p class="sx-au-note" id="note" style="text-align:left;margin:0;font-size:13px;line-height:20px">—</p></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>How many scores count</h2><p>Under the World Handicap System the number of differentials used depends on how many scores you have, with a small adjustment for very short histories.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:520px"><thead><tr><th>Scores in record</th><th class="n">Differentials used</th><th class="n">Adjustment</th></tr></thead><tbody>
+<tr><td class="a">3</td><td class="n">Lowest 1</td><td class="n">−2.0</td></tr>
+<tr><td class="a">4</td><td class="n">Lowest 1</td><td class="n">−1.0</td></tr>
+<tr><td class="a">5</td><td class="n">Lowest 1</td><td class="n">0</td></tr>
+<tr><td class="a">6</td><td class="n">Lowest 2</td><td class="n">−1.0</td></tr>
+<tr><td class="a">7 to 8</td><td class="n">Lowest 2</td><td class="n">0</td></tr>
+<tr><td class="a">9 to 11</td><td class="n">Lowest 3</td><td class="n">0</td></tr>
+<tr><td class="a">12 to 14</td><td class="n">Lowest 4</td><td class="n">0</td></tr>
+<tr><td class="a">15 to 16</td><td class="n">Lowest 5</td><td class="n">0</td></tr>
+<tr><td class="a">17 to 18</td><td class="n">Lowest 6</td><td class="n">0</td></tr>
+<tr><td class="a">19</td><td class="n">Lowest 7</td><td class="n">0</td></tr>
+<tr><td class="a">20</td><td class="n">Lowest 8</td><td class="n">0</td></tr>
+</tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">sports_golf</span></div><h3>Score differential</h3><p>Each round is converted to a differential using the tee's difficulty. 113 is the slope of a course of standard difficulty.</p><code>diff = (113 ÷ slope) × (score − course rating − PCC)</code></div><div><div class="ic"><span aria-hidden="true" class="msym">functions</span></div><h3>Handicap Index</h3><p>The average of your best differentials (see the table), plus any adjustment, rounded to one decimal.</p><code>index = mean(best differentials) + adjustment</code></div><div><div class="ic"><span aria-hidden="true" class="msym">flag</span></div><h3>Course and Playing Handicap</h3><p>The index scaled to a course, then multiplied by the allowance for the format.</p><code>course = index × (slope ÷ 113) + (rating − par)<br/>playing = course × allowance</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Eight rounds (default)</h3><p>Lowest 2 of 8 are used, no adjustment.</p><div class="sx-mt-ex">differentials: 5.7, 13.6, 5.0, 7.9, 9.4, 12.8, 8.5, 10.2<br/>lowest two: 5.0 and 5.7, mean 5.35 rounds to <b>5.4</b> Handicap Index</div></div><div><h3>Course Handicap</h3><p>Index 5.4 on a course rated 72.1, slope 132, par 72.</p><div class="sx-mt-ex">5.4 × (132 ÷ 113) + (72.1 − 72) = 6.41<br/>Course Handicap = <b>6</b><br/>× 95% = 6.09, Playing Handicap <b>6</b></div></div><div><h3>One round</h3><p>82 on a 71.4 rating, slope 128, PCC 0.</p><div class="sx-mt-ex">(113 ÷ 128) × (82 − 71.4) = 0.8828 × 10.6 = 9.36<br/>Differential = <b>9.4</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to calculate a golf handicap</h2><ul><li>Enter each round's adjusted gross score, the tee's course rating and slope, and PCC (usually 0).</li><li>Add rounds until you have up to 20. At least 3 are needed.</li><li>Read the Handicap Index, the average of your best differentials.</li><li>Enter the course rating, slope and par to get the Course and Playing Handicap.</li></ul><p>This calculator follows the published World Handicap System method but does not apply the soft cap, hard cap or exceptional score reduction. Your official index comes from your national golf association or club.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>World Handicap System, <i>Rules of Handicapping</i>, Rules 5 and 6 (USGA and R&amp;A).</li><li>USGA, <i>Course Handicap and Playing Handicap calculations</i>.</li><li>USGA, <i>Handicap allowances for formats of play</i>.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>How is a Handicap Index calculated?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Each score becomes a differential: 113 divided by the slope, times the score minus the course rating (and PCC). Your index is the average of your best differentials, for example the lowest 8 of your last 20.</p></details><details class="sx-faq"><summary>What is the difference between Handicap Index and Course Handicap?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The index is portable and measures ability on a course of standard difficulty. The Course Handicap converts it to the number of strokes you receive on a specific set of tees.</p></details><details class="sx-faq"><summary>What is PCC?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Playing Conditions Calculation. It adjusts differentials for a day when conditions made the course play easier or harder than normal. It is usually 0 and is set by the club, from about −1 to +3.</p></details><details class="sx-faq"><summary>What is adjusted gross score?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Your gross score with each hole capped at net double bogey, meaning par plus 2 plus any handicap strokes you receive on that hole.</p></details><details class="sx-faq"><summary>How many scores do I need?<span aria-hidden="true" class="msym">expand_more</span></summary><p>At least 3. With fewer than 20 the system uses fewer differentials, and applies a small reduction for 3, 4 and 6 scores.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/gpa-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">school</span></span><b>GPA Calculator</b><span class="d">Grade point average.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/speed-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">speed</span></span><b>Speed Calculator</b><span class="d">Speed, distance and time.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/hours-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">work_history</span></span><b>Hours Calculator</b><span class="d">Hours worked and pay.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/dice-roller.html"><span class="ic"><span aria-hidden="true" class="msym">casino</span></span><b>Dice Roller</b><span class="d">Roll dice online.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Golf Handicap Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/golf-handicap-calculator.html" width="100%" height="560" loading="lazy" title="Golf Handicap Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/golf-handicap-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -208,7 +107,8 @@ step="1"min="55">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/golf-handicap.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/golf-handicap.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -1,0 +1,127 @@
+<div class="sx" id="debtCalc">
+<div class="sx-dmain">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b aria-current="page">Debt Payoff Calculator</b></nav>
+
+<section class="sx-dhead">
+  <div class="sx-badges">
+    <span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Mathematical Model: Debt Snowball vs Avalanche</span>
+    <span class="sx-plain"><span class="msym" aria-hidden="true">verified_user</span>Client-Side Verified • Zero Data Stored</span>
+  </div>
+  <h1>Debt Payoff Calculator</h1>
+  <p>Formulate an accelerated debt repayment strategy, compare interest-minimizing Avalanche vs balance-eliminating Snowball methods, and identify your exact debt-free date.</p>
+</section>
+
+<form id="calcForm" novalidate style="display:contents">
+<section class="sx-card r2 sx-topbar">
+  <div>
+    <div class="sx-between"><label class="sx-lic" for="extra"><span class="msym" aria-hidden="true">add_circle</span>Extra Monthly Repayment Allocation</label><span class="sx-lbl-sm">Accelerates principal reduction</span></div>
+    <div class="sx-xrow">
+      <div class="sx-xin"><span class="pre">$</span><input id="extra" type="number" inputmode="decimal" min="0" step="25" value="300"><span class="suf">/ month</span></div>
+      <div class="sx-xpills"><button type="button" data-for="extra" data-value="150">+$150</button><button type="button" data-for="extra" data-value="300">+$300</button><button type="button" data-for="extra" data-value="500">+$500</button></div>
+    </div>
+  </div>
+  <div>
+    <span class="sx-lic"><span class="msym" aria-hidden="true">tune</span>Select Execution Algorithm</span>
+    <input type="hidden" id="strategy" value="avalanche">
+    <div class="sx-algo" role="group" aria-label="Payoff strategy">
+      <button type="button" data-for="strategy" data-value="avalanche"><span class="t"><i></i>Avalanche Method</span><span class="s">Highest APR First • Max Savings</span></button>
+      <button type="button" data-for="strategy" data-value="snowball"><span class="t"><i></i>Snowball Method</span><span class="s">Lowest Balance First • Quick Wins</span></button>
+    </div>
+  </div>
+</section>
+</form>
+
+<div class="sx-dgrid">
+  <section class="sx-l7">
+    <div class="sx-phead">
+      <div><span class="msym" aria-hidden="true">account_balance_wallet</span><h2 class="sx-h-md">Debt Portfolio</h2><span class="sx-cnt" id="debtCount">3 Liabilities</span></div>
+      <span class="tot">Total Minimum: <b id="totalMin">$615 / mo</b></span>
+    </div>
+    <div class="sx-debts" id="debts"></div>
+    <button type="button" class="sx-add" id="addDebt"><span class="msym" aria-hidden="true">add_circle</span>+ Add Another Debt</button>
+  </section>
+
+  <section class="sx-r5" id="results">
+    <div class="sx-dfree" id="heroCard" aria-live="polite">
+      <div class="circ"></div>
+      <div class="hd"><span class="kk">Projected Milestone</span><span class="as"><span class="msym" aria-hidden="true">auto_awesome</span>Active Strategy</span></div>
+      <div class="by">Debt Free by:</div>
+      <div class="dt" id="resultValue">—</div>
+      <div class="du" id="durTxt">—</div>
+      <div class="st"><div><span>Total Principal</span><b id="totPrin">—</b></div><div><span>Total Interest Paid</span><b class="i" id="totInt">—</b></div></div>
+    </div>
+
+    <div class="sx-card r2 sx-cmpc">
+      <div class="hd"><b>Strategy Comparison</b><span>3 Scenarios Calculated</span></div>
+      <div id="scenarios"></div>
+      <div class="sx-save" id="saveBox"><span class="msym" aria-hidden="true">savings</span><div id="saveTxt">—</div></div>
+    </div>
+
+    <div class="sx-card r2 sx-traj2">
+      <div class="hd"><b>Paydown Trajectory</b><span>Balance Evolution</span></div>
+      <div class="sx-bars" id="bars"></div>
+      <div class="sx-dleg" id="legend"></div>
+    </div>
+  </section>
+</div>
+
+<section class="sx-card r2 sx-casc" id="schedule">
+  <div class="hd">
+    <div><h2 class="sx-h-md">Repayment Rollout Cascade</h2><p id="cascSub">Step-by-step sequential allocation under the Avalanche Model</p></div>
+    <span class="cf">Total Monthly Cashflow Allocated: <strong id="cashflow">$915.00</strong></span>
+  </div>
+  <div class="sx-phases" id="phases"></div>
+</section>
+
+<section class="sx-edu" id="formula">
+  <div class="sx-card r2">
+    <div class="sx-title"><span class="msym" aria-hidden="true">functions</span><h3 class="sx-h-md">Mathematical Mechanics: Amortization</h3></div>
+    <p>The monthly compounding finance charge on each liability is calculated via:</p>
+    <div class="fx">I_monthly = Balance × (APR / 12)</div>
+    <p class="sm" id="mechTxt">The <strong>Avalanche method</strong> is mathematically optimal because every extra dollar goes to the balance charging the highest rate, which minimizes the total interest accruing across all your debts. Any dollar allocated to a 22.4% APR balance earns a guaranteed return of 22.4%.</p>
+  </div>
+  <div class="sx-card r2">
+    <div class="sx-title"><span class="msym s" aria-hidden="true">psychology_alt</span><h3 class="sx-h-md">Avalanche vs Snowball Trade-Off</h3></div>
+    <div class="two">
+      <div><h4 class="p">Debt Avalanche</h4><p>Maximizes mathematical efficiency. Saves the most in interest charges and usually reaches debt freedom soonest, but the first payoff can take a while.</p></div>
+      <div><h4>Debt Snowball</h4><p>Prioritizes behavioral momentum. Eliminates small accounts early, generating quick psychological wins that reduce friction and the number of bills you juggle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sx-card sx-method" style="margin:0">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>Each month, every debt accrues interest at its APR ÷ 12 and receives at least its minimum payment. Your extra amount goes to the target debt — the highest APR for avalanche, the smallest balance for snowball. When a debt is paid off, its minimum rolls into the next target, so your total monthly outlay stays the same until you're debt free. The "minimums only" scenario keeps that same total but adds no extra.</p>
+
+    <h2>Why the payment amount matters so much</h2>
+    <p>On high-interest debt like credit cards, a payment close to the minimum can take years to clear and cost more in interest than the original balance. Increasing the monthly payment even modestly often cuts both the payoff time and total interest dramatically.</p>
+
+    <h2>A worked example</h2>
+    <p>A $5,000 balance at 19.99% APR with a $150/month payment takes about 50 months (4 years, 2 months) to pay off, with roughly $2,357 in total interest — meaning you'd pay about $7,357 total for the original $5,000. Bump the payment to $250/month instead, and payoff time drops to about 25 months with around $1,132 in interest — roughly halving both the timeline and the total interest.</p>
+    <p>For a multi-debt walkthrough with real numbers, see <a href="/guides/debt-payoff-avalanche-vs-snowball-real-numbers.html">avalanche vs snowball, worked through</a>. Once your obligations drop, check how it moves your <a href="/financial/debt-to-income-ratio-calculator.html">debt-to-income ratio</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What if my payment doesn't cover the interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>If your monthly payment is lower than the interest accruing each month, the balance will never be paid off — you'll need to increase the payment above that threshold. The calculator flags any debt whose minimum doesn't cover its interest.</p></details>
+    <details class="sx-faq"><summary>Should I pay off high-interest debt before investing?<span class="msym" aria-hidden="true">expand_more</span></summary><p>As a general rule, paying off debt with a higher interest rate than your expected investment return tends to provide a better guaranteed outcome, though individual circumstances vary.</p></details>
+    <details class="sx-faq"><summary>Which is better: avalanche or snowball payoff method?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Avalanche (highest interest rate first) saves more money mathematically. Snowball (smallest balance first) can be more motivating since it produces quick wins, even at a slightly higher total cost — the best method is the one you'll actually stick with.</p></details>
+    <details class="sx-faq"><summary>Should I pay off debt or save simultaneously?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Most financial guidance suggests keeping a small emergency fund while aggressively paying down high-interest debt, then shifting focus to savings once high-interest balances are cleared.</p></details>
+    <details class="sx-faq"><summary>How much does avalanche actually save over snowball, in real numbers?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On $14,700 across three debts (24.99%, 19.99%, and 11.5% APR) with $300/month extra, avalanche saves $178 in interest over 25 months — but takes until month 12 to eliminate its first debt, versus month 7 for snowball. See the <a href="/guides/debt-payoff-avalanche-vs-snowball-real-numbers.html">full worked example</a>.</p></details>
+    <details class="sx-faq"><summary>Is a 0% balance transfer worth the fee?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $6,700 balance at 23% APR paid off over 18 months, a 0% intro card with a 3% transfer fee ($201) saves about $1,084 versus staying put. The transfer stops being worth it once your original APR drops below roughly 3.8%.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="sx-rel-head">
+    <h2 class="sx-h-md">Related Financial Tools</h2>
+    <a class="lg" href="/financial-calculators.html">Explore all calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+  </div>
+  <div class="sx-rel2grid">
+    <a class="sx-card sx-rel4" href="/financial/credit-card-calculator.html"><div><span class="ic"><span class="msym" aria-hidden="true">credit_card</span></span><h4>Credit Card Payoff</h4><p>Calculate how long it takes to clear a single card balance and what it costs.</p></div><div class="go">Launch Tool<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel4" href="/financial/debt-to-income-ratio-calculator.html"><div><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><h4>Debt-to-Income Ratio</h4><p>Check front-end and back-end DTI against common mortgage lending thresholds.</p></div><div class="go">Launch Tool<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel4" href="/financial/budget-calculator.html"><div><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><h4>Budget Calculator</h4><p>Build a 50/30/20 budget and find the extra cash to throw at your debts.</p></div><div class="go">Launch Tool<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel4" href="/financial/loan-calculator.html"><div><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><h4>Loan Calculator</h4><p>Work out payments, total interest and payoff time for any fixed-rate loan.</p></div><div class="go">Launch Tool<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+  </div>
+</section>
+</div>
+</div>

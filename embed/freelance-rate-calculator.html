@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Freelance Rate Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,check_circle,chevron_right,code,content_copy,data_exploration,donut_small,expand_more,functions,payments,picture_as_pdf,pie_chart,receipt_long,refresh,savings,schedule,trending_up,tune,verified&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,89 +38,160 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Freelance Rate Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="desiredIncome">Desired take-home income ($/year)</label>
-          <input type="number" id="desiredIncome" value="70000"
-step="1000"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="annualExpenses">Annual business expenses ($)</label>
-          <input type="number" id="annualExpenses" value="6000"
-step="500"min="0">
-        </div>
-        <div class="field">
-          <label for="taxRate">Estimated tax rate (%)</label>
-          <input type="number" id="taxRate" value="25"
-step="1"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="hoursPerWeek">Billable hours per week</label>
-          <input type="number" id="hoursPerWeek" value="25"
-step="1"min="1">
-        </div>
-        <div class="field">
-          <label for="weeksPerYear">Working weeks per year</label>
-          <input type="number" id="weeksPerYear" value="48"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Hourly rate to charge</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Required annual revenue</span><span id="outAnnualRevenue">—</span></div>
-        <div class="embed-row"><span>Total billable hours/year</span><span id="outBillableHours">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="frCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Freelance Rate Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Self-Employment Tax Model</span><span class="sx-badge" style="background:var(--sx-hi2)"><span aria-hidden="true" class="msym">schedule</span>Billable Hours &amp; Overhead Realization</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified</span>Deterministic Financial Engine</span></div>
+<h1>Freelance Rate &amp; Contractor Hourly Calculator</h1>
+<p>Calculate the hourly rate you need to charge to hit your take-home income goal — after self-employment tax, income tax, business expenses, health insurance, retirement savings, time off and non-billable hours.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Earnings Target &amp; Professional Overhead</h2><p>Your personal income goal and business costs</p></div></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">refresh</span>Reset Defaults</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="net">Desired Net Annual Personal Income</label><em>Take-home after all taxes &amp; expenses</em></div>
+<div class="sx-au-in pc"><span class="pre">$</span><input id="net" inputmode="decimal" min="0" step="1000" type="number" value="100000"/><span class="suf">/ year</span></div>
+<div class="sx-au-chips">Presets: <button data-for="net" data-value="60000" type="button">$60k</button><button data-for="net" data-value="80000" type="button">$80k</button><button data-for="net" data-value="100000" type="button">$100k</button><button data-for="net" data-value="130000" type="button">$130k</button><button data-for="net" data-value="160000" type="button">$160k</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="exp">Annual Business Expenses &amp; Overhead</label></div><div class="sx-au-in"><span class="pre">$</span><input id="exp" inputmode="decimal" min="0" step="250" type="number" value="8500"/></div><p class="sx-au-help">Software, laptop, co-working, legal</p></div>
+<div><div class="sx-au-l"><label for="health">Self-Employed Health Insurance</label></div><div class="sx-au-in"><span class="pre">$</span><input id="health" inputmode="decimal" min="0" step="250" type="number" value="6000"/></div><p class="sx-au-help">Usually deductible for income tax, not SE tax</p></div>
+</div>
+<div><div class="sx-au-l"><label for="ret">Retirement Funding Goal (Solo 401k / SEP-IRA)</label></div><div class="sx-au-in"><span class="pre">$</span><input id="ret" inputmode="decimal" min="0" step="500" type="number" value="12000"/></div><p class="sx-au-help">Pre-tax contributions reduce income tax (not SE tax)</p></div>
+<div class="sx-fr-sec">
+<div class="h"><h3>Billable Capacity &amp; Working Hours</h3><span class="sx-au-tag" id="bhTag">—</span></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="weeks">Working Weeks per Year</label></div><div class="sx-au-in np"><input id="weeks" inputmode="numeric" max="52" min="1" step="1" type="number" value="46"/></div><p class="sx-au-help" id="wkNote">6 weeks unpaid (vacation, holidays, sick)</p></div>
+<div><div class="sx-au-l"><label for="hrs">Total Working Hours / Week</label></div><div class="sx-au-in np"><input id="hrs" inputmode="numeric" max="100" min="1" step="1" type="number" value="40"/></div><p class="sx-au-help">All work, billable or not</p></div>
+</div>
+<div class="sx-fr-real" style="margin-top:14px">
+<div class="r"><label for="realR">Billable Realization Rate</label><b id="realOut">65% Billable</b></div>
+<input id="real" type="hidden" value="65"/>
+<input aria-label="Billable percentage of working hours" class="sx-range2" data-sync="real" id="realR" max="95" min="30" step="1" type="range" value="65"/>
+<div class="sx-scale"><span>30% (Heavy BD/Admin)</span><b id="realMid">26 hrs billable, 14 hrs overhead</b><span>95% (Retainers)</span></div>
+</div>
+</div>
+<div class="sx-fr-sec">
+<div class="h"><h3>Taxes &amp; Business Profit Cushion</h3></div>
+<div class="sx-au-g3">
+<div><div class="sx-au-l"><span>SE Tax (SECA)</span></div><div class="sx-au-in np pc"><input aria-label="Self-employment tax rate" readonly="" style="background:var(--sx-low)" type="text" value="15.3"/><span class="suf">%</span></div><p class="sx-au-help">On 92.35% of net profit</p></div>
+<div><div class="sx-au-l"><label for="itax">Effective Income Tax</label></div><div class="sx-au-in np pc"><input id="itax" inputmode="decimal" max="60" min="0" step="0.5" type="number" value="22"/><span class="suf">%</span></div><p class="sx-au-help">Federal + state, effective</p></div>
+<div><div class="sx-au-l"><label for="margin">Business Margin Buffer</label></div><div class="sx-au-in np pc"><input id="margin" inputmode="decimal" max="60" min="0" step="1" type="number" value="15"/><span class="suf">%</span></div><p class="sx-au-help">Reinvestment &amp; safety pool</p></div>
+</div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">functions</span>Calculate Billable Hourly &amp; Project Rates</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-fr-hero">
+<span class="corner">Recommended Quote</span>
+<span class="sx-kick">Minimum Viable Billable Rate</span>
+<div class="big"><span id="resultValue">—</span><small>/ billable hour</small></div>
+<div class="sx-au-tiles card">
+<div><span>Day Rate (8h equivalent)</span><b id="day">—</b></div>
+<div><span>Monthly Retainer (100h)</span><b id="ret100">—</b></div>
+</div>
+<div class="sx-fr-gross"><div><span>Gross Annual Revenue Required</span><b id="gross">—</b></div><span aria-hidden="true" class="msym">account_balance</span></div>
+</section>
+<section class="sx-card r2 sx-ry-wf sx-fr-dec">
+<div class="hd"><b style="font-family:var(--font-display);font-size:18px">Revenue Deconstruction</b><span id="decTot">—</span></div>
+<div class="bar" id="decBar"></div>
+<ul id="decList"></ul>
+</section>
+<section class="sx-card r2 sx-ry-wf">
+<div class="hd"><b style="font-family:var(--font-display);font-size:18px">Rate Sensitivity Tier Matrix</b></div>
+<ul class="sx-fr-tier">
+<li><div><b>Bare Minimum Break-Even</b><span>No margin buffer — nothing left for slow months</span></div><div class="v"><b id="t1">—</b><span id="t1g">—</span></div></li>
+<li class="on"><div><b>Target Sustainable Standard</b><span id="t2d">Your inputs</span></div><div class="v"><b id="t2">—</b><span id="t2g">—</span></div></li>
+<li><div><b>Premium High-Demand Value</b><span id="t3d">+15 points of margin</span></div><div class="v"><b id="t3">—</b><span id="t3g">—</span></div></li>
+</ul>
+<div class="sx-au-acts">
+<button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export PDF</button>
+<a href="/embed/freelance-rate-calculator.html" rel="noopener" target="_blank"><span aria-hidden="true" class="msym">code</span>Embed Widget</a>
+<button data-action="copy" data-target="quoteTxt" type="button"><span aria-hidden="true" class="msym">content_copy</span>Quote Matrix</button>
+</div>
+<pre hidden="" id="quoteTxt"></pre>
+</section>
+</div>
+</div>
+<section class="sx-card r2 sx-au-sec cp-hide" id="ledger">
+<span class="sx-badge" style="margin-bottom:10px"><span aria-hidden="true" class="msym">data_exploration</span>The Mathematical Reality of Independent Work</span>
+<h2>The Freelancer's Billable Realization Ledger</h2>
+<p class="lead">The most common reason freelancers undercharge is treating total working hours as invoiced hours. Your realization rate accounts for outreach, proposals, invoicing, bookkeeping and unpaid time off.</p>
+<div class="sx-fr-eq">
+<div><span>Annual Baseline</span><b>52 Weeks</b><span>Calendar year</span></div>
+<div><span class="op" id="eqOff">− 6</span><span>Weeks non-working</span></div>
+<div><span class="op" id="eqHrs">× 40</span><span id="eqTot">= 1,840 total working hrs</span></div>
+<div class="trap"><span>The Billable Trap</span><b id="eqTrue">—</b><span id="eqReal">—</span></div>
+</div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Billable Realization Rate</th><th scope="col">Weekly Invoiced Hours</th><th scope="col">Annual Invoiced Hours</th><th id="lgH" scope="col">Required Hourly Rate</th><th scope="col">Operational Viability</th></tr></thead>
+<tbody id="lgBody"></tbody>
+</table></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">receipt_long</span>Self-Employment Tax &amp; Schedule C Deductions</h3>
+<p>Employees split FICA with their employer. As a 1099 contractor or single-member LLC, you pay both halves — 15.3% self-employment (SECA) tax:</p>
+<ul class="ck">
+<li><span aria-hidden="true" class="msym">check_circle</span><span><b>12.4% Social Security:</b> on net self-employment earnings up to the $184,500 wage base for 2026.</span></li>
+<li><span aria-hidden="true" class="msym">check_circle</span><span><b>2.9% Medicare:</b> no cap, plus an additional 0.9% above $200,000 (single filers).</span></li>
+<li><span aria-hidden="true" class="msym">check_circle</span><span><b>92.35% rule &amp; half deduction:</b> SE tax applies to 92.35% of net profit, and you deduct half of it when figuring income tax.</span></li>
+</ul>
+</div>
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">pie_chart</span>Pricing Models: Hourly vs Daily vs Retainers</h3>
+<p id="pmIntro">Your hourly rate is the floor. Pure hourly billing can penalize you for working faster, so consider packaging time differently:</p>
+<div class="sx-fr-pm">
+<div><b id="pmDay">Day Rates</b><p>Good for sprint-based design, technical audits and advisory blocks — no minute-by-minute time tracking.</p></div>
+<div><b id="pmRet">Monthly Retainers</b><p>Predictable revenue for ongoing work, such as embedded engineering or product strategy support.</p></div>
+</div>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>It works backwards from your take-home goal. Net profit is revenue minus your margin buffer and business expenses. Self-employment tax is 15.3% of 92.35% of that profit (Social Security capped at the 2026 wage base of $184,500). Income tax is your effective rate applied to profit minus half the SE tax, health insurance premiums and pre-tax retirement contributions. The calculator finds the revenue that leaves exactly your target after all of that, then divides it by your billable hours.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Why billable hours are lower than total working hours</h2>
+<p>This is the single biggest mistake freelancers make when setting rates — assuming all working hours are billable. In reality, time spent on invoicing, marketing, client communication, admin, and finding new work isn't billable, which is why this calculator applies a billable realization rate to your total working hours.</p>
+<p>Many freelancers find that only 50-70% of their total working time ends up being billable once non-client work is accounted for — using your total working hours instead of realistic billable hours will significantly undercharge you.</p>
+<h2>Why taxes and expenses both matter here</h2>
+<p>As a freelancer, you're typically responsible for self-employment tax and income tax that an employer would otherwise partially cover or withhold automatically — factoring them in ensures your target 'take-home' income is actually achievable after taxes, not before.</p>
+<p>Business expenses (software subscriptions, equipment, home office costs, insurance) also need to be covered by your rate — since these come out of revenue before you see any personal income, forgetting to include them means your actual take-home will fall short of your goal.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why isn't my hourly rate just my income goal divided by total hours worked?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Because not all working hours are billable to clients — time spent on admin, marketing, and finding new work reduces your actual billable hours below your total working hours, so your rate needs to be higher to compensate.</p></details>
+<details class="sx-faq"><summary>Should I include taxes in my rate calculation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes — freelancers are typically responsible for self-employment and income tax that isn't withheld automatically, so your target take-home income needs to be grossed up to account for taxes you'll owe.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Financial Planning Engines</h2><p>Connected calculators for tax, budgeting and resilience.</p></div>
+<span class="sx-au-tag">4 Available Tools</span>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">payments</span></span><b>Paycheck Calculator</b><span class="d">Compare with W-2 take-home pay after federal, state and FICA taxes.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">donut_small</span></span><b>50/30/20 Budget Calculator</b><span class="d">Allocate irregular freelance income into needs, wants and savings.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Emergency Fund Calculator</b><span class="d">Build runway for late-paying clients and slow months.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+<a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_up</span></span><b>401(k) Calculator</b><span class="d">Project retirement growth from your Solo 401(k) contributions.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">chevron_right</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/freelance-rate-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -247,40 +200,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/freelance-rate.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/freelance-rate.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scientific Notation Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,chevron_right,code,content_copy,event,expand_more,exposure,functions,lightbulb,link,lock,person_check,picture_as_pdf,pin,restart_alt,rule,superscript,swap_horiz,tune,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,60 +38,131 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Scientific Notation Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="mode">Conversion direction</label>
-          <select id="mode">
-            <option value="toSci" selected>Decimal → Scientific notation</option>
-            <option value="toDecimal" >Scientific notation → Decimal</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="decimalInput">Decimal number</label>
-          <input type="number" id="decimalInput" value="6500000"
-step="any">
-        </div>
-        <div class="field">
-          <label for="coefficient">Coefficient</label>
-          <input type="number" id="coefficient" value="6.5"
-step="0.1">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="exponent">Exponent (power of 10)</label>
-          <input type="number" id="exponent" value="6"
-step="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Result</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Other form</span><span id="outDecimal">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="snCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Scientific Notation Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Exact digit-based rounding</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Scientific Notation Calculator</h1>
+<p>Convert a decimal number to standard scientific notation (m × 10ⁿ), engineering notation, e-notation and SI metric prefixes; convert scientific notation back to decimal; or multiply and divide two numbers written in scientific notation.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Every rule follows the ISO 80000-1 normalized-form definition. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">rule</span><section><b>How the engine works</b><p>The mantissa and exponent are extracted from the exact decimal digit string, so rounding to a chosen number of significant figures uses true half-to-even arithmetic, not floating-point approximation.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>It shows standard, engineering, e-notation and SI-prefix form side by side, so you can see how they relate.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" id="formH" style="margin:0">Decimal → scientific notation</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<input id="mode" type="hidden" value="s1"/>
+<div aria-label="Task" class="sx-seg full" role="group"><button data-for="mode" data-value="s1" type="button">Decimal → scientific</button><button data-for="mode" data-value="s2" type="button">Scientific → decimal</button><button data-for="mode" data-value="s3" type="button">Multiply / divide</button></div>
+<div class="sx-mt-chips" id="presets"><span>Presets</span><button data-m="s1" data-v="0.00004582" type="button">Gate pitch (0.00004582)</button><button data-m="s1" data-v="299792458" type="button">Speed of light</button><button data-m="s1" data-v="5.9722e24" type="button">Mass of Earth</button><button data-a="6.02e23" data-b="3.2e-4" data-m="s3" data-op="mul" type="button">(6.02×10²³)×(3.2×10⁻⁴)</button></div>
+<div id="fDec"><div class="sx-au-l"><label for="v">Decimal number</label></div><div class="sx-au-in np"><input autocomplete="off" id="v" inputmode="decimal" spellcheck="false" type="text" value="0.00004582"/></div>
+<div style="margin-top:10px"><div class="sx-au-l"><label for="k">Round to significant figures</label></div><div class="sx-au-sel"><select id="k"><option value="0">Full precision (no rounding)</option><option value="2">2</option><option selected="" value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div></div>
+</div>
+<div hidden="" id="fSci">
+<div class="sx-au-l"><label for="mant">Mantissa</label></div><div class="sx-au-in np"><input id="mant" inputmode="decimal" type="text" value="4.582"/></div>
+<div style="margin-top:10px"><div class="sx-au-l"><label for="exp">Exponent (power of 10)</label></div><div class="sx-au-in np"><input id="exp" step="1" type="number" value="-5"/></div></div>
+</div>
+<div hidden="" id="fArith">
+<div class="sx-au-l"><label for="aA">A (e.g. 6.02e23 or 6.02×10^23)</label></div><div class="sx-au-in np"><input id="aA" type="text" value="6.02e23"/></div>
+<input id="opSci" type="hidden" value="mul"/>
+<div aria-label="Operation" class="sx-seg full" role="group" style="margin:10px 0"><button data-for="opSci" data-value="mul" type="button">A × B</button><button data-for="opSci" data-value="div" type="button">A ÷ B</button></div>
+<div class="sx-au-l"><label for="aB">B</label></div><div class="sx-au-in np"><input id="aB" type="text" value="3.2e-4"/></div>
+</div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Compute</button></div>
+<div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Value</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Scientific notation</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big" style="font-size:28px;line-height:1.3;word-break:break-word"><span id="resultValue">—</span></div>
+<p id="interp">—</p>
+<div class="g2"><div><span id="ex1L">Engineering notation</span><b id="ex1" style="font-size:16px;word-break:break-word">—</b></div><div><span id="ex2L">SI prefix form</span><b id="ex2" style="font-size:16px;word-break:break-word">—</b></div></div>
+</section>
+<div class="sx-in-t4" id="tiles"></div>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy results</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+<ol class="sx-mt-steps" id="steps"></ol>
+</section>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>SI metric prefixes</h2><p>Powers of 10 used as unit prefixes.</p></div></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:600px">
+<thead><tr><th scope="col">Prefix</th><th scope="col">Symbol</th><th scope="col">Power of 10</th><th scope="col">Prefix</th><th scope="col">Symbol</th><th scope="col">Power of 10</th></tr></thead>
+<tbody>
+<tr><td>giga</td><td class="mono">G</td><td class="mono">10⁹</td><td>milli</td><td class="mono">m</td><td class="mono">10⁻³</td></tr>
+<tr><td>mega</td><td class="mono">M</td><td class="mono">10⁶</td><td>micro</td><td class="mono">µ</td><td class="mono">10⁻⁶</td></tr>
+<tr><td>kilo</td><td class="mono">k</td><td class="mono">10³</td><td>nano</td><td class="mono">n</td><td class="mono">10⁻⁹</td></tr>
+<tr><td>(none)</td><td class="mono">—</td><td class="mono">10⁰</td><td>pico</td><td class="mono">p</td><td class="mono">10⁻¹²</td></tr>
+</tbody>
+</table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<h2>Worked examples</h2>
+<div class="sx-mt-3">
+<div><span aria-hidden="true" class="msym">pin</span><h3>Small decimal</h3><p>Write 0.00004582 in scientific notation.</p><div class="sx-mt-ex">Move the decimal point 5 places right<br/><b>4.582 × 10⁻⁵</b></div></div>
+<div><span aria-hidden="true" class="msym">bolt</span><h3>Multiplying</h3><p>(6.02×10²³) × (3.2×10⁻⁴)</p><div class="sx-mt-ex">Multiply mantissas, add exponents<br/>6.02×3.2=19.264 → renormalize<br/><b>1.9264 × 10²⁰</b></div></div>
+<div><span aria-hidden="true" class="msym">swap_horiz</span><h3>Back to decimal</h3><p>Convert 2.5 × 10⁻³ to decimal.</p><div class="sx-mt-ex">Move the decimal point 3 places left<br/><b>0.0025</b></div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>The three notations</h2>
+<ul>
+<li><strong>Standard scientific:</strong> m × 10ⁿ with exactly one non-zero digit before the decimal point (1 ≤ |m| &lt; 10).</li>
+<li><strong>Engineering notation:</strong> the exponent is forced to a multiple of 3, so the mantissa is 1 ≤ |m| &lt; 1000 — this aligns directly with SI prefixes (kilo, mega, milli, …).</li>
+<li><strong>E-notation:</strong> the plain-text computing form, m followed by "e" and the exponent, e.g. 4.582e-5 — identical in value to standard scientific notation.</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>ISO 80000-1:2022, <i>Quantities and units — Part 1: General</i>, annex on number representation.</li>
+<li>BIPM (2019). <i>The International System of Units (SI)</i> (9th ed.), chapter 3 (SI prefixes).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between scientific and engineering notation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Standard scientific notation always has exactly one digit before the decimal point. Engineering notation instead forces the exponent to a multiple of 3, so the mantissa can have 1, 2 or 3 digits before the point — this matches SI prefixes like kilo (10³) and mega (10⁶) directly.</p></details>
+<details class="sx-faq"><summary>Why do calculators and programs write "e" instead of "× 10"?<span aria-hidden="true" class="msym">expand_more</span></summary><p>"e" notation (like 4.582e-5) is a plain-text way to write scientific notation without special symbols, used across programming languages, spreadsheets and calculator displays — mathematically it means exactly the same as 4.582 × 10⁻⁵.</p></details>
+<details class="sx-faq"><summary>How does multiplying in scientific notation work?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Multiply the mantissas and add the exponents: (a×10ᵐ)×(b×10ⁿ) = (a×b)×10ᵐ⁺ⁿ. If the mantissa product is 10 or more (or less than 1), renormalize by shifting the decimal point and adjusting the exponent.</p></details>
+<details class="sx-faq"><summary>Why use scientific notation at all?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It makes very large or very small numbers compact and easy to compare — and it separates the number's precision (the mantissa's significant figures) from its scale (the exponent), which is why it's the standard in science and engineering.</p></details>
+<details class="sx-faq"><summary>How is rounding handled when converting?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Using exact half-to-even (banker's) rounding on the digit string itself — not on a floating-point approximation — so results match the textbook rule precisely, including for ties.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>Continue with notation and precision.</p></div>
+<a href="/math-calculators.html">All Math Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/math/sig-fig-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">exposure</span></span><b>Significant Figures</b><span class="d">Count, classify and round digits.</span><span class="f">Precision<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/exponent-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">superscript</span></span><b>Exponent Calculator</b><span class="d">Powers, roots and growth.</span><span class="f">Powers<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/number-base-converter.html"><span class="ic"><span aria-hidden="true" class="msym">swap_horiz</span></span><b>Number Base Converter</b><span class="d">Binary, octal, decimal, hex.</span><span class="f">Bases 2–36<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/math/log-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Log Calculator</b><span class="d">log, ln and change of base.</span><span class="f">Logarithms<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Scientific Notation Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/scientific-notation-calculator.html" width="100%" height="560" loading="lazy" title="Scientific Notation Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/math/scientific-notation-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -218,7 +171,8 @@ step="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/cientific-notation.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/scientific-notation.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -1,1 +1,366 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CD-Rechner | CalculatePilot</title><meta name="description" content="Schätzen Sie Zinsen und Endwert eines Zertifikats mit festem Zinssatz, Laufzeit und Zinseszins."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/cd-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/cd-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/cd-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/cd-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/cd-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/cd-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/health-calculators.html">Gesundheit</a></li><li><a href="/math-calculators.html">Mathematik</a></li><li><a href="/other-calculators.html">Alltag</a></li><li><a href="/guides/">Ratgeber</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / CD-Rechner</nav></div><section class="calc-page-head"><div class="container"><h1>CD-Rechner</h1><p class="lede">Schätzen Sie Zinsen und Endwert eines Zertifikats.</p></div></section><section><div class="container calc-layout"><form class="calc-card"><div class="field"><label>Anfangseinlage</label><input id="p" type="number" value="10000" min="0"></div><div class="field-row"><div class="field"><label>Jahreszins (%)</label><input id="r" type="number" value="4.5" step="0.1"></div><div class="field"><label>Laufzeit (Jahre)</label><input id="t" type="number" value="3" step="0.5" min="0"></div></div><div class="field"><label>Zinsgutschriften pro Jahr</label><input id="m" type="number" value="12" min="1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Endwert</div><div class="readout-value big" id="out">—</div><div class="readout-breakdown"><div class="readout-row"><span>Erzielte Zinsen</span><span id="interest">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Wie wird der CD-Wert berechnet?</h2><p>Der Rechner verwendet Zinseszins auf die Anfangseinlage. Das Ergebnis ist eine Schätzung; die tatsächlichen Konditionen eines Zertifikats können je nach Anbieter abweichen.</p></div></section></main><script>function calc(){let P=+p.value||0,R=(+r.value||0)/100,T=+t.value||0,M=+m.value||1;let v=P*Math.pow(1+R/M,M*T);out.textContent=v.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2});interest.textContent=(v-P).toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})}document.querySelectorAll('input').forEach(x=>x.addEventListener('input',calc));calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CD-Rechner | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie den Endwert und die erzielten Zinsen einer Termineinlage (CD) anhand Ihrer Einlage, des Zinssatzes und der Laufzeit.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/cd-calculator.html"
+<meta property="og:locale" content="de_DE">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/cd-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/cd-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/cd-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/cd-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/cd-calculator.html">
+<meta property="og:title" content="CD-Rechner | CalculatePilot">
+<meta property="og:description" content="Berechnen Sie den Endwert und die erzielten Zinsen einer Termineinlage (CD) anhand Ihrer Einlage, des Zinssatzes und der Laufzeit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/cd-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CD-Rechner | CalculatePilot">
+<meta name="twitter:description" content="Berechnen Sie den Endwert und die erzielten Zinsen einer Termineinlage (CD) anhand Ihrer Einlage, des Zinssatzes und der Laufzeit.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "CD-Rechner",
+ "url": "https://www.calculatepilot.com/de/financial/cd-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Berechnen Sie den Endwert und die erzielten Zinsen einer Termineinlage (CD) anhand Ihrer Einlage, des Zinssatzes und der Laufzeit.",
+ "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Startseite",
+   "item": "https://www.calculatepilot.com/de/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Finanzrechner",
+   "item": "https://www.calculatepilot.com/de/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "CD-Rechner",
+   "item": "https://www.calculatepilot.com/de/financial/cd-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Was passiert, wenn ich eine CD vorzeitig auflöse?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Die meisten CDs berechnen eine Vorfälligkeitsentschädigung, üblicherweise in Höhe von einigen Monatszinsen, die die erzielten Zinsen je nach Zeitpunkt der Auflösung verringern oder sogar ganz aufzehren kann."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ist eine CD besser als ein Sparkonto?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "CDs bieten in der Regel höhere feste Zinsen, dafür ist Ihr Geld für eine bestimmte Laufzeit gebunden, während Sparkonten mehr Flexibilität bei meist niedrigeren, variablen Zinsen bieten – die bessere Wahl hängt davon ab, ob Sie auf das Geld zugreifen müssen."
+   }
+  }
+ ],
+ "inLanguage": "de"
+}
+</script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,account_balance_wallet,add,arrow_forward,calendar_month,chevron_right,compare_arrows,download,expand_more,finance_mode,functions,gavel,health_and_safety,print,receipt_long,restart_alt,savings,schedule,shield,stairs,trending_up,tune,verified,verified_user,warning&display=block">
+<!-- /cpx-head-extra -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/de/guides/">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="cdCalc">
+<nav class="sx-crumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/de/financial-calculators.html">Finanzrechner</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">CD-Rechner</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>APY-Renditerechner mit Zinseszins</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">shield</span>FDIC-/NCUA-versicherte Produkte</span><span class="sx-badge"><span class="msym" aria-hidden="true">gavel</span>Prüfung der Vorfälligkeitsentschädigung</span></div>
+    <h1>CD-Rechner &amp; CD-Laddering-Strategie</h1>
+    <p>Berechnen Sie, wie viel eine Termineinlage bei Fälligkeit wert ist und wie viele Zinsen sie einbringt – plus Vorfälligkeitsentschädigungen, APY vs. APR und eine 5-Jahres-CD-Leiter.</p>
+  </div>
+  <div class="sx-cd-mode"><a class="on" href="#cdCalc"><span class="msym" aria-hidden="true">savings</span>Einzelne CD bei Fälligkeit</a><a href="#ladder"><span class="msym" aria-hidden="true">stairs</span>5-Jahres-CD-Leiter-Strategie</a></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><h2 class="sx-h-md" style="margin:0">Einlageparameter</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Zurücksetzen</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="dep">Anfängliche CD-Einlage</label><em class="mu">Versichert bis 250.000 $ pro Bank</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="dep" type="number" inputmode="decimal" min="0" step="500" value="20000" style="font-size:18px;font-weight:600"></div>
+      <div class="sx-au-chips"><button type="button" data-for="dep" data-value="5000">5.000 $</button><button type="button" data-for="dep" data-value="10000">10.000 $</button><button type="button" data-for="dep" data-value="20000">$20k</button><button type="button" data-for="dep" data-value="50000">$50k</button><button type="button" data-for="dep" data-value="100000">$100k</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Laufzeit</span><em style="color:var(--sx-on)" id="tOut">12 Monate (1,0 Jahre)</em></div>
+      <input type="hidden" id="term" value="12">
+      <div class="sx-au-opts" role="group" aria-label="Laufzeit" style="grid-template-columns:repeat(6,minmax(0,1fr))"><button type="button" data-for="term" data-value="6">6 Mon.</button><button type="button" data-for="term" data-value="12">12 Mon.</button><button type="button" data-for="term" data-value="18">18 Mon.</button><button type="button" data-for="term" data-value="24">24 Mon.</button><button type="button" data-for="term" data-value="36">36 Mon.</button><button type="button" data-for="term" data-value="60">60 Mon.</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="apy">Effektive Jahresrendite (APY)</label><em class="mu">Effektiver Zinseszinssatz</em></div>
+      <div class="sx-au-in np pc"><input id="apy" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="4.85" style="font-size:17px;font-weight:600"><span class="suf">%</span></div>
+      <div class="sx-au-chips">Schnellauswahl: <button type="button" data-for="apy" data-value="4">4.00%</button><button type="button" data-for="apy" data-value="4.85">4.85%</button><button type="button" data-for="apy" data-value="5.15">5.15%</button></div>
+      <p class="sx-au-help">Verwenden Sie den APY aus dem Angebot der Bank – CD-Zinsen ändern sich häufig.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cmp">Zinseszins-Häufigkeit</label><em class="mu">Legt den entsprechenden APR fest</em></div>
+      <div class="sx-au-sel"><select id="cmp"><option value="365" selected>Täglich (365/Jahr)</option><option value="12">Monatlich (12/Jahr)</option><option value="4">Vierteljährlich (4/Jahr)</option><option value="2">Halbjährlich (2/Jahr)</option><option value="1">Jährlich (1/Jahr)</option></select></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="pen">Regel zur Vorfälligkeitsentschädigung</label><em class="mu">Prüfen Sie die Bedingungen Ihrer CD</em></div>
+      <div class="sx-au-sel"><select id="pen"><option value="60">60 Tage einfache Zinsen</option><option value="90" selected>90 Tage einfache Zinsen</option><option value="180">180 Tage einfache Zinsen</option><option value="365">365 Tage einfache Zinsen</option><option value="0">CD ohne Vorfälligkeitsentschädigung</option></select></div>
+    </div>
+    <div>
+      <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">finance_mode</span>Garantierte CD-Rendite &amp; Endwert berechnen</button>
+      <p class="sx-au-note">Die Berechnungen erfolgen ausschließlich auf Ihrem Gerät. Es werden keine personenbezogenen Daten erfasst.</p>
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-cd-hero" aria-live="polite">
+    <span class="msym bg" aria-hidden="true">account_balance</span>
+    <div class="k">Gesamtwert bei Fälligkeit<em id="tPill">12-Monats-Laufzeit</em></div>
+    <div class="big" id="resultValue">—</div>
+    <div class="f"><span><span class="plus"><span class="msym" aria-hidden="true">add</span></span><b id="intHero">—</b></span><span><span class="msym" aria-hidden="true">verified_user</span>Fester Zins, kein Marktrisiko</span></div>
+  </section>
+
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k"><span>Anfangskapital</span><span class="msym" aria-hidden="true">account_balance_wallet</span></div><b id="prin">—</b><p>FDIC-/NCUA-versichert bis 250.000 $ pro Einleger und Institut</p></div>
+    <div class="sx-card"><div class="k"><span>Erzielte Zinsen gesamt</span><span class="msym" aria-hidden="true">trending_up</span></div><b class="g" id="int">—</b><p id="intN">—</p></div>
+    <div class="sx-card"><div class="k"><span>Durchschnittliche monatliche Zinsen</span><span class="msym" aria-hidden="true">calendar_month</span></div><b id="mo">—</b><p>Zinsen laufen innerhalb der CD auf und werden aufgezinst</p></div>
+    <div class="sx-card"><div class="k"><span id="penL">Netto bei Auflösung nach 6 Mon.</span><span class="msym r" aria-hidden="true">warning</span></div><b id="penV">—</b><p id="penN">—</p></div>
+  </div>
+
+  <section class="sx-card r2 sx-ry-wf sx-cd-tl">
+    <div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px"><span class="msym" aria-hidden="true">schedule</span>CD-Zinsaufbau &amp; Fälligkeitshorizont</b><span class="sx-au-tag">Zinseszinskurve</span></div>
+    <div class="bar"></div>
+    <div class="pts" id="tl"></div>
+  </section>
+
+  <section class="sx-cd-vs">
+    <div class="h"><span><span class="msym" aria-hidden="true">compare_arrows</span>CD-Festzins vs. Sparkonto-Benchmark</span><span id="vsL">Zinsschutz für 12 Monate</span></div>
+    <div class="g2">
+      <div class="on"><div class="t"><span id="vsCdL">12-Monats-CD mit festem Zins</span><em>Garantiert</em></div><b><span id="vsCd">—</span> <small id="vsCdR">—</small></b><p>Der Zins ist für die Laufzeit festgeschrieben, auch wenn die Marktzinsen fallen.</p></div>
+      <div><div class="t"><span>Sparkonto (HYSA)</span><em class="v">Variabel</em></div><b><span id="vsHy">—</span> <small id="vsHyR" style="color:var(--sx-muted)">—</small></b><p>Beispielzins: <input id="hysa" type="number" step="0.05" min="0" max="20" value="4.25" aria-label="Sparkontozins"> % APY. Voll liquide, aber der Zins kann sich jederzeit ändern.</p></div>
+    </div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>CD-Plan drucken</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>CD-Übersicht exportieren (.CSV)</button><a class="pri" href="#ladder"><span class="msym" aria-hidden="true">tune</span>Leiter-Optimierer</a></div>
+</div>
+</div>
+
+<section class="sx-card r2 sx-au-sec" id="ladder">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="display:flex;align-items:center;gap:8px"><span class="msym" aria-hidden="true">stairs</span>Simulation einer rollierenden 5-Jahres-CD-Leiter</h2><p class="lead" id="ldLead">—</p></div><span style="font-size:12px;color:var(--sx-muted)">Durchschnittlicher Leiter-APY: <b style="font-family:var(--font-display);font-size:22px;color:var(--sx-primary);margin-left:6px" id="blend">—</b></span></div>
+  <div class="sx-cd-tr" id="tr">
+    <div><div class="k">Tranche 1<em>1-Jahres-CD</em></div><b class="amt">—</b><div class="r"><span>APY <input id="l1" type="number" step="0.05" min="0" max="20" value="4.85" aria-label="1-Jahres-APY">%</span><b class="gi">—</b></div><p>Fällig in Jahr 1 &amp; wird reinvestiert</p></div>
+    <div><div class="k">Tranche 2<em>2-Jahres-CD</em></div><b class="amt">—</b><div class="r"><span>APY <input id="l2" type="number" step="0.05" min="0" max="20" value="4.95" aria-label="2-Jahres-APY">%</span><b class="gi">—</b></div><p>Fällig in Jahr 2 &amp; wird reinvestiert</p></div>
+    <div><div class="k">Tranche 3<em>3-Jahres-CD</em></div><b class="amt">—</b><div class="r"><span>APY <input id="l3" type="number" step="0.05" min="0" max="20" value="5.05" aria-label="3-Jahres-APY">%</span><b class="gi">—</b></div><p>Fällig in Jahr 3 &amp; wird reinvestiert</p></div>
+    <div><div class="k">Tranche 4<em>4-Jahres-CD</em></div><b class="amt">—</b><div class="r"><span>APY <input id="l4" type="number" step="0.05" min="0" max="20" value="5.10" aria-label="4-Jahres-APY">%</span><b class="gi">—</b></div><p>Fällig in Jahr 4 &amp; wird reinvestiert</p></div>
+    <div class="pk"><div class="k">Tranche 5<em>5-Jahres-Spitze</em></div><b class="amt">—</b><div class="r"><span>APY <input id="l5" type="number" step="0.05" min="0" max="20" value="5.20" aria-label="5-Jahres-APY">%</span><b class="gi">—</b></div><p>Längste Laufzeit, höchster Zins</p></div>
+  </div>
+  <p class="sx-au-help" style="margin:-8px 0 16px">Geben Sie die aktuell für jede Laufzeit angebotenen APYs ein. Die Standardwerte sind Beispiele.</p>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Leiter-Horizont</th><th scope="col">Liquiditätsereignis</th><th scope="col">Fällig gewordene Tranche</th><th scope="col">Aufgelaufene Zinsen</th><th scope="col">Maßnahme: rollierende Reinvestition</th><th scope="col">Verfügbare Liquidität</th></tr></thead>
+    <tbody id="ldTbl"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card" id="formula">
+    <h3><span class="msym" aria-hidden="true">functions</span>APY vs. APR: Der Zinseszinseffekt</h3>
+    <p>Der APR ist der angegebene Jahreszins vor Zinseszins. Der APY ist das, was Sie in einem Jahr tatsächlich verdienen, sobald die Zinsen aufgezinst werden:</p>
+    <div class="fx"><b>APY = (1 + r / n)<sup>n</sup> − 1</b><span>r = angegebener APR, n = Zinsperioden pro Jahr</span></div>
+    <p style="font-size:13px" id="aprTxt">—</p>
+  </div>
+  <div class="sx-card">
+    <h3><span class="msym" aria-hidden="true">gavel</span>Fallstricke bei Vorfälligkeitsentschädigungen &amp; Break-even</h3>
+    <p>Wer eine CD vorzeitig auflöst, verliert meist eine festgelegte Anzahl von Tagen an einfachen Zinsen. Steigen die Zinsen stark, kann sich Auflösen und Neuanlegen dennoch lohnen:</p>
+    <ul class="sx-ef-rows" id="penRows"></ul>
+    <p style="font-size:12px;color:var(--sx-muted);margin-top:12px" id="penTxt">—</p>
+  </div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Warum CDs planbare, feste Erträge bieten</h2>
+    <p>Anders als bei einem Sparkonto sind bei einer CD sowohl Ihr Zins als auch Ihr Geld für eine feste Laufzeit gebunden – dafür bieten Banken in der Regel einen höheren Zins als bei einem normalen Sparkonto, da sie darauf zählen können, dass die Einlage über die gesamte Laufzeit bestehen bleibt.</p>
+    <p>Der Preis dafür ist die Liquidität: Eine Entnahme vor Fälligkeit der CD löst in der Regel eine Vorfälligkeitsentschädigung aus, oft in Höhe mehrerer Monatszinsen. CDs eignen sich daher am besten für Geld, bei dem Sie sicher sind, dass Sie es während der Laufzeit nicht brauchen.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Von Suhaib Hassan · Formel geprüft am 27. Sep. 2026 · <a href="/methodology.html">So prüft CalculatePilot Formeln →</a></p>
+
+    <h2>CD-Laufzeiten und Zinssätze vergleichen</h2>
+    <p>Langfristige CDs bieten nicht immer spürbar höhere Zinsen als kürzere – Zinskurven verändern sich mit dem allgemeinen Zinsumfeld. Vergleichen Sie daher die tatsächlich angebotenen Zinssätze über die Laufzeiten hinweg, statt anzunehmen, länger bedeute immer besser.</p>
+    <p>Eine gängige Strategie, das sogenannte „CD-Laddering“, verteilt Einlagen auf mehrere CDs mit gestaffelten Fälligkeiten und verbindet so die höheren Zinsen längerer Laufzeiten mit regelmäßigem Zugriff auf einen Teil Ihres Geldes.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <details class="sx-faq"><summary>Was passiert, wenn ich eine CD vorzeitig auflöse?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Die meisten CDs berechnen eine Vorfälligkeitsentschädigung, üblicherweise in Höhe von einigen Monatszinsen, die die erzielten Zinsen je nach Zeitpunkt der Auflösung verringern oder sogar ganz aufzehren kann.</p></details>
+    <details class="sx-faq"><summary>Ist eine CD besser als ein Sparkonto?<span class="msym" aria-hidden="true">expand_more</span></summary><p>CDs bieten in der Regel höhere feste Zinsen, dafür ist Ihr Geld für eine bestimmte Laufzeit gebunden, während Sparkonten mehr Flexibilität bei meist niedrigeren, variablen Zinsen bieten – die bessere Wahl hängt davon ab, ob Sie auf das Geld zugreifen müssen.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Verwandte Spar- &amp; Renditerechner</h2><p>Tools für Liquiditätsmanagement und festverzinsliche Anlagen.</p></div>
+  <span class="sx-au-tag">4 ergänzende Tools</span>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/de/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">health_and_safety</span></span><b>Notgroschen-Rechner</b><span class="d">Legen Sie eine Bargeldreserve für 3 bis 6 Monate fest, bevor Sie Geld in CDs binden.</span><span class="f">Liquidität modellieren<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/savings-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Sparrechner</b><span class="d">Wachstum eines Sparkontos mit regelmäßigen Einzahlungen.</span><span class="f">APY simulieren<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>Zinseszins-Rechner</b><span class="d">Langfristiges Wachstum mit laufenden monatlichen Einzahlungen.</span><span class="f">Wachstum grafisch darstellen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/bond-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">receipt_long</span></span><b>Anleihenkurs-Rechner</b><span class="d">Kuponzahlungen, Kurs und Rendite bis zur Fälligkeit.</span><span class="f">YTM berechnen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot auf Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/de/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/de/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/de/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/de/financial/mortgage-calculator.html">Hypothek</a></li>
+          <li><a href="/de/financial/uk-stamp-duty-calculator.html">Stamp Duty (UK)</a></li>
+          <li><a href="/de/financial/compound-interest-calculator.html">Zinseszins</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/de/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/de/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/de/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+          <li><a href="/de/health/bmi-calculator.html">BMI</a></li>
+          <li><a href="/de/health/macro-calculator.html">Makros</a></li>
+          <li><a href="/de/health/calorie-calculator.html">Kalorien</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/de/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/de/other/age-calculator.html">Alter</a></li>
+          <li><a href="/de/math/percentage-calculator.html">Prozent</a></li>
+          <li><a href="/de/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/de/math/quadratic-formula-calculator.html">Quadratische Formel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/de/guides/">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — ziehen Sie für finanzielle oder medizinische Entscheidungen einen Fachmann hinzu. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span> <span><a href="/embed/cd-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/de/cd.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

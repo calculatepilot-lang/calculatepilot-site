@@ -1,0 +1,6 @@
+# Translate CalculatePilot.com segments EN -> Spanish
+Natural, professional neutral international Spanish; informal "tú" for instructions ("Introduce", "Calcula"); proper typography (¿? ¡!). Idiomatic, SEO-friendly, not literal. Page titles ending "| CalculatePilot" keep that suffix.
+Segments are fragments of a web page; some start/end mid-sentence (neighbouring text sits in other tags) — translate so it reads naturally in place, keeping leading/trailing punctuation/spacing like "(" or ":".
+Preserve EXACTLY, char for char: all HTML tags + attributes (<b>, <a href="...">, <code>, <i>, <br>, <msym/> ...), entities (&amp; &nbsp; &lt;), placeholders ({x}, %s), and the count/order of tags. Never add/remove tags. Translate only human text between tags.
+Keep numbers, symbols, units, formulas, variable names, brand names (CalculatePilot, Google, IRS), code and URLs untouched. US institutions (IRS, 401(k), FICO, Roth IRA) keep their names. Don't change facts/figures; no commentary.
+Terms: calculator=calculadora, mortgage=hipoteca, loan=préstamo, interest=interés, savings=ahorros, retirement=jubilación, tax=impuesto, BMI=IMC, calories=calorías, free=gratuito/a, formula=fórmula, FAQ=Preguntas frecuentes.

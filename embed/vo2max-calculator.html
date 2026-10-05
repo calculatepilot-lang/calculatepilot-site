@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VO2 Max Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bolt,calculate,chevron_right,content_copy,directions_run,event,expand_more,favorite,monitor_heart,print,restart_alt,timer,trending_up,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,49 +38,131 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">VO2 Max Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="age">Age</label>
-          <input type="number" id="age" value="30"
-step="1"min="1">
-        </div>
-        <div class="field">
-          <label for="restingHR">Resting heart rate (bpm)</label>
-          <input type="number" id="restingHR" value="65"
-step="1"min="30">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated VO2 max</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Estimated max heart rate</span><span id="outMaxHR">—</span></div>
-        <div class="embed-row"><span>Fitness category</span><span id="outCategory">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="voCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">VO2 Max Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>4 Validated Methods</span><span class="sx-badge"><span aria-hidden="true" class="msym">bolt</span>Fitness in METs</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>VO2 Max Calculator — Resting HR, Walk &amp; Run Tests</h1>
+<p>Estimate your VO2 max — your maximum aerobic capacity — with one of four published methods: the resting heart rate ratio, the Rockport 1-mile walk, the Cooper 12-minute run or the 1.5-mile run, and see it expressed in METs.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Choose a Method</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<input id="m" type="hidden" value="s1"/>
+<div aria-label="Method" class="sx-au-opts" role="group" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button data-for="m" data-value="s1" type="button">Resting heart rate</button><button data-for="m" data-value="s2" type="button">Rockport 1-mile walk</button><button data-for="m" data-value="s3" type="button">Cooper 12-min run</button><button data-for="m" data-value="s4" type="button">1.5-mile run</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="age">Age</label></div><div class="sx-au-in np"><input id="age" inputmode="numeric" max="90" min="15" step="1" type="number" value="35"/><span class="suf">yrs</span></div></div>
+<div><div class="sx-au-l"><span>Sex</span></div><input id="sex" type="hidden" value="s1"/><div aria-label="Sex" class="sx-seg" role="group" style="display:flex"><button data-for="sex" data-value="s1" style="flex:1" type="button">Male</button><button data-for="sex" data-value="s2" style="flex:1" type="button">Female</button></div></div>
+</div>
+<div class="sx-au-g2" id="g1">
+<div><div class="sx-au-l"><label for="rhr">Resting HR</label></div><div class="sx-au-in np"><input id="rhr" inputmode="numeric" max="120" min="30" step="1" type="number" value="60"/><span class="suf">bpm</span></div></div>
+<div><div class="sx-au-l"><label for="mhr">Max HR (if known)</label></div><div class="sx-au-in np"><input id="mhr" inputmode="numeric" max="230" min="120" placeholder="Age-predicted" step="1" type="number" value=""/><span class="suf">bpm</span></div></div>
+</div>
+<div hidden="" id="g2">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="wlb">Weight</label></div><div class="sx-au-in np"><input id="wlb" inputmode="decimal" max="600" min="60" step="1" type="number" value="170"/><span class="suf">lb</span></div></div>
+<div><div class="sx-au-l"><label for="whr">HR at Finish</label></div><div class="sx-au-in np"><input id="whr" inputmode="numeric" max="220" min="60" step="1" type="number" value="130"/><span class="suf">bpm</span></div></div>
+</div>
+<div class="sx-au-g2" style="margin-top:10px">
+<div><div class="sx-au-l"><label for="wm">Walk Time</label></div><div class="sx-au-in np"><input id="wm" inputmode="numeric" max="40" min="8" step="1" type="number" value="15"/><span class="suf">min</span></div></div>
+<div><div class="sx-au-l"><label for="ws"> </label></div><div class="sx-au-in np"><input aria-label="Walk time seconds" id="ws" inputmode="numeric" max="59" min="0" step="1" type="number" value="0"/><span class="suf">sec</span></div></div>
+</div>
+</div>
+<div hidden="" id="g3">
+<div class="sx-au-l"><label for="dist">Distance in 12 Minutes</label></div>
+<div class="sx-au-g2"><div class="sx-au-in np"><input id="dist" inputmode="decimal" max="5000" min="500" step="10" type="number" value="2400"/><span class="suf" id="dU">m</span></div><div><input id="du" type="hidden" value="s1"/><div aria-label="Distance unit" class="sx-seg" role="group" style="display:flex"><button data-for="du" data-value="s1" style="flex:1" type="button">m</button><button data-for="du" data-value="s2" style="flex:1" type="button">mi</button></div></div></div>
+</div>
+<div class="sx-au-g2" hidden="" id="g4">
+<div><div class="sx-au-l"><label for="rm">1.5-Mile Time</label></div><div class="sx-au-in np"><input id="rm" inputmode="numeric" max="30" min="6" step="1" type="number" value="12"/><span class="suf">min</span></div></div>
+<div><div class="sx-au-l"><label for="rs"> </label></div><div class="sx-au-in np"><input aria-label="Run time seconds" id="rs" inputmode="numeric" max="59" min="0" step="1" type="number" value="0"/><span class="suf">sec</span></div></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Estimate VO2 Max</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Estimated VO2 max</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small> mL/kg/min</small></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Aerobic capacity in METs</span><b id="mets">—</b></div><div><span id="x2L">Max heart rate used</span><b id="x2">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">trending_up</span>If You Improve</span><span>+1 MET = +3.5 mL/kg/min</span></div>
+<div id="imp"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/target-heart-rate-calculator.html"><span aria-hidden="true" class="msym">monitor_heart</span>Heart Rate Zones</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>What Your Capacity Covers</h2><p>Activities from the 2024 Compendium as a share of your maximum. Around 60% or less can usually be sustained for a long time; near 100% only briefly.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Activity</th><th scope="col">MET</th><th scope="col">% of Your Max</th></tr></thead>
+<tbody id="actTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Resting heart rate (Uth et al., 2004):</strong> VO2 max = 15.3 × max HR ÷ resting HR. Max HR is age-predicted with Tanaka's 208 − 0.7 × age unless you enter a measured value.</li>
+<li><strong>Rockport 1-mile walk (Kline et al., 1987):</strong> VO2 max = 132.853 − 0.0769 × weight (lb) − 0.3877 × age + 6.315 × sex (1 = male, 0 = female) − 3.2649 × time (min) − 0.1565 × heart rate at finish.</li>
+<li><strong>Cooper 12-minute run (Cooper, 1968):</strong> VO2 max = (distance in metres − 504.9) ÷ 44.73.</li>
+<li><strong>1.5-mile run (ACSM):</strong> VO2 max = 3.5 + 483 ÷ time (min).</li>
+</ul>
+<p>Aerobic capacity in <strong>METs = VO2 max ÷ 3.5</strong>, the same unit used for activity intensity in the Compendium of Physical Activities.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the original validation studies · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A 35-year-old with a resting heart rate of 60: predicted max HR = 208 − 0.7 × 35 = 183.5 bpm, so VO2 max ≈ 15.3 × 183.5 ÷ 60 = <strong>46.8 mL/kg/min</strong>, or 13.4 METs. Running 2,400 m in 12 minutes gives (2,400 − 504.9) ÷ 44.73 = 42.4 mL/kg/min.</p>
+<h2>Why VO2 max matters</h2>
+<p>Cardiorespiratory fitness is one of the strongest predictors of long-term health. A meta-analysis of 33 studies (Kodama et al., JAMA 2009) found each 1-MET higher fitness was associated with about 13% lower risk of death from any cause and 15% lower risk of heart disease. The biggest gains come from moving out of the least-fit group.</p>
+<h2>Accuracy and safety</h2>
+<p>All four are estimates; a lab test with gas analysis is the gold standard. The resting heart rate method was developed in trained men and is best for tracking your own trend over time. Measure resting heart rate in the morning before getting up. Walk and run tests are maximal or near-maximal efforts — if you are new to exercise, have heart disease symptoms, or are unsure, check with a doctor before doing one.</p>
+<h2>Sources</h2>
+<ul>
+<li>Uth N, Sørensen H, Overgaard K, Pedersen PK. Estimation of VO2max from the ratio between HRmax and HRrest — the Heart Rate Ratio Method. Eur J Appl Physiol 2004;91:111–115.</li>
+<li>Kline GM, Porcari JP, Hintermeister R, et al. Estimation of VO2max from a one-mile track walk, gender, age, and body weight. Med Sci Sports Exerc 1987;19:253–259.</li>
+<li>Cooper KH. A means of assessing maximal oxygen intake. JAMA 1968;203:201–204.</li>
+<li>Tanaka H, Monahan KD, Seals DR. Age-predicted maximal heart rate revisited. J Am Coll Cardiol 2001;37:153–156.</li>
+<li>Kodama S, Saito K, Tanaka S, et al. Cardiorespiratory fitness as a quantitative predictor of all-cause mortality and cardiovascular events. JAMA 2009;301:2024–2035.</li>
+<li>American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription (1.5-mile run equation).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How accurate is this compared to a lab VO2 max test?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Field and non-exercise formulas are reasonable estimates but less precise than a supervised lab test with breathing gas analysis. They're most useful for tracking your own changes over time, using the same method each time.</p></details>
+<details class="sx-faq"><summary>When should I measure my resting heart rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>First thing in the morning before getting out of bed gives the most consistent reading. Readings taken later in the day, after caffeine, activity or stress, tend to run higher.</p></details>
+<details class="sx-faq"><summary>Which method should I use?<span aria-hidden="true" class="msym">expand_more</span></summary><p>If you can't do a hard effort, use the resting heart rate or Rockport walk test. If you run regularly, the Cooper 12-minute or 1.5-mile run test usually gives a better estimate because it measures actual performance.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Train with your numbers.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/target-heart-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_heart</span></span><b>Target Heart Rate</b><span class="d">Training zones from your max and resting HR.</span><span class="f">Find zones<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/pace-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">timer</span></span><b>Pace Calculator</b><span class="d">Pace, time and distance for your runs.</span><span class="f">Work out pace<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_run</span></span><b>Calories Burned</b><span class="d">Energy used by activity, in METs.</span><span class="f">Estimate burn<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/blood-pressure-category-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">favorite</span></span><b>Blood Pressure Category</b><span class="d">Another heart-health check.</span><span class="f">Check reading<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/vo2max-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -207,7 +171,8 @@ step="1"min="30">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/vo2max.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/vo2max.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

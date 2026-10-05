@@ -1,1 +1,400 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculateur d'investissement | CalculatePilot</title><meta name="description" content="Estimez la croissance d'un investissement avec un capital initial, des versements mensuels et un rendement annuel."><link rel="canonical" href="https://www.calculatepilot.com/fr/financial/investment-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/investment-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/investment-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/investment-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/investment-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/investment-calculator.html"></head><body><header class="site-header"><div class="container"><a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/fr/financial-calculators.html">Finance</a></li><li><a href="/fr/health-calculators.html">Santé</a></li><li><a href="/fr/math-calculators.html">Maths</a></li><li><a href="/fr/other-calculators.html">Quotidien</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/fr/">Accueil</a> / <a href="/fr/financial-calculators.html">Calculateurs financiers</a> / Investissement</nav><section class="calc-page-head"><h1>Calculateur d'investissement</h1><p class="lede">Projetez la valeur future d'un investissement avec des versements réguliers.</p></section><div class="calc-layout"><form class="calc-card" oninput="calc()"><div class="field"><label>Capital initial</label><input id="p" type="number" value="10000" min="0"></div><div class="field"><label>Versement mensuel</label><input id="m" type="number" value="300" min="0"></div><div class="field"><label>Rendement annuel (%)</label><input id="r" type="number" value="8" step="0.1"></div><div class="field"><label>Durée (années)</label><input id="y" type="number" value="20" min="1"></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Valeur projetée</div><div class="readout-value big" id="out">—</div><div class="readout-row"><span>Total versé</span><span id="inv">—</span></div><div class="readout-row"><span>Gains</span><span id="gain">—</span></div></div></aside></div><section class="content-block prose"><h2>Comment fonctionne le calculateur ?</h2><p>Le calcul utilise une capitalisation mensuelle : le capital initial et chaque versement sont supposés croître au taux annuel indiqué. Le résultat est une projection, pas une garantie de rendement.</p><h2>Pourquoi investir régulièrement ?</h2><p>Des versements réguliers permettent d'augmenter progressivement le capital exposé à la croissance composée. Les marchés réels fluctuent et les frais, impôts et rendements variables peuvent modifier le résultat.</p><h2>Calcul associé</h2><p>Pour comparer l'effet de l'inflation sur votre pouvoir d'achat, utilisez également le <a href="/fr/financial/inflation-calculator.html">calculateur d'inflation</a>.</p></section></div></main><script>function calc(){const p=+document.getElementById('p').value||0,m=+document.getElementById('m').value||0,r=(+document.getElementById('r').value||0)/100/12,y=+document.getElementById('y').value||1,n=y*12;const f=r? p*Math.pow(1+r,n)+m*(Math.pow(1+r,n)-1)/r:p+m*n;const invested=p+m*n;const fmt=v=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);document.getElementById('out').textContent=fmt(f);document.getElementById('inv').textContent=fmt(invested);document.getElementById('gain').textContent=fmt(f-invested)}calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculatrice d'investissement</title>
+<meta name="description" content="Calculez comment un investissement croît avec le temps grâce aux rendements composés et aux versements réguliers. Gratuit, instantané, formule affichée.">
+<link rel="canonical" href="https://www.calculatepilot.com/fr/financial/investment-calculator.html"
+<meta property="og:locale" content="fr_FR">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/investment-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/investment-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/investment-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/investment-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/investment-calculator.html">
+<meta property="og:title" content="Calculatrice d'investissement — projection de la croissance d'un portefeuille | CalculatePilot">
+<meta property="og:description" content="Calculez comment un investissement croît avec le temps grâce aux rendements composés et aux versements réguliers. Gratuit, instantané, formule affichée. Sans inscription.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/fr/financial/investment-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculatrice d'investissement — projection de la croissance d'un portefeuille | CalculatePilot">
+<meta name="twitter:description" content="Calculez comment un investissement croît avec le temps grâce aux rendements composés et aux versements réguliers. Gratuit, instantané, formule affichée. Sans inscription.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,calculate,chevron_right,compare_arrows,download,expand_more,flag,hourglass_bottom,insights,lightbulb,percent,print,query_stats,savings,schedule,trending_up,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Calculatrice d'investissement",
+ "url": "https://www.calculatepilot.com/fr/financial/investment-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Calculez comment un investissement croît avec le temps grâce aux rendements composés et aux versements réguliers. Sans inscription. CalculatePilot explique la formule derrière chaque",
+ "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://www.calculatepilot.com/fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculatrices financières",
+   "item": "https://www.calculatepilot.com/fr/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculatrice d'investissement",
+   "item": "https://www.calculatepilot.com/fr/financial/investment-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Un rendement de 8 % est-il une hypothèse réaliste ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Il se situe dans la fourchette historique à long terme des portefeuilles d'actions diversifiés avant inflation, mais les performances passées ne garantissent pas les résultats futurs."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quelle différence font les versements mensuels ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Énormément sur de longues périodes : des versements réguliers représentent souvent une plus grande part du solde final que l'investissement initial lui-même, grâce à la capitalisation."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Dois-je investir en une seule fois ou étaler mes investissements (investissement programmé) ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Historiquement, investir immédiatement une somme forfaitaire fait en moyenne mieux que l'étaler, car les marchés progressent avec le temps ; mais l'investissement programmé peut réduire le risque de regret et lisser la volatilité pour certains investisseurs."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quels frais sont raisonnables sur les investissements ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Les fonds indiciels à bas coût facturent souvent bien moins de 0,5 % par an, tandis que certains fonds gérés activement facturent 1 % ou plus : les frais se composent dans le temps comme les rendements, donc des coûts plus faibles favorisent nettement la croissance à long terme."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Qu'est-ce que l'investissement programmé (dollar-cost averaging) ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Investir un montant fixe à intervalles réguliers quel que soit le cours du marché, ce qui atténue l'effet du choix du moment et correspond à la stratégie que modélise en pratique la fonction de versement mensuel de cette calculatrice."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Dois-je utiliser un compte à avantage fiscal pour investir à long terme ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Des comptes comme un 401(k), un IRA ou un Roth IRA offrent des avantages fiscaux qui peuvent nettement améliorer la croissance après impôt à long terme par rapport à un compte-titres imposable standard, ce qui mérite d'être privilégié pour un investissement axé sur la retraite."
+   }
+  }
+ ],
+ "inLanguage": "fr"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/fr/financial-calculators.html">Finance</a></li>
+      <li><a href="/fr/health-calculators.html">Santé &amp; fitness</a></li>
+      <li><a href="/fr/math-calculators.html">Mathématiques</a></li>
+      <li><a href="/fr/other-calculators.html">Quotidien</a></li>
+      <li><a href="/fr/guides/">Guides</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="ivCalc">
+<nav class="sx-crumb" aria-label="Fil d'Ariane"><a href="/fr/">Accueil</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/fr/financial-calculators.html">Calculatrices financières</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Calculatrice d'investissement</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <h1>Calculatrice d'investissement et simulateur de croissance de portefeuille</h1>
+    <p>Projetez la croissance d'un investissement initial complété par des versements réguliers au fil du temps — avec fréquence de capitalisation, hausse des versements, valeur corrigée de l'inflation et impact de l'impôt.</p>
+  </div>
+  <div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">query_stats</span>Moteur de croissance du portefeuille</span><span class="sx-badge"><span class="msym" aria-hidden="true">trending_up</span>Rendements réels corrigés de l'inflation</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Précision côté client</span></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Paramètres du portefeuille</h2></div>
+    <button type="button" class="sx-reset pri" data-action="reset">Réinitialiser</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="p0">Capital investi initial</label><em class="ok" id="p0Out">$25,000</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="p0" type="number" inputmode="decimal" min="0" step="1000" value="25000"></div>
+      <div class="sx-au-chips"><button type="button" data-for="p0" data-value="10000">10 k$</button><button type="button" data-for="p0" data-value="25000">25 k$</button><button type="button" data-for="p0" data-value="50000">50 k$</button><button type="button" data-for="p0" data-value="100000">100 k$</button><button type="button" data-for="p0" data-value="250000">250 k$</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="c">Versement périodique supplémentaire</label><em class="mu" id="cOut">500 $ / mois</em></div>
+      <div class="sx-au-row"><div class="sx-au-in"><span class="pre">$</span><input id="c" type="number" inputmode="decimal" min="0" step="50" value="500"></div><div class="sx-au-sel" style="width:130px"><select id="cf" aria-label="Fréquence des versements"><option value="12" selected>Mensuel</option><option value="1">Annuelle</option></select></div></div>
+      <div class="sx-iv-tog" style="margin-top:10px"><label for="esc" style="font-size:12px;color:var(--sx-muted)">Hausse annuelle (+3 %/an)</label><span class="sx-hl-sw"><input id="esc" type="checkbox" checked aria-label="Augmenter les versements de 3 % par an"><i></i></span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="nR">Horizon d'investissement</label><em style="color:var(--sx-on)" id="nOut">20 ans</em></div>
+      <input type="hidden" id="n" value="20">
+      <input id="nR" class="sx-range2" type="range" min="1" max="50" step="1" value="20" data-sync="n" aria-label="Années">
+      <div class="sx-au-opts c5" role="group" aria-label="Horizons prédéfinis" style="margin-top:10px"><button type="button" data-for="n" data-value="5">5 ans</button><button type="button" data-for="n" data-value="10">10 ans</button><button type="button" data-for="n" data-value="15">15 ans</button><button type="button" data-for="n" data-value="20">20 ans</button><button type="button" data-for="n" data-value="30">30 ans</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="r">Rendement annuel estimé (nominal)</label><em style="color:var(--sx-on)" id="rOut">8.50%</em></div>
+      <div class="sx-au-in np pc"><input id="r" type="number" inputmode="decimal" min="-20" max="40" step="0.1" value="8.50"><span class="suf">%</span></div>
+      <div class="sx-iv-ret" role="group" aria-label="Rendements prédéfinis"><button type="button" data-for="r" data-value="5.5">Prudent<b>5.5%</b></button><button type="button" data-for="r" data-value="7.5">Modéré<b>7.5%</b></button><button type="button" data-for="r" data-value="10">Bourse sur le long terme<b>~10%</b></button><button type="button" data-for="r" data-value="12">Dynamique<b>12.0%</b></button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Fréquence de capitalisation</span></div>
+      <input type="hidden" id="m" value="12">
+      <div class="sx-seg" role="group" aria-label="Fréquence de capitalisation" style="display:flex"><button type="button" data-for="m" data-value="1" style="flex:1">Annuelle</button><button type="button" data-for="m" data-value="2" style="flex:1">Semestrielle</button><button type="button" data-for="m" data-value="4" style="flex:1">Trimestriel</button><button type="button" data-for="m" data-value="12" style="flex:1">Mensuel</button></div>
+    </div>
+    <div class="sx-au-box" style="display:flex;flex-direction:column;gap:14px">
+      <div class="sx-iv-tog"><div><b>Correction de l'inflation</b><span>Afficher la valeur en dollars d'aujourd'hui à <input id="inf" type="number" step="0.1" min="0" max="20" value="2.5" aria-label="Taux d'inflation" style="width:48px;height:22px;border:1px solid var(--sx-border);border-radius:4px;padding:0 4px;font:inherit;font-size:11px;background:var(--sx-card);color:var(--sx-on)">%/an</span></div><span class="sx-hl-sw"><input id="infOn" type="checkbox" checked aria-label="Corriger de l'inflation"><i></i></span></div>
+      <div class="sx-iv-tog"><div><b>Impact de l'impôt</b><span>Part des gains annuels perdue en impôt</span></div><div class="sx-au-sel" style="width:170px"><select id="tax" style="height:34px;font-size:12px"><option value="0" selected>Roth / 401(k) (0 %)</option><option value="15">Compte imposable (15 %)</option><option value="20">Tranche élevée (20 %)</option></select></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">insights</span>Simuler la trajectoire de votre patrimoine</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-sg-hero" aria-live="polite">
+    <span class="sx-kick" id="heroK">Valeur projetée du portefeuille (année 20)</span>
+    <div class="big"><span id="resultValue">—</span><small>nominal</small></div>
+    <div class="sx-in-hero" style="padding:0"><div class="loss"><em class="up" id="gPill"><span class="msym" aria-hidden="true">trending_up</span><span id="gTxt">—</span></em></div></div>
+    <div class="sx-au-tiles c4 card" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--sx-border)">
+      <div><span>Capital total</span><b id="prin">—</b><small id="prinN">—</small></div>
+      <div><span>Gains cumulés par capitalisation</span><b class="g" id="earn">—</b><small id="earnN">—</small></div>
+      <div><span>Pouvoir d'achat réel</span><b id="real">—</b><small id="realN">—</small></div>
+      <div><span>Revenu passif (règle des 4 %)</span><b class="g" id="inc">—</b><small>Retrait durable approximatif</small></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-au-traj">
+    <div class="hd"><div><h3>Trajectoire de croissance : capital versé et croissance composée</h3><p id="trSub">—</p></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>Patrimoine total</span><span><i style="background:#cbd5e1"></i>Capital versé</span></div></div>
+    <svg id="chart" viewBox="0 0 520 220" role="img" aria-label="Valeur du portefeuille par rapport au capital versé"></svg>
+    <div class="sx-iv-ms" id="ms"></div>
+    <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Imprimer le tableau</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Exporter le tableau (.CSV)</button><a class="pri" href="/fr/financial/compound-interest-calculator.html" style="background:none;border:0;color:var(--sx-primary)"><span class="msym" aria-hidden="true">compare_arrows</span>Comparer les capitalisations</a></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Tableau d'accumulation du patrimoine sur plusieurs années</h2><p>Versements annuels, croissance et solde final corrigé de l'inflation.</p></div><span style="font-size:12px;color:var(--sx-muted)">Intervalle d'affichage : <span class="sx-au-tag">Années clés</span></span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Horizon</th><th scope="col">Solde initial</th><th scope="col">Versements annuels</th><th scope="col">Croissance annuelle gagnée</th><th scope="col">Croissance cumulée</th><th scope="col">Solde final du portefeuille</th><th scope="col" id="realH">Valeur réelle</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-au-plain" style="border:0;padding-top:0">
+  <h2 style="font-size:22px;line-height:30px">Guides pratiques et analyses de l'investissement</h2>
+  <p class="lead">Principes fondamentaux de la croissance composée à long terme.</p>
+  <div class="sx-au-2c" style="margin-bottom:0">
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">calculate</span></span><h3>La règle de 72 et l'accélération de la capitalisation</h3><p id="r72">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span class="msym" aria-hidden="true" style="font-size:16px;color:var(--sx-pc)">lightbulb</span><span id="r72t">—</span></div></div>
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">hourglass_bottom</span></span><h3>Rendements nominaux et réels, et coût de l'attente</h3><p id="wait">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span class="msym" aria-hidden="true" style="font-size:16px;color:var(--sx-pc)">schedule</span><span>Commencer tôt et investir régulièrement est le moyen le plus fiable de faire travailler la capitalisation à votre avantage.</span></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Comment fonctionne cette calculatrice</h2>
+    <p>Elle fait croître votre solde de départ mois après mois au taux mensuel équivalent à la fréquence de capitalisation choisie, et ajoute chaque versement à la fin de sa période (mensuelle ou annuelle), avec en option une hausse des versements de 3 % par an. L'impact de l'impôt réduit la croissance de chaque période de la part choisie, et la valeur réelle divise le résultat par l'inflation cumulée.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Par Suhaib Hassan · Formule vérifiée le 27 sept. 2026 · <a href="/methodology.html">Comment CalculatePilot vérifie ses formules →</a></p>
+
+    <h2>Comprendre le risque d'investissement</h2>
+    <p>Cette calculatrice suppose un rendement annuel constant par souci de simplicité, alors que les marchés réels fluctuent d'une année à l'autre. Considérez le résultat comme une projection moyenne à long terme, et non comme une garantie — des rendements attendus plus élevés s'accompagnent généralement d'une volatilité plus forte.</p>
+
+    <h2>Quel taux de rendement dois-je réellement retenir ?</h2>
+    <p>Le taux que vous saisissez détermine tout le reste ; mieux vaut donc l'appuyer sur de vrais repères plutôt que de deviner.</p>
+    <ul>
+      <li><strong>Portefeuilles d'actions diversifiés</strong> — historiquement environ 7 à 10 % par an avant inflation sur plusieurs décennies, même si une année donnée peut varier fortement.</li>
+      <li><strong>Fonds obligataires</strong> — environ 4 % et plus pour les obligations du gouvernement américain ces dernières années, davantage pour les obligations d'entreprise plus risquées ou à haut rendement.</li>
+      <li><strong>Comptes d'épargne à haut rendement et certificats de dépôt</strong> — généralement 3 à 4 % et plus selon le contexte de taux et la durée.</li>
+    </ul>
+    <p>Une approche pratique : lancez la calculatrice deux fois — une fois avec un taux prudent (2 à 3 points sous la moyenne historique) et une fois avec un taux optimiste (1 à 2 points au-dessus) — pour obtenir une fourchette réaliste plutôt qu'un chiffre unique qui pourrait ne jamais se réaliser.</p>
+
+    <h2>Comprendre la séquence des rendements</h2>
+    <p>Cette calculatrice suppose un rendement annuel constant, mais les marchés réels montent et descendent de façon inégale d'une année à l'autre. Deux investisseurs ayant le même rendement moyen peuvent finir avec des soldes très différents selon le moment où les gains et les pertes sont survenus — c'est ce qu'on appelle le risque lié à la séquence des rendements.</p>
+    <p>Cela compte surtout à l'approche des retraits (comme à la retraite) : une baisse en début de phase a un impact négatif bien plus lourd que la même baisse survenant des années plus tard, car il reste moins de temps pour se redresser avant que l'argent ne soit retiré.</p>
+
+    <h2>Un exemple détaillé</h2>
+    <p>Investir 10 000 $ au départ plus 300 $/mois à un rendement annuel moyen de 8 % (capitalisé mensuellement) pendant 20 ans donne environ 226 000 $. Sur ce total, environ 82 000 $ proviennent des versements et environ 144 000 $ de la croissance de l'investissement — près des deux tiers du solde final sont de la croissance, et non des dépôts.</p>
+    <p>Cela montre pourquoi commencer tôt compte souvent plus que le montant mensuel exact — la part de croissance se capitalise quel que soit le moment des versements, et les premiers dollars ont simplement eu plus de temps pour travailler.</p>
+
+    <h2>Diversification et risque</h2>
+    <p>Cette calculatrice suppose un taux de rendement constant unique, mais les placements réels comportent un risque variable selon la catégorie d'actifs — les actions offrent historiquement des rendements à long terme supérieurs à ceux des obligations, mais avec une volatilité annuelle plus forte. Diversifier entre plusieurs catégories d'actifs est une stratégie courante pour maîtriser cette volatilité tout en profitant de la croissance à long terme.</p>
+    <p>La fiscalité influe aussi sur les rendements réels. La croissance au sein de comptes à avantage fiscal comme un 401(k) ou un IRA n'est pas imposée chaque année comme l'est souvent celle d'un compte-titres classique, ce qui peut améliorer sensiblement la croissance réelle après impôt par rapport à une simple projection. À vérifier aussi : ce que vaut cette croissance en dollars d'aujourd'hui avec notre <a href="/fr/financial/inflation-calculator.html">Calculatrice d'inflation</a>.</p>
+
+    <h2>Questions fréquentes</h2>
+    <details class="sx-faq"><summary>Un rendement de 8 % est-il une hypothèse réaliste ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Il se situe dans la fourchette historique à long terme des portefeuilles d'actions diversifiés avant inflation, mais les performances passées ne garantissent pas les résultats futurs.</p></details>
+    <details class="sx-faq"><summary>Quelle différence font les versements mensuels ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Énormément sur de longues périodes : des versements réguliers représentent souvent une plus grande part du solde final que l'investissement initial lui-même, grâce à la capitalisation.</p></details>
+    <details class="sx-faq"><summary>Dois-je investir une somme forfaitaire ou l'étaler (investissement programmé) ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Historiquement, investir immédiatement une somme forfaitaire fait en moyenne mieux que l'étaler, car les marchés progressent avec le temps ; mais l'investissement programmé peut réduire le risque de regret et lisser la volatilité pour certains investisseurs.</p></details>
+    <details class="sx-faq"><summary>Quels frais sont raisonnables sur les investissements ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Les fonds indiciels à bas coût facturent souvent bien moins de 0,5 % par an, tandis que certains fonds gérés activement facturent 1 % ou plus : les frais se composent dans le temps comme les rendements, donc des coûts plus faibles favorisent nettement la croissance à long terme.</p></details>
+    <details class="sx-faq"><summary>Qu'est-ce que l'investissement programmé ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Investir un montant fixe à intervalles réguliers quel que soit le cours du marché, ce qui atténue l'effet du choix du moment et correspond à la stratégie que modélise en pratique la fonction de versement mensuel de cette calculatrice.</p></details>
+    <details class="sx-faq"><summary>Dois-je utiliser un compte à avantage fiscal pour investir à long terme ?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Des comptes comme un 401(k), un IRA ou un Roth IRA offrent des avantages fiscaux qui peuvent nettement améliorer la croissance après impôt à long terme par rapport à un compte-titres imposable standard, ce qui mérite d'être privilégié pour un investissement axé sur la retraite.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Découvrir les calculatrices de patrimoine associées</h2><p>Des outils complémentaires pour la planification à long terme.</p></div>
+  <a href="/fr/financial-calculators.html">Voir les 52 calculatrices<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/fr/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Intérêts composés</b><span class="d">Croissance avec capitalisation quotidienne, mensuelle et continue.</span><span class="f">Découvrir l'outil<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/financial/roth-ira-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Calculatrice Roth IRA</b><span class="d">Croissance exonérée d'impôt comparée à un compte traditionnel à imposition différée.</span><span class="f">Découvrir l'outil<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Moteur de croissance du 401(k)</b><span class="d">Abondement de l'employeur, plafonds de versement et évolution du salaire.</span><span class="f">Découvrir l'outil<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/fr/financial/savings-goal-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">flag</span></span><b>Objectif d'épargne</b><span class="d">Épargne mensuelle nécessaire pour atteindre un objectif précis.</span><span class="f">Découvrir l'outil<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/fr/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Des calculateurs gratuits et précis pour les décisions du quotidien — conçus pour la clarté, pas l'encombrement.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot sur X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot sur Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot sur Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot sur Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul>
+          <li><a href="/fr/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/fr/financial/amortization-calculator.html">Amortissement</a></li>
+          <li><a href="/fr/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/fr/financial/mortgage-calculator.html">Prêt immobilier</a></li>
+          <li><a href="/fr/financial/uk-stamp-duty-calculator.html">Stamp Duty (Royaume-Uni)</a></li>
+          <li><a href="/fr/financial/compound-interest-calculator.html">Intérêts composés</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Santé</h4>
+        <ul>
+          <li><a href="/fr/health/alcohol-calories-calculator.html">Calories de l'alcool</a></li>
+          <li><a href="/fr/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/fr/health/blood-pressure-category-calculator.html">Catégorie de tension artérielle</a></li>
+          <li><a href="/fr/health/bmi-calculator.html">IMC</a></li>
+          <li><a href="/fr/health/macro-calculator.html">Macros</a></li>
+          <li><a href="/fr/health/calorie-calculator.html">Calories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathématiques &amp; plus</h4>
+        <ul>
+          <li><a href="/fr/math/basic-calculator.html">Basique</a></li>
+          <li><a href="/fr/math/area-calculator.html">Aire</a></li>
+          <li><a href="/fr/other/age-calculator.html">Âge</a></li>
+          <li><a href="/fr/math/percentage-calculator.html">Pourcentage</a></li>
+          <li><a href="/fr/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/fr/math/quadratic-formula-calculator.html">Formule quadratique</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/about.html">À propos</a></li>
+          <li><a href="/methodology.html">Notre méthodologie</a></li>
+          <li><a href="/fr/guides/">Guides</a></li>
+          <li><a href="/embed/">Intégrer des calculateurs</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Politique de confidentialité</a></li>
+          <li><a href="/terms.html">Conditions d'utilisation</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Plan du site</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Tous les calculs sont des estimations — consultez un professionnel pour toute décision financière ou médicale. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Notre méthodologie →</a></span> <span><a href="/embed/investment-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Intégrer cette calculatrice</a> &nbsp;·&nbsp; <a href="/fr/" style="color:var(--slate);">Toutes les calculatrices →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/fr/investment.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

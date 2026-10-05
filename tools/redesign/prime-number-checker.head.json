@@ -1,0 +1,120 @@
+{
+ "title": "Prime Number Checker - Primality, Factors & Mersenne",
+ "description": "Check if a number is prime, see its factorization, sieve primes in a range, or test a Mersenne number 2^p-1 with the Lucas-Lehmer test. Free, with full steps.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,bolt,calculate,chevron_right,code,content_copy,event,expand_more,exposure_plus_1,functions,lightbulb,link,lock,person_check,picture_as_pdf,restart_alt,sync_alt,tune,verified,verified_user,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "Prime Number Checker",
+   "url": "https://www.calculatepilot.com/math/prime-number-checker.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Prime number checker for primality testing, factorization, range sieving and Mersenne prime testing"
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Prime Number Checker",
+     "item": "https://www.calculatepilot.com/math/prime-number-checker.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Prime Number Checker",
+   "url": "https://www.calculatepilot.com/math/prime-number-checker.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": [
+    "Pomerance Selfridge Wagstaff Pseudoprimes 1980",
+    "Crandall Pomerance Prime Numbers 2005",
+    "ISO 80000-2:2019"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is 1 a prime number?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. By definition a prime has exactly two distinct positive divisors; 1 has only one (itself), so it is classified as neither prime nor composite."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does trial division only need to check up to √n?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "If n = a × b with a ≤ b, then a ≤ √n. So if no divisor up to √n is found, no divisor beyond √n can exist either — every composite number has at least one factor at or below its square root."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What makes Carmichael numbers tricky?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A Carmichael number is composite but satisfies Fermat's little theorem for every base coprime to it, so the simple Fermat primality test wrongly calls it prime. Miller–Rabin with proper witnesses correctly identifies it as composite."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is a Mersenne prime?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A prime of the form 2ᵖ − 1. p itself must be prime (a necessary but not sufficient condition) — for example, 2¹¹ − 1 = 2047 = 23 × 89 is composite even though 11 is prime. The largest known primes today are almost all Mersenne primes, found via the Lucas–Lehmer test."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many primes are there?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Infinitely many — proved by Euclid around 300 BCE: assuming a finite list of primes and multiplying them together plus 1 always produces a number with a prime factor not on the list, a contradiction."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why are primes important in cryptography?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "RSA encryption relies on the fact that multiplying two large primes is fast, but factoring their product back into those primes is computationally hard — this asymmetry is what keeps the encryption secure."
+     }
+    }
+   ]
+  }
+ ]
+}

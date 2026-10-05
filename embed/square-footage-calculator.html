@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Square Footage Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,aspect_ratio,calculate,change_history,chevron_right,circle,code,content_copy,conveyor_belt,crop_free,delete_sweep,event,expand_more,format_paint,foundation,functions,grid_view,lightbulb,link,lock,nature,person_check,picture_as_pdf,playlist_add,rectangle,restart_alt,tune,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,78 +38,146 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Square Footage Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="length">Length (ft)</label>
-          <input type="number" id="length" value="20"
-step="0.5"min="0">
-        </div>
-        <div class="field">
-          <label for="width">Width (ft)</label>
-          <input type="number" id="width" value="15"
-step="0.5"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="pricePerSqFt">Price per sq ft ($, optional)</label>
-          <input type="number" id="pricePerSqFt" value="150"
-step="1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Square footage</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total cost</span><span id="outTotalCost">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="sfCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Square Footage Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">aspect_ratio</span>Area = length × width</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div>
+<h1>Square Footage &amp; Room Area Calculator</h1>
+<p>Measure the area of a room, triangle or circle in feet and inches, decimal feet or metres. Add a waste margin, see square yards, square metres and acres, and total several rooms in a running ledger with an estimated material budget.</p>
 </div>
+</header>
+<div class="sx-mt-wvh cp-hide">
+<div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Unit conversions follow NIST Special Publication 811. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+<div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>It converts feet and inches to decimal feet, applies the shape formula, then adds your waste margin and converts to other units.</p></section></div>
+<div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Flooring, paint and tile are all bought by area. One measurement here feeds every material estimate.</p></section></div>
+</div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Shape and dimensions</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><label>Shape</label></div><input id="shape" type="hidden" value="rect"/><div class="sx-au-opts c5 sm"><button data-for="shape" data-value="rect" type="button"><span aria-hidden="true" class="msym">rectangle</span>Rectangle</button><button data-for="shape" data-value="multi" type="button"><span aria-hidden="true" class="msym">grid_view</span>Multi-room</button><button data-for="shape" data-value="tri" type="button"><span aria-hidden="true" class="msym">change_history</span>Triangle</button><button data-for="shape" data-value="circ" type="button"><span aria-hidden="true" class="msym">circle</span>Circle</button><button data-for="shape" data-value="perim" type="button"><span aria-hidden="true" class="msym">crop_free</span>Perimeter</button></div></div>
+<div class="sx-qpills" id="presets"><span class="lb">Quick rooms</span><button data-l="16" data-w="14" type="button">Master bedroom 16×14</button><button data-l="20" data-w="20" type="button">2-car garage 20×20</button><button data-l="12" data-w="10" type="button">Kitchen 12×10</button><button data-l="20" data-w="15" type="button">Living room 20×15</button></div>
+<div><div class="sx-au-l"><label>Measurement units</label></div><input id="unit" type="hidden" value="fi"/><div aria-label="Units" class="sx-seg full" role="group"><button data-for="unit" data-value="fi" type="button">Feet &amp; inches</button><button data-for="unit" data-value="df" type="button">Decimal feet</button><button data-for="unit" data-value="m" type="button">Metres</button></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="lf" id="lLbl">Length</label><em class="mu" id="lHint">primary side</em></div><div style="display:grid;grid-template-columns:1fr 84px;gap:8px"><div class="sx-au-in sm np"><input aria-label="Length, feet" id="lf" inputmode="decimal" min="0" step="any" type="number" value="20"/></div><div class="sx-au-in sm np" data-sub=""><input aria-label="Length, inches" id="li" inputmode="decimal" min="0" step="any" type="number" value="0"/></div></div></div>
+<div id="wBox"><div class="sx-au-l"><label for="wf" id="wLbl">Width</label><em class="mu" id="wHint">other side</em></div><div style="display:grid;grid-template-columns:1fr 84px;gap:8px"><div class="sx-au-in sm np"><input aria-label="Width, feet" id="wf" inputmode="decimal" min="0" step="any" type="number" value="20"/></div><div class="sx-au-in sm np" data-sub=""><input aria-label="Width, inches" id="wi" inputmode="decimal" min="0" step="any" type="number" value="0"/></div></div></div>
+</div>
+<div class="sx-au-note" id="subNote" style="text-align:left;margin:0">Inches boxes take 0 to 11.99.</div>
+<div id="hBox"><div class="sx-au-l"><label for="hf">Ceiling height</label><em class="mu">optional, for wall area</em></div><div class="sx-au-in sm np"><input id="hf" inputmode="decimal" min="0" step="any" type="number" value="8"/></div></div>
+<div>
+<div class="sx-au-l"><label>Cut and waste margin</label><em id="wNote">+10%</em></div>
+<input id="waste" type="hidden" value="10"/>
+<div class="sx-au-opts c4 sm"><button data-for="waste" data-value="0" type="button">0% <small>net area</small></button><button data-for="waste" data-value="5" type="button">5% <small>simple rectangles</small></button><button data-for="waste" data-value="10" type="button">10% <small>standard</small></button><button data-for="waste" data-value="15" type="button">15% <small>angled layouts</small></button></div>
+</div>
+<div><div class="sx-au-l"><label for="pr">Material cost per sq ft</label><em class="mu">optional</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="pr" inputmode="decimal" min="0" step="0.25" type="number" value="4.5"/></div></div>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0;display:flex;gap:8px;flex-wrap:wrap"><button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate area</button><button class="sx-reset" id="addBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:10px 14px;background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">playlist_add</span>Add to room ledger</button></div>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span id="heroLbl">Net area</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small>sq ft</small></div>
+<p id="interp">—</p>
+<div class="g2"><div><span>Square yards</span><b id="oYd">—</b></div><div><span>Square metres</span><b id="oM2">—</b></div><div><span>Square inches</span><b id="oIn">—</b></div><div><span>Acres</span><b id="oAc">—</b></div></div>
+</section>
+<section class="sx-card" style="padding:20px">
+<div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="color:var(--sx-pc)">conveyor_belt</span>What to buy for this area</span><em class="mu">includes waste</em></div>
+<div class="sx-au-tiles c3 mono"><div><span>Flooring boxes</span><b id="oBox">—</b><small>20 sq ft per carton</small></div><div><span>12×12 tiles</span><b id="oTile">—</b><small>1 sq ft each</small></div><div><span>Wall paint</span><b id="oPaint">—</b><small id="oPaintN">—</small></div></div>
+<div id="costs" style="display:flex;flex-direction:column;margin-top:14px"></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide" id="ledgerSec">
+<div class="hd"><div><h2>Multi-room running ledger</h2><p>Add rooms or zones from the form above to total several areas into one material list.</p></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><input aria-label="Room name" class="sx-mt-tbl-in-nm" id="zoneName" maxlength="30" placeholder="Room name (optional)" style="height:38px;padding:0 10px;border:1px solid var(--sx-border);border-radius:8px;background:var(--sx-card);font:inherit;font-size:14px;color:var(--sx-on)" type="text"/><button class="sx-reset" id="clrBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:6px 12px" type="button"><span aria-hidden="true" class="msym">delete_sweep</span>Clear ledger</button></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:640px"><thead><tr><th>Room</th><th>Dimensions</th><th class="n">Net area</th><th class="n">Margin</th><th class="n">To buy</th><th></th></tr></thead><tbody id="led"></tbody><tfoot><tr><td class="a" colspan="2"><b>Ledger total</b></td><td class="n" id="ledNet">—</td><td></td><td class="n" id="ledBuy">—</td><td></td></tr></tfoot></table></div>
+</section>
+<section class="sx-card sx-mt-sec cp-hide">
+<div class="hd"><div><h2>Room sizes and materials guide</h2><p>Typical residential room sizes and the flooring, tile and paint they need. Each includes 10% waste. Paint assumes two coats at 350 sq ft per gallon, an 8 ft ceiling, one door (20 sq ft) and one window (15 sq ft).</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" id="matrix" style="min-width:760px"><thead><tr><th>Space</th><th>Typical size</th><th class="n">Area</th><th class="n">12×12 tiles</th><th class="n">Flooring boxes</th><th class="n">Paint (gal)</th></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="sx-ev-two cp-hide">
+<section class="sx-card">
+<span class="eyebrow">Formulas</span>
+<h2>Area formulas used</h2>
+<div class="sx-au-fx" style="grid-template-columns:1fr">
+<div><h3>Rectangle</h3><code>A = L × W</code></div>
+<div><h3>Triangle</h3><code>A = ½ × base × height</code></div>
+<div><h3>Circle</h3><code>A = π × (diameter ÷ 2)²</code></div>
+</div>
+<p style="margin-top:14px">Feet and inches convert to decimal feet as ft + in ÷ 12. One square yard is 9 sq ft, one acre is 43,560 sq ft, and one square foot is 0.09290304 m².</p>
+</section>
+<section class="sx-card">
+<span class="eyebrow">Tips</span>
+<h2>Measuring a room</h2>
+<p>Measure wall to wall at the widest points. For an L-shaped room, split it into rectangles, add each to the ledger and read the total.</p>
+<p>Leave out fixed cabinets or islands only if you will not floor under them. Add the waste margin last, not before.</p>
+</section>
+</div>
+<section class="sx-mt-sec sx-card cp-hide">
+<h2>Worked examples</h2>
+<p>Illustrative rooms, each checked by hand. The first is the default setup.</p>
+<div class="sx-mt-3">
+<div><h3>20 × 20 ft garage</h3><p>10% waste.</p><div class="sx-mt-ex">20 × 20 = <b>400 sq ft</b><br/>× 1.10 = <b>440 sq ft</b><br/>440 ÷ 9 = 48.89 sq yd<br/>440 × 0.092903 = 40.88 m²</div></div>
+<div><h3>Feet and inches</h3><p>A room 12 ft 6 in by 9 ft 3 in.</p><div class="sx-mt-ex">12 + 6/12 = 12.5 ft<br/>9 + 3/12 = 9.25 ft<br/>12.5 × 9.25 = <b>115.63 sq ft</b></div></div>
+<div><h3>Round patio</h3><p>A circle 12 ft across.</p><div class="sx-mt-ex">radius = 6 ft<br/>π × 6² = <b>113.10 sq ft</b><br/>= 12.57 sq yd</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How to calculate square footage</h2>
+<ul>
+<li>Measure the length and width of the space in feet, or in feet and inches.</li>
+<li>Multiply length by width for a rectangle. Use the triangle or circle formula for other shapes.</li>
+<li>Split irregular rooms into simple shapes and add their areas.</li>
+<li>Add a waste margin before buying flooring, tile or other materials.</li>
+</ul>
+<p>Square footage for listings can follow different rules than this simple floor area. For sales or rent, check the measurement standard your market uses.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Sources</h2>
+<ul class="sx-mt-src" style="padding-left:20px">
+<li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i>, and NIST unit conversion factors for area.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How do I calculate square feet from feet and inches?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Convert each side to decimal feet by dividing the inches by 12 and adding them to the feet, then multiply. A 12 ft 6 in by 9 ft 3 in room is 12.5 × 9.25 = 115.63 square feet.</p></details>
+<details class="sx-faq"><summary>How much waste should I add for flooring?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Five to 10% covers a simple rectangular room. Use about 15% for diagonal layouts, herringbone, or rooms with many angles or doorways.</p></details>
+<details class="sx-faq"><summary>What is the difference between square feet and linear feet?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Square feet measure area, length times width. Linear feet measure length only, for things such as baseboards or fencing. The Perimeter option shows the linear feet around a rectangular room.</p></details>
+<details class="sx-faq"><summary>How do I measure an L-shaped room?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Split the room into two rectangles, calculate each and add them. In this tool, add each rectangle to the ledger and read the total.</p></details>
+<details class="sx-faq"><summary>How many square feet are in a square yard?<span aria-hidden="true" class="msym">expand_more</span></summary><p>There are 9 square feet in a square yard, because a yard is 3 feet and 3 × 3 = 9. Carpet is often sold by the square yard.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related calculators</h2><p>More project tools.</p></div>
+<a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/other/tile-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">grid_view</span></span><b>Tile Calculator</b><span class="d">Tiles, grout and thin-set.</span><span class="f">Count tiles<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/paint-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">format_paint</span></span><b>Paint Calculator</b><span class="d">Gallons for walls and ceilings.</span><span class="f">Plan the paint<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/concrete-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">foundation</span></span><b>Concrete Calculator</b><span class="d">Slabs, footings and bags.</span><span class="f">Estimate a pour<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/other/mulch-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">nature</span></span><b>Mulch Calculator</b><span class="d">Bulk yards for garden beds.</span><span class="f">Cover the beds<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed">
+<div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Square Footage Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+<div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/square-footage-calculator.html" width="100%" height="560" loading="lazy" title="Square Footage Calculator"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/square-footage-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -236,40 +186,9 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/quare-footage.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/square-footage.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

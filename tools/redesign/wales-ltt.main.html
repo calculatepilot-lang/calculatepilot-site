@@ -1,0 +1,114 @@
+<div class="sx" id="lttCalc">
+<div class="sx-toprow" style="margin-bottom:24px">
+  <nav class="sx-crumb" aria-label="Breadcrumb" style="font-size:13px"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b>Wales LTT Calculator</b></nav>
+  <div class="sx-badges" style="margin:0;gap:8px">
+    <span class="sx-badge em" style="border-color:var(--sx-hover);padding:4px 10px"><span class="msym" aria-hidden="true" style="font-size:14px;color:var(--sx-emt)">verified</span>Welsh Revenue Authority (WRA) Statutory Model</span>
+    <span class="sx-badge" style="background:var(--sx-hi2);border-color:transparent;color:var(--sx-primary);padding:4px 10px"><span class="msym" aria-hidden="true" style="font-size:14px">lock</span>Client-Side Precision</span>
+  </div>
+</div>
+
+<header class="sx-head uk" style="margin-bottom:40px;max-width:48rem">
+  <h1>Wales Land Transaction Tax (LTT) Calculator</h1>
+  <p>Calculate Welsh Revenue Authority property tax for purchases in Wales, including main residence rates, Higher Residential Rates for additional properties, and non-residential rates.</p>
+</header>
+
+<div class="sx-grid half" style="margin-bottom:64px;align-items:start">
+<form id="calcForm" class="sx-card" novalidate style="border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:24px">
+  <div class="sx-params-head" style="padding-bottom:16px">
+    <div><span class="sx-stepn">01</span><h2 class="sx-h-md">Property Parameters</h2></div>
+    <span class="sx-plainb"><span class="msym" aria-hidden="true" style="color:var(--sx-primary)">info</span>WRA rates 2026/27</span>
+  </div>
+  <div>
+    <label class="sx-lbl-md" for="price" style="display:block;margin-bottom:6px">Property Purchase Price (£)</label>
+    <div class="sx-field big cur"><span class="pre">£</span><input id="price" type="number" inputmode="decimal" min="0" step="1000" value="285000" style="padding-right:48px"><span class="suf">GBP</span></div>
+    <span class="sx-lbl-sm" style="display:block;margin:12px 0 8px">Quick Welsh market benchmarks:</span>
+    <div class="sx-qpills bd" style="padding:0;gap:8px"><button type="button" data-for="price" data-value="150000">£150k</button><button type="button" data-for="price" data-value="225000">£225k (Nil band)</button><button type="button" data-for="price" data-value="285000">£285k</button><button type="button" data-for="price" data-value="450000">£450k</button><button type="button" data-for="price" data-value="600000">£600k</button></div>
+  </div>
+  <div>
+    <span class="sx-lbl-md" style="display:block;margin-bottom:10px">Welsh Buyer Classification</span>
+    <input type="hidden" id="mode" value="main">
+    <div class="sx-bgrid2" role="group" aria-label="Buyer classification">
+      <button type="button" data-for="mode" data-value="main"><span class="t">Main Residential<i></i></span><p>Standard WRA rates: £0 tax up to the £225,000 nil-rate band.</p><span class="f"><span class="msym" aria-hidden="true">check_circle</span>Includes First-Time Buyers</span></button>
+      <button type="button" data-for="mode" data-value="higher"><span class="t">Higher Residential Rates<i></i></span><p>Additional dwellings, second homes, buy-to-let or company purchases.</p><span class="f"><span class="msym" aria-hidden="true">real_estate_agent</span>Separate table from 5% on the first £1</span></button>
+      <button type="button" data-for="mode" data-value="nonres"><span class="t">Non-Residential Freehold / Lease Premium<i></i></span><p>Shops, offices and land: 0% to £225,000, 1% to £250,000, 5% to £1m, 6% above. Lease rent is not calculated.</p></button>
+    </div>
+  </div>
+  <div class="sx-policy"><span class="msym" aria-hidden="true">flag</span><div><strong>Wales Specific Statutory Policy:</strong> Unlike England (SDLT) and Scotland (LBTT), Wales has no separate First-Time Buyer relief — instead every main-residence buyer gets the <strong class="p">£225,000 zero-rate threshold</strong>, the highest in the UK.</div></div>
+  <button type="submit" class="sx-cta pc"><span class="msym" aria-hidden="true">calculate</span>Calculate Welsh LTT</button>
+</form>
+
+<div class="sx-colstack" id="results">
+  <section class="sx-card sx-lbh" aria-live="polite" style="border-radius:16px;padding:32px">
+    <div class="hd"><span class="sx-kick" style="font-weight:700">Total Welsh LTT Due</span><span class="eff" id="effBadge">—</span></div>
+    <div class="vv" style="margin-bottom:24px"><b id="resultValue">—</b><span>payable to WRA</span></div>
+    <div class="sx-tier" style="margin-bottom:24px">
+      <div class="sx-between"><span>Tax composition by statutory tranche</span><span id="aboveNil">—</span></div>
+      <div class="tb" id="tierBar"></div>
+      <div class="lb" id="tierLbl"></div>
+    </div>
+    <div class="sx-tranches"><div class="hd"><b>WRA Progressive Tranche Slices</b><span id="tableTag">Standard Residential Rates</span></div><div id="trancheList"></div></div>
+    <div class="sx-2btn">
+      <button type="button" data-action="print"><span class="msym" aria-hidden="true">description</span>Export WRA Tax Summary</button>
+      <a href="#cross-border"><span class="msym" aria-hidden="true">compare_arrows</span>Compare England SDLT</a>
+    </div>
+  </section>
+  <div class="sx-filing"><span class="msym" aria-hidden="true">event</span><div><strong>Filing Deadline:</strong> You must file an LTT return and pay the tax due to the Welsh Revenue Authority within <strong>30 days</strong> of the day after completion of the transaction.</div></div>
+</div>
+</div>
+
+<section class="sx-sec3">
+  <div class="hh"><h2 class="sx-h-md">Welsh Revenue Authority (WRA) Statutory Schedules</h2><p>Compare the standard residential progressive rates against the Higher Residential Rates applied to additional properties since 11 December 2024.</p></div>
+  <div class="sx-card" style="border-radius:16px;overflow:hidden"><div class="sx-scroll"><table class="sx-t7" id="schedTable" style="min-width:640px">
+    <thead><tr style="background:var(--sx-low)"><th scope="col" style="color:var(--sx-on);font-weight:600;padding:14px 24px">Purchase Price Tranche</th><th scope="col" style="color:var(--sx-on);font-weight:600">Main Residence Rate (Standard)</th><th scope="col" style="color:var(--sx-on);font-weight:600">Higher Residential Rates (Additional Properties)</th><th scope="col" style="color:var(--sx-on);font-weight:600">Regulatory Notes</th></tr></thead>
+    <tbody>
+      <tr data-lo="0" data-hi="180000"><td style="padding:16px 24px">Up to £180,000</td><td class="g">0% (Nil-Rate)</td><td>5.0%</td><td class="mu" style="font-family:var(--font-body)">Higher rates apply from the first pound.</td></tr>
+      <tr data-lo="180000" data-hi="225000"><td style="padding:16px 24px">£180,001 to £225,000</td><td class="g">0% (Nil-Rate)</td><td>8.5%</td><td class="mu" style="font-family:var(--font-body)">Wales keeps the UK's highest main-residence nil-rate threshold.</td></tr>
+      <tr data-lo="225000" data-hi="250000"><td style="padding:16px 24px">£225,001 to £250,000</td><td class="g">6.0%</td><td>8.5%</td><td class="mu" style="font-family:var(--font-body)">Main rates start above £225,000.</td></tr>
+      <tr data-lo="250000" data-hi="400000"><td style="padding:16px 24px">£250,001 to £400,000</td><td class="g">6.0%</td><td>10.0%</td><td class="mu" style="font-family:var(--font-body)">Covers most typical Welsh family homes.</td></tr>
+      <tr data-lo="400000" data-hi="750000"><td style="padding:16px 24px">£400,001 to £750,000</td><td class="g">7.5%</td><td>12.5%</td><td class="mu" style="font-family:var(--font-body)">Upper mid-market bracket.</td></tr>
+      <tr data-lo="750000" data-hi="1500000"><td style="padding:16px 24px">£750,001 to £1,500,000</td><td class="g">10.0%</td><td>15.0%</td><td class="mu" style="font-family:var(--font-body)">High-value property threshold.</td></tr>
+      <tr data-lo="1500000" data-hi="1e12"><td style="padding:16px 24px">Over £1,500,000</td><td class="g">12.0%</td><td>17.0%</td><td class="mu" style="font-family:var(--font-body)">Top progressive tier.</td></tr>
+    </tbody>
+  </table></div></div>
+</section>
+
+<section class="sx-sec3" id="cross-border">
+  <div class="hh"><h2 class="sx-h-md"><span class="msym" aria-hidden="true">compare</span>Cross-Border UK Property Tax Comparison</h2><p id="cbSub">—</p></div>
+  <div class="sx-g3" id="cbGrid"></div>
+</section>
+
+<section class="sx-card sx-method" style="margin-bottom:64px">
+  <div class="sx-guide">
+    <h2>Rates this calculator uses</h2>
+    <p>Main residential: 0% to £225,000 · 6% to £400,000 · 7.5% to £750,000 · 10% to £1.5 million · 12% above. Higher residential rates (from 11 December 2024): 5% to £180,000 · 8.5% to £250,000 · 10% to £400,000 · 12.5% to £750,000 · 15% to £1.5 million · 17% above. Non-residential (from 22 December 2020): 0% to £225,000 · 1% to £250,000 · 5% to £1 million · 6% above.</p>
+    <p>Source: <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener" target="_blank">GOV.WALES Land Transaction Tax rates and bands</a>. The Welsh Revenue Authority, not this calculator, is the authority.</p>
+    <p class="sx-trust" style="margin:0">By Suhaib Hassan · Residential bands verified 22 Sep 2026, non-residential table re-checked 26 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+    <h2>Worked examples</h2>
+    <ul>
+      <li><strong>Main residence at £280,000 (GOV.WALES example):</strong> 6% on £55,000 = <strong>£3,300</strong>.</li>
+      <li><strong>Main residence at £300,000:</strong> 6% on £75,000 = <strong>£4,500</strong>.</li>
+      <li><strong>Additional property at £300,000:</strong> 5% on £180,000 (£9,000) + 8.5% on £70,000 (£5,950) + 10% on £50,000 (£5,000) = <strong>£19,950</strong> — £15,450 more than the main table.</li>
+      <li><strong>Non-residential premises at £300,000:</strong> 1% on £25,000 (£250) + 5% on £50,000 (£2,500) = <strong>£2,750</strong>.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is there first-time buyer relief on LTT in Wales?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. The £225,000 nil-rate band is the standard main-rate threshold for everyone buying a main residence, not a dedicated first-time buyer relief.</p></details>
+    <details class="sx-faq"><summary>How do higher rates work in Wales?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Since 11 December 2024 additional properties use a separate table starting at 5% on the first £180,000 — not a flat surcharge on the main rates.</p></details>
+    <details class="sx-faq"><summary>Is LTT the same as stamp duty in England?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Different statute, different bands. For England and Northern Ireland use the UK Stamp Duty Calculator.</p></details>
+    <details class="sx-faq"><summary>When do I have to pay LTT?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The return must be filed and the tax paid to the Welsh Revenue Authority within 30 days of the day after completion — your solicitor normally does this for you.</p></details>
+    <details class="sx-faq"><summary>Does this cover a shop or office?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — choose Non-Residential. From 22 December 2020 the slices are 0% to £225,000, 1% to £250,000, 5% to £1,000,000 and 6% above. A £300,000 premises is £2,750. Lease rent is not calculated.</p></details>
+    <details class="sx-faq"><summary>Is this a Welsh Revenue Authority assessment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Confirm with a solicitor. This page is a planning estimate from published bands.</p></details>
+    <p style="margin-top:16px"><a href="/financial/uk-stamp-duty-comparison.html">Compare England, Scotland and Wales on one price →</a></p>
+  </div>
+</section>
+
+<section class="sx-related" style="margin-bottom:64px">
+  <div class="sx-rel-head"><div><h2 class="sx-h-md">Related Financial Calculators &amp; Guidance</h2><p class="sx-muted" style="margin:0;font-size:15px">Complementary tools for cross-border UK tax planning and mortgage assessment.</p></div><a class="lg" href="/financial-calculators.html">View all tools<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+  <div class="sx-g3">
+    <a class="sx-card sx-rel3" href="/financial/uk-stamp-duty-calculator.html" style="border-radius:16px;padding:24px"><div class="ic"><span class="msym" aria-hidden="true">account_balance</span></div><h3>England &amp; NI SDLT Calculator</h3><p>Stamp Duty Land Tax with first-time buyer relief, additional-property and company rates.</p><div class="go" style="color:var(--sx-muted)">Launch Calculator<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel3" href="/financial/scotland-lbtt-calculator.html" style="border-radius:16px;padding:24px"><div class="ic"><span class="msym" aria-hidden="true">domain</span></div><h3>Scotland LBTT Calculator</h3><p>Land and Buildings Transaction Tax under Revenue Scotland rules, including the 8% ADS.</p><div class="go" style="color:var(--sx-muted)">Launch Calculator<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+    <a class="sx-card sx-rel3" href="/financial/uk-mortgage-repayment-calculator.html" style="border-radius:16px;padding:24px"><div class="ic"><span class="msym" aria-hidden="true">percent</span></div><h3>UK Mortgage Repayment Calculator</h3><p>Monthly capital-and-interest repayments, interest-only comparison and rate stress tests.</p><div class="go" style="color:var(--sx-muted)">Launch Calculator<span class="msym" aria-hidden="true">arrow_forward</span></div></a>
+  </div>
+</section>
+</div>

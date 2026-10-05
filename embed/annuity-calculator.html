@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Annuity Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,arrow_forward,balance,check_circle,chevron_right,expand_more,functions,groups,lock_clock,picture_as_pdf,query_stats,receipt_long,refresh,restart_alt,savings,table_view,trending_up,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,78 +38,157 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Annuity Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="payment">Regular payment amount ($)</label>
-          <input type="number" id="payment" value="500"
-step="25"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="annualRate">Annual interest rate (%)</label>
-          <input type="number" id="annualRate" value="5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="years">Number of years</label>
-          <input type="number" id="years" value="20"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Future value</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Present value</span><span id="outPresentValue">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="anCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Annuity Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Fixed &amp; Variable Annuity Modeling</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Immediate vs Deferred Payouts</span><span class="sx-badge"><span aria-hidden="true" class="msym">verified_user</span>Client-Side Actuarial Engine</span></div>
+<h1>Annuity Calculator &amp; Lifetime Income Simulator</h1>
+<p>Model immediate and deferred income annuities, estimate lifetime payouts under different guarantee options, see how a surrender schedule works — and calculate the future and present value of any series of regular payments.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Contract Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Contract Distribution Mode</span></div>
+<input id="mode" type="hidden" value="s2"/>
+<div aria-label="Contract mode" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="s1" style="flex:1" type="button">Immediate Annuity (SPIA)</button><button data-for="mode" data-value="s2" style="flex:1" type="button">Deferred Annuity (DIA/FIA)</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="prem">Initial Principal Investment</label><em style="color:var(--sx-muted);font-weight:500">Single premium purchase</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="prem" inputmode="decimal" min="0" step="1000" style="font-size:17px;font-weight:600" type="number" value="250000"/></div>
+<div class="sx-au-chips"><button data-for="prem" data-value="100000" type="button">$100k</button><button data-for="prem" data-value="250000" type="button">$250k</button><button data-for="prem" data-value="500000" type="button">$500k</button><button data-for="prem" data-value="1000000" type="button">$1M</button></div>
+</div>
+<div id="defBox">
+<div class="sx-au-l"><label for="defR">Accumulation Period / Deferral Horizon</label><em id="defOut" style="color:var(--sx-on);font-family:var(--font-mono)">10 Years</em></div>
+<input id="def" type="hidden" value="10"/><input aria-label="Deferral years" class="sx-range2" data-sync="def" id="defR" max="30" min="1" step="1" type="range" value="10"/>
+<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin-top:4px"><span>1 yr</span><span>15 yrs</span><span>30 yrs</span></div>
+<div class="sx-au-l" style="margin-top:16px"><label for="g">Expected Annual Growth Rate during Deferral</label><em id="gOut" style="color:var(--sx-on);font-family:var(--font-mono)">5.40% APY</em></div>
+<div class="sx-au-g2"><div class="sx-au-in np pc"><input id="g" inputmode="decimal" max="15" min="0" step="0.05" type="number" value="5.4"/><span class="suf">%</span></div><div class="sx-au-chips" style="margin:0;align-self:center"><button data-for="g" data-value="4.25" type="button">Fixed 4.25%</button><button data-for="g" data-value="5.4" type="button">Indexed 5.40%</button><button data-for="g" data-value="7.8" type="button">Variable 7.80%</button></div></div>
+<p class="sx-au-help">Illustrative assumptions — fixed rates are guaranteed by the contract; indexed and variable returns are not.</p>
+</div>
+<div>
+<div class="sx-au-l"><span>Payout Option &amp; Longevity Guarantee</span></div>
+<input id="opt" type="hidden" value="s2"/>
+<div aria-label="Payout option" class="sx-au-cat nr" role="group">
+<button data-for="opt" data-value="s1" type="button"><span><b>Single Life Only</b><small>Highest payout. Stops at the annuitant's death — nothing passes to heirs.</small></span></button>
+<button data-for="opt" data-value="s2" type="button"><span><b>Life with 10-Yr Certain</b><small>Pays for life, and at least 120 payments to heirs.</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="opt" data-value="s3" type="button"><span><b>Joint &amp; Survivor 100%</b><small>Continues until the second spouse dies (same-age spouse assumed).</small></span></button>
+<button data-for="opt" data-value="s4" type="button"><span><b>Fixed Period (20 Yrs)</b><small>Term certain: exactly 240 monthly payments, no life contingency.</small></span></button>
+</div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="age">Current Annuitant Age</label></div><div class="sx-au-in np"><input id="age" inputmode="numeric" max="90" min="30" step="1" type="number" value="55"/><span class="suf">Years Old</span></div></div>
+<div><div class="sx-au-l"><span>Retirement Payout Age</span></div><div class="sx-an-age"><span id="payAge">—</span><em>Age + deferral</em></div></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="pr">Insurer Pricing Rate</label></div><div class="sx-au-in np pc"><input id="pr" inputmode="decimal" max="12" min="0" step="0.05" type="number" value="4.5"/><span class="suf">%</span></div></div>
+<div><div class="sx-au-l"><label for="hz">Illustrate Payouts To</label></div><div class="sx-au-sel"><select id="hz"><option selected="" value="85">Age 85</option><option value="90">Age 90</option><option value="95">Age 95</option></select></div></div>
+</div>
+<div class="sx-an-cola"><span aria-hidden="true" class="msym">trending_up</span><div><b>Cost-of-Living Rider (COLA)</b><small>Payments rise <span id="colaTxt">2.0%</span> a year; the starting payout is lower to pay for it</small></div><div class="sx-au-in sm np pc" style="width:88px"><input aria-label="COLA rate" id="colaR" inputmode="decimal" max="5" min="0" step="0.5" type="number" value="2"/><span class="suf">%</span></div><label class="sx-toggle"><input aria-label="Cost-of-living rider" checked="" id="cola" type="checkbox"/><i></i></label></div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">refresh</span>Simulate Annuity Payouts &amp; Cash Flow</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:16px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Estimated Lifetime Cash Flow</span><span id="ageTag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small>/mo</small></div>
+<p id="yrTxt">—</p>
+<div class="g2"><div><span id="balL">Accumulated Balance</span><b id="bal">—</b></div><div><span id="totL">Total Payouts</span><b id="tot">—</b></div></div>
+<div class="gain" id="gainBox"><span id="gainL">Payouts Beyond Account Value:</span><b id="gain">—</b></div>
+<div class="note" id="note">—</div>
+</section>
+<section class="sx-card sx-an-wf">
+<h3>Capital Composition Waterfall</h3>
+<p id="wfN">Breakdown of total expected payouts.</p>
+<div class="bar" id="wfBar"></div>
+<ul id="wfList"></ul>
+</section>
+<section class="sx-card sx-an-sur" id="surBox">
+<div class="hd"><h3><span aria-hidden="true" class="msym">lock_clock</span>Surrender Charge Schedule</h3><span>Typical 7-year declining</span></div>
+<div class="t"><div>Yr 1<b>7%</b></div><div>Yr 2<b>6%</b></div><div>Yr 3<b>5%</b></div><div>Yr 4<b>4%</b></div><div>Yr 5<b>3%</b></div><div>Yr 6<b>2%</b></div><div>Yr 7+<b>0%</b></div></div>
+<p id="surTxt">—</p>
+</section>
+<div class="sx-in-acts"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>PDF Schedule</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_view</span>Export CSV</button><a href="#tvm"><span aria-hidden="true" class="msym">balance</span>PV / FV</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2>Multi-Decade Actuarial Ledger &amp; Cashflow Schedule</h2><p>Accumulation growth, COLA step-ups and income drawdowns. The notional account shows what the money alone would cover — payouts continue for life after it runs out.</p></div>
+<div class="hbt" style="align-items:center;gap:8px"><span style="font-size:12px;color:var(--sx-muted)">Display Interval:</span><input id="step" type="hidden" value="5"/><div aria-label="Display interval" class="sx-seg" role="group"><button data-for="step" data-value="5" type="button">5-Year Steps</button><button data-for="step" data-value="1" id="allBtn" type="button">Annual</button></div></div></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Contract Yr</th><th scope="col">Annuitant Age</th><th scope="col">Phase</th><th scope="col">Beginning Balance</th><th scope="col">Annual Payout</th><th scope="col">Cumulative Cash Out</th><th scope="col">Notional Account (End)</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<div class="ft"><span id="ledFt">*Payout ages assume the annuitant is alive. Notional account grows at the pricing rate less payouts, with no mortality credits.</span></div>
+</section>
+<section class="sx-card sx-an-tvm cp-hide" id="tvm">
+<div class="sx-au-l" style="margin-bottom:6px"><h2 class="sx-h-md" style="margin:0">Annuity Future Value &amp; Present Value</h2><span class="sx-au-tag">Ordinary annuity · monthly</span></div>
+<p style="margin:0 0 18px;font-size:13px;color:var(--sx-onv)">Calculate the future value and present value of a series of regular payments, using standard annuity formulas.</p>
+<div class="g">
+<div class="sx-au-stack" style="gap:14px">
+<div><div class="sx-au-l"><label for="payment">Regular payment amount</label></div><div class="sx-au-in"><span class="pre">$</span><input id="payment" inputmode="decimal" min="0" step="25" type="number" value="500"/></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="annualRate">Annual interest rate</label></div><div class="sx-au-in np pc"><input id="annualRate" inputmode="decimal" min="0" step="0.1" type="number" value="5"/><span class="suf">%</span></div></div>
+<div><div class="sx-au-l"><label for="years">Number of years</label></div><div class="sx-au-in np"><input id="years" inputmode="numeric" min="1" step="1" type="number" value="20"/><span class="suf">yrs</span></div></div>
+</div>
+</div>
+<div>
+<div class="sx-au-tiles c3 card">
+<div class="hl"><span>Future Value</span><b class="g" id="fv">—</b><small>What the payments grow to</small></div>
+<div><span>Present Value</span><b id="pv">—</b><small>Equivalent lump sum today</small></div>
+<div><span>Total Paid In</span><b id="paid">—</b><small id="paidN">—</small></div>
+</div>
+<p class="sx-au-help" style="margin-top:10px">FV = PMT × [(1+i)^n − 1] / i · PV = PMT × [1 − (1+i)^−n] / i — with i = annual rate ÷ 12 and n = years × 12.</p>
+</div>
+</div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">groups</span></span><h3>The Mechanics of Mortality Credits &amp; Longevity Risk Pooling</h3><p>A lifetime annuity pools longevity risk. Money left behind by annuitants who die earlier than average helps fund payments to those who live longer — the "mortality credit". That is why a life annuity can pay more each year than you could safely withdraw from the same savings on your own, where you'd have to plan for living to 95 or beyond.</p><p>The trade-off: with a life-only contract, if you die early the remaining value stays in the pool. Guarantee periods and joint options reduce the payout in exchange for protecting heirs or a spouse.</p><div class="sx-sg-take"><b>Model used here:</b> Gompertz mortality (modal age 90, dispersion 10 years) — roughly annuitant-level longevity. Real quotes also reflect sex, health, insurer expenses and current bond yields.</div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">receipt_long</span></span><h3>Qualified vs. Non-Qualified Annuity Taxation</h3><p>Tax treatment depends on how the annuity was funded. <b>Qualified annuities</b> bought with pre-tax IRA or 401(k) money are generally taxed as ordinary income when paid out, and are subject to Required Minimum Distribution rules (RMDs start at 73, or 75 for people born in 1960 or later).</p><p><b>Non-qualified annuities</b> bought with after-tax savings use an <em>exclusion ratio</em> (IRC § 72): part of each payment is a tax-free return of your premium and part is taxable earnings, until your cost basis has been recovered.</p><div class="sx-sg-take"><b>Sources:</b> IRS Publication 575 (pension and annuity income) and Publication 939 (general rule for pensions and annuities).</div></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Future value vs. present value</h2>
+<p>Future value tells you what a series of regular payments will grow to by the end of the term, accounting for compound interest along the way — useful for projecting retirement contributions or systematic savings plans.</p>
+<p>Present value tells you the equivalent lump sum today that would be worth the same as that entire stream of future payments — useful for comparing an annuity payout against a one-time settlement offer, or valuing a pension stream.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>This calculator models an ordinary annuity</h2>
+<p>The future and present value section assumes an 'ordinary annuity,' where payments occur at the end of each period (the most common structure for loans and many savings plans) rather than an 'annuity due,' where payments occur at the beginning of each period. The distinction produces a small but real difference in the result, so check which structure applies to your specific situation.</p>
+<p>It also assumes monthly compounding matching monthly payments — for annual or quarterly payment schedules, the underlying math is the same but would need the compounding frequency adjusted to match.</p>
+<h2>How the lifetime income estimate works</h2>
+<p>During deferral the premium grows at your assumed rate. At the payout age, the balance is converted to a monthly income by dividing it by an annuity factor: the present value, at the insurer pricing rate, of $1 a month paid for as long as the chosen option pays — weighted by the chance the annuitant (or either spouse) is still alive, with guaranteed months counted in full and COLA step-ups included. It's an estimate for comparing options, not an insurer quote.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between an ordinary annuity and an annuity due?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In an ordinary annuity, payments happen at the end of each period; in an annuity due, they happen at the beginning. This calculator models an ordinary annuity, which is the more common structure for loans and standard savings plans.</p></details>
+<details class="sx-faq"><summary>When would I use present value instead of future value?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Present value is useful when comparing a stream of future payments (like a pension or settlement) against an equivalent lump sum offered today — it tells you what that future income stream is actually worth in today's dollars.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Retirement Calculators</h2><p>Income security, retirement saving and fixed-yield alternatives.</p></div>
+<a href="/financial-calculators.html">All Financial Tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/retirement-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>Retirement Calculator</b><span class="d">Project savings and safe withdrawals in retirement.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>CD Calculator</b><span class="d">Fixed-term deposit growth and ladder yields.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>401(k) Calculator</b><span class="d">Employer match, compound growth and pre-tax balances.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Compound Interest Calculator</b><span class="d">Growth with periodic contributions.</span><span class="f">Launch Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/annuity-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -236,40 +197,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/annuity.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/annuity.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

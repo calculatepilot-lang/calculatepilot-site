@@ -1,0 +1,144 @@
+<div class="sx" id="ivCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Investment Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <h1>Investment Calculator &amp; Portfolio Growth Simulator</h1>
+    <p>Project how an initial investment plus regular contributions could grow over time — with compounding frequency, contribution increases, inflation-adjusted value and tax drag.</p>
+  </div>
+  <div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">query_stats</span>Portfolio Growth Engine</span><span class="sx-badge"><span class="msym" aria-hidden="true">trending_up</span>Inflation-Adjusted Real Returns</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Client-Side Precision</span></div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Portfolio Inputs</h2></div>
+    <button type="button" class="sx-reset pri" data-action="reset">Reset Defaults</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="p0">Initial Principal Investment</label><em class="ok" id="p0Out">$25,000</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="p0" type="number" inputmode="decimal" min="0" step="1000" value="25000"></div>
+      <div class="sx-au-chips"><button type="button" data-for="p0" data-value="10000">$10k</button><button type="button" data-for="p0" data-value="25000">$25k</button><button type="button" data-for="p0" data-value="50000">$50k</button><button type="button" data-for="p0" data-value="100000">$100k</button><button type="button" data-for="p0" data-value="250000">$250k</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="c">Additional Periodic Contribution</label><em class="mu" id="cOut">$500 / month</em></div>
+      <div class="sx-au-row"><div class="sx-au-in"><span class="pre">$</span><input id="c" type="number" inputmode="decimal" min="0" step="50" value="500"></div><div class="sx-au-sel" style="width:130px"><select id="cf" aria-label="Contribution frequency"><option value="12" selected>Monthly</option><option value="1">Annually</option></select></div></div>
+      <div class="sx-iv-tog" style="margin-top:10px"><label for="esc" style="font-size:12px;color:var(--sx-muted)">Annual Escalation (+3%/yr)</label><span class="sx-hl-sw"><input id="esc" type="checkbox" checked aria-label="Increase contributions 3% a year"><i></i></span></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="nR">Investment Horizon</label><em style="color:var(--sx-on)" id="nOut">20 Years</em></div>
+      <input type="hidden" id="n" value="20">
+      <input id="nR" class="sx-range2" type="range" min="1" max="50" step="1" value="20" data-sync="n" aria-label="Years">
+      <div class="sx-au-opts c5" role="group" aria-label="Horizon presets" style="margin-top:10px"><button type="button" data-for="n" data-value="5">5 Yr</button><button type="button" data-for="n" data-value="10">10 Yr</button><button type="button" data-for="n" data-value="15">15 Yr</button><button type="button" data-for="n" data-value="20">20 Yr</button><button type="button" data-for="n" data-value="30">30 Yr</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="r">Estimated Annual Return (Nominal)</label><em style="color:var(--sx-on)" id="rOut">8.50%</em></div>
+      <div class="sx-au-in np pc"><input id="r" type="number" inputmode="decimal" min="-20" max="40" step="0.1" value="8.50"><span class="suf">%</span></div>
+      <div class="sx-iv-ret" role="group" aria-label="Return presets"><button type="button" data-for="r" data-value="5.5">Conservative<b>5.5%</b></button><button type="button" data-for="r" data-value="7.5">Moderate<b>7.5%</b></button><button type="button" data-for="r" data-value="10">Stock market long-run<b>~10%</b></button><button type="button" data-for="r" data-value="12">Aggressive<b>12.0%</b></button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Compounding Frequency</span></div>
+      <input type="hidden" id="m" value="12">
+      <div class="sx-seg" role="group" aria-label="Compounding frequency" style="display:flex"><button type="button" data-for="m" data-value="1" style="flex:1">Annually</button><button type="button" data-for="m" data-value="2" style="flex:1">Semi-Ann</button><button type="button" data-for="m" data-value="4" style="flex:1">Quarterly</button><button type="button" data-for="m" data-value="12" style="flex:1">Monthly</button></div>
+    </div>
+    <div class="sx-au-box" style="display:flex;flex-direction:column;gap:14px">
+      <div class="sx-iv-tog"><div><b>Inflation Adjustment</b><span>Show today's-dollar value at <input id="inf" type="number" step="0.1" min="0" max="20" value="2.5" aria-label="Inflation rate" style="width:48px;height:22px;border:1px solid var(--sx-border);border-radius:4px;padding:0 4px;font:inherit;font-size:11px;background:var(--sx-card);color:var(--sx-on)">%/yr</span></div><span class="sx-hl-sw"><input id="infOn" type="checkbox" checked aria-label="Adjust for inflation"><i></i></span></div>
+      <div class="sx-iv-tog"><div><b>Tax Drag</b><span>Share of each year's gains lost to tax</span></div><div class="sx-au-sel" style="width:170px"><select id="tax" style="height:34px;font-size:12px"><option value="0" selected>Roth / 401(k) (0%)</option><option value="15">Taxable Account (15%)</option><option value="20">High Bracket (20%)</option></select></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">insights</span>Simulate Portfolio Wealth Trajectory</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-sg-hero" aria-live="polite">
+    <span class="sx-kick" id="heroK">Projected Portfolio Value (Year 20)</span>
+    <div class="big"><span id="resultValue">—</span><small>nominal</small></div>
+    <div class="sx-in-hero" style="padding:0"><div class="loss"><em class="up" id="gPill"><span class="msym" aria-hidden="true">trending_up</span><span id="gTxt">—</span></em></div></div>
+    <div class="sx-au-tiles c4 card" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--sx-border)">
+      <div><span>Total Principal</span><b id="prin">—</b><small id="prinN">—</small></div>
+      <div><span>Compound Earnings</span><b class="g" id="earn">—</b><small id="earnN">—</small></div>
+      <div><span>Real Purchasing Power</span><b id="real">—</b><small id="realN">—</small></div>
+      <div><span>Passive Income (4% rule)</span><b class="g" id="inc">—</b><small>Rough sustainable withdrawal</small></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-au-traj">
+    <div class="hd"><div><h3>Growth Trajectory: Principal vs. Compound Growth</h3><p id="trSub">—</p></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>Total Wealth</span><span><i style="background:#cbd5e1"></i>Principal Contributed</span></div></div>
+    <svg id="chart" viewBox="0 0 520 220" role="img" aria-label="Portfolio value versus principal contributed"></svg>
+    <div class="sx-iv-ms" id="ms"></div>
+    <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Schedule</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export Ledger (.CSV)</button><a class="pri" href="/financial/compound-interest-calculator.html" style="background:none;border:0;color:var(--sx-primary)"><span class="msym" aria-hidden="true">compare_arrows</span>Compare Compounding</a></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Multi-Year Wealth Accumulation Ledger</h2><p>Yearly contributions, growth and inflation-adjusted ending balance.</p></div><span style="font-size:12px;color:var(--sx-muted)">Display Interval: <span class="sx-au-tag">Milestone Years</span></span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Horizon</th><th scope="col">Starting Balance</th><th scope="col">Annual Contributions</th><th scope="col">Annual Growth Earned</th><th scope="col">Cumulative Growth</th><th scope="col">Ending Portfolio Balance</th><th scope="col" id="realH">Real Value</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<section class="sx-au-plain" style="border:0;padding-top:0">
+  <h2 style="font-size:22px;line-height:30px">Investing Playbooks &amp; Empirical Guides</h2>
+  <p class="lead">Core principles of long-term compound growth.</p>
+  <div class="sx-au-2c" style="margin-bottom:0">
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">calculate</span></span><h3>The Rule of 72 &amp; Compound Acceleration</h3><p id="r72">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span class="msym" aria-hidden="true" style="font-size:16px;color:var(--sx-pc)">lightbulb</span><span id="r72t">—</span></div></div>
+    <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">hourglass_bottom</span></span><h3>Nominal vs Real Returns &amp; the Cost of Waiting</h3><p id="wait">—</p><div class="sx-sg-take" style="display:flex;gap:8px"><span class="msym" aria-hidden="true" style="font-size:16px;color:var(--sx-pc)">schedule</span><span>Starting early and contributing consistently is the most reliable way to let compounding work in your favor.</span></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How this calculator works</h2>
+    <p>It grows your starting balance month by month at the equivalent monthly rate for your chosen compounding frequency, and adds each contribution at the end of its period (monthly or yearly), optionally raising contributions 3% a year. Tax drag reduces each period's growth by the chosen share, and the real value divides the result by cumulative inflation.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Understanding investment risk</h2>
+    <p>This calculator assumes a constant annual return for simplicity, but real markets fluctuate year to year. Treat the result as a long-term average projection, not a guarantee — higher expected returns generally come with higher volatility.</p>
+
+    <h2>What return rate should I actually assume?</h2>
+    <p>The rate you enter drives everything else, so it's worth grounding it in real benchmarks rather than guessing.</p>
+    <ul>
+      <li><strong>Diversified stock portfolios</strong> — historically around 7–10% annually before inflation over multi-decade periods, though any single year can vary widely.</li>
+      <li><strong>Bond funds</strong> — roughly 4%+ for U.S. government bonds as of recent years, more for higher-risk corporate or high-yield bonds.</li>
+      <li><strong>High-yield savings accounts and CDs</strong> — typically 3–4%+ depending on the rate environment and term.</li>
+    </ul>
+    <p>A practical approach: run the calculator twice — once with a conservative rate (2–3 points below the historical average) and once with an optimistic rate (1–2 points above) — to see a realistic range rather than a single number that may not happen.</p>
+
+    <h2>Understanding sequence of returns</h2>
+    <p>This calculator assumes a constant annual return, but real markets rise and fall unevenly year to year. Two investors with the same average return can end up with very different balances depending on when the gains and losses occurred — a concept called sequence of returns risk.</p>
+    <p>This matters most near the point of withdrawal (like retirement), where a downturn early in that phase has an outsized negative impact compared to the same downturn occurring years later, since there's less time to recover before money is withdrawn.</p>
+
+    <h2>A worked example</h2>
+    <p>Investing $10,000 upfront plus $300/month at an 8% average annual return (compounded monthly) for 20 years grows to roughly $226,000. Of that, about $82,000 came from contributions and roughly $144,000 came from investment growth — nearly two-thirds of the final balance is growth, not deposits.</p>
+    <p>This illustrates why starting to invest early tends to matter more than the exact monthly amount — the growth portion compounds regardless of when contributions were made, so earlier dollars have simply had more time to work.</p>
+
+    <h2>Diversification and risk</h2>
+    <p>This calculator assumes a single constant return rate, but real investments carry risk that varies by asset type — stocks historically offer higher long-term returns than bonds, but with more year-to-year volatility. Diversifying across asset types is a common strategy to manage that volatility while still capturing long-term growth.</p>
+    <p>Tax treatment also affects real-world returns. Growth inside tax-advantaged accounts like a 401(k) or IRA isn't taxed annually the way a standard brokerage account often is, which can meaningfully improve actual after-tax growth compared to what a simple projection shows. Also worth checking: how much that growth is worth in today's dollars using our <a href="/financial/inflation-calculator.html">Inflation Calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is 8% a realistic return assumption?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's within the historical long-term range for diversified equity portfolios before inflation, but past performance doesn't guarantee future results.</p></details>
+    <details class="sx-faq"><summary>How much difference do monthly contributions make?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A great deal over long periods — consistent contributions often account for more of the final balance than the initial investment itself, thanks to compounding.</p></details>
+    <details class="sx-faq"><summary>Should I invest a lump sum or spread it out (dollar-cost averaging)?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Historically, investing a lump sum immediately outperforms spreading it out on average, since markets trend upward over time — but dollar-cost averaging can reduce regret risk and smooth out volatility for some investors.</p></details>
+    <details class="sx-faq"><summary>What's a reasonable fee to pay on investments?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Low-cost index funds often charge well under 0.5% annually, while some actively managed funds charge 1% or more — fees compound over time just like returns, so lower costs meaningfully help long-term growth.</p></details>
+    <details class="sx-faq"><summary>What is dollar-cost averaging?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Investing a fixed amount at regular intervals regardless of market price, which smooths out the effect of market timing and is the strategy this calculator's monthly contribution feature effectively models.</p></details>
+    <details class="sx-faq"><summary>Should I use a tax-advantaged account for long-term investing?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Accounts like a 401(k), IRA, or Roth IRA offer tax benefits that can meaningfully improve long-term after-tax growth compared to a standard taxable brokerage account, making them worth prioritizing for retirement-focused investing.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Explore Related Wealth Calculators</h2><p>Connected tools for long-term planning.</p></div>
+  <a href="/financial-calculators.html">View all 52 calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Compound Interest</b><span class="d">Growth across daily, monthly and continuous compounding.</span><span class="f">Explore Tool<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/roth-ira-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>Roth IRA Calculator</b><span class="d">Tax-free growth versus a traditional, tax-deferred account.</span><span class="f">Explore Tool<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>401(k) Growth Engine</b><span class="d">Employer match, contribution limits and salary growth.</span><span class="f">Explore Tool<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/savings-goal-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">flag</span></span><b>Savings Goal Target</b><span class="d">Monthly savings needed to reach a specific goal.</span><span class="f">Explore Tool<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

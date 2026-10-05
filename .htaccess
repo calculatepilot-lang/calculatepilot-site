@@ -7,18 +7,29 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 
 # Canonicalize the legacy Guides landing page directly to the final URL.
-# This must run before the host/scheme rule so it remains a single-hop redirect.
 RewriteCond %{REQUEST_URI} ^/guides/index\.html$ [NC]
 RewriteRule ^ https://www.calculatepilot.com/guides/ [R=301,L,NE]
 
 # Canonical host + HTTPS: https://www.calculatepilot.com
-# One rule handles all three non-canonical variants in a single 301:
-#   http://calculatepilot.com/*
-#   http://www.calculatepilot.com/*
-#   https://calculatepilot.com/*
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^calculatepilot\.com$ [NC]
 RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
+
+# Missing slash on locale hubs: /frfinancial-calculators.html -> /fr/financial-calculators.html
+RewriteRule ^(fr|de|es)(financial|health|math|other)-calculators\.html$ /$1/$2-calculators.html [R=301,L]
+
+# Moved EN calculator
+RewriteRule ^financial/car-depreciation-calculator\.html$ /other/car-depreciation-calculator.html [R=301,L]
+
+# Stale asset filenames from older templates
+RewriteRule ^css/style\.css$ /css/styles.css [R=301,L]
+RewriteRule ^js/site\.js$ /js/language-selector.js [R=301,L]
+RewriteRule ^js/percentage-calculator\.js$ /js/percentage.js [R=301,L]
+
+# Unpublished locale URL -> English original (stops Ahrefs 404 errors)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(fr|de|es)/(.+)$ /$2 [R=301,L]
 
 # Privacy-first analytics consent and site-wide language selector.
 <IfModule mod_substitute.c>
@@ -26,7 +37,16 @@ RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
   SubstituteMaxLineLength 2m
   Substitute "s|<script async src=\"https://www.googletagmanager.com/gtag/js\?id=G-YFZBQ0VRQS\"></script>||i"
   Substitute "s|<script src=\"https://analytics.ahrefs.com/analytics.js\" data-key=\"HAKNwRlvdHsSgoa1o6fIfA\" async></script>||i"
-  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260908\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260903\" defer></script>\n</head>|i"
+  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260908\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260923\" defer></script>\n</head>|i"
+  Substitute "s|\"@type\": \"SoftwareApplication\"|\"@type\": \"WebApplication\"|"
+  Substitute "s|\"@type\":\"SoftwareApplication\"|\"@type\":\"WebApplication\"|"
+  Substitute "s| *\"browserRequirements\": \"Requires a modern web browser\",||"
+  Substitute "s| *\"browserRequirements\":\"Requires a modern web browser\",||"
+  Substitute "s|<li><a href=\"/guides/index.html\">Guides</a></li>|<li><a href=\"/guides/\">Guides</a></li>\n      <li><a href=\"/pricing.html\">Pricing</a></li>|"
+  Substitute "s|<li><a href=\"/guides/\">Guides</a></li>|<li><a href=\"/guides/\">Guides</a></li>\n      <li><a href=\"/pricing.html\">Pricing</a></li>|"
+  Substitute "s|<li><a href=\"/embed/\">Embed Calculators</a></li>|<li><a href=\"/embed/\">Embed Calculators</a></li>\n          <li><a href=\"/pricing.html\">Pricing</a></li>|"
+  Substitute "s|None of those is a currency overlay of a US page.</p>|None of those is a currency overlay of a US page. Start with mortgage, loan, or UK take-home pay, then open amortization or refinance when you need the payment split.</p>|"
+  Substitute "s|<title>Trigonometry Calculator — Sin, Cos, Tan & Inverse Functions \\| CalculatePilot</title>|<title>Trigonometry Calculator — Sin, Cos & Tan \\| CalculatePilot</title>|"
 </IfModule>
 
 # Cache static assets
@@ -40,6 +60,7 @@ RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
 </IfModule>
 
 <IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   <FilesMatch "\.css$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>

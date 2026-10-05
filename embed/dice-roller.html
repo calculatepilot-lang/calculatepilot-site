@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dice Roller | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,bar_chart,casino,chevron_right,code,content_copy,event,expand_more,functions,lightbulb,link,lock,model_training,password,person_check,picture_as_pdf,restart_alt,shuffle,sports_golf,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,48 +38,51 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Dice Roller</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="numberOfDice">Number of dice</label>
-          <input type="number" id="numberOfDice" value="2"
-step="1"min="1">
-        </div>
-        <div class="field">
-          <label for="sides">Sides per die</label>
-          <input type="number" id="sides" value="6"
-step="1"min="2">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Total</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Individual rolls</span><span id="outRolls">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="dcCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Dice Roller</b></nav>
+<header class="sx-headbar"><div><div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">casino</span>Fair rolls with exact odds</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Runs in your browser</span></div><h1>Dice Roller &amp; Probability Calculator</h1><p>Roll any dice expression such as 4d6kh3+2, see each die, and get the exact probability of every total. It supports keep and drop rules, modifiers, exploding dice and a 10,000-roll simulation.</p></div></header>
+<div class="sx-mt-wvh cp-hide"><div><span aria-hidden="true" class="msym">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Figures are estimates you can edit. <a href="/methodology.html">Our methodology</a>.</p></section></div><div><span aria-hidden="true" class="msym">functions</span><section><b>How the engine works</b><p>Rolls use the browser's secure random generator with rejection sampling. The odds are counted exactly for plain sums and for keep or drop rules on small pools.</p></section></div><div><span aria-hidden="true" class="msym">lightbulb</span><section><b>Why we built it</b><p>Tabletop players want a quick roll and also want to know how likely a result was. This gives both together.</p></section></div></div>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head"><div><span aria-hidden="true" class="msym">casino</span><h2 class="sx-h-md" style="margin:0">Dice expression</h2></div><button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button></div>
+<div class="sx-au-stack">
+<div class="sx-qpills"><span class="lb">Add a die</span><button data-die="4" type="button">d4</button><button data-die="6" type="button">d6</button><button data-die="8" type="button">d8</button><button data-die="10" type="button">d10</button><button data-die="12" type="button">d12</button><button data-die="20" type="button">d20</button><button data-die="100" type="button">d100</button></div>
+<div><div class="sx-au-l"><label for="ex">Dice expression</label><em class="mu">format NdS, optional kh/kl/dh/dl, then + or − a number</em></div><div class="sx-au-in sm np"><input autocomplete="off" id="ex" inputmode="text" spellcheck="false" type="text" value="4d6kh3+2"/></div>
+<div class="sx-qpills"><span class="lb">Presets</span><button data-x="2d20kh1" type="button">Advantage</button><button data-x="2d20kl1" type="button">Disadvantage</button><button data-x="4d6dl1" type="button">Ability score</button><button data-x="8d6" type="button">Fireball</button><button data-x="1d100" type="button">Percentile</button></div></div>
+<div class="sx-au-box" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0"><label for="xp" style="font-size:13px;font-weight:500">Exploding dice: a maximum roll is rolled again and added</label><label class="sx-toggle"><input id="xp" type="checkbox"/><i></i></label></div>
+<p class="sx-au-note" style="text-align:left;margin:0;font-size:12px">kh3 keeps the highest 3 dice, kl1 keeps the lowest 1, dl1 drops the lowest 1, dh1 drops the highest 1. Up to 100 dice with up to 1,000 sides.</p>
+<div class="sx-au-warn" hidden="" id="err" role="alert"><span aria-hidden="true" class="msym">warning</span><span id="errT"></span></div>
+<div class="sx-ctarow" style="padding-top:0;gap:10px"><button class="sx-cta big" id="rollBtn" style="font-size:16px;padding:12px 20px" type="button"><span aria-hidden="true" class="msym">casino</span>Roll dice</button><button class="sx-cta" id="simBtn" style="background:transparent;color:var(--sx-primary);border:1px solid var(--sx-primary)" type="button"><span aria-hidden="true" class="msym">model_training</span>Roll 10,000 times</button></div>
 </div>
+</form>
+</div>
+<div class="sx-r5" id="results">
+<section aria-live="polite" class="sx-card r2 sx-an-hero"><div class="hd"><span>Total</span><span class="sx-ef-grade" id="tag">—</span></div><div class="big"><span id="resultValue">—</span></div><p id="interp">—</p><div id="dieRow" style="display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px"></div>
+<div class="g2"><div><span>Expected value</span><b id="oEv">—</b></div><div><span>Range</span><b id="oRg">—</b></div><div><span>P(exactly this)</span><b id="oPe">—</b></div><div><span>P(this or higher)</span><b id="oPg">—</b></div></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-l" style="margin-bottom:10px"><span>Probability of each total</span><em class="mu" id="hN">—</em></div><div id="hist" style="display:flex;align-items:flex-end;gap:1px;height:140px;position:relative"></div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin-top:4px"><span id="hMin">—</span><span id="hLeg"></span><span id="hMax">—</span></div></section>
+<section class="sx-card" style="padding:20px"><div class="sx-au-tiles"><div><span>Std deviation</span><b id="oSd">—</b><small>spread of the total</small></div><div><span>Percentile rank</span><b id="oPr">—</b><small>share of rolls below this</small></div></div></section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy result</span></button><button data-action="share" type="button"><span aria-hidden="true" class="msym">link</span>Share link</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+<section class="sx-card sx-mt-sec cp-hide"><div class="hd"><div><h2>Common dice compared</h2><p>Exact figures for the expressions used most in tabletop games. The last column is the chance of rolling the highest possible total.</p></div></div>
+<div class="sx-tblwrap"><table class="sx-tbl" style="min-width:600px"><thead><tr><th>Roll</th><th class="n">Min</th><th class="n">Max</th><th class="n">Mean</th><th class="n">Std dev</th><th class="n">Variance</th><th class="n">P(max)</th></tr></thead><tbody><tr><td class="a">1d4</td><td class="n">1</td><td class="n">4</td><td class="n">2.500</td><td class="n">1.118</td><td class="n">1.250</td><td class="n">25.000%</td></tr><tr><td class="a">1d6</td><td class="n">1</td><td class="n">6</td><td class="n">3.500</td><td class="n">1.708</td><td class="n">2.917</td><td class="n">16.667%</td></tr><tr><td class="a">1d8</td><td class="n">1</td><td class="n">8</td><td class="n">4.500</td><td class="n">2.291</td><td class="n">5.250</td><td class="n">12.500%</td></tr><tr><td class="a">1d10</td><td class="n">1</td><td class="n">10</td><td class="n">5.500</td><td class="n">2.872</td><td class="n">8.250</td><td class="n">10.000%</td></tr><tr><td class="a">1d12</td><td class="n">1</td><td class="n">12</td><td class="n">6.500</td><td class="n">3.452</td><td class="n">11.917</td><td class="n">8.333%</td></tr><tr><td class="a">1d20</td><td class="n">1</td><td class="n">20</td><td class="n">10.500</td><td class="n">5.766</td><td class="n">33.250</td><td class="n">5.000%</td></tr><tr><td class="a">2d6</td><td class="n">2</td><td class="n">12</td><td class="n">7.000</td><td class="n">2.415</td><td class="n">5.833</td><td class="n">2.778%</td></tr><tr><td class="a">3d6</td><td class="n">3</td><td class="n">18</td><td class="n">10.500</td><td class="n">2.958</td><td class="n">8.750</td><td class="n">0.463%</td></tr><tr><td class="a">4d6 keep highest 3</td><td class="n">3</td><td class="n">18</td><td class="n">12.245</td><td class="n">2.847</td><td class="n">8.105</td><td class="n">1.620%</td></tr><tr><td class="a">2d20 keep highest 1</td><td class="n">1</td><td class="n">20</td><td class="n">13.825</td><td class="n">4.711</td><td class="n">22.194</td><td class="n">9.750%</td></tr></tbody></table></div></section>
+<section class="sx-card sx-mt-sec cp-hide"><h2>Formulas</h2><p>How the numbers are worked out.</p><div class="sx-au-fx"><div><div class="ic"><span aria-hidden="true" class="msym">functions</span></div><h3>Mean and variance</h3><p>For one die with s sides, then added up for n dice.</p><code>mean = n × (s + 1) ÷ 2<br/>variance = n × (s² − 1) ÷ 12</code></div><div><div class="ic"><span aria-hidden="true" class="msym">bar_chart</span></div><h3>Exact probability of a total</h3><p>Counted by combining the dice one at a time. With keep or drop rules, every combination is counted when there are few, otherwise the chart is simulated.</p><code>P(total = k) = ways to make k ÷ s<sup>n</sup></code></div><div><div class="ic"><span aria-hidden="true" class="msym">shuffle</span></div><h3>Fair random rolls</h3><p>Rolls use the browser's secure random generator. Values that would bias the result are discarded and redrawn.</p><code>roll = (random mod s) + 1, redraw if in the biased tail</code></div></div></section>
+<section class="sx-mt-sec sx-card cp-hide"><h2>Worked examples</h2><p>Illustrative figures, each checked by hand. The first is the default setup.</p><div class="sx-mt-3"><div><h3>Ability score</h3><p>4d6, drop the lowest (4d6kh3), plus 2 (the default).</p><div class="sx-mt-ex">mean of 4d6kh3 = <b>12.24</b>, so with +2 the mean is <b>14.24</b><br/>range 3 to 18 before the modifier, 5 to 20 after</div></div><div><h3>Advantage</h3><p>Roll two d20 and keep the higher.</p><div class="sx-mt-ex">mean of 2d20kh1 = <b>13.825</b> against 10.50 for one d20<br/>P(20) = 1 − (19/20)² = <b>9.75%</b></div></div><div><h3>Fireball</h3><p>8d6.</p><div class="sx-mt-ex">mean = 8 × 3.5 = <b>28</b><br/>std dev = √(8 × 35 ÷ 12) = <b>4.83</b></div></div></div></section>
+<section class="sx-card sx-method cp-hide"><div class="sx-guide"><h2>How to use the dice roller</h2><ul><li>Type an expression such as 2d6+3, or tap dice and presets to build one.</li><li>Roll the dice. Dropped dice are shown struck through.</li><li>Read the expected value, chance of this result, and the probability chart.</li><li>Run 10,000 rolls to compare the simulation with the exact odds.</li></ul><p>Rolls are random. Past results do not change future odds.</p><p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 29 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p><h2>Sources</h2><ul class="sx-mt-src" style="padding-left:20px"><li>Feller, W., <i>An Introduction to Probability Theory and Its Applications</i>, vol. 1, ch. 1 and 6.</li><li>MDN Web Docs, <i>Crypto.getRandomValues()</i>.</li><li>NIST, <i>SP 800-90A, Recommendation for Random Number Generation</i>.</li></ul><h2>Frequently asked questions</h2><details class="sx-faq"><summary>What does 4d6kh3 mean?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Roll four six-sided dice and keep the highest three. It is a common way to generate character ability scores, giving an average of about 12.24.</p></details><details class="sx-faq"><summary>What is advantage and disadvantage?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Advantage is rolling two d20 and keeping the higher (2d20kh1). Disadvantage keeps the lower (2d20kl1).</p></details><details class="sx-faq"><summary>Are the rolls truly random?<span aria-hidden="true" class="msym">expand_more</span></summary><p>They come from the browser's cryptographic random source, which is suitable for games. Values that would cause modulo bias are discarded.</p></details><details class="sx-faq"><summary>What are exploding dice?<span aria-hidden="true" class="msym">expand_more</span></summary><p>When a die shows its highest number you roll it again and add the result, repeating while it keeps showing the maximum.</p></details><details class="sx-faq"><summary>Why do sums cluster in the middle?<span aria-hidden="true" class="msym">expand_more</span></summary><p>There are more ways to make middle totals. With 2d6, seven can be made six ways while two can be made only one way.</p></details></div></section>
+<div class="sx-au-relh cp-hide"><div><h2>Related calculators</h2><p>More everyday tools.</p></div><a href="/other-calculators.html">All Everyday Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-au-rel cp-hide"><a class="sx-card" href="/other/password-generator.html"><span class="ic"><span aria-hidden="true" class="msym">password</span></span><b>Password Generator</b><span class="d">Strong random passwords.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/math/probability-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">casino</span></span><b>Probability Calculator</b><span class="d">Chance of events.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">functions</span></span><b>Standard Deviation</b><span class="d">Spread of data.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a><a class="sx-card" href="/other/golf-handicap-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">sports_golf</span></span><b>Golf Handicap</b><span class="d">Handicap from scores.</span><span class="f">Open<span aria-hidden="true" class="msym">arrow_forward</span></span></a></div>
+<div class="sx-card sx-hh-embed cp-hide" id="embed"><div><h2><span aria-hidden="true" class="msym" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Dice Roller</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div><div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/dice-roller.html" width="100%" height="560" loading="lazy" title="Dice Roller"&gt;&lt;/iframe&gt;</code><button class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyE">Copy code</span></button></div></div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/other/dice-roller.html?ref=widget" target="_blank" rel="noopener">
@@ -206,7 +91,8 @@ step="1"min="2">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/dice.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/dice-roller.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

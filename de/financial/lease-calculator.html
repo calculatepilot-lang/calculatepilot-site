@@ -1,1 +1,400 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Auto-Leasing-Rechner | CalculatePilot</title><meta name="description" content="Berechnen Sie kostenlos eine geschätzte monatliche Leasingrate für ein Auto."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/lease-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/lease-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/lease-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/lease-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/lease-calculator.html"><link rel="stylesheet" href="/css/styles.css"></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a></div></header><main><section class="calc-page-head"><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzen</a> / Leasing</nav><h1>Auto-Leasing-Rechner</h1><p class="lede">Schätzen Sie Ihre monatliche Leasingrate anhand von Fahrzeugpreis, Anzahlung, Restwert und Zinssatz.</p></div></section><section class="section"><div class="container"><div class="calculator-card"><label>Fahrzeugpreis <input id="price" type="number" value="30000"></label><label>Anzahlung <input id="down" type="number" value="3000"></label><label>Restwert (%) <input id="res" type="number" value="55"></label><label>Laufzeit (Monate) <input id="months" type="number" value="36"></label><label>Jahreszins (%) <input id="rate" type="number" value="6"></label><button onclick="calc()">Berechnen</button><div id="result"></div></div><div class="prose"><h2>So funktioniert die Schätzung</h2><p>Die Schätzung berücksichtigt Wertverlust und Finanzierungskosten. Steuern, Gebühren, Kilometerbegrenzungen und Vertragsbedingungen können die tatsächliche Rate verändern.</p></div></div></section></main><script>function calc(){const p=+price.value,d=+down.value,r=+res.value/100,m=+months.value,a=+rate.value/100/12;const cap=p-d,rv=p*r,dep=(cap-rv)/m,fin=(cap+rv)*a/2;result.innerHTML='<h2>Geschätzte Monatsrate: '+(dep+fin).toLocaleString('de-DE',{style:'currency',currency:'EUR'})+'</h2>';}</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto-Leasing-Rechner | CalculatePilot</title>
+<meta name="description" content="Berechnen Sie Ihre voraussichtliche monatliche Leasingrate für ein Auto anhand von Fahrzeugpreis, Restwert, Laufzeit und Money Factor.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/lease-calculator.html"
+<meta property="og:locale" content="de_DE">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/lease-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/lease-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/lease-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/lease-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/lease-calculator.html">
+<meta property="og:title" content="Auto-Leasing-Rechner | CalculatePilot">
+<meta property="og:description" content="Berechnen Sie Ihre voraussichtliche monatliche Leasingrate für ein Auto anhand von Fahrzeugpreis, Restwert, Laufzeit und Money Factor. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/lease-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auto-Leasing-Rechner | CalculatePilot">
+<meta name="twitter:description" content="Berechnen Sie Ihre voraussichtliche monatliche Leasingrate für ein Auto anhand von Fahrzeugpreis, Restwert, Laufzeit und Money Factor. Kostenlos, sofort, mit Formel. Ohne Anmeldung.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Autoleasing-Rechner",
+ "url": "https://www.calculatepilot.com/de/financial/lease-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Berechnen Sie Ihre voraussichtliche monatliche Leasingrate für ein Auto anhand von Fahrzeugpreis, Restwert, Laufzeit und Money Factor. Keine Anmeldung nötig. CalculatePilot erklärt die",
+ "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Startseite",
+   "item": "https://www.calculatepilot.com/de/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Finanzrechner",
+   "item": "https://www.calculatepilot.com/de/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Autoleasing-Rechner",
+   "item": "https://www.calculatepilot.com/de/financial/lease-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Was ist der Unterschied zwischen Money Factor und effektivem Jahreszins (APR)?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Der Money Factor ist eine kleine Dezimalzahl, die Leasinggesellschaften statt eines Prozentsatzes verwenden — multiplizieren Sie den Money Factor mit 2400, um den ungefähr entsprechenden effektiven Jahreszins zu erhalten."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Senkt eine höhere Anzahlung immer meine monatliche Leasingrate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Im Allgemeinen ja, da sie die kapitalisierten Kosten verringert, die abgeschrieben und finanziert werden — allerdings birgt eine hohe Anzahlung beim Leasing ein größeres Risiko als beim Kauf, da dieses Geld nicht zurückzuholen ist, wenn das Auto früh in der Laufzeit einen Totalschaden erleidet."
+   }
+  }
+ ],
+ "inLanguage": "de"
+}
+</script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,account_balance_wallet,arrow_forward,balance,build,chevron_right,compare_arrows,credit_card,directions_car,expand_more,functions,insights,payments,percent,picture_as_pdf,query_stats,restart_alt,savings,share,speed,terminal,thumb_down,thumb_up,thumbs_up_down,trending_down,tune,verified_user&display=block">
+<!-- /cpx-head-extra -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/de/guides/">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="leaseCalc">
+<nav class="sx-crumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/de/financial-calculators.html">Finanzrechner</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Autoleasing-Rechner</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Transparenz-Rechner für Händler-Leasing</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Präzision im Browser</span></div>
+    <h1>Autoleasing-Rechner</h1>
+    <p>Zerlegen Sie monatliche Leasingraten in Wertverlustanteil, Finanzierungsanteil, Money-Factor-Umrechnung und Beschaffungskosten.</p>
+  </div>
+  <div class="sx-au-hbtns">
+    <button type="button" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Standardwerte zurücksetzen</button>
+    <button type="button" data-action="share"><span class="msym" aria-hidden="true">share</span>Berechnung teilen</button>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="sx-ibox lo"><span class="msym" aria-hidden="true">tune</span></span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Leasing-Parameter</h2><p>Preisschild, kapitalisierte Kosten und Finanzierungsfaktoren eingeben</p></div></div>
+    <span class="sx-au-tag">Money-Factor-Methode</span>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="msrp">UVP / Listenpreis</label><em class="mu">Gesamter Basispreis laut Monroney-Label</em></div><div class="sx-au-in"><span class="pre">$</span><input id="msrp" type="number" inputmode="decimal" min="0" step="500" value="48000"></div></div>
+      <div><div class="sx-au-l"><label for="price">Verhandelter Verkaufspreis</label><em id="discNote">7,29 % Händlerrabatt</em></div><div class="sx-au-in"><span class="pre">$</span><input id="price" type="number" inputmode="decimal" min="0" step="500" value="44500"></div></div>
+    </div>
+
+    <div class="sx-au-g2">
+      <div>
+        <div class="sx-au-l"><label for="resRange">Restwert</label><em id="resNote">56.0% <small>($26,880)</small></em></div>
+        <input type="hidden" id="resPct" value="56">
+        <div class="sx-au-range"><input id="resRange" class="sx-range2" type="range" min="40" max="75" step="0.5" value="56" data-sync="resPct" aria-label="Restwert, Prozent der UVP"></div>
+        <div class="sx-au-range"><div class="sx-scale"><span id="resLo">40 % (19,2k $)</span><b>56 % Standard</b><span id="resHi">75 % (36,0k $)</span></div></div>
+      </div>
+      <div>
+        <div class="sx-au-l"><span>Leasinglaufzeit (Dauer)</span></div>
+        <input type="hidden" id="term" value="36">
+        <div class="sx-au-opts" role="group" aria-label="Leasinglaufzeit"><button type="button" data-for="term" data-value="24">24 Mon.</button><button type="button" data-for="term" data-value="36">36 Mon.</button><button type="button" data-for="term" data-value="39">39 Mon.</button><button type="button" data-for="term" data-value="48">48 Mon.</button></div>
+      </div>
+    </div>
+
+    <div class="sx-au-mf">
+      <div class="h"><b><span class="msym" aria-hidden="true">percent</span>Money Factor (Leasingfaktor) &amp; entsprechender effektiver Jahreszins</b><span>Standard-Formelkonstante 2.400</span></div>
+      <div class="sx-au-g2" style="gap:12px">
+        <div><label class="sub" for="mf">Money Factor (Dezimalzahl)</label><div class="sx-au-in np"><input id="mf" type="number" inputmode="decimal" min="0" max="0.02" step="0.00005" value="0.00225"></div></div>
+        <div><span class="sub">Entsprechender effektiver Jahreszins</span><div class="sx-au-apr" aria-live="polite"><b id="aprOut">5.40%</b><span id="aprEq">= 0.00225 × 2400</span></div></div>
+      </div>
+    </div>
+
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="down">Kapitalreduzierung / Anzahlung</label></div><div class="sx-au-in"><span class="pre">$</span><input id="down" type="number" inputmode="decimal" min="0" step="250" value="2500"></div></div>
+      <div><div class="sx-au-l"><label for="rebate">Herstellerrabatte &amp; E-Auto-Prämien</label></div><div class="sx-au-in"><span class="pre">$</span><input id="rebate" type="number" inputmode="decimal" min="0" step="250" value="1000"></div></div>
+    </div>
+
+    <div class="sx-au-g3">
+      <div><div class="sx-au-l"><label for="acq">Bereitstellungsgebühr</label></div><div class="sx-au-in sm"><span class="pre">$</span><input id="acq" type="number" inputmode="decimal" min="0" step="25" value="895"></div></div>
+      <div><div class="sx-au-l"><label for="disp">Rückgabegebühr</label></div><div class="sx-au-in sm"><span class="pre">$</span><input id="disp" type="number" inputmode="decimal" min="0" step="25" value="395"></div></div>
+      <div><div class="sx-au-l"><label for="tax">Umsatzsteuersatz (%)</label></div><div class="sx-au-in sm np pc"><input id="tax" type="number" inputmode="decimal" min="0" max="20" step="0.25" value="8.00"><span class="suf">%</span></div></div>
+    </div>
+
+    <div class="sx-au-g2">
+      <div>
+        <div class="sx-au-l"><span>Jährliche Fahrleistungsstufe</span></div>
+        <input type="hidden" id="miles" value="12000">
+        <div class="sx-au-opts c3" role="group" aria-label="Jährliche Freikilometer"><button type="button" data-for="miles" data-value="10000">10,000 mi</button><button type="button" data-for="miles" data-value="12000">12,000 mi</button><button type="button" data-for="miles" data-value="15000">15,000 mi</button></div>
+      </div>
+      <div>
+        <div class="sx-au-l"><span>Steuermodus</span></div>
+        <input type="hidden" id="taxMode" value="monthly">
+        <div class="sx-au-opts c2 rad" role="group" aria-label="Wie die Umsatzsteuer erhoben wird"><button type="button" data-for="taxMode" data-value="monthly"><i></i>Monatliche Rate</button><button type="button" data-for="taxMode" data-value="upfront"><i></i>Kapitalisierte Kosten (Vorabzahlung)</button></div>
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" class="sx-cta sx-au-cta"><span class="msym" aria-hidden="true">insights</span>Leasingrate &amp; Gebührenaufbau berechnen</button>
+      <p class="sx-au-note">Sofortige, deterministische lokale Berechnung. Keine Telemetriedaten werden an Dritte übermittelt.</p>
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-pay" aria-live="polite">
+    <div class="deco"></div>
+    <div class="hd"><span class="sx-kick">Gesamte monatliche Belastung</span><span class="sx-pill2" id="termPill">36 Monate</span></div>
+    <div class="phero"><b id="resultValue">—</b><span>/ Monat</span></div>
+    <div class="sx-au-sub"><span>Basisrate: <b id="basePay">—</b></span><i></i><span><span id="taxLbl">Monatliche Steuer (8 %):</span> <b id="taxPay">—</b></span></div>
+    <div class="sx-au-anat">Aufschlüsselung der Ratenzusammensetzung<span id="anatTot">100 % von —</span></div>
+    <div class="sx-au-bar" id="anatBar"></div>
+    <div class="sx-au-li">
+      <div><span><i style="background:var(--sx-pc)"></i>Wertverlustanteil</span><b id="itDep">—</b></div>
+      <div><span><i style="background:var(--sx-secondary)"></i>Finanzierungsanteil (Zinsen)</span><b id="itRent">—</b></div>
+      <div><span><i style="background:var(--sx-outline)"></i><span id="itTaxLbl">Anfallende Umsatzsteuer</span></span><b id="itTax">—</b></div>
+    </div>
+  </section>
+
+  <section class="sx-card r2 sx-au-health">
+    <div class="hd"><h3>Bewertung des Angebots</h3><span class="sx-au-grade" id="grade"><span class="msym" aria-hidden="true">thumb_up</span><span id="gradeTxt">—</span></span></div>
+    <div class="sx-au-ratio">
+      <div class="r"><span>Die 1-%-Faustregel</span><b id="ratio">—</b></div>
+      <div class="t"><span id="ratioBar"></span></div>
+      <p id="ratioTxt">—</p>
+    </div>
+    <div class="sx-au-tiles">
+      <div><span>Effektive Startzahlung</span><b id="driveOff">—</b><small id="driveNote">Anzahlung + 1. Rate + Bereitstellung</small></div>
+      <div><span id="outLbl">Gesamtkosten über 3 Jahre</span><b id="outlay">—</b><small id="outNote">36 Raten + Vorabzahlungen</small></div>
+    </div>
+    <div class="sx-au-acts">
+      <button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Tabelle exportieren</button>
+      <a href="#compare"><span class="msym" aria-hidden="true">compare_arrows</span>Kaufen vs. Leasen</a> <a href="/embed/lease-calculator.html" target="_blank" rel="noopener"><span class="msym" aria-hidden="true">terminal</span>Einbettungscode</a>
+    </div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card r2 sx-au-sec" id="compare">
+  <div class="sx-au-k">Vergleichende Finanzmodellierung</div>
+  <h2>Analyse: Leasing vs. klassischer Autokredit</h2>
+  <p class="lead" id="cmpLead">Ein direkter Vergleich: das Fahrzeug über die Leasinglaufzeit nutzen, es mit einem Kredit über dieselbe Laufzeit kaufen oder mit einem 72-Monats-Kredit kaufen.</p>
+  <div class="sx-scroll"><table class="sx-au-cmp">
+    <thead><tr><th scope="col">Bewertungskriterium</th><th scope="col" id="cH1">36-Monats-Leasing (modelliert)</th><th scope="col" id="cH2">Kauf mit 36-Monats-Kredit</th><th scope="col">72-Monats-Standardfinanzierung</th></tr></thead>
+    <tbody>
+      <tr><td><span><span class="msym" aria-hidden="true">credit_card</span>Monatliche Rate</span></td><td class="mono" id="cPay1">—</td><td class="mono" id="cPay2">—</td><td class="mono" id="cPay3">—</td></tr>
+      <tr><td><span><span class="msym" aria-hidden="true">payments</span>Fällig bei Vertragsabschluss</span></td><td class="mono" id="cDue1">—</td><td class="mono" id="cDue2">—</td><td class="mono" id="cDue3">—</td></tr>
+      <tr><td><span><span class="msym" aria-hidden="true">account_balance</span><span id="cEqLbl">Verbleibendes Eigenkapital nach Monat 36</span></span></td><td class="ok" id="cEq1">—</td><td id="cEq2">—</td><td id="cEq3">—</td></tr>
+      <tr><td><span><span class="msym" aria-hidden="true">speed</span>Kilometergrenzen</span></td><td id="cMi1">—</td><td>Unbegrenzt (Wertverlust beeinflusst den Wiederverkauf)</td><td>Unbegrenzt</td></tr>
+      <tr><td><span><span class="msym" aria-hidden="true">build</span>Wartungsrisiko</span></td><td class="ok" id="cMt1">—</td><td id="cMt2">—</td><td class="bad" id="cMt3">—</td></tr>
+      <tr><td><span><span class="msym" aria-hidden="true">savings</span><span id="cOutLbl">Gesamte Kapitalbelastung über 3 Jahre</span></span></td><td class="mono" id="cOut1">—</td><td class="mono" id="cOut2">—</td><td class="mono" id="cOut3">—</td></tr>
+      <tr class="tot"><td><span><span class="msym" aria-hidden="true">balance</span>Nettokosten nach Eigenkapital</span></td><td class="mono" id="cNet1">—</td><td class="mono" id="cNet2">—</td><td class="mono" id="cNet3">—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sx-au-cmpn" id="cmpNote">—</p>
+</section>
+
+<section class="sx-card r2 sx-au-sec" id="formula">
+  <div class="sx-au-k">Versicherungsmathematische Transparenz</div>
+  <h2>Die exakte Mathematik des Auto-Leasings</h2>
+  <p class="lead">Leasinggesellschaften kalkulieren ein Leasing mit zwei einfachen Formeln: Sie zahlen für den Wert, den das Auto während Ihrer Nutzung verliert, plus eine Finanzierungsgebühr auf das darin gebundene Kapital.</p>
+  <div class="sx-au-fx">
+    <div><span class="ic"><span class="msym" aria-hidden="true">trending_down</span></span><h3>1. Monatlicher Wertverlust</h3><p>Der erwartete Wertverlust des Autos, von den angepassten (netto) kapitalisierten Kosten bis zum garantierten Restwert, gleichmäßig über die Laufzeit verteilt.</p><code>Wertverlust = <b>(Netto-Kapitalkosten − Restwert)</b> ÷ Laufzeit</code></div>
+    <div><span class="ic"><span class="msym" aria-hidden="true">account_balance_wallet</span></span><h3>2. Finanzierungsanteil (Rent Charge)</h3><p>Die Gebühr des Leasinggebers für das im Auto gebundene Kapital, jeden Monat auf die Summe aus Anfangs- und Endwert angewendet.</p><code>Finanzierungsanteil = <b>(Netto-Kapitalkosten + Restwert)</b> × Money Factor</code></div>
+    <div><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><h3>3. Die Konstante 2.400</h3><p>Die Addition von Kapitalkosten und Restwert zählt den durchschnittlichen Saldo doppelt (×2), der Zinssatz ist monatlich (×12) und der effektive Jahreszins ein Prozentsatz (×100): 100 × 12 × 2 = 2.400.</p><code><b>APR</b> = Money Factor × 2.400 <b>MF</b> = APR ÷ 2.400</code></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>So funktioniert dieser Rechner</h2>
+    <p>Die kapitalisierten Nettokosten sind der verhandelte Verkaufspreis abzüglich Ihrer Kapitalreduzierung (Anzahlung) und etwaiger Herstellerrabatte. Der Restwert ist ein Prozentsatz der UVP, wie ihn die Leasinggesellschaften festlegen. Die Basisrate ist der monatliche Wertverlust plus der Finanzierungsanteil, und die Umsatzsteuer wird entweder auf jede Rate aufgeschlagen oder, wo Ihr Bundesstaat Leasing vorab besteuert, bei Vertragsabschluss auf die Summe aller Raten erhoben. Die Bereitstellungsgebühr gilt als bei Vertragsabschluss gezahlt, die Rückgabegebühr als bei Rückgabe des Autos gezahlt. Die eigenen Zahlen der Leasinggesellschaften (und die steuerlichen Regeln der Bundesstaaten) können abweichen. Verstehen Sie das Ergebnis daher als Schätzung, die Sie mit der Leasingkalkulation des Händlers abgleichen sollten.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Von Suhaib Hassan · Formel geprüft am 27. Sep. 2026 · <a href="/methodology.html">So prüft CalculatePilot Formeln →</a></p>
+
+    <h2>Wie sich Leasingraten zusammensetzen</h2>
+    <p>Eine Leasingrate besteht aus zwei Komponenten: einem Wertverlustanteil (der den Wert abdeckt, den das Auto während Ihrer Leasingzeit voraussichtlich verliert) und einem Finanzierungsanteil (im Kern Zinsen auf das im Fahrzeug gebundene Kapital, ähnlich den Kreditzinsen). Dieser Rechner schlüsselt beide Teile auf, damit Sie sehen, wohin Ihre Rate tatsächlich fließt.</p>
+    <p>Der Restwert — der prognostizierte Wert des Autos am Leasingende — wird von der Leasinggesellschaft anhand der erwarteten Wertverlustkurve des Fahrzeugs festgelegt. Ein höherer Restwert bedeutet weniger Wertverlust, der während der Laufzeit abzuzahlen ist, und führt in der Regel zu einer niedrigeren monatlichen Rate.</p>
+
+    <h2>Money Factor und effektiven Jahreszins verstehen</h2>
+    <p>Leasinggesellschaften nennen üblicherweise einen „Money Factor“ statt eines effektiven Jahreszinses, was den Vergleich von Leasing- und Kreditangeboten verwirrend machen kann. Der Money Factor wird durch Multiplikation mit 2400 in den effektiven Jahreszins umgerechnet — ein Money Factor von 0,00125 entspricht also etwa 3 % effektivem Jahreszins. Dieser Rechner übernimmt den Money Factor direkt und zeigt den entsprechenden effektiven Jahreszins daneben an.</p>
+    <p>Ein niedrigerer Money Factor (oder effektiver Jahreszins) senkt direkt den Finanzierungsanteil Ihrer Rate — bei gut qualifizierten Käufern ist er oft verhandelbar, ähnlich wie der Zinssatz bei einem Autokredit. Wenn der Kauf für Sie sinnvoller ist, rechnen Sie dasselbe Fahrzeug im Vergleich mit unserem <a href="/de/financial/auto-loan-calculator.html">Autokredit-Rechner</a> durch.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <details class="sx-faq"><summary>Was ist der Unterschied zwischen Money Factor und effektivem Jahreszins (APR)?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Der Money Factor ist eine kleine Dezimalzahl, die Leasinggesellschaften statt eines Prozentsatzes verwenden — multiplizieren Sie den Money Factor mit 2400, um den ungefähr entsprechenden effektiven Jahreszins zu erhalten.</p></details>
+    <details class="sx-faq"><summary>Senkt eine höhere Anzahlung immer meine monatliche Leasingrate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Im Allgemeinen ja, da sie die kapitalisierten Kosten verringert, die abgeschrieben und finanziert werden — allerdings birgt eine hohe Anzahlung beim Leasing ein größeres Risiko als beim Kauf, da dieses Geld nicht zurückzuholen ist, wenn das Auto früh in der Laufzeit einen Totalschaden erleidet.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Ergänzende Auto- &amp; Kapitalrechner</h2><p>Bewerten Sie Kaufkraft, Erschwinglichkeit und Kreditkosten.</p></div>
+  <a href="/de/financial-calculators.html">Alle 52 Finanz-Tools entdecken<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/de/financial/auto-loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">directions_car</span></span><b>Autokreditrechner</b><span class="d">Monatliche Autokreditraten mit Inzahlungnahme, Umsatzsteuer und vollständigem Tilgungsplan.</span><span class="f">Kredit berechnen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/car-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Auto-Erschwinglichkeit (20/4/10)</b><span class="d">Wenden Sie die gängige Richtlinie an: 20 % Anzahlung, maximal 4 Jahre Laufzeit und höchstens 10 % des monatlichen Bruttoeinkommens.</span><span class="f">Erschwinglichkeit prüfen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/loan-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Kreditrechner</b><span class="d">Monatliche Rate und Gesamtzinsen für jeden Kredit mit festem Zinssatz.</span><span class="f">Kredit kalkulieren<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/amortization-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>Tilgungsrechner</b><span class="d">Sehen Sie, wie sich jede Rate über die Laufzeit eines Kredits in Tilgung und Zinsen aufteilt.</span><span class="f">Tilgungsplan ansehen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot auf Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/de/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/de/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/de/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/de/financial/mortgage-calculator.html">Hypothek</a></li>
+          <li><a href="/de/financial/uk-stamp-duty-calculator.html">Stamp Duty (UK)</a></li>
+          <li><a href="/de/financial/compound-interest-calculator.html">Zinseszins</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/de/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/de/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/de/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+          <li><a href="/de/health/bmi-calculator.html">BMI</a></li>
+          <li><a href="/de/health/macro-calculator.html">Makros</a></li>
+          <li><a href="/de/health/calorie-calculator.html">Kalorien</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/de/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/de/other/age-calculator.html">Alter</a></li>
+          <li><a href="/de/math/percentage-calculator.html">Prozent</a></li>
+          <li><a href="/de/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/de/math/quadratic-formula-calculator.html">Quadratische Formel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/de/guides/">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — ziehen Sie für finanzielle oder medizinische Entscheidungen einen Fachmann hinzu. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span> <span><a href="/embed/lease-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/de/lease.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

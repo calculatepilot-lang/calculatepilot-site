@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Savings Goal Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,autorenew,bolt,calculate,calendar_month,chevron_right,download,expand_more,lock,picture_as_pdf,pie_chart,receipt_long,restart_alt,shield,show_chart,speed,stacked_line_chart,table_chart,timelapse,timeline,trending_up,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,83 +38,141 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Savings Goal Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="goalAmount">Savings goal ($)</label>
-          <input type="number" id="goalAmount" value="20000"
-step="500"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="currentSavings">Current savings ($)</label>
-          <input type="number" id="currentSavings" value="3000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="monthlyContribution">Monthly contribution ($)</label>
-          <input type="number" id="monthlyContribution" value="500"
-step="25"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="annualReturn">Expected annual return (%)</label>
-          <input type="number" id="annualReturn" value="3"
-step="0.1"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Time to reach your goal</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total months needed</span><span id="outTotalMonths">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="sgCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Savings Goal Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<h1>Savings Goal Calculator &amp; Timeline Forecaster</h1>
+<p>Work out the monthly savings needed to hit any goal by a target date — or how long it will take at the amount you can save — including the interest your savings earn along the way.</p>
 </div>
+<div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Cash Accumulation Model</span><span class="sx-badge"><span aria-hidden="true" class="msym">timeline</span>Milestone Pace Analysis</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Zero Data Stored</span></div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Target Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Savings Goal Objective</span></div>
+<div class="sx-sg-chips" id="goalChips"><button data-g="60000" type="button">Home Down Payment ($60,000)</button><button data-g="15000" type="button">New Vehicle ($15,000)</button><button data-g="30000" type="button">Wedding ($30,000)</button><button data-g="25000" type="button">Sabbatical ($25,000)</button><button data-g="custom" type="button">Custom</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="goal">Target Savings Amount</label><em class="mu">Goal target</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="goal" inputmode="decimal" min="0" step="500" type="number" value="50000"/></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="start">Starting Current Savings</label><em class="mu">Liquid principal</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="start" inputmode="decimal" min="0" step="500" type="number" value="12000"/></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Target Horizon Mode</span></div>
+<input id="mode" type="hidden" value="time"/>
+<div aria-label="Horizon mode" class="sx-seg" role="group" style="display:flex"><button data-for="mode" data-value="time" id="mT" style="flex:1" type="button">Fixed Timeframe</button><button data-for="mode" data-value="budget" id="mB" style="flex:1" type="button">Fixed Monthly Budget</button></div>
+</div>
+<div id="timeRow">
+<div class="sx-au-l"><label for="monR">Target Timeframe</label><em id="monOut">36 Months (3.0 Years)</em></div>
+<input id="mon" type="hidden" value="36"/>
+<input aria-label="Months to goal" class="sx-range2" data-sync="mon" id="monR" max="120" min="3" step="1" type="range" value="36"/>
+<div aria-label="Timeframe presets" class="sx-au-opts" role="group" style="margin-top:10px"><button data-for="mon" data-value="12" type="button">1 Yr</button><button data-for="mon" data-value="24" type="button">2 Yr</button><button data-for="mon" data-value="36" type="button">3 Yr</button><button data-for="mon" data-value="60" type="button">5 Yr</button></div>
+</div>
+<div hidden="" id="budRow">
+<div class="sx-au-l"><label for="bud">Monthly Contribution</label></div>
+<div class="sx-au-in pc"><span class="pre">$</span><input id="bud" inputmode="decimal" min="0" step="25" type="number" value="800"/><span class="suf">/ mo</span></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="apy">Expected Annual Yield (APY)</label><em class="mu">Compounds monthly</em></div>
+<div class="sx-au-in np pc"><input id="apy" inputmode="decimal" max="20" min="0" step="0.05" type="number" value="4.50"/><span class="suf">%</span></div>
+<div aria-label="Yield examples" class="sx-au-opts c2" role="group" style="margin-top:8px"><button data-for="apy" data-value="4.5" style="justify-content:space-between;padding:0 10px" type="button"><span>High-yield example</span><b>4.50%</b></button><button data-for="apy" data-value="0.5" style="justify-content:space-between;padding:0 10px" type="button"><span>Traditional example</span><b>0.50%</b></button></div>
+<p class="sx-au-help">Use your account's actual APY — rates change often. Set 0% for a non-interest account.</p>
+</div>
+<div>
+<div class="sx-au-l"><span>Deposit Timing</span></div>
+<input id="due" type="hidden" value="1"/>
+<div aria-label="Deposit timing" class="sx-au-cat" role="group"><button data-for="due" data-value="1" type="button"><i></i><span><b>Beginning of Month</b><small>Annuity due (+yield)</small></span></button><button data-for="due" data-value="0" type="button"><i></i><span><b>End of Month</b><small>Ordinary annuity</small></span></button></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span><span id="ctaTxt">Calculate Required Monthly Savings</span></button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-sg-hero">
+<div class="hd"><span class="sx-kick" id="heroK">Prescribed Savings Velocity</span><span class="sx-ef-grade" id="hit">—</span></div>
+<div class="big"><span id="resultValue">—</span><small id="heroU">/ month</small></div>
+<p class="note" id="heroNote">—</p>
+<div class="sx-au-tiles c4 card">
+<div><span>Net Capital Needed</span><b id="need">—</b><small id="needN">—</small></div>
+<div><span>Personal Deposits</span><b id="dep">—</b><small id="depN">—</small></div>
+<div class="hl"><span>Interest Earned</span><b class="g" id="int">—</b><small id="intN">—</small></div>
+<div><span>Interest Cushion</span><b id="cush">—</b><small>Share of goal funded by interest</small></div>
+</div>
+</section>
+<section class="sx-card r2 sx-ry-wf sx-sg-comp">
+<div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px"><span aria-hidden="true" class="msym">stacked_line_chart</span>Target Funding Composition</b><b id="goalLbl">—</b></div>
+<div class="bar" id="cBar"></div>
+<div class="lg" id="cLg"></div>
+</section>
+<section class="sx-card r2 sx-ry-wf">
+<div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px"><span aria-hidden="true" class="msym">speed</span>Pace Sensitivity Scenarios</b></div>
+<p style="margin:-4px 0 14px;font-size:12px;color:var(--sx-muted)">How saving more or less each month moves your finish date.</p>
+<div class="sx-sg-pace" id="pace"></div>
+<div class="sx-in-acts"><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Download Milestone Roadmap</button><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Export Schedule PDF</button><button id="bwBtn" type="button"><span aria-hidden="true" class="msym">calendar_month</span>Bi-Weekly Equivalent</button></div>
+<p class="sx-sg-bw" hidden="" id="bwTxt">—</p>
+</section>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2 style="display:flex;align-items:center;gap:8px"><span aria-hidden="true" class="msym">table_chart</span>Itemized Milestone Progression Ledger</h2><p>Principal growth, interest and progress toward your goal.</p></div>
+<input id="view" type="hidden" value="key"/><div aria-label="Ledger view" class="sx-seg md" role="group"><button data-for="view" data-value="key" type="button">Key Milestones</button><button data-for="view" data-value="all" id="allBtn" type="button">Monthly View</button></div></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Period</th><th scope="col">Monthly Deposit</th><th scope="col">Interest Earned</th><th scope="col">Cumulative Interest</th><th scope="col">Total Saved</th><th scope="col">% Goal Reached</th><th scope="col">Status</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+</section>
+<section class="sx-au-plain cp-hide" style="border:0;padding-top:0">
+<h2>Behavioral Savings Science &amp; Optimization</h2>
+<p class="lead">Simple habits that keep your savings on track.</p>
+<div class="sx-au-2c" style="margin-bottom:0">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">autorenew</span></span><h3>The "Pay Yourself First" Principle</h3><p>Automating a transfer to savings right after each payday means you save before you spend, instead of relying on whatever is left at the end of the month — which often turns out to be very little.</p><div class="sx-sg-take"><b>Takeaway:</b> schedule an automatic transfer for the day after payday so saving happens without a decision.</div></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">trending_up</span></span><h3>The Deposit Timing Advantage</h3><p>Depositing at the start of each month instead of the end gives every contribution an extra month of interest. The effect is small but free.</p><div class="sx-sg-take" id="dueTake">—</div></div>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>A flexible tool for any savings goal</h2>
+<p>Unlike calculators built around a specific purpose (retirement, a house down payment, college), this one works for any savings target — a wedding, a vacation, a new car, a business investment, or simply a general savings milestone. Choose a timeframe to see the monthly amount you need, or switch to a fixed monthly budget to see how long it will take.</p>
+<p>The yield field is optional in effect — set it to 0% if your savings are sitting in a non-interest-bearing account, or use your account's APY if it's in a high-yield savings account or similar low-risk vehicle.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>How increasing your contribution changes the timeline</h2>
+<p>Because this calculation compounds monthly, even modest increases to your monthly contribution can meaningfully shorten your timeline, especially for longer-term goals — the pace scenarios above show the trade-off between saving more aggressively now versus a longer, more comfortable timeline.</p>
+<p>If reaching your goal feels too slow at your current contribution rate, this calculator makes it concrete exactly how much increasing your monthly amount would speed things up, which can help make a decision to save more feel more motivating than abstract.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What if I don't earn any interest on my savings?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Set the annual return field to 0% — the calculator will then simply project based on your contributions alone, without any compounding growth added.</p></details>
+<details class="sx-faq"><summary>What does it mean if the calculator says my goal isn't reachable?<span aria-hidden="true" class="msym">expand_more</span></summary><p>This appears if your monthly contribution and return rate combined wouldn't reach the goal within 50 years — in that case, consider increasing your monthly contribution or adjusting your goal amount or timeline expectations.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Budgeting &amp; Capital Calculators</h2><p>Tools to set your savings rate and grow your wealth.</p></div>
+<a href="/financial-calculators.html">View all financial tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>50/30/20 Budget</b><span class="d">Split take-home pay between needs, wants and savings.</span><span class="f">Budgeting Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">shield</span></span><b>Emergency Fund</b><span class="d">Size a 3 to 12-month cash cushion for your essentials.</span><span class="f">Liquidity Engine<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Paycheck Calculator</b><span class="d">Net pay after federal, state and FICA taxes.</span><span class="f">Income Tax Model<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">show_chart</span></span><b>Compound Interest</b><span class="d">Long-term growth with regular deposits.</span><span class="f">Wealth Accumulator<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/savings-goal-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -241,40 +181,9 @@ step="0.1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/avings-goal.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/savings-goal.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

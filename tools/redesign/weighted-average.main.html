@@ -1,0 +1,145 @@
+<div class="sx" id="waCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Weighted Average Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Σ(w·x) ÷ Σw</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Weighted Average Calculator</h1>
+    <p>Calculate a weighted average from values and their weights — course grades, GPA, portfolio returns or scored criteria — with the weight-by-weight breakdown, the impact versus a simple average, and every step of the working.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The formula and both worked examples on this page are re-derived by hand before publishing. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It multiplies each value by its weight, adds the products, and divides by the total of the weights. Weights can be percentages, credits, dollars or any other size measure.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Weights rarely sum to exactly 100. This tool works either way, shows each item's share of the result, and compares it with the plain average.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div><h2 class="sx-h-md" style="margin:0">Values &amp; weights</h2><p>Enter each value and how much it counts.</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="ex">Preset</label></div><select id="ex" class="sx-mt-sel"><option value="grades">College grades (percent weights)</option><option value="gpa">GPA (credit-hour weights)</option><option value="port">Portfolio return (dollar weights)</option><option value="vendor">Vendor scoring (criteria weights)</option><option value="blank">Blank table</option></select></div>
+      <div><div class="sx-au-l"><label for="prec">Decimal places</label></div><select id="prec" class="sx-mt-sel"><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
+    </div>
+    <div>
+      <input type="hidden" id="pctMode" value="s1">
+      <div class="sx-au-l"><span>Weights are…</span></div>
+      <div class="sx-seg full" role="group" aria-label="Weight type"><button type="button" data-for="pctMode" data-value="s1">Percentages (should total 100)</button><button type="button" data-for="pctMode" data-value="s2">Any size measure</button></div>
+      <p class="sx-au-help" id="wHelp">—</p>
+    </div>
+    <div class="sx-scroll"><table class="sx-mt-tbl-in" id="tbl" style="min-width:460px"><thead><tr><th scope="col" style="width:32px">#</th><th scope="col">Item</th><th scope="col" style="width:22%">Value (x)</th><th scope="col" style="width:22%">Weight (w)</th><th scope="col" style="width:16%">Share</th><th scope="col" style="width:36px"><span class="sr-only" style="position:absolute;left:-9999px">Remove</span></th></tr></thead><tbody id="rows"></tbody></table></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><button type="button" class="sx-mt-add" id="addRow"><span class="msym" aria-hidden="true">add_circle</span>Add row</button><span class="sx-au-help" style="margin:0" id="rowN">—</span></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <template id="rowT"><tr><td class="mu"></td><td><input class="nm" type="text" maxlength="40" placeholder="Item name"></td><td><input class="vx" type="number" inputmode="decimal" step="any"></td><td><input class="wx" type="number" inputmode="decimal" step="any"></td><td class="sh mono" style="font-size:12px;color:var(--sx-muted)">—</td><td><button type="button" class="x" aria-label="Remove row"><span class="msym" aria-hidden="true">delete</span></button></td></tr></template>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate weighted average</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Weighted arithmetic mean (x̄<sub>w</sub>)</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Total of weights (Σw)</span><b id="sw">—</b></div><div><span>Simple average (unweighted)</span><b id="um">—</b></div></div>
+    <div class="gain neg" id="impact"><span>Weighting impact</span><b id="impV">—</b></div>
+    <div class="note" id="wNote" style="margin-top:8px">—</div>
+  </section>
+  <section class="sx-card" style="padding:18px 20px">
+    <div class="sx-au-l" style="margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-primary)">account_tree</span>Calculation step-by-step</span></div>
+    <ol class="sx-mt-steps" id="steps"></ol>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy steps</span></button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">download</span>Export CSV</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <h2>How the weighted average is derived</h2>
+  <p>A simple mean treats every observation as equally important. The weighted mean lets each observation count in proportion to its weight, so a heavy item moves the result more than a light one.</p>
+  <div class="sx-mt-2">
+    <div><h3>The formula</h3><div class="sx-mt-fx" style="padding:14px"><span class="k">Weighted arithmetic mean</span><span class="eq">x̄<sub>w</sub> = Σ(wᵢ · xᵢ) ÷ Σwᵢ</span></div><p style="margin-top:12px">Multiply each value xᵢ by its weight wᵢ, add those products, then divide by the sum of the weights. Dividing by Σw is what makes the result a true average whatever units the weights use.</p></div>
+    <div><h3>When weights are percentages</h3><div class="sx-mt-fx" style="padding:14px"><span class="k">Normalised weights</span><span class="eq">Σwᵢ = 100% (or 1.00)</span></div><p style="margin-top:12px">If the weights already total 100%, the denominator is 1 and the weighted mean is simply Σ(wᵢ · xᵢ) with each weight written as a fraction. If they do not total 100%, dividing by Σw rescales them automatically.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Variable glossary</h2><p>What each symbol means and what values it can take.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:600px">
+    <thead><tr><th scope="col">Symbol</th><th scope="col">Name</th><th scope="col">Allowed values</th><th scope="col">Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">x̄<sub>w</sub></td><td style="font-family:inherit">Weighted mean</td><td style="font-family:inherit">Between the smallest and largest x (for non-negative weights)</td><td style="font-family:inherit">The weighted average result.</td></tr>
+      <tr><td class="mono">xᵢ</td><td style="font-family:inherit">Observed value</td><td style="font-family:inherit">Any real number</td><td style="font-family:inherit">A score, return, rating or measurement.</td></tr>
+      <tr><td class="mono">wᵢ</td><td style="font-family:inherit">Weight</td><td style="font-family:inherit">Usually ≥ 0</td><td style="font-family:inherit">How much xᵢ counts: a percentage, credit hours, dollars invested, and so on.</td></tr>
+      <tr><td class="mono">Σwᵢ</td><td style="font-family:inherit">Sum of weights</td><td style="font-family:inherit">Must not be 0</td><td style="font-family:inherit">The denominator. If it is zero the mean is undefined.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Two worked examples</h2>
+  <p>Both are checked by hand, and both can be reproduced above (the second uses a different weight scale).</p>
+  <div class="sx-mt-2">
+    <div><h3>Course grade <span class="sx-mt-tag">percent weights</span></h3><p>A student scores 78 on homework (20%), 85 on the midterm (30%) and 92 on the final (50%).</p><div class="sx-mt-ex">Σ(w·x) = (0.20 × 78) + (0.30 × 85) + (0.50 × 92)<br>&nbsp;&nbsp;&nbsp;= 15.6 + 25.5 + 46.0 = 87.1<br>Σw = 0.20 + 0.30 + 0.50 = 1.00<br><b>Weighted average = 87.10 ÷ 1.00 = 87.10</b></div><p style="margin-top:10px">Contrast: the simple average is (78 + 85 + 92) ÷ 3 = 85.00. The heavy final exam lifts the result by 2.10 points.</p></div>
+    <div><h3>Portfolio return <span class="sx-mt-tag">dollar weights</span></h3><p>$50,000 earns 12%, $30,000 earns 8% and $20,000 earns 4%.</p><div class="sx-mt-ex">Σ(w·x) = (50,000 × 12) + (30,000 × 8) + (20,000 × 4)<br>&nbsp;&nbsp;&nbsp;= 600,000 + 240,000 + 80,000 = 920,000<br>Σw = 100,000<br><b>Weighted return = 920,000 ÷ 100,000 = 9.20%</b></div><p style="margin-top:10px">Contrast: the simple average is (12 + 8 + 4) ÷ 3 = 8.00%. The largest holding earns the most, so the portfolio return is 1.20 points higher.</p></div>
+  </div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Where weighted averages are used</h2>
+  <p>Wherever items are not equally important, a simple average misleads.</p>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">school</span><h3>Grades &amp; GPA</h3><p>Exams usually count for more than homework, and a 4-credit course counts for more than a 1-credit seminar in a grade point average.</p><span class="f">Weight: percent or credit hours</span></div>
+    <div><span class="msym" aria-hidden="true">account_balance</span><h3>Portfolio returns</h3><p>A portfolio's return is the average of its holdings' returns weighted by how much money is in each.</p><span class="f">Weight: amount invested</span></div>
+    <div><span class="msym" aria-hidden="true">checklist</span><h3>Scoring matrices</h3><p>Vendor or product scoring gives more weight to the criteria that matter most, such as security over appearance.</p><span class="f">Weight: priority</span></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What is a weighted average?</h2>
+    <p>A weighted average (weighted arithmetic mean) is an average in which each value counts according to an assigned weight. It is the right tool when some observations represent more of the total than others.</p>
+    <h2>How to calculate a weighted average</h2>
+    <ul>
+      <li>Multiply each value by its weight.</li>
+      <li>Add the products together.</li>
+      <li>Add the weights together.</li>
+      <li>Divide the sum of products by the sum of weights.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm" rel="noopener noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods — 1.3.5.1 Measures of location</a> (background on the arithmetic mean).</li>
+      <li>ISO 3534-1:2006, <i>Statistics — Vocabulary and symbols — Part 1: General statistical terms and terms used in probability</i>.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is the difference between a simple mean and a weighted average?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A simple mean gives every value the same importance: add and divide by the count. A weighted average lets each value count in proportion to its weight, so items with larger weights influence the result more.</p></details>
+    <details class="sx-faq"><summary>What happens if the weights do not add up to 100?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Nothing goes wrong: the calculation divides by the total of the weights, so it rescales them automatically. For example weights of 2, 3 and 5 give the same result as 20%, 30% and 50%. This page flags a total other than 100 only so you can check for a typing slip.</p></details>
+    <details class="sx-faq"><summary>Can weights be negative?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Mathematically the formula still works, but negative weights are unusual and can push the result outside the range of the values. In grading and finance weights are normally zero or positive, and this page warns you if any weight is negative.</p></details>
+    <details class="sx-faq"><summary>How does a zero weight affect the result?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A zero-weight item contributes nothing to the numerator or the denominator, so it does not change the weighted average. It still counts in the simple average shown for comparison.</p></details>
+    <details class="sx-faq"><summary>How do I calculate a GPA with this?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Enter each course's grade points (for example A = 4.0) as the value and its credit hours as the weight. The weighted average is your GPA on that scale. Check your institution's own grade-point conversion.</p></details>
+    <details class="sx-faq"><summary>What if the sum of weights is zero?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The average is undefined because the formula would divide by zero. Give at least one item a non-zero weight.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue your analysis.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/mean-median-mode-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">align_horizontal_center</span></span><b>Mean, Median &amp; Mode</b><span class="d">Central tendency measures for a list of numbers.</span><span class="f">Simple averages<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/percentage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Percentage Calculator</b><span class="d">Percent of, percent change and percentage difference.</span><span class="f">Work with percents<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/standard-deviation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">bar_chart</span></span><b>Standard Deviation</b><span class="d">Spread of a data set, sample or population.</span><span class="f">Measure spread<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/ratio-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">balance</span></span><b>Ratio Calculator</b><span class="d">Simplify ratios and solve proportions.</span><span class="f">Compare parts<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Weighted Average Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/weighted-average-calculator.html" width="100%" height="560" loading="lazy" title="Weighted Average Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

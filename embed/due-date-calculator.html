@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pregnancy Due Date Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,content_copy,egg,event,event_note,expand_more,pregnant_woman,print,restart_alt,restaurant,tune,verified_user,water_drop&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,44 +38,109 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Pregnancy Due Date Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="lmpDate">First day of last menstrual period</label>
-          <input type="date" id="lmpDate" value="2026-01-01"
->
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated due date</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Current week of pregnancy</span><span id="outWeek">—</span></div>
-        <div class="embed-row"><span>Days remaining</span><span id="outDaysRemaining">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ddCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Pregnancy Due Date Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>ACOG Dating Methods</span><span class="sx-badge"><span aria-hidden="true" class="msym">event_note</span>Prenatal Milestones</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Pregnancy Due Date Calculator — LMP, Conception or IVF</h1>
+<p>Estimate your due date from your last menstrual period (adjusted for cycle length), conception date or IVF transfer, and see how far along you are with key prenatal milestones and term dates.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Dates</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><span>Calculate From</span></div>
+<input id="m" type="hidden" value="s1"/>
+<div aria-label="Method" class="sx-au-opts" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr))"><button data-for="m" data-value="s1" type="button">Last period</button><button data-for="m" data-value="s2" type="button">Conception</button><button data-for="m" data-value="s3" type="button">IVF transfer</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="d" id="dL">First Day of Last Period</label></div>
+<div class="sx-au-in np"><input aria-label="Date" id="d" type="date"/></div>
+</div>
+<div id="cRow"><div class="sx-au-l"><label for="cl">Average Cycle Length</label></div><div class="sx-au-in np"><input id="cl" inputmode="numeric" max="45" min="20" step="1" type="number" value="28"/><span class="suf">days</span></div></div>
+<div hidden="" id="eRow">
+<div class="sx-au-l"><span>Embryo Age at Transfer</span></div><input id="ea" type="hidden" value="s2"/>
+<div aria-label="Embryo age" class="sx-seg" role="group" style="display:flex"><button data-for="ea" data-value="s1" style="flex:1" type="button">Day 3</button><button data-for="ea" data-value="s2" style="flex:1" type="button">Day 5</button><button data-for="ea" data-value="s3" style="flex:1" type="button">Day 6</button></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Due Date</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Estimated due date</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>How far along today</span><b id="ga">—</b></div><div><span>Trimester</span><b id="tri">—</b></div></div>
+<div class="g2"><div><span>Days to due date</span><b id="left">—</b></div><div><span>Full term window (39w0d–40w6d)</span><b id="ft">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Dates</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/pregnancy-weight-gain-calculator.html"><span aria-hidden="true" class="msym">pregnant_woman</span>Weight Gain</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Your Pregnancy Timeline</h2><p>Dates for common prenatal milestones based on your estimated due date. Your care team sets your actual schedule.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Milestone</th><th scope="col">Gestational Age</th><th scope="col">Date</th></tr></thead>
+<tbody id="msTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Last menstrual period (Naegele's rule):</strong> due date = first day of LMP + 280 days (40 weeks). For cycles other than 28 days, the calculator adds or subtracts the difference (e.g. +2 days for a 30-day cycle), since ovulation shifts with cycle length.</li>
+<li><strong>Conception date:</strong> due date = conception + 266 days (38 weeks).</li>
+<li><strong>IVF transfer:</strong> due date = transfer date + 266 days − embryo age (263 days for a day-3 transfer, 261 for day 5, 260 for day 6).</li>
+</ul>
+<p>Gestational age is counted from the first day of the LMP, so at conception you are already about 2 weeks pregnant. Trimesters: first up to 13 weeks 6 days, second 14w0d–27w6d, third from 28 weeks.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against ACOG guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A last period starting 1 March 2026 with a 28-day cycle: 1 March + 280 days = <strong>6 December 2026</strong>. With a 32-day cycle the estimate moves 4 days later, to 10 December. A day-5 IVF transfer on 15 March 2026 gives 15 March + 261 days = 1 December 2026.</p>
+<h2>How accurate is a due date?</h2>
+<p>Relatively few babies arrive exactly on their due date — most are born within a couple of weeks either side. The American College of Obstetricians and Gynecologists (ACOG) considers an ultrasound in the first trimester the most accurate way to date a pregnancy, and your provider may change your due date if the scan and your LMP date differ by more than a set number of days. IVF dates are the most precise because the embryo's age is known.</p>
+<p>ACOG term definitions: early term 37w0d–38w6d, full term 39w0d–40w6d, late term 41w0d–41w6d, and post-term from 42w0d. <strong>This is information, not medical advice</strong> — your care team confirms your dates and schedule.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date" rel="noopener noreferrer">ACOG Committee Opinion No. 700 — Methods for Estimating the Due Date</a> (2017)</li>
+<li><a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/11/definition-of-term-pregnancy" rel="noopener noreferrer">ACOG Committee Opinion No. 579 — Definition of Term Pregnancy</a> (2013)</li>
+<li>ACOG Practice Bulletin No. 175, Ultrasound in Pregnancy (2016) — standard anatomy exam at 18–22 weeks.</li>
+<li>ACOG Practice Bulletin No. 190, Gestational Diabetes Mellitus (2018) — screening at 24–28 weeks.</li>
+<li>ACOG Committee Opinion No. 797, Prevention of Group B Streptococcal Early-Onset Disease in Newborns (2020) — screening at 36w0d–37w6d.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Why is pregnancy counted from my last period, not conception?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The first day of the last period is usually a known date, while conception usually isn't. Counting from the LMP adds about two weeks before conception, which is why a full-term pregnancy is described as 40 weeks.</p></details>
+<details class="sx-faq"><summary>What if my cycles are irregular?<span aria-hidden="true" class="msym">expand_more</span></summary><p>LMP-based dates are less reliable with irregular or unknown cycles. An early ultrasound gives a more accurate estimate, and your provider will usually date the pregnancy from it.</p></details>
+<details class="sx-faq"><summary>Can my due date change?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes. If an early ultrasound measurement differs from your LMP date by more than ACOG's thresholds, your provider may update your due date. Once set from an early scan, it usually isn't changed by later scans.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Planning for pregnancy.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/pregnancy-weight-gain-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pregnant_woman</span></span><b>Pregnancy Weight Gain</b><span class="d">IOM ranges by pre-pregnancy BMI.</span><span class="f">Check range<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/pregnancy-calorie-needs-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">restaurant</span></span><b>Pregnancy Calorie Needs</b><span class="d">Extra energy by trimester.</span><span class="f">Check needs<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/ovulation-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">egg</span></span><b>Ovulation Calculator</b><span class="d">Fertile window for the next cycles.</span><span class="f">Find fertile days<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/water-intake-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">water_drop</span></span><b>Water Intake</b><span class="d">Fluid needs in pregnancy.</span><span class="f">Check water<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/due-date-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -202,7 +149,8 @@ body {
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/due-date.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/due-date.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

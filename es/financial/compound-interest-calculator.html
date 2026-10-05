@@ -1,1 +1,422 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Calculadora de interés compuesto | CalculatePilot</title><meta name="description" content="Calcula cómo crecen tus ahorros con interés compuesto y aportaciones mensuales periódicas. Cálculo gratuito e instantáneo."><link rel="canonical" href="https://www.calculatepilot.com/es/financial/compound-interest-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/compound-interest-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/compound-interest-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/compound-interest-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/compound-interest-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/compound-interest-calculator.html"><meta property="og:title" content="Calculadora de interés compuesto | CalculatePilot"><meta property="og:description" content="Calcula el crecimiento de tus ahorros con interés compuesto."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calculatepilot.com/es/financial/compound-interest-calculator.html"><meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Calculadora de interés compuesto | CalculatePilot"><meta name="twitter:description" content="Calcula el crecimiento de tus ahorros con interés compuesto."><meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png"><link rel="stylesheet" href="https://www.calculatepilot.com/css/styles.css?v=b9fa22ed"><script src="https://www.calculatepilot.com/js/language-selector.js?v=20260903" defer></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora de interés compuesto","url":"https://www.calculatepilot.com/es/financial/compound-interest-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"isAccessibleForFree":true}</script></head><body><header class="site-header"><div class="container"><a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Finanzas</a></li><li><a href="/health-calculators.html">Salud</a></li><li><a href="/math-calculators.html">Matemáticas</a></li><li><a href="/other-calculators.html">Cotidiano</a></li><li><a href="/guides/index.html">Guías</a></li></ul><button class="nav-toggle" aria-label="Abrir menú">Menú</button></div></header><main><div class="container"><nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Inicio</a> / Calculadora de interés compuesto</nav></div><section class="calc-page-head"><div class="container"><h1>Calculadora de interés compuesto</h1><p class="lede">Comprueba cómo pueden crecer un capital inicial y aportaciones periódicas gracias al interés compuesto.</p></div></section><section><div class="container calc-layout"><form class="calc-card" id="calcForm"><div class="field-row"><div class="field"><label for="principal">Depósito inicial</label><input type="number" id="principal" value="5000" step="100" min="0"></div><div class="field"><label for="monthly">Aportación mensual</label><input type="number" id="monthly" value="200" step="10" min="0"></div></div><div class="field-row"><div class="field"><label for="rate">Tasa anual (%)</label><input type="number" id="rate" value="6" step="0.1" min="0"></div><div class="field"><label for="years">Plazo (años)</label><input type="number" id="years" value="15" step="1" min="1"></div></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Valor futuro</div><div class="readout-value big" id="result">—</div><div class="readout-breakdown"><div class="readout-row"><span>Total aportado</span><span id="contributed">—</span></div><div class="readout-row"><span>Intereses obtenidos</span><span id="interest">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Cómo funciona</h2><p>La calculadora aplica capitalización mensual y añade tu aportación periódica en cada periodo. Así, los intereses acumulados también pueden generar nuevos intereses.</p><div class="formula-box">A = P(1 + r/n)^(nt) + aportaciones mensuales capitalizadas</div><h2>Por qué importa el interés compuesto</h2><p>El interés compuesto permite obtener crecimiento sobre los rendimientos anteriores. Cuanto más tiempo permanezca invertido el dinero, mayor puede ser el efecto acumulativo.</p><h2>Preguntas frecuentes</h2><div class="faq-item"><h3>¿Cuál es la diferencia entre interés simple y compuesto?</h3><p>El interés simple se calcula sobre el capital inicial. El compuesto también tiene en cuenta los intereses acumulados.</p></div><div class="faq-item"><h3>¿Importa la frecuencia de capitalización?</h3><p>Una capitalización más frecuente puede producir un resultado ligeramente superior con la misma tasa nominal, aunque el plazo y la tasa suelen tener mayor impacto.</p></div><div class="faq-item"><h3>¿Tiene en cuenta los impuestos?</h3><p>No. El resultado es bruto y no incluye impuestos, comisiones ni inflación.</p></div></div></section></main><script>(function(){function calc(){var p=+principal.value||0,m=+monthly.value||0,r=(+rate.value||0)/100/12,n=Math.round((+years.value||0)*12),a=r?p*Math.pow(1+r,n)+m*((Math.pow(1+r,n)-1)/r):p+m*n,c=p+m*n;result.textContent=a.toLocaleString('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0});contributed.textContent=c.toLocaleString('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0});interest.textContent=(a-c).toLocaleString('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0})}document.querySelectorAll('#calcForm input').forEach(function(e){e.addEventListener('input',calc)});calc()})();</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de interés compuesto con aportaciones</title>
+<meta name="description" content="Calculadora de interés compuesto gratuita: proyecta el crecimiento con depósitos regulares, cualquier frecuencia de capitalización.">
+<link rel="canonical" href="https://www.calculatepilot.com/es/financial/compound-interest-calculator.html"
+<meta property="og:locale" content="es_ES">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/compound-interest-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/compound-interest-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/compound-interest-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/compound-interest-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/compound-interest-calculator.html">
+<meta property="og:title" content="Calculadora de interés compuesto con aportaciones | CalculatePilot">
+<meta property="og:description" content="Calculadora de interés compuesto gratuita: proyecta el crecimiento con depósitos regulares, cualquier frecuencia de capitalización, valor ajustado a la inflación y un calendario anual.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/es/financial/compound-interest-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de interés compuesto con aportaciones | CalculatePilot">
+<meta name="twitter:description" content="Calculadora de interés compuesto gratuita: proyecta el crecimiento con depósitos regulares, cualquier frecuencia de capitalización, valor ajustado a la inflación y un calendario anual.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,arrow_right_alt,chevron_right,download,expand_more,functions,monetization_on,price_change,query_stats,restart_alt,savings,trending_up,tune,verified_user,water_loss&display=block">
+<!-- /cpx-head-extra -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://www.calculatepilot.com/es/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Calculadoras financieras",
+   "item": "https://www.calculatepilot.com/es/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculadora de interés compuesto",
+   "item": "https://www.calculatepilot.com/es/financial/compound-interest-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Calculadora de interés compuesto",
+ "url": "https://www.calculatepilot.com/es/financial/compound-interest-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Any",
+ "browserRequirements": "Requires JavaScript",
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "description": "Calcula el valor futuro de tus ahorros con interés compuesto, aportaciones regulares, cualquier frecuencia de capitalización y un resultado ajustado a la inflación.",
+ "inLanguage": "es"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cuál es la diferencia entre interés simple y compuesto?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El interés simple se calcula solo sobre el capital original. El interés compuesto se calcula sobre el capital más los intereses ya generados, por lo que crece más rápido con el tiempo."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Con qué frecuencia debe capitalizarse el interés para obtener los mejores resultados?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Una capitalización más frecuente (diaria o mensual) produce rendimientos ligeramente mayores que la capitalización anual con la misma tasa nominal, aunque la diferencia suele ser pequeña."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Debo introducir el APY o la tasa de interés de mi banco?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Introduce la tasa de interés antes de la capitalización. Si solo figura un APY, introdúcelo como tasa con capitalización anual para que la capitalización no se cuente dos veces."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué tasa de crecimiento compuesto es realista suponer?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Los promedios históricos a largo plazo del mercado bursátil rondan el 7-10% antes de la inflación, aunque los rendimientos varían mucho de un año a otro y no están garantizados. Las cuentas de ahorros pagan una tasa variable que sigue las tasas del banco central."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Esta calculadora tiene en cuenta la inflación?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, de forma opcional. Con Ajustar por inflación activado, la cifra de Poder adquisitivo real divide el saldo final entre (1 + inflación)años para mostrar su valor en dinero de hoy."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Importa mucho la frecuencia de capitalización?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Menos de lo que piensa la mayoría. Al 5% durante 10 años, $10,000 crecen a $16,289 con capitalización anual, $16,470 mensual y $16,487 diaria: la tasa y el tiempo invertido importan mucho más."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué es la regla del 72?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Un atajo mental rápido: divide 72 entre tu tasa de crecimiento anual para estimar cuántos años tarda una inversión en duplicarse. Con un crecimiento del 8%, son unos 9 años."
+   }
+  }
+ ],
+ "inLanguage": "es"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/es/financial-calculators.html">Finanzas</a></li>
+      <li><a href="/es/health-calculators.html">Salud y fitness</a></li>
+      <li><a href="/es/math-calculators.html">Matemáticas</a></li>
+      <li><a href="/es/other-calculators.html">Vida diaria</a></li>
+      <li><a href="/es/guides/">Guías</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="ciCalc">
+<nav class="sx-crumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/es/financial-calculators.html">Calculadoras financieras</a><span class="msym" aria-hidden="true">chevron_right</span><b style="font-weight:500">Calculadora de interés compuesto</b></nav>
+
+<header class="sx-cihead">
+  <div>
+    <div class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot"></span>Modelo matemático: crecimiento exponencial del patrimonio</div>
+    <h1>Calculadora de interés compuesto</h1>
+    <p>Simula el crecimiento de una inversión compuesta con depósitos regulares, distintas frecuencias de capitalización y poder adquisitivo real ajustado a la inflación.</p>
+  </div>
+  <div class="sx-qb"><span class="msym" aria-hidden="true" style="font-size:18px;color:var(--sx-pc)">verified_user</span>Precisión en el navegador · Ningún dato almacenado</div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:32px">
+<form id="calcForm" class="sx-card sx-params sx-left" novalidate>
+  <div class="sx-params-head" style="padding-bottom:12px">
+    <div><span class="msym" aria-hidden="true" style="color:var(--sx-primary)">tune</span><h2 class="sx-h-md">Parámetros de la simulación</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Restablecer</button>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="principal">Inversión inicial de capital</label><span class="sx-sm sx-muted">Saldo único</span></div>
+    <div class="sx-field w cur"><span class="pre">$</span><input id="principal" type="number" inputmode="decimal" min="0" step="500" value="25000" style="padding-right:14px"></div>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="contribution">Aportación regular</label><span class="sx-sm sx-muted">Depósitos periódicos</span></div>
+    <div class="sx-crow">
+      <div class="sx-field w cur"><span class="pre">$</span><input id="contribution" type="number" inputmode="decimal" min="0" step="50" value="500" style="padding-right:14px"></div>
+      <div class="sx-sel md"><select id="contribFreq" aria-label="Frecuencia de aportación"><option value="52">Semanal</option><option value="26">Quincenal</option><option value="12" selected>Mensual</option><option value="4">Trimestral</option><option value="1">Anual</option></select><span class="msym" aria-hidden="true">expand_more</span></div>
+    </div>
+  </div>
+
+  <div>
+    <span class="sx-lbl-md" style="display:block;margin-bottom:8px">Momento de la aportación</span>
+    <input type="hidden" id="timing" value="end">
+    <div class="sx-seg full" role="group" aria-label="Momento de la aportación"><button type="button" data-for="timing" data-value="end">Al final del período</button><button type="button" data-for="timing" data-value="start">Al inicio del período</button></div>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="years">Horizonte temporal</label><span class="sx-tagb" style="font-size:14px;padding:2px 8px"><b id="yearsVal">20</b> <small style="font-weight:500;font-size:12px">Años</small></span></div>
+    <input class="sx-range2" id="years" type="range" min="1" max="50" step="1" value="20" aria-label="Horizonte temporal en años" style="margin:12px 0 6px">
+    <div class="sx-scale"><span>1 año</span><span>10 años</span><span>25 años</span><span>50 años</span></div>
+  </div>
+
+  <div>
+    <div class="sx-row"><label class="sx-lbl-md" for="rate">Tasa de rendimiento anual estimada</label><span class="sx-sm sx-muted">Tasa nominal antes de la capitalización</span></div>
+    <div class="sx-field w pct"><input id="rate" type="number" inputmode="decimal" min="-20" max="30" step="0.1" value="8.0"><span class="suf">%</span></div>
+    <div class="sx-presets3"><button type="button" data-for="rate" data-value="5">5.0%<small>Conservador</small></button><button type="button" data-for="rate" data-value="8">8.0%<small>Equilibrado</small></button><button type="button" data-for="rate" data-value="10">10.0%<small>Agresivo</small></button></div>
+  </div>
+
+  <div>
+    <label class="sx-lbl-md" for="compound" style="display:block;margin-bottom:8px">Frecuencia de capitalización</label>
+    <div class="sx-sel md"><select id="compound"><option value="365">Diaria (365/año)</option><option value="52">Semanal (52/año)</option><option value="12" selected>Mensual (12/año)</option><option value="4">Trimestral (4/año)</option><option value="1">Anual (1/año)</option><option value="inf">Continua</option></select><span class="msym" aria-hidden="true">expand_more</span></div>
+  </div>
+
+  <div class="sx-infl">
+    <div><b><span class="msym" aria-hidden="true">price_change</span>Ajustar por inflación</b><p>Calcula el poder adquisitivo real con <input id="inflation" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="2.5" aria-label="Tasa de inflación">% al año</p></div>
+    <label class="sx-toggle"><input type="checkbox" id="inflOn" checked aria-label="Ajustar por inflación"><i></i></label>
+  </div>
+</form>
+
+<div class="sx-right" id="results">
+  <section class="sx-card sx-cihero" aria-live="polite">
+    <div class="blob"></div>
+    <div class="top">
+      <div><span class="sx-kick">Valor proyectado de la cartera</span><div class="vv"><b id="resultValue">—</b><span id="multTag">—</span></div></div>
+      <div class="meta"><span>Estimado en el año <span id="yearTarget">20</span></span><b><span class="msym" aria-hidden="true">trending_up</span><span id="modeLbl">Capitalización mensual</span></b></div>
+    </div>
+    <div class="sx-ci3">
+      <div><div class="l"><i style="background:var(--sx-onv)"></i>Capital total invertido</div><div class="v" id="outPrincipal">—</div><div class="s" id="outPrincipalPct">—</div></div>
+      <div class="g"><div class="l"><i style="background:var(--sx-pc)"></i>Interés total ganado</div><div class="v" id="outInterest">—</div><div class="s" id="outInterestPct">—</div></div>
+      <div><div class="l"><span class="msym" aria-hidden="true">water_loss</span>Poder adquisitivo real</div><div class="v" id="outReal">—</div><div class="s" id="outRealSub">—</div></div>
+    </div>
+    <div class="sx-cibar">
+      <div class="tb"><span id="barP" style="background:var(--sx-onv)"></span><span id="barI" style="background:var(--sx-pc)"></span></div>
+      <div class="lg"><span><i style="background:var(--sx-onv)"></i>Capital aportado</span><span><i style="background:var(--sx-pc)"></i>Crecimiento compuesto</span></div>
+    </div>
+  </section>
+
+  <section class="sx-card sx-chartcard">
+    <div class="sx-between" style="margin-bottom:16px">
+      <div><h3 class="sx-h-md">Trayectoria de crecimiento del patrimonio</h3><p class="sx-sm sx-muted" style="margin:0">Aceleración de la capitalización frente a la curva de capital invertido</p></div>
+      <div class="sx-legend2"><span><i style="width:12px;height:2px;background:var(--sx-onv)"></i>Aportaciones</span><span style="color:var(--sx-primary);font-weight:600"><i style="width:12px;height:4px;border-radius:2px;background:var(--sx-pc)"></i>Patrimonio total</span></div>
+    </div>
+    <div class="sx-cichart" id="ciChart" role="img" aria-label="Patrimonio total frente a aportaciones a lo largo del tiempo"></div>
+  </section>
+
+  <div>
+    <h3 class="sx-lbl-md" style="margin:0 0 12px;font-family:var(--font-body)">Hitos de velocidad de capitalización</h3>
+    <div class="sx-m3" id="miles"></div>
+  </div>
+</div>
+</div>
+
+<section class="sx-card sx-cisched" id="schedule">
+  <div class="hd">
+    <div><h3 class="sx-h-md">Calendario anual de amortización y capitalización</h3><p>Registro de acumulación año por año que muestra el capital propio frente al devengo de intereses</p></div>
+    <button type="button" class="sx-btn" id="csvBtn" style="background:var(--sx-card)"><span class="msym" aria-hidden="true">download</span>Exportar CSV</button>
+  </div>
+  <div class="sx-scroll"><table class="sx-t9">
+    <thead><tr><th scope="col">Año</th><th scope="col">Monto inicial</th><th scope="col">Aportación anual</th><th scope="col">Interés anual ganado</th><th scope="col">Interés acumulado total</th><th scope="col">Saldo al final del año</th></tr></thead>
+    <tbody id="schedBody"></tbody>
+  </table></div>
+  <div class="ft"><span id="schedNote">—</span><button type="button" id="schedMore" aria-controls="schedBody">Mostrar todos los años</button></div>
+</section>
+
+<section class="sx-card sx-cispec" id="formula">
+  <div class="hh"><span class="ib"><span class="msym" aria-hidden="true">functions</span></span><div><h3 class="sx-h-md">Especificación matemática del interés compuesto</h3><p>El modelo que rige la acumulación exponencial con aportación constante</p></div></div>
+  <div class="fx"><b>A = P · (1 + r/n)<sup>nt</sup> + PMT · [ ((1 + r/n)<sup>nt</sup> − 1) / (r/n) ]</b><p>Donde los pagos ocurren al final de cada período de capitalización. Multiplica el término de la aportación por (1 + r/n) para depósitos al inicio del período.</p></div>
+  <div class="sx-vars5">
+    <div><b>A</b><strong>Valor futuro de la cartera</strong><span>El saldo final después de capitalizar el interés.</span></div>
+    <div><b>P</b><strong>Capital inicial</strong><span id="varP">El capital inicial depositado al comienzo.</span></div>
+    <div><b>PMT</b><strong>Aportación periódica</strong><span id="varPmt">Aporte de efectivo recurrente.</span></div>
+    <div><b>r &amp; n</b><strong>Tasa y capitalización</strong><span>Tasa de interés anual (r) dividida entre la frecuencia anual (n).</span></div>
+    <div><b>t</b><strong>Plazo / horizonte</strong><span>Número total de años durante los que se multiplica el saldo.</span></div>
+  </div>
+  <div class="mech">
+    <p><strong>El mecanismo de la capitalización:</strong> A diferencia del interés simple, donde los rendimientos se calculan solo sobre el capital (P × r × t), la capitalización suma al saldo el interés de cada período, de modo que el interés posterior se gana sobre el interés anterior.</p>
+    <p id="mechTxt">—</p>
+    <p style="font-size:13px;line-height:18px;color:var(--sx-muted);margin:0">Cuando la frecuencia de aportación difiere de la frecuencia de capitalización, la calculadora convierte la tasa a la tasa equivalente por período de aportación, (1 + r/n)<sup>n/p</sup> − 1. La capitalización continua usa A = Pe<sup>rt</sup>.</p>
+  </div>
+</section>
+
+<section class="sx-card sx-method" style="margin-bottom:32px">
+  <div class="sx-guide">
+    <h2>APY frente a tasa de interés: qué número introducir</h2>
+    <p>Los bancos suelen anunciar el APY (rendimiento porcentual anual), que ya incluye la capitalización. Esta calculadora espera la tasa anual nominal antes de la capitalización: introducir un APY con capitalización mensual contaría la capitalización dos veces y sobreestimaría ligeramente el resultado. Si tu banco solo indica un APY, introdúcelo como tasa y elige capitalización <em>Anual</em>.</p>
+
+    <h2>El poder de empezar temprano</h2>
+    <p>$300 al mes al 7% con capitalización mensual crecen a unos <strong>$366,000</strong> en 30 años, pero solo a unos <strong>$156,000</strong> en 20 años. Una ventaja de 10 años más que duplica el resultado con apenas $36,000 adicionales en aportaciones: el tiempo suele ser la mayor palanca de la capitalización.</p>
+
+    <h2>Un ejemplo resuelto</h2>
+    <p>Empieza con $8,000, añade $250 al final de cada mes y gana un 7% con capitalización mensual durante 15 años. El saldo llega a unos <strong>$102,000</strong>: $53,000 de aportaciones ($8,000 + $45,000) y unos $49,000 de crecimiento compuesto. Si lo extiendes a 25 años, el saldo pasa a unos <strong>$248,000</strong> —más del doble— aunque las aportaciones solo aumentan en $30,000.</p>
+
+    <h2>La regla del 72</h2>
+    <p>Divide 72 entre la tasa anual para estimar cuántos años tarda el dinero en duplicarse: al 6% son unos 12 años; al 9%, unos 8. Para modelar una cartera completa con comisiones, consulta la <a href="/es/financial/investment-calculator.html">Calculadora de inversiones</a>; para una meta de ahorro fija, prueba la <a href="/es/financial/savings-goal-calculator.html">Calculadora de metas de ahorro</a>.</p>
+
+    <h2>Preguntas frecuentes</h2>
+    <details class="sx-faq"><summary>¿Cuál es la diferencia entre interés simple y compuesto?<span class="msym" aria-hidden="true">expand_more</span></summary><p>El interés simple se calcula solo sobre el capital original. El interés compuesto se calcula sobre el capital más los intereses ya generados, por lo que crece más rápido con el tiempo.</p></details>
+    <details class="sx-faq"><summary>¿Con qué frecuencia debe capitalizarse el interés para obtener los mejores resultados?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Una capitalización más frecuente (diaria o mensual) produce rendimientos ligeramente mayores que la capitalización anual con la misma tasa nominal, aunque la diferencia suele ser pequeña.</p></details>
+    <details class="sx-faq"><summary>¿Debo introducir el APY o la tasa de interés de mi banco?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Introduce la tasa de interés antes de la capitalización. Si solo figura un APY, introdúcelo como tasa con capitalización anual para que la capitalización no se cuente dos veces.</p></details>
+    <details class="sx-faq"><summary>¿Qué tasa de crecimiento compuesto es realista suponer?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Los promedios históricos a largo plazo del mercado bursátil rondan el 7-10% antes de la inflación, aunque los rendimientos varían mucho de un año a otro y no están garantizados. Las cuentas de ahorros pagan una tasa variable que sigue las tasas del banco central.</p></details>
+    <details class="sx-faq"><summary>¿Esta calculadora tiene en cuenta la inflación?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Sí, de forma opcional. Con Ajustar por inflación activado, la cifra de Poder adquisitivo real divide el saldo final entre (1 + inflación)<sup>años</sup> para mostrar su valor en dinero de hoy.</p></details>
+    <details class="sx-faq"><summary>¿Importa mucho la frecuencia de capitalización?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Menos de lo que piensa la mayoría. Al 5% durante 10 años, $10,000 crecen a $16,289 con capitalización anual, $16,470 mensual y $16,487 diaria: la tasa y el tiempo invertido importan mucho más.</p></details>
+    <details class="sx-faq"><summary>¿Qué es la regla del 72?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Un atajo mental rápido: divide 72 entre tu tasa de crecimiento anual para estimar cuántos años tarda una inversión en duplicarse. Con un crecimiento del 8%, son unos 9 años.</p></details>
+    <p class="sx-trust">Fórmulas verificadas con métodos estándar del valor del dinero en el tiempo · <a href="/methodology.html">Nuestra metodología</a> · Última actualización: septiembre de 2026</p>
+  </div>
+</section>
+
+<section class="sx-related" style="margin-bottom:48px">
+  <div class="sx-rel-head"><h3 class="sx-h-md">Calculadoras complementarias de modelado financiero</h3><a class="lg" href="/es/financial-calculators.html">Explorar todas las herramientas financieras<span class="msym" aria-hidden="true">arrow_forward</span></a></div>
+  <div class="sx-rel2grid">
+    <a class="sx-card sx-rel3" href="/es/financial/investment-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">query_stats</span></div><h3 style="font-size:16px;line-height:24px">Calculadora de inversión</h3><p>Modela el crecimiento de una cartera con rendimientos, comisiones y aportaciones regulares.</p><div class="go" style="color:var(--sx-primary)">Simular ROI<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+    <a class="sx-card sx-rel3" href="/es/financial/401k-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">account_balance</span></div><h3 style="font-size:16px;line-height:24px">Planificador de 401(k)</h3><p>Ten en cuenta las aportaciones del empleador y los límites de aportación del IRS de 2026.</p><div class="go" style="color:var(--sx-primary)">Calcular la aportación del empleador<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+    <a class="sx-card sx-rel3" href="/es/financial/roth-ira-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">savings</span></div><h3 style="font-size:16px;line-height:24px">Calculadora de Roth IRA</h3><p>Capitalización libre de impuestos comparada con una IRA tradicional.</p><div class="go" style="color:var(--sx-primary)">Ver ahorro fiscal<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+    <a class="sx-card sx-rel3" href="/es/financial/inflation-calculator.html"><div class="ic"><span class="msym" aria-hidden="true">monetization_on</span></div><h3 style="font-size:16px;line-height:24px">Calculadora de inflación</h3><p>Descubre cómo la subida de precios erosiona el poder adquisitivo con el tiempo.</p><div class="go" style="color:var(--sx-primary)">Modelar el IPC<span class="msym" aria-hidden="true">arrow_right_alt</span></div></a>
+  </div>
+</section>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/es/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Calculadoras gratuitas y precisas para decisiones cotidianas — pensadas para la claridad, no para el desorden.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot en Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot en Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot en YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot en Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzas</h4>
+        <ul>
+          <li><a href="/es/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/es/financial/amortization-calculator.html">Amortización</a></li>
+          <li><a href="/es/financial/annuity-calculator.html">Anualidad</a></li>
+          <li><a href="/es/financial/mortgage-calculator.html">Hipoteca</a></li>
+          <li><a href="/es/financial/uk-stamp-duty-calculator.html">Stamp Duty (Reino Unido)</a></li>
+          <li><a href="/es/financial/compound-interest-calculator.html">Interés compuesto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Salud</h4>
+        <ul>
+          <li><a href="/es/health/alcohol-calories-calculator.html">Calorías del alcohol</a></li>
+          <li><a href="/es/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/es/health/blood-pressure-category-calculator.html">Categoría de presión arterial</a></li>
+          <li><a href="/es/health/bmi-calculator.html">IMC</a></li>
+          <li><a href="/es/health/macro-calculator.html">Macros</a></li>
+          <li><a href="/es/health/calorie-calculator.html">Calorías</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Matemáticas y más</h4>
+        <ul>
+          <li><a href="/es/math/basic-calculator.html">Básica</a></li>
+          <li><a href="/es/math/area-calculator.html">Área</a></li>
+          <li><a href="/es/other/age-calculator.html">Edad</a></li>
+          <li><a href="/es/math/percentage-calculator.html">Porcentaje</a></li>
+          <li><a href="/es/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/es/math/quadratic-formula-calculator.html">Fórmula cuadrática</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/about.html">Acerca de</a></li>
+          <li><a href="/methodology.html">Nuestra metodología</a></li>
+          <li><a href="/es/guides/">Guías</a></li>
+          <li><a href="/embed/">Incrustar calculadoras</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Política de privacidad</a></li>
+          <li><a href="/terms.html">Términos de uso</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Mapa del sitio</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Todos los cálculos son estimaciones: consulta a un profesional para decisiones financieras o médicas. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Nuestra metodología →</a></span> <span><a href="/embed/compound-interest-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Incrusta esta calculadora</a> &nbsp;·&nbsp; <a href="/es/" style="color:var(--slate);">Todas las calculadoras →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/es/compound-interest.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

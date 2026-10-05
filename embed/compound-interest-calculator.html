@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compound Interest Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,arrow_forward,arrow_right_alt,chevron_right,download,expand_more,functions,monetization_on,price_change,query_stats,restart_alt,savings,trending_up,tune,verified_user,water_loss&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,84 +38,154 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Compound Interest Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="principal">Initial deposit</label>
-          <input type="number" id="principal" value="5000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="monthlyContribution">Monthly contribution</label>
-          <input type="number" id="monthlyContribution" value="200"
-step="10"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="annualRate">Annual interest rate (%)</label>
-          <input type="number" id="annualRate" value="6"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="years">Time (years)</label>
-          <input type="number" id="years" value="15"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Future value</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total contributed</span><span id="outContributed">—</span></div>
-        <div class="embed-row"><span>Total interest earned</span><span id="outInterestEarned">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="ciCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b style="font-weight:500">Compound Interest Calculator</b></nav>
+<header class="sx-cihead">
+<div>
+<div class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot"></span>Mathematical Model: Exponential Wealth Growth</div>
+<h1>Compound Interest Calculator</h1>
+<p>Simulate compound investment growth with regular deposits, compounding frequency variations, and inflation-adjusted real purchasing power.</p>
 </div>
+<div class="sx-qb"><span aria-hidden="true" class="msym" style="font-size:18px;color:var(--sx-pc)">verified_user</span>Client-side precision · Zero data stored</div>
+</header>
+<div class="sx-grid" style="margin-bottom:32px">
+<form class="sx-card sx-params sx-left" id="calcForm" novalidate="">
+<div class="sx-params-head" style="padding-bottom:12px">
+<div><span aria-hidden="true" class="msym" style="color:var(--sx-primary)">tune</span><h2 class="sx-h-md">Simulation Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div>
+<div class="sx-row"><label class="sx-lbl-md" for="principal">Initial Principal Investment</label><span class="sx-sm sx-muted">One-time balance</span></div>
+<div class="sx-field w cur"><span class="pre">$</span><input id="principal" inputmode="decimal" min="0" step="500" style="padding-right:14px" type="number" value="25000"/></div>
+</div>
+<div>
+<div class="sx-row"><label class="sx-lbl-md" for="contribution">Regular Contribution</label><span class="sx-sm sx-muted">Ongoing deposits</span></div>
+<div class="sx-crow">
+<div class="sx-field w cur"><span class="pre">$</span><input id="contribution" inputmode="decimal" min="0" step="50" style="padding-right:14px" type="number" value="500"/></div>
+<div class="sx-sel md"><select aria-label="Contribution frequency" id="contribFreq"><option value="52">Weekly</option><option value="26">Bi-weekly</option><option selected="" value="12">Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option></select><span aria-hidden="true" class="msym">expand_more</span></div>
+</div>
+</div>
+<div>
+<span class="sx-lbl-md" style="display:block;margin-bottom:8px">Contribution Timing</span>
+<input id="timing" type="hidden" value="end"/>
+<div aria-label="Contribution timing" class="sx-seg full" role="group"><button data-for="timing" data-value="end" type="button">End of Period</button><button data-for="timing" data-value="start" type="button">Beginning of Period</button></div>
+</div>
+<div>
+<div class="sx-row"><label class="sx-lbl-md" for="years">Time Horizon</label><span class="sx-tagb" style="font-size:14px;padding:2px 8px"><b id="yearsVal">20</b> <small style="font-weight:500;font-size:12px">Years</small></span></div>
+<input aria-label="Time horizon in years" class="sx-range2" id="years" max="50" min="1" step="1" style="margin:12px 0 6px" type="range" value="20"/>
+<div class="sx-scale"><span>1 yr</span><span>10 yrs</span><span>25 yrs</span><span>50 yrs</span></div>
+</div>
+<div>
+<div class="sx-row"><label class="sx-lbl-md" for="rate">Estimated Annual Return Rate</label><span class="sx-sm sx-muted">Nominal rate before compounding</span></div>
+<div class="sx-field w pct"><input id="rate" inputmode="decimal" max="30" min="-20" step="0.1" type="number" value="8.0"/><span class="suf">%</span></div>
+<div class="sx-presets3"><button data-for="rate" data-value="5" type="button">5.0%<small>Conservative</small></button><button data-for="rate" data-value="8" type="button">8.0%<small>Balanced</small></button><button data-for="rate" data-value="10" type="button">10.0%<small>Aggressive</small></button></div>
+</div>
+<div>
+<label class="sx-lbl-md" for="compound" style="display:block;margin-bottom:8px">Compounding Frequency</label>
+<div class="sx-sel md"><select id="compound"><option value="365">Daily (365/yr)</option><option value="52">Weekly (52/yr)</option><option selected="" value="12">Monthly (12/yr)</option><option value="4">Quarterly (4/yr)</option><option value="1">Annually (1/yr)</option><option value="inf">Continuously</option></select><span aria-hidden="true" class="msym">expand_more</span></div>
+</div>
+<div class="sx-infl">
+<div><b><span aria-hidden="true" class="msym">price_change</span>Adjust for Inflation</b><p>Calculates real purchasing power at <input aria-label="Inflation rate" id="inflation" inputmode="decimal" max="20" min="0" step="0.1" type="number" value="2.5"/>% a year</p></div>
+<label class="sx-toggle"><input aria-label="Adjust for inflation" checked="" id="inflOn" type="checkbox"/><i></i></label>
+</div>
+</form>
+<div class="sx-right" id="results">
+<section aria-live="polite" class="sx-card sx-cihero">
+<div class="blob"></div>
+<div class="top">
+<div><span class="sx-kick">Projected Portfolio Value</span><div class="vv"><b id="resultValue">—</b><span id="multTag">—</span></div></div>
+<div class="meta"><span>Estimated at year <span id="yearTarget">20</span></span><b><span aria-hidden="true" class="msym">trending_up</span><span id="modeLbl">Monthly Compounding</span></b></div>
+</div>
+<div class="sx-ci3">
+<div><div class="l"><i style="background:var(--sx-onv)"></i>Total Principal Invested</div><div class="v" id="outPrincipal">—</div><div class="s" id="outPrincipalPct">—</div></div>
+<div class="g"><div class="l"><i style="background:var(--sx-pc)"></i>Total Interest Earned</div><div class="v" id="outInterest">—</div><div class="s" id="outInterestPct">—</div></div>
+<div><div class="l"><span aria-hidden="true" class="msym">water_loss</span>Real Purchasing Power</div><div class="v" id="outReal">—</div><div class="s" id="outRealSub">—</div></div>
+</div>
+<div class="sx-cibar">
+<div class="tb"><span id="barP" style="background:var(--sx-onv)"></span><span id="barI" style="background:var(--sx-pc)"></span></div>
+<div class="lg"><span><i style="background:var(--sx-onv)"></i>Contributed Capital</span><span><i style="background:var(--sx-pc)"></i>Compounded Growth</span></div>
+</div>
+</section>
+<section class="sx-card sx-chartcard">
+<div class="sx-between" style="margin-bottom:16px">
+<div><h3 class="sx-h-md">Wealth Growth Trajectory</h3><p class="sx-sm sx-muted" style="margin:0">Compounding acceleration vs invested capital curve</p></div>
+<div class="sx-legend2"><span><i style="width:12px;height:2px;background:var(--sx-onv)"></i>Contributions</span><span style="color:var(--sx-primary);font-weight:600"><i style="width:12px;height:4px;border-radius:2px;background:var(--sx-pc)"></i>Total Wealth</span></div>
+</div>
+<div aria-label="Total wealth versus contributions over time" class="sx-cichart" id="ciChart" role="img"></div>
+</section>
+<div>
+<h3 class="sx-lbl-md" style="margin:0 0 12px;font-family:var(--font-body)">Compounding Speed Milestones</h3>
+<div class="sx-m3" id="miles"></div>
+</div>
+</div>
+</div>
+<section class="sx-card sx-cisched cp-hide" id="schedule">
+<div class="hd">
+<div><h3 class="sx-h-md">Annual Amortization &amp; Compounding Schedule</h3><p>Year-by-year accumulation ledger displaying principal equity vs interest accretion</p></div>
+<button class="sx-btn" id="csvBtn" style="background:var(--sx-card)" type="button"><span aria-hidden="true" class="msym">download</span>Export CSV</button>
+</div>
+<div class="sx-scroll"><table class="sx-t9">
+<thead><tr><th scope="col">Year</th><th scope="col">Starting Amount</th><th scope="col">Yearly Contribution</th><th scope="col">Annual Interest Earned</th><th scope="col">Total Cumulative Interest</th><th scope="col">End of Year Balance</th></tr></thead>
+<tbody id="schedBody"></tbody>
+</table></div>
+<div class="ft"><span id="schedNote">—</span><button aria-controls="schedBody" id="schedMore" type="button">Show all years</button></div>
+</section>
+<section class="sx-card sx-cispec cp-hide" id="formula">
+<div class="hh"><span class="ib"><span aria-hidden="true" class="msym">functions</span></span><div><h3 class="sx-h-md">Compound Interest Mathematical Specification</h3><p>The model governing constant-contribution exponential accumulation</p></div></div>
+<div class="fx"><b>A = P · (1 + r/n)<sup>nt</sup> + PMT · [ ((1 + r/n)<sup>nt</sup> − 1) / (r/n) ]</b><p>Where payments occur at the end of each compounding period. Multiply the contribution term by (1 + r/n) for beginning-of-period deposits.</p></div>
+<div class="sx-vars5">
+<div><b>A</b><strong>Future Portfolio Value</strong><span>The terminal balance after interest compounding.</span></div>
+<div><b>P</b><strong>Initial Principal</strong><span id="varP">The starting capital deposited at inception.</span></div>
+<div><b>PMT</b><strong>Periodic Contribution</strong><span id="varPmt">Recurrent cash addition.</span></div>
+<div><b>r &amp; n</b><strong>Rate &amp; Compounding</strong><span>Annual interest rate (r) divided by annual frequency (n).</span></div>
+<div><b>t</b><strong>Tenure / Horizon</strong><span>Total number of years the balance multiplies.</span></div>
+</div>
+<div class="mech">
+<p><strong>The Compounding Mechanism:</strong> Unlike simple interest, where returns are calculated only on the principal (P × r × t), compounding adds each period's interest back to the balance, so later interest is earned on earlier interest.</p>
+<p id="mechTxt">—</p>
+<p style="font-size:13px;line-height:18px;color:var(--sx-muted);margin:0">When the contribution frequency differs from the compounding frequency, the calculator converts the rate to the equivalent rate per contribution period, (1 + r/n)<sup>n/p</sup> − 1. Continuous compounding uses A = Pe<sup>rt</sup>.</p>
+</div>
+</section>
+<section class="sx-card sx-method cp-hide" style="margin-bottom:32px">
+<div class="sx-guide">
+<h2>APY vs. interest rate — which number to enter</h2>
+<p>Banks usually advertise APY (annual percentage yield), which already includes compounding. This calculator expects the nominal annual rate before compounding — entering an APY with monthly compounding would count compounding twice and slightly overstate the result. If your bank only quotes an APY, enter it as the rate and choose <em>Annually</em> compounding.</p>
+<h2>The power of starting early</h2>
+<p>$300 a month at 7% compounded monthly grows to about <strong>$366,000</strong> over 30 years, but only about <strong>$156,000</strong> over 20 years. A 10-year head start more than doubles the result while adding just $36,000 of contributions — time is usually the biggest lever in compounding.</p>
+<h2>A worked example</h2>
+<p>Start with $8,000, add $250 at the end of each month and earn 7% compounded monthly for 15 years. The balance reaches about <strong>$102,000</strong>: $53,000 from contributions ($8,000 + $45,000) and roughly $49,000 from compound growth. Stretch it to 25 years and the balance becomes about <strong>$248,000</strong> — more than double — even though contributions rise by only $30,000.</p>
+<h2>The Rule of 72</h2>
+<p>Divide 72 by the annual rate to estimate how many years money takes to double: at 6% that is about 12 years, at 9% about 8. To model a whole portfolio with fees, see the <a href="/financial/investment-calculator.html">Investment Calculator</a>; for a fixed savings target, try the <a href="/financial/savings-goal-calculator.html">Savings Goal Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What's the difference between simple and compound interest?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Simple interest is calculated only on the original principal. Compound interest is calculated on the principal plus any interest already earned, so it grows faster over time.</p></details>
+<details class="sx-faq"><summary>How often should interest compound for the best results?<span aria-hidden="true" class="msym">expand_more</span></summary><p>More frequent compounding (daily or monthly) produces slightly higher returns than annual compounding at the same nominal rate, though the difference is usually small.</p></details>
+<details class="sx-faq"><summary>Should I enter my bank's APY or interest rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Enter the interest rate before compounding. If only an APY is listed, enter it as the rate with annual compounding so compounding isn't counted twice.</p></details>
+<details class="sx-faq"><summary>What's a realistic compound growth rate to assume?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Historical long-term stock market averages run around 7-10% before inflation, though returns vary significantly year to year and aren't guaranteed. Savings accounts pay a variable rate that follows central-bank rates.</p></details>
+<details class="sx-faq"><summary>Does this calculator account for inflation?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, optionally. With Adjust for Inflation on, the Real Purchasing Power figure divides the final balance by (1 + inflation)<sup>years</sup> to show its value in today's money.</p></details>
+<details class="sx-faq"><summary>Does compounding frequency matter much?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Less than most people think. At 5% for 10 years, $10,000 grows to $16,289 compounded annually, $16,470 monthly and $16,487 daily — the rate and time invested matter far more.</p></details>
+<details class="sx-faq"><summary>What is the Rule of 72?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A quick mental shortcut: divide 72 by your annual growth rate to estimate how many years it takes an investment to double. At 8% growth, that's about 9 years.</p></details>
+<p class="sx-trust">Formulas checked against standard time-value-of-money methods · <a href="/methodology.html">Our methodology</a> · Last updated September 2026</p>
+</div>
+</section>
+<section class="sx-related cp-hide" style="margin-bottom:48px">
+<div class="sx-rel-head"><h3 class="sx-h-md">Complementary Financial Modeling Calculators</h3><a class="lg" href="/financial-calculators.html">Explore all financial tools<span aria-hidden="true" class="msym">arrow_forward</span></a></div>
+<div class="sx-rel2grid">
+<a class="sx-card sx-rel3" href="/financial/investment-calculator.html"><div class="ic"><span aria-hidden="true" class="msym">query_stats</span></div><h3 style="font-size:16px;line-height:24px">Investment Calculator</h3><p>Model portfolio growth with returns, fees and regular contributions.</p><div class="go" style="color:var(--sx-primary)">Simulate ROI<span aria-hidden="true" class="msym">arrow_right_alt</span></div></a>
+<a class="sx-card sx-rel3" href="/financial/401k-calculator.html"><div class="ic"><span aria-hidden="true" class="msym">account_balance</span></div><h3 style="font-size:16px;line-height:24px">401(k) Planner</h3><p>Factor in employer matches and 2026 IRS contribution limits.</p><div class="go" style="color:var(--sx-primary)">Calculate Match<span aria-hidden="true" class="msym">arrow_right_alt</span></div></a>
+<a class="sx-card sx-rel3" href="/financial/roth-ira-calculator.html"><div class="ic"><span aria-hidden="true" class="msym">savings</span></div><h3 style="font-size:16px;line-height:24px">Roth IRA Calculator</h3><p>Tax-free compounding compared with a Traditional IRA.</p><div class="go" style="color:var(--sx-primary)">View Tax Savings<span aria-hidden="true" class="msym">arrow_right_alt</span></div></a>
+<a class="sx-card sx-rel3" href="/financial/inflation-calculator.html"><div class="ic"><span aria-hidden="true" class="msym">monetization_on</span></div><h3 style="font-size:16px;line-height:24px">Inflation Calculator</h3><p>See how rising prices erode purchasing power over time.</p><div class="go" style="color:var(--sx-primary)">Model CPI<span aria-hidden="true" class="msym">arrow_right_alt</span></div></a>
+</div>
+</section>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/compound-interest-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -242,40 +194,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/compound-interest.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/compound-interest.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

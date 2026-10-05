@@ -1,0 +1,128 @@
+<div class="sx" id="nsCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Seller Net Sheet Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Post-2024 NAR Settlement Rules</span><span class="sx-badge"><span class="msym" aria-hidden="true">swap_horiz</span>Listing &amp; Buyer Agent Fees</span><span class="sx-badge"><span class="msym" aria-hidden="true">receipt_long</span>Seller Net Sheet</span></div>
+    <h1>Seller Net Sheet &amp; Real Estate Commission Calculator</h1>
+    <p>Estimate how much cash you'll walk away with when you sell your home — after the listing and buyer-agent commissions, mortgage payoff, transfer taxes, title and escrow fees, prorations and credits — and see what the listing agent actually takes home.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Sale &amp; Commission Structure</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="price">Agreed Sale Price</label><em style="color:var(--sx-muted);font-weight:500">Contract price</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="price" type="number" inputmode="decimal" min="0" step="1000" value="500000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="price" data-value="300000">$300k</button><button type="button" data-for="price" data-value="500000">$500k</button><button type="button" data-for="price" data-value="750000">$750k</button><button type="button" data-for="price" data-value="1200000">$1.2M</button><button type="button" data-for="price" data-value="2000000">$2M</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Total Commission</span><em style="color:var(--sx-on);font-family:var(--font-mono)" id="totC">—</em></div>
+      <div class="sx-au-g2">
+        <div><label for="lc" style="font-size:11px;color:var(--sx-muted)">Listing agent fee</label><div class="sx-au-in np pc"><input id="lc" type="number" inputmode="decimal" min="0" max="10" step="0.25" value="2.5"><span class="suf">%</span></div><p class="sx-au-help" id="lcN">—</p></div>
+        <div><label for="bc" style="font-size:11px;color:var(--sx-muted)">Buyer-agent compensation you agree to pay</label><div class="sx-au-in np pc"><input id="bc" type="number" inputmode="decimal" min="0" max="10" step="0.25" value="2.5"><span class="suf">%</span></div><p class="sx-au-help" id="bcN">—</p></div>
+      </div>
+      <div class="sx-au-chips">Total: <button type="button" id="t4" data-t="4">4.0%</button><button type="button" data-t="4.5">4.5%</button><button type="button" data-t="5">5.0%</button><button type="button" data-t="5.5">5.5%</button><button type="button" data-t="6">6.0%</button></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">account_balance</span>Payoffs, Taxes &amp; Closing Costs</span></div>
+      <div class="sx-au-g2">
+        <div><label for="mort" style="font-size:11px;color:var(--sx-muted)">Mortgage payoff (all liens)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="mort" type="number" inputmode="decimal" min="0" step="1000" value="245000"></div></div>
+        <div><label for="tt" style="font-size:11px;color:var(--sx-muted)">Transfer taxes</label><div class="sx-au-in sm"><span class="pre">$</span><input id="tt" type="number" inputmode="decimal" min="0" step="100" value="2500"></div></div>
+        <div><label for="title" style="font-size:11px;color:var(--sx-muted)">Title insurance &amp; escrow fees</label><div class="sx-au-in sm"><span class="pre">$</span><input id="title" type="number" inputmode="decimal" min="0" step="100" value="2800"></div></div>
+        <div><label for="pro" style="font-size:11px;color:var(--sx-muted)">Prorated property taxes &amp; HOA</label><div class="sx-au-in sm"><span class="pre">$</span><input id="pro" type="number" inputmode="decimal" min="0" step="100" value="1400"></div></div>
+        <div><label for="cred" style="font-size:11px;color:var(--sx-muted)">Repair credits &amp; home warranty</label><div class="sx-au-in sm"><span class="pre">$</span><input id="cred" type="number" inputmode="decimal" min="0" step="100" value="1500"></div></div>
+        <div><label for="other" style="font-size:11px;color:var(--sx-muted)">Other (attorney, seller concessions)</label><div class="sx-au-in sm"><span class="pre">$</span><input id="other" type="number" inputmode="decimal" min="0" step="100" value="0"></div></div>
+      </div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">domain</span>Listing Agent's Brokerage Split</span><em style="color:var(--sx-muted);font-weight:500">For agents</em></div>
+      <input type="hidden" id="split" value="80">
+      <div class="sx-au-opts" style="grid-template-columns:repeat(4,minmax(0,1fr))" role="group" aria-label="Agent split"><button type="button" data-for="split" data-value="70">70/30</button><button type="button" data-for="split" data-value="80">80/20</button><button type="button" data-for="split" data-value="90">90/10</button><button type="button" data-for="split" data-value="100">100%</button></div>
+      <div class="sx-au-g2" style="margin-top:10px">
+        <div><label for="roy" style="font-size:11px;color:var(--sx-muted)">Franchise royalty</label><div class="sx-au-in sm np pc"><input id="roy" type="number" inputmode="decimal" min="0" max="15" step="0.5" value="6"><span class="suf">%</span></div></div>
+        <div><label for="tc" style="font-size:11px;color:var(--sx-muted)">Transaction / admin fee</label><div class="sx-au-in sm"><span class="pre">$</span><input id="tc" type="number" inputmode="decimal" min="0" step="25" value="450"></div></div>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Seller Net Proceeds</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em><span class="msym" aria-hidden="true">account_balance_wallet</span>Estimated Net Proceeds</em><span>Cash at closing</span></div>
+    <div class="big" id="resultValue">—</div>
+    <p id="netN">—</p>
+    <span class="msym wm" aria-hidden="true">home</span>
+  </section>
+  <section class="sx-card sx-hy-stack">
+    <div class="hd">Where the Sale Price Goes<span id="effT">—</span></div>
+    <div class="bar" id="alBar"></div>
+    <div class="lg" id="alLg"></div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">person_outline</span>Listing Agent Take-Home</span><span id="agT">—</span></div>
+    <div class="l"><span id="ag1L">Gross listing commission</span><b id="ag1">—</b></div>
+    <div class="l"><span id="ag2L">Franchise royalty</span><b class="r" id="ag2">—</b></div>
+    <div class="l"><span id="ag3L">Brokerage split</span><b class="r" id="ag3">—</b></div>
+    <div class="l"><span>Transaction / admin fee</span><b class="r" id="ag4">—</b></div>
+    <div class="l t"><span>Agent's pre-tax take-home</span><b id="ag5">—</b></div>
+  </section>
+  <section class="sx-card" style="padding:16px 18px">
+    <div style="display:flex;gap:10px"><span class="msym" aria-hidden="true" style="color:var(--sx-primary)">policy</span><div><b style="display:block;font-size:13px;color:var(--sx-on)">Buyer-agent pay is negotiated</b><p style="margin:4px 0 0;font-size:12px;line-height:18px;color:var(--sx-onv)">Since August 2024, offers of buyer-agent compensation can't be advertised on the MLS, and buyers sign a written agreement with their agent before touring. Sellers can still agree to pay some or all of it — set it to 0% if the buyer pays their own agent.</p></div></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print Net Sheet (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">description</span>Export (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Itemized Seller Net Sheet</h2><p>Settlement-statement style breakdown of your estimated proceeds.</p></div><span class="sx-au-tag">Estimate</span></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Line Item</th><th scope="col">Category</th><th scope="col">Debit (Cost)</th><th scope="col">Credit</th><th scope="col">Running Net</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Estimate for planning. Your title or escrow company prepares the final settlement statement; capital gains tax is not included.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">gavel</span></span><h3>The 2024 NAR Settlement: What Changed</h3><p>From August 17, 2024, following the National Association of Realtors settlement, listings on Realtor MLSs can no longer advertise an offer of compensation to buyer agents, and buyers must sign a written agreement with their agent before touring homes. Commissions were always negotiable; now buyer-agent pay is negotiated deal by deal — the seller may still offer it, or the buyer may pay it directly or ask for it as a concession.</p></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">handshake</span></span><h3>Full-Service vs Discount vs Flat-Fee Listings</h3><p>Sellers can choose a traditional full-service agent, a reduced-rate or discount brokerage, or a flat-fee MLS listing where they handle more of the work themselves. Lower fees raise your net, but pricing strategy, marketing and negotiation can move the sale price by more than the fee difference — compare the net, not just the rate.</p><div class="sx-sg-take"><b>Try it:</b> lower the listing fee above and see how much it changes your net proceeds.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How the seller net sheet is calculated</h2>
+    <p><strong>Net proceeds = sale price − mortgage payoff − commissions − transfer taxes − title &amp; escrow fees − prorations − credits − other costs.</strong> Commissions are percentages of the sale price; the other costs are the dollar amounts you enter.</p>
+    <p>The agent snapshot works from the listing side's gross commission: the franchise royalty (if any) comes off the top, the brokerage split is applied to what's left, then any transaction fee.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>What sellers usually pay at closing</h2>
+    <p>Besides commissions and paying off the mortgage, sellers commonly pay transfer or excise taxes (which vary widely by state and county), the owner's title insurance policy in many areas, escrow or attorney fees, their share of property taxes and HOA dues up to the closing date, and any repair credits agreed after inspection. Ask your title company or agent for local figures.</p>
+    <p>Profit on the sale may also be taxable. Many homeowners can exclude up to $250,000 of gain ($500,000 for married couples filing jointly) on a main home they've owned and lived in for two of the last five years.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is a seller net sheet?<span class="msym" aria-hidden="true">expand_more</span></summary><p>An estimate of the cash a seller receives at closing after the mortgage payoff, agent commissions, taxes, fees and credits are deducted from the sale price. Agents and title companies prepare one so sellers can compare offers by what they actually net.</p></details>
+    <details class="sx-faq"><summary>Who pays the buyer's agent after the NAR settlement?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's negotiated. The seller can still agree to pay some or all of the buyer agent's fee, the buyer can pay it directly, or it can be requested as a concession in the offer. It just can't be advertised on the MLS.</p></details>
+    <details class="sx-faq"><summary>Are real estate commissions negotiable?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. There is no standard or legally set commission rate; both the listing fee and any buyer-agent compensation are negotiable.</p></details>
+    <details class="sx-faq"><summary>Does this include capital gains tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Net proceeds here are before any tax on the gain. Many sellers of a main home can exclude up to $250,000 of gain ($500,000 married filing jointly) if they meet the ownership and use tests.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related Real Estate &amp; Mortgage Calculators</h2><p>Plan the next move.</p></div>
+  <a href="/financial-calculators.html">All Financial Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home</span></span><b>House Affordability Calculator</b><span class="d">How much home your income supports.</span><span class="f">Calculate now<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/down-payment-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Down Payment Calculator</b><span class="d">Put your proceeds toward the next home.</span><span class="f">Calculate now<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/1031-exchange-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">sync_alt</span></span><b>1031 Exchange Calculator</b><span class="d">Defer tax when selling an investment property.</span><span class="f">Calculate now<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+  <a class="sx-card" href="/financial/house-flip-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">construction</span></span><b>House Flip Calculator</b><span class="d">Profit after purchase, rehab and selling costs.</span><span class="f">Calculate now<span class="msym" aria-hidden="true">chevron_right</span></span></a>
+</div>
+</div>

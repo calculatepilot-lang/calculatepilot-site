@@ -1,1 +1,338 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anleihe-Rechner | CalculatePilot</title><meta name="description" content="Berechnen Sie den theoretischen Preis einer Anleihe anhand von Nennwert, Kupon, Laufzeit und Marktzins."><link rel="canonical" href="https://www.calculatepilot.com/de/financial/bond-calculator.html"><link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/bond-calculator.html"><link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/bond-calculator.html"><link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/bond-calculator.html"><link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/bond-calculator.html"><link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/bond-calculator.html"><link rel="stylesheet" href="/css/styles.css?v=b9fa22ed"></head><body><header class="site-header"><div class="container"><a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/de/financial-calculators.html">Finanzen</a></li><li><a href="/health-calculators.html">Gesundheit</a></li><li><a href="/math-calculators.html">Mathematik</a></li><li><a href="/other-calculators.html">Alltag</a></li><li><a href="/guides/">Ratgeber</a></li></ul></div></header><main><div class="container"><nav class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/financial-calculators.html">Finanzrechner</a> / Anleihe-Rechner</nav></div><section class="calc-page-head"><div class="container"><h1>Anleihe-Rechner</h1><p class="lede">Schätzen Sie den theoretischen Wert einer Anleihe anhand von Kupon, Laufzeit und aktuellem Marktzins.</p></div></section><section><div class="container calc-layout"><form class="calc-card"><div class="field"><label>Nennwert</label><input id="fv" type="number" value="1000" min="0"></div><div class="field-row"><div class="field"><label>Kupon (%)</label><input id="c" type="number" value="5" step="0.1"></div><div class="field"><label>Marktzins (%)</label><input id="y" type="number" value="6" step="0.1"></div></div><div class="field-row"><div class="field"><label>Jahre bis Fälligkeit</label><input id="n" type="number" value="10" min="0"></div><div class="field"><label>Zahlungen pro Jahr</label><input id="m" type="number" value="2" min="1"></div></div></form><aside class="readout"><div class="bar"></div><div class="readout-body"><div class="readout-label">Geschätzter Preis</div><div class="readout-value big" id="r">—</div><div class="readout-breakdown"><div class="readout-row"><span>Kupon je Periode</span><span id="cp">—</span></div></div></div></aside></div></section><section class="content-block"><div class="container prose"><h2>Wie wird der Anleihepreis berechnet?</h2><p>Der theoretische Preis ist der Barwert der zukünftigen Kuponzahlungen und der Rückzahlung des Nennwerts. Liegt der Marktzins über dem Kupon, fällt der theoretische Preis normalerweise unter den Nennwert.</p><h2>Wichtiger Hinweis</h2><p>Das Ergebnis ist eine mathematische Schätzung. Der tatsächliche Marktpreis kann zusätzlich von Kreditrisiko, Liquidität sowie Angebot und Nachfrage abhängen.</p></div></section></main><script>function calc(){let F=+fv.value||0,C=(+c.value||0)/100,Y=(+y.value||0)/100,N=+n.value||0,M=+m.value||1,p=C*F/M,q=Y/M,k=N*M,price;if(!k)price=F;else if(!q)price=F+p*k;else price=p*(1-Math.pow(1+q,-k))/q+F*Math.pow(1+q,-k);r.textContent=price.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2});cp.textContent=p.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})}document.querySelectorAll('input').forEach(x=>x.addEventListener('input',calc));calc();</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472521276528769" crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZBQ0VRQS"></script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZBQ0VRQS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anleiherechner — Preis, Rendite &amp; Duration</title>
+<meta name="description" content="Kostenloser Anleiherechner: Ermitteln Sie den fairen Preis einer Anleihe aus Nennwert, Kuponzins.">
+<link rel="canonical" href="https://www.calculatepilot.com/de/financial/bond-calculator.html"
+<meta property="og:locale" content="de_DE">>
+<link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/bond-calculator.html">
+<link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/bond-calculator.html">
+<link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/bond-calculator.html">
+<link rel="alternate" hreflang="de" href="https://www.calculatepilot.com/de/financial/bond-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.calculatepilot.com/financial/bond-calculator.html">
+<meta property="og:title" content="Anleiherechner — Preis, Rendite & Duration | CalculatePilot">
+<meta property="og:description" content="Kostenloser Anleiherechner: Ermitteln Sie den fairen Preis einer Anleihe aus Nennwert, Kuponzins, Laufzeit und Marktzins sowie Rendite bis zur Fälligkeit und Duration.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.calculatepilot.com/de/financial/bond-calculator.html">
+<meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="CalculatePilot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anleiherechner — Preis, Rendite & Duration | CalculatePilot">
+<meta name="twitter:description" content="Kostenloser Anleiherechner: Ermitteln Sie den fairen Preis einer Anleihe aus Nennwert, Kuponzins, Laufzeit und Marktzins sowie Rendite bis zur Fälligkeit und Duration.">
+<meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
+<link rel="stylesheet" href="/css/styles.css?v=20261004a">
+<link rel="stylesheet" href="/css/cp-calc.css?v=20260930o">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Anleihenkurs-Rechner",
+ "url": "https://www.calculatepilot.com/de/financial/bond-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires a modern web browser",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "availability": "https://schema.org/OnlineOnly"
+ },
+ "isAccessibleForFree": true,
+ "description": "Berechnen Sie den fairen Preis einer Anleihe anhand von Nennwert, Kuponzins, Laufzeit und aktuellem Marktzins. Keine Anmeldung nötig. CalculatePilot erklärt d",
+ "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Startseite",
+   "item": "https://www.calculatepilot.com/de/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Finanzrechner",
+   "item": "https://www.calculatepilot.com/de/financial-calculators.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Anleihenkurs-Rechner",
+   "item": "https://www.calculatepilot.com/de/financial/bond-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Warum würde eine Anleihe unter ihrem Nennwert gehandelt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Wenn die aktuellen Marktzinsen höher sind als der feste Kuponzins der Anleihe, wird sie im Vergleich zu neueren Anleihen weniger attraktiv, sodass ihr Preis unter den Nennwert fällt, um Käufer mit einer besseren effektiven Rendite zu entschädigen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was passiert mit dem Preis einer Anleihe bei Fälligkeit?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Der Preis einer Anleihe nähert sich dem Nennwert, je näher die Fälligkeit rückt, da der Inhaber bei Fälligkeit genau den Nennwert zurückerhält — ein Aufschlag oder Abschlag schrumpft über die Restlaufzeit der Anleihe allmählich auf null."
+   }
+  }
+ ],
+ "inLanguage": "de"
+}
+</script>
+<!-- cpx-head-extra -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,arrow_forward,calculate,chevron_right,expand_more,payments,percent,picture_as_pdf,restart_alt,savings,shield,speed,swap_vert,table_view,trending_up,tune,unfold_more,verified&display=block">
+<!-- /cpx-head-extra -->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/financial-calculators.html">Finanzen</a></li>
+      <li><a href="/de/health-calculators.html">Gesundheit &amp; Fitness</a></li>
+      <li><a href="/de/math-calculators.html">Mathematik</a></li>
+      <li><a href="/de/other-calculators.html">Alltag</a></li>
+      <li><a href="/de/guides/">Ratgeber</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">Menü</button>
+  </div>
+</header>
+
+<main>
+<div class="sx" id="bdCalc">
+<nav class="sx-crumb" aria-label="Brotkrümelnavigation"><a href="/de/">Startseite</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/de/financial-calculators.html">Finanzrechner</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Anleihenkurs-Rechner</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Rendite bis zur Fälligkeit (YTM)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Modifizierte Duration &amp; Konvexität</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Preisbestimmung von Nullkupon- &amp; Kuponanleihen</span></div>
+    <h1>Anleihepreis-Rechner: Preis, Rendite &amp; Duration</h1>
+    <p>Berechnen Sie den fairen Preis einer Anleihe aus Nennwert, Kuponzins, Restlaufzeit und aktueller Marktrendite — und sehen Sie dann, ob sie mit Abschlag oder Aufschlag gehandelt wird, ihre laufende Rendite, die Duration und wie stark sich der Preis bei Zinsänderungen bewegt.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Anleiheparameter</h2><p>Anleihebedingungen und aktuelle Marktrendite</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Zurücksetzen</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="faceValue">Nennwert</label><em style="color:var(--sx-muted);font-weight:500">Bei Fälligkeit zurückgezahlter Kapitalbetrag</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="faceValue" type="number" inputmode="decimal" min="0" step="100" value="1000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips">Voreinstellungen: <button type="button" data-for="faceValue" data-value="1000">$1,000</button><button type="button" data-for="faceValue" data-value="5000">$5,000</button><button type="button" data-for="faceValue" data-value="10000">$10,000</button><button type="button" data-for="faceValue" data-value="100000">$100,000</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="couponRate">Jährlicher Kuponzins</label></div><div class="sx-au-in np pc"><input id="couponRate" type="number" inputmode="decimal" min="0" max="30" step="0.05" value="4.5"><span class="suf">%</span></div><div class="sx-au-chips"><button type="button" data-for="couponRate" data-value="0">0%</button><button type="button" data-for="couponRate" data-value="3.5">3.5%</button><button type="button" data-for="couponRate" data-value="4.5">4.5%</button><button type="button" data-for="couponRate" data-value="6">6.0%</button></div></div>
+      <div><div class="sx-au-l"><label for="marketRate">Marktrendite (YTM)</label></div><div class="sx-au-in np pc"><input id="marketRate" type="number" inputmode="decimal" min="0" max="30" step="0.05" value="5.25"><span class="suf">%</span></div><p class="sx-au-help" id="scen">—</p></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="years">Jahre bis zur Fälligkeit</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="yOut">—</em></div>
+      <div class="sx-au-in np"><input id="years" type="number" inputmode="decimal" min="0.5" max="50" step="0.5" value="10"><span class="suf">Jahre</span></div>
+      <div class="sx-au-chips">Laufzeiten: <button type="button" data-for="years" data-value="2">2 J.</button><button type="button" data-for="years" data-value="5">5 J.</button><button type="button" data-for="years" data-value="10">10 J.</button><button type="button" data-for="years" data-value="20">20 J.</button><button type="button" data-for="years" data-value="30">30 J.</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Kuponhäufigkeit</span></div>
+      <input type="hidden" id="paymentsPerYear" value="2">
+      <div class="sx-seg" role="group" aria-label="Kuponhäufigkeit" style="display:flex"><button type="button" data-for="paymentsPerYear" data-value="1" style="flex:1">Jährlich</button><button type="button" data-for="paymentsPerYear" data-value="2" style="flex:1">Halbjährlich</button><button type="button" data-for="paymentsPerYear" data-value="4" style="flex:1">Vierteljährlich</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="cat">Anleihekategorie &amp; steuerliche Behandlung</label></div>
+      <div class="sx-au-sel"><select id="cat"><option value="t">US-Staatsanleihe — von Landes- &amp; Kommunalsteuern befreit</option><option value="c" selected>Unternehmensanleihe — voll steuerpflichtig</option><option value="m">Kommunalanleihe — von Bundessteuern befreit</option></select></div>
+      <div class="sx-vt-in" id="mRow"><label for="br">Ihr Bundessteuersatz (für die steueräquivalente Rendite):</label><div class="sx-au-sel" style="width:110px"><select id="br"><option value="10">10%</option><option value="12">12%</option><option value="22">22%</option><option value="24" selected>24%</option><option value="32">32%</option><option value="35">35%</option><option value="37">37%</option></select></div></div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Anleihe bewerten &amp; Duration messen</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results">
+  <section class="sx-card r2 sx-vt-set" aria-live="polite">
+    <div class="hd"><div><b><span class="msym" aria-hidden="true">verified</span>Bewertungsergebnis</b><small>Clean Price an einem Kupontermin</small></div><span class="sx-ef-grade" id="kind">—</span></div>
+    <div class="sx-vt-gross"><span>Anleihepreis (fairer Wert)</span><div class="big" id="resultValue">—</div>
+      <div class="r"><span id="prem">—</span><span id="why">—</span></div></div>
+    <div class="sx-in-t4" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="sx-card"><div class="k">Laufende Rendite<span class="msym" aria-hidden="true">percent</span></div><b id="cy">—</b><p id="cyN">—</p></div>
+      <div class="sx-card"><div class="k" id="ytmL">Rendite bis zur Fälligkeit<span class="msym" aria-hidden="true">trending_up</span></div><b id="ytm">—</b><p id="ytmN">—</p></div>
+      <div class="sx-card"><div class="k">Gesamte Kuponzahlungen<span class="msym" aria-hidden="true">payments</span></div><b id="outCoupon">—</b><p id="cpN">—</p></div>
+      <div class="sx-card"><div class="k">Gesamtertrag bei Fälligkeit<span class="msym" aria-hidden="true">savings</span></div><b id="tr">—</b><p id="trN">—</p></div>
+    </div>
+    <div class="sx-vt-led" style="margin-top:14px">
+      <div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:16px">speed</span>Duration &amp; Zinssensitivität</span><span>Zinsänderungsrisiko</span></div>
+      <div class="l"><span>Macaulay-Duration</span><b id="mac">—</b></div>
+      <div class="l"><span>Modifizierte Duration</span><b id="mod">—</b></div>
+      <div class="l"><span>Konvexität</span><b id="cvx">—</b></div>
+      <div class="l"><span>+100 bp Zinsanstieg (+1.00%)</span><b class="r" id="up">—</b></div>
+      <div class="l"><span>−100 bp Zinssenkung (−1.00%)</span><b id="dn" style="color:var(--sx-pc)">—</b></div>
+    </div>
+    <div class="sx-in-acts" style="margin-top:16px"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Exportieren (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Cashflow-Aufstellung (.CSV)</button></div>
+  </section>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2 id="ledH">Cashflow- &amp; Aufzinsungsaufstellung</h2><p>Kupons, Effektivzinserträge, Disagio-Aufzinsung (oder Agio-Abschreibung), Buchwert und der Barwert jedes Cashflows.</p></div><div class="hbt"><button type="button" id="expBtn" style="border-color:var(--sx-hover);background:var(--sx-emb);color:var(--sx-emt)"><span class="msym" aria-hidden="true">unfold_more</span><span id="expTxt">Alle Zeiträume erweitern</span></button></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Zeitraum</th><th scope="col">Zeitplan</th><th scope="col">Kuponzahlung</th><th scope="col" id="ieH">Erzielte Zinsen</th><th scope="col" id="acH">Aufzinsung</th><th scope="col">Buchwert</th><th scope="col">Barwert</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span>*Setzt eine Abwicklung an einem Kupontermin (keine aufgelaufenen Zinsen) und eine flache Zinskurve voraus. Bei realen Geschäften werden zum Clean Price aufgelaufene Zinsen hinzugerechnet.</span></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">swap_vert</span></span><h3>Die Anleihen-Wippe: Warum Kurse fallen, wenn die Zinsen steigen</h3><p>Der Kupon einer Anleihe wird bei der Emission festgelegt. Steigen die Marktzinsen, zahlen neue Anleihen mehr, sodass eine ältere Anleihe mit niedrigerem Kupon unter dem Nennwert verkauft werden muss, bis ihre Rendite bis zur Fälligkeit dem Markt entspricht. Bei fallenden Zinsen passiert das Gegenteil.</p><div class="sx-sg-take"><b>Kernaussage:</b> YTM über dem Kuponsatz → Anleihe mit Abschlag. YTM unter dem Kuponsatz → Anleihe mit Aufschlag. Gleich → Handel zum Nennwert.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">shield</span></span><h3>Macaulay-Duration vs. modifizierte Duration</h3><p>Die Macaulay-Duration ist die gewichtete durchschnittliche Zeit bis zum Erhalt der Zahlungsströme der Anleihe. Die modifizierte Duration macht daraus die Kursempfindlichkeit: Eine modifizierte Duration von <span id="mdEx">7.7</span> bedeutet, dass sich der Kurs ungefähr um <span id="mdEx2">7.7</span>% in die Gegenrichtung bewegt, wenn sich die Rendite um einen Prozentpunkt ändert. Die Konvexität erklärt, warum die tatsächliche Bewegung bei steigenden Renditen etwas kleiner und bei fallenden größer ausfällt.</p><div class="sx-sg-take"><b>Faustregel:</b> Längere Laufzeiten und niedrigere Kupons bedeuten eine höhere Duration – und größere Kursschwankungen.</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Warum Anleihekurse sich entgegengesetzt zu den Zinsen bewegen</h2>
+    <p>Der feste Kuponsatz einer Anleihe wird bei der Emission festgelegt, die Marktzinsen verändern sich jedoch im Laufe der Zeit. Steigen die Marktzinsen über den Kuponsatz einer Anleihe, wird sie im Vergleich zu neueren, höher verzinsten Anleihen weniger attraktiv, und ihr Kurs fällt unter den Nennwert (Handel „mit Abschlag“), um die Käufer zu entschädigen. Fallen die Marktzinsen unter den Kuponsatz, wird die Anleihe attraktiver und notiert über dem Nennwert („mit Aufschlag“).</p>
+    <p>Dieser inverse Zusammenhang ist eines der grundlegendsten Konzepte bei Anleiheninvestments – deshalb heißt es oft, Anleihekurse und Zinsen bewegten sich in entgegengesetzte Richtungen.</p>
+    <p class="sx-trust" style="margin:0 0 8px">Von Suhaib Hassan · Formel geprüft am 27. Sep. 2026 · <a href="/methodology.html">So prüft CalculatePilot Formeln →</a></p>
+
+    <h2>Was dieser Kurs darstellt</h2>
+    <p>Dieser Rechner ermittelt den fairen Wert mithilfe der Barwertrechnung: Alle künftigen Kuponzahlungen und die abschließende Rückzahlung des Nennwerts werden mit dem aktuellen Marktzins auf heutige Dollar abgezinst. Dies ist das Standardverfahren in der Bewertung festverzinslicher Wertpapiere.</p>
+    <p><strong>Price = C × [1 − (1 + y)^−n] ÷ y + F ÷ (1 + y)^n</strong> — C = Kupon pro Periode · y = Marktrendite pro Periode · n = Anzahl der Perioden · F = Nennwert</p>
+    <p>Reale Anleihekurse können wegen Faktoren wie Kreditrisiko (wahrgenommenes Ausfallrisiko), Liquidität sowie Angebot und Nachfrage am Markt leicht von diesem theoretischen fairen Wert abweichen – dieser Rechner liefert die Basisbewertung, von der aus diese realen Faktoren Anpassungen vornehmen.</p>
+
+    <h2>Häufig gestellte Fragen</h2>
+    <details class="sx-faq"><summary>Warum notiert eine Anleihe unter ihrem Nennwert?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Wenn die aktuellen Marktzinsen höher sind als der feste Kuponzins der Anleihe, wird sie im Vergleich zu neueren Anleihen weniger attraktiv, sodass ihr Preis unter den Nennwert fällt, um Käufer mit einer besseren effektiven Rendite zu entschädigen.</p></details>
+    <details class="sx-faq"><summary>Was passiert mit dem Kurs einer Anleihe bei Fälligkeit?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Der Preis einer Anleihe nähert sich dem Nennwert, je näher die Fälligkeit rückt, da der Inhaber bei Fälligkeit genau den Nennwert zurückerhält — ein Aufschlag oder Abschlag schrumpft über die Restlaufzeit der Anleihe allmählich auf null.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Ergänzende Finanzrechner</h2><p>Tools für Zinsen, Einlagen und Annuitäten.</p></div>
+  <a href="/de/financial-calculators.html">Alle Finanztools anzeigen<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/de/financial/simple-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">percent</span></span><b>Einfacher Zinsrechner</b><span class="d">Nicht aufzinsende Schuldscheine und kurzfristige Verbindlichkeiten.</span><span class="f">Rechner öffnen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>CD-Rechner</b><span class="d">Wachstum von Termineinlagen (CD) und APY.</span><span class="f">Rechner öffnen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_up</span></span><b>Zinseszinsrechner</b><span class="d">Langfristiges Wachstum mit reinvestierten Erträgen.</span><span class="f">Rechner öffnen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/de/financial/annuity-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Rentenzahlungsrechner (Annuität)</b><span class="d">Barwert und Endwert von Zahlungsströmen.</span><span class="f">Rechner öffnen<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/de/" class="logo">calculatepilot<span class="dot">.</span></a>
+        <p style="color:var(--slate); font-size:0.88rem; margin-top:10px; max-width:260px;">Kostenlose, präzise Rechner für den Alltag — gebaut für Klarheit, nicht für Ballast.</p>
+        <div class="footer-social"><div class="social-icons">
+  <a href="https://x.com/CalculatePilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf X (Twitter)" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/calculatepilot/" target="_blank" rel="noopener" aria-label="CalculatePilot auf Pinterest" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf TikTok" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/calculatepilot" target="_blank" rel="noopener nofollow" aria-label="CalculatePilot auf Instagram" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@CalculatePilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf YouTube" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <a href="https://www.facebook.com/calculatepilot" target="_blank" rel="noopener" aria-label="CalculatePilot auf Facebook" class="social-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+</div></div>
+      </div>
+      <div>
+        <h4>Finanzen</h4>
+        <ul>
+          <li><a href="/de/financial/401k-calculator.html">401K</a></li>
+          <li><a href="/de/financial/amortization-calculator.html">Tilgungsplan</a></li>
+          <li><a href="/de/financial/annuity-calculator.html">Rente</a></li>
+          <li><a href="/de/financial/mortgage-calculator.html">Hypothek</a></li>
+          <li><a href="/de/financial/uk-stamp-duty-calculator.html">Stamp Duty (UK)</a></li>
+          <li><a href="/de/financial/compound-interest-calculator.html">Zinseszins</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Gesundheit</h4>
+        <ul>
+          <li><a href="/de/health/alcohol-calories-calculator.html">Alkohol-Kalorien</a></li>
+          <li><a href="/de/health/bac-calculator.html">BAC</a></li>
+          <li><a href="/de/health/blood-pressure-category-calculator.html">Blutdruck-Kategorie</a></li>
+          <li><a href="/de/health/bmi-calculator.html">BMI</a></li>
+          <li><a href="/de/health/macro-calculator.html">Makros</a></li>
+          <li><a href="/de/health/calorie-calculator.html">Kalorien</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematik &amp; mehr</h4>
+        <ul>
+          <li><a href="/de/math/basic-calculator.html">Grundrechner</a></li>
+          <li><a href="/de/math/area-calculator.html">Fläche</a></li>
+          <li><a href="/de/other/age-calculator.html">Alter</a></li>
+          <li><a href="/de/math/percentage-calculator.html">Prozent</a></li>
+          <li><a href="/de/other/gpa-calculator.html">GPA</a></li>
+          <li><a href="/de/math/quadratic-formula-calculator.html">Quadratische Formel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/methodology.html">Unsere Methodik</a></li>
+          <li><a href="/de/guides/">Ratgeber</a></li>
+          <li><a href="/embed/">Rechner einbetten</a></li>
+        </ul>
+<ul>
+          <li><a href="/privacy.html">Datenschutz</a></li>
+          <li><a href="/terms.html">Nutzungsbedingungen</a></li><li><a href="mailto:help@calculatepilot.com">help@calculatepilot.com</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CalculatePilot. Alle Berechnungen sind Schätzungen — ziehen Sie für finanzielle oder medizinische Entscheidungen einen Fachmann hinzu. <a href="/methodology.html" style="color:inherit; text-decoration:underline;">Unsere Methodik →</a></span> <span><a href="/embed/bond-calculator.html" target="_blank" style="color:var(--signal); text-decoration:none; font-weight:600;">⬜ Diesen Rechner einbetten</a> &nbsp;·&nbsp; <a href="/de/" style="color:var(--slate);">Alle Rechner →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/de/bond.js?v=20260930o"></script>
+<script src="/js/nav.js?v=3d1747f9"></script>
+</body>
+</html>

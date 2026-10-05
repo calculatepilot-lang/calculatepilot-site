@@ -1,0 +1,153 @@
+<div class="sx" id="anCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Annuity Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Fixed &amp; Variable Annuity Modeling</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Immediate vs Deferred Payouts</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Client-Side Actuarial Engine</span></div>
+    <h1>Annuity Calculator &amp; Lifetime Income Simulator</h1>
+    <p>Model immediate and deferred income annuities, estimate lifetime payouts under different guarantee options, see how a surrender schedule works — and calculate the future and present value of any series of regular payments.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Contract Parameters</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><span>Contract Distribution Mode</span></div>
+      <input type="hidden" id="mode" value="s2">
+      <div class="sx-seg" role="group" aria-label="Contract mode" style="display:flex"><button type="button" data-for="mode" data-value="s1" style="flex:1">Immediate Annuity (SPIA)</button><button type="button" data-for="mode" data-value="s2" style="flex:1">Deferred Annuity (DIA/FIA)</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="prem">Initial Principal Investment</label><em style="color:var(--sx-muted);font-weight:500">Single premium purchase</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="prem" type="number" inputmode="decimal" min="0" step="1000" value="250000" style="font-size:17px;font-weight:600"></div>
+      <div class="sx-au-chips"><button type="button" data-for="prem" data-value="100000">$100k</button><button type="button" data-for="prem" data-value="250000">$250k</button><button type="button" data-for="prem" data-value="500000">$500k</button><button type="button" data-for="prem" data-value="1000000">$1M</button></div>
+    </div>
+    <div id="defBox">
+      <div class="sx-au-l"><label for="defR">Accumulation Period / Deferral Horizon</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="defOut">10 Years</em></div>
+      <input type="hidden" id="def" value="10"><input id="defR" class="sx-range2" type="range" min="1" max="30" step="1" value="10" data-sync="def" aria-label="Deferral years">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin-top:4px"><span>1 yr</span><span>15 yrs</span><span>30 yrs</span></div>
+      <div class="sx-au-l" style="margin-top:16px"><label for="g">Expected Annual Growth Rate during Deferral</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="gOut">5.40% APY</em></div>
+      <div class="sx-au-g2"><div class="sx-au-in np pc"><input id="g" type="number" inputmode="decimal" min="0" max="15" step="0.05" value="5.4"><span class="suf">%</span></div><div class="sx-au-chips" style="margin:0;align-self:center"><button type="button" data-for="g" data-value="4.25">Fixed 4.25%</button><button type="button" data-for="g" data-value="5.4">Indexed 5.40%</button><button type="button" data-for="g" data-value="7.8">Variable 7.80%</button></div></div>
+      <p class="sx-au-help">Illustrative assumptions — fixed rates are guaranteed by the contract; indexed and variable returns are not.</p>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Payout Option &amp; Longevity Guarantee</span></div>
+      <input type="hidden" id="opt" value="s2">
+      <div class="sx-au-cat nr" role="group" aria-label="Payout option">
+        <button type="button" data-for="opt" data-value="s1"><span><b>Single Life Only</b><small>Highest payout. Stops at the annuitant's death — nothing passes to heirs.</small></span></button>
+        <button type="button" data-for="opt" data-value="s2"><span><b>Life with 10-Yr Certain</b><small>Pays for life, and at least 120 payments to heirs.</small></span><span class="msym ck" aria-hidden="true">check_circle</span></button>
+        <button type="button" data-for="opt" data-value="s3"><span><b>Joint &amp; Survivor 100%</b><small>Continues until the second spouse dies (same-age spouse assumed).</small></span></button>
+        <button type="button" data-for="opt" data-value="s4"><span><b>Fixed Period (20 Yrs)</b><small>Term certain: exactly 240 monthly payments, no life contingency.</small></span></button>
+      </div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="age">Current Annuitant Age</label></div><div class="sx-au-in np"><input id="age" type="number" inputmode="numeric" min="30" max="90" step="1" value="55"><span class="suf">Years Old</span></div></div>
+      <div><div class="sx-au-l"><span>Retirement Payout Age</span></div><div class="sx-an-age"><span id="payAge">—</span><em>Age + deferral</em></div></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="pr">Insurer Pricing Rate</label></div><div class="sx-au-in np pc"><input id="pr" type="number" inputmode="decimal" min="0" max="12" step="0.05" value="4.5"><span class="suf">%</span></div></div>
+      <div><div class="sx-au-l"><label for="hz">Illustrate Payouts To</label></div><div class="sx-au-sel"><select id="hz"><option value="85" selected>Age 85</option><option value="90">Age 90</option><option value="95">Age 95</option></select></div></div>
+    </div>
+    <div class="sx-an-cola"><span class="msym" aria-hidden="true">trending_up</span><div><b>Cost-of-Living Rider (COLA)</b><small>Payments rise <span id="colaTxt">2.0%</span> a year; the starting payout is lower to pay for it</small></div><div class="sx-au-in sm np pc" style="width:88px"><input id="colaR" type="number" inputmode="decimal" min="0" max="5" step="0.5" value="2" aria-label="COLA rate"><span class="suf">%</span></div><label class="sx-toggle"><input type="checkbox" id="cola" checked aria-label="Cost-of-living rider"><i></i></label></div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">refresh</span>Simulate Annuity Payouts &amp; Cash Flow</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:16px">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Estimated Lifetime Cash Flow</span><span id="ageTag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>/mo</small></div>
+    <p id="yrTxt">—</p>
+    <div class="g2"><div><span id="balL">Accumulated Balance</span><b id="bal">—</b></div><div><span id="totL">Total Payouts</span><b id="tot">—</b></div></div>
+    <div class="gain" id="gainBox"><span id="gainL">Payouts Beyond Account Value:</span><b id="gain">—</b></div>
+    <div class="note" id="note">—</div>
+  </section>
+  <section class="sx-card sx-an-wf">
+    <h3>Capital Composition Waterfall</h3>
+    <p id="wfN">Breakdown of total expected payouts.</p>
+    <div class="bar" id="wfBar"></div>
+    <ul id="wfList"></ul>
+  </section>
+  <section class="sx-card sx-an-sur" id="surBox">
+    <div class="hd"><h3><span class="msym" aria-hidden="true">lock_clock</span>Surrender Charge Schedule</h3><span>Typical 7-year declining</span></div>
+    <div class="t"><div>Yr 1<b>7%</b></div><div>Yr 2<b>6%</b></div><div>Yr 3<b>5%</b></div><div>Yr 4<b>4%</b></div><div>Yr 5<b>3%</b></div><div>Yr 6<b>2%</b></div><div>Yr 7+<b>0%</b></div></div>
+    <p id="surTxt">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>PDF Schedule</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Export CSV</button><a href="#tvm"><span class="msym" aria-hidden="true">balance</span>PV / FV</a></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="ledger">
+  <div class="hd"><div><h2>Multi-Decade Actuarial Ledger &amp; Cashflow Schedule</h2><p>Accumulation growth, COLA step-ups and income drawdowns. The notional account shows what the money alone would cover — payouts continue for life after it runs out.</p></div>
+    <div class="hbt" style="align-items:center;gap:8px"><span style="font-size:12px;color:var(--sx-muted)">Display Interval:</span><input type="hidden" id="step" value="5"><div class="sx-seg" role="group" aria-label="Display interval"><button type="button" data-for="step" data-value="5">5-Year Steps</button><button type="button" data-for="step" data-value="1" id="allBtn">Annual</button></div></div></div>
+  <div class="sx-scroll"><table class="sx-au-st">
+    <thead><tr><th scope="col">Contract Yr</th><th scope="col">Annuitant Age</th><th scope="col">Phase</th><th scope="col">Beginning Balance</th><th scope="col">Annual Payout</th><th scope="col">Cumulative Cash Out</th><th scope="col">Notional Account (End)</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+  <div class="ft"><span id="ledFt">*Payout ages assume the annuitant is alive. Notional account grows at the pricing rate less payouts, with no mortality credits.</span></div>
+</section>
+
+<section class="sx-card sx-an-tvm" id="tvm">
+  <div class="sx-au-l" style="margin-bottom:6px"><h2 class="sx-h-md" style="margin:0">Annuity Future Value &amp; Present Value</h2><span class="sx-au-tag">Ordinary annuity · monthly</span></div>
+  <p style="margin:0 0 18px;font-size:13px;color:var(--sx-onv)">Calculate the future value and present value of a series of regular payments, using standard annuity formulas.</p>
+  <div class="g">
+    <div class="sx-au-stack" style="gap:14px">
+      <div><div class="sx-au-l"><label for="payment">Regular payment amount</label></div><div class="sx-au-in"><span class="pre">$</span><input id="payment" type="number" inputmode="decimal" min="0" step="25" value="500"></div></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="annualRate">Annual interest rate</label></div><div class="sx-au-in np pc"><input id="annualRate" type="number" inputmode="decimal" min="0" step="0.1" value="5"><span class="suf">%</span></div></div>
+        <div><div class="sx-au-l"><label for="years">Number of years</label></div><div class="sx-au-in np"><input id="years" type="number" inputmode="numeric" min="1" step="1" value="20"><span class="suf">yrs</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sx-au-tiles c3 card">
+        <div class="hl"><span>Future Value</span><b class="g" id="fv">—</b><small>What the payments grow to</small></div>
+        <div><span>Present Value</span><b id="pv">—</b><small>Equivalent lump sum today</small></div>
+        <div><span>Total Paid In</span><b id="paid">—</b><small id="paidN">—</small></div>
+      </div>
+      <p class="sx-au-help" style="margin-top:10px">FV = PMT × [(1+i)^n − 1] / i · PV = PMT × [1 − (1+i)^−n] / i — with i = annual rate ÷ 12 and n = years × 12.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">groups</span></span><h3>The Mechanics of Mortality Credits &amp; Longevity Risk Pooling</h3><p>A lifetime annuity pools longevity risk. Money left behind by annuitants who die earlier than average helps fund payments to those who live longer — the "mortality credit". That is why a life annuity can pay more each year than you could safely withdraw from the same savings on your own, where you'd have to plan for living to 95 or beyond.</p><p>The trade-off: with a life-only contract, if you die early the remaining value stays in the pool. Guarantee periods and joint options reduce the payout in exchange for protecting heirs or a spouse.</p><div class="sx-sg-take"><b>Model used here:</b> Gompertz mortality (modal age 90, dispersion 10 years) — roughly annuitant-level longevity. Real quotes also reflect sex, health, insurer expenses and current bond yields.</div></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">receipt_long</span></span><h3>Qualified vs. Non-Qualified Annuity Taxation</h3><p>Tax treatment depends on how the annuity was funded. <b>Qualified annuities</b> bought with pre-tax IRA or 401(k) money are generally taxed as ordinary income when paid out, and are subject to Required Minimum Distribution rules (RMDs start at 73, or 75 for people born in 1960 or later).</p><p><b>Non-qualified annuities</b> bought with after-tax savings use an <em>exclusion ratio</em> (IRC § 72): part of each payment is a tax-free return of your premium and part is taxable earnings, until your cost basis has been recovered.</p><div class="sx-sg-take"><b>Sources:</b> IRS Publication 575 (pension and annuity income) and Publication 939 (general rule for pensions and annuities).</div></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Future value vs. present value</h2>
+    <p>Future value tells you what a series of regular payments will grow to by the end of the term, accounting for compound interest along the way — useful for projecting retirement contributions or systematic savings plans.</p>
+    <p>Present value tells you the equivalent lump sum today that would be worth the same as that entire stream of future payments — useful for comparing an annuity payout against a one-time settlement offer, or valuing a pension stream.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>This calculator models an ordinary annuity</h2>
+    <p>The future and present value section assumes an 'ordinary annuity,' where payments occur at the end of each period (the most common structure for loans and many savings plans) rather than an 'annuity due,' where payments occur at the beginning of each period. The distinction produces a small but real difference in the result, so check which structure applies to your specific situation.</p>
+    <p>It also assumes monthly compounding matching monthly payments — for annual or quarterly payment schedules, the underlying math is the same but would need the compounding frequency adjusted to match.</p>
+
+    <h2>How the lifetime income estimate works</h2>
+    <p>During deferral the premium grows at your assumed rate. At the payout age, the balance is converted to a monthly income by dividing it by an annuity factor: the present value, at the insurer pricing rate, of $1 a month paid for as long as the chosen option pays — weighted by the chance the annuitant (or either spouse) is still alive, with guaranteed months counted in full and COLA step-ups included. It's an estimate for comparing options, not an insurer quote.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What's the difference between an ordinary annuity and an annuity due?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In an ordinary annuity, payments happen at the end of each period; in an annuity due, they happen at the beginning. This calculator models an ordinary annuity, which is the more common structure for loans and standard savings plans.</p></details>
+    <details class="sx-faq"><summary>When would I use present value instead of future value?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Present value is useful when comparing a stream of future payments (like a pension or settlement) against an equivalent lump sum offered today — it tells you what that future income stream is actually worth in today's dollars.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Retirement Calculators</h2><p>Income security, retirement saving and fixed-yield alternatives.</p></div>
+  <a href="/financial-calculators.html">All Financial Tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/retirement-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Retirement Calculator</b><span class="d">Project savings and safe withdrawals in retirement.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">account_balance</span></span><b>CD Calculator</b><span class="d">Fixed-term deposit growth and ladder yields.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">query_stats</span></span><b>401(k) Calculator</b><span class="d">Employer match, compound growth and pre-tax balances.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Compound Interest Calculator</b><span class="d">Growth with periodic contributions.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

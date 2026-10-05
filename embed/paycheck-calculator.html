@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paycheck Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance_wallet,arrow_forward,calculate,check,check_circle,chevron_right,contract,currency_pound,directions_bus,domain,expand_more,health_and_safety,info,lock,medical_services,payments,pie_chart,restart_alt,rule,savings,shield,trending_up,tune,verified&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,88 +38,147 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Paycheck Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="grossPerPeriod">Gross pay per paycheck ($)</label>
-          <input type="number" id="grossPerPeriod" value="2500"
-step="50"min="0">
-        </div>
-        <div class="field">
-          <label for="frequency">Pay frequency</label>
-          <select id="frequency">
-            <option value="weekly" >Weekly (52/year)</option>
-            <option value="biweekly" selected>Biweekly (26/year)</option>
-            <option value="semimonthly" >Semimonthly (24/year)</option>
-            <option value="monthly" >Monthly (12/year)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="preTaxDeductions">Pre-tax deductions per paycheck ($)</label>
-          <input type="number" id="preTaxDeductions" value="150"
-step="10"min="0">
-        </div>
-        <div class="field">
-          <label for="taxRate">Your estimated effective tax rate (%)</label>
-          <input type="number" id="taxRate" value="24"
-step="1"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated take-home pay</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Estimated annual net pay</span><span id="outAnnualNet">—</span></div>
-        <div class="embed-row"><span>Estimated annual tax</span><span id="outEstimatedTax">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="pcCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Paycheck Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified</span>2026 US Federal Tax Engine</span><span class="sx-badge" style="background:var(--sx-hi2)"><span aria-hidden="true" class="msym">tune</span>Pre-Tax &amp; Post-Tax Deductions</span><span class="sx-badge"><span aria-hidden="true" class="msym">lock</span>Client-Side Precision</span></div>
+<h1>Paycheck Calculator (Take-Home Pay)</h1>
+<p>Estimate your net take-home pay per paycheck after 2026 federal income tax, FICA (Social Security &amp; Medicare), state income tax, and pre-tax payroll deductions.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">account_balance_wallet</span></span><h2 class="sx-h-md" style="margin:0">Earnings &amp; Withholding</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-lr"><div class="sx-au-l"><label for="pay">Gross Compensation</label></div><input id="mode" type="hidden" value="annual"/><div aria-label="Pay entered as" class="sx-seg xs" role="group"><button data-for="mode" data-value="annual" type="button">Annual</button><button data-for="mode" data-value="hourly" id="hrBtn" type="button">Hourly</button></div></div>
+<div class="sx-au-in pc"><span class="pre">$</span><input id="pay" inputmode="decimal" min="0" step="500" type="number" value="85000"/><span class="suf" id="payUnit">/yr</span></div>
+<p class="sx-au-help" hidden="" id="hrsRow"><label for="hrs">Hours per week:</label> <input id="hrs" max="80" min="1" step="1" style="width:60px;height:26px;border:1px solid var(--sx-border);border-radius:6px;padding:0 6px;font:inherit;background:var(--sx-card);color:var(--sx-on)" type="number" value="40"/></p>
+</div>
+<div>
+<div class="sx-au-l"><span>Pay Frequency</span></div>
+<input id="freq" type="hidden" value="26"/>
+<div aria-label="Pay frequency" class="sx-au-cat nr" role="group">
+<button data-for="freq" data-value="52" type="button"><span><b>Weekly</b><small>52 paychecks</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="freq" data-value="26" type="button"><span><b>Bi-Weekly</b><small>26 paychecks</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="freq" data-value="24" type="button"><span><b>Semi-Monthly</b><small>24 paychecks</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+<button data-for="freq" data-value="12" type="button"><span><b>Monthly</b><small>12 paychecks</small></span><span aria-hidden="true" class="msym ck">check_circle</span></button>
+</div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="status">Filing Status</label></div><div class="sx-au-sel"><select id="status"><option selected="" value="single">Single</option><option value="mfj">Married Filing Jointly</option><option value="mfs">Married Filing Separately</option><option value="hoh">Head of Household</option></select></div></div>
+<div><div class="sx-au-l"><label for="state">State Income Tax</label></div><div class="sx-au-sel"><select id="state"><option selected="" value="custom">Other state (enter rate)</option><option value="none">No wage income tax (TX, FL, WA, NV…)</option><option value="il">Illinois (4.95% flat)</option><option value="pa">Pennsylvania (3.07% flat)</option></select></div></div>
+</div>
+<div id="stRow"><div class="sx-au-l"><label for="stRate">Your State Income Tax Rate (effective)</label><em class="mu">Check a recent pay stub</em></div><div class="sx-au-in sm np pc"><input id="stRate" inputmode="decimal" max="15" min="0" step="0.1" type="number" value="4.0"/><span class="suf">%</span></div></div>
+<div class="sx-ry-opx open" id="ptx">
+<button aria-controls="ptxList" aria-expanded="true" type="button"><span><span aria-hidden="true" class="msym">shield</span>Pre-Tax Deductions (Per Paycheck)</span><span aria-hidden="true" class="msym chev">expand_more</span></button>
+<ul id="ptxList">
+<li style="display:block"><div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px"><label for="k401">401(k) / 403(b) Traditional Deferral</label><b id="k401Amt" style="width:auto;color:var(--sx-pc)">—</b></div><input id="k401" type="hidden" value="6"/><div class="sx-pc-slider"><input aria-label="401(k) percent of pay" class="sx-range2" data-sync="k401" max="50" min="0" step="1" type="range" value="6"/><b id="k401Pct">6%</b></div><span class="sx-au-help" style="display:block">Reduces income tax, not FICA.</span></li>
+<li><span aria-hidden="true" class="msym">health_and_safety</span><label for="health">Health Insurance (Sec. 125)<br/><small style="color:var(--sx-muted)">Medical, dental &amp; vision</small></label><div class="sx-au-in"><span class="pre">$</span><input id="health" inputmode="decimal" min="0" step="5" type="number" value="120"/></div></li>
+<li><span aria-hidden="true" class="msym">medical_services</span><label for="hsa">HSA / FSA Contribution<br/><small style="color:var(--sx-muted)">Via payroll (cafeteria plan)</small></label><div class="sx-au-in"><span class="pre">$</span><input id="hsa" inputmode="decimal" min="0" step="5" type="number" value="75"/></div></li>
+<li><span aria-hidden="true" class="msym">directions_bus</span><label for="commute">Commuter Benefits<br/><small style="color:var(--sx-muted)">Transit &amp; parking</small></label><div class="sx-au-in"><span class="pre">$</span><input id="commute" inputmode="decimal" min="0" step="5" type="number" value="30"/></div></li>
+</ul>
+</div>
+<div class="sx-pc-mini">
+<div><b>Post-Tax Deductions (Per Paycheck)</b><label for="roth">Roth 401(k) <span class="sx-au-in"><span class="pre">$</span><input id="roth" min="0" step="10" type="number" value="0"/></span></label><label for="other">Other (charity, etc.) <span class="sx-au-in"><span class="pre">$</span><input id="other" min="0" step="5" type="number" value="0"/></span></label></div>
+<div><b>Form W-4 Details</b><label for="deps">Step 3 credits ($/yr) <span class="sx-au-in"><span class="pre">$</span><input id="deps" min="0" step="100" type="number" value="0"/></span></label><label for="xtra">Extra withholding <span class="sx-au-in"><span class="pre">$</span><input id="xtra" min="0" step="5" type="number" value="0"/></span></label></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Net Paycheck</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-card r2 sx-pc-hero">
+<div class="top">
+<div><span class="sx-kick">Estimated Net Take-Home Paycheck</span><div class="big"><span id="resultValue">—</span><small id="perLbl">/ bi-weekly paycheck</small></div><div class="ann">Annualized equivalent: <b id="annNet">—</b></div></div>
+<div class="rt">Gross Baseline<b id="grossPer">—</b><span id="grossNote">—</span></div>
+</div>
+<div class="sx-pc-stats">
+<div><span>Effective Tax Rate</span><b id="effRate">—</b></div>
+<div><span>Total Deductions</span><b id="dedRate">—</b></div>
+<div><span>Taxable Wages</span><b id="taxWages">—</b></div>
+<div><span>Pre-Tax Shield</span><b class="g" id="shield">—</b></div>
+</div>
+<div class="sx-pc-dist">
+<div class="r">Paycheck Allocation Distribution<span>100% Total Gross</span></div>
+<div class="bar" id="distBar"></div>
+<div class="lg" id="distLg"></div>
+</div>
+</section>
+<section class="sx-card r2 sx-pc-items">
+<div class="hd"><h3>Itemized Paycheck Deductions Breakdown</h3><span id="cycleLbl">Bi-Weekly Pay Cycle</span></div>
+<ul id="items"></ul>
+</section>
+<section class="sx-card r2 sx-pc-freq">
+<h3>Equivalent Net Pay Across Frequencies</h3>
+<div class="g" id="freqs"></div>
+</section>
+</div>
+</div>
+<section class="sx-card r2 sx-pc-br cp-hide" id="brackets">
+<div class="hd"><div><h2>Federal Marginal Tax Bracket Distribution</h2><p id="brSub">—</p></div><em><span aria-hidden="true" class="msym">info</span><span id="brTag">2026 IRS brackets after standard deduction</span></em></div>
+<div id="brRows"></div>
+<div class="sx-pc-shield"><span aria-hidden="true" class="msym">savings</span><span id="shieldTxt">—</span></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">rule</span>The Mechanics of Paycheck Withholding</h3>
+<p>Knowing how payroll taxes are calculated helps you avoid a surprise balance due — or an unnecessarily large refund — at tax time.</p>
+<ul class="ck">
+<li><span aria-hidden="true" class="msym">check</span><span><b>Social Security wage cap:</b> the 6.2% Social Security tax applies only to the first <b>$184,500</b> of wages in 2026. Medicare (1.45%) has no cap.</span></li>
+<li><span aria-hidden="true" class="msym">check</span><span><b>Additional Medicare Tax:</b> employers withhold an extra <b>0.9%</b> on wages above $200,000 in a year, whatever your filing status.</span></li>
+<li><span aria-hidden="true" class="msym">check</span><span><b>Pre-tax isn't all the same:</b> traditional 401(k) deferrals cut income tax but not FICA; Section 125 health premiums, payroll HSA contributions and commuter benefits cut both.</span></li>
+<li><span aria-hidden="true" class="msym">check</span><span><b>Form W-4 (2020+):</b> allowances are gone. You adjust withholding with dollar amounts — credits for dependents in Step 3 and extra withholding in Step 4(c).</span></li>
+</ul>
+</div>
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">pie_chart</span>Gross vs Net vs Total Compensation</h3>
+<p>Your gross salary is only part of what your employer spends to employ you.</p>
+<ul class="ck">
+<li><span aria-hidden="true" class="msym">domain</span><span><b>Employer FICA match:</b> your employer pays its own 7.65% on top of yours — <b id="erFica">—</b> a year at your pay.</span></li>
+<li><span aria-hidden="true" class="msym">health_and_safety</span><span><b>Employer health contributions:</b> employers often pay most of the health insurance premium; your benefits statement shows the exact amount.</span></li>
+<li><span aria-hidden="true" class="msym">trending_up</span><span><b>Total cost before benefits:</b> salary plus employer FICA comes to about <b id="erTotal">—</b> a year, before health, retirement match and unemployment insurance.</span></li>
+</ul>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>Federal income tax withholding is estimated by annualizing your pay: annual wages minus pre-tax deductions minus the 2026 standard deduction for your filing status, run through the 2026 IRS tax brackets, less any Form W-4 Step 3 credits, then divided by your number of paychecks. Social Security (6.2% up to $184,500) and Medicare (1.45%, plus 0.9% above $200,000) are applied to wages after Section 125 deductions. State tax uses a flat rate on your wages after pre-tax deductions. Real employer withholding follows IRS Publication 15-T, so individual paychecks can differ by a few dollars.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · 2026 figures verified 27 Sep 2026 against IRS Rev. Proc. 2025-32 and the SSA 2026 fact sheet · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>What counts as a pre-tax deduction</h2>
+<p>Pre-tax deductions reduce your taxable income before tax is calculated — common examples include traditional 401(k) contributions, health insurance premiums, and health savings account (HSA) contributions. Post-tax deductions, like Roth 401(k) contributions or wage garnishments, don't reduce taxable income, so they're entered separately.</p>
+<p>Getting this distinction right matters for accuracy — including a post-tax deduction as pre-tax would understate your taxable income and therefore your estimated tax, throwing off the final take-home figure. For a federal-only estimate on a known taxable income, use the <a href="/financial/tax-calculator.html">Tax Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Which tax figures does this calculator use?<span aria-hidden="true" class="msym">expand_more</span></summary><p>2026 federal tax brackets and standard deductions from IRS Rev. Proc. 2025-32, the 2026 Social Security wage base of $184,500, and Medicare at 1.45% plus 0.9% on wages above $200,000. State income tax uses a flat rate you choose, since state rules vary widely.</p></details>
+<details class="sx-faq"><summary>Where can I find my actual effective tax rate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Divide the total tax withheld on a recent pay stub or tax return by your gross income for that period — that gives a reasonably accurate personal effective rate to use here.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Financial Calculation Engines</h2><p>Put your take-home pay to work.</p></div>
+<a href="/financial-calculators.html">Explore all financial tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">pie_chart</span></span><b>50/30/20 Budget Calculator</b><span class="d" id="relBudget">Structure your net pay across needs, wants, and savings.</span><span class="f">Run budget scenario<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/401k-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">savings</span></span><b>401(k) Calculator</b><span class="d">Model compound growth and your employer match over a 30-year horizon.</span><span class="f">Project retirement wealth<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/uk-take-home-pay-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">currency_pound</span></span><b>UK Take-Home Pay Calculator</b><span class="d">PAYE income tax bands and National Insurance for UK salaries.</span><span class="f">Calculate UK salary<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/freelance-rate-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">contract</span></span><b>Freelance Rate Calculator</b><span class="d">Convert a salary into the hourly rate you'd need as a 1099 contractor.</span><span class="f">Calculate billing rate<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/paycheck-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -246,40 +187,9 @@ step="1"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/paycheck.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/paycheck.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

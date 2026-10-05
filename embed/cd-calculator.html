@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CD Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance,account_balance_wallet,add,arrow_forward,calendar_month,chevron_right,compare_arrows,download,expand_more,finance_mode,functions,gavel,health_and_safety,print,receipt_long,restart_alt,savings,schedule,shield,stairs,trending_up,tune,verified,verified_user,warning&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,87 +38,146 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">CD Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-        <div class="field">
-          <label for="depositAmount">Deposit amount ($)</label>
-          <input type="number" id="depositAmount" value="10000"
-step="100"min="0">
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="annualRate">Annual interest rate (%)</label>
-          <input type="number" id="annualRate" value="4.5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="termMonths">Term (months)</label>
-          <input type="number" id="termMonths" value="12"
-step="1"min="1">
-        </div>
-</div>        <div class="field">
-          <label for="compounding">Compounding frequency</label>
-          <select id="compounding">
-            <option value="monthly" selected>Monthly</option>
-            <option value="quarterly" >Quarterly</option>
-            <option value="annually" >Annually</option>
-          </select>
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Maturity value</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Interest earned</span><span id="outInterestEarned">—</span></div>
-        <div class="embed-row"><span>Original deposit</span><span id="outDeposit">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="cdCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">CD Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified</span>APY Compound Yield Engine</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">shield</span>FDIC / NCUA Insured Products</span><span class="sx-badge"><span aria-hidden="true" class="msym">gavel</span>Early Withdrawal Penalty Audit</span></div>
+<h1>CD Calculator &amp; CD Laddering Strategist</h1>
+<p>Calculate how much a certificate of deposit will be worth at maturity and how much interest it earns — plus early-withdrawal penalties, APY vs APR, and a 5-year CD ladder.</p>
 </div>
+<div class="sx-cd-mode"><a class="on" href="#cdCalc"><span aria-hidden="true" class="msym">savings</span>Single CD Maturity</a><a href="#ladder"><span aria-hidden="true" class="msym">stairs</span>5-Year CD Ladder Strategy</a></div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span class="sx-ibox lo"><span aria-hidden="true" class="msym">tune</span></span><h2 class="sx-h-md" style="margin:0">Deposit Parameters</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="dep">Initial CD Deposit</label><em class="mu">Insured up to $250k per bank</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="dep" inputmode="decimal" min="0" step="500" style="font-size:18px;font-weight:600" type="number" value="20000"/></div>
+<div class="sx-au-chips"><button data-for="dep" data-value="5000" type="button">$5k</button><button data-for="dep" data-value="10000" type="button">$10k</button><button data-for="dep" data-value="20000" type="button">$20k</button><button data-for="dep" data-value="50000" type="button">$50k</button><button data-for="dep" data-value="100000" type="button">$100k</button></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Term Duration</span><em id="tOut" style="color:var(--sx-on)">12 Months (1.0 Yr)</em></div>
+<input id="term" type="hidden" value="12"/>
+<div aria-label="Term" class="sx-au-opts" role="group" style="grid-template-columns:repeat(6,minmax(0,1fr))"><button data-for="term" data-value="6" type="button">6 Mo</button><button data-for="term" data-value="12" type="button">12 Mo</button><button data-for="term" data-value="18" type="button">18 Mo</button><button data-for="term" data-value="24" type="button">24 Mo</button><button data-for="term" data-value="36" type="button">36 Mo</button><button data-for="term" data-value="60" type="button">60 Mo</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="apy">Annual Percentage Yield (APY)</label><em class="mu">Effective compounded rate</em></div>
+<div class="sx-au-in np pc"><input id="apy" inputmode="decimal" max="20" min="0" step="0.01" style="font-size:17px;font-weight:600" type="number" value="4.85"/><span class="suf">%</span></div>
+<div class="sx-au-chips">Quick set: <button data-for="apy" data-value="4" type="button">4.00%</button><button data-for="apy" data-value="4.85" type="button">4.85%</button><button data-for="apy" data-value="5.15" type="button">5.15%</button></div>
+<p class="sx-au-help">Use the APY on the bank's offer — CD rates change often.</p>
+</div>
+<div>
+<div class="sx-au-l"><label for="cmp">Compounding Frequency</label><em class="mu">Sets the equivalent APR</em></div>
+<div class="sx-au-sel"><select id="cmp"><option selected="" value="365">Daily (365/yr)</option><option value="12">Monthly (12/yr)</option><option value="4">Quarterly (4/yr)</option><option value="2">Semi-Annually (2/yr)</option><option value="1">Annually (1/yr)</option></select></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="pen">Early Withdrawal Penalty Rule</label><em class="mu">Check your CD's terms</em></div>
+<div class="sx-au-sel"><select id="pen"><option value="60">60 Days of Simple Interest</option><option selected="" value="90">90 Days of Simple Interest</option><option value="180">180 Days of Simple Interest</option><option value="365">365 Days of Simple Interest</option><option value="0">No-Penalty CD</option></select></div>
+</div>
+<div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">finance_mode</span>Compute Guaranteed CD Yield &amp; Maturity</button>
+<p class="sx-au-note">Calculations are strictly client-side. Zero personal data captured.</p>
+</div>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results">
+<section aria-live="polite" class="sx-cd-hero">
+<span aria-hidden="true" class="msym bg">account_balance</span>
+<div class="k">Total Value at Maturity<em id="tPill">12-Month Term</em></div>
+<div class="big" id="resultValue">—</div>
+<div class="f"><span><span class="plus"><span aria-hidden="true" class="msym">add</span></span><b id="intHero">—</b></span><span><span aria-hidden="true" class="msym">verified_user</span>Fixed rate, no market risk</span></div>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k"><span>Initial Principal</span><span aria-hidden="true" class="msym">account_balance_wallet</span></div><b id="prin">—</b><p>FDIC / NCUA insured up to $250,000 per depositor, per institution</p></div>
+<div class="sx-card"><div class="k"><span>Total Interest Earned</span><span aria-hidden="true" class="msym">trending_up</span></div><b class="g" id="int">—</b><p id="intN">—</p></div>
+<div class="sx-card"><div class="k"><span>Average Monthly Interest</span><span aria-hidden="true" class="msym">calendar_month</span></div><b id="mo">—</b><p>Interest accrues and compounds inside the CD</p></div>
+<div class="sx-card"><div class="k"><span id="penL">Net if Broken at 6 Mo</span><span aria-hidden="true" class="msym r">warning</span></div><b id="penV">—</b><p id="penN">—</p></div>
+</div>
+<section class="sx-card r2 sx-ry-wf sx-cd-tl">
+<div class="hd"><b style="display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:18px"><span aria-hidden="true" class="msym">schedule</span>CD Accrual &amp; Maturity Horizon</b><span class="sx-au-tag">Compounding Curve</span></div>
+<div class="bar"></div>
+<div class="pts" id="tl"></div>
+</section>
+<section class="sx-cd-vs">
+<div class="h"><span><span aria-hidden="true" class="msym">compare_arrows</span>CD Fixed Yield vs Savings Account Benchmark</span><span id="vsL">12-Month Rate Protection</span></div>
+<div class="g2">
+<div class="on"><div class="t"><span id="vsCdL">12-Month Locked CD</span><em>Guaranteed</em></div><b><span id="vsCd">—</span> <small id="vsCdR">—</small></b><p>Rate is locked for the term, even if market rates fall.</p></div>
+<div><div class="t"><span>Savings Account (HYSA)</span><em class="v">Variable</em></div><b><span id="vsHy">—</span> <small id="vsHyR" style="color:var(--sx-muted)">—</small></b><p>Example rate: <input aria-label="Savings account rate" id="hysa" max="20" min="0" step="0.05" type="number" value="4.25"/> % APY. Fully liquid, but the rate can change at any time.</p></div>
+</div>
+</section>
+<div class="sx-in-acts"><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print Certificate Schedule</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">download</span>Export CD Ledger (.CSV)</button><a class="pri" href="#ladder"><span aria-hidden="true" class="msym">tune</span>Ladder Optimizer</a></div>
+</div>
+</div>
+<section class="sx-card r2 sx-au-sec cp-hide" id="ladder">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h2 style="display:flex;align-items:center;gap:8px"><span aria-hidden="true" class="msym">stairs</span>5-Year CD Rolling Ladder Simulation</h2><p class="lead" id="ldLead">—</p></div><span style="font-size:12px;color:var(--sx-muted)">Average Ladder APY: <b id="blend" style="font-family:var(--font-display);font-size:22px;color:var(--sx-primary);margin-left:6px">—</b></span></div>
+<div class="sx-cd-tr" id="tr">
+<div><div class="k">Tranche 1<em>1-Year CD</em></div><b class="amt">—</b><div class="r"><span>APY <input aria-label="1-year APY" id="l1" max="20" min="0" step="0.05" type="number" value="4.85"/>%</span><b class="gi">—</b></div><p>Matures Year 1 &amp; reinvests</p></div>
+<div><div class="k">Tranche 2<em>2-Year CD</em></div><b class="amt">—</b><div class="r"><span>APY <input aria-label="2-year APY" id="l2" max="20" min="0" step="0.05" type="number" value="4.95"/>%</span><b class="gi">—</b></div><p>Matures Year 2 &amp; reinvests</p></div>
+<div><div class="k">Tranche 3<em>3-Year CD</em></div><b class="amt">—</b><div class="r"><span>APY <input aria-label="3-year APY" id="l3" max="20" min="0" step="0.05" type="number" value="5.05"/>%</span><b class="gi">—</b></div><p>Matures Year 3 &amp; reinvests</p></div>
+<div><div class="k">Tranche 4<em>4-Year CD</em></div><b class="amt">—</b><div class="r"><span>APY <input aria-label="4-year APY" id="l4" max="20" min="0" step="0.05" type="number" value="5.10"/>%</span><b class="gi">—</b></div><p>Matures Year 4 &amp; reinvests</p></div>
+<div class="pk"><div class="k">Tranche 5<em>5-Year Peak</em></div><b class="amt">—</b><div class="r"><span>APY <input aria-label="5-year APY" id="l5" max="20" min="0" step="0.05" type="number" value="5.20"/>%</span><b class="gi">—</b></div><p>Longest term, highest rate</p></div>
+</div>
+<p class="sx-au-help" style="margin:-8px 0 16px">Enter the APYs currently offered for each term. Defaults are examples.</p>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Ladder Horizon</th><th scope="col">Liquidity Event</th><th scope="col">Tranche Matured</th><th scope="col">Accrued Interest</th><th scope="col">Rolling Reinvestment Action</th><th scope="col">Accessible Liquidity</th></tr></thead>
+<tbody id="ldTbl"></tbody>
+</table></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card" id="formula">
+<h3><span aria-hidden="true" class="msym">functions</span>APY vs APR: The Compounding Spread</h3>
+<p>The APR is the stated annual rate before compounding. The APY is what you actually earn in a year once interest compounds:</p>
+<div class="fx"><b>APY = (1 + r / n)<sup>n</sup> − 1</b><span>r = stated APR, n = compounding periods per year</span></div>
+<p id="aprTxt" style="font-size:13px">—</p>
+</div>
+<div class="sx-card">
+<h3><span aria-hidden="true" class="msym">gavel</span>Early Withdrawal Penalty Traps &amp; Break-Even</h3>
+<p>Breaking a CD early usually forfeits a set number of days of simple interest. If rates rise sharply, breaking and reinvesting can still come out ahead:</p>
+<ul class="sx-ef-rows" id="penRows"></ul>
+<p id="penTxt" style="font-size:12px;color:var(--sx-muted);margin-top:12px">—</p>
+</div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Why CDs offer predictable, fixed returns</h2>
+<p>Unlike a savings account, a CD locks in both your rate and your money for a fixed term — in exchange, banks typically offer a higher rate than a standard savings account, since they can rely on the deposit staying put for the full term.</p>
+<p>The trade-off is liquidity: withdrawing funds before the CD matures usually triggers an early withdrawal penalty, often equal to several months of interest, so CDs work best for money you're confident you won't need during the term.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Comparing CD terms and rates</h2>
+<p>Longer-term CDs don't always offer meaningfully higher rates than shorter-term ones — rate curves shift with the broader interest rate environment, so it's worth comparing actual offered rates across terms rather than assuming longer always means better.</p>
+<p>A common strategy called 'CD laddering' spreads deposits across multiple CDs with staggered maturity dates, balancing the higher rates of longer terms with periodic access to some of your funds.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What happens if I withdraw from a CD early?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Most CDs charge an early withdrawal penalty, commonly equal to a few months of interest, which can reduce or even eliminate the interest earned depending on how early you withdraw.</p></details>
+<details class="sx-faq"><summary>Is a CD better than a savings account?<span aria-hidden="true" class="msym">expand_more</span></summary><p>CDs typically offer higher fixed rates in exchange for locking up your money for a set term, while savings accounts offer more flexibility with generally lower, variable rates — the better choice depends on whether you need access to the funds.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Savings &amp; Yield Calculators</h2><p>Cash management and fixed-income tools.</p></div>
+<span class="sx-au-tag">4 Companion Tools</span>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">health_and_safety</span></span><b>Emergency Fund Calculator</b><span class="d">Size a 3 to 6-month cash reserve before locking money in CDs.</span><span class="f">Model liquidity<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/savings-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">account_balance</span></span><b>Savings Calculator</b><span class="d">Growth of a savings account with regular deposits.</span><span class="f">Simulate APY<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_up</span></span><b>Compound Interest Engine</b><span class="d">Long-term growth with ongoing monthly contributions.</span><span class="f">Graph growth<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/bond-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">receipt_long</span></span><b>Bond Price Calculator</b><span class="d">Coupon payments, price and yield to maturity.</span><span class="f">Calculate YTM<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/cd-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -245,40 +186,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/cd.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/cd.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

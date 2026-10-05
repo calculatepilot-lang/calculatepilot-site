@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Steps to Calories Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,content_copy,directions_run,event,expand_more,local_fire_department,print,restart_alt,straighten,timer,trending_down,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,56 +38,107 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Steps to Calories Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="units">Units</label>
-          <select id="units">
-            <option value="imperial" selected>Imperial (lb)</option>
-            <option value="metric" >Metric (kg)</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="weight">Weight</label>
-          <input type="number" id="weight" value="160"
-step="1"min="0">
-        </div>
-        <div class="field">
-          <label for="steps">Number of steps</label>
-          <input type="number" id="steps" value="10000"
-step="100"min="0">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Calories burned</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Distance (miles)</span><span id="outDistanceMiles">—</span></div>
-        <div class="embed-row"><span>Distance (km)</span><span id="outDistanceKm">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="stCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Steps to Calories Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>2024 Compendium Walking METs</span><span class="sx-badge"><span aria-hidden="true" class="msym">straighten</span>Stride-Based Distance</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Steps to Calories Calculator — Distance, Time &amp; Calories</h1>
+<p>Convert your step count into distance, walking time and calories burned, using your stride length, body weight and walking pace with MET values from the 2024 Adult Compendium of Physical Activities.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Steps</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s1"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">lb / in</button><button data-for="u" data-value="s2" style="flex:1" type="button">kg / cm</button></div></div>
+<div><div class="sx-au-l"><label for="st">Steps</label></div><div class="sx-au-in np"><input id="st" inputmode="numeric" max="100000" min="0" step="100" type="number" value="10000"/><span class="suf">steps</span></div></div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="wt">Weight</label></div><div class="sx-au-in np"><input id="wt" inputmode="decimal" max="700" min="20" step="0.5" type="number" value="170"/><span class="suf" id="wU">lb</span></div></div>
+<div><div class="sx-au-l"><span>Height</span></div>
+<div class="sx-au-in np" hidden="" id="hMet"><input aria-label="Height in centimetres" id="cm" inputmode="decimal" max="230" min="120" step="0.5" type="number" value="173"/><span class="suf">cm</span></div>
+<div id="hImp" style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="sx-au-in np"><input aria-label="Height in feet" id="ft" inputmode="numeric" max="7" min="4" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in np"><input aria-label="Height in inches" id="inch" inputmode="decimal" max="11.9" min="0" step="0.5" type="number" value="8"/><span class="suf">in</span></div></div>
+</div>
+</div>
+<div>
+<div class="sx-au-l"><span>Walking Pace</span></div>
+<input id="pc" type="hidden" value="s2"/>
+<div aria-label="Walking pace" class="sx-au-opts" role="group" style="grid-template-columns:repeat(2,minmax(0,1fr))"><button data-for="pc" data-value="s1" type="button">Slow (2.5 mph)</button><button data-for="pc" data-value="s2" type="button">Moderate (2.8–3.4)</button><button data-for="pc" data-value="s3" type="button">Brisk (3.5–3.9)</button><button data-for="pc" data-value="s4" type="button">Very brisk (4.0–4.4)</button></div>
+</div>
+<div><div class="sx-au-l"><label for="sl">Stride Length (optional)</label></div><div class="sx-au-in np"><input id="sl" inputmode="decimal" max="120" min="10" placeholder="Estimated from height" step="0.5" type="number" value=""/><span class="suf" id="sU">in</span></div></div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Convert Steps</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Calories burned</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small> kcal</small></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Distance</span><b id="dist">—</b></div><div><span>Walking time</span><b id="time">—</b></div></div>
+<div class="g2"><div><span>Above resting (net)</span><b id="net">—</b></div><div><span>Per 1,000 steps</span><b id="per">—</b></div></div>
+<div class="note" id="warn">—</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/calories-burned-calculator.html"><span aria-hidden="true" class="msym">directions_run</span>Other Activities</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Common Step Counts</h2><p>Distance, time and calories at your stride, weight and pace.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Steps</th><th scope="col">Distance</th><th scope="col">Time</th><th scope="col">Calories</th><th scope="col">Net</th></tr></thead>
+<tbody id="scTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<ul>
+<li><strong>Distance</strong> = steps × stride length. Without a measured stride, it uses the common rule of thumb of stride ≈ 41.4% of height.</li>
+<li><strong>Time</strong> = distance ÷ walking speed (2.5, 3.1, 3.7 or 4.2 mph, the middle of each pace band).</li>
+<li><strong>Calories</strong> = MET × 3.5 × weight (kg) ÷ 200 × minutes, with walking METs from the 2024 Adult Compendium: 3.0 (2.5 mph), 3.8 (2.8–3.4 mph), 4.8 (3.5–3.9 mph) and 5.5 (4.0–4.4 mph). Net calories use MET − 1.</li>
+</ul>
+<p>To measure your stride, walk 10 normal steps on a flat surface, measure the distance and divide by 10.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the 2024 Adult Compendium · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>10,000 steps for someone 5′8″ (68 in) weighing 170 lb (77.1 kg) at a moderate pace: stride ≈ 68 × 0.414 = 28.2 in, so distance ≈ 4.44 miles. At 3.1 mph that's about 86 minutes, and 3.8 × 3.5 × 77.1 ÷ 200 × 86 ≈ <strong>441 kcal</strong> — about 325 kcal above what they'd burn resting.</p>
+<h2>How many steps a day?</h2>
+<p>The 10,000-steps goal began as a 1960s Japanese pedometer marketing campaign rather than a clinical study. A 2022 meta-analysis of 15 studies (Paluch et al., Lancet Public Health) found risk of death fell as daily steps rose, levelling off at about 6,000–8,000 steps a day for adults 60 and older and 8,000–10,000 for younger adults. Any increase from a low baseline helps.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://pacompendium.com/walking/" rel="noopener noreferrer">2024 Adult Compendium of Physical Activities — Walking</a> (Herrmann SD et al. J Sport Health Sci 2024;13:6–12)</li>
+<li>Paluch AE, Bajpai S, Bassett DR, et al. Daily steps and all-cause mortality: a meta-analysis of 15 international cohorts. Lancet Public Health 2022;7:e219–e228.</li>
+<li>American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription (MET energy equation).</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How many calories does 10,000 steps burn?<span aria-hidden="true" class="msym">expand_more</span></summary><p>For a typical adult, roughly 300–500 calories, depending mostly on body weight, stride length and pace. Heavier people and faster walkers burn more.</p></details>
+<details class="sx-faq"><summary>Why does walking speed change the calories per step?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Faster walking uses more energy per minute (a higher MET) but covers the same steps in less time. Overall, brisk walking burns somewhat more per step than strolling, and uphill walking more again.</p></details>
+<details class="sx-faq"><summary>How long is 10,000 steps?<span aria-hidden="true" class="msym">expand_more</span></summary><p>For most adults it's roughly 4–5 miles (6.5–8 km), taking about 1.5 hours at a moderate pace — spread over a whole day for most people.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Keep moving.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/calories-burned-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">directions_run</span></span><b>Calories Burned</b><span class="d">28 activities with 2024 METs.</span><span class="f">Estimate burn<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/pace-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">timer</span></span><b>Pace Calculator</b><span class="d">Pace, time and splits.</span><span class="f">Work out pace<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/tdee-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_fire_department</span></span><b>TDEE Calculator</b><span class="d">Your full daily burn.</span><span class="f">Estimate TDEE<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/weight-loss-calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">trending_down</span></span><b>Weight Loss Calorie</b><span class="d">Plan a deficit.</span><span class="f">Plan deficit<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/steps-to-calories-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -214,7 +147,8 @@ step="100"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/teps-to-calories.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/steps-to-calories.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

@@ -1,0 +1,121 @@
+{
+ "title": "Factorial Calculator - n!, Double & Gamma | CalculatePilot",
+ "description": "Free factorial calculator: exact n! up to 3,000, double and multifactorials, subfactorials, Gamma function, trailing zeros and prime factors.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,calculate,chevron_right,code,content_copy,event,expand_more,exposure_zero,functions,lightbulb,link,lock,numbers,person_check,picture_as_pdf,restart_alt,shuffle,style,superscript,tune,verified_user,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "Factorial Calculator",
+   "url": "https://www.calculatepilot.com/math/factorial-calculator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Compute exact factorials n! up to 3,000 with big integers, plus double factorials, multifactorials, subfactorials and fractional factorials via the Gamma function, with trailing zeros, prime factorisation and Stirling and Ramanujan approximations."
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Math Calculators",
+     "item": "https://www.calculatepilot.com/math-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Factorial Calculator",
+     "item": "https://www.calculatepilot.com/math/factorial-calculator.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "Factorial Calculator",
+   "url": "https://www.calculatepilot.com/math/factorial-calculator.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-28",
+   "lastReviewed": "2026-09-28",
+   "citation": [
+    "NIST Digital Library of Mathematical Functions, chapter 5 Gamma function",
+    "Stirling (1730) Methodus Differentialis",
+    "Legendre (1808) Essai sur la theorie des nombres",
+    "Euler (1729) letter to Goldbach on the Gamma function"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Why is 0! equal to 1?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because there is exactly one way to arrange zero objects (do nothing), and because it keeps the recurrence n! = n · (n − 1)! true at n = 1 (1 = 1 · 0!). It also makes formulas such as C(n, 0) = n! ÷ (0! n!) = 1 work."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does Legendre’s formula count trailing zeros without multiplying everything?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Each trailing zero needs one factor 10 = 2 × 5. Factors of 2 are more plentiful than 5s, so zeros equal the number of 5s in n!. Multiples of 5 contribute one each, multiples of 25 one more, multiples of 125 one more, and so on: Σ ⌊n/5ᵏ⌋."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the difference between Stirling’s formula and Ramanujan’s correction?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Stirling’s leading term underestimates n! by roughly 1/(12n) in relative terms (0.83% at n = 10). Ramanujan’s version adds a cubic term under a sixth root, shrinking the relative error to about 9 × 10⁻⁸ at n = 10 (under 0.00001%)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does this calculator avoid overflow?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ordinary 64-bit floating point overflows at 171! (about 10³⁰⁸). This page uses arbitrary-size integers for exact results up to 3,000!, and logarithms for the Stirling comparisons, so nothing overflows."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is the double factorial (n!!) the factorial of a factorial?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. n!! multiplies every second number down from n (10!! = 10 · 8 · 6 · 4 · 2 = 3,840). The factorial of a factorial would be (n!)!, which is astronomically larger."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I take the factorial of a negative number or a fraction?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not with the whole-number definition. The Gamma function extends it to all real numbers except the negative integers, where it has poles: (−1)!, (−2)!, … are undefined. Use the Gamma tab for fractional values."
+     }
+    }
+   ]
+  }
+ ]
+}

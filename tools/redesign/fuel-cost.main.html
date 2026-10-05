@@ -1,0 +1,149 @@
+<div class="sx" id="fcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/other-calculators.html">Everyday Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Fuel Cost Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">speed</span>miles ÷ MPG × price</span><span class="sx-badge"><span class="msym" aria-hidden="true">straighten</span>Imperial &amp; metric</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 1 Oct 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Fuel Cost Calculator</h1>
+    <p>Estimate what a trip will cost in fuel from the distance, your vehicle's fuel economy and the price of fuel. Switch between miles and gallons or kilometres and litres, double it for a round trip, and split the bill between passengers.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. Unit factors follow NIST. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It divides distance by fuel economy to get fuel used, then multiplies by the price you enter.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>To budget road trips with your own numbers instead of a flat average. Prices are not pulled live, so enter what you will pay.</p></section></div>
+</div>
+
+<form id="calcForm" novalidate>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<div class="sx-card r2 sx-au-form">
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0">Trip details</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label>Units</label></div><input type="hidden" id="du" value="mi"><div class="sx-seg full" role="group" aria-label="Units"><button type="button" data-for="du" data-value="mi">Miles &amp; gallons</button><button type="button" data-for="du" data-value="km">Km &amp; litres</button></div></div>
+      <div><div class="sx-au-l"><label>Trip type</label><em class="mu">round trip doubles it</em></div><input type="hidden" id="rt" value="0"><div class="sx-seg full" role="group" aria-label="Trip type"><button type="button" data-for="rt" data-value="0">One-way</button><button type="button" data-for="rt" data-value="1">Round trip</button></div></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="dist">Trip distance</label><em class="mu" id="dU">miles</em></div><div class="sx-au-in sm np"><input id="dist" type="number" inputmode="decimal" step="0.1" min="0" value="300"></div>
+      <div class="sx-qpills" id="dpre"><span class="lb">Quick distance (miles)</span><button type="button" data-d="150">150</button><button type="button" data-d="300">300</button><button type="button" data-d="500">500</button></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><label for="eff">Vehicle fuel economy</label><em class="mu" id="eU">miles per gallon (US)</em></div><div class="sx-au-in sm np"><input id="eff" type="number" inputmode="decimal" step="0.1" min="0" value="28"></div>
+      <div class="sx-qpills" id="vpre"><span class="lb">Vehicle presets</span><button type="button" data-m="34">Compact 34</button><button type="button" data-m="28">Mid-size sedan 28</button><button type="button" data-m="22">SUV 22</button><button type="button" data-m="17">Pickup 17</button><button type="button" data-m="48">Hybrid 48</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="price">Fuel price</label><em class="mu" id="pU">per gallon</em></div><div class="sx-au-in sm"><span class="pre cs">$</span><input id="price" type="number" inputmode="decimal" step="0.01" min="0" value="3.45"></div></div>
+      <div><div class="sx-au-l"><label for="ppl">People sharing the cost</label></div><div class="sx-au-in sm np"><input id="ppl" type="number" inputmode="numeric" step="1" min="1" max="12" value="1"></div><div class="sx-qpills"><button type="button" data-step="-1" data-for="ppl">− one</button><button type="button" data-step="1" data-for="ppl">+ one</button></div></div>
+    </div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate fuel cost</button></div>
+  </div>
+</div>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Total fuel cost</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span id="g1L">Gallons needed</span><b id="g1">—</b></div><div><span id="g2L">Cost per mi</span><b id="g2">—</b></div><div><span>Total distance</span><b id="g3">—</b></div><div><span>Per person</span><b id="g4">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span>Fuel economy rating</span><em id="rate">—</em></div>
+    <div style="height:10px;border-radius:99px;background:linear-gradient(90deg,#ef4444,#f59e0b 40%,#22c55e);position:relative" aria-hidden="true"><span id="mark" style="position:absolute;top:-4px;width:6px;height:18px;border-radius:3px;background:#0f172a;border:2px solid #fff;left:50%;transform:translateX(-50%)"></span></div>
+    <p class="sx-au-note" id="rateTxt" style="text-align:left;margin-top:10px">—</p>
+  </section>
+  <div class="sx-in-t4 c1"><div class="sx-card" style="border-left:4px solid var(--sx-pc)"><div class="k">Equivalent<span class="msym" aria-hidden="true">straighten</span></div><p style="margin-top:6px" id="metric">—</p></div></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share trip</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">print</span>Print sheet</button></div>
+</div>
+</div>
+</form>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Cost by vehicle class</h2><p>The same trip and fuel price as above, run for typical class averages. These are illustrations, not model ratings. Check fueleconomy.gov for your own vehicle.</p></div><span class="sx-mt-tag" id="matP">—</span></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:560px" id="matrix"><thead><tr><th>Vehicle class</th><th class="n" id="thE">MPG</th><th class="n" id="thF">Gallons</th><th class="n">Trip cost</th><th class="n" id="thM">Cost / mi</th><th></th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Popular road trips</h2><p>Approximate driving distances. Tap one to load it into the calculator.</p></div></div>
+  <div class="sx-au-rel" id="routes">
+    <button type="button" class="sx-card" data-r="270" style="text-align:left"><span class="ic"><span class="msym" aria-hidden="true">route</span></span><b>Los Angeles to Las Vegas</b><span class="d">About 270 miles</span><span class="f">Load trip<span class="msym" aria-hidden="true">arrow_forward</span></span></button>
+    <button type="button" class="sx-card" data-r="215" style="text-align:left"><span class="ic"><span class="msym" aria-hidden="true">route</span></span><b>New York to Boston</b><span class="d">About 215 miles</span><span class="f">Load trip<span class="msym" aria-hidden="true">arrow_forward</span></span></button>
+    <button type="button" class="sx-card" data-r="240" style="text-align:left"><span class="ic"><span class="msym" aria-hidden="true">route</span></span><b>Dallas to Houston</b><span class="d">About 240 miles</span><span class="f">Load trip<span class="msym" aria-hidden="true">arrow_forward</span></span></button>
+    <button type="button" class="sx-card" data-r="380" style="text-align:left"><span class="ic"><span class="msym" aria-hidden="true">route</span></span><b>San Francisco to Los Angeles</b><span class="d">About 380 miles</span><span class="f">Load trip<span class="msym" aria-hidden="true">arrow_forward</span></span></button>
+  </div>
+</section>
+
+<div class="sx-ev-two">
+  <section class="sx-card">
+    <span class="eyebrow">Formula</span>
+    <h2>How the cost is calculated</h2>
+    <div class="sx-au-fx" style="grid-template-columns:1fr">
+      <div><h3>Miles and gallons</h3><code>fuel = distance ÷ MPG<br>cost = fuel × price per gallon</code></div>
+      <div><h3>Kilometres and litres</h3><code>fuel = distance × (L/100 km) ÷ 100<br>cost = fuel × price per litre</code></div>
+      <div><h3>Your numbers</h3><code id="fxLive">—</code></div>
+    </div>
+    <p style="margin-top:14px">One US gallon is 3.785412 litres and one mile is 1.609344 km. L/100 km = 235.215 ÷ MPG.</p>
+  </section>
+  <section class="sx-card">
+    <span class="eyebrow">Improving accuracy</span>
+    <h2>Why real costs differ</h2>
+    <p>Fuel economy varies with driving style, terrain, load, weather and speed. Highway driving usually beats stop-and-go city driving. For the most accurate estimate use the MPG you have actually measured over a few tanks rather than the manufacturer's rating.</p>
+    <p>For a long trip with mixed roads, price each leg with its own MPG and add them up.</p>
+  </section>
+</div>
+
+<section class="sx-mt-sec sx-card">
+  <h2>Worked examples</h2>
+  <p>Illustrative trips, each checked by hand.</p>
+  <div class="sx-mt-3">
+    <div><h3>450-mile road trip</h3><p>32 MPG, gas at $3.60 a gallon.</p><div class="sx-mt-ex">450 ÷ 32 = 14.06 gal<br>14.06 × 3.60 = <b>$50.63</b></div></div>
+    <div><h3>Same trip, thirstier vehicle</h3><p>22 MPG, same price.</p><div class="sx-mt-ex">450 ÷ 22 = 20.45 gal<br>20.45 × 3.60 = <b>$73.64</b><br>that is $23.01 more</div></div>
+    <div><h3>Metric trip</h3><p>500 km, 8.0 L/100 km, $1.80 a litre.</p><div class="sx-mt-ex">500 × 8.0 ÷ 100 = 40 L<br>40 × 1.80 = <b>$72.00</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>Ways to reduce fuel costs</h2>
+    <ul>
+      <li>Drive smoothly. Hard acceleration and braking and high highway speeds all cut MPG.</li>
+      <li>Keep tires inflated to the recommended pressure and remove roof cargo or excess weight.</li>
+      <li>Combine errands into fewer trips and avoid long idling.</li>
+      <li>Compare prices along the route and fill up where fuel is cheapest.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 1 October 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>U.S. Department of Energy and EPA, <i>fueleconomy.gov</i>, for vehicle fuel economy ratings.</li>
+      <li>NIST Special Publication 811, for gallon, litre, mile and kilometre conversion factors.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Does this account for highway vs city driving?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use your vehicle's combined MPG for a realistic estimate, or enter the city or highway figure that matches your trip.</p></details>
+    <details class="sx-faq"><summary>How do I find my car's actual MPG?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the miles driven since your last full fill-up by the gallons it took to refill the tank. Tracking this over a few tanks gives a more reliable average than the rated figure. Our Gas Mileage Calculator does this.</p></details>
+    <details class="sx-faq"><summary>Does this account for fuel price changes during a long trip?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. It uses one price. For a long trip, enter the average price you expect to pay along the route.</p></details>
+    <details class="sx-faq"><summary>Does driving style really affect fuel economy that much?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Aggressive acceleration and braking, high speeds and idling can reduce fuel economy noticeably compared with smooth, moderate driving, especially in stop-and-go traffic.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>More everyday tools.</p></div>
+  <a href="/other-calculators.html">All Everyday Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/other/gas-mileage-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">speed</span></span><b>Gas Mileage (MPG)</b><span class="d">Measure your real MPG from a fill-up.</span><span class="f">Work out MPG<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/commute-cost-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">directions_car</span></span><b>Commute Cost</b><span class="d">Full cost of driving to work.</span><span class="f">Cost the commute<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/carbon-footprint-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">co2</span></span><b>Driving Carbon Footprint</b><span class="d">Emissions from your driving.</span><span class="f">See emissions<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/other/car-depreciation-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">trending_down</span></span><b>Car Depreciation</b><span class="d">Value loss and five-year ownership cost.</span><span class="f">Value your car<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Fuel Cost Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/fuel-cost-calculator.html" width="100%" height="720" loading="lazy" title="Fuel Cost Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

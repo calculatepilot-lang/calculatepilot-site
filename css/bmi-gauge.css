@@ -1,0 +1,49 @@
+/* BMI gauge widget — uses site tokens from styles.css (--signal, --paper-raised, --line, etc.) */
+.bmi-gauge{--under:#3B82F6;--under-ink:#1D4ED8;--normal:var(--signal);--normal-ink:var(--signal-dark);--over:#D97706;--over-ink:#92400E;--obese:var(--danger);--obese-ink:#7F1D1D;--cat:var(--normal);--cat-ink:var(--normal-ink);background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-raised);overflow:hidden;margin:24px 0 32px}
+.bmi-gauge__result{padding:28px 28px 6px;text-align:center}
+.bmi-gauge__title{margin:0 0 4px;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.05em;text-transform:uppercase;color:var(--slate)}
+.bmi-gauge__wrap{position:relative;max-width:360px;margin:6px auto 0}
+.bmi-gauge__wrap svg{display:block;width:100%;height:auto;overflow:visible}
+.bmi-gauge__seg{fill:none;stroke-width:20;opacity:.28;transition:opacity .3s ease}
+.bmi-gauge__seg.is-active{opacity:1}
+.bmi-gauge__tick{stroke:var(--slate-light);stroke-width:1;opacity:.55}
+.bmi-gauge__tick--major{stroke-width:1.6;opacity:1}
+.bmi-gauge__label{font-family:var(--font-mono);font-size:11px;fill:var(--slate);font-weight:500}
+.bmi-gauge__marker{transform-box:view-box;transform-origin:170px 176px;transition:transform .5s cubic-bezier(.2,.9,.25,1)}
+.bmi-gauge__marker-ring{fill:var(--paper-raised);stroke:var(--ink);stroke-width:3}
+.bmi-gauge__marker-dot{fill:var(--cat);transition:fill .3s ease}
+.bmi-gauge__readout{position:absolute;left:0;right:0;bottom:2%;text-align:center;pointer-events:none}
+.bmi-gauge__value{font-family:var(--font-mono);font-size:clamp(42px,12vw,58px);font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.bmi-gauge__cat{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:5px 13px;border-radius:999px;font-family:var(--font-body);font-size:var(--fs-sm);font-weight:700;color:var(--cat-ink);background:color-mix(in srgb,var(--cat) 15%,transparent);transition:color .3s ease,background-color .3s ease}
+.bmi-gauge__cat::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cat)}
+.bmi-gauge__insight{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-soft);margin-top:18px}
+.bmi-gauge__stat{padding:14px 28px;border-right:1px solid var(--line-soft)}
+.bmi-gauge__stat:last-child{border-right:none}
+.bmi-gauge__stat dt{font-size:var(--fs-xs);color:var(--slate);margin-bottom:3px}
+.bmi-gauge__stat dd{margin:0;font-family:var(--font-mono);font-size:var(--fs-md);font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.bmi-gauge__advice{margin:0;padding:12px 28px 16px;border-top:1px solid var(--line-soft);font-size:var(--fs-sm);color:var(--slate);line-height:1.55}
+.bmi-gauge__advice strong{color:var(--ink);font-weight:700}
+.bmi-gauge__controls{padding:22px 28px 20px;border-top:1px solid var(--line)}
+.bmi-gauge__units{display:inline-flex;padding:4px;border-radius:999px;background:var(--line-soft);margin-bottom:20px}
+.bmi-gauge__units button{font:inherit;font-family:var(--font-body);font-size:var(--fs-sm);font-weight:700;border:0;cursor:pointer;padding:7px 18px;border-radius:999px;background:transparent;color:var(--slate);transition:background-color .2s ease,color .2s ease}
+.bmi-gauge__units button[aria-pressed="true"]{background:var(--signal-bg,var(--signal));color:#fff}
+.bmi-gauge__field{margin-bottom:18px}
+.bmi-gauge__field:last-of-type{margin-bottom:4px}
+.bmi-gauge__row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.bmi-gauge__row label{font-size:var(--fs-sm);font-weight:700;color:var(--ink)}
+.bmi-gauge__inputs{display:flex;align-items:center;gap:6px}
+.bmi-gauge__num{display:inline-flex;align-items:baseline;gap:4px;border:1px solid var(--line);border-radius:var(--radius-sm);padding:5px 9px;background:var(--paper)}
+.bmi-gauge__num:focus-within{border-color:var(--signal)}
+.bmi-gauge__num input{font-family:var(--font-mono);font-size:var(--fs-md);font-weight:600;color:var(--ink);background:transparent;border:0;outline:0;width:3.2ch;text-align:right;padding:0;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.bmi-gauge__num input.w-wide{width:4.2ch}
+.bmi-gauge__num input::-webkit-outer-spin-button,.bmi-gauge__num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.bmi-gauge__num span{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--slate-light)}
+.bmi-gauge input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:26px;margin:0;background:transparent;cursor:pointer;--fill:50%}
+.bmi-gauge input[type="range"]::-webkit-slider-runnable-track{height:5px;border-radius:3px;background:linear-gradient(to right,var(--signal) var(--fill),var(--line) var(--fill))}
+.bmi-gauge input[type="range"]::-moz-range-track{height:5px;border-radius:3px;background:var(--line)}
+.bmi-gauge input[type="range"]::-moz-range-progress{height:5px;border-radius:3px;background:var(--signal-bg,var(--signal))}
+.bmi-gauge input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-8px;border-radius:50%;background:var(--paper-raised);border:3px solid var(--signal);box-shadow:0 1px 4px rgba(20,23,26,.18)}
+.bmi-gauge input[type="range"]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--paper-raised);border:3px solid var(--signal)}
+.bmi-gauge input[type="range"]:focus-visible{outline:2px solid var(--signal);outline-offset:4px;border-radius:4px}
+@media(max-width:480px){.bmi-gauge__result,.bmi-gauge__controls{padding-left:20px;padding-right:20px}.bmi-gauge__stat,.bmi-gauge__advice{padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){.bmi-gauge *{transition:none!important}}

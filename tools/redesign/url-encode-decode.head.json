@@ -1,0 +1,112 @@
+{
+ "title": "URL Encoder and Decoder: Percent-Encoding Online | CalculatePilot",
+ "description": "Free URL encoder and decoder: percent-encode a component or full URL, decode %20 sequences, choose + or %20 for spaces and see every query parameter.",
+ "head_extra": "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,chevron_right,code,content_copy,data_object,event,expand_more,functions,lightbulb,link,lock,lock_open,notes,password,person_check,public,restart_alt,swap_vert,sync_alt,warning&display=block\">",
+ "jsonld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "SoftwareApplication",
+   "name": "URL Encode / Decode",
+   "url": "https://www.calculatepilot.com/other/url-encode-decode.html",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web",
+   "browserRequirements": "Requires a modern web browser",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/OnlineOnly"
+   },
+   "isAccessibleForFree": true,
+   "description": "Encodes and decodes URLs with percent-encoding and splits query strings into parameters."
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.calculatepilot.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Everyday Calculators",
+     "item": "https://www.calculatepilot.com/other-calculators.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "URL Encode / Decode",
+     "item": "https://www.calculatepilot.com/other/url-encode-decode.html"
+    }
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "URL Encoder & Decoder",
+   "url": "https://www.calculatepilot.com/other/url-encode-decode.html",
+   "author": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   },
+   "dateModified": "2026-09-29",
+   "lastReviewed": "2026-09-29",
+   "citation": [
+    "IETF RFC 3986 URI Generic Syntax",
+    "WHATWG URL Standard",
+    "MDN encodeURIComponent"
+   ]
+  },
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the difference between encodeURI and encodeURIComponent?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "encodeURI keeps characters such as : / ? & = # so a whole address still works. encodeURIComponent encodes them, so use it for a single value inside a URL."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "When should a space be %20 and when +?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "%20 is correct everywhere in a URL. A + means a space only in HTML form data (application/x-www-form-urlencoded), such as query strings from forms."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does ³ become %C2%B3?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Non-ASCII characters are first turned into UTF-8 bytes, and each byte is written in hex. ³ is the two bytes C2 and B3."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does decoding fail with a malformed error?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A % must be followed by two hexadecimal digits, and the bytes must form valid UTF-8. A stray % or truncated sequence causes this."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this data sent anywhere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Everything runs in your browser."
+     }
+    }
+   ]
+  }
+ ]
+}

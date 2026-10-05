@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ideal Weight Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=accessibility_new,arrow_forward,calculate,chevron_right,content_copy,event,expand_more,monitor_weight,print,query_stats,restart_alt,science,straighten,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,47 +38,126 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Ideal Weight Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-<div class="field-row">        <div class="field">
-          <label for="sex">Sex</label>
-          <select id="sex">
-            <option value="male" selected>Male</option>
-            <option value="female" >Female</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="heightCm">Height (cm)</label>
-          <input type="number" id="heightCm" value="175"
-step="1"min="100">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated ideal weight</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="iwCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Ideal Weight Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Devine · Robinson · Miller · Hamwi</span><span class="sx-badge"><span aria-hidden="true" class="msym">monitor_weight</span>BMI Healthy Range</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>Ideal Weight Calculator — 4 Formulas &amp; Healthy Range</h1>
+<p>Estimate a reference ideal body weight from your height and sex using the Devine, Robinson, Miller and Hamwi formulas side by side, adjusted for frame size, and compare it with the healthy BMI range for your height.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Details</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s2"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">Imperial</button><button data-for="u" data-value="s2" style="flex:1" type="button">Metric</button></div></div>
+<div><div class="sx-au-l"><span>Sex</span></div><input id="sex" type="hidden" value="s1"/><div aria-label="Sex" class="sx-seg" role="group" style="display:flex"><button data-for="sex" data-value="s1" style="flex:1" type="button">Male</button><button data-for="sex" data-value="s2" style="flex:1" type="button">Female</button></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Height</span><em id="hAlt" style="color:var(--sx-muted);font-weight:500">—</em></div>
+<div class="sx-au-in np" id="hMet"><input aria-label="Height in centimetres" id="cm" inputmode="decimal" max="230" min="120" step="0.5" type="number" value="175"/><span class="suf">cm</span></div>
+<div class="sx-au-g2" hidden="" id="hImp"><div class="sx-au-in np"><input aria-label="Height in feet" id="ft" inputmode="numeric" max="7" min="4" step="1" type="number" value="5"/><span class="suf">ft</span></div><div class="sx-au-in np"><input aria-label="Height in inches" id="inch" inputmode="decimal" max="11.9" min="0" step="0.5" type="number" value="9"/><span class="suf">in</span></div></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Body Frame</span><a href="/health/body-frame-size-calculator.html" style="font-size:12px;font-weight:600">Find your frame →</a></div>
+<input id="frame" type="hidden" value="0"/>
+<div aria-label="Body frame" class="sx-au-opts" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr))"><button data-for="frame" data-value="-10" type="button">Small (−10%)</button><button data-for="frame" data-value="0" type="button">Medium</button><button data-for="frame" data-value="10" type="button">Large (+10%)</button></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="cw">Current Weight (optional)</label></div>
+<div class="sx-au-in np"><input id="cw" inputmode="decimal" max="700" min="0" placeholder="To compare" step="0.5" type="number" value=""/><span class="suf" id="wU">kg</span></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Ideal Weight</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Ideal body weight (Devine)</span><span class="sx-ef-grade" id="frTag">—</span></div>
+<div class="big"><span id="resultValue">—</span></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Range across 4 formulas</span><b id="rg">—</b></div><div><span>Healthy BMI range (18.5–24.9)</span><b id="bmi">—</b></div></div>
+<div class="gain neg" id="cmpBox"><span id="cmpL">Add your current weight to compare</span><b id="cmpV">—</b></div>
+<div class="note" id="warn">—</div>
+</section>
+<section class="sx-card sx-vt-led" style="border-radius:12px">
+<div class="h"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:16px">science</span>By Formula</span><span id="frN">Medium frame</span></div>
+<div class="l"><span>Devine (1974)</span><b id="f1">—</b></div>
+<div class="l"><span>Robinson (1983)</span><b id="f2">—</b></div>
+<div class="l"><span>Miller (1983)</span><b id="f3">—</b></div>
+<div class="l"><span>Hamwi (1964)</span><b id="f4">—</b></div>
+<div class="l t"><span>Average of the four</span><b id="fa">—</b></div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Results</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/bmi-calculator.html"><span aria-hidden="true" class="msym">monitor_weight</span>BMI Calculator</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>Ideal Weight by Height</h2><p id="tbN">Devine formula and healthy BMI range at nearby heights.</p></div><span class="sx-au-tag" id="tbT">—</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Height</th><th scope="col">Devine</th><th scope="col">Formula Range</th><th scope="col">Healthy BMI Range</th></tr></thead>
+<tbody id="htTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>The Devine formula, originally developed for medication dosing, is one of the most commonly cited reference formulas for ideal body weight. Each formula starts from a base weight at 5 feet (152.4 cm) and adds a fixed amount per inch above that:</p>
+<ul>
+<li><strong>Devine (1974):</strong> men 50 kg + 2.3 kg per inch over 5 ft · women 45.5 kg + 2.3 kg per inch</li>
+<li><strong>Robinson (1983):</strong> men 52 kg + 1.9 kg per inch · women 49 kg + 1.7 kg per inch</li>
+<li><strong>Miller (1983):</strong> men 56.2 kg + 1.41 kg per inch · women 53.1 kg + 1.36 kg per inch</li>
+<li><strong>Hamwi (1964):</strong> men 48 kg + 2.7 kg per inch · women 45.5 kg + 2.2 kg per inch</li>
+</ul>
+<p>The frame option applies the common ±10% convention (originally used with the Hamwi method). This is a population reference, not a personal target — body composition and frame size vary widely.</p>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the original published formulas · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>Limitations of ideal weight formulas</h2>
+<p>These formulas don't account for muscle mass, bone structure, or individual body composition, so they're best treated as a general reference point rather than a personal goal. They were designed for adults around 5 ft and taller; below that they are less reliable.</p>
+<h2>A worked example</h2>
+<p>A man who is 180 cm tall: that's about 70.9 inches, or 10.9 inches over 5 feet. Using the Devine formula: 50 plus (2.3 times 10.9) equals about 75.0 kg, about 165 lb.</p>
+<p>For a woman at the same height: 45.5 plus (2.3 times 10.9) equals about 70.5 kg, about 155 lb — illustrating the roughly 10 lb (4.5 kg) difference the formula applies between sexes at the same height.</p>
+<h2>Ideal weight in clinical use</h2>
+<p>Clinicians use ideal body weight — usually the Devine formula — for some medication doses and ventilator settings. When someone's actual weight is well above their ideal weight, an <strong>adjusted body weight</strong> (ideal weight + 0.4 × (actual − ideal)) is sometimes used instead. <strong>Medical information, not medical advice:</strong> dosing decisions are made by your healthcare team.</p>
+<h2>Sources</h2>
+<ul>
+<li>Devine BJ. Gentamicin therapy. Drug Intell Clin Pharm 1974;8:650–655.</li>
+<li>Robinson JD, Lupkiewicz SM, Palenik L, et al. Determination of ideal body weight for drug dosage calculations. Am J Hosp Pharm 1983;40:1016–1019.</li>
+<li>Miller DR, Carlson JD, Loyd BJ, Day BJ. Determining ideal body weight. Drug Intell Clin Pharm 1983;17:673.</li>
+<li>Hamwi GJ. Therapy: changing dietary concepts. In: Diabetes Mellitus: Diagnosis and Treatment. American Diabetes Association, 1964.</li>
+<li><a href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html" rel="noopener noreferrer">CDC — Adult BMI categories</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>Is this formula still considered accurate?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It's a commonly used clinical reference, particularly for medication dosing, but it's a population average and doesn't account for individual differences in build or muscle mass.</p></details>
+<details class="sx-faq"><summary>Why do different ideal weight formulas give different results?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Each formula (Devine, Robinson, Miller, Hamwi) was derived from different population data and uses slightly different constants, so results typically vary by a few kilograms between formulas for the same height. None is definitively 'correct' — treat them as general reference points rather than precise targets.</p></details>
+<details class="sx-faq"><summary>Is BMI or ideal weight formula more useful?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Both have similar limitations — neither accounts for muscle mass or individual body composition, so pairing either with other measures like body fat percentage gives a fuller picture.</p></details>
+<details class="sx-faq"><summary>How does body frame size change ideal weight?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common convention subtracts 10% for a small frame and adds 10% for a large frame. You can estimate your frame from your wrist circumference and height with the body frame size calculator.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>Other ways to look at a healthy weight.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/healthy-weight-range-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>Healthy Weight Range</b><span class="d">Weight range for a healthy BMI.</span><span class="f">Check range<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/body-frame-size-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">accessibility_new</span></span><b>Body Frame Size</b><span class="d">Small, medium or large frame from your wrist.</span><span class="f">Find your frame<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/body-fat-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">straighten</span></span><b>Body Fat Calculator</b><span class="d">Body composition beyond scale weight.</span><span class="f">Estimate body fat<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/calorie-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">query_stats</span></span><b>Calorie Calculator</b><span class="d">Calories and a timeline to reach a goal weight.</span><span class="f">Plan your goal<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/ideal-weight-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -205,7 +166,8 @@ step="1"min="100">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/ideal-weight.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/ideal-weight.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

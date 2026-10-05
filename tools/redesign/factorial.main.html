@@ -1,0 +1,128 @@
+<div class="sx" id="fcCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/math-calculators.html">Math Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Factorial Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Exact BigInt for n up to 3,000</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 28 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Factorial Calculator</h1>
+    <p>Compute n! exactly, plus double and multi-factorials, subfactorials and fractional factorials through the Gamma function — with trailing zeros, prime factorisation, digit count, and how close Stirling’s approximation gets.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The identities are standard number theory and analysis, and each worked example is re-derived by hand. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>It multiplies with arbitrary-size integers, so there is no overflow at 170!. Prime exponents come from Legendre’s formula, and the Gamma function from a Lanczos approximation.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>Factorials grow astonishingly fast. This page shows the exact value, its size, and why approximations work.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">tune</span><h2 class="sx-h-md" style="margin:0" id="formH">Standard factorial n!</h2></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <input type="hidden" id="mode" value="s1">
+    <div class="sx-seg full" role="group" aria-label="Factorial type"><button type="button" data-for="mode" data-value="s1">n!</button><button type="button" data-for="mode" data-value="s2">Double n!!</button><button type="button" data-for="mode" data-value="s3">Multi n!⁽ᵏ⁾</button><button type="button" data-for="mode" data-value="s4">Gamma Γ(x+1)</button></div>
+    <div class="sx-mt-chips" id="presets"><span>Presets</span><button type="button" data-n="5">5! = 120</button><button type="button" data-n="10">10!</button><button type="button" data-n="20">20!</button><button type="button" data-n="52">52! (a deck)</button><button type="button" data-n="0">0! = 1</button><button type="button" data-n="100">100!</button></div>
+    <div id="fN"><div class="sx-au-l"><label for="n">n (a whole number)</label><em class="mu" id="nH">0 to 3,000</em></div><div class="sx-au-in np"><input id="n" type="number" inputmode="numeric" step="1" min="0" max="3000" value="10"></div><input id="nR" class="sx-range2" type="range" min="0" max="100" step="1" value="10" data-sync="n" aria-label="n" style="margin-top:10px"></div>
+    <div id="fK" hidden><div class="sx-au-l"><label for="k">Step k</label><em class="mu">multiply n, n−k, n−2k, …</em></div><div class="sx-au-in np"><input id="k" type="number" inputmode="numeric" step="1" min="1" max="20" value="3"></div></div>
+    <div id="fX" hidden><div class="sx-au-l"><label for="gx">x (real number, x ≠ −1, −2, −3, …)</label></div><div class="sx-au-in np"><input id="gx" type="number" inputmode="decimal" step="any" value="0.5"></div></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate</button></div>
+    <div class="sx-mt-fx" style="padding:12px;text-align:left"><span class="k">Expansion</span><span class="eq" id="fxNow" style="font-size:15px;word-break:break-word">—</span></div>
+  </div>
+</form>
+</div>
+
+<div class="sx-r5" id="results">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span id="heroLbl">10!</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big" style="font-size:34px;word-break:break-all;line-height:1.15"><span id="resultValue">—</span></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Scientific notation</span><b id="sci" style="font-size:16px;word-break:break-all">—</b></div><div><span id="dgL">Digits</span><b id="dg" style="font-size:17px">—</b></div></div>
+  </section>
+  <div class="sx-in-t4" id="tiles"></div>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy exact value</span></button><button type="button" data-action="share"><span class="msym" aria-hidden="true">link</span>Share link</button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec" id="vizCard">
+  <div class="hd"><div><h2>How fast factorials grow</h2><p>log₁₀ of n! (blue) against Stirling’s approximation (orange) and eⁿ (grey, dashed). Factorials overtake any exponential.</p></div><span class="sx-au-tag" id="vizTag">—</span></div>
+  <div class="sx-mt-plot" id="viz" role="img" aria-label="Chart of log base 10 of n factorial against Stirling's approximation and the exponential function"></div>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Step-by-step working</h2><p id="stepsIntro">—</p></div><span class="sx-au-tag" id="stepsTag">—</span></div>
+  <ol class="sx-mt-steps" id="steps"></ol>
+</section>
+
+<section class="sx-card sx-au-sched">
+  <div class="hd"><div><h2>Factorial family reference</h2><p>Related functions, with values for n = 10.</p></div></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain" style="min-width:720px">
+    <thead><tr><th scope="col">Function</th><th scope="col">Notation</th><th scope="col">Definition</th><th scope="col">Value for n = 10</th><th scope="col">Used for</th></tr></thead>
+    <tbody>
+      <tr><td>Factorial</td><td class="mono">n!</td><td class="mono">n·(n−1)·…·2·1, 0! = 1</td><td class="mono">3,628,800</td><td style="font-family:inherit">Permutations, series</td></tr>
+      <tr><td>Double factorial</td><td class="mono">n!!</td><td class="mono">n·(n−2)·(n−4)·…</td><td class="mono">3,840</td><td style="font-family:inherit">Integrals, spherical volumes</td></tr>
+      <tr><td>Subfactorial</td><td class="mono">!n</td><td class="mono">n!·Σ(−1)ᵏ/k!</td><td class="mono">1,334,961</td><td style="font-family:inherit">Derangements (no fixed points)</td></tr>
+      <tr><td>Gamma function</td><td class="mono">Γ(z)</td><td class="mono">∫₀^∞ t^(z−1) e^(−t) dt</td><td class="mono">Γ(11) = 3,628,800</td><td style="font-family:inherit">Fractional factorials, statistics</td></tr>
+      <tr><td>Falling factorial</td><td class="mono">(n)ₖ</td><td class="mono">n!/(n−k)!</td><td class="mono">(10)₃ = 720</td><td style="font-family:inherit">Ordered selections</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <h2>Worked examples</h2>
+  <div class="sx-mt-3">
+    <div><span class="msym" aria-hidden="true">style</span><h3>Shuffling a deck</h3><p>How many orderings of a 52-card deck?</p><div class="sx-mt-ex">52! ≈ <b>8.0658 × 10⁶⁷</b><br>68 digits — far more than the number of seconds since the Big Bang, so a well-shuffled deck is almost surely in an order never seen before.</div></div>
+    <div><span class="msym" aria-hidden="true">exposure_zero</span><h3>Trailing zeros of 100!</h3><p>How many zeros end 100! ?</p><div class="sx-mt-ex">⌊100/5⌋ + ⌊100/25⌋ = 20 + 4 = <b>24</b><br>(there are always more factors of 2 than of 5)</div></div>
+    <div><span class="msym" aria-hidden="true">calculate</span><h3>Fractional factorial</h3><p>What is (½)! ?</p><div class="sx-mt-ex">(½)! = Γ(3/2) = ½ · Γ(½) = ½ √π<br>= <b>0.886227</b></div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>What is a factorial?</h2>
+    <p>The factorial n! is the product of all whole numbers from 1 to n, with 0! = 1 by convention (there is exactly one way to arrange nothing). It counts the ways to order n distinct objects and grows faster than any exponential: 10! = 3,628,800 and 20! ≈ 2.43 × 10¹⁸.</p>
+    <h2>Useful facts</h2>
+    <ul>
+      <li><strong>Trailing zeros (Legendre):</strong> the number of factors of a prime p in n! is Σ ⌊n/pᵏ⌋. Zeros equal the number of factors of 5.</li>
+      <li><strong>Stirling’s approximation:</strong> n! ≈ √(2πn)(n/e)ⁿ, with relative error about 1/(12n).</li>
+      <li><strong>Ramanujan’s refinement:</strong> n! ≈ √π (n/e)ⁿ (8n³ + 4n² + n + 1/30)^(1/6), far more accurate.</li>
+      <li><strong>Gamma function:</strong> Γ(n + 1) = n!, extending factorials to real and complex numbers.</li>
+    </ul>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>NIST Digital Library of Mathematical Functions, chapter 5 (Gamma function), including 5.11 on asymptotic expansions.</li>
+      <li>Stirling, J. (1730). <i>Methodus Differentialis</i>. London.</li>
+      <li>Legendre, A.-M. (1808). <i>Essai sur la théorie des nombres</i>, 2nd ed. Paris — the prime-exponent formula.</li>
+      <li>Euler, L. (1729). Letter to Goldbach on the interpolation of factorials — origin of the Gamma function.</li>
+    </ul>
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Why is 0! equal to 1?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because there is exactly one way to arrange zero objects (do nothing), and because it keeps the recurrence n! = n · (n − 1)! true at n = 1 (1 = 1 · 0!). It also makes formulas such as C(n, 0) = n! ÷ (0! n!) = 1 work.</p></details>
+    <details class="sx-faq"><summary>How does Legendre’s formula count trailing zeros without multiplying everything?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Each trailing zero needs one factor 10 = 2 × 5. Factors of 2 are more plentiful than 5s, so zeros equal the number of 5s in n!. Multiples of 5 contribute one each, multiples of 25 one more, multiples of 125 one more, and so on: Σ ⌊n/5ᵏ⌋.</p></details>
+    <details class="sx-faq"><summary>What is the difference between Stirling’s formula and Ramanujan’s correction?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Stirling’s leading term underestimates n! by roughly 1/(12n) in relative terms (0.83% at n = 10). Ramanujan’s version adds a cubic term under a sixth root, shrinking the relative error to about 9 × 10⁻⁸ at n = 10 (under 0.00001%).</p></details>
+    <details class="sx-faq"><summary>How does this calculator avoid overflow?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Ordinary 64-bit floating point overflows at 171! (about 10³⁰⁸). This page uses arbitrary-size integers for exact results up to 3,000!, and logarithms for the Stirling comparisons, so nothing overflows.</p></details>
+    <details class="sx-faq"><summary>Is the double factorial (n!!) the factorial of a factorial?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. n!! multiplies every second number down from n (10!! = 10 · 8 · 6 · 4 · 2 = 3,840). The factorial of a factorial would be (n!)!, which is astronomically larger.</p></details>
+    <details class="sx-faq"><summary>Can I take the factorial of a negative number or a fraction?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not with the whole-number definition. The Gamma function extends it to all real numbers except the negative integers, where it has poles: (−1)!, (−2)!, … are undefined. Use the Gamma tab for fractional values.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Continue with counting.</p></div>
+  <a href="/math-calculators.html">All Math Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/math/permutation-combination-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shuffle</span></span><b>Permutations &amp; Combinations</b><span class="d">nPr and nCr with exact factorials.</span><span class="f">Count outcomes<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/binomial-probability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">functions</span></span><b>Binomial Probability</b><span class="d">k successes in n trials.</span><span class="f">Repeated trials<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/exponent-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">superscript</span></span><b>Exponent Calculator</b><span class="d">Powers, roots and scientific notation.</span><span class="f">Powers<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/math/prime-number-checker.html"><span class="ic"><span class="msym" aria-hidden="true">numbers</span></span><b>Prime Number Checker</b><span class="d">Test primality and factorise.</span><span class="f">Factors<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+
+<div class="sx-card sx-hh-embed" id="embed">
+  <div><h2><span class="msym" aria-hidden="true" style="vertical-align:-4px;color:var(--sx-primary)">code</span> Embed This Factorial Calculator</h2><p>Free and responsive, and it runs in the visitor's browser. Branding removal from $7.99/month.</p></div>
+  <div class="c"><code id="embedCode">&lt;iframe src="https://www.calculatepilot.com/embed/factorial-calculator.html" width="100%" height="560" loading="lazy" title="Factorial Calculator"&gt;&lt;/iframe&gt;</code><button type="button" class="sx-cta" id="copyEmbed" style="padding:8px 14px;font-size:13px"><span class="msym" aria-hidden="true">content_copy</span><span id="copyE">Copy code</span></button></div>
+</div>
+</div>

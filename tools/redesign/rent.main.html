@@ -1,0 +1,137 @@
+<div class="sx" id="rnCalc">
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Rent Calculator</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>40x Rent Rule &amp; 30% Guideline</span><span class="sx-badge"><span class="msym" aria-hidden="true">shield</span>Landlord Screening Check</span><span class="sx-badge"><span class="msym" aria-hidden="true">analytics</span>Debt-to-Income Check</span></div>
+    <h1>Rent Calculator: How Much Rent Can You Afford?</h1>
+    <p>Find out how much rent fits comfortably within your budget — using the 30% guideline, the landlord 40x rule or a conservative net-pay cap — then see your debt burden, monthly cash flow and the cash you need to move in.</p>
+  </div>
+</header>
+
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form id="calcForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">badge</span><div style="display:block"><h2 class="sx-h-md" style="margin:0">Tenant Financial Profile</h2><p>What landlords and property managers look at</p></div></div>
+    <button type="button" class="sx-reset" data-action="reset"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div>
+      <div class="sx-au-l"><label for="inc">Gross Annual Household Income</label><em style="color:var(--sx-on);font-family:var(--font-mono)" id="moInc">—</em></div>
+      <div class="sx-au-in"><span class="pre">$</span><input id="inc" type="number" inputmode="decimal" min="0" step="1000" value="85000" style="font-size:17px;font-weight:600"><span class="suf">USD/yr</span></div>
+      <div class="sx-au-chips">Presets: <button type="button" data-for="inc" data-value="50000">$50k</button><button type="button" data-for="inc" data-value="75000">$75k</button><button type="button" data-for="inc" data-value="85000">$85k</button><button type="button" data-for="inc" data-value="120000">$120k</button><button type="button" data-for="inc" data-value="150000">$150k</button></div>
+    </div>
+    <div class="sx-au-g2">
+      <div><div class="sx-au-l"><label for="debt">Monthly Debt Payments</label></div><div class="sx-au-in"><span class="pre">$</span><input id="debt" type="number" inputmode="decimal" min="0" step="25" value="550"><span class="suf">/mo</span></div><p class="sx-au-help">Student loans, car payments, card minimums.</p></div>
+      <div><div class="sx-au-l"><label for="etr">Effective Tax Rate</label></div><div class="sx-au-in np pc"><input id="etr" type="number" inputmode="decimal" min="0" max="60" step="1" value="25"><span class="suf">%</span></div><p class="sx-au-help">Federal, state &amp; payroll taxes combined.</p></div>
+    </div>
+    <div>
+      <div class="sx-au-l"><span>Affordability Standard</span></div>
+      <input type="hidden" id="std" value="s2">
+      <div class="sx-au-cat nr" role="group" aria-label="Affordability standard">
+        <button type="button" data-for="std" data-value="s1"><span><b>Conservative</b><small>25% of net (take-home) pay</small></span></button>
+        <button type="button" data-for="std" data-value="s2"><span><b>Standard 30% Rule</b><small>30% of gross income</small></span></button>
+        <button type="button" data-for="std" data-value="s3"><span><b>Landlord 40x Rule</b><small>Annual income ÷ 40 (common in NYC)</small></span></button>
+        <button type="button" data-for="std" data-value="s4"><span><b>Custom Target</b><small>Your own % of gross income</small></span></button>
+      </div>
+      <div class="sx-vt-in" id="cRow"><label for="rentPercent">Target % of gross income on rent:</label><div class="sx-au-in sm np pc" style="max-width:120px"><input id="rentPercent" type="number" inputmode="decimal" min="0" max="100" step="1" value="30"><span class="suf">%</span></div></div>
+    </div>
+    <div class="sx-card" style="padding:14px;background:var(--sx-low)">
+      <div class="sx-au-l" style="margin-bottom:10px"><span style="display:inline-flex;align-items:center;gap:6px"><span class="msym" aria-hidden="true" style="font-size:18px">real_estate_agent</span>Move-In Cash &amp; Monthly Extras</span></div>
+      <div class="sx-au-g2">
+        <div><div class="sx-au-l"><label for="dep">Security Deposit</label></div><div class="sx-au-sel"><select id="dep"><option value="0">None / deposit alternative</option><option value="1" selected>1 month's rent</option><option value="1.5">1.5 months' rent</option><option value="2">2 months' rent</option></select></div></div>
+        <div><div class="sx-au-l"><label for="bro">Broker Fee (paid by you)</label></div><div class="sx-au-sel"><select id="bro"><option value="0" selected>None</option><option value="1">1 month's rent</option><option value="1.8">15% of annual rent</option></select></div></div>
+      </div>
+      <div class="sx-au-g2" style="margin-top:10px">
+        <div><div class="sx-au-l"><label for="util">Utilities &amp; Renters Insurance</label></div><div class="sx-au-in"><span class="pre">$</span><input id="util" type="number" inputmode="decimal" min="0" step="10" value="220"><span class="suf">/mo</span></div></div>
+        <div><div class="sx-au-l"><label for="app">Application &amp; Moving Costs</label></div><div class="sx-au-in"><span class="pre">$</span><input id="app" type="number" inputmode="decimal" min="0" step="10" value="320"></div></div>
+      </div>
+    </div>
+    <button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Calculate Affordable Rent</button>
+  </div>
+</form>
+</div>
+
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+  <section class="sx-card r2 sx-hy-hero" aria-live="polite">
+    <div class="hd"><em><span class="msym" aria-hidden="true">check_circle</span><span id="tierT">—</span></em><span id="stdT">—</span></div>
+    <div class="k">Recommended Maximum Rent</div>
+    <div class="big"><span id="resultValue">—</span><small style="font-size:16px;font-weight:500;opacity:.8;margin-left:4px">/ month</small></div>
+    <p>Equates to <b id="outAnnual">—</b> a year in rent.</p>
+    <span class="msym wm" aria-hidden="true">home</span>
+  </section>
+  <div class="sx-in-t4">
+    <div class="sx-card"><div class="k">Landlord 40x Rule Check<span class="msym" aria-hidden="true">rule</span></div><b id="x40">—</b><p id="x40N">—</p></div>
+    <div class="sx-card"><div class="k">True Monthly Housing Cost<span class="msym" aria-hidden="true">receipt_long</span></div><b id="true">—</b><p>Rent + utilities &amp; insurance</p></div>
+    <div class="sx-card"><div class="k">Housing Ratio<span class="msym" aria-hidden="true">donut_large</span></div><b id="fe">—</b><p>Rent as % of gross income</p></div>
+    <div class="sx-card"><div class="k">Total Burden (Rent + Debt)<span class="msym" aria-hidden="true">balance</span></div><b id="be">—</b><p id="beN">—</p></div>
+  </div>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h">Post-Rent Cash Flow<span id="cfN">—</span></div>
+    <div class="l"><span>Estimated monthly take-home pay</span><b id="net">—</b></div>
+    <div class="l"><span>Rent, utilities &amp; insurance</span><b class="r" id="cf1">—</b></div>
+    <div class="l"><span>Debt payments</span><b class="r" id="cf2">—</b></div>
+    <div class="l t"><span>Left for everything else &amp; savings</span><b id="cf3">—</b></div>
+  </section>
+  <section class="sx-card sx-vt-led" style="border-radius:12px">
+    <div class="h">Upfront Move-In Cash<span id="miT">—</span></div>
+    <div class="l"><span>First month's rent</span><b id="mi1">—</b></div>
+    <div class="l"><span id="mi2L">Security deposit</span><b id="mi2">—</b></div>
+    <div class="l"><span id="mi3L">Broker fee</span><b id="mi3">—</b></div>
+    <div class="l"><span>Application &amp; moving costs</span><b id="mi4">—</b></div>
+  </section>
+  <div class="sx-in-acts"><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Rent Budget (.PDF)</button><button type="button" id="csvBtn"><span class="msym" aria-hidden="true">table_view</span>Budget Schedule (.CSV)</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-au-sched" id="matrix">
+  <div class="hd"><div><h2>Rent Affordability Across Income Levels</h2><p>Maximum rent under each standard, plus a three-month cash cushion at that rent.</p></div><span class="sx-au-tag"><span class="msym" aria-hidden="true" style="font-size:14px;vertical-align:-2px">schedule</span> Updated 2026</span></div>
+  <div class="sx-scroll"><table class="sx-au-cmp plain">
+    <thead><tr><th scope="col">Gross Annual Income</th><th scope="col">30% of Gross</th><th scope="col">40x Rule</th><th scope="col">25% of Net Pay</th><th scope="col">3-Month Cash Cushion</th></tr></thead>
+    <tbody id="tbl"></tbody>
+  </table></div>
+</section>
+
+<div class="sx-au-2c">
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">gavel</span></span><h3>The 40x Rule vs the 30% Guideline</h3><p>Many landlords in expensive cities — New York especially — require your <b>annual</b> income to be at least 40 times the <b>monthly</b> rent. That works out to rent of 30% of gross monthly income, the same as the classic guideline, but landlords apply it as a hard cut-off.</p><p>If you fall short, landlords often accept a guarantor earning around 80 times the rent, or an institutional guarantor service that charges a fee — often in the range of one month's rent.</p></div>
+  <div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span class="msym" aria-hidden="true">payments</span></span><h3>The Hidden Costs of Renting</h3><p>The advertised rent is rarely the whole monthly bill. Budget for:</p><ul style="margin:0 0 10px;padding-left:18px;font-size:14px;line-height:22px;color:var(--sx-onv)"><li><b>Building fees:</b> some properties charge mandatory amenity, trash or parking fees.</li><li><b>Utilities &amp; insurance:</b> electricity, internet, and renters insurance.</li><li><b>Broker fees:</b> in some markets tenants pay a fee; New York City's FARE Act (2025) generally stops landlords passing on the fee for a broker they hired.</li></ul></div>
+</div>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>The 30% rule</h2>
+    <p>Spending no more than 30% of gross income on rent is a commonly cited affordability guideline, though it's a general rule of thumb — your comfortable number depends on other debts, savings goals, and cost of living.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+
+    <h2>Beyond the 30% rule</h2>
+    <p>The 30% guideline is a useful starting point, but your actual comfortable rent budget depends on other factors: existing debt payments, savings goals, commute costs, and local cost of living all matter. Someone with no debt and low other expenses might comfortably afford more than 30%, while someone with significant student loans or car payments may want to budget less.</p>
+    <p>It's also worth factoring in renter's insurance, utilities, and moving costs when budgeting for a new place — the advertised rent is rarely the complete monthly housing cost.</p>
+
+    <h2>A worked example</h2>
+    <p>At $6,200/month gross income with a 30% target, the recommended maximum rent is $1,860/month, or about $22,320 annually.</p>
+    <p>If that same person instead budgeted 25% (a more conservative target, perhaps due to other debt), the maximum rent drops to $1,550/month — a $310 difference that could instead go toward savings or debt payoff.</p>
+
+    <h2>Other costs of renting to budget for</h2>
+    <p>Beyond the base rent figure, renters typically budget for utilities, renters insurance, parking, and sometimes pet fees — all of which add to the effective monthly housing cost beyond what the 30% guideline alone captures.</p>
+    <p>In competitive rental markets, landlords may also require proof of income at a multiple of monthly rent (commonly 2.5-3x rent) as a qualifying condition, which is a related but separate calculation from the affordability guideline this calculator uses.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>Is 30% the right target for everyone?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's a widely used guideline, but people with significant other debts may want to budget less, while those with minimal other expenses may comfortably afford more.</p></details>
+    <details class="sx-faq"><summary>What if 30% of my income isn't enough rent for my area?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In high cost-of-living areas, many renters exceed the 30% guideline out of necessity — if so, it's worth budgeting extra carefully elsewhere and building a larger emergency fund to compensate.</p></details>
+    <details class="sx-faq"><summary>Should I include roommates' contributions in this calculation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — calculate based on your own income and your own share of the rent, to get an accurate picture of what you personally can afford.</p></details>
+    <details class="sx-faq"><summary>Do landlords typically require a minimum income relative to rent?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many landlords require monthly income of roughly 2.5-3x the rent amount as a qualifying condition, which is a common industry practice separate from personal affordability guidelines.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Complementary Financial Tools</h2><p>Plan the rest of your housing budget.</p></div>
+  <a href="/financial-calculators.html">Explore All Calculators<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/house-affordability-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">home</span></span><b>House Affordability</b><span class="d">How much home your income supports.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>50/30/20 Budget</b><span class="d">Split take-home pay into needs, wants and savings.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Paycheck Calculator</b><span class="d">Take-home pay after tax and FICA.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">savings</span></span><b>Emergency Fund</b><span class="d">Size a 3–6 month cash reserve.</span><span class="f">Launch Engine<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>

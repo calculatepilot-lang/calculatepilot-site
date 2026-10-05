@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Savings Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=account_balance_wallet,arrow_forward,auto_graph,balance,calculate,chevron_right,expand_more,flag,health_and_safety,insights,payments,percent,picture_as_pdf,price_change,receipt,receipt_long,savings,sync_alt,table_view,timelapse,track_changes,trending_up,tune,verified_user&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,84 +38,140 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">Savings Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-    <div class="embed-currency">
-      <label>Currency</label>
-      <select id="cpCurrencySelect" class="cp-currency-select">
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="EUR">€ EUR</option>
-        <option value="CAD">CA$ CAD</option>
-        <option value="AUD">A$ AUD</option>
-        <option value="INR">₹ INR</option>
-        <option value="PKR">Rs PKR</option>
-        <option value="AED">AED</option>
-        <option value="SAR">SAR</option>
-        <option value="JPY">¥ JPY</option>
-        <option value="CNY">¥ CNY</option>
-        <option value="NZD">NZ$ NZD</option>
-        <option value="SGD">S$ SGD</option>
-        <option value="ZAR">R ZAR</option>
-        <option value="CHF">CHF</option>
-        <option value="MXN">MX$ MXN</option>
-        <option value="BRL">R$ BRL</option>
-        <option value="NGN">₦ NGN</option>
-        <option value="EGP">E£ EGP</option>
-        <option value="KES">KSh KES</option>
-      </select>
-    </div>
-
-<div class="field-row">        <div class="field">
-          <label for="startingBalance">Starting balance</label>
-          <input type="number" id="startingBalance" value="2000"
-step="100"min="0">
-        </div>
-        <div class="field">
-          <label for="monthlyDeposit">Monthly deposit</label>
-          <input type="number" id="monthlyDeposit" value="250"
-step="25"min="0">
-        </div>
-</div><div class="field-row">        <div class="field">
-          <label for="annualRate">Annual interest rate (%)</label>
-          <input type="number" id="annualRate" value="4.5"
-step="0.1"min="0">
-        </div>
-        <div class="field">
-          <label for="years">Time (years)</label>
-          <input type="number" id="years" value="5"
-step="1"min="1">
-        </div>
-</div>  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Projected balance</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Total deposited</span><span id="outDeposited">—</span></div>
-        <div class="embed-row"><span>Interest earned</span><span id="outInterest">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="hyCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">Savings Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">sync_alt</span>Compound Interest Modeling</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">percent</span>Tax-Drag Calibration</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">trending_up</span>Inflation-Adjusted Real Growth</span></div>
+<h1>Savings Calculator: High-Yield Savings &amp; Compound Growth</h1>
+<p>See how a starting balance and regular deposits grow toward your savings goal — with deposit cadence, annual increases, compounding frequency, tax on interest and inflation built in.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-l7">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Savings Parameters &amp; Deposit Cadence</h2></div>
+<span style="font-family:var(--font-mono);font-size:11px;color:var(--sx-muted)">A = P(1 + r/n)^(nt)</span>
+</div>
+<div class="sx-au-stack">
+<div>
+<div class="sx-au-l"><label for="p0">Initial Cash Deposit</label><em style="color:var(--sx-muted);font-weight:500">Lump sum principal</em></div>
+<div class="sx-au-in"><span class="pre">$</span><input id="p0" inputmode="decimal" min="0" step="100" type="number" value="15000"/><span class="suf">USD</span></div>
+<div class="sx-au-chips"><button data-for="p0" data-value="1000" type="button">$1,000</button><button data-for="p0" data-value="5000" type="button">$5,000</button><button data-for="p0" data-value="15000" type="button">$15,000</button><button data-for="p0" data-value="50000" type="button">$50,000</button><button data-for="p0" data-value="100000" type="button">$100,000</button></div>
+</div>
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="c">Ongoing Contribution</label></div><div class="sx-au-in"><span class="pre">$</span><input id="c" inputmode="decimal" min="0" step="25" type="number" value="650"/><span class="suf">/ deposit</span></div></div>
+<div><div class="sx-au-l"><span>Frequency Cadence</span></div><input id="fq" type="hidden" value="12"/><div aria-label="Deposit frequency" class="sx-au-opts" role="group" style="grid-template-columns:1fr 1fr"><button data-for="fq" data-value="52" type="button">Weekly</button><button data-for="fq" data-value="26" type="button">Bi-Weekly</button><button data-for="fq" data-value="12" type="button">Monthly</button><button data-for="fq" data-value="1" type="button">Annually</button></div></div>
+</div>
+<div class="sx-an-cola"><span aria-hidden="true" class="msym">trending_up</span><div><b>Annual Contribution Escalation</b><small>Raise deposits each year, e.g. with salary increases</small></div><div class="sx-au-in sm np pc" style="width:88px"><input aria-label="Escalation rate" id="esc" inputmode="decimal" max="20" min="0" step="0.5" type="number" value="3"/><span class="suf">%</span></div><label class="sx-toggle"><input aria-label="Annual contribution escalation" checked="" id="escOn" type="checkbox"/><i></i></label></div>
+<div>
+<div class="sx-au-l"><label for="r">Annual Interest Rate</label><em id="apyOut" style="color:var(--sx-on);font-family:var(--font-mono)">—</em></div>
+<div class="sx-au-in np pc"><input id="r" inputmode="decimal" max="20" min="0" step="0.05" type="number" value="4.75"/><span class="suf">%</span></div>
+<div aria-label="Rate presets" class="sx-au-cat nr" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr));margin-top:8px"><button data-for="r" data-value="0.45" type="button"><span><small>Traditional Bank</small><b>0.45%</b></span></button><button data-for="r" data-value="4.75" type="button"><span><small>High-Yield Savings</small><b>4.75%</b></span></button><button data-for="r" data-value="3.75" type="button"><span><small>Money Market</small><b>3.75%</b></span></button></div>
+<p class="sx-au-help">Presets are examples, not live rates — use your account's actual rate.</p>
+</div>
+<div>
+<div class="sx-au-l"><label for="yR">Time Horizon</label><em id="yOut" style="color:var(--sx-on);font-family:var(--font-display);font-size:18px">10 Years</em></div>
+<input id="yrs" type="hidden" value="10"/><input aria-label="Years" class="sx-range2" data-sync="yrs" id="yR" max="30" min="1" step="1" type="range" value="10"/>
+<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sx-muted);margin-top:4px"><span>1 Year</span><span>10 Years</span><span>20 Years</span><span>30 Years</span></div>
+</div>
+<div>
+<div class="sx-au-l"><span>Compounding Frequency</span></div>
+<input id="n" type="hidden" value="365"/>
+<div aria-label="Compounding frequency" class="sx-au-cat nr" role="group" style="grid-template-columns:repeat(3,minmax(0,1fr))"><button data-for="n" data-value="365" type="button"><span><b>Daily (365/yr)</b><small>Most online banks</small></span></button><button data-for="n" data-value="12" type="button"><span><b>Monthly (12/yr)</b><small>Many credit unions</small></span></button><button data-for="n" data-value="1" type="button"><span><b>Annually (1/yr)</b><small>Some bonds &amp; CDs</small></span></button></div>
+</div>
+<div>
+<div class="sx-au-l"><span style="display:inline-flex;align-items:center;gap:6px"><span aria-hidden="true" class="msym" style="font-size:18px">account_balance_wallet</span>Account Tax Status &amp; Drag</span><input id="tx" type="hidden" value="s2"/><div aria-label="Tax status" class="sx-seg" role="group"><button data-for="tx" data-value="s1" type="button">Tax-Free / Roth</button><button data-for="tx" data-value="s2" type="button">Taxable Account</button></div></div>
+<div class="sx-hy-tax" id="taxRow"><span>Marginal tax drag:</span><span style="display:flex;gap:8px;align-items:center"><span class="sx-au-sel" style="width:120px"><select aria-label="Federal bracket" id="fed"><option value="10">10% Fed</option><option value="12">12% Fed</option><option value="22">22% Fed</option><option selected="" value="24">24% Fed</option><option value="32">32% Fed</option><option value="35">35% Fed</option><option value="37">37% Fed</option></select></span>+<span class="sx-au-in sm np pc" style="width:96px"><input aria-label="State tax rate" id="st" inputmode="decimal" max="15" min="0" step="0.1" type="number" value="5"/><span class="suf">% St</span></span></span><b id="dragOut">—</b></div>
+</div>
+<div>
+<div class="sx-au-l"><label for="cpi">Inflation (CPI) for Real Value</label></div>
+<div class="sx-au-in np pc" style="max-width:160px"><input id="cpi" inputmode="decimal" max="15" min="0" step="0.1" type="number" value="2.8"/><span class="suf">%</span></div>
+</div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Calculate Growth &amp; Tax Drag</button>
+</div>
+</form>
+</div>
+<div class="sx-r5" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-hy-hero">
+<div class="hd"><em><span aria-hidden="true" class="msym">auto_graph</span>Compounded Horizon Verdict</em><span id="afterT">—</span></div>
+<div class="k">Projected Total Savings Balance</div>
+<div class="big" id="resultValue">—</div>
+<p id="verd">—</p>
+<span aria-hidden="true" class="msym wm">savings</span>
+</section>
+<section class="sx-card sx-hy-stack">
+<div class="hd">Capital Stack Composition<span id="stN">—</span></div>
+<div class="bar" id="stBar"></div>
+<div class="lg" id="stLg"></div>
+</section>
+<div class="sx-in-t4">
+<div class="sx-card"><div class="k">Total Principal Outlay<span aria-hidden="true" class="msym">payments</span></div><b id="out">—</b><p id="outN">—</p></div>
+<div class="sx-card"><div class="k">Bank Interest Yield<span aria-hidden="true" class="msym">insights</span></div><b class="g" id="int">—</b><p id="intN">—</p></div>
+<div class="sx-card"><div class="k"><span id="realL">Real Value</span><span aria-hidden="true" class="msym">price_change</span></div><b id="real">—</b><p>In today's purchasing power</p></div>
+<div class="sx-card"><div class="k"><span style="color:var(--sx-err)">Tax-Drag Friction</span><span aria-hidden="true" class="msym r">receipt_long</span></div><b class="r" id="tax">—</b><p id="taxN">—</p></div>
+</div>
+<section class="sx-card sx-hy-ms">
+<h4><span aria-hidden="true" class="msym">flag</span>Accumulation Milestone Velocity</h4>
+<ul id="ms"></ul>
+</section>
+<div class="sx-in-acts"><button data-action="print" type="button"><span aria-hidden="true" class="msym">picture_as_pdf</span>Savings Roadmap PDF</button><button id="csvBtn" type="button"><span aria-hidden="true" class="msym">table_view</span>Export CSV Ledger</button></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide" id="ledger">
+<div class="hd"><div><h2>Multi-Year Savings Accrual Ledger</h2><p id="ledN">Year-by-year growth, interest, tax drag and inflation-adjusted value.</p></div><span class="sx-au-tag"><span aria-hidden="true" class="msym" style="font-size:14px;vertical-align:-2px">verified_user</span> Calculated in your browser</span></div>
+<div class="sx-scroll"><table class="sx-au-st">
+<thead><tr><th scope="col">Year</th><th scope="col">Starting Balance</th><th scope="col">Annual Contribution</th><th scope="col">Interest Earned</th><th id="thTax" scope="col">Tax Drag</th><th scope="col">Ending Balance</th><th id="thReal" scope="col">Real Value</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+</section>
+<div class="sx-au-2c cp-hide">
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">receipt</span></span><h3>The 1099-INT Tax Drag: High APYs in Taxable Accounts</h3><p>Bank interest is taxed as ordinary income federally and in most states — not at the lower long-term capital gains rates. In a taxable account, your after-tax yield is the rate × (1 − your combined marginal rate).</p><div class="sx-hy-cmp"><span>Nominal rate: <b id="tdN">—</b></span><span aria-hidden="true" class="msym">arrow_forward</span><span>Effective net yield: <b class="g" id="tdE">—</b></span></div><p><b>Worth knowing:</b> interest on US Treasury bills is exempt from state and local income tax, which can narrow the gap for savers in high-tax states.</p></div>
+<div class="sx-card"><span class="sx-ibox" style="width:36px;height:36px;align-items:center;justify-content:center;margin-bottom:14px"><span aria-hidden="true" class="msym">timelapse</span></span><h3>Compounding Frequency: Daily vs Annual</h3><p>The more often interest is credited, the sooner it starts earning interest of its own. That's why banks quote APY — the effective yearly return after compounding — alongside the nominal rate.</p><div class="sx-hy-cmp"><span>Annual compounding: <b id="cfA">—</b></span><span aria-hidden="true" class="msym">trending_up</span><span>Daily compounding APY: <b class="g" id="cfD">—</b></span></div><p id="cfTxt">—</p></div>
+</div>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>Building a consistent savings habit</h2>
+<p>Automating a fixed monthly deposit tends to build savings more reliably than depositing whatever's left over at the end of the month, since it removes the temptation to skip a contribution.</p>
+<p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>High-yield savings vs. standard accounts</h2>
+<p>The interest rate you use in this calculator matters enormously — standard savings accounts at traditional banks often pay a small fraction of a percent, while high-yield savings accounts (typically online-only banks) can pay meaningfully more, sometimes several percentage points higher.</p>
+<p>Over a multi-year savings goal, the difference between a low-yield and high-yield account can add up to hundreds or thousands of dollars in extra interest for the same deposits, simply by choosing a better account.</p>
+<h2>A worked example</h2>
+<p>Starting with $1,500 and depositing $200/month at 4% annual interest (compounded monthly) for 3 years: the balance grows to roughly $9,330, with $8,700 from deposits ($1,500 start plus $7,200 in monthly deposits) and about $630 from interest.</p>
+<p>Run the same plan at 4.5% interest instead of 4%, and the balance grows to about $9,410 — a modest but real improvement purely from a better rate, showing why shopping for a higher-yield account is worth the effort even for shorter-term goals.</p>
+<h2>Sizing an emergency fund first</h2>
+<p>Before optimizing for long-term growth, many financial guidelines suggest building an emergency fund covering 3-6 months of essential expenses in an easily accessible account. This calculator works well for modeling that goal — and the <a href="/financial/savings-goal-calculator.html">savings goal calculator</a> tells you how long until you reach a specific target.</p>
+<p>Once an emergency fund is in place, the same compounding math applies to longer-term goals like a home down payment, a large purchase, or building general wealth — the starting balance and consistency of contributions tend to matter more than chasing the highest possible interest rate. For long-term retirement growth specifically, see our <a href="/financial/retirement-calculator.html">Retirement Calculator</a>.</p>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>What interest rate should I use for a savings account?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Use your actual account's APY if you know it — high-yield savings accounts and standard accounts can differ significantly in rate.</p></details>
+<details class="sx-faq"><summary>Does this account for taxes on interest earned?<span aria-hidden="true" class="msym">expand_more</span></summary><p>Yes, if you choose a taxable account — enter your federal bracket and state rate and the calculator deducts tax on each year's interest. Choose Tax-Free / Roth to see gross growth.</p></details>
+<details class="sx-faq"><summary>Is a high-yield savings account safe?<span aria-hidden="true" class="msym">expand_more</span></summary><p>FDIC-insured high-yield accounts (up to standard insurance limits) carry the same safety as a traditional bank account — the higher rate typically reflects lower overhead costs for online-only banks, not higher risk.</p></details>
+<details class="sx-faq"><summary>How much should I keep in savings vs. invest?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common guideline is 3-6 months of expenses in accessible savings for emergencies, with additional long-term savings directed toward investment accounts for higher growth potential.</p></details>
+<details class="sx-faq"><summary>How big should my emergency fund be?<span aria-hidden="true" class="msym">expand_more</span></summary><p>A common guideline is 3-6 months of essential living expenses, though the right number depends on job stability, dependents, and other financial safety nets you may have.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Complementary Financial Calculators</h2><p>Liquidity, yield and savings-goal tools.</p></div>
+<a href="/financial-calculators.html">View all tools<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/financial/compound-interest-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">percent</span></span><b>Compound Interest</b><span class="d">Long-term compound growth with contributions.</span><span class="f">Explore model<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">health_and_safety</span></span><b>Emergency Fund</b><span class="d">Size 3–12 months of essential living costs.</span><span class="f">Explore model<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/cd-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">balance</span></span><b>CD Calculator</b><span class="d">Fixed-term certificate of deposit growth.</span><span class="f">Explore model<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/financial/savings-goal-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">track_changes</span></span><b>Savings Goal Calculator</b><span class="d">Deposits needed — or time — to reach a target.</span><span class="f">Explore model<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/financial/savings-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -242,40 +180,9 @@ step="1"min="1">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-<script>
-// Minimal inline currency formatter — no external dependency
-const CP_CURRENCIES = {
-  USD:'$',GBP:'£',EUR:'€',CAD:'CA$',AUD:'A$',INR:'₹',PKR:'Rs',
-  AED:'AED',SAR:'SAR',JPY:'¥',CNY:'¥',NZD:'NZ$',SGD:'S$',ZAR:'R',
-  CHF:'CHF',MXN:'MX$',BRL:'R$',NGN:'₦',EGP:'E£',KES:'KSh'
-};
-const CP_KEY = 'cp_currency';
-function cpGetCurrency(){ try { return localStorage.getItem(CP_KEY)||'USD'; } catch(e){ return 'USD'; } }
-function cpSetCurrency(c){ try { localStorage.setItem(CP_KEY,c); } catch(e){} }
-function cpFormatMoney(v, opts){
-  opts = opts||{};
-  const sym = CP_CURRENCIES[cpGetCurrency()]||'$';
-  const max = opts.maximumFractionDigits !== undefined ? opts.maximumFractionDigits : 2;
-  const min = opts.minimumFractionDigits !== undefined ? opts.minimumFractionDigits : Math.min(2,max);
-  const num = (Number(v)||0).toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:max});
-  return sym + num;
-}
-function cpInitSelectors(){
-  const sels = document.querySelectorAll('.cp-currency-select');
-  const cur = cpGetCurrency();
-  sels.forEach(s => {
-    s.value = cur;
-    s.addEventListener('change', () => {
-      cpSetCurrency(s.value);
-      sels.forEach(x => x.value = s.value);
-      const f = document.getElementById('calcForm');
-      if(f) f.dispatchEvent(new Event('input',{bubbles:true}));
-    });
-  });
-}
-document.addEventListener('DOMContentLoaded', cpInitSelectors);
-</script>
-
-<script src="https://www.calculatepilot.com/js/avings.js"></script>
+<script src="/js/currency-format.js?v=3d1747f9"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/savings.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>

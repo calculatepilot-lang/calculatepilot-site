@@ -5,140 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAC Calculator | CalculatePilot</title>
 <meta name="robots" content="noindex, follow">
+<link href="/css/styles.css?v=20261004a" rel="stylesheet"/>
+<link href="/css/cp-calc.css?v=20260930o" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=arrow_forward,calculate,chevron_right,content_copy,event,expand_more,favorite,local_bar,monitor_weight,print,restart_alt,schedule,tune,verified_user,water_drop&amp;display=block" rel="stylesheet"/>
 <style>
-/* Self-contained embed styles — no external dependencies, no font loading delay */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --paper: #FBFBFA;
-  --paper-raised: #FFFFFF;
-  --ink: #14171A;
-  --slate: #6B7280;
-  --line: #E5E7EB;
-  --signal: #0F6B5C;
-  --signal-dark: #0B5347;
-  --signal-soft: #EAF4F1;
-  --mono: 'Courier New', 'Lucida Console', monospace;
-  --sans: system-ui, -apple-system, sans-serif;
-  --radius: 6px;
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.embed-wrap {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* ---- Header ---- */
-.embed-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  border-bottom: 2px solid var(--signal);
-  padding-bottom: 10px;
-}
-.embed-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.embed-lede {
-  font-size: 0.8rem;
-  color: var(--slate);
-}
-
-/* ---- Form fields ---- */
-.field { display: flex; flex-direction: column; gap: 4px; }
-.field label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
-.field input, .field select {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  background: var(--paper-raised);
-  color: var(--ink);
-  width: 100%;
-}
-.field input:focus, .field select:focus {
-  outline: none;
-  border-color: var(--signal);
-}
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ---- Result readout ---- */
-.embed-result {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.embed-result-bar { height: 4px; background: var(--signal); }
-.embed-result-body { padding: 14px; }
-.embed-result-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.embed-result-value {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--signal);
-  line-height: 1.2;
-}
-.embed-breakdown {
-  margin-top: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.embed-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-.embed-row span:first-child { color: var(--slate); }
-.embed-row span:last-child { font-family: var(--mono); font-weight: 600; }
-
-/* ---- Currency picker (money calculators) ---- */
-.embed-currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.embed-currency label { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-.embed-currency select {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 3px 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-/* ---- Branding footer ---- */
+html,body{margin:0;padding:0;background:#fff}
+body.cp-embed{min-height:100vh;display:flex;flex-direction:column}
+.cp-embed main{flex:1}
+.cp-embed .cp-hide{display:none!important}
+.cp-embed .sx{padding:10px 12px 4px!important;margin:0!important;max-width:none!important}
+.cp-embed .sx-badges{display:none!important}
+.cp-embed .sx-headbar,.cp-embed .sx-head,.cp-embed .sx-cihead{margin-bottom:10px!important;padding:0!important}
+.cp-embed .sx-headbar p,.cp-embed .sx-head>p,.cp-embed .sx-cihead>p{display:none!important}
+.cp-embed h1{font-size:1.2rem!important;line-height:1.25!important;margin:0!important}
+.cp-embed .sx-grid{margin-bottom:12px!important}
+.cp-embed .sx-chartcard,.cp-embed .cpx-chart,.cp-embed .sx-au-chart,.cp-embed .sx-cichart,.cp-embed .sx-chart,.cp-embed .sx-sched,.cp-embed .sx-cisched{display:none!important}
 .embed-brand {
   margin-top: auto;
   padding: 10px 16px;
@@ -147,8 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: var(--paper-raised);
-}
-.embed-brand a {
+}.embed-brand a {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--signal);
@@ -156,60 +38,112 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-.embed-brand a:hover { color: var(--signal-dark); }
-.embed-brand a span { font-weight: 400; color: var(--slate); }
-.embed-brand-dot { color: var(--signal); }
-.embed-disclaimer {
+}.embed-brand a:hover { color: var(--signal-dark); }.embed-brand a span { font-weight: 400; color: var(--slate); }.embed-brand-dot { color: var(--signal); }.embed-disclaimer {
   font-size: 0.68rem;
   color: var(--slate);
 }
 </style>
 </head>
-<body>
-
-<div class="embed-wrap">
-  <div class="embed-header">
-    <div class="embed-title">BAC Calculator</div>
-  </div>
-
-  <form id="calcForm" autocomplete="off">
-
-        <div class="field">
-          <label for="sex">Sex</label>
-          <select id="sex">
-            <option value="male" selected>Male</option>
-            <option value="female" >Female</option>
-          </select>
-        </div>
-<div class="field-row">        <div class="field">
-          <label for="weight">Body weight (lb)</label>
-          <input type="number" id="weight" value="170"
-step="1"min="60">
-        </div>
-        <div class="field">
-          <label for="numDrinks">Standard drinks consumed</label>
-          <input type="number" id="numDrinks" value="2"
-step="1"min="0">
-        </div>
-</div>        <div class="field">
-          <label for="hoursElapsed">Hours since first drink</label>
-          <input type="number" id="hoursElapsed" value="1"
-step="0.25"min="0">
-        </div>
-  </form>
-
-  <div class="embed-result">
-    <div class="embed-result-bar"></div>
-    <div class="embed-result-body">
-      <div class="embed-result-label">Estimated BAC</div>
-      <div class="embed-result-value" id="resultValue">—</div>
-      <div class="embed-breakdown">
-        <div class="embed-row"><span>Estimated time until BAC reaches 0</span><span id="outHoursToZero">—</span></div>
-      </div>
-    </div>
-  </div>
+<body class="cp-embed">
+<main>
+<div class="sx" id="bacCalc">
+<nav aria-label="Breadcrumb" class="sx-crumb cp-hide"><a href="/">Home</a><span aria-hidden="true" class="msym">chevron_right</span><a href="/health-calculators.html">Health &amp; Fitness Calculators</a><span aria-hidden="true" class="msym">chevron_right</span><b class="m">BAC Calculator</b></nav>
+<header class="sx-headbar">
+<div>
+<div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span aria-hidden="true" class="msym">verified_user</span>Widmark Formula</span><span class="sx-badge"><span aria-hidden="true" class="msym">schedule</span>Hour-by-Hour Estimate</span><span class="sx-badge"><span aria-hidden="true" class="msym">event</span>Reviewed 28 Sep 2026</span></div>
+<h1>BAC Calculator — Blood Alcohol Estimate (Widmark)</h1>
+<p>Estimate your blood alcohol concentration from your drinks, body weight, sex and time since you started drinking, and see how it's likely to fall hour by hour. An educational estimate only — <strong>never use it to decide whether it's safe to drive</strong>.</p>
 </div>
+</header>
+<div class="sx-grid" style="margin-bottom:48px">
+<div class="sx-au-l5">
+<form class="sx-card r2 sx-au-form" id="calcForm" novalidate="">
+<div class="sx-params-head">
+<div><span aria-hidden="true" class="msym">tune</span><h2 class="sx-h-md" style="margin:0">Your Drinks</h2></div>
+<button class="sx-reset" data-action="reset" type="button"><span aria-hidden="true" class="msym">restart_alt</span>Reset</button>
+</div>
+<div class="sx-au-stack">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><span>Sex</span></div><input id="sex" type="hidden" value="s1"/><div aria-label="Sex" class="sx-seg" role="group" style="display:flex"><button data-for="sex" data-value="s1" style="flex:1" type="button">Male</button><button data-for="sex" data-value="s2" style="flex:1" type="button">Female</button></div></div>
+<div><div class="sx-au-l"><span>Units</span></div><input id="u" type="hidden" value="s1"/><div aria-label="Units" class="sx-seg" role="group" style="display:flex"><button data-for="u" data-value="s1" style="flex:1" type="button">lb / oz</button><button data-for="u" data-value="s2" style="flex:1" type="button">kg / mL</button></div></div>
+</div>
+<div><div class="sx-au-l"><label for="wt">Body Weight</label></div><div class="sx-au-in np"><input id="wt" inputmode="decimal" max="600" min="60" step="1" type="number" value="176"/><span class="suf" id="wU">lb</span></div></div>
+<div>
+<div class="sx-au-l"><span>Count Drinks As</span></div><input id="dm" type="hidden" value="s1"/>
+<div aria-label="Drink entry" class="sx-seg" role="group" style="display:flex"><button data-for="dm" data-value="s1" style="flex:1" type="button">Standard drinks</button><button data-for="dm" data-value="s2" style="flex:1" type="button">Size &amp; ABV</button></div>
+</div>
+<div id="sdRow"><div class="sx-au-l"><label for="n">Number of Standard Drinks</label></div><div class="sx-au-in np"><input id="n" inputmode="decimal" max="40" min="0" step="0.5" type="number" value="4"/><span class="suf">drinks</span></div><p style="margin:6px 0 0;font-size:12px;color:var(--sx-muted)">1 standard drink = 12 oz beer at 5%, 5 oz wine at 12%, or 1.5 oz of 40% spirits.</p></div>
+<div hidden="" id="cuRow">
+<div class="sx-au-g2">
+<div><div class="sx-au-l"><label for="cn">Drinks</label></div><div class="sx-au-in np"><input id="cn" inputmode="decimal" max="40" min="0" step="0.5" type="number" value="3"/></div></div>
+<div><div class="sx-au-l"><label for="cs">Size Each</label></div><div class="sx-au-in np"><input id="cs" inputmode="decimal" max="1000" min="0.5" step="0.5" type="number" value="16"/><span class="suf" id="sU">oz</span></div></div>
+</div>
+<div style="margin-top:10px"><div class="sx-au-l"><label for="abv">Strength (ABV)</label></div><div class="sx-au-in np"><input id="abv" inputmode="decimal" max="70" min="0.5" step="0.1" type="number" value="6.5"/><span class="suf">%</span></div></div>
+</div>
+<div><div class="sx-au-l"><label for="h">Hours Since First Drink</label></div><div class="sx-au-in np"><input id="h" inputmode="decimal" max="48" min="0" step="0.25" type="number" value="2"/><span class="suf">hours</span></div></div>
+<button class="sx-cta big" style="font-size:16px;padding:12px 20px" type="submit"><span aria-hidden="true" class="msym">calculate</span>Estimate BAC</button>
+</div>
+</form>
+</div>
+<div class="sx-au-r7" id="results" style="display:flex;flex-direction:column;gap:14px">
+<section aria-live="polite" class="sx-card r2 sx-an-hero">
+<div class="hd"><span>Estimated BAC now</span><span class="sx-ef-grade" id="tag">—</span></div>
+<div class="big"><span id="resultValue">—</span><small> %</small></div>
+<p id="rN">—</p>
+<div class="g2"><div><span>Peak estimate (no elimination)</span><b id="pk">—</b></div><div><span>Estimated time to reach 0.00%</span><b id="tz">—</b></div></div>
+<div class="g2"><div><span>Pure alcohol consumed</span><b id="ag">—</b></div><div><span>US standard drinks</span><b id="sd">—</b></div></div>
+<div class="note" id="warn" style="font-weight:600">Never drive after drinking — plan a sober ride.</div>
+</section>
+<div class="sx-in-acts"><button id="copyBtn" type="button"><span aria-hidden="true" class="msym">content_copy</span><span id="copyTxt">Copy Estimate</span></button><button data-action="print" type="button"><span aria-hidden="true" class="msym">print</span>Print</button><a href="/health/alcohol-calories-calculator.html"><span aria-hidden="true" class="msym">local_bar</span>Alcohol Calories</a></div>
+</div>
+</div>
+<section class="sx-card sx-au-sched cp-hide">
+<div class="hd"><div><h2>How Your Estimated BAC Falls</h2><p>Hours after your first drink, assuming no more drinks and an average elimination rate of 0.015% per hour.</p></div><span class="sx-au-tag">Estimate only</span></div>
+<div class="sx-scroll"><table class="sx-au-cmp plain">
+<thead><tr><th scope="col">Hours After First Drink</th><th scope="col">Estimated BAC</th><th scope="col">vs 0.08% US Limit</th></tr></thead>
+<tbody id="tlTbl"></tbody>
+</table></div>
+</section>
+<section class="sx-card sx-method cp-hide">
+<div class="sx-guide">
+<h2>How this calculator works</h2>
+<p>It uses the Widmark formula, the classic method for estimating blood alcohol:</p>
+<ul>
+<li><strong>BAC (%)</strong> = alcohol (g) ÷ (body weight (g) × r) × 100 − 0.015 × hours</li>
+<li><strong>r</strong> (the body-water distribution factor) = 0.68 for men and 0.55 for women, Widmark's average values</li>
+<li><strong>Alcohol (g)</strong> = standard drinks × 14 g, or drinks × size (mL) × ABV × 0.789</li>
+<li><strong>0.015% per hour</strong> is an average elimination rate; real rates vary from person to person</li>
+</ul>
+<p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against NIAAA and NHTSA information · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+<h2>A worked example</h2>
+<p>A 176 lb (80 kg) man who has had 4 standard drinks (56 g of alcohol) over 2 hours: 56 ÷ (80,000 × 0.68) × 100 = 0.103%, minus 0.015 × 2 = <strong>about 0.073%</strong>. At 0.015% an hour, it would take roughly another 5 hours to fall to zero.</p>
+<h2>This is an estimate — not a safety determination</h2>
+<p>Real BAC depends on food, drinking speed, medications, health, body composition and individual metabolism, so your true BAC could be higher or lower than this estimate. Alcohol also keeps being absorbed for a while after your last drink, so BAC can still be rising. Impairment starts well below legal limits: NHTSA notes that even at 0.02% people show some loss of judgment and a decline in the ability to do two things at once. <strong>No calculator can tell you it's safe to drive.</strong> If you've been drinking, use a rideshare, taxi, public transport or a sober designated driver.</p>
+<p>The legal limit for drivers 21 and over is 0.08% in every US state except Utah (0.05%); commercial drivers are limited to 0.04%, and drivers under 21 face zero-tolerance laws.</p>
+<h2>Sources</h2>
+<ul>
+<li>Widmark EMP. Die theoretischen Grundlagen und die praktische Verwendbarkeit der gerichtlich-medizinischen Alkoholbestimmung. Berlin: Urban &amp; Schwarzenberg, 1932.</li>
+<li><a href="https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink" rel="noopener noreferrer">NIAAA — What is a standard drink?</a></li>
+<li><a href="https://www.nhtsa.gov/risky-driving/drunk-driving" rel="noopener noreferrer">NHTSA — Drunk Driving</a></li>
+</ul>
+<h2>Frequently asked questions</h2>
+<details class="sx-faq"><summary>How accurate is a BAC calculator?<span aria-hidden="true" class="msym">expand_more</span></summary><p>It gives a rough, population-average estimate. Two people drinking the same amount can have very different BACs because of food, drinking speed, body composition, medications and metabolism. Only a breath or blood test measures BAC.</p></details>
+<details class="sx-faq"><summary>How long does it take for BAC to reach zero?<span aria-hidden="true" class="msym">expand_more</span></summary><p>The body removes alcohol at roughly 0.015% per hour on average, and nothing — coffee, cold showers or exercise — speeds this up. A BAC of 0.08% takes about 5 hours or more to clear.</p></details>
+<details class="sx-faq"><summary>What counts as a standard drink?<span aria-hidden="true" class="msym">expand_more</span></summary><p>In the US, a standard drink contains about 14 grams (0.6 fl oz) of pure alcohol — roughly a 12-oz beer at 5%, a 5-oz glass of wine at 12%, or a 1.5-oz shot of 40% spirits. Craft beers, large pours and cocktails often contain more.</p></details>
+</div>
+</section>
+<div class="sx-au-relh cp-hide">
+<div><h2>Related Calculators</h2><p>More about alcohol and health.</p></div>
+<a href="/health-calculators.html">All Health Calculators<span aria-hidden="true" class="msym">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel cp-hide">
+<a class="sx-card" href="/health/alcohol-calories-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">local_bar</span></span><b>Alcohol Calories</b><span class="d">Calories, standard drinks and UK units.</span><span class="f">Count calories<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/blood-pressure-category-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">favorite</span></span><b>Blood Pressure Category</b><span class="d">Alcohol can raise blood pressure.</span><span class="f">Check reading<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/water-intake-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">water_drop</span></span><b>Water Intake</b><span class="d">Daily fluid needs.</span><span class="f">Check water<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+<a class="sx-card" href="/health/bmi-calculator.html"><span class="ic"><span aria-hidden="true" class="msym">monitor_weight</span></span><b>BMI Calculator</b><span class="d">Weight relative to height.</span><span class="f">Check BMI<span aria-hidden="true" class="msym">arrow_forward</span></span></a>
+</div>
+</div>
+</main>
 
 <div class="embed-brand">
   <a href="https://www.calculatepilot.com/health/bac-calculator.html?ref=widget" target="_blank" rel="noopener">
@@ -218,7 +152,8 @@ step="0.25"min="0">
   <span class="embed-disclaimer">Estimates only</span>
 </div>
 
-
-<script src="https://www.calculatepilot.com/js/bac.js"></script>
+<script src="/js/cp-calc.js?v=20260930o"></script>
+<script src="/js/calc/bac.js?v=20260930o"></script>
+<script>(function(){function s(){try{parent.postMessage({cpEmbedHeight:document.documentElement.scrollHeight,src:location.pathname},'*')}catch(e){}}addEventListener('load',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);})();</script>
 </body>
 </html>
