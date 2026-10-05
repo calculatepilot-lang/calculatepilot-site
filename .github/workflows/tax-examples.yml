@@ -1,0 +1,17 @@
+name: Tax example lock
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - financial/scotland-lbtt-calculator.html
+      - financial/wales-ltt-calculator.html
+      - scripts/check-tax-examples.py
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/check-tax-examples.py
