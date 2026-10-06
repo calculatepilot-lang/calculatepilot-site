@@ -17,7 +17,7 @@ callout, dark formula cards, tables, FAQ accordions, related tools + related gui
 2. `python tools/guide_build.py <slug>` (no arguments rebuilds every guide). Writes `guides/<slug>.html`
    and adds the slug to `meta.json` (category/tag from the guides index card, read time, publish date, sandbox).
 3. Still manual, as before: add the card to `guides/index.html`, `sitemap`, `llms-full.txt` and `calculators.json`.
-4. Check: `python tools/guides/verify.py` (every source word must appear in the built page).
+4. Gate (required before publishing): `python tools/guides/check.py` (every guide uses the template) and `python tools/guides/verify.py` (no source words lost).
 
 ## Notes
 - The built page keeps its own `<head>` and site header/footer, so site-wide edits survive a rebuild. Only `<main>` is regenerated.
