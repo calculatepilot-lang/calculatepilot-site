@@ -439,7 +439,7 @@ def load_meta(slugs, srcs):
         c = cards.get(s, {})
         if "group" not in m:
             folder = (d.get("tool_href") or "").strip("/").split("/")[0]
-            m["group"] = c.get("group") or GROUPS.get(folder, "Finance & money")
+            m["group"] = "Comparisons" if re.search(r"(^|-)vs(-|$)", s) or re.search(r"vs\.?\s", d["h1"], re.I) else (c.get("group") or GROUPS.get(folder, "Finance & money"))
         if "tag" not in m:
             m["tag"] = c.get("tag") or "Guide"
         if "read" not in m:
@@ -742,6 +742,8 @@ def build(slug, srcs, meta, order):
     out_path = os.path.join(ROOT, "guides", slug + ".html")
     src_html = open(os.path.join(SRC, slug + ".html"), encoding="utf-8").read()
     shell = open(out_path, encoding="utf-8").read() if os.path.exists(out_path) else src_html
+    if not re.search(r'<img[^>]+src="/images/guides/', src_html):
+        raise SystemExit("%s: every guide needs a hero image card (<img src=\"/images/guides/...\"> in the source)" % slug)
     model = build_model(d["prose"])
     main_html = "<main>\n" + render_main(slug, d, model, meta, order) + "\n</main>"
     mm = re.search(r"<main>.*?</main>", shell, re.S)

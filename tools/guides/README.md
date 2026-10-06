@@ -27,3 +27,9 @@ callout, dark formula cards, tables, FAQ accordions, related tools + related gui
 - Assets: `css/cp-guide.css` (scoped under `.cpguide`), `js/cp-guide.js`. Fonts: Space Grotesk, Inter, IBM Plex Mono + a Material Symbols subset.
 - Left out of the Stitch mock on purpose because they were fabricated or have no backend: "peer-reviewed", named reviewers/CFA credentials,
   CFPB verification, vote counts, XLSX download, newsletter form.
+
+## Categories and image cards (required)
+- Every guide needs a hero image (`<img src="/images/guides/...">` in the source) and an image card in `guides/index.html`.
+- Category = `meta.json` `group`: Finance & money, Math & conversion, Health & everyday, or **Comparisons** (any "X vs Y" / site-vs-site / tool-vs-tool article; auto-detected from "vs" in the slug or title).
+- `python tools/guides/index_sync.py <slug>` adds the image card to the right category section (creating the section/chip if needed) and refreshes all counts.
+- `check.py` fails if a guide has no hero image, no index card, a card without an image, or a card in the wrong category.
