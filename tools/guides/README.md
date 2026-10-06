@@ -1,0 +1,29 @@
+# Guide article template (Stitch "Guide Article Template")
+
+Every page in `/guides/` (except `index.html`) is generated from a simple source file into the Stitch article layout:
+reading-progress bar, breadcrumb strip, hero with badges/byline, sticky contents sidebar, Short answer / Key takeaways
+callout, dark formula cards, tables, FAQ accordions, related tools + related guides, corrections strip, previous/next.
+
+## Publish a new guide
+
+1. Write `tools/guides/src/<slug>.html` in the plain source format (copy any file in `src/` as a starting point):
+   `<head>` with title, meta description, canonical, OG tags and Article/FAQPage JSON-LD; `<main>` with
+   `section.calc-page-head` (breadcrumb, `h1`, `p.lede`) and `div.prose` containing only
+   `p`, `h2`, `h3`, `ul`, `ol`, `table`, `img`, `div.formula-box`, `div.faq-item`, `div.tool-grid`.
+   - First line of the prose: `<p><a href="/financial/x-calculator.html">→ Use the free X Calculator</a></p>` (drives the sidebar CTA and "Related tools").
+   - A paragraph starting `<strong>Short answer:</strong>` becomes the top callout. Without one, add 3 hand-written
+     bullets for the slug in `takeaways.json` (`[[bold label, sentence], ...]`); otherwise they are derived from the first sections.
+   - End with `<p><a class="btn btn-primary" href="...">Calculate ... →</a></p>` for the bottom button.
+2. `python tools/guide_build.py <slug>` (no arguments rebuilds every guide). Writes `guides/<slug>.html`
+   and adds the slug to `meta.json` (category/tag from the guides index card, read time, publish date, sandbox).
+3. Still manual, as before: add the card to `guides/index.html`, `sitemap`, `llms-full.txt` and `calculators.json`.
+4. Check: `python tools/guides/verify.py` (every source word must appear in the built page).
+
+## Notes
+- The built page keeps its own `<head>` and site header/footer, so site-wide edits survive a rebuild. Only `<main>` is regenerated.
+- `meta.json` `sandbox` (`principal`, `rate`, `years`, `title`) adds the live loan sandbox after the first formula section.
+- New Tailwind classes: edit `guide_build.py`, then `TW_DIR=<folder with node_modules> sh tools/guides/css/rebuild.sh`
+  (needs tailwindcss@3, @tailwindcss/forms, @tailwindcss/container-queries, postcss, postcss-prefix-selector, cssnano).
+- Assets: `css/cp-guide.css` (scoped under `.cpguide`), `js/cp-guide.js`. Fonts: Space Grotesk, Inter, IBM Plex Mono + a Material Symbols subset.
+- Left out of the Stitch mock on purpose because they were fabricated or have no backend: "peer-reviewed", named reviewers/CFA credentials,
+  CFPB verification, vote counts, XLSX download, newsletter form.
