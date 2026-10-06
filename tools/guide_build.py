@@ -439,7 +439,7 @@ def load_meta(slugs, srcs):
         c = cards.get(s, {})
         if "group" not in m:
             folder = (d.get("tool_href") or "").strip("/").split("/")[0]
-            m["group"] = "Comparisons" if re.search(r"(^|-)vs(-|$)", s) or re.search(r"vs\.?\s", d["h1"], re.I) else (c.get("group") or GROUPS.get(folder, "Finance & money"))
+            m["group"] = "Comparisons" if re.search(r"(^|-)vs(-|$)", s) or re.search(r"(?<![a-z])vs\.?\s", d["h1"], re.I) else (c.get("group") or GROUPS.get(folder, "Finance & money"))
         if "tag" not in m:
             m["tag"] = c.get("tag") or "Guide"
         if "read" not in m:
