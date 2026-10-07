@@ -109,7 +109,7 @@ def build(root, name):
     title = re.search(r'<title>(.*?)</title>', old, re.S).group(1)
     brand, brand_css = brand_and_css(old)
     out = ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-           '<title>%s</title>\n<meta name="robots" content="noindex, follow">\n%s\n<style>\n%s%s\n</style>\n</head>\n'
+           '<title>%s</title>\n<meta name="robots" content="index, follow">\n%s\n<style>\n%s%s\n</style>\n</head>\n'
            '<body class="cp-embed">\n<main>\n%s\n</main>\n\n%s\n\n%s\n</body>\n</html>\n') % (
         title, '\n'.join(heads), EMBED_CSS, brand_css, str(sx), brand, '\n'.join(scripts + [HEIGHT_SCRIPT]))
     return out
