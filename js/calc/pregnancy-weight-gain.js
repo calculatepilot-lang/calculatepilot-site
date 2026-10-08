@@ -20,7 +20,9 @@ function compute(){
   $('hImp').hidden=!imp;$('hMet').hidden=imp;C.text('wU',imp?'lb':'kg');C.text('cU',imp?'lb':'kg');
   var m=imp?(v('ft')*12+v('inch'))*0.0254:v('cm')/100,kg=imp?v('pw')/2.20462:v('pw'),tw=$('tw').value==='s2';
   if(!(m>1&&kg>0))return;
-  var b=kg/(m*m),c=cat(b),s=S[c],sk=SK[c],U=imp?' lb':' kg',r1=function(x){return imp?Math.round(x):Math.round(x*10)/10;},W=function(x){return r1(x)+U;},WR=function(a,z){return r1(a)+'–'+r1(z)+U;};
+  var b=kg/(m*m);
+  if(b<12||b>70){C.text('resultValue','Check your inputs');C.text('tag','—');C.text('bmi',b.toFixed(1));C.text('rate','—');C.text('rN','These measurements give a BMI of '+b.toFixed(1)+', which looks like a typing or unit error. Please check your height, weight and units.');$('wkTbl').innerHTML='';C.text('pL','—');C.text('pV','—');$('warn').textContent='Enter your height and your weight from before you were pregnant.';last=null;return;}
+  var c=cat(b),s=S[c],sk=SK[c],U=imp?' lb':' kg',r1=function(x){return imp?Math.round(x):Math.round(x*10)/10;},W=function(x){return r1(x)+U;},WR=function(a,z){return r1(a)+'–'+r1(z)+U;};
   var TT=imp?T:TK,lo,hi;if(tw){if(!TT[c]){lo=hi=null;}else{lo=TT[c][0];hi=TT[c][1];}}else{lo=imp?s[0]:sk[0];hi=imp?s[1]:sk[1];}
   var pwLb=imp?kg*2.20462:kg;
   C.text('bmi',b.toFixed(1)+' · '+s[4]);C.text('tag',(tw?'Twins · ':'')+s[4]);
@@ -30,7 +32,9 @@ function compute(){
   C.text('resultValue',WR(lo,hi));
   C.text('rN','For a pre-pregnancy BMI of '+b.toFixed(1)+' ('+s[4].toLowerCase()+')'+(tw?' with twins (provisional IOM range)':'')+', a final weight of about '+WR(pwLb+lo,pwLb+hi)+'.');
   var wk=Math.round(v('wk')),cw=v('cw');
-  if(wk>0&&cw>0){var g=cw-pwLb,p=path(Math.min(wk,40),lo,hi,imp),st=g<p[0]-0.05?'Below':g>p[1]+0.05?'Above':'Within';pb.className='gain'+(st==='Within'?'':' neg');C.text('pL','Week '+wk+': gained '+W(g)+' vs '+WR(p[0],p[1])+' suggested');C.text('pV',st);}
+  var gtxt=function(g){return g<0?'lost '+W(-g):'gained '+W(g);};
+  if(wk>0&&wk<14&&cw>0){var g1=cw-pwLb;pb.className='gain';C.text('pL','Week '+wk+': '+gtxt(g1)+'. The IOM expects about '+WR(imp?1.1:0.5,imp?4.4:2)+' in total by week 13, with a lot of normal variation');C.text('pV','First trimester');}
+  else if(wk>0&&cw>0){var g=cw-pwLb,p=path(Math.min(wk,40),lo,hi,imp),st=g<p[0]-0.05?'Below':g>p[1]+0.05?'Above':'Within';pb.className='gain'+(st==='Within'?'':' neg');C.text('pL','Week '+wk+': '+gtxt(g)+' vs '+WR(p[0],p[1])+' suggested');C.text('pV',st);}
   else{pb.className='gain neg';C.text('pL','Add your week and current weight to compare');C.text('pV','—');}
   wn.textContent=b>=30?'For a BMI of 30 or more, ACOG notes that gaining less than the range can be acceptable if the baby is growing well — follow your care team\'s advice.':'Weight gain varies week to week — the trend over several weeks matters more than one reading.';
   C.text('tbT',WR(lo,hi)+' total');
