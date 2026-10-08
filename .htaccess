@@ -56,6 +56,8 @@ RewriteRule ^(fr|de|es)/(.+)$ /$2 [R=301,L]
   ExpiresByType application/javascript "access plus 1 hour"
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/svg+xml "access plus 1 month"
 </IfModule>
 
@@ -67,8 +69,11 @@ RewriteRule ^(fr|de|es)/(.+)$ /$2 [R=301,L]
   <FilesMatch "\.js$">
     Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
-  <FilesMatch "\.(png|svg|ico)$">
+  <FilesMatch "\.(png|svg|ico|jpe?g)$">
     Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(webp|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 </IfModule>
 

@@ -58,6 +58,16 @@ def keep_range(children):
     return start, end
 
 
+def embed_seo(soup, page, root):
+    """canonical -> the real calculator page (embeds are duplicates) + the page's meta description."""
+    rel = os.path.relpath(page, root).replace(os.sep, '/')
+    out = '<link rel="canonical" href="https://www.calculatepilot.com/%s">\n' % rel
+    d = soup.find('meta', attrs={'name': 'description'})
+    if d and d.get('content'):
+        out += '<meta name="description" content="%s">\n' % d['content'].replace('&', '&amp;').replace('"', '&quot;')
+    return out
+
+
 def build(root, name):
     page = page_for(root, name)
     old_path = os.path.join(root, 'embed', name)
@@ -107,11 +117,12 @@ def build(root, name):
         if src and not any(x in src for x in SKIP_SCRIPTS) and sc.get('type') != 'application/ld+json':
             scripts.insert(0, str(sc))
     title = re.search(r'<title>(.*?)</title>', old, re.S).group(1)
+    seo = embed_seo(soup, page, root)
     brand, brand_css = brand_and_css(old)
     out = ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-           '<title>%s</title>\n<meta name="robots" content="index, follow">\n%s\n<style>\n%s%s\n</style>\n</head>\n'
+           '<title>%s</title>\n<meta name="robots" content="index, follow">\n%s%s\n<style>\n%s%s\n</style>\n</head>\n'
            '<body class="cp-embed">\n<main>\n%s\n</main>\n\n%s\n\n%s\n</body>\n</html>\n') % (
-        title, '\n'.join(heads), EMBED_CSS, brand_css, str(sx), brand, '\n'.join(scripts + [HEIGHT_SCRIPT]))
+        title, seo, '\n'.join(heads), EMBED_CSS, brand_css, str(sx), brand, '\n'.join(scripts + [HEIGHT_SCRIPT]))
     return out
 
 
