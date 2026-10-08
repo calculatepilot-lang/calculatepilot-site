@@ -222,6 +222,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(!toggle||!links||!headerContainer)return;
   const mobileUtility=document.createElement('div');
   mobileUtility.className='mobile-menu-utility';
+  mobileUtility.setAttribute('role','listitem');
   links.appendChild(mobileUtility);
   function relocateForMobile(open){
     if(open){
