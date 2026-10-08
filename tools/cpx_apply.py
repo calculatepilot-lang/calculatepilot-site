@@ -13,7 +13,7 @@ Reads:  tools/redesign/<slug>.main.html   (required, the new <main> inner HTML)
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSS_VER = "20260930o"
+CSS_VER = "20261008b"
 
 
 def main(rel):
@@ -36,9 +36,12 @@ def main(rel):
     assert n == 1, "expected exactly one <main>"
 
     # 2. stylesheet: drop tailwind/legacy page css, add cp-calc.css after styles.css
-    html = re.sub(r'\s*<link rel="stylesheet" href="/css/(calc-workspace|chip-contrast|cp-calc)\.css[^"]*">', "", html)
+    html = re.sub(r'\s*<link rel="stylesheet" href="/css/(calc-workspace|chip-contrast|cp-calc(?:\.[a-z]+)?)\.css[^"]*">', "", html)
+    # category pages load css/cp-calc.<category>.css (see tools/css_split.py); anything else the full file
+    cat = next((c for c in ("financial", "health", "math", "other") if "/%s/" % c in "/" + rel.replace(os.sep, "/")), None)
+    sheet = "cp-calc.%s.css" % cat if cat and os.path.exists(os.path.join(ROOT, "css", "cp-calc.%s.css" % cat)) else "cp-calc.css"
     html = re.sub(r'(<link rel="stylesheet" href="/css/styles\.css[^"]*">)',
-                  r'\1\n<link rel="stylesheet" href="/css/cp-calc.css?v=%s">' % CSS_VER, html, count=1)
+                  r'\1\n<link rel="stylesheet" href="/css/%s?v=%s">' % (sheet, CSS_VER), html, count=1)
 
     # 3. scripts: keep currency-format + nav, replace page-specific scripts
     body_scripts = re.findall(r'<script src="/js/([^"?]+)[^"]*"></script>', html.split("</main>")[1])
