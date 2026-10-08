@@ -1,6 +1,6 @@
 /* Ovulation calculator — CalculatePilot (redesign, PSEO standards).
    Ovulation = next period − luteal phase (default 14). Fertile window = ovulation − 5 … ovulation (Wilcox 1995).
-   Most fertile = ovulation − 2 … ovulation. Varying cycles (Ogino-Knaus): cycle day (shortest − 18) … (longest − 11).
+   Most fertile = ovulation − 2 … ovulation. Normal cycle 24–38 days (FIGO 2018). Varying cycles (Ogino-Knaus): cycle day (shortest − 18) … (longest − 11).
    Dates parsed as local calendar dates. */
 (function(){
 var C=window.CPX,$=C.$,v=C.val,last=null;
@@ -26,7 +26,7 @@ function compute(){
   if(irr&&sh>=18&&lo>=sh){var a=sh-18,b=lo-11;C.text('wideL','Wider window (cycle days '+a+'–'+b+')');C.text('wide',a>=1&&a<=b?R(A(start,a-1),A(start,b-1)):'—');}
   else{C.text('wideL','Wider window (varying cycles)');C.text('wide',irr?'Enter shortest and longest':'Choose "They vary"');}
   var wn=$('warn');
-  wn.textContent=cl<21||cl>35?'Cycles shorter than 21 or longer than 35 days can be a sign of irregular ovulation — worth discussing with a doctor.':irr&&lo-sh>9?'Your cycle lengths vary by more than 9 days, so calendar estimates are unreliable — ovulation kits or temperature tracking will help.':'An estimate — actual ovulation can shift by several days from cycle to cycle.';
+  wn.textContent=cl<24||cl>38?'Cycles shorter than 24 or longer than 38 days are outside the FIGO range for a normal adult cycle and can mean irregular ovulation — worth discussing with a doctor.':irr&&lo-sh>9?'Your cycle lengths vary by more than 9 days, so calendar estimates are unreliable — ovulation kits or temperature tracking will help.':'An estimate — actual ovulation can shift by several days from cycle to cycle.';
   C.text('tbT',cl+'-day cycle');
   var rows='';for(var i=0;i<6;i++){var s=A(start,i*cl),o=A(s,cl-lp);rows+='<tr'+(i===0?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+F(s)+'</td><td class="b" style="font-family:inherit">'+R(A(o,-5),o)+'</td><td style="font-family:inherit">'+F(o)+'</td><td style="font-family:inherit">'+F(A(s,cl))+'</td></tr>';}
   $('cyTbl').innerHTML=rows;

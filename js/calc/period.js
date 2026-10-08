@@ -17,8 +17,8 @@ function compute(){
   var d=P($('d').value),cl=Math.round(v('cl')),pl=Math.round(v('pl'))||5;
   if(!d||!(cl>=10))return;
   var s=A(d,cl),k=1;while(DD(today,A(s,pl-1))<0&&k<60){s=A(s,cl);k++;}
-  var e=A(s,pl-1),inD=DD(today,s);
-  C.text('resultValue',FW(s));C.text('tag',inD>0?'In '+inD+' day'+(inD===1?'':'s'):inD===0?'Today':'Ongoing');
+  var e=A(s,pl-1),inD=DD(today,s),late=DD(A(d,cl),today);
+  C.text('resultValue',FW(s));C.text('tag',inD>0?'In '+inD+' day'+(inD===1?'':'s'):inD===0?'Today':'Expected '+(-inD)+' day'+(inD===-1?'':'s')+' ago');
   C.text('rN',(k>1?'Projected '+k+' cycles from the date you entered. ':'')+'Last period + '+cl+'-day cycle. Periods typically arrive within a few days either side of this date.');
   C.text('pe',FW(e));C.text('ov',F(A(s,-14)));
   var fq=cl<24?['Frequent (<24 days)','mid']:cl>38?['Infrequent (>38 days)','mid']:['Normal',''];
@@ -28,7 +28,7 @@ function compute(){
   else{C.text('vaL','Cycle-to-cycle variation');C.text('va','Enter 2–3 cycle lengths');}
   var flags=(fq[1]?1:0)+(pl>8?1:0)+(va!==null&&va>lim?1:0);C.text('rgT',flags?flags+' outside normal':'Within normal limits');
   var wn=$('warn');
-  wn.textContent=flags?'One or more measures fall outside FIGO\'s normal limits — worth discussing with a healthcare provider, especially if it persists.':age&&age<18?'In the first years after periods start, cycles are often irregular — FIGO\'s adult limits may not apply yet.':'An estimate — stress, illness, travel and other factors can shift a period by several days.';
+  wn.textContent=late>=2?'Your period may be late. If there is any chance you are pregnant, take a pregnancy test (many work from the first day of a missed period) and see a healthcare provider if it is positive or your periods stay away. If your period has already started, update the date above.':flags?'One or more measures fall outside FIGO\'s normal limits — worth discussing with a healthcare provider, especially if it persists.':age&&age<18?'In the first years after periods start, cycles are often irregular — FIGO\'s adult limits may not apply yet.':'An estimate — stress, illness, travel and other factors can shift a period by several days.';
   C.text('tbT',cl+'-day cycle · '+pl+'-day period');
   var rows='';for(var i=0;i<6;i++){var a=A(s,i*cl),b=A(a,pl-1),n=DD(today,a);rows+='<tr'+(i===0?' class="hl"':'')+'><td>'+(i+1)+'</td><td class="b" style="font-family:inherit">'+F(a)+'</td><td style="font-family:inherit">'+F(b)+'</td><td>'+(n>0?n+' days':'now')+'</td></tr>';}
   $('prTbl').innerHTML=rows;

@@ -26,6 +26,7 @@ function compute(){
   $('stg').innerHTML=Object.keys(ST).map(function(k){var x=ST[k];return '<div class="l'+(k===$('st').value?' t':'')+'"><span>'+x[0]+(x[1]?' (+'+x[1]+')':'')+'</span><b>'+K(base+x[1])+'</b></div>';}).join('');
   var wn=$('warn'),age=v('age');
   wn.textContent=est&&age<19?'For teens, energy and nutrient needs differ — ask your care team or a dietitian for your targets.':'For one baby and a healthy pre-pregnancy weight. With twins, diabetes or a higher or lower BMI, ask your care team for a personal target.';
+  if(base<1200)wn.textContent='That baseline is very low for pregnancy or breastfeeding. Please check it, and talk to your care team before eating less than you need.';
   var preg=+$('st').value.slice(1)<=3;C.text('tbT',preg?'Pregnancy column applies':'Breastfeeding column applies');
   $('nuTbl').innerHTML=NU.map(function(n){return '<tr><td style="font-family:inherit;font-weight:600">'+n[0]+'</td><td>'+n[1]+'</td><td'+(preg?' class="b"':'')+'>'+n[2]+'</td><td'+(preg?'':' class="b"')+'>'+n[3]+'</td></tr>';}).join('');
   last='Daily calories ('+s[0]+'): '+K(tot)+' kcal ('+K(base)+' baseline + '+s[1]+')\n— calculatepilot.com/health/pregnancy-calorie-needs-calculator.html';
