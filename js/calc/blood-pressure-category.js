@@ -27,8 +27,9 @@ function compute(){
   else if(ci===4)wn.innerHTML='<b style="color:var(--sx-err)">Wait 1 minute and measure again.</b> If it\'s still above 180/120, contact your healthcare professional right away. If symptoms start, call 911.';
   else if(ci>=2)wn.textContent='In the hypertension range — recheck on different days and discuss the results with a healthcare professional.';
   else if(ci===1)wn.textContent='Elevated — heart-healthy habits (diet, activity, less salt and alcohol) can help keep it from rising.';
-  else if(Sr<90||Dr<60)wn.textContent='A reading below 90/60 can be low blood pressure — mention it to a clinician if you have dizziness or fainting.';
+  else if(Sr<90||Dr<60)wn.textContent='Low blood pressure mainly matters if it causes symptoms such as dizziness or fainting — mention it to a clinician if you have them.';
   else wn.textContent='Normal — keep checking regularly. A single reading is not a diagnosis.';
+  if(sym&&ci<4)wn.innerHTML+='<br><b>If you have these symptoms, get medical help now, whatever your reading.</b>';
   C.text('tbT','You: '+name);
   $('catTbl').innerHTML=CAT.map(function(x,i){return '<tr'+(i===ci?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+x[0]+(i===4?' <small>(emergency if symptoms)</small>':'')+'</td><td>'+x[2]+'</td><td style="font-family:inherit">'+x[3]+'</td><td>'+x[4]+'</td></tr>';}).join('');
   last='Blood pressure: '+Sr+'/'+Dr+' mm Hg — '+name+' (AHA)\n— calculatepilot.com/health/blood-pressure-category-calculator.html';

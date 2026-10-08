@@ -1,6 +1,6 @@
 /* BAC calculator — CalculatePilot (redesign, PSEO standards).
    Widmark: BAC% = A(g) ÷ (W(g) × r) × 100 − 0.015 × t; r = 0.68 (men), 0.55 (women).
-   A = standard drinks × 14 g (NIAAA), or drinks × mL × ABV/100 × 0.789. Elimination 0.015%/h (average). */
+   A = standard drinks × 14 g (NIAAA), or drinks × mL × ABV/100 × 0.789. Elimination 0.015%/h (commonly used, conservative; measured rates vary widely). */
 (function(){
 var C=window.CPX,$=C.$,v=C.val,last=null,prevU=null,OZ=29.5735;
 
@@ -13,13 +13,13 @@ function compute(){
   if(!(kg>0)||!(A>=0))return;
   var peak=A/(kg*1000*r)*100,now=Math.max(0,peak-0.015*h),tz=now/0.015,t=$('tag');
   C.text('resultValue',now.toFixed(3));
-  var lvl=now>=0.08?['At or above 0.08%','hi']:now>=0.05?['0.05% or higher','hi']:now>0?['Alcohol still present','mid']:['Estimated 0.00%',''];
+  var lvl=now>=0.08?['At or above 0.08%','hi']:now>=0.05?['0.05% or higher','hi']:now>0?['Alcohol still present','mid']:['Estimated 0.00% (not a driving guide)',''];
   t.textContent=lvl[0];t.className='sx-ef-grade'+(lvl[1]?' '+lvl[1]:'');
   C.text('rN',Math.round(A)+' g alcohol ÷ ('+(Math.round(kg*10)/10)+' kg × '+r+') = '+peak.toFixed(3)+'%, minus 0.015% × '+h+' h. Your real BAC may be higher or lower.');
-  C.text('pk',peak.toFixed(3)+'%');C.text('tz',now>0?'About '+(Math.round(tz*2)/2)+' more hours':'Now (estimated)');
+  C.text('pk',peak.toFixed(3)+'%');C.text('tz',now>0?'About '+(Math.ceil(tz*2)/2)+' more hours':'Estimated 0.00% now');
   C.text('ag',Math.round(A)+' g');C.text('sd',(A/14).toFixed(1));
-  $('warn').innerHTML=now>=0.08?'<b style="color:var(--sx-err)">Do not drive.</b> This estimate is at or above the 0.08% legal limit — and impairment starts well below it.':'<b>Never drive after drinking</b> — impairment begins at low BACs, and this is only an estimate. Plan a sober ride.';
-  var rows='',hr=Math.floor(h);for(var i=0;i<14;i++){var th=hr+i,b=Math.round(Math.max(0,peak-0.015*th)*1000)/1000;rows+='<tr'+(i===0?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+th+' h'+(i===0?' <small class="p">(now)</small>':'')+'</td><td class="b">'+b.toFixed(3)+'%</td><td style="font-family:inherit">'+(b>=0.08?'At or above':b>0?'Below limit — still impaired':'Estimated zero')+'</td></tr>';if(b<=0)break;}
+  $('warn').innerHTML=now>=0.08?'<b style="color:var(--sx-err)">Do not drive.</b> This estimate is at or above 0.08%, the limit for drivers 21+ in most US states (limits differ by state and country, and are lower for commercial and under-21 drivers) — and impairment starts well below any limit.':'<b>Never drive after drinking</b> — impairment begins at low BACs, and this is only an estimate. Plan a sober ride.';
+  var rows='',hr=Math.floor(h);for(var i=0;i<14;i++){var th=hr+i,b=Math.max(0,peak-0.015*th);rows+='<tr'+(i===0?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+th+' h'+(i===0?' <small class="p">(now)</small>':'')+'</td><td class="b">'+(b>0&&b<0.0005?'<0.001':b.toFixed(3))+'%</td><td style="font-family:inherit">'+(b>=0.08?'At or above 0.08%':b>0?'Below 0.08% — impairment still possible':'Estimated 0.00% — not a driving guide')+'</td></tr>';if(b<=0)break;}
   $('tlTbl').innerHTML=rows;
   last='Estimated BAC: '+now.toFixed(3)+'% (Widmark, educational estimate — never use to decide whether to drive)\n— calculatepilot.com/health/bac-calculator.html';
 }
