@@ -2,7 +2,7 @@
    Maintenance = Mifflin-St Jeor BMR × activity. Target = maintenance ∓ rate × 7,700 kcal/kg ÷ 7.
    Projection: intake fixed at target; each week maintenance is recalculated at the new weight and
    Δweight = (intake − maintenance) × 7 ÷ 7,700. Flat rule for comparison: constant weekly rate.
-   Floors: 1,200 kcal (women) / 1,500 kcal (men) without supervision. Macros: protein 1.6 g/kg (loss) or 1.8 g/kg (gain) of
+   No universal calorie floor is applied (none is appropriate for every adult). Macros: protein 1.6 g/kg (loss) or 1.8 g/kg (gain) of
    current weight (ISSN 1.4–2.0 g/kg), fat 25% of calories (min 0.6 g/kg), carbs the remainder. */
 (function(){
 var C=window.CPX,$=C.$,v=C.val,last=null,prevU=null;
@@ -22,7 +22,7 @@ function compute(){
   var h=imp?(v('ft')*12+v('inch'))*2.54:v('cm'),w=v('wt')/L,gw=v('gw')/L,a=v('age'),male=$('sex').value==='s1',act=+$('act').value,rate=+$('rate').value;
   C.text('hAlt',imp?Math.round(h)+' cm':Math.floor(h/2.54/12)+'′ '+Math.round((h/2.54)%12)+'″');
   if(!(h>0&&w>0&&a>0))return;
-  var M=bmr(w,h,a,male)*act,dir=gw<w-0.05?-1:gw>w+0.05?1:0,rKg=imp?rate*2/2.20462:rate,tgt=M+dir*rKg*7700/7,floor=male?1500:1200;
+  var M=bmr(w,h,a,male)*act,dir=gw<w-0.05?-1:gw>w+0.05?1:0,rKg=imp?rate*2/2.20462:rate,tgt=M+dir*rKg*7700/7;
   var W=function(kg){return imp?Math.round(kg*2.20462)+' lb':(Math.round(kg*10)/10)+' kg';};
   C.text('rateN','per week — '+(imp?'about '+(rKg).toFixed(2)+' kg':'about '+Math.round(rKg*2.20462*10)/10+' lb'));
   C.text('maint',K(M)+' kcal');C.text('resultValue',K(dir?tgt:M));
@@ -39,8 +39,7 @@ function compute(){
   else if(dir&&!hit){var pl=pts[pts.length-1][1];C.text('cmpL','At this intake your weight levels off near');C.text('cmpV',W(pl));}
   else{C.text('cmpL','No weight change planned');C.text('cmpV','±0');}
   var wn=$('warn'),pct=rKg/w*100;
-  if(dir<0&&tgt<floor)wn.innerHTML='<b style="color:var(--sx-err)">Below '+K(floor)+' kcal/day</b> — most guidance advises not going this low without medical supervision. Choose a slower rate.';
-  else if(dir&&pct>1)wn.innerHTML='<b style="color:var(--sx-err)">'+pct.toFixed(1)+'% of body weight a week</b> is faster than the ~0.5–1% usually recommended.';
+  if(dir&&pct>1)wn.innerHTML='<b style="color:var(--sx-err)">'+pct.toFixed(1)+'% of body weight a week</b> is faster than the ~0.5–1% usually recommended.';
   else if(a<18)wn.textContent='Under 18: growing bodies have different needs — check with a doctor or dietitian before dieting.';
   else wn.textContent='Estimates only — weigh yourself regularly and adjust by 100–200 kcal if progress differs.';
   // chart
@@ -59,10 +58,10 @@ function compute(){
   $('ms').innerHTML=msH;
   // rate table
   var rows=[[-1,'Lose'],[-0.75,'Lose'],[-0.5,'Lose'],[-0.25,'Lose'],[0,'Maintain'],[0.25,'Gain'],[0.5,'Gain']];
-  C.text('flT','Floor: '+K(floor)+' kcal ('+(male?'men':'women')+')');
-  $('rtTbl').innerHTML=rows.map(function(r){var kgw=r[0],c=M+kgw*7700/7,p=Math.abs(kgw)/w*100,bad=c<floor||p>1,sel=Math.abs(kgw-dir*rKg)<1e-6&&!(imp);
+  C.text('flT','Adults 18+ · estimate only');
+  $('rtTbl').innerHTML=rows.map(function(r){var kgw=r[0],c=M+kgw*7700/7,p=Math.abs(kgw)/w*100,bad=p>1,sel=Math.abs(kgw-dir*rKg)<1e-6&&!(imp);
     var lbl=kgw===0?'Maintain weight':r[1]+' '+(imp?(Math.abs(kgw)*2.20462).toFixed(1)+' lb':Math.abs(kgw)+' kg')+' / week';
-    return '<tr'+(Math.abs(kgw-dir*rKg)<0.001?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+lbl+'</td><td class="b">'+K(c)+' kcal</td><td>'+(kgw===0?'—':(kgw<0?'−':'+')+K(Math.abs(kgw)*1100)+' kcal')+'</td><td>'+(kgw===0?'—':p.toFixed(2)+'%')+'</td><td style="font-family:inherit">'+(c<floor?'<span style="color:var(--sx-err)">Below floor</span>':p>1?'<span style="color:var(--sx-err)">Too fast</span>':'<span style="color:var(--sx-pc)">OK</span>')+'</td></tr>';}).join('');
+    return '<tr'+(Math.abs(kgw-dir*rKg)<0.001?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+lbl+'</td><td class="b">'+K(c)+' kcal</td><td>'+(kgw===0?'—':(kgw<0?'−':'+')+K(Math.abs(kgw)*1100)+' kcal')+'</td><td>'+(kgw===0?'—':p.toFixed(2)+'%')+'</td><td style="font-family:inherit">'+(p>1?'<span style="color:var(--sx-err)">Too fast</span>':'<span style="color:var(--sx-pc)">OK</span>')+'</td></tr>';}).join('');
   // macros
   var kc=dir?tgt:M,pg=w*(dir>0?1.8:1.6),fg=Math.max(kc*0.25/9,w*0.6),cg=Math.max(0,(kc-pg*4-fg*9)/4);
   $('mcTbl').innerHTML=[['Protein',pg,4,(dir>0?'1.8':'1.6')+' g per kg of body weight'],['Fat',fg,9,'25% of calories (at least 0.6 g/kg)'],['Carbohydrate',cg,4,'Remaining calories']].map(function(r){return '<tr><td style="font-family:inherit;font-weight:600">'+r[0]+'</td><td class="b">'+K(r[1])+' g</td><td>'+K(r[1]*r[2])+' kcal</td><td>'+Math.round(r[1]*r[2]/kc*100)+'%</td><td style="font-family:inherit;white-space:normal">'+r[3]+'</td></tr>';}).join('');
