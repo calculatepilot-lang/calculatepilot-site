@@ -6,6 +6,7 @@ require __DIR__ . '/mail.php';
 // "Resend my key": always answers the same way for a valid-looking address, so it cannot be used to
 // discover which emails have a license. Each license is re-sent at most once every 5 minutes.
 cp_require_post();
+cp_rate_limit('resend', 5, 3600);
 $data = cp_request_json();
 $email = strtolower(trim((string) ($data['email'] ?? '')));
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 255) {

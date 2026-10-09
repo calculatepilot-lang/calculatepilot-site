@@ -62,6 +62,60 @@ function cp_require_post(): void
     }
 }
 
+function cp_client_ip(): string
+{
+    // Behind Cloudflare the real visitor IP is in CF-Connecting-IP; fall back to the socket address.
+    $ip = (string) ($_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '');
+    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : 'unknown';
+}
+
+/**
+ * Per-IP sliding-window rate limit using small files in the system temp dir (no DB changes needed).
+ * Answers 429 when exceeded. Fails open if the limiter itself cannot run, so it can never take checkout down.
+ */
+function cp_rate_limit(string $bucket, int $max, int $windowSeconds): void
+{
+    $over = false;
+    try {
+        $dir = sys_get_temp_dir() . '/cp-ratelimit';
+        if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
+            return;
+        }
+        $fp = @fopen($dir . '/' . hash('sha256', $bucket . '|' . cp_client_ip()) . '.json', 'c+');
+        if ($fp === false) {
+            return;
+        }
+        flock($fp, LOCK_EX);
+        $hits = json_decode((string) stream_get_contents($fp), true);
+        $now = time();
+        $hits = array_values(array_filter(is_array($hits) ? $hits : [], static fn($t) => is_int($t) && $t > $now - $windowSeconds));
+        if (count($hits) >= $max) {
+            $over = true;
+        } else {
+            $hits[] = $now;
+            ftruncate($fp, 0);
+            rewind($fp);
+            fwrite($fp, json_encode($hits));
+        }
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        if (random_int(1, 200) === 1) {
+            foreach (glob($dir . '/*.json') ?: [] as $f) {
+                if (@filemtime($f) < $now - 86400) {
+                    @unlink($f);
+                }
+            }
+        }
+    } catch (Throwable $e) {
+        return;
+    }
+    if ($over) {
+        header('Retry-After: ' . $windowSeconds);
+        $msg = 'Too many requests. Please try again later.';
+        cp_json(['ok' => false, 'valid' => false, 'error' => $msg, 'message' => $msg], 429);
+    }
+}
+
 function cp_random_id(string $prefix = ''): string
 {
     return $prefix . bin2hex(random_bytes(16));

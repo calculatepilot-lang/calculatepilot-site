@@ -4,6 +4,7 @@ require __DIR__ . '/bootstrap.php';
 
 try {
     cp_require_post();
+    cp_rate_limit('checkout', 10, 3600);
     $data = cp_request_json();
     $plan = $data['plan'] ?? '';
     if (!in_array($plan, ['monthly', 'yearly'], true)) {
