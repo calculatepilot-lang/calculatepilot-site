@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CalculatePilot SEO Dashboard (private)</title>
+<style>
+:root{--teal:#0F6B5C;--bg:#f6faf9;--line:#cfdad7;--ink:#1b2b28}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--teal);color:#fff;padding:12px 16px}header h1{margin:0;font-size:1.2rem}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line)}
+nav button{border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font:inherit}
+nav button.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+main{padding:16px;max-width:1200px;margin:0 auto}section.tab{display:none}section.tab.on{display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px}.card b{display:block;font-size:1.4rem;color:var(--teal)}
+.note{border-left:4px solid var(--teal);background:#eef6f4;padding:8px 12px;margin:10px 0}
+.tools{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}input[type=search]{padding:6px 10px;border:1px solid var(--line);border-radius:6px;min-width:220px}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%}th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:.88rem}
+th{background:#eef6f4;position:sticky;top:0}.bad{color:#a12a2a}.good{color:var(--teal)}
+</style>
+</head>
+<body>
+<header><h1>CalculatePilot SEO Dashboard <small>(private, do not upload to your website)</small></h1></header>
+<nav id="tabs">
+<button data-tab="overview" class="on">Overview</button><button data-tab="content">Content</button><button data-tab="keywords">Keywords</button><button data-tab="indexing">Indexing</button><button data-tab="performance">Performance</button>
+</nav>
+<main>
+<section class="tab on" id="tab-overview"><div class="cards" id="cards"></div><h2>Formula Coverage</h2><div class="note">A calculator without a formula still gets keywords collected, but its pages stay on HOLD until a formula is added.</div><div id="coverage"></div></section>
+<section class="tab" id="tab-content"><div class="tools"><input type="search" id="q-content" placeholder="Search pages"></div><div id="pages"></div></section>
+<section class="tab" id="tab-keywords"><div class="tools"><input type="search" id="q-keywords" placeholder="Search keywords"><button id="csv">Export CSV</button></div><div class="note" id="kwnote"></div><div id="keywords"></div></section>
+<section class="tab" id="tab-indexing"><div class="note">Google indexing cannot be forced. IndexNow tells Bing, Yandex and similar engines about new pages; for Google, submit the sitemap and request indexing by hand for the queue below in Search Console. Nobody can speed up Google with a "ping".</div><h2>Manual request queue</h2><div id="queue"></div><h2>Ping log</h2><div id="pings"></div></section>
+<section class="tab" id="tab-performance"><h2>Pages</h2><div id="perf"></div><h2>Top queries</h2><div id="queries"></div></section>
+</main>
+<script id="pseo-data" type="application/json">{{ data|safe }}</script>
+<script>
+(function(){
+var D=JSON.parse(document.getElementById('pseo-data').textContent);
+function el(t,txt,cls){var e=document.createElement(t);if(txt!==undefined&&txt!==null)e.textContent=String(txt);if(cls)e.className=cls;return e;}
+function cell(v){if(v===null||v===undefined||v==='')return '';if(Array.isArray(v))return v.join(', ');if(typeof v==='object')return JSON.stringify(v);return String(v);}
+function table(box,cols,rows,q){box.textContent='';var wrap=el('div',null,'table-wrap'),t=el('table'),h=el('tr');
+cols.forEach(function(c){h.appendChild(el('th',c[1]));});t.appendChild(h);
+var needle=(q||'').toLowerCase(),shown=0;
+rows.forEach(function(r){if(needle){var hay=cols.map(function(c){return cell(r[c[0]]);}).join(' ').toLowerCase();if(hay.indexOf(needle)<0)return;}
+if(shown>=1000)return;shown++;var tr=el('tr');cols.forEach(function(c){var td=el('td',cell(r[c[0]]));
+if(c[0]==='status'&&/HOLD|reject|REJECT/.test(cell(r[c[0]])))td.className='bad';tr.appendChild(td);});t.appendChild(tr);});
+if(!rows.length){var tr=el('tr'),td=el('td','Nothing here yet.');td.colSpan=cols.length;tr.appendChild(td);t.appendChild(tr);}
+wrap.appendChild(t);box.appendChild(wrap);}
+var O=D.overview,cards=document.getElementById('cards');
+function card(k,v){var c=el('div',null,'card');c.appendChild(el('b',v));c.appendChild(el('span',k));cards.appendChild(c);}
+card('Keywords',O.keywords_total);card('Quarantined (suspicious)',O.keywords_quarantined);
+Object.keys(O.pages).forEach(function(k){card('Pages '+k,O.pages[k]);});
+Object.keys(O.clusters).forEach(function(k){card('Clusters '+k,O.clusters[k]);});
+card('Last keyword seen',O.last_keyword_seen||'never');card('Generated',O.generated_at);
+Object.keys(O.ping_health).forEach(function(k){var h=O.ping_health[k];card('Pings '+k+' ok/failed',h.ok+'/'+h.failed);});
+table(document.getElementById('coverage'),[['name','Calculator'],['category','Category'],['formula_id','Formula'],['has_formula','Has formula'],['clusters','Page clusters'],['note','Note']],D.coverage);
+var pcols=[['title','Title'],['keyword','Target keyword'],['calculator_name','Calculator'],['status','Status'],['score','Score'],['band','Band'],['why_held','Why held'],['file','File'],['published_at','Published'],['last_ping','Last ping'],['index_status','Index status']];
+function drawPages(){table(document.getElementById('pages'),pcols,D.pages,document.getElementById('q-content').value);}
+var kcols=[['text','Keyword'],['sources','Sources'],['intent','Intent'],['cluster','Cluster'],['score','Score'],['calculator','Calculator'],['competition','Intitle competition'],['allintitle','allintitle count'],['volume','Volume'],['status','Status']];
+function drawKw(){table(document.getElementById('keywords'),kcols,D.keywords,document.getElementById('q-keywords').value);}
+document.getElementById('q-content').addEventListener('input',drawPages);
+document.getElementById('q-keywords').addEventListener('input',drawKw);
+document.getElementById('kwnote').textContent=D.keywords_truncated?'Showing the top 20000 keywords by score.':'Quarantined keywords are listed with the rule that flagged them.';
+table(document.getElementById('queue'),[['url','URL to request in Search Console']],D.queue.map(function(u){return {url:u};}));
+table(document.getElementById('pings'),[['pinged_at','Time'],['engine','Engine'],['status_code','Code'],['url','URL'],['response','Response']],D.pings);
+table(document.getElementById('perf'),[['page_url','Page'],['clicks','Clicks'],['impressions','Impressions'],['position','Avg position']],D.performance);
+table(document.getElementById('queries'),[['query','Query'],['clicks','Clicks'],['impressions','Impressions'],['position','Avg position']],D.queries);
+drawPages();drawKw();
+document.getElementById('csv').addEventListener('click',function(){
+function q(v){var s=cell(v);if(/^[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';}
+var lines=[kcols.map(function(c){return q(c[1]);}).join(',')];
+D.keywords.forEach(function(r){lines.push(kcols.map(function(c){return q(r[c[0]]);}).join(','));});
+var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'}));a.download='keywords.csv';a.click();});
+document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+document.querySelectorAll('#tabs button').forEach(function(x){x.classList.toggle('on',x===b);});
+document.querySelectorAll('section.tab').forEach(function(s){s.classList.toggle('on',s.id==='tab-'+b.getAttribute('data-tab'));});});
+})();
+</script>
+</body>
+</html>
