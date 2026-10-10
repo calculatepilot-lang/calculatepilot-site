@@ -1,0 +1,17 @@
+# Plain-English settings. Change numbers here; no code needed.
+site_url: https://calculatepilot.com
+pilot_cap: 25              # max new pages generated per run
+numeric_variant_cap: 5     # max "same page, different number" pages per calculator
+request_delay: 1.0         # seconds between requests to any search source
+similarity_max: 0.40       # pages more similar than this are held
+cluster_threshold: 0.6     # how alike two keywords must be to share one page
+intitle_budget: 100        # allintitle checks per run (needs SERPAPI_KEY)
+intitle_cache_days: 30
+sources:                   # switch any source off with false
+  google: true
+  bing: true
+  youtube: true
+  ddg: true
+  reddit: true
+  hn: true
+  stackexchange: true

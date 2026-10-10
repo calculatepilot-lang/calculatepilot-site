@@ -1,0 +1,77 @@
+name: CalculatePilot SEO engine
+
+# Runs every Monday, or when you press "Run workflow" in the Actions tab.
+# It NEVER publishes anything: drafts go to a pull request for you to review.
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pseo
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/pseo-engine
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install the engine
+        run: pip install . google-auth
+
+      # The keyword database is kept in the Actions cache between weekly runs.
+      # If it is ever lost the engine simply starts collecting again.
+      - name: Restore keyword database
+        uses: actions/cache@v4
+        with:
+          path: tools/pseo-engine/data/pseo.db
+          key: pseo-db-${{ github.run_id }}
+          restore-keys: pseo-db-
+
+      - name: Run the pipeline
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          GSC_CREDENTIALS: ${{ secrets.GSC_CREDENTIALS }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: pseo run
+
+      - name: Save dashboard (private file, download from the run page)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard
+          path: tools/pseo-engine/reports/dashboard.html
+          if-no-files-found: warn
+
+      - name: Open a pull request with the new drafts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(ls -A out 2>/dev/null)" ]; then
+            echo "No new drafts this week."; exit 0
+          fi
+          git config user.name "pseo-bot"
+          git config user.email "pseo-bot@users.noreply.github.com"
+          git checkout -B pseo-drafts
+          git add -f tools/pseo-engine/out
+          if git diff --cached --quiet; then
+            echo "Drafts unchanged."; exit 0
+          fi
+          git commit -m "Weekly draft guide pages"
+          git push --force origin pseo-drafts
+          gh pr create --base "${{ github.event.repository.default_branch }}" --head pseo-drafts \
+            --title "Weekly draft guide pages" \
+            --body "Drafts only. Nothing is live until you merge. Pages in tools/pseo-engine/out/needs-approval/ are health or finance-sensitive: read them before merging." \
+            || echo "A pull request is already open; it was updated."
