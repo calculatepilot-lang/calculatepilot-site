@@ -3,6 +3,7 @@ declare(strict_types=1);
 require __DIR__ . '/bootstrap.php';
 
 cp_require_post();
+cp_rate_limit('validate', 20, 600);
 $data = cp_request_json();
 $key = strtoupper(trim((string) ($data['license_key'] ?? '')));
 if ($key === '' || strlen($key) > 64) {
