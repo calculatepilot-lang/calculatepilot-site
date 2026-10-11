@@ -128,3 +128,12 @@ def test_run_applies_adjustment_to_score():
     intitle.run(c, FakeProvider(count=50), _settings())
     row = c.execute("SELECT total, intitle_adj FROM scores WHERE cluster_id=?", (cid,)).fetchone()
     assert row["intitle_adj"] == 15 and row["total"] == min(100, before + 15)
+
+
+def test_provider_switched_off_after_five_consecutive_failures(tmp_path):
+    c = db.connect(tmp_path / "i.db")
+    _clusters(c, 12)
+    p = FakeProvider(fail=True)
+    out = intitle.run(c, p, _settings(intitle_budget=50), now="2026-10-11T00:00:00+00:00")
+    assert len(p.calls) == 5
+    assert out["failed"] == 5 and out["not_checked"] == 7

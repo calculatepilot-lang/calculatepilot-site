@@ -71,6 +71,7 @@ def run(conn, provider: Provider | None, settings: dict, now: str | None = None)
         return out
     budget = int(settings.get("intitle_budget", 100))
     cutoff = _parse(now) - timedelta(days=int(settings.get("intitle_cache_days", 30)))
+    streak = 0   # consecutive provider failures; 5 in a row switches the provider off for this run
     for r in rows:
         kw = r["canonical_keyword"]
         cached = conn.execute("SELECT * FROM serp_checks WHERE keyword=?", (kw,)).fetchone()
@@ -78,7 +79,7 @@ def run(conn, provider: Provider | None, settings: dict, now: str | None = None)
         if cached and _parse(cached["checked_at"]) >= cutoff:
             count = cached["allintitle_count"]
             out["cached"] += 1
-        elif budget <= 0:
+        elif budget <= 0 or streak >= 5:
             out["not_checked"] += 1
             continue
         else:
@@ -90,7 +91,9 @@ def run(conn, provider: Provider | None, settings: dict, now: str | None = None)
                 res = None
             if res is None:
                 out["failed"] += 1
+                streak += 1
                 continue
+            streak = 0
             conn.execute(
                 "INSERT OR REPLACE INTO serp_checks(keyword,allintitle_count,top_titles_json,"
                 "top_domains_json,checked_at,provider) VALUES(?,?,?,?,?,?)",

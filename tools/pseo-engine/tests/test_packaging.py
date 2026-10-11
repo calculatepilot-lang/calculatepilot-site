@@ -48,3 +48,13 @@ def test_cli_help_exits_zero():
     r = subprocess.run([sys.executable, "-m", "pseo.cli", "--help"], capture_output=True,
                        text=True, cwd=ROOT)
     assert r.returncode == 0 and "harvest" in r.stdout
+
+
+def test_site_workflow_paths_are_relative_to_working_directory():
+    wf = ROOT.parent.parent / ".github" / "workflows" / "pseo.yml"
+    if not wf.exists():          # engine used standalone, not inside the site repo
+        return
+    text = wf.read_text(encoding="utf-8")
+    assert "working-directory: tools/pseo-engine" in text
+    assert "git add -f tools/pseo-engine/out" not in text   # cwd is already tools/pseo-engine
+    assert "git add -f out" in text
