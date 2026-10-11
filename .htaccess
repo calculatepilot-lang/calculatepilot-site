@@ -6,11 +6,11 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
-# --- Security: never serve internal files (tools, automation data/logs, backups, schema, setup notes) ---
-RewriteRule ^(tools|scripts|data|backups|\.github|\.git|api/database)(/|$) - [F,L]
-RewriteRule ^api/(bootstrap|config|config\.local|mail|mail-test)\.php$ - [F,L]
-RewriteRule ^api/.*\.(md|sql|example)$ - [F,L]
-RewriteRule \.(md|py|sh|sql|example|log|bak|map)$ - [F,L]
+# --- Security: answer 404 for internal files (tools, automation data/logs, backups, schema, setup notes) ---
+RewriteRule ^(tools|scripts|data|backups|\.github|\.git|api/database)(/|$) - [R=404,L]
+RewriteRule ^api/(bootstrap|config|config\.local|mail|mail-test)\.php$ - [R=404,L]
+RewriteRule ^api/.*\.(md|sql|example)$ - [R=404,L]
+RewriteRule \.(md|py|sh|sql|example|log|bak|map)$ - [R=404,L]
 
 # Canonicalize the legacy Guides landing page directly to the final URL.
 RewriteCond %{REQUEST_URI} ^/guides/index\.html$ [NC]
@@ -75,6 +75,10 @@ RewriteRule ^(fr|de|es)/(.+)$ /$2 [R=301,L]
   # Clickjacking: only /embed/ is meant to be framed by other sites.
   SetEnvIf Request_URI "^/embed/" CP_ALLOW_FRAME
   Header always set X-Frame-Options "SAMEORIGIN" env=!CP_ALLOW_FRAME
+  # Content-Security-Policy in REPORT-ONLY mode: nothing is blocked, violations are POSTed to /api/csp-report.php.
+  # 'unsafe-inline' is required today (~890 inline scripts, ~345 inline handlers); tighten after the reports are reviewed.
+  Header always set Reporting-Endpoints "csp=\"https://www.calculatepilot.com/api/csp-report.php\""
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com https://news.google.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://*.googlesyndication.com https://*.adtrafficquality.google https://pagead2.googlesyndication.com https://analytics.ahrefs.com https://www.googletagmanager.com https://news.google.com https://fundingchoicesmessages.google.com; frame-src 'self' https://*.googlesyndication.com https://*.doubleclick.net https://www.google.com https://*.adtrafficquality.google https://news.google.com https://fundingchoicesmessages.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; report-uri /api/csp-report.php; report-to csp"
   <FilesMatch "\.css$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
