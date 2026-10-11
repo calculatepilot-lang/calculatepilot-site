@@ -22,7 +22,7 @@
     if(!box.querySelector('.nav-links')) box.innerHTML=headerHTML();
   }
   function ensureFooter(){
-    if(document.querySelector('footer.site-footer .footer-grid')) return;
+    if(document.querySelector('footer.site-footer .footer-grid, footer.site-footer.cp-footer')) return;
     fetch(NAV.home,{credentials:'omit'}).then(function(r){return r.text();}).then(function(html){
       var doc=new DOMParser().parseFromString(html,'text/html');
       var src=doc.querySelector('footer.site-footer');

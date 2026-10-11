@@ -6,7 +6,7 @@ n=0
 for f in files:
     s=open(f,encoding='utf-8',errors='surrogateescape',newline='').read()
     m=re.search(r'<footer.*?</footer>',s,re.S)
-    if not m or 'footer-grid' in m.group(0):continue
+    if not m or 'footer-grid' in m.group(0) or 'cp-footer' in m.group(0):continue  # cp-footer = current design, owned by tools/footer_build.py
     emb=re.search(r'<a href="(/embed/[^"]+)"[^>]*>([^<]*)</a>',m.group(0))
     new=FULL
     if emb:
