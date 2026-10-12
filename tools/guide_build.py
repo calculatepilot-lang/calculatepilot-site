@@ -32,8 +32,8 @@ AUTHOR = {"@type": "Person", "name": "Suhaib Hassan", "url": SITE + "/author/suh
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=%s&display=block">')
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>\n'
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=%s&display=block" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=%s&display=block"></noscript>')
 
 GROUPS = {"financial": "Finance & money", "health": "Health & everyday", "other": "Health & everyday", "math": "Math & conversion"}
 FOLDER_LABEL = {"financial": "Financial", "health": "Health", "math": "Math", "other": "Everyday"}
@@ -754,7 +754,7 @@ def build(slug, srcs, meta, order):
     head = re.sub(r"\s*<!-- cp-guide-head -->.*?<!-- /cp-guide-head -->", "", head, flags=re.S)
     head = augment_schema(head, slug, meta[slug], d)
     sheet = '<link rel="stylesheet" href="/css/cp-guide.css?v=%s">' % VER
-    block = "<!-- cp-guide-head -->\n%s\n%s\n<!-- /cp-guide-head -->" % (sheet, FONTS % ",".join(sorted(ICONS)))
+    block = "<!-- cp-guide-head -->\n%s\n%s\n<!-- /cp-guide-head -->" % (sheet, FONTS % ((",".join(sorted(ICONS)),) * 2))
     head = re.sub(r'(<link rel="stylesheet" href="/css/styles\.css[^"]*">)', lambda m_: m_.group(1) + "\n" + block, head, count=1)
     assert "cp-guide-head" in head, "styles.css link not found in " + slug
     page = head + page[head_end:]

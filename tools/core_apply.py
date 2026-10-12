@@ -15,8 +15,8 @@ SLUG = {"about.html": "about", "methodology.html": "methodology", "privacy.html"
         "terms.html": "terms", "embed/index.html": "embed", "pricing.html": "pricing"}
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=%s&display=block">')
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"></noscript>\n'
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=%s&display=block" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=%s&display=block"></noscript>')
 NAV = '<script src="/js/nav.js?v=3d1747f9"></script>'
 
 
@@ -79,7 +79,7 @@ def main(rel):
     icon_list = icons(frag)
     if slug == "pricing":  # icons set by js/cp-pricing.js
         icon_list = ",".join(sorted(set(icon_list.split(",")) | {"error"}))
-    fonts = FONTS % icon_list
+    fonts = FONTS % ((icon_list,) * 2)
     if slug == "pricing":  # filled check icons need the FILL axis
         fonts = fonts.replace("FILL,GRAD@24,400,0,0", "FILL,GRAD@24,400,0..1,0")
     html = html.replace("</head>", "<!-- cp-core-head -->\n%s\n<!-- /cp-core-head -->\n</head>" % fonts, 1)
