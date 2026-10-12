@@ -88,7 +88,7 @@
   function pageEmbedHref(){
     const current=document.querySelector('footer.site-footer');
     if(!current) return null;
-    const embedLink=current.querySelector('a[href*="/embed/"]');
+    const embedLink=current.querySelector('a[href^="/embed/"][href$=".html"]');
     if(!embedLink) return null;
     const href=embedLink.getAttribute('href')||'';
     if(/\/embed\/?$/.test(href)) return null;
@@ -100,7 +100,12 @@
     const next=homeFooter.cloneNode(true);
     next.querySelectorAll('.cp-language-selector, .cp-language-chips').forEach((n)=>n.remove());
     const bottom=next.querySelector('.footer-bottom');
-    if(bottom&&embedHref){
+    const legal=next.querySelector('.cpf-links');
+    if(embedHref&&legal){
+      const li=document.createElement('li');
+      li.innerHTML='<a href="'+embedHref+'">Embed this calculator</a>';
+      legal.appendChild(li);
+    }else if(bottom&&embedHref){
       const extra=document.createElement('span');
       extra.innerHTML='<a href="'+embedHref+'" target="_blank" rel="noopener">Embed this calculator</a>';
       bottom.appendChild(extra);

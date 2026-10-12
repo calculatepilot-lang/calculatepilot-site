@@ -62,7 +62,7 @@ def main(rel):
         if slug == "pricing":
             foot = foot.replace('<div class="footer-bottom">', '<div class="footer-bottom" style="flex-wrap:wrap; gap:10px 20px; align-items:center;">')
             foot = foot.replace("All calculations are estimates — consult a professional for financial or medical decisions.", "Estimates only — for guidance, not professional advice.")
-        html = re.sub(r'<footer class="site-footer">.*?</footer>', lambda m: foot, html, count=1, flags=re.S)
+        html = re.sub(r'<footer class="site-footer[^"]*"[^>]*>.*?</footer>', lambda m: foot, html, count=1, flags=re.S)  # then run tools/footer_build.py
         if "/js/nav.js" not in html:
             html = html.replace("</body>", NAV + "\n</body>", 1)
     if slug == "pricing":
