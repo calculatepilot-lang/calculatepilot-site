@@ -16,8 +16,8 @@ callout, dark formula cards, tables, FAQ accordions, related tools + related gui
    - End with `<p><a class="btn btn-primary" href="...">Calculate ... →</a></p>` for the bottom button.
 2. `python tools/guide_build.py <slug>` (no arguments rebuilds every guide). Writes `guides/<slug>.html`
    and adds the slug to `meta.json` (category/tag from the guides index card, read time, publish date, sandbox).
-3. Still manual, as before: add the card to `guides/index.html`, `sitemap`, `llms-full.txt` and `calculators.json`.
-4. Gate (required before publishing): `python tools/guides/check.py` (every guide uses the template) and `python tools/guides/verify.py` (no source words lost).
+3. The builder adds the Article + BreadcrumbList schema and the `sitemap-guides.xml` entry automatically (backfill an existing guide: `python tools/guide_build.py --schema-only <slug>`). Still manual: `llms-full.txt` and `calculators.json` (the guides index card is `index_sync.py`, below).
+4. Gate (required before publishing): `python tools/guides/check.py` (every guide uses the template, has Article + BreadcrumbList schema and is in `sitemap-guides.xml`; also run by the `Guides check` workflow) and `python tools/guides/verify.py` (no source words lost).
 
 ## Notes
 - The built page keeps its own `<head>` and site header/footer, so site-wide edits survive a rebuild. Only `<main>` is regenerated.

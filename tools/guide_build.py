@@ -7,6 +7,8 @@ Authoring (also how every NEW guide is published):
      start the prose with <p><a href="/financial/x.html">-> Use the free X</a></p>; a paragraph starting with
      <strong>Short answer:</strong> becomes the top "Short answer" callout).
   2. python tools/guide_build.py            (all guides)   or   python tools/guide_build.py <slug> [<slug> ...]
+     (also guarantees Article + BreadcrumbList schema and adds the guide to sitemap-guides.xml;
+      --schema-only backfills just the head schema + sitemap of existing guides)
   3. Rebuild CSS only if you add new Tailwind classes to this file: see tools/guides/css/rebuild.sh
 
 Output: guides/<slug>.html. <head> and site header/footer are kept from the existing page (so site-wide edits survive
@@ -716,25 +718,82 @@ PAGE = (
 
 
 # ---------------------------------------------------------------- head / shell
-def augment_schema(head, slug, m, d):
+def augment_schema(head, slug, m, d, page=""):
+    """Every guide gets Article + BreadcrumbList JSON-LD (an existing Article from the source is completed, never duplicated)."""
+    url = "%s/guides/%s.html" % (SITE, slug)
+    im = re.search(r'<img[^>]+src="(/images/guides/[^"]+)"', page)
+    image = SITE + im.group(1) if im else None
+    seen = {"article": False}
+
     def fix(mo):
         try:
             j = json.loads(mo.group(2))
         except Exception:
             return mo.group(0)
-        if isinstance(j, dict) and j.get("@type") == "Article":
+        before = json.dumps(j, sort_keys=True)
+        if isinstance(j, dict) and j.get("@type") in ("Article", "BlogPosting"):
+            seen["article"] = True
+            if not j.get("description"):
+                dmeta = re.search(r'<meta name="description" content="([^"]*)"', head)
+                j["description"] = H.unescape(dmeta.group(1)) if dmeta else m["title"]
             j["author"] = AUTHOR
             j.setdefault("datePublished", m["date"])
             j.setdefault("dateModified", m["date"])
+            j.setdefault("publisher", {"@type": "Organization", "name": "CalculatePilot", "url": SITE + "/"})
+            if image and not j.get("image"):
+                j["image"] = [image]
+        if json.dumps(j, sort_keys=True) == before:
+            return mo.group(0)  # unchanged: keep the original formatting
         return mo.group(1) + json.dumps(j, indent=1, ensure_ascii=False) + mo.group(3)
     head = re.sub(r'(<script type="application/ld\+json">\s*)(\{.*?\})(\s*</script>)', fix, head, flags=re.S)
+    blocks = ""
+    if not seen["article"] and '"Article"' not in head:
+        t = re.search(r"<title>(.*?)</title>", head, re.S)
+        title = re.sub(r"\s*\|\s*CalculatePilot\s*$", "", H.unescape(t.group(1)).strip()) if t else m["title"]
+        dm = re.search(r'<meta name="description" content="([^"]*)"', head)
+        art = {"@context": "https://schema.org", "@type": "Article", "headline": title,
+               "description": H.unescape(dm.group(1)) if dm else title,
+               "mainEntityOfPage": {"@type": "WebPage", "@id": url, "inLanguage": "en"},
+               "author": AUTHOR, "datePublished": m["date"], "dateModified": m["date"],
+               "publisher": {"@type": "Organization", "name": "CalculatePilot", "url": SITE + "/"}, "inLanguage": "en"}
+        if image:
+            art["image"] = [image]
+        blocks += '<script type="application/ld+json">\n%s\n</script>\n' % json.dumps(art, indent=1, ensure_ascii=False)
     if "BreadcrumbList" not in head:
         bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
             {"@type": "ListItem", "position": 2, "name": "Guides", "item": SITE + "/guides/"},
-            {"@type": "ListItem", "position": 3, "name": d["crumb"], "item": "%s/guides/%s.html" % (SITE, slug)}]}
-        head = head.replace("</head>", '<script type="application/ld+json">\n%s\n</script>\n</head>' % json.dumps(bc, indent=1, ensure_ascii=False), 1)
+            {"@type": "ListItem", "position": 3, "name": d["crumb"], "item": url}]}
+        blocks += '<script type="application/ld+json">\n%s\n</script>\n' % json.dumps(bc, indent=1, ensure_ascii=False)
+    if blocks:
+        head = head.replace("</head>", blocks + "</head>", 1) if "</head>" in head else head + blocks
     return head
+
+
+def sitemap_add(slug, date):
+    """Add the guide to sitemap-guides.xml (idempotent). Returns True when a line was added."""
+    path = os.path.join(ROOT, "sitemap-guides.xml")
+    sm = open(path, encoding="utf-8").read()
+    loc = "%s/guides/%s.html" % (SITE, slug)
+    if "<loc>%s</loc>" % loc in sm:
+        return False
+    assert "</urlset>" in sm, "sitemap-guides.xml has no </urlset>"
+    entry = "<url><loc>%s</loc><lastmod>%s</lastmod></url>\n" % (loc, date)
+    open(path, "w", encoding="utf-8", newline="\n").write(sm.replace("</urlset>", entry + "</urlset>", 1))
+    return True
+
+
+def schema_only(slug, srcs, meta):
+    """Backfill: complete the head JSON-LD of an already-built guide without regenerating its <main>."""
+    out_path = os.path.join(ROOT, "guides", slug + ".html")
+    page = open(out_path, encoding="utf-8").read()
+    i = page.index("</head>")
+    head = augment_schema(page[:i], slug, meta[slug], srcs[slug], page[i:])
+    new = head + page[i:]
+    if new != page:
+        open(out_path, "w", encoding="utf-8", newline="\n").write(new)
+        return True
+    return False
 
 
 def build(slug, srcs, meta, order):
@@ -752,7 +811,7 @@ def build(slug, srcs, meta, order):
     head_end = page.index("</head>")
     head = page[:head_end]
     head = re.sub(r"\s*<!-- cp-guide-head -->.*?<!-- /cp-guide-head -->", "", head, flags=re.S)
-    head = augment_schema(head, slug, meta[slug], d)
+    head = augment_schema(head, slug, meta[slug], d, page[head_end:])
     sheet = '<link rel="stylesheet" href="/css/cp-guide.css?v=%s">' % VER
     block = "<!-- cp-guide-head -->\n%s\n%s\n<!-- /cp-guide-head -->" % (sheet, FONTS % ((",".join(sorted(ICONS)),) * 2))
     head = re.sub(r'(<link rel="stylesheet" href="/css/styles\.css[^"]*">)', lambda m_: m_.group(1) + "\n" + block, head, count=1)
@@ -761,10 +820,16 @@ def build(slug, srcs, meta, order):
     page = re.sub(r'\s*<script src="/js/cp-guide\.js[^"]*" defer></script>', "", page)
     page = page.replace("</body>", '<script src="/js/cp-guide.js?v=%s" defer></script>\n</body>' % VER, 1)
     open(out_path, "w", encoding="utf-8", newline="\n").write(page)
+    if sitemap_add(slug, meta[slug]["date"]):
+        print("added %s to sitemap-guides.xml" % slug)
+    import footer_build  # same folder: stamps the site footer + footer.css / mobile-fix.css links on the new page
+    footer_build.process("guides/%s.html" % slug, True)
     return out_path
 
 
 def main(argv):
+    schema_flag = "--schema-only" in argv
+    argv = [a for a in argv if a != "--schema-only"]
     slugs_all = sorted(f[:-5] for f in os.listdir(SRC) if f.endswith(".html"))
     want = argv or slugs_all
     srcs = {}
@@ -775,6 +840,11 @@ def main(argv):
     meta = load_meta(slugs_all, srcs)
     order = sorted(slugs_all, key=lambda s: (meta[s]["date"], s))
     for s in want:
+        if schema_flag:  # head JSON-LD + sitemap only; <main> untouched
+            changed = schema_only(s, srcs, meta)
+            changed = sitemap_add(s, meta[s]["date"]) or changed
+            print("schema/sitemap updated" if changed else "ok", s)
+            continue
         ICONS.clear()
         build(s, srcs, meta, order)
         print("built", s)
