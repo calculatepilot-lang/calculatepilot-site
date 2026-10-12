@@ -1,0 +1,50 @@
+/* Phone layout fixes: nothing may make the page scroll sideways. Phone widths only (<=700px), so desktop is untouched.
+   Linked on every page by tools/footer_build.py (after the calculator CSS so these rules win). */
+@media (max-width:700px){
+  /* nowrap tags / badges / notes: long translated labels must wrap instead of widening the page */
+  .sx .sx-au-tag,.sx .sx-mt-tag,.sx .sx-ef-grade,.sx span.tag,.section-head-note{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+  .section-head-note{flex-shrink:1}
+
+  /* rows of title + button/tags: wrap, and let every child shrink below its content width */
+  .sx .sx-params-head,.sx .hd,.sx .sx-ctarow,.sx .sx-headbar,.sx .sx-headbar>div,.sx .sx-au-badges,.sx .sx-seg,.sx .sx-seg.full{flex-wrap:wrap;min-width:0}
+  .sx .sx-params-head>*,.sx .hd>*,.sx .sx-ctarow>*,.sx .sx-headbar>*,.sx .sx-headbar>div>*,.sx .lg>*,.sx .sx-au-acts>*{min-width:0;max-width:100%}
+  .sx .hd span,.sx .hd b,.sx .sx-params-head span,.sx .sx-reset,.sx .sx-ctarow .rs{white-space:normal;overflow-wrap:anywhere}
+  .sx .sx-seg button,.sx .sx-seg.full button{white-space:normal;overflow-wrap:anywhere}
+
+  /* nowrap descriptions and checkbox labels must wrap on a phone */
+  .sx li b,.sx li span,.sx label,.sx label.sx-au-ck{white-space:normal}
+
+  /* grid / list items may shrink below their content width (a long label must not stretch the whole grid) */
+  .sx [class*="grid"]>*,.sx li>*{min-width:0}
+
+  /* action button grids: columns may shrink; labels wrap */
+  .sx .sx-au-acts{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+  .sx .sx-au-acts button,.sx .sx-au-acts a{white-space:normal;overflow-wrap:anywhere;height:auto;min-height:36px;line-height:1.25;padding:6px 8px}
+
+  /* tables inside page content (not already in a .sx-scroll wrapper) scroll inside themselves, not the page */
+  .sx :not(.sx-scroll)>table{display:block;max-width:100%;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .sx :not(.sx-scroll)>table :is(th,td){min-width:6.5rem}
+  /* visually-hidden (position:absolute) labels inside a scroll box must be clipped by it, not widen the page */
+  .sx-scroll,.sx-tblwrap{position:relative}
+
+  /* long compound words (German etc.) in headings, text and values: break/hyphenate instead of stretching the layout */
+  .sx :is(h1,h2,h3,h4,p,li,b,label,legend,summary){overflow-wrap:anywhere;hyphens:auto}
+
+  /* more rows that must wrap when a translated label is long: quick bars, related-links headers, icon labels, inline flex rows, legends */
+  .sx .sx-qb,.sx .sx-rel-head,.sx .k,.sx div[style*="display:flex"]:not([style*="column"]),.sx .lg span{flex-wrap:wrap}
+  .sx .sx-rel-head{gap:6px 12px}
+  .sx .sx-rel-head a{white-space:normal}
+  .sx select,.sx .sx-mt-sel{max-width:100%}
+
+  /* search page: the input must be allowed to shrink so the button stays on screen */
+  .search-bar input{min-width:0}
+
+  /* safety net: whatever still pokes out of the page on a phone is clipped instead of making the page scroll sideways.
+     (clip does not create a scroll container, so the sticky header keeps working; hidden is the fallback for old browsers) */
+  body{overflow-x:hidden}
+  @supports (overflow:clip){body{overflow-x:clip}}
+}
+
+@media (max-width:340px){
+  .sx [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}
+}

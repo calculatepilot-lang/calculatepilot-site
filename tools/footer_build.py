@@ -1,4 +1,4 @@
-"""Stamp the dark-green site footer (css/footer.css) on every page.
+"""Stamp the dark-green site footer (css/footer.css) on every page and link css/mobile-fix.css.
 
 Single source of truth for the footer markup in EN / ES / FR / DE. Idempotent: re-running replaces the existing
 <footer class="site-footer"> and keeps the per-calculator "Embed this calculator" link that nav.js reads.
@@ -15,6 +15,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSS_VER = "20261011a"
+MOBILE_VER = "20261012a"  # css/mobile-fix.css (phone-only layout fixes, linked from every page)
 SKIP_PREFIX = ("backups/", "tools/", "embed/")
 SKIP_FILES = {"pinterest-2e526.html"}
 
@@ -184,13 +185,14 @@ def process(page, write):
     e = re.search(r'href="(/embed/[^"/]+\.html)"', old)
     new = footer_html(page, e.group(1) if e else None)
     s2 = s[:m.start()] + new + s[m.end():]
-    link = '<link rel="stylesheet" href="/css/footer.css?v=%s">' % CSS_VER
-    if "css/footer.css" in s2:
-        s2 = re.sub(r'<link rel="stylesheet" href="/css/footer\.css[^"]*">', link, s2, count=1)
-    elif "</head>" in s2:
-        s2 = s2.replace("</head>", link + "\n</head>", 1)
-    else:
-        return "nohead"
+    for css, ver in (("footer.css", CSS_VER), ("mobile-fix.css", MOBILE_VER)):
+        link = '<link rel="stylesheet" href="/css/%s?v=%s">' % (css, ver)
+        if "css/" + css in s2:
+            s2 = re.sub(r'<link rel="stylesheet" href="/css/%s[^"]*">' % re.escape(css), link, s2, count=1)
+        elif "</head>" in s2:
+            s2 = s2.replace("</head>", link + "\n</head>", 1)
+        else:
+            return "nohead"
     if s2 == s:
         return "same"
     if write:
