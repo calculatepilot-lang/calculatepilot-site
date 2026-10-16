@@ -116,7 +116,7 @@ def recount(h):
             continue
         n = len(CARD_RE.findall(sec.group(1)))
         total += n
-        h = re.sub(r'(<section class="sx-hcat" data-cat="%s">.*?<em>)\d+ guides(</em>)' % cat, lambda m, n=n: "%s%d guides%s" % (m.group(1), n, m.group(2)), h, count=1, flags=re.S)
+        h = re.sub(r'(<section class="sx-hcat" data-cat="%s">.*?<em>)\d+ guides?(</em>)' % cat, lambda m, n=n: "%s%d guides%s" % (m.group(1), n, m.group(2)), h, count=1, flags=re.S)
         h = re.sub(r'(<button type="button" data-cat="%s">[^<(]*\()\d+(\)</button>)' % cat, lambda m, n=n: m.group(1) + str(n) + m.group(2), h, count=1)
     h = re.sub(r'(<button type="button" data-cat="all">All \()\d+(\)</button>)', lambda m: m.group(1) + str(total) + m.group(2), h, count=1)
     h = re.sub(r'Search \d+ guides', "Search %d guides" % total, h)
