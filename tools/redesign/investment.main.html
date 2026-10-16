@@ -95,7 +95,7 @@
   <div class="sx-guide">
     <h2>How this calculator works</h2>
     <p>It grows your starting balance month by month at the equivalent monthly rate for your chosen compounding frequency, and adds each contribution at the end of its period (monthly or yearly), optionally raising contributions 3% a year. Tax drag reduces each period's growth by the chosen share, and the real value divides the result by cumulative inflation.</p>
-    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026; worked examples re-run through the calculator on 16 Oct 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>Understanding investment risk</h2>
     <p>This calculator assumes a constant annual return for simplicity, but real markets fluctuate year to year. Treat the result as a long-term average projection, not a guarantee — higher expected returns generally come with higher volatility.</p>
@@ -121,6 +121,38 @@
     <p>This calculator assumes a single constant return rate, but real investments carry risk that varies by asset type — stocks historically offer higher long-term returns than bonds, but with more year-to-year volatility. Diversifying across asset types is a common strategy to manage that volatility while still capturing long-term growth.</p>
     <p>Tax treatment also affects real-world returns. Growth inside tax-advantaged accounts like a 401(k) or IRA isn't taxed annually the way a standard brokerage account often is, which can meaningfully improve actual after-tax growth compared to what a simple projection shows. Also worth checking: how much that growth is worth in today's dollars using our <a href="/financial/inflation-calculator.html">Inflation Calculator</a>.</p>
 
+    <h2 id="return-formulas">How to calculate investment return: ROI, CAGR and annualised return</h2>
+    <p>The calculator projects a future balance. These formulas measure how an investment has already performed, so you can pick a realistic return to enter above.</p>
+    <ul>
+      <li><strong>Return on investment (ROI)</strong> = (ending value − starting value) ÷ starting value. It ignores how long the money was invested.</li>
+      <li><strong>Compound annual growth rate (CAGR)</strong> = (ending value ÷ starting value)^(1 ÷ years) − 1. It turns the total gain into a yearly rate you can compare with other investments.</li>
+    </ul>
+    <p>Example: $10,000 that grows to $22,000 over 8 years has an ROI of 120%, but a CAGR of about 10.36% a year. If you added money along the way, CAGR on the ending value overstates your return, so use this calculator's contribution inputs instead.</p>
+
+    <h2 id="growth-formula">The compound growth formula with regular contributions</h2>
+    <p>With a monthly rate <em>i</em> (annual return ÷ 12 for monthly compounding) and <em>n</em> months, the future value is <strong>P × (1 + i)<sup>n</sup> + C × ((1 + i)<sup>n</sup> − 1) ÷ i</strong>, where P is the starting amount and C is the monthly contribution added at the end of each month.</p>
+    <p>Example: $10,000 plus $300 a month at 8% for 20 years grows to <strong>$225,974</strong>. Contributions total $82,000, so $143,974 (about 64% of the final balance) is investment growth.</p>
+
+    <h2 id="real-return">Nominal vs real return</h2>
+    <p>Real return = (1 + nominal return) ÷ (1 + inflation) − 1. An 8% nominal return with 3% inflation is a real return of about 4.85%. The same $225,974 balance is worth about <strong>$125,116 in today's dollars</strong> after 20 years of 3% inflation, which is why the calculator shows both figures.</p>
+
+    <h2 id="fees-and-tax">How fees and tax drag change the result</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Scenario ($10,000 + $300/month, 20 years)</th><th scope="col">Ending balance</th></tr></thead><tbody>
+      <tr><td>8% return, no fees, no tax drag</td><td>$225,974</td></tr>
+      <tr><td>7% return (an 8% fund minus a 1% annual fee)</td><td>$196,665</td></tr>
+      <tr><td>8% return with 15% of each year's gains lost to tax</td><td>$191,350</td></tr>
+    </tbody></table>
+    <p>A 1 percentage point fee costs about $29,300 here, roughly 13% of the final balance. Entering your return after fees is the simplest way to model it. The tax-drag setting reduces each period's growth by the share you pick; it is a simplification and not a tax calculation.</p>
+
+    <h2 id="which-calculator">Which calculator should you use?</h2>
+    <ul>
+      <li><a href="/financial/investment-calculator.html">Investment Calculator</a> (this page): a starting amount plus regular contributions, with inflation and tax drag.</li>
+      <li><a href="/financial/compound-interest-calculator.html">Compound Interest Calculator</a>: compare daily, monthly and continuous compounding.</li>
+      <li><a href="/financial/savings-goal-calculator.html">Savings Goal Calculator</a>: work backwards from a target amount.</li>
+      <li><a href="/financial/roth-ira-calculator.html">Roth IRA Calculator</a> and <a href="/financial/401k-calculator.html">401(k) Calculator</a>: retirement accounts with limits and employer match.</li>
+    </ul>
+    <p>Want the formulas in more depth? Read <a href="/guides/how-to-calculate-investment-return-roi-cagr.html">how to calculate investment return: ROI vs CAGR, with examples</a>.</p>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Is 8% a realistic return assumption?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's within the historical long-term range for diversified equity portfolios before inflation, but past performance doesn't guarantee future results.</p></details>
     <details class="sx-faq"><summary>How much difference do monthly contributions make?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A great deal over long periods — consistent contributions often account for more of the final balance than the initial investment itself, thanks to compounding.</p></details>
@@ -128,6 +160,11 @@
     <details class="sx-faq"><summary>What's a reasonable fee to pay on investments?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Low-cost index funds often charge well under 0.5% annually, while some actively managed funds charge 1% or more — fees compound over time just like returns, so lower costs meaningfully help long-term growth.</p></details>
     <details class="sx-faq"><summary>What is dollar-cost averaging?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Investing a fixed amount at regular intervals regardless of market price, which smooths out the effect of market timing and is the strategy this calculator's monthly contribution feature effectively models.</p></details>
     <details class="sx-faq"><summary>Should I use a tax-advantaged account for long-term investing?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Accounts like a 401(k), IRA, or Roth IRA offer tax benefits that can meaningfully improve long-term after-tax growth compared to a standard taxable brokerage account, making them worth prioritizing for retirement-focused investing.</p></details>
+    <details class="sx-faq"><summary>How do you calculate return on investment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Subtract the starting value from the ending value and divide by the starting value. For example, $10,000 growing to $22,000 is an ROI of 120%. ROI ignores time, so use CAGR to compare investments held for different periods.</p></details>
+    <details class="sx-faq"><summary>What is the difference between ROI and CAGR?<span class="msym" aria-hidden="true">expand_more</span></summary><p>ROI is the total percentage gain over the whole holding period. CAGR converts that gain into the steady yearly rate that would produce it, using (ending ÷ starting)^(1 ÷ years) − 1. $10,000 growing to $22,000 over 8 years is a 120% ROI and a CAGR of about 10.36%.</p></details>
+    <details class="sx-faq"><summary>How do I calculate real return after inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide one plus your nominal return by one plus the inflation rate, then subtract one. An 8% return with 3% inflation is a real return of about 4.85% a year.</p></details>
+    <details class="sx-faq"><summary>How do fees affect investment growth?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Fees come out of your return every year, so they compound. In this calculator, $10,000 plus $300 a month for 20 years ends at about $225,974 at 8% but $196,665 at 7%, so a 1 percentage point fee costs roughly $29,300.</p></details>
+    <details class="sx-faq"><summary>How long does it take to double my money?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The Rule of 72 estimates it as 72 divided by your annual return. At 8%, money doubles in about 9 years (the exact figure is 9.01 years). Regular contributions shorten the time to double your total balance.</p></details>
   </div>
 </section>
 
