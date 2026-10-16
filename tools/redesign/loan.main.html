@@ -106,7 +106,7 @@
     <h2>How this calculator works</h2>
     <p>This uses the same amortization formula banks use for personal, auto, and business loans. See also the <a href="/financial/amortization-calculator.html">Amortization Calculator</a> and <a href="/financial/student-loan-calculator.html">Student Loan Calculator</a>.</p>
     <p><strong>M = P × [ i(1+i)^n ] / [ (1+i)^n − 1 ]</strong> — M = monthly payment · P = loan amount · i = monthly interest rate · n = number of months</p>
-    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026; worked examples re-run 16 Oct 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>How loan term affects total cost</h2>
     <p>A longer term lowers your monthly payment but increases total interest. A shorter term raises the monthly payment but reduces total interest significantly.</p>
@@ -120,11 +120,58 @@
     <h2>A worked example</h2>
     <p>A $20,000 loan at 7.5% costs about $401/month over 60 months with roughly $4,050 in total interest, versus about $622/month over 36 months with about $2,400 in interest.</p>
 
+    <h2 id="term-compare">Loan term compared: payment vs total interest</h2>
+    <p>A $20,000 loan at 7.5% with no fees, by term. A longer term lowers the payment but costs more in total.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Term</th><th scope="col">Monthly payment</th><th scope="col">Total interest</th></tr></thead><tbody>
+      <tr><td>24 months</td><td>$899.99</td><td>$1,600</td></tr>
+      <tr><td>36 months</td><td>$622.12</td><td>$2,396</td></tr>
+      <tr><td>48 months</td><td>$483.58</td><td>$3,212</td></tr>
+      <tr><td>60 months</td><td>$400.76</td><td>$4,046</td></tr>
+      <tr><td>72 months</td><td>$345.80</td><td>$4,898</td></tr>
+      <tr><td>84 months</td><td>$306.77</td><td>$5,768</td></tr>
+    </tbody></table>
+
+    <h2 id="rate-compare">How much the rate matters</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Rate ($20,000, 60 months)</th><th scope="col">Monthly payment</th><th scope="col">Total interest</th></tr></thead><tbody>
+      <tr><td>6%</td><td>$386.66</td><td>$3,199</td></tr>
+      <tr><td>7.5%</td><td>$400.76</td><td>$4,046</td></tr>
+      <tr><td>9%</td><td>$415.17</td><td>$4,910</td></tr>
+      <tr><td>12%</td><td>$444.89</td><td>$6,693</td></tr>
+    </tbody></table>
+
+    <h2 id="payment-split">Where each payment goes</h2>
+    <p>Interest is charged on the remaining balance, so early payments are mostly interest. On the $20,000, 7.5%, 60-month loan, the first payment of $400.76 is $125.00 interest and $275.76 principal. As the balance falls, the split shifts toward principal. The amortization ledger above shows every month.</p>
+
+    <h2 id="extra-payments">What extra payments save</h2>
+    <p>Adding to your monthly payment, with the extra applied to principal, on the same $20,000 loan:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Extra per month</th><th scope="col">Payoff time</th><th scope="col">Total interest</th></tr></thead><tbody>
+      <tr><td>$0</td><td>60 months</td><td>$4,046</td></tr>
+      <tr><td>$50</td><td>53 months</td><td>$3,497</td></tr>
+      <tr><td>$100</td><td>47 months</td><td>$3,081</td></tr>
+      <tr><td>$200</td><td>38 months</td><td>$2,494</td></tr>
+    </tbody></table>
+    <p>Check your lender allows extra payments toward principal without a penalty.</p>
+
+    <h2 id="fee-apr">What an origination fee does to your effective APR</h2>
+    <p>If the fee is taken from the loan proceeds, you receive less than you borrow but repay the full amount. Same $20,000 loan at 7.5% over 60 months:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Origination fee</th><th scope="col">Cash you receive</th><th scope="col">Effective APR</th></tr></thead><tbody>
+      <tr><td>1%</td><td>$19,800</td><td>7.92%</td></tr>
+      <tr><td>3%</td><td>$19,400</td><td>8.79%</td></tr>
+      <tr><td>5%</td><td>$19,000</td><td>9.69%</td></tr>
+      <tr><td>8%</td><td>$18,400</td><td>11.08%</td></tr>
+    </tbody></table>
+    <p>The effective APR here is the rate that equates the cash received to the payments. To receive exactly $20,000 after a 5% fee, borrow $21,053 (20,000 ÷ 0.95); the payment becomes about $421.85. Lenders state the official APR on your loan disclosure; the CFPB notes that APR reflects the interest rate plus other charges you pay to get the loan.</p>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What's the difference between APR and interest rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The interest rate is the cost of borrowing the principal. APR usually includes additional fees.</p></details>
     <details class="sx-faq"><summary>Does paying extra each month reduce total interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — extra payments go toward principal and can shorten the loan term.</p></details>
     <details class="sx-faq"><summary>How does an origination fee affect my loan payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The fee is usually deducted from your loan proceeds up front, so you receive less cash than the loan amount but still repay the full amount plus interest, raising your effective APR above the stated rate.</p></details>
     <details class="sx-faq"><summary>Is there a penalty for paying off a loan early?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on the lender. Most personal loans have no prepayment penalty, but some auto, business, and specialty loans do — check your agreement.</p></details>
+    <details class="sx-faq"><summary>How much does a longer loan term cost?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $20,000 loan at 7.5%, a 36-month term costs $622.12 a month and $2,396 in interest, while a 72-month term costs $345.80 a month but $4,898 in interest.</p></details>
+    <details class="sx-faq"><summary>How much interest do I save by paying extra on a loan?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $20,000, 7.5%, 60-month loan, paying $100 extra each month, applied to principal, pays it off in 47 months and cuts total interest from $4,046 to about $3,081.</p></details>
+    <details class="sx-faq"><summary>How does a 5% origination fee change my APR?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $20,000 loan at 7.5% over 60 months, a 5% fee taken from the proceeds leaves you $19,000 and raises the effective APR to about 9.69%.</p></details>
+    <details class="sx-faq"><summary>How much should I borrow to cover an origination fee?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the cash you need by one minus the fee. To receive $20,000 after a 5% fee, borrow about $21,053, which makes the payment about $421.85 over 60 months at 7.5%.</p></details>
+    <details class="sx-faq"><summary>Why is my first payment mostly interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Interest is charged on the full balance at the start. On a $20,000, 7.5% loan, $125 of the first $400.76 payment is interest and $275.76 is principal.</p></details>
   </div>
 </section>
 
