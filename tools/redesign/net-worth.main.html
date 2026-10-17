@@ -85,7 +85,7 @@
       <li><strong>Liquid assets</strong> = cash + non-retirement investments you could access without penalties.</li>
       <li><strong>Expected net worth (rule of thumb)</strong> = age × pre-tax household income ÷ 10, from <em>The Millionaire Next Door</em> (Stanley &amp; Danko). The authors call households at twice this figure or more "prodigious accumulators of wealth" and those at half or less "under accumulators".</li>
     </ul>
-    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Benchmarks checked against the Federal Reserve Bulletin (October 2023) on 28 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Benchmarks checked against the Federal Reserve Bulletin (October 2023) on 28 Sep 2026; examples re-run 17 Oct 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>A worked example</h2>
     <p>Using the default figures: assets of $15,000 + $25,000 + $60,000 + $350,000 + $18,000 = $468,000, and liabilities of $240,000 + $12,000 + $18,000 + $4,000 = $274,000, give a net worth of <strong>$194,000</strong>. That's a debt-to-asset ratio of 59%. For a 38-year-old, the SCF 2022 median for ages 35–44 is $135,600, so this household is above the median for its age group.</p>
@@ -99,10 +99,49 @@
       <li>Stanley TJ, Danko WD. The Millionaire Next Door. Longstreet Press, 1996.</li>
     </ul>
 
+    <h2 id="median-vs-mean">Median vs mean: why the average looks so much bigger</h2>
+    <p>Using the Federal Reserve figures in the table above, the mean is roughly four times the median in every age group, because a small number of very wealthy families pull the average up:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Age of head of family</th><th scope="col">Median</th><th scope="col">Mean</th><th scope="col">Mean &divide; median</th></tr></thead><tbody>
+      <tr><td>Less than 35</td><td>$39,000</td><td>$183,500</td><td>4.7&times;</td></tr>
+      <tr><td>35&ndash;44</td><td>$135,600</td><td>$549,600</td><td>4.1&times;</td></tr>
+      <tr><td>45&ndash;54</td><td>$247,200</td><td>$975,800</td><td>3.9&times;</td></tr>
+      <tr><td>55&ndash;64</td><td>$364,500</td><td>$1,566,900</td><td>4.3&times;</td></tr>
+      <tr><td>65&ndash;74</td><td>$409,900</td><td>$1,794,600</td><td>4.4&times;</td></tr>
+      <tr><td>75 or more</td><td>$335,600</td><td>$1,624,100</td><td>4.8&times;</td></tr>
+    </tbody></table>
+    <p>Compare yourself with the median, which is the middle family. This calculator shows whether you are above or below the median for your age group; it does not give an exact percentile rank, because that needs the full wealth distribution, which the Fed's published age table does not include.</p>
+
+    <h2 id="mnd-table">Expected net worth by age and income (the Millionaire Next Door rule)</h2>
+    <p>Expected net worth = age &times; pre-tax household income &divide; 10. The authors call twice that figure "prodigious accumulators" and half of it "under accumulators". Examples:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Age</th><th scope="col">Income</th><th scope="col">Expected</th><th scope="col">Prodigious (2&times;)</th><th scope="col">Under (0.5&times;)</th></tr></thead><tbody>
+      <tr><td>30</td><td>$60,000</td><td>$180,000</td><td>$360,000</td><td>$90,000</td></tr>
+      <tr><td>40</td><td>$100,000</td><td>$400,000</td><td>$800,000</td><td>$200,000</td></tr>
+      <tr><td>50</td><td>$100,000</td><td>$500,000</td><td>$1,000,000</td><td>$250,000</td></tr>
+      <tr><td>50</td><td>$150,000</td><td>$750,000</td><td>$1,500,000</td><td>$375,000</td></tr>
+      <tr><td>60</td><td>$100,000</td><td>$600,000</td><td>$1,200,000</td><td>$300,000</td></tr>
+    </tbody></table>
+    <p>It is a rough yardstick, not a verdict. It ignores inheritances and other one-time windfalls and tends to fit mid-career households better than very young ones.</p>
+
+    <h2 id="pre-tax">Retirement accounts are not fully yours yet</h2>
+    <p>The calculator counts retirement balances at face value. Traditional 401(k) and IRA withdrawals are taxed as income, so a more cautious view subtracts the tax you expect to owe. For example, $500,000 in a traditional 401(k) at an assumed 24% tax rate is worth about $380,000 after tax. Roth balances are generally not taxed on qualified withdrawals.</p>
+
+    <h2 id="projection">How fast can net worth grow?</h2>
+    <p>Starting from the worked example's $194,000, at a constant 7% a year (an illustration, not a forecast):</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Scenario</th><th scope="col">After 10 years</th><th scope="col">After 20 years</th></tr></thead><tbody>
+      <tr><td>No new savings</td><td>$389,874</td><td>$783,515</td></tr>
+      <tr><td>Add $1,000 a month</td><td>$562,959</td><td>$1,304,442</td></tr>
+    </tbody></table>
+    <p>Real returns vary and are not guaranteed. Use the <a href="/financial/retirement-calculator.html">Retirement Calculator</a> to model contributions in more detail.</p>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Should I include my car's value as an asset?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You can include it for a complete picture — use its current resale value, not what you paid. Many people leave depreciating items like vehicles out when tracking wealth-building, since they lose value every year.</p></details>
     <details class="sx-faq"><summary>How often should I recalculate my net worth?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many people track it quarterly or annually — often enough to see meaningful trends, but not so often that normal market swings feel misleading.</p></details>
     <details class="sx-faq"><summary>What is the median net worth in the US?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In the Federal Reserve's 2022 Survey of Consumer Finances, the median US family net worth was $192,900 and the mean was about $1.06 million. The mean is much higher because a small number of very wealthy families pull the average up.</p></details>
+    <details class="sx-faq"><summary>Does this calculator show my net worth percentile?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. It shows whether you are above or below the Federal Reserve median for your age group, along with the mean. An exact percentile needs the full wealth distribution, which the Fed's age table does not publish.</p></details>
+    <details class="sx-faq"><summary>Why is average net worth so much higher than median?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A few very wealthy families pull the average up. In the Fed's 2022 data the mean is roughly four times the median in every age group, so the median is the better benchmark.</p></details>
+    <details class="sx-faq"><summary>How do I calculate net worth for a couple?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Add up the household's combined assets and liabilities and enter your household income. The Fed groups families by the age of the household head, so use the age of the main earner or older partner.</p></details>
+    <details class="sx-faq"><summary>Should retirement accounts count at full value?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Most people count them at face value, but pre-tax balances will be taxed when withdrawn. For a cautious view, subtract an assumed tax rate: $500,000 at 24% is about $380,000 after tax.</p></details>
+    <details class="sx-faq"><summary>How accurate is the Millionaire Next Door net worth formula?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is a rough guide: age times pre-tax household income divided by 10. It ignores inheritances and windfalls and fits mid-career households better than very young ones.</p></details>
   </div>
 </section>
 
