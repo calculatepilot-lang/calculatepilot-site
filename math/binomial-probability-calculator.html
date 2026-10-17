@@ -162,6 +162,46 @@
     "@type": "Answer",
     "text": "Then the binomial model does not apply exactly. Depending on the situation, a hypergeometric or other model may be more suitable. Independence and a constant probability are essential assumptions."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I find the probability between two values, P(a ≤ X ≤ b)?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Subtract two cumulative results: P(X ≤ b) − P(X ≤ a − 1). For n = 10, p = 0.5 and 4 to 6 successes that is 0.828125 − 0.171875 = 0.65625."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are binompdf and binomcdf, and how do they match this calculator?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On a TI-83 or TI-84, binompdf(n, p, k) is the exact probability P(X = k) and binomcdf(n, p, k) is the cumulative probability P(X ≤ k). Enter the same n, p and k here and read P(X = k) and P(X ≤ k)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate a binomial probability in Excel or Google Sheets?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use =BINOM.DIST(k, n, p, FALSE) for the exact probability and =BINOM.DIST(k, n, p, TRUE) for the cumulative probability. For n = 10, p = 0.5, k = 3 they return 0.117188 and 0.171875."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "When should I use the Poisson approximation instead of the normal?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use Poisson when n is large and p is small, with λ = np. For n = 50 and p = 0.02, the exact P(X ≤ 2) is 0.921572 and the Poisson value with λ = 1 is 0.919699. The normal approximation works better when p is near 0.5."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can the variance of a binomial distribution be larger than its mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The variance npq is never more than the mean np, because q is at most 1. They are nearly equal when p is very small, and the variance is largest relative to n when p = 0.5."
+   }
   }
  ],
  "inLanguage": "en"
@@ -315,6 +355,42 @@
       <li>Feller, W. (1968). <i>An Introduction to Probability Theory and Its Applications</i>, Vol. 1, 3rd ed. Wiley.</li>
       <li>ISO 3534-1:2006, <i>Statistics — Vocabulary and symbols — Part 1: General statistical terms and terms used in probability</i>.</li>
     </ul>
+    <h2 id="probability-table">Binomial probability table: n = 10, p = 0.5</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">k</th><th scope="col">P(X = k)</th><th scope="col">P(X &le; k)</th></tr></thead><tbody>
+      <tr><td>0</td><td>0.000977</td><td>0.000977</td></tr>
+      <tr><td>1</td><td>0.009766</td><td>0.010742</td></tr>
+      <tr><td>2</td><td>0.043945</td><td>0.054688</td></tr>
+      <tr><td>3</td><td>0.117188</td><td>0.171875</td></tr>
+      <tr><td>4</td><td>0.205078</td><td>0.376953</td></tr>
+      <tr><td>5</td><td>0.246094</td><td>0.623047</td></tr>
+      <tr><td>6</td><td>0.205078</td><td>0.828125</td></tr>
+      <tr><td>7</td><td>0.117188</td><td>0.945313</td></tr>
+      <tr><td>8</td><td>0.043945</td><td>0.989258</td></tr>
+      <tr><td>9</td><td>0.009766</td><td>0.999023</td></tr>
+      <tr><td>10</td><td>0.000977</td><td>1.000000</td></tr>
+    </tbody></table>
+    <p>This is the fair-coin case: the number of heads in 10 flips. Choose any other n and p in the calculator to get its own table, and use Export CSV for every value of k.</p>
+
+    <h2 id="between-two-values">Probability between two values</h2>
+    <p>To find P(a &le; X &le; b), subtract two cumulative results: P(X &le; b) &minus; P(X &le; a &minus; 1). For 4 to 6 heads in 10 flips: 0.828125 &minus; 0.171875 = <b>0.65625</b>. Adding the three terms 0.205078 + 0.246094 + 0.205078 gives the same answer.</p>
+
+    <h2 id="software-syntax">The same calculation in a calculator, spreadsheet or code</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Tool</th><th scope="col">P(X = k)</th><th scope="col">P(X &le; k)</th></tr></thead><tbody>
+      <tr><td>TI-83 / TI-84</td><td>binompdf(n, p, k)</td><td>binomcdf(n, p, k)</td></tr>
+      <tr><td>Excel, Google Sheets</td><td>=BINOM.DIST(k, n, p, FALSE)</td><td>=BINOM.DIST(k, n, p, TRUE)</td></tr>
+      <tr><td>R</td><td>dbinom(k, n, p)</td><td>pbinom(k, n, p)</td></tr>
+      <tr><td>Python (SciPy)</td><td>binom.pmf(k, n, p)</td><td>binom.cdf(k, n, p)</td></tr>
+    </tbody></table>
+    <p>For n = 10, p = 0.5, k = 3 every one of these returns 0.117188 for the exact value and 0.171875 for the cumulative value.</p>
+
+    <h2 id="approximations">When an approximation is close enough</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Case</th><th scope="col">Exact</th><th scope="col">Approximation</th></tr></thead><tbody>
+      <tr><td>n = 100, p = 0.5, P(X &le; 55)</td><td>0.864373</td><td>Normal with continuity correction: 0.864334</td></tr>
+      <tr><td>n = 100, p = 0.5, P(X &le; 55)</td><td>0.864373</td><td>Normal without correction: 0.841345</td></tr>
+      <tr><td>n = 50, p = 0.02, P(X &le; 2)</td><td>0.921572</td><td>Poisson with &lambda; = np = 1: 0.919699</td></tr>
+    </tbody></table>
+    <p>The normal approximation here uses mean 50 and standard deviation 5, and the continuity correction means using 55.5 instead of 55. The Poisson approximation suits large n with small p. With this calculator you can usually skip approximations, since it is exact for n up to 1,000.</p>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What is the difference between the binomial and hypergeometric distributions?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The binomial model assumes independent trials with a constant probability, as with sampling with replacement or from a very large population. The hypergeometric distribution models sampling without replacement from a finite population, where each draw changes the odds of the next. When the sample is a small fraction of the population (commonly under 5%), the binomial is a good approximation.</p></details>
     <details class="sx-faq"><summary>When can I use a normal approximation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common rule of thumb is that both np and n(1 − p) should be at least 5 (some texts use 10). Then X is approximately normal with mean np and standard deviation √(npq), usually with a continuity correction of ±0.5. This calculator gives the exact answer, so no approximation is needed.</p></details>
@@ -322,6 +398,11 @@
     <details class="sx-faq"><summary>What happens when p is 0 or 1?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The outcome is certain: if p = 0 every trial fails, so P(X = 0) = 1; if p = 1 every trial succeeds, so P(X = n) = 1. The variance is zero and the distribution is a single point.</p></details>
     <details class="sx-faq"><summary>How do I find the probability of at least one success?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use the complement: P(X ≥ 1) = 1 − P(X = 0) = 1 − (1 − p)ⁿ. Set k = 1 and choose P(X ≥ k) to see it directly.</p></details>
     <details class="sx-faq"><summary>What if my trials are not independent?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Then the binomial model does not apply exactly. Depending on the situation, a hypergeometric or other model may be more suitable. Independence and a constant probability are essential assumptions.</p></details>
+    <details class="sx-faq"><summary>How do I find the probability between two values, P(a ≤ X ≤ b)?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Subtract two cumulative results: P(X ≤ b) − P(X ≤ a − 1). For n = 10, p = 0.5 and 4 to 6 successes that is 0.828125 − 0.171875 = 0.65625.</p></details>
+    <details class="sx-faq"><summary>What are binompdf and binomcdf, and how do they match this calculator?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a TI-83 or TI-84, binompdf(n, p, k) is the exact probability P(X = k) and binomcdf(n, p, k) is the cumulative probability P(X ≤ k). Enter the same n, p and k here and read P(X = k) and P(X ≤ k).</p></details>
+    <details class="sx-faq"><summary>How do I calculate a binomial probability in Excel or Google Sheets?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use =BINOM.DIST(k, n, p, FALSE) for the exact probability and =BINOM.DIST(k, n, p, TRUE) for the cumulative probability. For n = 10, p = 0.5, k = 3 they return 0.117188 and 0.171875.</p></details>
+    <details class="sx-faq"><summary>When should I use the Poisson approximation instead of the normal?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use Poisson when n is large and p is small, with λ = np. For n = 50 and p = 0.02, the exact P(X ≤ 2) is 0.921572 and the Poisson value with λ = 1 is 0.919699. The normal approximation works better when p is near 0.5.</p></details>
+    <details class="sx-faq"><summary>Can the variance of a binomial distribution be larger than its mean?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. The variance npq is never more than the mean np, because q is at most 1. They are nearly equal when p is very small, and the variance is largest relative to n when p = 0.5.</p></details>
   </div>
 </section>
 
