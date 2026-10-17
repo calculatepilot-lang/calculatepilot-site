@@ -117,6 +117,46 @@
     "@type": "Answer",
     "text": "Yes. Switch the schedule between annual totals and every monthly payment, each showing principal, interest and the remaining balance, and use Print to save it."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How much of my loan is paid off after 5 years?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On a $300,000, 6.5%, 30-year loan, about 6.4%: $19,167 of principal, leaving a balance of about $280,833. After 10 years it is 15.2%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is a one-time extra payment or a monthly extra payment better?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Both help, but earlier and repeated extra principal saves more. On the example loan, $10,000 once in month 1 saves about $53,602, while $200 every month saves about $103,449."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the difference between an amortizing and an interest-only loan?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "An amortizing loan pays down principal with each payment and ends at a zero balance. An interest-only loan pays only interest, so the balance stays the same: $1,625 a month on $300,000 at 6.5%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a balloon payment?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A large lump sum due at the end of a shorter term, after smaller payments calculated on a longer schedule. With a 30-year schedule and a 5-year balloon on the example loan, about $280,833 is due after 60 payments."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does this calculator handle business amortization of intangible assets?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It builds loan schedules only. Accounting amortization spreads an asset or cost over its useful or allowed life, and the tax rules are set separately. Ask a tax adviser."
+   }
   }
  ],
  "inLanguage": "en"
@@ -218,30 +258,57 @@
       <li><strong>Crossover:</strong> the first month where the principal part of the payment is larger than the interest part.</li>
     </ul>
     <p>Payments cover principal and interest only — property tax, insurance, PMI and HOA fees aren't included (use the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> for those). Figures are rounded to the cent; your lender's schedule may differ by a few cents.</p>
-    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Formula verified 28 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Formula verified 28 Sep 2026; examples re-run 17 Oct 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>A worked example</h2>
-    <p>A $300,000 loan at 6.5% for 30 years: r = 0.065 ÷ 12 = 0.0054167 and n = 360, so the payment is <strong>$1,896.20</strong> a month. The first payment is $1,625.00 interest and just $271.20 principal. Over 30 years you'd pay about $382,637 in interest, and principal only overtakes interest at payment 233 — nearly 20 years in. Adding $200 a month pays the loan off 6 years 11 months early and saves about $103,450 in interest.</p>
+    <p>A $300,000 loan at 6.5% for 30 years: r = 0.065 ÷ 12 = 0.0054167 and n = 360, so the payment is <strong>$1,896.20</strong> a month. The first payment is $1,625.00 interest and just $271.20 principal. Over 30 years you'd pay about $382,633 in interest, and principal only overtakes interest at payment 233 — nearly 20 years in. Adding $200 a month pays the loan off 6 years 11 months early and saves about $103,450 in interest.</p>
 
     <h2>Why your first payment is mostly interest</h2>
     <p>Interest is charged on the remaining balance, which is largest at the start. As the balance shrinks, less of each payment goes to interest and more to principal. On a 30-year loan at today's rates, the crossover usually comes after the halfway point, and extra principal payments early on move it much sooner.</p>
 
-<!--cp-gap1-->
-<h2>How loan term changes payment and total interest</h2>
-<p>A $300,000 loan at 6.5% APR. A shorter term raises the monthly payment but cuts the interest sharply.</p>
-<table class="sx-au-cmp plain"><thead><tr><th>Term</th><th>Monthly payment</th><th>Total interest (approx.)</th><th>Total paid (approx.)</th></tr></thead><tbody><tr><td>15 years</td><td>$2,613.32</td><td>$170,398</td><td>$470,398</td></tr><tr><td>20 years</td><td>$2,236.72</td><td>$236,813</td><td>$536,813</td></tr><tr><td>30 years</td><td>$1,896.20</td><td>$382,633</td><td>$682,633</td></tr></tbody></table>
-<h2>Common amortization mistakes</h2>
-<ul>
-<li><strong>Comparing loans by monthly payment only.</strong> A longer term lowers the payment but increases total interest, as the table shows.</li>
-<li><strong>Forgetting escrow items.</strong> This schedule is principal and interest only. Property tax, insurance, PMI and HOA fees are on top of it.</li>
-<li><strong>Assuming extra payments go to principal.</strong> Some servicers apply them to the next payment unless you mark them "principal only", so confirm how yours handles them.</li>
-<li><strong>Refinancing without counting the restart.</strong> A new 30-year loan resets the schedule, so early payments are mostly interest again.</li>
-</ul>
+    <h2 id="balance-by-year">How much of the loan is paid off after 5, 10, 15 and 20 years</h2>
+    <p>The $300,000, 6.5%, 30-year loan from the example above. Because early payments are mostly interest, equity builds slowly at first:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">After</th><th scope="col">Balance left</th><th scope="col">Principal paid</th><th scope="col">Share of loan repaid</th></tr></thead><tbody>
+      <tr><td>5 years</td><td>$280,833</td><td>$19,167</td><td>6.4%</td></tr>
+      <tr><td>10 years</td><td>$254,328</td><td>$45,672</td><td>15.2%</td></tr>
+      <tr><td>15 years</td><td>$217,677</td><td>$82,323</td><td>27.4%</td></tr>
+      <tr><td>20 years</td><td>$166,996</td><td>$133,004</td><td>44.3%</td></tr>
+      <tr><td>25 years</td><td>$96,912</td><td>$203,088</td><td>67.7%</td></tr>
+    </tbody></table>
 
-    <h2>Frequently asked questions</h2>
+    <h2 id="extra-types">Monthly, yearly and one-time extra payments compared</h2>
+    <p>Same $300,000, 6.5%, 30-year loan (base: 360 payments, $382,633 total interest, principal overtakes interest at payment 233):</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Extra payment</th><th scope="col">Paid off early by</th><th scope="col">Interest saved</th><th scope="col">Principal overtakes interest at</th></tr></thead><tbody>
+      <tr><td>$100 a month</td><td>4 years 0 months</td><td>$60,995</td><td>payment 194</td></tr>
+      <tr><td>$200 a month</td><td>6 years 11 months</td><td>$103,449</td><td>payment 166</td></tr>
+      <tr><td>$500 a month</td><td>12 years 6 months</td><td>$179,759</td><td>payment 118</td></tr>
+      <tr><td>$2,400 a year</td><td>6 years 9 months</td><td>$99,670</td><td>payment 169</td></tr>
+      <tr><td>$10,000 once, month 1</td><td>2 years 9 months</td><td>$53,602</td><td>payment 200</td></tr>
+      <tr><td>$10,000 once, month 60</td><td>2 years 0 months</td><td>$37,356</td><td>payment 208</td></tr>
+      <tr><td>$25,000 once, month 1</td><td>6 years 2 months</td><td>$116,533</td><td>payment 159</td></tr>
+    </tbody></table>
+    <p>The Extra Monthly Payment box models the monthly cases directly. For a yearly amount, enter one-twelfth of it. It does not model a single lump sum.</p>
+
+    <h2 id="interest-only-balloon">Amortizing vs interest-only vs balloon loans</h2>
+    <ul>
+      <li><strong>Fully amortizing (what this calculator builds):</strong> every payment covers interest and some principal, and the balance reaches zero at the end. $1,896.20 a month on the example loan.</li>
+      <li><strong>Interest-only:</strong> payments cover only interest, so the balance does not fall. On the example loan that is $1,625.00 a month, which is $271.20 less than the first amortizing payment but pays nothing toward the principal.</li>
+      <li><strong>Balloon:</strong> payments are calculated on a long schedule but the whole remaining balance is due at an earlier date. With a 30-year schedule and a balloon after 5 years, you would owe about $280,833 after 60 payments of $1,896.20.</li>
+    </ul>
+    <p>Adjustable-rate loans and lines of credit do not follow a single fixed schedule, because the payment changes when the rate does. Use a fixed-rate loan with this tool.</p>
+
+    <h2 id="accounting-amortization">Amortization in accounting is a different thing</h2>
+    <p>Businesses also use "amortization" to mean spreading the cost of an intangible asset, or certain start-up costs, over time. That is a deduction schedule, not a loan balance, and this calculator does not compute it. One U.S. example: you can elect to deduct up to $5,000 of business start-up costs in the first year, reduced by the amount your costs exceed $50,000, and the remaining costs must be amortized (see IRS Publication 583 and the Instructions for Form 4562). Ask a tax adviser how it applies to you.</p>
+
+<h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Why does most of my early payment go to interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Interest is calculated on the remaining loan balance, which is largest at the start of the loan — as the balance shrinks with each payment, less interest accrues and more of the payment goes toward principal.</p></details>
     <details class="sx-faq"><summary>Does paying extra toward principal reduce total interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes, significantly — reducing the balance early means less interest accrues on it for the rest of the loan. Enter an extra monthly payment above to see the interest and time saved. Check that your lender applies extra payments to principal and doesn't charge a prepayment penalty.</p></details>
     <details class="sx-faq"><summary>Is this a full amortization schedule?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Switch the schedule between annual totals and every monthly payment, each showing principal, interest and the remaining balance, and use Print to save it.</p></details>
+    <details class="sx-faq"><summary>How much of my loan is paid off after 5 years?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $300,000, 6.5%, 30-year loan, about 6.4%: $19,167 of principal, leaving a balance of about $280,833. After 10 years it is 15.2%.</p></details>
+    <details class="sx-faq"><summary>Is a one-time extra payment or a monthly extra payment better?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Both help, but earlier and repeated extra principal saves more. On the example loan, $10,000 once in month 1 saves about $53,602, while $200 every month saves about $103,449.</p></details>
+    <details class="sx-faq"><summary>What is the difference between an amortizing and an interest-only loan?<span class="msym" aria-hidden="true">expand_more</span></summary><p>An amortizing loan pays down principal with each payment and ends at a zero balance. An interest-only loan pays only interest, so the balance stays the same: $1,625 a month on $300,000 at 6.5%.</p></details>
+    <details class="sx-faq"><summary>What is a balloon payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A large lump sum due at the end of a shorter term, after smaller payments calculated on a longer schedule. With a 30-year schedule and a 5-year balloon on the example loan, about $280,833 is due after 60 payments.</p></details>
+    <details class="sx-faq"><summary>Does this calculator handle business amortization of intangible assets?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. It builds loan schedules only. Accounting amortization spreads an asset or cost over its useful or allowed life, and the tax rules are set separately. Ask a tax adviser.</p></details>
   </div>
 </section>
 
