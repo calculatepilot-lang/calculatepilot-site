@@ -164,6 +164,46 @@
     "@type": "Answer",
     "text": "Any length unit, as long as every dimension uses the same one. The area comes out in that unit squared, and the conversion table shows it in other area units."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I find the area of an L-shaped room?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Split it into two rectangles and add them, or take the bounding rectangle and subtract the missing corner. A 6 m by 4 m rectangle with a 2 m by 2 m corner missing has 20 m² either way."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I get area from perimeter?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Shapes with the same perimeter can have different areas: a 12 m perimeter gives 5, 8 or 9 m² for rectangles of 5 by 1, 4 by 2 and 3 by 3."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate the area of a rhombus or kite?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply the two diagonals and halve the result. Diagonals of 8 and 6 give 24. You can also enter the four corners under Irregular polygon."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I convert square feet to square metres?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply by 0.0929. Going the other way, multiply square metres by 10.764."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I find the area of a semicircle?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Calculate the full circle with pi times r squared and halve it. A radius of 5 gives 39.27."
+   }
   }
  ],
  "inLanguage": "en"
@@ -319,6 +359,44 @@
       <li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i> — area units and conversion factors.</li>
       <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
     </ul>
+    <h2 id="composite">Area of an L-shape or any composite shape</h2>
+    <p>Split the shape into rectangles and triangles, find each area, then add them. Or measure the bounding rectangle and subtract the missing part. Example: an L-shaped room is 6 m by 4 m with a 2 m by 2 m corner missing.</p>
+    <ul>
+      <li>Add: 6 &times; 2 + 4 &times; 2 = 12 + 8 = <b>20 m&sup2;</b>.</li>
+      <li>Subtract: 6 &times; 4 &minus; 2 &times; 2 = 24 &minus; 4 = <b>20 m&sup2;</b>.</li>
+      <li>Perimeter: with the notch in a corner it equals the bounding rectangle, 2(6 + 4) = 20 m.</li>
+    </ul>
+    <p>If you know the corner coordinates, choose Irregular polygon and enter them instead.</p>
+
+    <h2 id="other-shapes">Rhombus, kite and semicircle</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Shape</th><th scope="col">Area</th><th scope="col">Example</th></tr></thead><tbody>
+      <tr><td>Rhombus</td><td>&frac12; &times; d&#8321; &times; d&#8322;</td><td>diagonals 8 and 6: 24; side 5, perimeter 20</td></tr>
+      <tr><td>Kite</td><td>&frac12; &times; d&#8321; &times; d&#8322;</td><td>diagonals 10 and 6: 30</td></tr>
+      <tr><td>Semicircle</td><td>&frac12; &times; &pi;r&sup2;</td><td>r = 5: 39.27; arc plus base = &pi;r + 2r = 25.71</td></tr>
+    </tbody></table>
+    <p>For a rhombus or kite, use the Irregular polygon option with the four corners, for example 4, 0 / 0, 3 / -4, 0 / 0, -3 for the rhombus above. For a semicircle, calculate the circle and halve it.</p>
+
+    <h2 id="area-vs-perimeter">Same perimeter, different area</h2>
+    <p>Perimeter alone does not give area. Four shapes with a 12 m perimeter:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Shape</th><th scope="col">Dimensions</th><th scope="col">Area</th></tr></thead><tbody>
+      <tr><td>Rectangle</td><td>5 &times; 1</td><td>5 m&sup2;</td></tr>
+      <tr><td>Rectangle</td><td>4 &times; 2</td><td>8 m&sup2;</td></tr>
+      <tr><td>Square</td><td>3 &times; 3</td><td>9 m&sup2;</td></tr>
+      <tr><td>Circle</td><td>r &asymp; 1.91</td><td>11.46 m&sup2;</td></tr>
+    </tbody></table>
+    <p>For a fixed perimeter the circle encloses the most area.</p>
+
+    <h2 id="sqft-sqm">Square feet and square metres</h2>
+    <p>1 ft = 0.3048 m exactly, so 1 ft&sup2; = 0.09290304 m&sup2; and 1 m&sup2; &asymp; 10.7639 ft&sup2;. To convert ft&sup2; to m&sup2; multiply by 0.0929; to go the other way multiply by 10.764. An acre is 43,560 ft&sup2;.</p>
+
+    <h2 id="measuring-tips">Measuring tips</h2>
+    <ul>
+      <li>Measure every length in the same unit before you calculate.</li>
+      <li>For a room, measure the longest and shortest wall separately in case it is not square.</li>
+      <li>Use perpendicular height for triangles, parallelograms and trapezoids, not the slanted side.</li>
+      <li>A diameter is twice the radius; halve it before using the circle formula.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Why is the area of a circle πr² and not something with the diameter?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Area scales with the square of length, and the circle’s size is set by one length, the radius. Archimedes showed that a circle has the same area as a right triangle whose legs are the radius and the circumference: ½ × r × 2πr = πr². In terms of the diameter it is π d² ÷ 4.</p></details>
     <details class="sx-faq"><summary>How does the Shoelace formula work, and does vertex order matter?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It sums the cross products of consecutive vertex coordinates around the boundary. Vertices must be listed in order around the edge (clockwise or anticlockwise); the absolute value handles either direction. If edges cross each other, the formula no longer gives the enclosed area.</p></details>
@@ -326,6 +404,11 @@
     <details class="sx-faq"><summary>Is the ellipse perimeter exact?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The area πab is exact. The perimeter of an ellipse has no simple closed form, so this calculator uses Ramanujan’s second approximation, which is accurate to well under one part in a million for ordinary ellipses.</p></details>
     <details class="sx-faq"><summary>Why do trapezoid and parallelogram perimeters need extra sides?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Their areas depend only on the base(s) and the perpendicular height, but the slanted sides can have different lengths for the same height, so the perimeter cannot be found from those inputs alone.</p></details>
     <details class="sx-faq"><summary>Which units should I use for the inputs?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Any length unit, as long as every dimension uses the same one. The area comes out in that unit squared, and the conversion table shows it in other area units.</p></details>
+    <details class="sx-faq"><summary>How do I find the area of an L-shaped room?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Split it into two rectangles and add them, or take the bounding rectangle and subtract the missing corner. A 6 m by 4 m rectangle with a 2 m by 2 m corner missing has 20 m² either way.</p></details>
+    <details class="sx-faq"><summary>Can I get area from perimeter?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Shapes with the same perimeter can have different areas: a 12 m perimeter gives 5, 8 or 9 m² for rectangles of 5 by 1, 4 by 2 and 3 by 3.</p></details>
+    <details class="sx-faq"><summary>How do I calculate the area of a rhombus or kite?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the two diagonals and halve the result. Diagonals of 8 and 6 give 24. You can also enter the four corners under Irregular polygon.</p></details>
+    <details class="sx-faq"><summary>How do I convert square feet to square metres?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply by 0.0929. Going the other way, multiply square metres by 10.764.</p></details>
+    <details class="sx-faq"><summary>How do I find the area of a semicircle?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Calculate the full circle with pi times r squared and halve it. A radius of 5 gives 39.27.</p></details>
   </div>
 </section>
 
