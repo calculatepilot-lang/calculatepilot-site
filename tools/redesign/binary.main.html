@@ -96,12 +96,54 @@
       <li>IEEE Std 754-2019, background on binary representations of numbers.</li>
       <li>ISO 80000-2:2019, clause 13 (binary number notation).</li>
     </ul>
+    <h2 id="worked-examples">Worked examples at 8-bit width</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Operation</th><th scope="col">Decimal</th><th scope="col">Result (binary)</th><th scope="col">Overflow?</th></tr></thead><tbody>
+      <tr><td>1011 + 0110</td><td>11 + 6 = 17</td><td>00010001</td><td>No</td></tr>
+      <tr><td>11111111 + 00000001</td><td>255 + 1 = 256</td><td>00000000</td><td>Yes, 256 needs 9 bits</td></tr>
+      <tr><td>1010 &minus; 0011</td><td>10 &minus; 3 = 7</td><td>00000111</td><td>No</td></tr>
+      <tr><td>0011 &minus; 0101</td><td>3 &minus; 5 = &minus;2</td><td>11111110</td><td>Yes, wraps to 254 unsigned</td></tr>
+      <tr><td>1011 &times; 1101</td><td>11 &times; 13 = 143</td><td>10001111</td><td>No</td></tr>
+      <tr><td>11111111 &times; 00000010</td><td>255 &times; 2 = 510</td><td>11111110</td><td>Yes, truncated to 254</td></tr>
+      <tr><td>1101 &divide; 0100</td><td>13 &divide; 4 = 3 remainder 1</td><td>00000011</td><td>No</td></tr>
+    </tbody></table>
+    <p>Division returns the whole-number quotient and reports the remainder separately. A subtraction with a negative answer wraps around in unsigned form, so read it as two's complement to see the negative value.</p>
+
+    <h2 id="conversion-chart">Binary, decimal and hex for 0 to 15</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Decimal</th><th scope="col">Binary</th><th scope="col">Hex</th><th scope="col">Decimal</th><th scope="col">Binary</th><th scope="col">Hex</th></tr></thead><tbody>
+      <tr><td>0</td><td>0000</td><td>0</td><td>8</td><td>1000</td><td>8</td></tr>
+      <tr><td>1</td><td>0001</td><td>1</td><td>9</td><td>1001</td><td>9</td></tr>
+      <tr><td>2</td><td>0010</td><td>2</td><td>10</td><td>1010</td><td>A</td></tr>
+      <tr><td>3</td><td>0011</td><td>3</td><td>11</td><td>1011</td><td>B</td></tr>
+      <tr><td>4</td><td>0100</td><td>4</td><td>12</td><td>1100</td><td>C</td></tr>
+      <tr><td>5</td><td>0101</td><td>5</td><td>13</td><td>1101</td><td>D</td></tr>
+      <tr><td>6</td><td>0110</td><td>6</td><td>14</td><td>1110</td><td>E</td></tr>
+      <tr><td>7</td><td>0111</td><td>7</td><td>15</td><td>1111</td><td>F</td></tr>
+    </tbody></table>
+    <p>To convert by hand, add the place values of the 1 bits: 101101 = 32 + 8 + 4 + 1 = 45. To go back, divide by 2 repeatedly and read the remainders from the bottom up: 45 gives 1, 0, 1, 1, 0, 1 and so 101101.</p>
+
+    <h2 id="ranges">What each word size can hold</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Word size</th><th scope="col">Unsigned range</th><th scope="col">Signed (two's complement) range</th></tr></thead><tbody>
+      <tr><td>8-bit</td><td>0 to 255</td><td>&minus;128 to 127</td></tr>
+      <tr><td>16-bit</td><td>0 to 65,535</td><td>&minus;32,768 to 32,767</td></tr>
+      <tr><td>32-bit</td><td>0 to 4,294,967,295</td><td>&minus;2,147,483,648 to 2,147,483,647</td></tr>
+      <tr><td>64-bit</td><td>0 to 18,446,744,073,709,551,615</td><td>&minus;9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td></tr>
+    </tbody></table>
+    <p>Handy 8-bit patterns: 01111111 is 127, 10000000 is &minus;128, 11111111 is &minus;1 and 11111011 is &minus;5.</p>
+
+    <h2 id="subtract-twos">Subtracting by adding the two's complement</h2>
+    <p>Hardware turns A &minus; B into A + (&minus;B). For 7 &minus; 5 at 8 bits: &minus;5 is 11111011, and 00000111 + 11111011 = 1 00000010. Drop the carry out of bit 8 and you get 00000010, which is 2.</p>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Why does register width matter?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It sets how many bits are available to store the result. An 8-bit register can hold unsigned values 0–255; anything larger overflows and the extra high bits are discarded, just as in real hardware.</p></details>
     <details class="sx-faq"><summary>How do I read a negative number in two's complement?<span class="msym" aria-hidden="true">expand_more</span></summary><p>If the leading bit is 1, the value is negative: flip every bit, add 1, and that gives the binary magnitude — then negate. E.g. in 8 bits, 11111011 flips to 00000100, +1 = 00000101 = 5, so 11111011 represents −5.</p></details>
     <details class="sx-faq"><summary>What's the difference between LSR and ASR?<span class="msym" aria-hidden="true">expand_more</span></summary><p>LSR (logical shift right) always fills the vacated high bit with 0, treating the value as unsigned. ASR (arithmetic shift right) fills it by copying the sign bit, so a negative two's-complement number stays negative — equivalent to floor division by a power of two.</p></details>
     <details class="sx-faq"><summary>Why does 1111 + 0001 overflow in a 4-bit register?<span class="msym" aria-hidden="true">expand_more</span></summary><p>1111 (15) + 1 = 16 = 10000 in binary, which needs 5 bits. A 4-bit register can't hold it, so the leading 1 is dropped, leaving 0000 and an overflow/carry flag — the same "wraps to zero" behavior real 4-bit hardware shows.</p></details>
     <details class="sx-faq"><summary>Can I enter more bits than the register width?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You can, but the value is masked (truncated) to the chosen width before the operation runs, matching what happens when a value doesn't fit in a real register.</p></details>
+    <details class="sx-faq"><summary>How do I add binary numbers?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Add column by column from the right: 0+0=0, 0+1=1, 1+1=10 (write 0, carry 1) and 1+1+1=11 (write 1, carry 1). For example 1011 + 0110 = 10001, which is 11 + 6 = 17.</p></details>
+    <details class="sx-faq"><summary>How do I convert binary to decimal and back?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Add the place values of the 1 bits: 101101 = 32 + 8 + 4 + 1 = 45. To convert decimal to binary, divide by 2 repeatedly and read the remainders from the bottom up: 45 becomes 101101.</p></details>
+    <details class="sx-faq"><summary>What range does each register width hold?<span class="msym" aria-hidden="true">expand_more</span></summary><p>8-bit holds 0 to 255 unsigned or -128 to 127 signed, 16-bit holds 0 to 65,535 or -32,768 to 32,767, 32-bit holds 0 to 4,294,967,295 or -2,147,483,648 to 2,147,483,647, and 64-bit holds 0 to 18,446,744,073,709,551,615.</p></details>
+    <details class="sx-faq"><summary>Why does 3 - 5 show an overflow?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The result is negative, and an unsigned register cannot hold a negative number. At 8 bits it wraps to 11111110, which is 254 unsigned or -2 read as two's complement.</p></details>
+    <details class="sx-faq"><summary>How does binary division handle remainders?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The calculator returns the whole-number quotient, truncated toward zero, and shows the remainder separately. For example 1101 divided by 0100 is 13 divided by 4, so the quotient is 0011 (3) with remainder 1.</p></details>
   </div>
 </section>
 
