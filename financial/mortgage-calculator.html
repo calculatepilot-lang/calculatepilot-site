@@ -186,6 +186,46 @@
     "@type": "Answer",
     "text": "It resets to the then-current rate. In our example, 5.75% rising to 7.75% on a $320,000 loan lifts the payment from $1,867.43 to about $2,242.11."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "Is it better to make a one-time extra payment or extra monthly payments?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Earlier and more frequent extra principal saves more. On a $320,000, 6.5% loan, $10,000 once in month 1 saves about $53,943 in interest, while $200 every month saves about $105,429."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does a yearly extra mortgage payment save?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On a $320,000 loan at 6.5%, $2,000 extra each year pays the loan off in about 24.4 years and saves about $88,832 in interest."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does my mortgage payment go up when my rate is fixed?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Principal and interest stay the same, but property tax and homeowners insurance usually rise. If tax grows 3% and insurance 5% a year, $466.67 a month in year 1 becomes about $637.66 in year 10."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I deduct mortgage interest?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only if you itemize deductions. IRS Publication 936 (2025) caps the debt at $750,000 ($375,000 if married filing separately) for loans taken after 15 December 2017."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What costs does a mortgage calculator not include?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Closing costs, maintenance and repairs (a common rule of thumb is about 1% of home value a year), utilities, moving and furnishing. Ask your lender for a Loan Estimate for closing costs."
+   }
   }
  ],
  "inLanguage": "en"
@@ -343,7 +383,7 @@
   <div class="sx-guide">
     <h2>How this calculator works</h2>
     <p>This calculator uses the standard fixed-rate amortization formula for principal and interest, then adds property tax, home insurance, HOA dues and PMI so you see the full housing cost — not only the loan payment. The loan amount is the home price minus your down payment. PMI is estimated at your chosen rate (0.50% of the loan per year by default) only when you put down less than 20%, and it drops off automatically once the balance reaches 78% of the original home value. Extra principal payments are applied every month and shorten the loan.</p>
-    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 24 Sep 2026; examples re-run 17 Oct 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 24 Sep 2026; examples re-run 17 Oct 2026 (extra-payment and escrow examples added) · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>What goes into a monthly mortgage payment</h2>
     <p>Most lenders quote PITI: principal, interest, taxes, and insurance.</p>
@@ -392,6 +432,50 @@
     <h2 id="arm-stress">Stress-testing a 5/1 ARM</h2>
     <p>Suppose a 5/1 ARM on the same $320,000 starts at 5.75%, then resets to 7.75% after year 5 (the calculator models one reset). Payment in the first five years: $1,867.43. The balance after 60 payments is about $296,839, and the payment then rises to about $2,242.11, which is $374.68 more. Compared with a 6.5% fixed loan ($2,022.62), the ARM is cheaper for five years but would cost more afterwards in this scenario. Test your own reset rate in the ARM option.</p>
 
+    <h2 id="default-example">Worked example with the calculator's default inputs</h2>
+    <p>A $450,000 home with 20% down ($90,000), a $360,000 30-year loan at 6.75%, property tax of $4,200 a year and insurance of $1,400 a year:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Item</th><th scope="col">Monthly</th></tr></thead><tbody>
+      <tr><td>Principal and interest</td><td>$2,334.95</td></tr>
+      <tr><td>Property tax</td><td>$350.00</td></tr>
+      <tr><td>Homeowners insurance</td><td>$116.67</td></tr>
+      <tr><td><strong>Total (PITI)</strong></td><td><strong>$2,801.62</strong></td></tr>
+    </tbody></table>
+    <p>Total interest over 30 years is about $480,583. No PMI applies at 20% down.</p>
+
+    <h2 id="extra-types">One-time, yearly and monthly extra payments compared</h2>
+    <p>Extra principal on a $320,000, 30-year loan at 6.5% (base: 360 payments, $408,142 interest):</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Extra payment</th><th scope="col">Payoff time</th><th scope="col">Interest saved</th></tr></thead><tbody>
+      <tr><td>$10,000 once, in month 1</td><td>329 months (27.4 yrs)</td><td>$53,943</td></tr>
+      <tr><td>$10,000 once, in month 60</td><td>337 months (28.1 yrs)</td><td>$37,546</td></tr>
+      <tr><td>$2,000 every year</td><td>293 months (24.4 yrs)</td><td>$88,832</td></tr>
+      <tr><td>$200 every month</td><td>281 months (23.4 yrs)</td><td>$105,429</td></tr>
+    </tbody></table>
+    <p>The earlier the extra goes in, the more it saves. The Extra Principal Payment box takes a monthly amount, so for a yearly amount enter one-twelfth of it (about $167 for $2,000 a year, which saves about $92,296). It does not model a single lump sum.</p>
+
+    <h2 id="escrow-growth">Why a fixed-rate payment can still rise</h2>
+    <p>Principal and interest stay fixed, but taxes and insurance usually do not. Starting from $4,200 of tax and $1,400 of insurance, and assuming tax grows 3% a year and insurance 5% a year (assumptions, not forecasts):</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Year</th><th scope="col">Tax + insurance per month</th></tr></thead><tbody>
+      <tr><td>1</td><td>$466.67</td></tr>
+      <tr><td>5</td><td>$535.74</td></tr>
+      <tr><td>10</td><td>$637.66</td></tr>
+      <tr><td>20</td><td>$908.54</td></tr>
+    </tbody></table>
+    <p>The calculator holds these constant, so treat your result as the first-year payment.</p>
+
+    <h2 id="not-included">Costs the calculator leaves out</h2>
+    <ul>
+      <li><strong>Closing costs:</strong> paid once at purchase. Your lender's Loan Estimate lists them.</li>
+      <li><strong>Maintenance and repairs:</strong> a common rule of thumb is to budget about 1% of the home's value a year.</li>
+      <li><strong>Utilities, moving and furnishing.</strong></li>
+    </ul>
+
+    <h2 id="before-prepaying">Before you pay the mortgage off early</h2>
+    <ul>
+      <li><strong>Prepayment penalty:</strong> check your loan documents; some loans charge one for early payoff.</li>
+      <li><strong>Opportunity cost and liquidity:</strong> money in the house is harder to reach in an emergency, and it may earn more elsewhere. See <a href="/guides/mortgage-extra-payments-vs-investing.html">extra payments vs investing</a>.</li>
+      <li><strong>Tax deduction:</strong> mortgage interest is deductible only if you itemize, and under IRS Publication 936 (2025 edition) the limit for debt taken on after 15 December 2017 is $750,000 ($375,000 if married filing separately). Check the rules for the year you file.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>How is a monthly mortgage payment calculated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Fixed-rate amortization for principal and interest, then monthly tax and insurance. Estimate only — not a lender quote.</p></details>
     <details class="sx-faq"><summary>Does this include PMI, HOA fees, or closing costs?<span class="msym" aria-hidden="true">expand_more</span></summary><p>HOA is optional. Estimated PMI appears below 20% down. Closing costs are not included.</p></details>
@@ -406,6 +490,11 @@
     <details class="sx-faq"><summary>How much PMI will I pay with 5% down?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $400,000 home at 6.5% with PMI at 0.5% a year, about $158 a month, ending after about 135 months when the scheduled balance reaches 78% of the original value, for roughly $21,375 in total.</p></details>
     <details class="sx-faq"><summary>Do biweekly mortgage payments really save money?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes, because 26 half-payments equal 13 full payments a year. On a $320,000 loan at 6.5% this pays off in about 24.2 years and saves about $93,996 in interest.</p></details>
     <details class="sx-faq"><summary>What happens to a 5/1 ARM payment after five years?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It resets to the then-current rate. In our example, 5.75% rising to 7.75% on a $320,000 loan lifts the payment from $1,867.43 to about $2,242.11.</p></details>
+    <details class="sx-faq"><summary>Is it better to make a one-time extra payment or extra monthly payments?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Earlier and more frequent extra principal saves more. On a $320,000, 6.5% loan, $10,000 once in month 1 saves about $53,943 in interest, while $200 every month saves about $105,429.</p></details>
+    <details class="sx-faq"><summary>How much does a yearly extra mortgage payment save?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $320,000 loan at 6.5%, $2,000 extra each year pays the loan off in about 24.4 years and saves about $88,832 in interest.</p></details>
+    <details class="sx-faq"><summary>Why does my mortgage payment go up when my rate is fixed?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Principal and interest stay the same, but property tax and homeowners insurance usually rise. If tax grows 3% and insurance 5% a year, $466.67 a month in year 1 becomes about $637.66 in year 10.</p></details>
+    <details class="sx-faq"><summary>Can I deduct mortgage interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Only if you itemize deductions. IRS Publication 936 (2025) caps the debt at $750,000 ($375,000 if married filing separately) for loans taken after 15 December 2017.</p></details>
+    <details class="sx-faq"><summary>What costs does a mortgage calculator not include?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Closing costs, maintenance and repairs (a common rule of thumb is about 1% of home value a year), utilities, moving and furnishing. Ask your lender for a Loan Estimate for closing costs.</p></details>
 
     <h2>Next calculation, in order</h2>
     <p><a href="/financial/house-affordability-calculator.html">1. Affordability</a> · <a href="/financial/down-payment-calculator.html">2. Down payment</a> · <a href="/financial/amortization-calculator.html">3. Amortization</a> · <a href="/financial/refinance-calculator.html">4. Refinance</a> · <a href="/financial/uk-mortgage-repayment-calculator.html">UK repayment</a> · <a href="/guides/mortgage-extra-payments-vs-investing.html">Extra payments vs investing</a></p>
