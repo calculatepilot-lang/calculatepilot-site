@@ -96,9 +96,74 @@
     <p><strong>Price = C × [1 − (1 + y)^−n] ÷ y + F ÷ (1 + y)^n</strong> — C = coupon per period · y = market yield per period · n = number of periods · F = face value</p>
     <p>Real-world bond prices can differ slightly from this theoretical fair value due to factors like credit risk (perceived risk of default), liquidity, and specific market supply and demand — this calculator provides the baseline valuation these real-world factors adjust from.</p>
 
+    <h2 id="worked-price">Worked example: pricing a 10-year 5% bond at a 6% yield</h2>
+    <p>Take a $1,000 bond with a 5% coupon, 10 years to maturity and semi-annual payments, when the market yield is 6%. That gives 20 periods, a $25 coupon each period and a 3% yield per period.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Step</th><th scope="col">Calculation</th><th scope="col">Result</th></tr></thead><tbody>
+      <tr><td>PV of the 20 coupons</td><td>$25 &times; [1 &minus; 1.03<sup>&minus;20</sup>] &divide; 0.03</td><td>$371.94</td></tr>
+      <tr><td>PV of the $1,000 face value</td><td>$1,000 &divide; 1.03<sup>20</sup></td><td>$553.68</td></tr>
+      <tr><td>Bond price</td><td>$371.94 + $553.68</td><td><strong>$925.61</strong> (92.56% of par)</td></tr>
+      <tr><td>Current yield</td><td>$50 &divide; $925.61</td><td>5.40%</td></tr>
+      <tr><td>Macaulay / modified duration</td><td>weighted average time to cash flows</td><td>7.89 / 7.67 years</td></tr>
+    </tbody></table>
+    <p>The price is below $1,000 because the 6% market yield is higher than the 5% coupon, so the bond trades at a discount.</p>
+
+    <h2 id="price-yield-table">Price at different yields (5% coupon, 10 years, semi-annual)</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Market yield</th><th scope="col">Price per $1,000</th><th scope="col">Trades at</th><th scope="col">Current yield</th></tr></thead><tbody>
+      <tr><td>3%</td><td>$1,171.69</td><td>Premium</td><td>4.27%</td></tr>
+      <tr><td>4%</td><td>$1,081.76</td><td>Premium</td><td>4.62%</td></tr>
+      <tr><td>5%</td><td>$1,000.00</td><td>Par</td><td>5.00%</td></tr>
+      <tr><td>6%</td><td>$925.61</td><td>Discount</td><td>5.40%</td></tr>
+      <tr><td>7%</td><td>$857.88</td><td>Discount</td><td>5.83%</td></tr>
+    </tbody></table>
+    <p>Each full percentage point of yield moves this bond&rsquo;s price by roughly 7&ndash;8%. The move is not symmetrical: a 1-point fall from 6% to 5% adds $74.39, while a 1-point rise to 7% takes away $67.73. That asymmetry is convexity.</p>
+
+    <h2 id="pull-to-par">How the price pulls toward par as maturity approaches</h2>
+    <p>For the same 5% bond priced at a constant 6% yield, the discount shrinks as time passes:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Time to maturity</th><th scope="col">Price per $1,000</th></tr></thead><tbody>
+      <tr><td>10 years</td><td>$925.61</td></tr>
+      <tr><td>5 years</td><td>$957.35</td></tr>
+      <tr><td>2 years</td><td>$981.41</td></tr>
+      <tr><td>1 year</td><td>$990.43</td></tr>
+      <tr><td>6 months</td><td>$995.15</td></tr>
+    </tbody></table>
+    <p>At maturity the holder receives exactly the face value, so any premium or discount fades to zero.</p>
+
+    <h2 id="zero-coupon">Pricing a zero-coupon bond</h2>
+    <p>A zero-coupon bond pays nothing until maturity, so its price is just the discounted face value: Price = F &divide; (1 + y/m)<sup>n</sup>. A $1,000 zero maturing in 10 years at a 4% yield with semi-annual compounding costs $1,000 &divide; 1.02<sup>20</sup> = <strong>$672.97</strong>. Annual compounding gives $675.56. Set the coupon rate to 0% in the calculator to see this.</p>
+
+    <h2 id="coupon-frequency">Does coupon frequency change the price?</h2>
+    <p>Slightly. For a 6% coupon, 10-year bond priced at a 5% yield, more frequent payments mean cash arrives sooner:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Coupon frequency</th><th scope="col">Price per $1,000</th></tr></thead><tbody>
+      <tr><td>Annual</td><td>$1,077.22</td></tr>
+      <tr><td>Semi-annual</td><td>$1,077.95</td></tr>
+      <tr><td>Quarterly</td><td>$1,078.32</td></tr>
+    </tbody></table>
+
+    <h2 id="duration-by-maturity">Duration by maturity</h2>
+    <p>Duration grows with maturity and falls with higher coupons. For bonds with a 4.5% coupon priced at par with a 4.5% yield and semi-annual payments:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Bond</th><th scope="col">Macaulay duration</th><th scope="col">Modified duration</th></tr></thead><tbody>
+      <tr><td>2-year</td><td>1.93</td><td>1.89</td></tr>
+      <tr><td>5-year</td><td>4.53</td><td>4.43</td></tr>
+      <tr><td>10-year</td><td>8.16</td><td>7.98</td></tr>
+      <tr><td>30-year</td><td>16.74</td><td>16.37</td></tr>
+      <tr><td>10-year zero-coupon (4.5% yield)</td><td>10.00</td><td>9.78</td></tr>
+    </tbody></table>
+    <p>Using modified duration, the estimated price change is about &minus;modified duration &times; yield change. For the 5% bond at 6%, a 1-point rise is estimated at &minus;7.67%, and the actual move is &minus;7.32% (to $857.88) because convexity softens the fall.</p>
+
+    <h2 id="clean-dirty">Clean price, accrued interest and dirty price</h2>
+    <p>This calculator shows the clean price on a coupon date. Between coupon dates, a buyer also pays the seller accrued interest, and the total is the dirty (invoice) price. Accrued interest = coupon &times; days since the last coupon &divide; days in the coupon period. For a $25 semi-annual coupon, 60 days into a 182-day period: $25 &times; 60 &divide; 182 = <strong>$8.24</strong>. Quoted prices are normally clean prices.</p>
+
+    <h2 id="tax-equivalent">Tax-equivalent yield for municipal bonds</h2>
+    <p>Municipal interest is federally tax-exempt, so compare it with taxable bonds using: tax-equivalent yield = tax-free yield &divide; (1 &minus; tax rate). A 3.5% municipal yield equals <strong>4.61%</strong> taxable for someone in the 24% bracket and <strong>5.38%</strong> in the 35% bracket.</p>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Why would a bond trade below its face value?<span class="msym" aria-hidden="true">expand_more</span></summary><p>When current market interest rates are higher than the bond's fixed coupon rate, the bond becomes less attractive compared to newer bonds, so its price falls below face value to compensate buyers with a better effective return.</p></details>
     <details class="sx-faq"><summary>What happens to a bond's price at maturity?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A bond's price converges to its face value as it approaches maturity, since at maturity the holder receives exactly the face value back — any premium or discount gradually shrinks to zero over the bond's remaining life.</p></details>
+    <details class="sx-faq"><summary>How do I calculate the price of a bond?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Discount every future cash flow at the market yield per period and add them up: price = coupon × [1 − (1 + y)^−n] ÷ y + face value ÷ (1 + y)^n. For a $1,000, 5% bond with 10 years left and a 6% yield (semi-annual), that is $925.61.</p></details>
+    <details class="sx-faq"><summary>What is the difference between clean price and dirty price?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The clean price excludes accrued interest and is the price usually quoted. The dirty price is the clean price plus the interest accrued since the last coupon date, and it is what the buyer actually pays.</p></details>
+    <details class="sx-faq"><summary>How do I price a zero-coupon bond?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Discount the face value only: price = face value ÷ (1 + y/m)^n. A $1,000 zero maturing in 10 years at a 4% yield with semi-annual compounding is about $672.97.</p></details>
+    <details class="sx-faq"><summary>What does modified duration tell me?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It estimates the percentage price change for a one-percentage-point change in yield. A modified duration of 7.67 means the price falls roughly 7.67% if yields rise 1 point, ignoring convexity.</p></details>
+    <details class="sx-faq"><summary>What is a tax-equivalent yield?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is the taxable yield that would leave you with the same after-tax return as a tax-exempt bond: tax-free yield ÷ (1 − tax rate). A 3.5% municipal yield equals about 4.61% taxable at a 24% bracket.</p></details>
   </div>
 </section>
 
