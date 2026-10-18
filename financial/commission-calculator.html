@@ -89,8 +89,7 @@
  ]
 }
 </script>
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
@@ -112,7 +111,6 @@
   },
   {
    "@type": "Question",
-    <details class="sx-faq"><summary>Is commission calculated before or after tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Before tax. The figures here are gross commission and take-home after split and fees, before income tax or self-employment tax.</p></details>
    "name": "How do I calculate commission on a sale?",
    "acceptedAnswer": {
     "@type": "Answer",
@@ -126,11 +124,74 @@
     "@type": "Answer",
     "text": "Before tax. The figures here are gross commission and take-home after split and fees, before income tax or self-employment tax."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate real estate commission?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply the sale price by the commission rate, then apply your split. A $400,000 sale at 3% is $12,000 gross, or $8,400 for you on a 70/30 split."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate commission with a quota?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pay the base rate on sales up to the quota and the higher rate above it. With a $100,000 quota, 5% to quota and 8% above, a $150,000 month pays $9,000."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is base plus commission?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A fixed salary plus a percentage of sales. A $50,000 base plus 4% on $600,000 of sales is $74,000."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does eBay take from a sale?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "For most US categories the eBay selling fees page lists 13.6% of the total sale up to $7,500 and 2.35% above, plus $0.30 per order of $10 or less or $0.40 above. On a $100 sale that is $14.00. Check eBay for current rates and your category."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does PayPal charge to receive a payment?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "PayPal's US business fees page lists 3.49% plus $0.49 per checkout transaction, which is $3.98 on a $100 sale. Rates vary by payment type."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much should I charge to cover PayPal fees?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Divide the amount you want to receive plus $0.49 by 0.9651. To receive $100 charge about $104.12."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is commission taxed differently from regular pay?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is taxable income, but withholding can use a flat supplemental rate or the aggregate method, so it may look different on a paycheck. Check IRS Publication 15 or ask payroll."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a typical commission split?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It varies widely by brokerage and experience. A 70/30 split is a common example, and splits often improve as you sell more."
+   }
   }
  ],
  "inLanguage": "en"
-}
-</script>
+}</script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
 <link rel="stylesheet" href="/css/footer.css?v=20261011a">
 <link rel="stylesheet" href="/css/mobile-fix.css?v=20261012a">
@@ -272,10 +333,74 @@
 <p class="sx-trust">Results are estimates for planning. Confirm sales definitions, triggers, clawbacks, and tax treatment with your employer, brokerage, or tax advisor. Not professional financial or tax advice.</p>
 
 
-    <h2>Frequently asked questions</h2>
+    <h2 id="cm-re-table">Real estate commission by sale price and rate</h2>
+    <p>Gross commission at example total rates. Real estate rates are negotiable, and the rate is not set by law.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Sale price</th><th scope="col">2.5%</th><th scope="col">3%</th><th scope="col">5%</th><th scope="col">6%</th></tr></thead><tbody>
+<tr><td>$300,000</td><td>$7,500</td><td>$9,000</td><td>$15,000</td><td>$18,000</td></tr>
+<tr><td>$400,000</td><td>$10,000</td><td>$12,000</td><td>$20,000</td><td>$24,000</td></tr>
+<tr><td>$500,000</td><td>$12,500</td><td>$15,000</td><td>$25,000</td><td>$30,000</td></tr>
+<tr><td>$750,000</td><td>$18,750</td><td>$22,500</td><td>$37,500</td><td>$45,000</td></tr>
+</tbody></table>
+    <p>At a 3% rate a $400,000 sale produces $12,000, which is $8,400 to you on a 70/30 split and $9,600 on an 80/20 split.</p>
+
+    <h2 id="cm-split-table">Brokerage splits on $12,000 of gross commission</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Split (you / brokerage)</th><th scope="col">You keep</th><th scope="col">Brokerage keeps</th><th scope="col">You keep after a $500 per-deal fee</th></tr></thead><tbody>
+<tr><td>50/50</td><td>$6,000</td><td>$6,000</td><td>$5,500</td></tr>
+<tr><td>60/40</td><td>$7,200</td><td>$4,800</td><td>$6,700</td></tr>
+<tr><td>70/30</td><td>$8,400</td><td>$3,600</td><td>$7,900</td></tr>
+<tr><td>80/20</td><td>$9,600</td><td>$2,400</td><td>$9,100</td></tr>
+<tr><td>90/10</td><td>$10,800</td><td>$1,200</td><td>$10,300</td></tr>
+</tbody></table>
+
+    <h2 id="cm-quota">Quota and over-quota commission</h2>
+    <p>Many sales plans pay a base rate up to a quota and a higher rate above it. With a $100,000 quota, 5% up to the quota and 8% above, a $150,000 sales month pays 5% × 100,000 + 8% × 50,000 = $9,000. Use the tiered setting for this kind of plan, with the first band ending at the quota.</p>
+
+    <h2 id="cm-base">Base salary plus commission</h2>
+    <p>A $50,000 base plus 4% on $600,000 of sales is $50,000 + $24,000 = $74,000 of annual pay. On-target earnings (OTE) means base pay plus the variable pay you earn when you hit quota.</p>
+
+    <h2 id="cm-ebay">eBay and PayPal fees as a commission</h2>
+    <p>Marketplace and payment fees work like a commission taken from each sale. For most US eBay categories, the eBay selling fees page lists a final value fee of 13.6% of the total sale up to $7,500 and 2.35% above that, plus $0.30 per order of $10 or less and $0.40 above. PayPal's US business fees page lists 3.49% plus $0.49 per checkout transaction (page dated October 1, 2026). Rates vary by category, account and payment type, so check the current rates before you price.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Sale</th><th scope="col">eBay fees</th><th scope="col">As % of sale</th><th scope="col">You keep</th></tr></thead><tbody>
+<tr><td>$8.00</td><td>$1.39</td><td>17.4%</td><td>$6.61</td></tr>
+<tr><td>$50.00</td><td>$7.20</td><td>14.4%</td><td>$42.80</td></tr>
+<tr><td>$100.00</td><td>$14.00</td><td>14.0%</td><td>$86.00</td></tr>
+<tr><td>$500.00</td><td>$68.40</td><td>13.7%</td><td>$431.60</td></tr>
+<tr><td>$10,000.00</td><td>$1,079.15</td><td>10.8%</td><td>$8,920.85</td></tr>
+</tbody></table>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Sale</th><th scope="col">PayPal fees</th><th scope="col">As % of sale</th><th scope="col">You keep</th></tr></thead><tbody>
+<tr><td>$10.00</td><td>$0.84</td><td>8.4%</td><td>$9.16</td></tr>
+<tr><td>$50.00</td><td>$2.24</td><td>4.5%</td><td>$47.77</td></tr>
+<tr><td>$100.00</td><td>$3.98</td><td>4.0%</td><td>$96.02</td></tr>
+<tr><td>$500.00</td><td>$17.94</td><td>3.6%</td><td>$482.06</td></tr>
+<tr><td>$1,000.00</td><td>$35.39</td><td>3.5%</td><td>$964.61</td></tr>
+</tbody></table>
+    <p>To receive exactly $100 through PayPal checkout at these rates you would need to charge about $104.12, found by (100 + 0.49) ÷ (1 − 0.0349).</p>
+
+    <h2 id="cm-tax">Is commission taxed differently?</h2>
+    <p>Commission is taxable income. Employers may withhold on it using the flat supplemental rate or the aggregate method, so a paycheck with commission can show a different withholding rate from a regular one. Check IRS Publication 15 or ask your payroll provider, and remember that independent agents usually pay their own self-employment tax.</p>
+
+    <h2 id="cm-guides">Commission guides</h2>
+    <ul>
+      <li><a href="/guides/real-estate-commission-calculator-splits-and-take-home-pay.html">Real estate commission: splits and take-home pay</a></li>
+      <li><a href="/guides/ebay-fees-calculator-final-value-fee-examples.html">eBay fees: final value fee examples</a></li>
+      <li><a href="/guides/paypal-fee-calculator-what-you-pay-and-what-to-charge.html">PayPal fees: what you pay and what to charge</a></li>
+      <li><a href="/guides/sales-commission-structures-flat-tiered-quota-and-base-plus-commission.html">Sales commission structures explained</a></li>
+    </ul>
+
+    
+<h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Is a 70/30 commission split typical?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Split arrangements vary widely by brokerage, industry and experience — 70/30 is a commonly cited example, but actual splits range broadly and are often negotiable, especially as your production increases.</p></details>
     <details class="sx-faq"><summary>Does this calculator handle tiered commission structures?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Choose "Tiered" and set up to three bands. Each rate applies only to the portion of the sale inside its band, the way marginal tax brackets work.</p></details>
     <details class="sx-faq"><summary>How do I calculate commission on a sale?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the sale amount by the commission rate — for example, $50,000 × 5% = $2,500. Then multiply by your split percentage and subtract any per-deal fees to get your take-home.</p></details>
+    <details class="sx-faq"><summary>Is commission calculated before or after tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Before tax. The figures here are gross commission and take-home after split and fees, before income tax or self-employment tax.</p></details>
+    <details class="sx-faq"><summary>How do I calculate real estate commission?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the sale price by the commission rate, then apply your split. A $400,000 sale at 3% is $12,000 gross, or $8,400 for you on a 70/30 split.</p></details>
+    <details class="sx-faq"><summary>How do I calculate commission with a quota?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Pay the base rate on sales up to the quota and the higher rate above it. With a $100,000 quota, 5% to quota and 8% above, a $150,000 month pays $9,000.</p></details>
+    <details class="sx-faq"><summary>What is base plus commission?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A fixed salary plus a percentage of sales. A $50,000 base plus 4% on $600,000 of sales is $74,000.</p></details>
+    <details class="sx-faq"><summary>How much does eBay take from a sale?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For most US categories the eBay selling fees page lists 13.6% of the total sale up to $7,500 and 2.35% above, plus $0.30 per order of $10 or less or $0.40 above. On a $100 sale that is $14.00. Check eBay for current rates and your category.</p></details>
+    <details class="sx-faq"><summary>How much does PayPal charge to receive a payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>PayPal's US business fees page lists 3.49% plus $0.49 per checkout transaction, which is $3.98 on a $100 sale. Rates vary by payment type.</p></details>
+    <details class="sx-faq"><summary>How much should I charge to cover PayPal fees?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the amount you want to receive plus $0.49 by 0.9651. To receive $100 charge about $104.12.</p></details>
+    <details class="sx-faq"><summary>Is commission taxed differently from regular pay?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is taxable income, but withholding can use a flat supplemental rate or the aggregate method, so it may look different on a paycheck. Check IRS Publication 15 or ask payroll.</p></details>
+    <details class="sx-faq"><summary>What is a typical commission split?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It varies widely by brokerage and experience. A 70/30 split is a common example, and splits often improve as you sell more.</p></details>
   </div>
 </section>
 
