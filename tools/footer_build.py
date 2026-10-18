@@ -16,6 +16,11 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSS_VER = "20261011a"
 MOBILE_VER = "20261012a"  # css/mobile-fix.css (phone-only layout fixes, linked from every page)
+# Metricool web tracker, stamped right after the footer on every page (idempotent; embed/ widgets are skipped below).
+METRICOOL_TAG = ('<script data-metricool>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");'
+                 'c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}'
+                 'loadScript(function(){beTracker.t({hash:"483f376f39f09da6213e7f59c6c79a56"})});</script>')
+METRICOOL_RE = re.compile(r'<script data-metricool>.*?</script>', re.S)
 SKIP_PREFIX = ("backups/", "tools/", "embed/")
 SKIP_FILES = {"pinterest-2e526.html"}
 
@@ -176,7 +181,8 @@ def pages():
 
 def process(page, write):
     path = os.path.join(ROOT, page)
-    s = open(path, encoding="utf-8", errors="surrogateescape", newline="").read()
+    orig = open(path, encoding="utf-8", errors="surrogateescape", newline="").read()
+    s = METRICOOL_RE.sub("", orig)
     m = FOOTER_RE.search(s)
     if not m:
         return "nofooter"
@@ -184,7 +190,7 @@ def process(page, write):
     # keep the per-calculator embed link (nav.js reads it to show "Embed this calculator")
     e = re.search(r'href="(/embed/[^"/]+\.html)"', old)
     new = footer_html(page, e.group(1) if e else None)
-    s2 = s[:m.start()] + new + s[m.end():]
+    s2 = s[:m.start()] + new + METRICOOL_TAG + s[m.end():]
     for css, ver in (("footer.css", CSS_VER), ("mobile-fix.css", MOBILE_VER)):
         link = '<link rel="stylesheet" href="/css/%s?v=%s">' % (css, ver)
         if "css/" + css in s2:
@@ -193,7 +199,7 @@ def process(page, write):
             s2 = s2.replace("</head>", link + "\n</head>", 1)
         else:
             return "nohead"
-    if s2 == s:
+    if s2 == orig:
         return "same"
     if write:
         open(path, "w", encoding="utf-8", errors="surrogateescape", newline="").write(s2)
