@@ -162,6 +162,70 @@
     "@type": "Answer",
     "text": "An annulus is the ring between two concentric circles of radii R (outer) and r (inner). Its area is π(R² − r²), which can also be written π(R − r)(R + r)."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you find the area of a circle?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use A = πr². A circle with radius 5 has an area of 78.54. If you know the diameter, use A = πd² ÷ 4."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you find the circumference from the diameter?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply by π. A diameter of 10 gives a circumference of 31.42."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you find the diameter from the circumference?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Divide the circumference by π. A circumference of 44 gives a diameter of 14.01."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you find the area of a circle from its circumference only?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use A = C² ÷ 4π. A circumference of 44 gives an area of 154.06."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate the square feet of a circle?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Convert the radius to feet and use A = πr². A 10 ft diameter circle has a radius of 5 ft and an area of 78.54 sq ft. If you measure in inches, divide the area in square inches by 144."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the equation of a circle?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "(x − h)² + (y − k)² = r², where (h, k) is the centre and r is the radius. At the origin it simplifies to x² + y² = r²."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does using 3.14 for π change the answer much?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only slightly. For radius 10 the area is 314.00 with 3.14 and 314.16 with the full value, a difference of about 0.05%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does the area quadruple when the radius doubles?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Area depends on the radius squared. Radius 5 gives 78.54 and radius 10 gives 314.16, which is four times as much."
+   }
   }
  ],
  "inLanguage": "en"
@@ -310,13 +374,80 @@
       <li>ISO 80000-2:2019, <i>Quantities and units — Part 2: Mathematics</i>.</li>
       <li>NIST Special Publication 811, <i>Guide for the Use of the International System of Units (SI)</i> — the radian as a unit of plane angle.</li>
     </ul>
-    <h2>Frequently asked questions</h2>
+    <h2 id="circ-table">Circle values for radius 1 to 10</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Radius</th><th scope="col">Diameter</th><th scope="col">Circumference</th><th scope="col">Area</th></tr></thead><tbody>
+<tr><td>1</td><td>2</td><td>6.28</td><td>3.14</td></tr>
+<tr><td>2</td><td>4</td><td>12.57</td><td>12.57</td></tr>
+<tr><td>3</td><td>6</td><td>18.85</td><td>28.27</td></tr>
+<tr><td>4</td><td>8</td><td>25.13</td><td>50.27</td></tr>
+<tr><td>5</td><td>10</td><td>31.42</td><td>78.54</td></tr>
+<tr><td>6</td><td>12</td><td>37.70</td><td>113.10</td></tr>
+<tr><td>7</td><td>14</td><td>43.98</td><td>153.94</td></tr>
+<tr><td>8</td><td>16</td><td>50.27</td><td>201.06</td></tr>
+<tr><td>9</td><td>18</td><td>56.55</td><td>254.47</td></tr>
+<tr><td>10</td><td>20</td><td>62.83</td><td>314.16</td></tr>
+</tbody></table>
+    <p>Doubling the radius doubles the circumference but quadruples the area. A radius of 10 has an area of 314.16, four times the 78.54 of radius 5.</p>
+
+    <h2 id="circ-convert">Finding one value from another</h2>
+    <ul>
+      <li>Circumference from diameter: C = πd</li>
+      <li>Diameter from circumference: d = C ÷ π</li>
+      <li>Area from diameter: A = πd² ÷ 4</li>
+      <li>Area from circumference only: A = C² ÷ 4π</li>
+      <li>Circumference from area: C = 2√(πA)</li>
+    </ul>
+    <p>Example: a circle with a circumference of 44 has a diameter of 14.01, a radius of 7.00 and an area of 154.06.</p>
+
+    <h2 id="circ-sqft">Square footage of a circle</h2>
+    <p>Area is in square units, so convert every length to feet first. If you measure in inches, divide square inches by 144 to get square feet. One square metre is about 10.764 square feet.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Item</th><th scope="col">Radius</th><th scope="col">Area</th></tr></thead><tbody>
+<tr><td>10 ft diameter patio</td><td>r = 5 ft</td><td>π × 5² = 78.54 sq ft</td></tr>
+<tr><td>36 in round table</td><td>r = 18 in</td><td>π × 18² = 1,017.88 sq in ÷ 144 = 7.07 sq ft</td></tr>
+<tr><td>2 m diameter circle</td><td>r = 1 m</td><td>π × 1² = 3.14 m² × 10.764 = 33.82 sq ft</td></tr>
+<tr><td>20 ft diameter pool</td><td>r = 10 ft</td><td>π × 10² = 314.16 sq ft</td></tr>
+</tbody></table>
+    <p>If you are buying flooring, paint or turf, many installers allow extra for cuts and waste, so check with your supplier.</p>
+
+    <h2 id="circ-equation">Equation of a circle</h2>
+    <p>A circle with centre (h, k) and radius r has the equation (x − h)² + (y − k)² = r². A circle of radius 5 at the origin is x² + y² = 25. A circle centred at (3, −2) with radius 4 is (x − 3)² + (y + 2)² = 16.</p>
+
+    <h2 id="circ-pi">Does the value of π matter?</h2>
+    <p>For a circle of radius 10:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">π used</th><th scope="col">Area</th><th scope="col">Circumference</th></tr></thead><tbody>
+<tr><td>3.14</td><td>314.00</td><td>62.80</td></tr>
+<tr><td>3.1416</td><td>314.16</td><td>62.832</td></tr>
+<tr><td>3.14159265…</td><td>314.16</td><td>62.832</td></tr>
+</tbody></table>
+    <p>Using 3.14 instead of the full value changes the area by about 0.05%. For homework use the value your teacher asks for. For building and design use the calculator's full precision.</p>
+
+    <h2 id="circ-units">Units</h2>
+    <p>Lengths such as radius and circumference use the same unit as the input. Area uses that unit squared, for example cm² or ft². Do not mix units, such as a radius in feet and a height in inches.</p>
+
+    <h2 id="circ-guides">Circle guides</h2>
+    <ul>
+      <li><a href="/guides/area-of-a-circle-formula-with-examples.html">Area of a circle formula with examples</a></li>
+      <li><a href="/guides/how-to-find-the-square-footage-of-a-circle.html">How to find the square footage of a circle</a></li>
+      <li><a href="/guides/circumference-of-a-circle-from-diameter-and-radius.html">Circumference of a circle from diameter and radius</a></li>
+      <li><a href="/guides/equation-of-a-circle-standard-form-with-examples.html">Equation of a circle in standard form</a></li>
+    </ul>
+
+    
+<h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Why is circumference divided by diameter always π?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Every circle is a scaled copy of every other. Scaling multiplies the circumference and the diameter by the same factor, so their ratio never changes. That constant ratio is π.</p></details>
     <details class="sx-faq"><summary>How do I find the radius from the area or circumference?<span class="msym" aria-hidden="true">expand_more</span></summary><p>From the area, r = √(A ÷ π). From the circumference, r = C ÷ 2π. This calculator does both: choose what you know in the first tab.</p></details>
     <details class="sx-faq"><summary>What is the difference between a sector and a segment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A sector is a “pie slice” bounded by two radii and an arc. A segment is the region between an arc and its chord. The segment area is the sector area minus the triangle formed by the two radii and the chord.</p></details>
     <details class="sx-faq"><summary>How do I find a segment’s area without knowing the angle?<span class="msym" aria-hidden="true">expand_more</span></summary><p>From the chord c and height h, first find r = c² ÷ (8h) + h ÷ 2, then the central angle θ = 2·atan2(c ÷ 2, r − h), and use the segment formula ½r²(θ − sin θ). The Segment tab does this for you.</p></details>
     <details class="sx-faq"><summary>Should I use degrees or radians?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The arc-length and sector-area formulas s = rθ and ½r²θ require radians. If your angle is in degrees, multiply by π ÷ 180 first — or just pick “deg” on the Sector tab and the calculator converts for you.</p></details>
     <details class="sx-faq"><summary>What is an annulus?<span class="msym" aria-hidden="true">expand_more</span></summary><p>An annulus is the ring between two concentric circles of radii R (outer) and r (inner). Its area is π(R² − r²), which can also be written π(R − r)(R + r).</p></details>
+    <details class="sx-faq"><summary>How do you find the area of a circle?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use A = πr². A circle with radius 5 has an area of 78.54. If you know the diameter, use A = πd² ÷ 4.</p></details>
+    <details class="sx-faq"><summary>How do you find the circumference from the diameter?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply by π. A diameter of 10 gives a circumference of 31.42.</p></details>
+    <details class="sx-faq"><summary>How do you find the diameter from the circumference?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the circumference by π. A circumference of 44 gives a diameter of 14.01.</p></details>
+    <details class="sx-faq"><summary>How do you find the area of a circle from its circumference only?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use A = C² ÷ 4π. A circumference of 44 gives an area of 154.06.</p></details>
+    <details class="sx-faq"><summary>How do I calculate the square feet of a circle?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Convert the radius to feet and use A = πr². A 10 ft diameter circle has a radius of 5 ft and an area of 78.54 sq ft. If you measure in inches, divide the area in square inches by 144.</p></details>
+    <details class="sx-faq"><summary>What is the equation of a circle?<span class="msym" aria-hidden="true">expand_more</span></summary><p>(x − h)² + (y − k)² = r², where (h, k) is the centre and r is the radius. At the origin it simplifies to x² + y² = r².</p></details>
+    <details class="sx-faq"><summary>Does using 3.14 for π change the answer much?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Only slightly. For radius 10 the area is 314.00 with 3.14 and 314.16 with the full value, a difference of about 0.05%.</p></details>
+    <details class="sx-faq"><summary>Why does the area quadruple when the radius doubles?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Area depends on the radius squared. Radius 5 gives 78.54 and radius 10 gives 314.16, which is four times as much.</p></details>
   </div>
 </section>
 
