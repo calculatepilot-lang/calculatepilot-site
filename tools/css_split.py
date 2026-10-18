@@ -24,7 +24,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VER = "20261012a"
+VER = "20261018a"
 CATS = ("financial", "health", "math", "other")
 LANGS = ("", "de/", "es/", "fr/")
 WORD = re.compile(r"[A-Za-z0-9_-]+")

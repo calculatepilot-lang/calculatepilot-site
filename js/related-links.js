@@ -2,6 +2,8 @@
   // Curated, contextual relations per page. Any page not listed here falls back
   // automatically to same-category picks pulled from /calculators.json.
   var RELATIONS = {
+    "/financial/budget-planner-calculator.html": ["/financial/budget-calculator.html", "/financial/emergency-fund-calculator.html", "/financial/paycheck-calculator.html"],
+    "/financial/break-even-roas-calculator.html": ["/other/break-even-calculator.html", "/other/markup-margin-calculator.html", "/financial/discount-calculator.html"],
     "/financial/cd-vs-hysa-calculator.html": ["/financial/cd-calculator.html", "/financial/savings-calculator.html", "/financial/emergency-fund-calculator.html"],
     "/financial/1031-exchange-calculator.html": ["/financial/rental-yield-calculator.html", "/financial/seller-net-sheet-calculator.html", "/financial/house-flip-calculator.html"],
     "/financial/seller-net-sheet-calculator.html": ["/financial/house-affordability-calculator.html", "/financial/1031-exchange-calculator.html", "/financial/house-flip-calculator.html"],

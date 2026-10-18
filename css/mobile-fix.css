@@ -48,3 +48,11 @@
 @media (max-width:340px){
   .sx [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}
 }
+
+/* line-item rows of the Break-Even ROAS calculator and the Budget Planner: two columns on a phone */
+@media (max-width:700px){
+  .sx div.rp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sx div.bp-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sx div.bp-row .bp-type{grid-column:1 / 3}
+  .sx div.bp-row .bp-del{justify-self:end}
+}

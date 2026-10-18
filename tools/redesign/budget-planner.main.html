@@ -1,0 +1,144 @@
+<div class="sx" id="bpCalc">
+<style>
+.sx .bp-row{display:grid;grid-template-columns:minmax(0,1.5fr) 112px 130px 96px 36px;gap:8px;align-items:center;margin-bottom:8px}
+.sx .bp-row .bp-name,.sx .bp-row select{height:38px;border:1px solid var(--sx-border);border-radius:8px;padding:0 10px;font:inherit;font-size:14px;background:var(--sx-card);color:inherit;min-width:0;width:100%}
+.sx .bp-row .bp-type{display:block}
+.sx .bp-row .bp-del{order:5;border:1px solid var(--sx-border);background:var(--sx-card);border-radius:8px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:inherit}
+.sx .bp-row .bp-type{order:4}
+.sx .bp-svg{width:100%;height:auto;display:block}
+</style>
+<nav class="sx-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b class="m">Budget Planner</b></nav>
+
+<header class="sx-headbar">
+  <div>
+    <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">checklist</span>Line-by-line budget</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 18 Oct 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
+    <h1>Budget Planner</h1>
+    <p>List every income source and every expense line, in any pay frequency. See monthly totals, your savings rate, your possible savings rate, how you compare with the 50/30/20 rule, and a flow chart of where each dollar goes.</p>
+  </div>
+</header>
+
+<div class="sx-mt-wvh">
+  <div><span class="msym" aria-hidden="true">person_check</span><section><b>Who wrote it</b><p>Written by <a href="/author/suhaib-hassan.html">Suhaib Hassan</a>. The 50/30/20 guide follows Warren and Tyagi. <a href="/methodology.html">Our methodology</a>.</p></section></div>
+  <div><span class="msym" aria-hidden="true">functions</span><section><b>How the engine works</b><p>Each line is turned into a monthly amount, then grouped into needs, wants and savings.</p></section></div>
+  <div><span class="msym" aria-hidden="true">lightbulb</span><section><b>Why we built it</b><p>A single income box hides where money goes. Line items show it.</p></section></div>
+</div>
+
+<div class="sx-grid" style="margin-bottom:32px">
+<div class="sx-l7">
+<form id="bpForm" class="sx-card r2 sx-au-form" novalidate>
+  <div class="sx-params-head">
+    <div><span class="msym" aria-hidden="true">checklist</span><h2 class="sx-h-md" style="margin:0">Income and expenses</h2></div>
+    <button type="button" class="sx-reset" id="rst"><span class="msym" aria-hidden="true">restart_alt</span>Reset</button>
+  </div>
+  <div class="sx-au-stack">
+    <div><div class="sx-au-l"><span>Income after tax</span><em class="mu">name, amount, how often</em></div><div id="incRows"></div><button type="button" class="sx-reset" id="addI" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 12px;background:var(--sx-card)"><span class="msym" aria-hidden="true">add</span>Add income</button></div>
+    <div><div class="sx-au-l"><span>Expenses and savings</span><em class="mu">name, amount, how often, type</em></div><div id="expRows"></div><button type="button" class="sx-reset" id="addE" style="border:1px solid var(--sx-border);border-radius:8px;padding:8px 12px;background:var(--sx-card)"><span class="msym" aria-hidden="true">add</span>Add expense</button></div>
+    <div class="sx-au-warn" id="err" hidden role="alert"><span class="msym" aria-hidden="true">warning</span><span id="errT"></span></div>
+    <div class="sx-ctarow" style="padding-top:0;display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="sx-cta big" style="font-size:16px;padding:12px 20px"><span class="msym" aria-hidden="true">calculate</span>Update budget</button><button type="button" class="sx-reset" id="csvBtn" style="border:1px solid var(--sx-border);border-radius:8px;padding:10px 14px;background:var(--sx-card)"><span class="msym" aria-hidden="true">download</span>Export CSV</button></div>
+  </div>
+</form>
+</div>
+<div class="sx-r5">
+  <section class="sx-card r2 sx-an-hero" aria-live="polite">
+    <div class="hd"><span>Left over each month</span><span class="sx-ef-grade" id="tag">—</span></div>
+    <div class="big"><span id="resultValue">—</span><small>a month</small></div>
+    <p id="interp">—</p>
+    <div class="g2"><div><span>Monthly income</span><b id="tInc">—</b></div><div><span>Monthly spending</span><b id="tExp">—</b></div><div><span>Savings rate</span><b id="sRate">—</b></div><div><span>Possible savings rate</span><b id="pRate">—</b></div></div>
+  </section>
+  <section class="sx-card" style="padding:20px">
+    <div class="sx-au-l" style="margin-bottom:10px"><span>Over a year</span><em class="mu">left over × 12</em></div>
+    <div class="sx-strip"><span>Left over in 12 months</span><b id="yLeft">—</b></div>
+    <p class="sx-au-note" id="ins" style="text-align:left;margin-top:12px;font-size:13px;line-height:20px">—</p>
+  </section>
+  <div class="sx-in-acts"><button type="button" id="copyBtn"><span class="msym" aria-hidden="true">content_copy</span><span id="copyTxt">Copy result</span></button><button type="button" data-action="print"><span class="msym" aria-hidden="true">picture_as_pdf</span>Print</button></div>
+</div>
+</div>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Where your money goes</h2><p>Income flows into needs, wants and savings, then into each line.</p></div></div>
+  <div id="flow"></div>
+</section>
+
+<section class="sx-card sx-mt-sec">
+  <div class="hd"><div><h2>Your budget vs the 50/30/20 rule</h2><p>Shares of your monthly income, compared with the 50% needs, 30% wants and 20% savings guide.</p></div></div>
+  <div class="sx-tblwrap"><table class="sx-tbl" style="min-width:600px" id="cmpT"><thead><tr><th>Type</th><th class="n">Monthly</th><th class="n">Your share</th><th class="n">Guide</th><th class="n">Guide amount</th><th class="n">Difference</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<div class="sx-ev-two">
+  <section class="sx-card">
+    <span class="eyebrow">Formulas</span>
+    <h2>Budget measures</h2>
+    <div class="sx-au-fx" style="grid-template-columns:1fr">
+      <div><h3>Left over</h3><code>income − (needs + wants + savings)</code></div>
+      <div><h3>Savings rate</h3><code>savings lines ÷ income</code></div>
+      <div><h3>Possible savings rate</h3><code>(savings lines + left over) ÷ income</code></div>
+    </div>
+  </section>
+  <section class="sx-card">
+    <span class="eyebrow">Good to know</span>
+    <h2>Choosing the type for each line</h2>
+    <p>Mark a line as a need if you must pay it to live and work, such as rent, groceries and minimum debt payments. Wants are what you could pause in a tight month. Saving covers emergency fund, retirement and extra debt payments.</p>
+    <p>For a quick split without line items, use the <a href="/financial/budget-calculator.html">50/30/20 Budget Calculator</a>.</p>
+  </section>
+</div>
+
+<section class="sx-mt-sec sx-card">
+  <h2>Worked example</h2>
+  <p>The default budget: two income lines and thirteen expense lines. Yearly travel of $1,200 counts as $100 a month.</p>
+  <div class="sx-mt-3">
+    <div><h3>Totals</h3><p>Income $4,200 + $300.</p><div class="sx-mt-ex">income = <b>$4,500</b><br>needs = 1,200 + 180 + 520 + 280 + 150 + 80 = <b>$2,410</b><br>wants = 250 + 60 + 200 + 120 + 100 = <b>$730</b><br>savings = 400 + 450 = <b>$850</b><br>left over = 4,500 − 3,990 = <b>$510</b></div></div>
+    <div><h3>Savings rates</h3><p>Savings and the money left over.</p><div class="sx-mt-ex">savings rate = 850 ÷ 4,500 = <b>18.9%</b><br>possible = (850 + 510) ÷ 4,500 = <b>30.2%</b></div></div>
+    <div><h3>50/30/20 check</h3><p>Shares of $4,500.</p><div class="sx-mt-ex">needs 2,410 ÷ 4,500 = <b>53.6%</b> (guide 50%)<br>wants 730 ÷ 4,500 = <b>16.2%</b> (guide 30%)<br>savings 850 ÷ 4,500 = <b>18.9%</b> (guide 20%)</div></div>
+  </div>
+</section>
+
+<section class="sx-card sx-method">
+  <div class="sx-guide">
+    <h2>How to build a line-item budget</h2>
+    <ul>
+      <li>List every source of income after tax, each with how often it arrives.</li>
+      <li>List every expense, even small ones, and mark each as a need, a want or saving.</li>
+      <li>Check what is left over. A negative number means spending is above income.</li>
+      <li>Compare your shares with 50/30/20, then adjust the lines that are easiest to change.</li>
+    </ul>
+    <p>Review the plan after a month against your bank statement and update the amounts that were off.</p>
+    <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 18 October 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
+    <h2>Sources</h2>
+    <ul class="sx-mt-src" style="padding-left:20px">
+      <li>Warren and Tyagi, <i>All Your Worth: The Ultimate Lifetime Money Plan</i> (the 50/30/20 framework).</li>
+      <li>Consumer Financial Protection Bureau, budgeting worksheets and guides.</li>
+    </ul>
+    <h2 id="frequency">How pay frequency becomes a monthly amount</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Paid</th><th scope="col">Times a year</th><th scope="col">Monthly equivalent of $1,000</th></tr></thead><tbody>
+      <tr><td>Weekly</td><td>52</td><td>$4,333.33</td></tr>
+      <tr><td>Every 2 weeks</td><td>26</td><td>$2,166.67</td></tr>
+      <tr><td>Twice a month</td><td>24</td><td>$2,000.00</td></tr>
+      <tr><td>Monthly</td><td>12</td><td>$1,000.00</td></tr>
+      <tr><td>Quarterly</td><td>4</td><td>$333.33</td></tr>
+      <tr><td>Yearly</td><td>1</td><td>$83.33</td></tr>
+    </tbody></table>
+    <h2 id="savings-rate">Savings rate vs possible savings rate</h2>
+    <p>Your savings rate counts only the lines you marked as saving. Your possible savings rate adds the money left over, because that money could also be saved. In the example the two are 18.9% and 30.2%.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="sx-faq"><summary>What is the difference between a budget planner and a 50/30/20 budget calculator?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A 50/30/20 calculator splits one take-home figure into needs, wants and savings. A budget planner lists every income source and expense line so you see exactly where money goes, then compares the totals with the 50/30/20 guide.</p></details>
+    <details class="sx-faq"><summary>How do I turn weekly or biweekly pay into a monthly budget amount?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply weekly pay by 52 and divide by 12, or biweekly pay by 26 and divide by 12. A $1,000 weekly paycheck is $4,333.33 a month, and $1,000 every two weeks is $2,166.67. The planner does this for you when you pick the pay frequency.</p></details>
+    <details class="sx-faq"><summary>What is a savings rate and how is it calculated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Your savings rate is the money you save or invest divided by your income. Saving $850 from $4,500 a month is a savings rate of 18.9%.</p></details>
+    <details class="sx-faq"><summary>What is the possible savings rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It adds the money left over after all planned spending to your planned savings, then divides by income. If you save $850 and have $510 unassigned from $4,500, the possible savings rate is (850 + 510) ÷ 4,500 = 30.2%.</p></details>
+    <details class="sx-faq"><summary>Which expenses should I count as needs, wants or savings?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Needs are costs you must pay, such as rent, utilities, groceries, insurance and minimum debt payments. Wants are costs you could pause, such as dining out and subscriptions. Savings include your emergency fund, retirement contributions and extra debt payments.</p></details>
+    <details class="sx-faq"><summary>What if my spending is higher than my income?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The planner shows a shortfall. Look at the wants first, since they are the easiest to cut, then review needs such as housing and transport. Even a small gap adds up over a year.</p></details>
+    <details class="sx-faq"><summary>Should I enter income before or after tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Enter income after tax, the amount that reaches your bank account. Taxes taken out of your paycheck are not part of your spending budget.</p></details>
+    <details class="sx-faq"><summary>How do I include irregular costs such as annual insurance or holidays?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Enter the full yearly cost and set the frequency to Yearly. The planner spreads it as one twelfth each month, so a $1,200 trip counts as $100 a month.</p></details>
+  </div>
+</section>
+
+<div class="sx-au-relh">
+  <div><h2>Related calculators</h2><p>Build on your budget.</p></div>
+  <a href="/financial-calculators.html">View all financial tools<span class="msym" aria-hidden="true">arrow_forward</span></a>
+</div>
+<div class="sx-au-rel">
+  <a class="sx-card" href="/financial/budget-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">pie_chart</span></span><b>50/30/20 Budget Calculator</b><span class="d">A quick needs, wants and savings split from take-home pay.</span><span class="f">Split my pay<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/emergency-fund-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">shield</span></span><b>Emergency Fund</b><span class="d">Size your 3 to 6-month cash cushion.</span><span class="f">Calculate Buffer<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+  <a class="sx-card" href="/financial/paycheck-calculator.html"><span class="ic"><span class="msym" aria-hidden="true">payments</span></span><b>Paycheck Calculator</b><span class="d">Take-home pay after taxes.</span><span class="f">Calculate Paycheck<span class="msym" aria-hidden="true">arrow_forward</span></span></a>
+</div>
+</div>
