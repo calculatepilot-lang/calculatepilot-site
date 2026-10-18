@@ -154,6 +154,70 @@
     "@type": "Answer",
     "text": "It is everything that leaving the car in your driveway costs over the time you own it: the value it loses, loan interest, insurance, maintenance, fuel and other running costs, less nothing you get back except the resale value."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How do you calculate car depreciation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply the starting value by (1 − yearly rate) for each year. A $30,000 car losing 15% a year is worth about $18,424 after 3 years and $13,311 after 5."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the difference between straight-line and declining balance depreciation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Straight-line removes the same dollar amount every year. Declining balance removes a percentage of the current value, so losses shrink over time. For a $30,000 car at 15% over 5 years the results are $7,500 and $13,311."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I find my car's annual depreciation rate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use rate = 1 − (resale value ÷ purchase price)^(1 ÷ years). A $30,000 car worth $15,000 after 5 years lost about 12.9% a year."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long does it take a car to lose half its value?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "About 4.3 years at 15% a year, 3.1 years at 20% and 6.6 years at 10%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is negative equity on a car loan?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It means you owe more than the car is worth. With no down payment and an 84-month loan on a $38,500 car, you could be about $2,403 underwater after one year."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does car depreciation slow down over time?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. The dollar loss is largest in the first years and shrinks. On a $38,500 car the calculator's typical curve loses $6,930 in year 1 and $2,174 in year 5."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is it cheaper to buy a new or a used car, depreciation-wise?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A car two years old has already lost the steepest part of its value. On the typical curve a $38,500 car loses about $11,665 (30%) in the first two years and about $7,272 over the next three."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is car depreciation the same as tax depreciation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. This tool estimates resale value. Tax depreciation for business vehicles follows different schedules."
+   }
   }
  ],
  "inLanguage": "en"
@@ -314,12 +378,62 @@
       <li>AAA, <i>Your Driving Costs</i>, annual study of vehicle ownership costs including depreciation.</li>
       <li>U.S. Bureau of Labor Statistics, Consumer Price Index for used cars and trucks.</li>
     </ul>
-    <h2>Frequently asked questions</h2>
+    <h2 id="dep-methods">Declining balance vs straight-line depreciation</h2>
+    <p>This calculator uses declining balance: each year's loss is a percentage of the value at the start of that year, so the dollar loss shrinks as the car ages. Straight-line takes the same dollar amount off every year and is mainly used for accounting.</p>
+    <p>For a $30,000 car at 15% a year over five years, declining balance gives $13,311 (value = 30,000 × 0.85⁵), while straight-line (15% of the original price, or $4,500, each year) gives $7,500. Declining balance is closer to how used-car prices behave.</p>
+    <p>To work out the average yearly rate from a known sale, use rate = 1 − (resale value ÷ price)^(1 ÷ years). A $30,000 car worth $15,000 after five years lost about 12.9% a year.</p>
+
+    <h2 id="dep-by-rate">Value of a $30,000 car at a constant yearly rate</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Yearly loss</th><th scope="col">After 1 year</th><th scope="col">After 3 years</th><th scope="col">After 5 years</th><th scope="col">After 10 years</th></tr></thead><tbody>
+<tr><td>10%</td><td>$27,000</td><td>$21,870</td><td>$17,715</td><td>$10,460</td></tr>
+<tr><td>15%</td><td>$25,500</td><td>$18,424</td><td>$13,311</td><td>$5,906</td></tr>
+<tr><td>20%</td><td>$24,000</td><td>$15,360</td><td>$9,830</td><td>$3,221</td></tr>
+<tr><td>25%</td><td>$22,500</td><td>$12,656</td><td>$7,119</td><td>$1,689</td></tr>
+</tbody></table>
+    <p>Real cars lose more in the early years than later, so use the year-by-year curve above for a new car. A constant rate is a quick check for an older one.</p>
+
+    <h2 id="dep-half">How long until a car loses half its value?</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Yearly loss</th><th scope="col">Time to lose half</th></tr></thead><tbody>
+<tr><td>10%</td><td>6.6 years</td></tr>
+<tr><td>15%</td><td>4.3 years</td></tr>
+<tr><td>20%</td><td>3.1 years</td></tr>
+<tr><td>25%</td><td>2.4 years</td></tr>
+</tbody></table>
+    <p>The time to halve is ln(0.5) ÷ ln(1 − rate). At 15% a year that is about 4.3 years.</p>
+
+    <h2 id="dep-equity">Depreciation vs your loan balance</h2>
+    <p>You are underwater (in negative equity) when your loan balance is higher than the car's value. The table uses the calculator's default $38,500 car and typical curve (18%, then 15%, then 10%) with a 6.25% APR loan. A plus sign means the car is worth more than you owe.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Loan</th><th scope="col">Monthly payment</th><th scope="col">After 1 year</th><th scope="col">After 2 years</th><th scope="col">After 3 years</th></tr></thead><tbody>
+<tr><td>No down payment, 60 months</td><td>$749</td><td>−$159</td><td>+$2,312</td><td>+$7,299</td></tr>
+<tr><td>No down payment, 84 months</td><td>$567</td><td>−$2,403</td><td>−$2,321</td><td>+$123</td></tr>
+<tr><td>20% down ($7,700), 60 months</td><td>$599</td><td>+$6,187</td><td>+$7,217</td><td>+$10,669</td></tr>
+</tbody></table>
+    <p>A longer loan with no down payment leaves you owing more than the car is worth for about two years. A 20% down payment keeps you ahead from the first year.</p>
+
+    <h2 id="dep-guides">Depreciation guides</h2>
+    <ul>
+      <li><a href="/guides/car-depreciation-formula-declining-balance-vs-straight-line.html">Car depreciation formula: declining balance vs straight-line</a></li>
+      <li><a href="/guides/how-long-until-a-car-loses-half-its-value.html">How long until a car loses half its value</a></li>
+      <li><a href="/guides/negative-equity-on-a-car-loan-when-you-owe-more-than-its-worth.html">Negative equity on a car loan</a></li>
+      <li><a href="/guides/new-vs-used-car-depreciation-which-costs-less-per-year.html">New vs used car depreciation</a></li>
+      <li><a href="/guides/car-depreciation-guide.html">Car depreciation chart by year</a></li>
+    </ul>
+
+    
+<h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>How much does a car depreciate in five years?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common rule of thumb is around 40% to 60% for a new car, depending on the model. This calculator's typical curve loses about 50% over five years for a midsize SUV, but individual vehicles vary widely.</p></details>
     <details class="sx-faq"><summary>Which cars hold their value best?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Trucks and some popular SUVs tend to keep more value, while luxury sedans and many electric vehicles have lost more. Reliability, fuel prices, incentives and new model launches all move the market.</p></details>
     <details class="sx-faq"><summary>Is it cheaper to buy used?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Often, because the first owner pays for the steepest depreciation. Use the condition setting to see the effect, but include the cost of any extra maintenance an older car needs.</p></details>
     <details class="sx-faq"><summary>Does mileage affect depreciation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Higher mileage lowers resale value and can accelerate wear. This tool uses your mileage to work out cost per mile; for a precise resale value, compare listings with similar mileage.</p></details>
     <details class="sx-faq"><summary>What is total cost of ownership?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is everything that leaving the car in your driveway costs over the time you own it: the value it loses, loan interest, insurance, maintenance, fuel and other running costs, less nothing you get back except the resale value.</p></details>
+    <details class="sx-faq"><summary>How do you calculate car depreciation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the starting value by (1 − yearly rate) for each year. A $30,000 car losing 15% a year is worth about $18,424 after 3 years and $13,311 after 5.</p></details>
+    <details class="sx-faq"><summary>What is the difference between straight-line and declining balance depreciation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Straight-line removes the same dollar amount every year. Declining balance removes a percentage of the current value, so losses shrink over time. For a $30,000 car at 15% over 5 years the results are $7,500 and $13,311.</p></details>
+    <details class="sx-faq"><summary>How do I find my car's annual depreciation rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use rate = 1 − (resale value ÷ purchase price)^(1 ÷ years). A $30,000 car worth $15,000 after 5 years lost about 12.9% a year.</p></details>
+    <details class="sx-faq"><summary>How long does it take a car to lose half its value?<span class="msym" aria-hidden="true">expand_more</span></summary><p>About 4.3 years at 15% a year, 3.1 years at 20% and 6.6 years at 10%.</p></details>
+    <details class="sx-faq"><summary>What is negative equity on a car loan?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It means you owe more than the car is worth. With no down payment and an 84-month loan on a $38,500 car, you could be about $2,403 underwater after one year.</p></details>
+    <details class="sx-faq"><summary>Does car depreciation slow down over time?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. The dollar loss is largest in the first years and shrinks. On a $38,500 car the calculator's typical curve loses $6,930 in year 1 and $2,174 in year 5.</p></details>
+    <details class="sx-faq"><summary>Is it cheaper to buy a new or a used car, depreciation-wise?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A car two years old has already lost the steepest part of its value. On the typical curve a $38,500 car loses about $11,665 (30%) in the first two years and about $7,272 over the next three.</p></details>
+    <details class="sx-faq"><summary>Is car depreciation the same as tax depreciation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. This tool estimates resale value. Tax depreciation for business vehicles follows different schedules.</p></details>
   </div>
 </section>
 
