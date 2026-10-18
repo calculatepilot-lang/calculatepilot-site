@@ -104,6 +104,78 @@
     "@type": "Answer",
     "text": "CDs typically offer higher fixed rates in exchange for locking up your money for a set term, while savings accounts offer more flexibility with generally lower, variable rates — the better choice depends on whether you need access to the funds."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate CD interest?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Multiply the deposit by (1 + APY) raised to the number of years, then subtract the deposit. A $10,000 CD at 4.50% APY for 12 months earns $450, and for 24 months it earns $920.25."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the difference between APY and the interest rate on a CD?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The interest rate is the stated annual rate before compounding. APY is the amount you actually earn in a year once compounding is included, so it is the better figure for comparing CDs. A 5.00% rate compounded daily is a 5.1267% APY."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does compounding frequency matter for a CD?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A little. On $10,000 at a 5.00% stated rate for one year, annual compounding gives $10,500.00 and daily compounding gives $10,512.67. If you compare CDs by APY, compounding is already counted."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is CD interest taxable?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. CD interest is taxed as ordinary income in the year it is credited, and your bank reports it on Form 1099-INT. In a 24% bracket, $450 of interest leaves about $342 after federal tax. CDs inside an IRA are not taxed until withdrawal."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can you lose money in a CD?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not from market moves, and insured CDs are protected up to $250,000 per depositor, per bank, per ownership category. You can still lose value if an early withdrawal penalty is larger than the interest you have earned, or if inflation is higher than your fixed rate."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does a $10,000 CD earn in one year?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "At 4.00% APY it earns $400, at 4.50% it earns $450 and at 5.00% it earns $500, before tax. Enter your own rate and term in the calculator for an exact figure."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What happens when a CD matures?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Most banks give a grace period, often about 7 to 10 days, to withdraw the money or change the term. If you do nothing, many CDs renew automatically at the current rate, which may be lower than your old rate."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a no-penalty CD?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A no-penalty CD lets you withdraw your money after an initial waiting period without paying an early withdrawal penalty. In return, its rate is usually lower than a traditional CD of the same term."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a CD ladder?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A CD ladder splits your money across several CDs with different maturity dates, such as one to five years. One CD matures each year, so you get regular access to cash while the rest keeps earning longer-term rates."
+   }
   }
  ],
  "inLanguage": "en"
@@ -261,9 +333,98 @@
     <p>Longer-term CDs don't always offer meaningfully higher rates than shorter-term ones — rate curves shift with the broader interest rate environment, so it's worth comparing actual offered rates across terms rather than assuming longer always means better.</p>
     <p>A common strategy called 'CD laddering' spreads deposits across multiple CDs with staggered maturity dates, balancing the higher rates of longer terms with periodic access to some of your funds.</p>
 
-    <h2>Frequently asked questions</h2>
+    <h2 id="cd-interest-formula">How CD interest is calculated</h2>
+    <p>A CD pays a fixed rate for a fixed term, so the maturity value follows one formula. The calculator above uses the APY, which already includes compounding:</p>
+    <p><strong>Maturity value = deposit &times; (1 + APY)<sup>years</sup></strong>, and interest earned = maturity value &minus; deposit.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Term</th><th scope="col">Maturity value</th><th scope="col">Interest earned</th></tr></thead><tbody>
+      <tr><td>6 months</td><td>$10,222.52</td><td>$222.52</td></tr>
+      <tr><td>12 months</td><td>$10,450.00</td><td>$450.00</td></tr>
+      <tr><td>18 months</td><td>$10,682.54</td><td>$682.54</td></tr>
+      <tr><td>24 months</td><td>$10,920.25</td><td>$920.25</td></tr>
+      <tr><td>60 months</td><td>$12,461.82</td><td>$2,461.82</td></tr>
+    </tbody></table>
+    <p>The table shows a $10,000 deposit at 4.50% APY. Use it as a quick check on the calculator's result. If a bank quotes only an interest rate, convert it first with APY = (1 + r &divide; n)<sup>n</sup> &minus; 1.</p>
+
+    <h2 id="compounding">Does compounding frequency matter?</h2>
+    <p>For a stated interest rate it does, a little. The more often interest compounds, the higher the APY. Here is $10,000 at a 5.00% stated rate held for one year:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Compounding</th><th scope="col">Balance after 1 year</th><th scope="col">APY</th></tr></thead><tbody>
+      <tr><td>Annually</td><td>$10,500.00</td><td>5.0000%</td></tr>
+      <tr><td>Semi-annually</td><td>$10,506.25</td><td>5.0625%</td></tr>
+      <tr><td>Quarterly</td><td>$10,509.45</td><td>5.0945%</td></tr>
+      <tr><td>Monthly</td><td>$10,511.62</td><td>5.1162%</td></tr>
+      <tr><td>Daily</td><td>$10,512.67</td><td>5.1267%</td></tr>
+    </tbody></table>
+    <p>The gap between annual and daily compounding is only $12.67 on $10,000. When you compare CDs, compare APYs rather than interest rates, so compounding is already counted.</p>
+
+    <h2 id="cd-taxes">Taxes on CD interest</h2>
+    <p>CD interest is taxed as ordinary income, usually in the year it is credited to you. Your bank reports it on Form 1099-INT, normally when you earn $10 or more in a year. For a CD longer than one year you generally report the interest each year, even if it is paid at maturity. CDs held inside an IRA are not taxed until you withdraw. Here is the effect on $10,000 at 4.50% APY for 12 months ($450 of interest):</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Federal bracket</th><th scope="col">Tax on interest</th><th scope="col">After-tax interest</th><th scope="col">After-tax yield</th></tr></thead><tbody>
+      <tr><td>12%</td><td>$54.00</td><td>$396.00</td><td>3.96%</td></tr>
+      <tr><td>22%</td><td>$99.00</td><td>$351.00</td><td>3.51%</td></tr>
+      <tr><td>24%</td><td>$108.00</td><td>$342.00</td><td>3.42%</td></tr>
+      <tr><td>32%</td><td>$144.00</td><td>$306.00</td><td>3.06%</td></tr>
+    </tbody></table>
+    <p>State income tax, where it applies, takes a further share. The figures above are federal only.</p>
+
+    <h2 id="early-withdrawal">Early withdrawal penalty examples</h2>
+    <p>Banks usually charge a set number of days of interest, and the number often grows with the term. Always check your own disclosure, because the rules vary. On $10,000 at 4.50%, a penalty measured in simple interest looks like this:</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Penalty</th><th scope="col">Approximate cost</th></tr></thead><tbody>
+      <tr><td>90 days of interest</td><td>$110.96</td></tr>
+      <tr><td>180 days of interest</td><td>$221.92</td></tr>
+      <tr><td>365 days of interest</td><td>$450.00</td></tr>
+    </tbody></table>
+    <p>Break the same CD after six months and you have earned about $222.52. A 90-day penalty takes back about $110.96, leaving roughly $111.56 of interest. If you have earned less than the penalty, the bank can take the difference from your principal.</p>
+
+    <h2 id="cd-types">Types of CDs</h2>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Type</th><th scope="col">How it works</th><th scope="col">Trade-off</th></tr></thead><tbody>
+      <tr><td>Traditional fixed-rate</td><td>One rate and one term, locked at opening</td><td>Penalty if you withdraw early</td></tr>
+      <tr><td>No-penalty</td><td>Lets you withdraw after a short waiting period without a penalty</td><td>Rate is usually lower</td></tr>
+      <tr><td>Jumbo</td><td>Needs a large deposit, often $100,000 or more</td><td>Rate premium is not guaranteed</td></tr>
+      <tr><td>Brokered</td><td>Bought through a brokerage, often sold before maturity</td><td>Sale price can be above or below your deposit</td></tr>
+      <tr><td>Callable</td><td>The issuer can end it early</td><td>You may have to reinvest at a lower rate</td></tr>
+      <tr><td>Bump-up or step-up</td><td>Lets you raise the rate, or the rate rises on a set schedule</td><td>Starting rate is usually lower</td></tr>
+    </tbody></table>
+
+    <h2 id="cd-insurance">Is your CD insured?</h2>
+    <p>CDs at FDIC-insured banks are covered up to $250,000 per depositor, per insured bank, per ownership category. Credit union CDs have the same limit through the NCUA. A CD that is inside the limit keeps its principal and accrued interest safe if the institution fails. Check that a brokered CD is issued by an insured bank.</p>
+
+    <h2 id="cd-maturity">What happens when a CD matures</h2>
+    <p>Most banks give a short grace period after maturity, often around 7 to 10 days, to withdraw the money or change the term. If you do nothing, many CDs renew automatically for a similar term at the rate on offer that day, which can be lower than the one you had. Set a reminder for the maturity date shown in the timeline above.</p>
+
+    <h2 id="cd-real-return">Real return after inflation</h2>
+    <p>A CD's rate is fixed, but prices are not. Real return = (1 + APY) &divide; (1 + inflation) &minus; 1. At 4.50% APY and 3.00% inflation, the real return is 1.045 &divide; 1.03 &minus; 1 = <strong>1.46%</strong>. If inflation is higher than your APY, your money buys less at maturity even though the balance grew.</p>
+
+    <h2 id="cd-mistakes">Common mistakes when using a CD calculator</h2>
+    <ul>
+      <li>Entering an interest rate in an APY box. They are not the same figure, so check which one your bank quotes.</li>
+      <li>Forgetting that interest is taxable, so the amount you keep is lower than the amount shown.</li>
+      <li>Ignoring the early withdrawal penalty on money you might need.</li>
+      <li>Letting a CD renew without comparing the new rate with other CDs and savings accounts.</li>
+      <li>Putting money you may need for emergencies in a CD. Build your <a href="/financial/emergency-fund-calculator.html">emergency fund</a> first.</li>
+    </ul>
+
+    <h2 id="cd-guides">Guides on CDs</h2>
+    <ul>
+      <li><a href="/guides/how-to-calculate-cd-interest-formula-and-examples.html">How to calculate CD interest: formula and examples</a></li>
+      <li><a href="/guides/cd-apy-vs-interest-rate-and-compounding-frequency.html">CD APY vs interest rate and compounding frequency</a></li>
+      <li><a href="/guides/cd-early-withdrawal-penalty-how-it-works-and-how-to-calculate-it.html">CD early withdrawal penalty: how it works</a></li>
+      <li><a href="/guides/are-cds-taxable-cd-interest-tax-and-after-tax-return.html">Are CDs taxable? CD interest tax and after-tax return</a></li>
+      <li><a href="/guides/cd-vs-high-yield-savings-account.html">CD vs high-yield savings account</a></li>
+    </ul>
+
+    
+<h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What happens if I withdraw from a CD early?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Most CDs charge an early withdrawal penalty, commonly equal to a few months of interest, which can reduce or even eliminate the interest earned depending on how early you withdraw.</p></details>
     <details class="sx-faq"><summary>Is a CD better than a savings account?<span class="msym" aria-hidden="true">expand_more</span></summary><p>CDs typically offer higher fixed rates in exchange for locking up your money for a set term, while savings accounts offer more flexibility with generally lower, variable rates — the better choice depends on whether you need access to the funds.</p></details>
+    <details class="sx-faq"><summary>How do I calculate CD interest?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the deposit by (1 + APY) raised to the number of years, then subtract the deposit. A $10,000 CD at 4.50% APY for 12 months earns $450, and for 24 months it earns $920.25.</p></details>
+    <details class="sx-faq"><summary>What is the difference between APY and the interest rate on a CD?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The interest rate is the stated annual rate before compounding. APY is the amount you actually earn in a year once compounding is included, so it is the better figure for comparing CDs. A 5.00% rate compounded daily is a 5.1267% APY.</p></details>
+    <details class="sx-faq"><summary>Does compounding frequency matter for a CD?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A little. On $10,000 at a 5.00% stated rate for one year, annual compounding gives $10,500.00 and daily compounding gives $10,512.67. If you compare CDs by APY, compounding is already counted.</p></details>
+    <details class="sx-faq"><summary>Is CD interest taxable?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. CD interest is taxed as ordinary income in the year it is credited, and your bank reports it on Form 1099-INT. In a 24% bracket, $450 of interest leaves about $342 after federal tax. CDs inside an IRA are not taxed until withdrawal.</p></details>
+    <details class="sx-faq"><summary>Can you lose money in a CD?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not from market moves, and insured CDs are protected up to $250,000 per depositor, per bank, per ownership category. You can still lose value if an early withdrawal penalty is larger than the interest you have earned, or if inflation is higher than your fixed rate.</p></details>
+    <details class="sx-faq"><summary>How much does a $10,000 CD earn in one year?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At 4.00% APY it earns $400, at 4.50% it earns $450 and at 5.00% it earns $500, before tax. Enter your own rate and term in the calculator for an exact figure.</p></details>
+    <details class="sx-faq"><summary>What happens when a CD matures?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Most banks give a grace period, often about 7 to 10 days, to withdraw the money or change the term. If you do nothing, many CDs renew automatically at the current rate, which may be lower than your old rate.</p></details>
+    <details class="sx-faq"><summary>What is a no-penalty CD?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A no-penalty CD lets you withdraw your money after an initial waiting period without paying an early withdrawal penalty. In return, its rate is usually lower than a traditional CD of the same term.</p></details>
+    <details class="sx-faq"><summary>What is a CD ladder?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A CD ladder splits your money across several CDs with different maturity dates, such as one to five years. One CD matures each year, so you get regular access to cash while the rest keeps earning longer-term rates.</p></details>
   </div>
 </section>
 
