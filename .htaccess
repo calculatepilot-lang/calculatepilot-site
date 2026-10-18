@@ -16,6 +16,10 @@ RewriteRule \.(md|py|sh|sql|example|log|bak|map)$ - [R=404,L]
 RewriteCond %{REQUEST_URI} ^/guides/index\.html$ [NC]
 RewriteRule ^ https://www.calculatepilot.com/guides/ [R=301,L,NE]
 
+# Hostinger temporary domain (*.hostingersite.com) must not serve a second public copy of the site.
+RewriteCond %{HTTP_HOST} \.hostingersite\.com$ [NC]
+RewriteRule ^ https://www.calculatepilot.com%{REQUEST_URI} [R=301,L,NE]
+
 # Canonical host + HTTPS: https://www.calculatepilot.com
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^calculatepilot\.com$ [NC]
