@@ -1,7 +1,6 @@
-/* Weight loss calorie calculator — CalculatePilot (redesign, PSEO standards).
-   Flat rule: 3,500 kcal per lb (7,700 kcal per kg). By rate: deficit = rate × 3,500 ÷ 7; target = TDEE − deficit; weeks = toLose ÷ rate.
-   By goal date: rate = toLose ÷ weeks available. Floors 1,200 kcal (women) / 1,500 kcal (men); rate > 1% body weight/week flagged
-   (AHA/ACC/TOS 2013: 1,200–1,500 women, 1,500–1,800 men, or 500–750 kcal/day deficit). */
+/* Weight loss calorie calculator — CalculatePilot.
+   Flat-rule estimates: 3,500 kcal/lb (7,700 kcal/kg); target = estimated TDEE minus the requested deficit.
+   The 1,200/1,500 kcal values are calculator caution flags based on older guideline context, not universal safe minimums. Estimates are not individualized prescriptions. */
 (function(){
 var C=window.CPX,$=C.$,v=C.val,last=null,prevU=null;
 function K(x){return isFinite(x)?Math.round(x).toLocaleString('en-US'):'—';}
@@ -23,19 +22,20 @@ function compute(){
   if(byDate){var gdt=new Date(gd.value+'T00:00:00');weeks=(gdt-today)/(7*864e5);if(!(weeks>0.5)){C.text('rN','Choose a goal date at least a week from today.');return;}rate=toLose/weeks;}
   else{rate=imp?+$('rate').value:+$('rate').value/2*2.2;weeks=toLose/rate;}
   var def=rate*3500/7,tgt=tdee-def,pct=rate/wLb*100,end=new Date(today.getTime()+weeks*7*864e5);
-  C.text('resultValue',K(tgt));C.text('tag',(imp?(Math.round(rate*100)/100)+' lb':(Math.round(rate/2.20462*100)/100)+' kg')+' / week');
-  C.text('rN',byDate?'To reach '+W(gLb)+' by '+fmtD(end)+' you need to lose about '+W(rate)+' a week — a '+K(def)+' kcal daily deficit from your '+K(tdee)+' kcal maintenance.':K(tdee)+' kcal maintenance − '+K(def)+' kcal deficit = '+K(tgt)+' kcal a day, losing about '+W(rate)+' a week.');
+  C.text('resultValue',tgt>0?K(tgt):'—');C.text('tag',tgt>0?(imp?(Math.round(rate*100)/100)+' lb':(Math.round(rate/2.20462*100)/100)+' kg')+' / week':'Not feasible');
+  C.text('rN',tgt<=0?'The requested deficit equals or exceeds your estimated maintenance calories. This plan does not produce a feasible positive calorie target; choose a slower rate or a later goal date.':byDate?'To reach '+W(gLb)+' by '+fmtD(end)+' you need to lose about '+W(rate)+' a week — a '+K(def)+' kcal daily deficit from your '+K(tdee)+' kcal maintenance.':K(tdee)+' kcal maintenance − '+K(def)+' kcal deficit = '+K(tgt)+' kcal a day, losing about '+W(rate)+' a week.');
   C.text('def',K(def)+' kcal');C.text('etaL',byDate?'Weeks available':'Estimated goal date');C.text('eta',byDate?(Math.round(weeks*10)/10)+' weeks':fmtD(end)+' ('+Math.ceil(weeks)+' wks)');
   C.text('tl',W(toLose));C.text('pct',pct.toFixed(2)+'%');
   var wn=$('warn');
-  if(tgt<floor)wn.innerHTML='<b style="color:var(--sx-err)">Below '+K(floor)+' kcal/day</b> — guidelines advise not going this low without medical supervision. '+(byDate?'Choose a later goal date.':'Choose a slower rate.');
-  else if(pct>1)wn.innerHTML='<b style="color:var(--sx-err)">'+pct.toFixed(1)+'% of body weight a week</b> is faster than the ~1% usually recommended.';
-  else if(def>750)wn.textContent='A deficit above 750 kcal/day is larger than the 500–750 kcal the AHA/ACC/TOS guideline suggests — monitor energy and hunger.';
-  else wn.textContent='Flat-rule estimate — the real pace usually slows as maintenance falls. Recalculate every few weeks.';
+  if(tgt<=0)wn.innerHTML='<b style="color:var(--sx-err)">Not feasible as a calorie target.</b> The requested deficit equals or exceeds estimated maintenance. Choose a slower rate or later goal date.';
+  else if(tgt<floor)wn.innerHTML='<b style="color:var(--sx-err)">Below this calculator’s caution flag ('+K(floor)+' kcal/day).</b> This is not a universal safe minimum; individual needs vary. Consider a slower rate and discuss unusually low targets with a qualified professional.';
+  else if(pct>1)wn.innerHTML='<b style="color:var(--sx-err)">'+pct.toFixed(1)+'% of body weight a week</b> is an aggressive estimate that may not suit everyone.';
+  else if(def>750)wn.textContent='This is a large estimated daily deficit, not a universal safety threshold. Consider a slower rate and seek qualified guidance if unsure.';
+  else wn.textContent='Simplified estimate — actual change varies as body weight, activity and energy needs change. Recalculate periodically; this is not an individualized prescription.';
   C.text('tbT','To lose '+W(toLose));
-  $('rtTbl').innerHTML=RATES.map(function(r0){var r=imp?r0:r0/2*2.2,d=r*3500/7,t=tdee-d,wk=toLose/r,e=new Date(today.getTime()+wk*7*864e5),bad=t<floor,me=!byDate&&r0===+$('rate').value;
-    return '<tr'+(me?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+(imp?r0+' lb':(r0/2)+' kg')+'</td><td class="b"'+(bad?' style="color:var(--sx-err)"':'')+'>'+K(t)+(bad?' ⚠':'')+'</td><td>'+K(d)+'</td><td>'+Math.ceil(wk)+'</td><td style="font-family:inherit">'+fmtD(e)+'</td></tr>';}).join('');
-  last='Daily calorie target: '+K(tgt)+' kcal ('+K(def)+' kcal deficit from '+K(tdee)+')\nLose '+W(toLose)+' at about '+W(rate)+'/week — goal around '+fmtD(end)+'\n— calculatepilot.com/health/weight-loss-calorie-calculator.html';
+  $('rtTbl').innerHTML=RATES.map(function(r0){var r=imp?r0:r0/2*2.2,d=r*3500/7,t=tdee-d,wk=toLose/r,e=new Date(today.getTime()+wk*7*864e5),bad=t<floor,impossible=t<=0,me=!byDate&&r0===+$('rate').value;
+    return '<tr'+(me?' class="hl"':'')+'><td style="font-family:inherit;font-weight:600">'+(imp?r0+' lb':(r0/2)+' kg')+'</td><td class="b"'+((bad||impossible)?' style="color:var(--sx-err)"':'')+'>'+(impossible?'Not feasible':K(t))+((bad||impossible)?' ⚠':'')+'</td><td>'+K(d)+'</td><td>'+Math.ceil(wk)+'</td><td style="font-family:inherit">'+fmtD(e)+'</td></tr>';}).join('');
+  last=tgt<=0?'This plan is not feasible as a calorie target. Choose a slower rate or later goal date.\n— calculatepilot.com/health/weight-loss-calorie-calculator.html':'Daily calorie target: '+K(tgt)+' kcal ('+K(def)+' kcal deficit from '+K(tdee)+')\nLose '+W(toLose)+' at about '+W(rate)+'/week — goal around '+fmtD(end)+'\n— calculatepilot.com/health/weight-loss-calorie-calculator.html';
 }
 
 document.addEventListener('DOMContentLoaded',function(){
