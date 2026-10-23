@@ -185,7 +185,7 @@
    "name": "How do I calculate a calorie deficit?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Subtract your target intake from your maintenance calories. For a man with maintenance of 2,396 calories who eats 1,896, the deficit is 500 calories a day. At about 7,700 calories per kilogram, that is roughly 0.45 kg (1 lb) a week."
+    "text": "Subtract your target intake from your estimated maintenance calories. For a maintenance estimate of 2,396 calories and an intake of 1,896, the calculated deficit is 500 calories a day. Under the static 7,700 kcal/kg approximation, this is an arithmetic equivalent of roughly 0.45 kg (1 lb) a week, not a forecast; real weight change varies and is not linear over time."
    }
   },
   {
@@ -193,7 +193,7 @@
    "name": "How many calories should I cut to lose weight?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "A common range is 250 to 750 calories a day below maintenance, which is about 0.2 to 0.7 kg (0.5 to 1.5 lb) a week. A larger cut needs a doctor or dietitian's advice, and your target should not fall under the minimum your health professional recommends."
+    "text": "A fixed deficit is not right for everyone. Under the static 7,700 kcal/kg approximation, a 250–750 kcal daily gap is the arithmetic equivalent of about 0.2–0.7 kg (0.5–1.5 lb) a week, not an individual prediction. Suitable targets depend on personal circumstances; seek qualified guidance before aggressive changes or if you have a health condition."
    }
   },
   {
@@ -201,7 +201,7 @@
    "name": "What is a calorie surplus and how big should it be?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "A calorie surplus is eating more than your maintenance calories. For gradual weight gain, 250 to 500 calories a day above maintenance is typical. Adding 300 calories suggests about 0.27 kg (0.6 lb) a week."
+    "text": "A calorie surplus is eating more than estimated maintenance. A 300 kcal daily surplus is the static 7,700 kcal/kg rule’s arithmetic equivalent of about 0.27 kg (0.6 lb) a week, not a guaranteed result; actual weight and body-composition changes vary."
    }
   },
   {
@@ -335,7 +335,7 @@
     <div class="note" id="warn">—</div>
   </section>
   <section class="sx-card sx-au-traj" style="padding:16px">
-    <div class="hd" style="margin-bottom:8px"><div><h3 style="font-size:14px">Projected Weight</h3></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>Updates calorie burn weekly</span><span><i style="background:#94a3b8"></i>Flat 7,700 kcal/kg rule</span></div></div>
+    <div class="hd" style="margin-bottom:8px"><div><h3 style="font-size:14px">Projected Weight</h3></div><div class="lg"><span><i style="background:var(--sx-primary)"></i>Updates calorie burn weekly</span><span><i style="background:#94a3b8"></i>Static 7,700 kcal/kg illustration</span></div></div>
     <svg id="chart" viewBox="0 0 520 170" role="img" aria-label="Projected weight over time"></svg>
   </section>
   <section class="sx-card sx-vt-led" style="border-radius:12px">
@@ -376,7 +376,7 @@
     <p class="sx-trust" style="margin:0 0 8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Reviewed 28 September 2026 against the original equations and NIH guidance · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>Using this to lose or gain weight</h2>
-    <p>A deficit of roughly 500–550 calories a day tends to produce about 0.5 kg of weight loss per week at first, since one kilogram of body fat corresponds to roughly 7,700 calories (0.5 × 7,700 ÷ 7 = 550 a day). The same logic in reverse applies to weight gain.</p>
+    <p>Under the simplified static 7,700 kcal/kg rule, a 500–550 kcal daily deficit is the arithmetic equivalent of about 0.5 kg a week at first. This is not an individual prediction: actual weight change varies with water, adherence, body composition, activity and changing energy needs. A calorie surplus also does not guarantee a fixed amount of tissue gain.</p>
 
     <h2>Why calorie needs vary so much between people</h2>
     <p>Two people with identical height, weight, and age can still have meaningfully different calorie needs due to differences in muscle mass, genetics, and daily activity outside of formal exercise (often called NEAT — non-exercise activity thermogenesis).</p>
@@ -419,14 +419,14 @@
     <p>The gap is about 100 calories a day in these examples. That is small next to the error from picking the wrong activity level, which can move the result by 300 calories or more.</p>
 
     <h2 id="deficit-surplus">Calorie deficit and surplus: what each daily gap does</h2>
-    <p>One kilogram of body weight change is treated as roughly 7,700 calories (about 3,500 per pound). Dividing a daily gap by that figure gives the expected weekly change. The target column uses the example man's maintenance of 2,396.</p>
-    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Daily deficit</th><th scope="col">Weekly change</th><th scope="col">Daily target for the example</th></tr></thead><tbody>
+    <p>A static calculation sometimes approximates one kilogram of body-weight change as 7,700 calories (about 3,500 per pound). Dividing a daily gap by that number gives an arithmetic illustration, not a forecast of an individual's weekly change. These comparisons assume the gap stays constant; actual trajectories change as body mass, water, activity and energy expenditure change. The target column uses the example man's maintenance of 2,396.</p>
+    <table class="sx-au-cmp plain"><thead><tr><th scope="col">Daily deficit</th><th scope="col">Static-rule illustration</th><th scope="col">Daily target for the example</th></tr></thead><tbody>
       <tr><td>250 calories</td><td>about 0.23 kg (0.5 lb)</td><td>2,146</td></tr>
       <tr><td>500 calories</td><td>about 0.45 kg (1 lb)</td><td>1,896</td></tr>
       <tr><td>750 calories</td><td>about 0.68 kg (1.5 lb)</td><td>1,646</td></tr>
       <tr><td>1,000 calories</td><td>about 0.91 kg (2 lb)</td><td>1,396</td></tr>
     </tbody></table>
-    <p>A surplus works the same way in reverse: adding 300 calories to maintenance suggests about 0.27 kg (0.6 lb) of gain a week, though some of it will be water, and not all of it will be fat. The calculator's projection slows over time because maintenance falls as you lose weight. For a gap above 750 calories, talk to a doctor or dietitian first.</p>
+    <p>Under the same static rule, a 300-calorie daily surplus is the arithmetic equivalent of about 0.27 kg (0.6 lb) a week; actual gain varies and that figure is not a guarantee. The calculator's projection slows over time because maintenance falls as weight changes. If you are considering a large deficit or rapid weight change, seek individualized guidance from a qualified healthcare professional or registered dietitian.</p>
 
     <h2 id="net-calories">Net calories: food eaten minus exercise burned</h2>
     <p>Net calories means calories eaten minus calories burned in exercise. If you eat 2,000 calories and burn 350 in a run, your net is 1,650. This calculator already includes exercise in the activity factor, so do not subtract workouts a second time from the target it gives you. Subtract exercise only if you chose the sedentary level and track workouts separately.</p>
@@ -463,9 +463,9 @@
     <details class="sx-faq"><summary>Is a 500-calorie deficit always the right target?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A fixed 500-calorie deficit is not appropriate for everyone. The size of a deficit should be individualized rather than treated as a guaranteed weekly weight-loss formula.</p></details>
     <details class="sx-faq"><summary>Why does my projected weight loss slow down over time?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because energy needs can change as body weight, body composition and activity change. The projection is a simplified model and should be compared with real-world trends rather than treated as a guaranteed forecast.</p></details>
     <details class="sx-faq"><summary>What is a calorie calculator and what does it tell me?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A calorie calculator estimates how many calories you burn in a day (maintenance calories) from your sex, age, height, weight and activity level. It then adjusts that number up or down for your weight goal, so you get a daily calorie target.</p></details>
-    <details class="sx-faq"><summary>How do I calculate a calorie deficit?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Subtract your target intake from your maintenance calories. For a man with maintenance of 2,396 calories who eats 1,896, the deficit is 500 calories a day. At about 7,700 calories per kilogram, that is roughly 0.45 kg (1 lb) a week.</p></details>
-    <details class="sx-faq"><summary>How many calories should I cut to lose weight?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common range is 250 to 750 calories a day below maintenance, which is about 0.2 to 0.7 kg (0.5 to 1.5 lb) a week. A larger cut needs a doctor or dietitian's advice, and your target should not fall under the minimum your health professional recommends.</p></details>
-    <details class="sx-faq"><summary>What is a calorie surplus and how big should it be?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A calorie surplus is eating more than your maintenance calories. For gradual weight gain, 250 to 500 calories a day above maintenance is typical. Adding 300 calories suggests about 0.27 kg (0.6 lb) a week.</p></details>
+    <details class="sx-faq"><summary>How do I calculate a calorie deficit?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Subtract your target intake from your estimated maintenance calories. For a maintenance estimate of 2,396 calories and an intake of 1,896, the calculated deficit is 500 calories a day. Under the static 7,700 kcal/kg approximation, this is an arithmetic equivalent of roughly 0.45 kg (1 lb) a week, not a forecast; real weight change varies and is not linear over time.</p></details>
+    <details class="sx-faq"><summary>How many calories should I cut to lose weight?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A fixed deficit is not right for everyone. Under the static 7,700 kcal/kg approximation, a 250–750 kcal daily gap is the arithmetic equivalent of about 0.2–0.7 kg (0.5–1.5 lb) a week, not an individual prediction. Suitable targets depend on personal circumstances; seek qualified guidance before aggressive changes or if you have a health condition.</p></details>
+    <details class="sx-faq"><summary>What is a calorie surplus and how big should it be?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A calorie surplus is eating more than estimated maintenance. A 300 kcal daily surplus is the static 7,700 kcal/kg rule’s arithmetic equivalent of about 0.27 kg (0.6 lb) a week, not a guaranteed result; actual weight and body-composition changes vary.</p></details>
     <details class="sx-faq"><summary>What are net calories?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Net calories are calories eaten minus calories burned through exercise. If you eat 2,000 and burn 350 exercising, your net is 1,650. This calculator builds exercise into the activity factor, so do not subtract workouts again.</p></details>
     <details class="sx-faq"><summary>Which activity level should I choose?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Pick the lowest level that honestly fits your week: 1.2 for little or no exercise, 1.375 for 1–3 workouts, 1.55 for 3–5, 1.725 for 6–7 and 1.9 for a physical job plus training. If unsure, choose lower and adjust after two to three weeks.</p></details>
     <details class="sx-faq"><summary>Why does another calorie calculator give me a different number?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Calculators use different equations. This one uses Mifflin-St Jeor. Others use the 1919 Harris-Benedict equation or equations from the Institute of Medicine. For the example man the maintenance figure is 2,396 with Mifflin-St Jeor and 2,504 with Harris-Benedict, about 100 calories apart.</p></details>
