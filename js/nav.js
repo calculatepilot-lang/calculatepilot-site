@@ -262,3 +262,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   links.addEventListener('click',(e)=>{if(e.target.tagName==='A') closeMenu();});
   window.addEventListener('resize',()=>{if(window.innerWidth>720 && links.classList.contains('nav-open')) closeMenu();});
 });
+
+/* Visitor star ratings (calculator pages only) */
+(function(){
+  if(!/^\/(?:(?:es|fr|de)\/)?(?:financial|health|math|other)\/[a-z0-9-]+\.html$/.test(location.pathname)) return;
+  var s=document.createElement('script');
+  s.src='/js/rating.js?v=20261024';
+  s.defer=true;
+  document.head.appendChild(s);
+})();
