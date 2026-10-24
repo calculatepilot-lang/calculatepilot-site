@@ -160,7 +160,7 @@ def schema_bundle(path: str, html: str, desc: str) -> str:
                 ],
             },
             {
-                "@type": "SoftwareApplication",
+                "@type": "WebApplication",
                 "name": name,
                 "url": url,
                 "applicationCategory": APP_CAT.get(cat, "UtilitiesApplication"),
