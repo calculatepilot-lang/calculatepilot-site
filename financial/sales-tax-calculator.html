@@ -5,8 +5,10 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Sales Tax Calculator — Tax Amount & Final Price</title>
-<meta name="description" content="Free sales tax calculator: tax amount and final price from pre-tax price and rate. Also reverse the tax. No signup. Free, instant, formula shown. No signup.">
+<meta name="description" content="Free sales tax calculator: get the tax amount and final price from a pre-tax price and rate, or reverse the tax from a total. Formula shown, no signup.">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/sales-tax-calculator.html">
 <link rel="alternate" hreflang="es" href="https://www.calculatepilot.com/es/financial/sales-tax-calculator.html">
 <link rel="alternate" hreflang="fr" href="https://www.calculatepilot.com/fr/financial/sales-tax-calculator.html">
@@ -16,10 +18,10 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sales Tax Calculator — Tax Amount & Final Price | CalculatePilot">
-<meta name="twitter:description" content="Free sales tax calculator: tax amount and final price from pre-tax price and rate. Also reverse the tax. No signup. Free, instant, formula shown. No signup.">
+<meta name="twitter:description" content="Free sales tax calculator: get the tax amount and final price from a pre-tax price and rate, or reverse the tax from a total. Formula shown, no signup.">
 <meta name="twitter:image" content="https://www.calculatepilot.com/images/og-share.png">
 <meta property="og:title" content="Sales Tax Calculator — Tax Amount & Final Price | CalculatePilot">
-<meta property="og:description" content="Free sales tax calculator: tax amount and final price from pre-tax price and rate. Also reverse the tax. No signup. Free, instant, formula shown. No signup.">
+<meta property="og:description" content="Free sales tax calculator: get the tax amount and final price from a pre-tax price and rate, or reverse the tax from a total. Formula shown, no signup.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calculatepilot.com/financial/sales-tax-calculator.html">
 <meta property="og:image" content="https://www.calculatepilot.com/images/og-share.png">
@@ -71,8 +73,15 @@
     "availability": "https://schema.org/OnlineOnly"
    },
    "isAccessibleForFree": true,
-   "description": "Free sales tax calculator: tax amount and final price from pre-tax price and rate. Also reverse the tax. No signup. Free, instant, formula shown. No signup.",
-   "inLanguage": "en"
+   "description": "Free sales tax calculator: get the tax amount and final price from a pre-tax price and rate, or reverse the tax from a total. Formula shown, no signup.",
+   "inLanguage": "en",
+   "datePublished": "2026-08-10",
+   "dateModified": "2026-10-25",
+   "creator": {
+    "@type": "Person",
+    "name": "Suhaib Hassan",
+    "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+   }
   }
  ]
 }
@@ -105,9 +114,68 @@
     "@type": "Answer",
     "text": "Delaware, Montana, New Hampshire and Oregon have no statewide or local general sales tax. Alaska has no state sales tax, but many Alaskan localities charge their own."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How much is sales tax on $1,250 at 9.5%?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is $118.75, for a total of $1,368.75. These are the calculator defaults: 6% state, 1.25% county, 1.5% city and 0.75% special district add up to 9.5%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is a combined sales tax rate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The combined rate adds the state rate and any county, city and special-district rates. On the defaults, 6% + 1.25% + 1.5% + 0.75% = 9.5%."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is sales tax charged on groceries and prescriptions?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Often not. Groceries are exempt in most states, though some tax them at a reduced rate. Prescription drugs are exempt in virtually every state. Choose the item type in the calculator and enter your state grocery rate, or 0 if it is exempt."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this sales tax calculator",
+ "description": "Calculate the sales tax and final price on a purchase, or work backwards from a tax-inclusive total.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Choose a direction",
+   "text": "Choose Add Sales Tax to start from a pre-tax price, or Extract from Total to work backwards from a tax-inclusive total."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter the price",
+   "text": "Enter the price before tax, or tap one of the price presets."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter the tax rates",
+   "text": "Pick a jurisdiction example or enter the state, county, city and special-district rates yourself."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Choose the item type",
+   "text": "Choose general merchandise, groceries, prescription drugs or digital products. Enter your state grocery rate if it is not exempt."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Read the total and the tax by authority",
+   "text": "Read the total price, the tax amount, the tax each authority receives, and the reverse-check formula."
+  }
+ ]
 }
 </script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
@@ -116,6 +184,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#stCalc">Skip to calculator</a>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
 <div class="sx" id="stCalc">
@@ -126,6 +195,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>State + Local Combined Rates</span><span class="sx-badge"><span class="msym" aria-hidden="true">gavel</span>Wayfair Nexus Rules</span><span class="sx-badge"><span class="msym" aria-hidden="true">sync_alt</span>Tax-Inclusive vs Tax-Exclusive</span></div>
     <h1>Sales Tax Calculator: Tax Amount &amp; Final Price</h1>
     <p>Calculate the sales tax and final total on a purchase — split into state, county, city and special-district rates — or work backwards from a tax-inclusive total.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -223,10 +293,49 @@
     <p>US rates are state and local, not federal. Groceries and prescriptions are often exempt. Outside the US, most countries use VAT instead — see the <a href="/financial/vat-calculator.html">VAT Calculator</a>.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this sales tax calculator</h2>
+    <ol>
+      <li><strong>Choose a direction.</strong> Choose Add Sales Tax to start from a pre-tax price, or Extract from Total to work backwards from a tax-inclusive total.</li>
+      <li><strong>Enter the price.</strong> Enter the price before tax, or tap one of the price presets.</li>
+      <li><strong>Enter the tax rates.</strong> Pick a jurisdiction example or enter the state, county, city and special-district rates yourself.</li>
+      <li><strong>Choose the item type.</strong> Choose general merchandise, groceries, prescription drugs or digital products. Enter your state grocery rate if it is not exempt.</li>
+      <li><strong>Read the total and the tax by authority.</strong> Read the total price, the tax amount, the tax each authority receives, and the reverse-check formula.</li>
+    </ol>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on a $1,250 purchase of general merchandise. The combined rate is 9.5%: 6% state, 1.25% county, 1.5% city and 0.75% special district.</p>
+    <ul>
+      <li>Sales tax: $1,250 × 9.5% = <strong>$118.75</strong>.</li>
+      <li>Total price: $1,250 + $118.75 = <strong>$1,368.75</strong>, which is $1,250 × 1.095.</li>
+      <li>Reverse check: $1,368.75 ÷ 1.095 = $1,250 before tax.</li>
+    </ul>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 130" width="100%" role="img" aria-labelledby="stChartT stChartD" style="max-width:600px;height:auto">
+        <title id="stChartT">Sales tax by authority on the default $1,250 purchase</title>
+        <desc id="stChartD">Of $118.75 in sales tax at a 9.5% combined rate, the state receives $75.00, the county $15.63, the city $18.75 and the special district $9.38.</desc>
+        <text x="0" y="20" font-size="12" fill="#475569">State 6%</text><rect x="150" y="6" width="440" height="20" fill="#0f766e"/><text x="520" y="21" font-size="12" fill="#fff" font-weight="700">$75.00</text>
+        <text x="0" y="52" font-size="12" fill="#475569">County 1.25%</text><rect x="150" y="38" width="91.7" height="20" fill="#2563eb"/><text x="248" y="53" font-size="12" fill="#2563eb" font-weight="700">$15.63</text>
+        <text x="0" y="84" font-size="12" fill="#475569">City 1.5%</text><rect x="150" y="70" width="110" height="20" fill="#f59e0b"/><text x="267" y="85" font-size="12" fill="#92400e" font-weight="700">$18.75</text>
+        <text x="0" y="116" font-size="12" fill="#475569">Special district 0.75%</text><rect x="150" y="102" width="55" height="20" fill="#a855f7"/><text x="212" y="117" font-size="12" fill="#7e22ce" font-weight="700">$9.38</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">The $118.75 of tax on $1,250 split by authority: state $75.00, county $15.63, city $18.75, special district $9.38.</figcaption>
+    </figure>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>This sales tax calculator gives the tax amount and final price: tax = price × rate, and total = price + tax.</li>
+      <li>To remove tax from a total, divide by (1 + rate). A $1,368.75 total at 9.5% is $1,250 before tax.</li>
+      <li>US sales tax rates are state plus local, not federal. The combined rate is usually higher than the state base rate.</li>
+      <li>Groceries and prescriptions are often exempt, and the rate you pay at the register depends on your address.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>How do I calculate sales tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Multiply the pre-tax price by the combined sales tax rate as a decimal. For example, $1,250 at 9.5% is $1,250 × 0.095 = $118.75 in tax, for a total of $1,368.75.</p></details>
     <details class="sx-faq"><summary>How do I remove sales tax from a total?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the tax-inclusive total by (1 + rate). A $1,368.75 total at 9.5% tax is $1,368.75 ÷ 1.095 = $1,250 before tax, so the tax was $118.75.</p></details>
     <details class="sx-faq"><summary>Which states have no sales tax?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Delaware, Montana, New Hampshire and Oregon have no statewide or local general sales tax. Alaska has no state sales tax, but many Alaskan localities charge their own.</p></details>
+    <details class="sx-faq"><summary>How much is sales tax on $1,250 at 9.5%?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is $118.75, for a total of $1,368.75. These are the calculator defaults: 6% state, 1.25% county, 1.5% city and 0.75% special district add up to 9.5%.</p></details>
+    <details class="sx-faq"><summary>What is a combined sales tax rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The combined rate adds the state rate and any county, city and special-district rates. On the defaults, 6% + 1.25% + 1.5% + 0.75% = 9.5%.</p></details>
+    <details class="sx-faq"><summary>Is sales tax charged on groceries and prescriptions?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Often not. Groceries are exempt in most states, though some tax them at a reduced rate. Prescription drugs are exempt in virtually every state. Choose the item type in the calculator and enter your state grocery rate, or 0 if it is exempt.</p></details>
   </div>
 </section>
 
