@@ -6,6 +6,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">analytics</span>Amortization Reset &amp; Break-Even Modeling</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">calculate</span>Closing Cost Recovery</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>Verified Client-Side</span></div>
     <h1>Mortgage Refinance Calculator</h1>
     <p>Compare your current loan with a refinance offer: monthly savings, the month you break even on closing costs, and whether resetting the loan term costs you more interest in the long run.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -103,17 +104,61 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>What breakeven point means</h2>
-    <p>The breakeven point is how many months it takes for your monthly savings to cover the closing costs of refinancing. If you plan to stay in the home (or keep the loan) longer than the breakeven period, refinancing is generally worth it purely on the numbers.</p>
-    <p>If you expect to sell or pay off the loan before reaching breakeven, the closing costs may outweigh the savings — timeline is often the single biggest factor in whether refinancing makes sense.</p>
+    <p>The breakeven point is how many months it takes for your savings to cover the closing costs of refinancing. If you stay in the home, or keep the loan, longer than that, refinancing is generally worth it on the numbers alone.</p>
+    <p>If you expect to sell or pay off the loan before breakeven, the closing costs may outweigh the savings. Your timeline is often the biggest factor in whether refinancing makes sense.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this refinance calculator</h2>
+    <ol>
+      <li><strong>Enter your current loan.</strong> Enter your remaining mortgage balance, your current interest rate and the years left on the loan.</li>
+      <li><strong>Enter the new loan.</strong> Enter the new loan term and the new interest rate you were offered.</li>
+      <li><strong>Add closing costs.</strong> Enter the estimated closing costs and fees, and choose whether to pay them upfront or roll them into the loan.</li>
+      <li><strong>Add cash-out if you want it.</strong> Enter a cash-out amount if you plan to borrow extra against your home. Leave it at zero for a simple rate-and-term refinance.</li>
+      <li><strong>Read the break-even month.</strong> Check the month you break even, the monthly savings, the five-year net benefit and the change in lifetime interest.</li>
+    </ol>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>You owe $320,000 at 7.25% with 26 years left. You are offered a new 30-year loan at 5.875% with $5,500 of closing costs.</p>
+    <ul>
+      <li>Monthly payment: $2,282 now, $1,893 after refinancing. That saves <strong>$389 a month</strong>.</li>
+      <li>Break-even: <strong>month 16</strong>, when cumulative savings cover the $5,500 of costs.</li>
+      <li>Five-year net benefit: <strong>+$15,413</strong> after fees.</li>
+      <li>Lifetime interest: $30,451 lower than keeping the old loan.</li>
+    </ul>
+    <p>The catch is the term reset. Moving 26 years of balance onto a 30-year loan pushes your payoff date back 4 years. Paying about $2,003 a month on the new loan would keep your original payoff date.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 170" width="100%" role="img" aria-labelledby="rfChartT rfChartD" style="max-width:600px;height:auto">
+        <title id="rfChartT">Cumulative net benefit after fees, years 1 to 5</title>
+        <desc id="rfChartD">With the calculator defaults, the cumulative net benefit after the $5,500 closing costs is minus $1,135 after year 1, plus $3,150 after year 2, plus $7,343 after year 3, plus $11,435 after year 4 and plus $15,413 after year 5.</desc>
+        <line x1="150" y1="4" x2="150" y2="166" stroke="#94a3b8"/>
+        <text x="0" y="24" font-size="12" fill="#475569">Year 1</text><rect x="127.3" y="10" width="22.7" height="20" fill="#ef4444"/><text x="156" y="25" font-size="12" fill="#ef4444" font-weight="700">−$1,135</text>
+        <text x="0" y="58" font-size="12" fill="#475569">Year 2</text><rect x="150" y="44" width="63" height="20" fill="#0f766e"/><text x="219" y="59" font-size="12" fill="#0f766e" font-weight="700">+$3,150</text>
+        <text x="0" y="92" font-size="12" fill="#475569">Year 3</text><rect x="150" y="78" width="146.9" height="20" fill="#0f766e"/><text x="303" y="93" font-size="12" fill="#0f766e" font-weight="700">+$7,343</text>
+        <text x="0" y="126" font-size="12" fill="#475569">Year 4</text><rect x="150" y="112" width="228.7" height="20" fill="#0f766e"/><text x="385" y="127" font-size="12" fill="#0f766e" font-weight="700">+$11,435</text>
+        <text x="0" y="160" font-size="12" fill="#475569">Year 5</text><rect x="150" y="146" width="308.3" height="20" fill="#0f766e"/><text x="465" y="161" font-size="12" fill="#0f766e" font-weight="700">+$15,413</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Cumulative net benefit after the $5,500 closing costs: −$1,135 after year 1, turning positive in year 2, reaching +$15,413 after year 5.</figcaption>
+    </figure>
+
     <h2>Beyond the monthly payment</h2>
-    <p>A lower monthly payment doesn't always mean less total interest — resetting to a new 30-year term after already paying down several years of a loan can sometimes increase total interest paid over time, even with a lower rate, because you're extending how long interest accrues.</p>
-    <p>Comparing total interest between the current loan's remaining term and the new loan's full term (as this calculator does) gives a more complete picture than the monthly payment difference alone. If you're still deciding on your original loan terms, the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> covers that first step.</p>
+    <p>A lower monthly payment doesn't always mean less total interest. Resetting to a new 30-year term after paying down several years can increase total interest, even with a lower rate, because interest accrues for longer.</p>
+    <p>Comparing total interest between your current loan's remaining term and the new loan's full term, as this calculator does, gives a fuller picture than the monthly difference alone. If you're still deciding on your original loan terms, the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> covers that first step.</p>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>The break-even point is the month your monthly savings add up to your closing costs. Stay in the loan longer than that and a refinance is usually worth it.</li>
+      <li>On the defaults, the monthly savings are $389 and break-even is month 16.</li>
+      <li>A lower payment can still mean more interest if you reset to a longer term. Compare total interest, not just the payment.</li>
+      <li>This is an estimate, not a lender quote. Rates, fees and eligibility depend on your lender.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Is refinancing worth it if I'm planning to move soon?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Generally not, if you'd move before reaching the breakeven point — the closing costs may not be recovered through monthly savings in that case.</p></details>
     <details class="sx-faq"><summary>Can refinancing increase my total interest even with a lower rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — resetting to a longer term (e.g., back to 30 years after already paying several years) extends how long interest accrues, which can offset some or all of the benefit of a lower rate.</p></details>
+    <details class="sx-faq"><summary>What is the break-even point on a refinance?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is the month when your cumulative savings cover the closing costs. On the calculator defaults ($320,000 balance, 7.25% refinanced to 5.875%, $5,500 of costs), it is month 16.</p></details>
+    <details class="sx-faq"><summary>How much does it cost to refinance?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Closing costs and fees vary by lender and loan. The calculator defaults to $5,500 on a $320,000 balance, which is about 1.7%. Enter the figure from your own loan estimate.</p></details>
+    <details class="sx-faq"><summary>Should I keep my payoff date when I refinance?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on your goal. Moving a 26-year balance onto a new 30-year loan lowers the payment but pushes payoff back 4 years. On the defaults, paying about $2,003 a month would keep the original payoff date.</p></details>
+    <details class="sx-faq"><summary>What is a cash-out refinance?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A cash-out refinance replaces your loan with a larger one and pays you the difference in cash. Enter a cash-out amount in the calculator to see how it changes your new payment.</p></details>
   </div>
 </section>
 
