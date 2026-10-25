@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Paycheck Calculator 2026 — Take-Home Pay | CalculatePilot</title>
 <meta name="description" content="Free 2026 paycheck calculator: take-home pay per paycheck after federal tax, Social Security, Medicare, state tax and pre-tax deductions like 401(k).">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/paycheck-calculator.html">
@@ -50,7 +52,14 @@
  },
  "isAccessibleForFree": true,
  "description": "Estimate your take-home pay per paycheck with 2026 federal tax brackets, Social Security and Medicare, state income tax, and pre-tax deductions like 401(k) and health insurance. Free, instant, no signup.",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-25",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -99,9 +108,76 @@
     "@type": "Answer",
     "text": "Divide the total tax withheld on a recent pay stub or tax return by your gross income for that period — that gives a reasonably accurate personal effective rate to use here."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How much is the take-home pay on an $85,000 salary in 2026?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On the calculator defaults (paid bi-weekly, a 4% state tax rate and $421.15 of pre-tax deductions per paycheck), net pay is $2,214.31 per paycheck. That is about $57,572 a year, or 67.7% of gross pay."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How is federal withholding on a paycheck estimated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The calculator annualizes your pay. It subtracts pre-tax deductions and the 2026 standard deduction for your filing status, applies the 2026 IRS tax brackets, subtracts any Form W-4 Step 3 credits, then divides by the number of paychecks."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are the Social Security and Medicare rates in 2026?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "For 2026, Social Security is 6.2% on wages up to $184,500. Medicare is 1.45% on all wages, plus 0.9% above $200,000. Both apply to wages after Section 125 deductions."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is my real paycheck different from this estimate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Real employer withholding follows IRS Publication 15-T, so individual paychecks can differ by a few dollars. State rules, other income types and benefits not modeled here can also change the amount."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this 2026 paycheck calculator",
+ "description": "Estimate your take-home pay per paycheck after federal tax, FICA, state tax and payroll deductions.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter your gross pay",
+   "text": "Enter your gross compensation as an annual salary or an hourly rate. For hourly pay, also enter your hours per week."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Choose your pay frequency and filing status",
+   "text": "Choose weekly, bi-weekly, semi-monthly or monthly paychecks, then choose your filing status."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add a state tax rate",
+   "text": "Choose a state or enter your own effective state income tax rate."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter your pre-tax deductions",
+   "text": "Enter your traditional 401(k) or 403(b) deferral, health insurance premiums, HSA or FSA contribution and commuter benefits."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add post-tax items and read your net pay",
+   "text": "Enter any Roth 401(k), other post-tax deductions, W-4 Step 3 credits or extra withholding, then read your net pay per paycheck."
+  }
+ ]
 }
 </script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
@@ -110,6 +186,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#pcCalc">Skip to calculator</a>
 
 <header class="site-header">
   <div class="container">
@@ -134,6 +211,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>2026 US Federal Tax Engine</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">tune</span>Pre-Tax &amp; Post-Tax Deductions</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Precision</span></div>
     <h1>Paycheck Calculator (Take-Home Pay)</h1>
     <p>Estimate your net take-home pay per paycheck after 2026 federal income tax, FICA (Social Security &amp; Medicare), state income tax, and pre-tax payroll deductions.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -250,16 +328,61 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>How this calculator works</h2>
-    <p>Federal income tax withholding is estimated by annualizing your pay: annual wages minus pre-tax deductions minus the 2026 standard deduction for your filing status, run through the 2026 IRS tax brackets, less any Form W-4 Step 3 credits, then divided by your number of paychecks. Social Security (6.2% up to $184,500) and Medicare (1.45%, plus 0.9% above $200,000) are applied to wages after Section 125 deductions. State tax uses a flat rate on your wages after pre-tax deductions. Real employer withholding follows IRS Publication 15-T, so individual paychecks can differ by a few dollars.</p>
+    <p>Federal income tax withholding is estimated by annualizing your pay. Start with annual wages and subtract pre-tax deductions and the 2026 standard deduction for your filing status. Run the result through the 2026 IRS tax brackets, subtract any Form W-4 Step 3 credits, then divide by your number of paychecks. Social Security (6.2% up to $184,500) and Medicare (1.45%, plus 0.9% above $200,000) are applied to wages after Section 125 deductions. State tax uses a flat rate on your wages after pre-tax deductions. Real employer withholding follows IRS Publication 15-T, so individual paychecks can differ by a few dollars.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · 2026 figures verified 27 Sep 2026 against IRS Rev. Proc. 2025-32 and the SSA 2026 fact sheet · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this paycheck calculator</h2>
+    <ol>
+      <li><strong>Enter your gross pay.</strong> Enter your gross compensation as an annual salary or an hourly rate. For hourly pay, also enter your hours per week.</li>
+      <li><strong>Choose your pay frequency and filing status.</strong> Choose weekly, bi-weekly, semi-monthly or monthly paychecks, then choose your filing status.</li>
+      <li><strong>Add a state tax rate.</strong> Choose a state or enter your own effective state income tax rate.</li>
+      <li><strong>Enter your pre-tax deductions.</strong> Enter your traditional 401(k) or 403(b) deferral, health insurance premiums, HSA or FSA contribution and commuter benefits.</li>
+      <li><strong>Add post-tax items and read your net pay.</strong> Enter any Roth 401(k), other post-tax deductions, W-4 Step 3 credits or extra withholding, then read your net pay per paycheck.</li>
+    </ol>
+
     <h2>What counts as a pre-tax deduction</h2>
-    <p>Pre-tax deductions reduce your taxable income before tax is calculated — common examples include traditional 401(k) contributions, health insurance premiums, and health savings account (HSA) contributions. Post-tax deductions, like Roth 401(k) contributions or wage garnishments, don't reduce taxable income, so they're entered separately.</p>
-    <p>Getting this distinction right matters for accuracy — including a post-tax deduction as pre-tax would understate your taxable income and therefore your estimated tax, throwing off the final take-home figure. For a federal-only estimate on a known taxable income, use the <a href="/financial/tax-calculator.html">Tax Calculator</a>.</p>
+    <p>Pre-tax deductions reduce your taxable income before tax is calculated. Common examples include traditional 401(k) contributions, health insurance premiums and health savings account (HSA) contributions. Post-tax deductions, like Roth 401(k) contributions or wage garnishments, don't reduce taxable income, so they're entered separately.</p>
+    <p>Getting this distinction right matters for accuracy. Entering a post-tax deduction as pre-tax would understate your taxable income and your estimated tax, which throws off the take-home figure. For a federal-only estimate on a known taxable income, use the <a href="/financial/tax-calculator.html">Tax Calculator</a>.</p>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on an $85,000 salary paid bi-weekly (26 paychecks), with a 4% state income tax rate. Pre-tax deductions are a 6% traditional 401(k), $120 of health insurance, $75 for an HSA and $30 of commuter benefits per paycheck.</p>
+    <ul>
+      <li>Gross pay per paycheck: $85,000 ÷ 26 = <strong>$3,269.23</strong>.</li>
+      <li>Pre-tax deductions: $196.15 + $120.00 + $75.00 + $30.00 = <strong>$421.15</strong>, leaving $2,848.08 of taxable federal and state wages.</li>
+      <li>Federal income tax withholding: <strong>$286.96</strong>. State income tax at 4%: <strong>$113.92</strong>.</li>
+      <li>Social Security (6.2%): <strong>$188.74</strong>. Medicare (1.45%): <strong>$44.14</strong>.</li>
+      <li>Net take-home pay: <strong>$2,214.31 per paycheck</strong> (67.7% of gross), or $57,572.02 a year.</li>
+    </ul>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="pcChartT pcChartD" style="max-width:600px;height:auto">
+        <title id="pcChartT">Where a $3,269.23 bi-weekly paycheck goes on the default example</title>
+        <desc id="pcChartD">Of a $3,269.23 gross paycheck, net pay is $2,214.31 (67.7%), pre-tax benefits are $421.15 (12.9%), federal tax is $286.96 (8.8%), Social Security and Medicare are $232.88 (7.1%) and state tax is $113.92 (3.5%).</desc>
+        <rect x="0" y="10" width="406.4" height="34" fill="#0f766e"/>
+        <rect x="406.4" y="10" width="77.3" height="34" fill="#2563eb"/>
+        <rect x="483.7" y="10" width="52.7" height="34" fill="#ef4444"/>
+        <rect x="536.4" y="10" width="42.7" height="34" fill="#f59e0b"/>
+        <rect x="579.1" y="10" width="20.9" height="34" fill="#a855f7"/>
+        <text x="0" y="62" font-size="12" fill="#0f766e" font-weight="700">Net pay $2,214.31</text>
+        <text x="260" y="62" font-size="12" fill="#475569">Pre-tax $421 · Federal $287 · FICA $233 · State $114</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Where a $3,269.23 paycheck goes: net pay 67.7%, pre-tax benefits 12.9%, federal tax 8.8%, FICA 7.1%, state tax 3.5%.</figcaption>
+    </figure>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>This 2026 paycheck calculator estimates take-home pay per paycheck after federal income tax, Social Security, Medicare, state tax and your deductions.</li>
+      <li>Pre-tax deductions such as a traditional 401(k), health insurance and an HSA reduce your taxable wages. Post-tax items such as a Roth 401(k) do not.</li>
+      <li>On the defaults, an $85,000 salary paid bi-weekly nets $2,214.31 per paycheck, or about $57,572 a year.</li>
+      <li>It is an estimate. Real employer withholding follows IRS Publication 15-T, so a paycheck can differ by a few dollars.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Which tax figures does this calculator use?<span class="msym" aria-hidden="true">expand_more</span></summary><p>2026 federal tax brackets and standard deductions from IRS Rev. Proc. 2025-32, the 2026 Social Security wage base of $184,500, and Medicare at 1.45% plus 0.9% on wages above $200,000. State income tax uses a flat rate you choose, since state rules vary widely.</p></details>
     <details class="sx-faq"><summary>Where can I find my actual effective tax rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide the total tax withheld on a recent pay stub or tax return by your gross income for that period — that gives a reasonably accurate personal effective rate to use here.</p></details>
+    <details class="sx-faq"><summary>How much is the take-home pay on an $85,000 salary in 2026?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On the calculator defaults (paid bi-weekly, a 4% state tax rate and $421.15 of pre-tax deductions per paycheck), net pay is $2,214.31 per paycheck. That is about $57,572 a year, or 67.7% of gross pay.</p></details>
+    <details class="sx-faq"><summary>How is federal withholding on a paycheck estimated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The calculator annualizes your pay. It subtracts pre-tax deductions and the 2026 standard deduction for your filing status, applies the 2026 IRS tax brackets, subtracts any Form W-4 Step 3 credits, then divides by the number of paychecks.</p></details>
+    <details class="sx-faq"><summary>What are the Social Security and Medicare rates in 2026?<span class="msym" aria-hidden="true">expand_more</span></summary><p>For 2026, Social Security is 6.2% on wages up to $184,500. Medicare is 1.45% on all wages, plus 0.9% above $200,000. Both apply to wages after Section 125 deductions.</p></details>
+    <details class="sx-faq"><summary>Why is my real paycheck different from this estimate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Real employer withholding follows IRS Publication 15-T, so individual paychecks can differ by a few dollars. State rules, other income types and benefits not modeled here can also change the amount.</p></details>
   </div>
 </section>
 
