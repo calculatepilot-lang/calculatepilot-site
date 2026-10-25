@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>House Flip Calculator — Profit, ROI & 70% Rule</title>
 <meta name="description" content="Estimate house flip profit and ROI from purchase price, rehab, holding and selling costs, and check the 70% rule against the after-repair value.">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/house-flip-calculator.html">
@@ -45,7 +47,14 @@
  },
  "isAccessibleForFree": true,
  "description": "Estimate the profit and ROI on a house flip based on purchase price, rehab costs, and expected resale value. No signup needed. CalculatePilot explains the formu",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-25",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -94,9 +103,76 @@
     "@type": "Answer",
     "text": "Because it's an estimate of a future sale price rather than a known figure, an overly optimistic ARV can make an unprofitable deal look attractive on paper — basing it on solid recent comparable sales data significantly improves the reliability of the whole projection."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the 70% rule in house flipping?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It says to pay no more than 70% of the after-repair value minus the repair budget. On the calculator defaults, $450,000 × 70% − $60,000 = $255,000. The $280,000 purchase price is $25,000 above that maximum allowable offer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much profit should I make on a flip?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A common target is 10% of the ARV or more. On the defaults the net profit is $45,553, which is 10.1% of the $450,000 ARV."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much do holding costs add up to?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On the defaults, financing and carrying costs total $27,498 over 6 months: $22,398 of loan interest and points plus $5,100 of taxes, insurance and utilities. Each extra month adds about $3,620."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is ARV in real estate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ARV is the after-repair value, the price you expect the house to sell for once the renovation is done. Base it on recent comparable sales close to the property."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this house flip calculator",
+ "description": "Estimate the profit and ROI of a house flip and check the deal against the 70% rule.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter the ARV and purchase price",
+   "text": "Enter the target after-repair value (ARV) and your target purchase price, plus buyer closing costs."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add the rehab budget and timeline",
+   "text": "Enter the rehab costs by category and the number of months the project will take."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Set the financing",
+   "text": "Choose how the deal is financed, then enter the loan-to-cost ratio, interest rate and points if you borrow."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add holding and selling costs",
+   "text": "Enter monthly property taxes, insurance, utilities and HOA fees, plus the broker commission, transfer taxes and buyer concessions."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Read the profit and the 70% rule check",
+   "text": "Read your net profit, ROI and cash invested, and check your purchase price against the maximum allowable offer."
+  }
+ ]
 }
 </script>
 <!-- cpx-head-extra -->
@@ -109,6 +185,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#hfCalc">Skip to calculator</a>
 
 <header class="site-header">
   <div class="container">
@@ -133,6 +210,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>70% Rule Underwriting</span><span class="sx-badge">Holding Cost Modeling</span><span class="sx-badge">Net Profit &amp; ROI</span></div>
     <h1>House Flip Profit Calculator &amp; ARV Deal Analyzer</h1>
     <p>Estimate your profit and return on a house flip from purchase price, rehab costs, financing, holding costs and resale value — with a 70% rule check and a delay stress test.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -247,18 +325,63 @@
 
 <section class="sx-card sx-method">
   <div class="sx-guide">
+    <h2>How to use this house flip calculator</h2>
+    <ol>
+      <li><strong>Enter the ARV and purchase price.</strong> Enter the target after-repair value (ARV) and your target purchase price, plus buyer closing costs.</li>
+      <li><strong>Add the rehab budget and timeline.</strong> Enter the rehab costs by category and the number of months the project will take.</li>
+      <li><strong>Set the financing.</strong> Choose how the deal is financed, then enter the loan-to-cost ratio, interest rate and points if you borrow.</li>
+      <li><strong>Add holding and selling costs.</strong> Enter monthly property taxes, insurance, utilities and HOA fees, plus the broker commission, transfer taxes and buyer concessions.</li>
+      <li><strong>Read the profit and the 70% rule check.</strong> Read your net profit, ROI and cash invested, and check your purchase price against the maximum allowable offer.</li>
+    </ol>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>You buy a house for $280,000 and expect an ARV of $450,000. Rehab is $60,000, the project takes 6 months, and a hard-money loan covers 85% of cost at 11.5% with 2 points.</p>
+    <ul>
+      <li>Acquisition: $280,000 plus 1.5% buyer closing costs = $284,200.</li>
+      <li>Rehab: $60,000. Financing: $22,398. Carrying costs: $5,100.</li>
+      <li>Selling costs: $32,750 (commission, transfer taxes and $3,500 of concessions).</li>
+      <li>Total project outlay: $404,448. <strong>Net profit: $45,553</strong>, which is 10.1% of the ARV.</li>
+    </ul>
+    <p>The 70% rule gives a maximum allowable offer of ($450,000 × 70%) − $60,000 = $255,000. The $280,000 purchase price is $25,000 above that, so this deal needs tight execution.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="hfChartT hfChartD" style="max-width:600px;height:auto">
+        <title id="hfChartT">Where the $450,000 sale price goes</title>
+        <desc id="hfChartD">Of the $450,000 ARV, purchase and closing cost $284,200 (63.2%), rehab $60,000 (13.3%), resale fees $32,750 (7.3%), debt and carry $27,498 (6.1%), and net profit $45,553 (10.1%).</desc>
+        <rect x="0" y="10" width="379" height="34" fill="#94a3b8"/>
+        <rect x="379" y="10" width="80" height="34" fill="#f59e0b"/>
+        <rect x="459" y="10" width="43.7" height="34" fill="#ef4444"/>
+        <rect x="502.7" y="10" width="36.6" height="34" fill="#a855f7"/>
+        <rect x="539.3" y="10" width="60.7" height="34" fill="#0f766e"/>
+        <text x="0" y="62" font-size="12" fill="#475569">Purchase + closing $284,200</text>
+        <text x="380" y="62" font-size="12" fill="#0f766e" font-weight="700">Net profit $45,553</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Where the $450,000 goes: purchase and closing 63.2%, rehab 13.3%, resale fees 7.3%, debt and carry 6.1%, net profit 10.1%.</figcaption>
+    </figure>
+
     <h2>What holding costs cover</h2>
-    <p>Holding costs are often underestimated by new flippers — they include property taxes, insurance, utilities, loan interest (if the purchase is financed), and HOA fees accrued during the time between purchase and sale. The longer a renovation takes, the more these costs add up, which is part of why timeline overruns can quietly erode profit even when the renovation budget itself stays on track.</p>
-    <p>Building a realistic timeline buffer into your holding cost estimate — rather than assuming a best-case renovation schedule — tends to produce a more reliable profit projection.</p>
+    <p>Holding costs are often underestimated by new flippers. They include property taxes, insurance, utilities, loan interest if the purchase is financed, and HOA fees. All of them accrue between purchase and sale. The longer a renovation takes, the more they add up. Timeline overruns can quietly erode profit even when the renovation budget stays on track.</p>
+    <p>Build a realistic timeline buffer into your holding cost estimate rather than assuming a best-case schedule. It tends to produce a more reliable profit projection.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>Why accurate ARV estimation matters most</h2>
-    <p>The after-repair value (ARV) is typically the single most sensitive number in this calculation — since it's an estimate of a future sale price rather than a known figure, an overly optimistic ARV can make a marginal deal look profitable on paper when it isn't. Basing ARV on recent comparable sales in the immediate area, ideally reviewed by a local real estate agent or appraiser, produces a more reliable projection than a rough guess.</p>
-    <p>Selling costs (agent commissions, closing costs, and staging) commonly run 8-10% of the sale price and are easy to underestimate — always build this into your profit calculation rather than treating the full ARV as available profit.</p>
+    <p>The after-repair value (ARV) is typically the most sensitive number in this calculation. It estimates a future sale price rather than a known figure. An overly optimistic ARV can make a marginal deal look profitable on paper when it isn't. Base your ARV on recent comparable sales in the immediate area, ideally reviewed by a local agent or appraiser. That gives a more reliable projection than a rough guess.</p>
+    <p>Selling costs (agent commissions, closing costs and staging) commonly run 8-10% of the sale price. They are easy to underestimate. Always build them into your profit calculation rather than treating the full ARV as available profit.</p>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>House flip profit is the ARV minus purchase, rehab, financing, holding and selling costs. Your ROI depends on how much cash you put in.</li>
+      <li>The 70% rule caps your offer at 70% of ARV minus rehab. On the defaults that is $255,000, and the $280,000 price is above it.</li>
+      <li>On the defaults the net profit is $45,553, or 10.1% of ARV. A common target is 10% or more.</li>
+      <li>The ARV and the timeline move profit the most. Check comparable sales and add a buffer to the schedule.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What's typically included in selling costs?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Real estate agent commissions, closing costs, and often staging or minor prep costs — commonly totaling around 8-10% of the sale price, though this varies by market and negotiated agent rates.</p></details>
     <details class="sx-faq"><summary>Why is ARV the most important number to get right?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Because it's an estimate of a future sale price rather than a known figure, an overly optimistic ARV can make an unprofitable deal look attractive on paper — basing it on solid recent comparable sales data significantly improves the reliability of the whole projection.</p></details>
+    <details class="sx-faq"><summary>What is the 70% rule in house flipping?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It says to pay no more than 70% of the after-repair value minus the repair budget. On the calculator defaults, $450,000 × 70% − $60,000 = $255,000. The $280,000 purchase price is $25,000 above that maximum allowable offer.</p></details>
+    <details class="sx-faq"><summary>How much profit should I make on a flip?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common target is 10% of the ARV or more. On the defaults the net profit is $45,553, which is 10.1% of the $450,000 ARV.</p></details>
+    <details class="sx-faq"><summary>How much do holding costs add up to?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On the defaults, financing and carrying costs total $27,498 over 6 months: $22,398 of loan interest and points plus $5,100 of taxes, insurance and utilities. Each extra month adds about $3,620.</p></details>
+    <details class="sx-faq"><summary>What is ARV in real estate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>ARV is the after-repair value, the price you expect the house to sell for once the renovation is done. Base it on recent comparable sales close to the property.</p></details>
   </div>
 </section>
 
