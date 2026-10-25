@@ -1,6 +1,6 @@
 <div class="sx" id="lttCalc">
 <div class="sx-toprow" style="margin-bottom:24px">
-  <nav class="sx-crumb" aria-label="Breadcrumb" style="font-size:13px"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b>Wales LTT Calculator</b></nav>
+  <nav class="sx-crumb" aria-label="Breadcrumb" style="font-size:13px"><a href="/">Home</a><span class="msym" aria-hidden="true">chevron_right</span><a href="/financial-calculators.html">Financial Calculators</a><span class="msym" aria-hidden="true">chevron_right</span><b>Wales stamp duty (LTT)</b></nav>
   <div class="sx-badges" style="margin:0;gap:8px">
     <span class="sx-badge em" style="border-color:var(--sx-hover);padding:4px 10px"><span class="msym" aria-hidden="true" style="font-size:14px;color:var(--sx-emt)">verified</span>Welsh Revenue Authority (WRA) Statutory Model</span>
     <span class="sx-badge" style="background:var(--sx-hi2);border-color:transparent;color:var(--sx-primary);padding:4px 10px"><span class="msym" aria-hidden="true" style="font-size:14px">lock</span>Client-Side Precision</span>
@@ -8,8 +8,9 @@
 </div>
 
 <header class="sx-head uk" style="margin-bottom:40px;max-width:48rem">
-  <h1>Wales Land Transaction Tax (LTT) Calculator</h1>
-  <p>Calculate Welsh Revenue Authority property tax for purchases in Wales, including main residence rates, Higher Residential Rates for additional properties, and non-residential rates.</p>
+  <h1>Wales Stamp Duty Calculator (LTT)</h1>
+  <p>People search for Welsh stamp duty. The statute is Land Transaction Tax, collected by the Welsh Revenue Authority — not English SDLT. This page calculates main-home rates, the higher residential table, and non-residential freehold. A £300,000 shop or office is <strong>£2,750</strong>.</p>
+  <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
 </header>
 
 <div class="sx-grid half" style="margin-bottom:64px;align-items:start">
@@ -82,14 +83,50 @@
     <h2>Rates this calculator uses</h2>
     <p>Main residential: 0% to £225,000 · 6% to £400,000 · 7.5% to £750,000 · 10% to £1.5 million · 12% above. Higher residential rates (from 11 December 2024): 5% to £180,000 · 8.5% to £250,000 · 10% to £400,000 · 12.5% to £750,000 · 15% to £1.5 million · 17% above. Non-residential (from 22 December 2020): 0% to £225,000 · 1% to £250,000 · 5% to £1 million · 6% above.</p>
     <p>Source: <a href="https://www.gov.wales/land-transaction-tax-rates-and-bands" rel="noopener" target="_blank">GOV.WALES Land Transaction Tax rates and bands</a>. The Welsh Revenue Authority, not this calculator, is the authority.</p>
-    <p class="sx-trust" style="margin:0">By Suhaib Hassan · Residential bands verified 22 Sep 2026, non-residential table re-checked 26 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+    <p class="sx-trust" style="margin:0">By Suhaib Hassan · Residential bands verified 22 Sep 2026, non-residential table re-checked 30 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas</a></p>
+
+    <h2>How to use this Wales LTT calculator</h2>
+    <ol>
+      <li><strong>Enter the purchase price.</strong> Enter the property purchase price in pounds, or tap one of the price presets.</li>
+      <li><strong>Choose the property type.</strong> Choose main residential, higher residential rates for additional dwellings and second homes, or non-residential freehold or lease premium.</li>
+      <li><strong>Calculate.</strong> Press Calculate Welsh LTT to update the result.</li>
+      <li><strong>Read the band breakdown.</strong> Read your total LTT, the effective rate and the tax charged in each band.</li>
+      <li><strong>Compare the other nations.</strong> Use the cross-border comparison to see the same price under SDLT in England and LBTT in Scotland.</li>
+    </ol>
 
     <h2>Worked examples</h2>
     <ul>
       <li><strong>Main residence at £280,000 (GOV.WALES example):</strong> 6% on £55,000 = <strong>£3,300</strong>.</li>
       <li><strong>Main residence at £300,000:</strong> 6% on £75,000 = <strong>£4,500</strong>.</li>
       <li><strong>Additional property at £300,000:</strong> 5% on £180,000 (£9,000) + 8.5% on £70,000 (£5,950) + 10% on £50,000 (£5,000) = <strong>£19,950</strong> — £15,450 more than the main table.</li>
-      <li><strong>Non-residential premises at £300,000:</strong> 1% on £25,000 (£250) + 5% on £50,000 (£2,500) = <strong>£2,750</strong>.</li>
+      <li><strong>Non-residential premises at £300,000:</strong> 1% on £25,000 (£250) + 5% on £50,000 (£2,500) = <strong>£2,750</strong>. <button type="button" id="load300">Load this £300,000 example</button></li>
+    </ul>
+    <p>The non-residential nil-rate band of <strong>£150,000</strong> applied only from 1 April 2018 to 21 December 2020. It is not the current rule. From 22 December 2020 a non-residential purchase at £150,000 is <strong>£0</strong> because the nil band now runs to £225,000, and a £300,000 premises is still <strong>£2,750</strong>. Do not reuse the old £150,000 threshold.</p>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on a £285,000 main residence. The main residential bands are 0% to £225,000, 6% to £400,000, 7.5% to £750,000, 10% to £1.5 million and 12% above.</p>
+    <ul>
+      <li>0% on the first £225,000 = £0.</li>
+      <li>6% on the remaining £60,000 (£225,000 to £285,000) = £3,600.</li>
+      <li><strong>Total LTT: £3,600.</strong></li>
+    </ul>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 130" width="100%" role="img" aria-labelledby="wlChartT wlChartD" style="max-width:600px;height:auto">
+        <title id="wlChartT">LTT on a £300,000 purchase in Wales by property type</title>
+        <desc id="wlChartD">On a £300,000 purchase in Wales, non-residential premises pay £2,750, a main residence pays £4,500 and an additional property pays £19,950 on the higher residential rates.</desc>
+        <text x="0" y="24" font-size="12" fill="#475569">Non-residential</text><rect x="150" y="10" width="60.7" height="22" fill="#0f766e"/><text x="218" y="25" font-size="12" fill="#0f766e" font-weight="700">£2,750</text>
+        <text x="0" y="68" font-size="12" fill="#475569">Main residence</text><rect x="150" y="54" width="99.2" height="22" fill="#f59e0b"/><text x="257" y="69" font-size="12" fill="#92400e" font-weight="700">£4,500</text>
+        <text x="0" y="112" font-size="12" fill="#475569">Additional property</text><rect x="150" y="98" width="440" height="22" fill="#ef4444"/><text x="520" y="113" font-size="12" fill="#fff" font-weight="700">£19,950</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">The same £300,000 purchase in Wales: non-residential £2,750, main residence £4,500, additional property £19,950 on the higher residential rates.</figcaption>
+    </figure>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>Wales does not charge stamp duty under that name. It charges Land Transaction Tax (LTT), collected by the Welsh Revenue Authority, not English SDLT.</li>
+      <li>The 2026 figures here use the main residential bands (we verified them on 22 Sep 2026). The nil-rate band is £225,000, and there is no separate first-time buyer relief.</li>
+      <li>Additional properties use a separate higher residential table from 11 December 2024. It starts at 5%, not a flat surcharge.</li>
+      <li>The non-residential nil band is £225,000. The old £150,000 band is historical and is not used. The Welsh Revenue Authority, not this calculator, is the authority.</li>
     </ul>
 
     <h2>Frequently asked questions</h2>
@@ -97,8 +134,11 @@
     <details class="sx-faq"><summary>How do higher rates work in Wales?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Since 11 December 2024 additional properties use a separate table starting at 5% on the first £180,000 — not a flat surcharge on the main rates.</p></details>
     <details class="sx-faq"><summary>Is LTT the same as stamp duty in England?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Different statute, different bands. For England and Northern Ireland use the UK Stamp Duty Calculator.</p></details>
     <details class="sx-faq"><summary>When do I have to pay LTT?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The return must be filed and the tax paid to the Welsh Revenue Authority within 30 days of the day after completion — your solicitor normally does this for you.</p></details>
-    <details class="sx-faq"><summary>Does this cover a shop or office?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — choose Non-Residential. From 22 December 2020 the slices are 0% to £225,000, 1% to £250,000, 5% to £1,000,000 and 6% above. A £300,000 premises is £2,750. Lease rent is not calculated.</p></details>
+    <details class="sx-faq"><summary>Does this cover a shop or office?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — choose Non-Residential. From 22 December 2020 the slices are 0% to £225,000, 1% to £250,000, 5% to £1,000,000 and 6% above. A £300,000 premises is £2,750. The pre-22 December 2020 £150,000 nil band is historical and is not used. Lease rent is not calculated.</p></details>
     <details class="sx-faq"><summary>Is this a Welsh Revenue Authority assessment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. Confirm with a solicitor. This page is a planning estimate from published bands.</p></details>
+    <details class="sx-faq"><summary>Does Wales have stamp duty?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Not under that name. Wales charges Land Transaction Tax (LTT), collected by the Welsh Revenue Authority. England and Northern Ireland use Stamp Duty Land Tax (SDLT).</p></details>
+    <details class="sx-faq"><summary>How much LTT do I pay on £300,000 in Wales?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A main residence pays £4,500. An additional property pays £19,950 on the higher residential rates. Non-residential premises pay £2,750.</p></details>
+    <details class="sx-faq"><summary>What are the Welsh LTT residential rates?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Main residential: 0% to £225,000, 6% to £400,000, 7.5% to £750,000, 10% to £1.5 million and 12% above. Additional properties use the higher residential table, which starts at 5%.</p></details>
     <p style="margin-top:16px"><a href="/financial/uk-stamp-duty-comparison.html">Compare England, Scotland and Wales on one price →</a></p>
   </div>
 </section>
