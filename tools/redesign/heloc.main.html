@@ -6,6 +6,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified_user</span>CLTV Risk Modeling</span><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">timeline</span>Draw vs. Repayment Phase Engine</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Privacy</span></div>
     <h1>HELOC &amp; Home Equity Loan Calculator</h1>
     <p>Estimate how much you could borrow against your home, your combined loan-to-value (CLTV), and your payment in the interest-only draw period versus the principal-and-interest repayment period.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -130,19 +131,58 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>How lenders determine your HELOC limit</h2>
-    <p>Lenders typically cap total borrowing (your existing mortgage plus the new HELOC) at a combined loan-to-value ratio, commonly 80-85% of your home's appraised value. This calculator uses that combined limit to estimate your maximum available credit line, though your actual approved amount also depends on credit score, income, and debt-to-income ratio.</p>
-    <p>A HELOC is secured by your home, similar to a second mortgage — this is why lenders can typically offer lower rates than unsecured credit, but it also means your home is collateral, making responsible borrowing especially important.</p>
+    <p>Lenders typically cap total borrowing at a combined loan-to-value (CLTV) ratio, commonly 80-85% of your home's appraised value. Total borrowing means your existing mortgage plus the new HELOC. This calculator uses that limit to estimate your maximum credit line. Your actual approved amount also depends on your credit score, income and debt-to-income ratio.</p>
+    <p>A HELOC is secured by your home, much like a second mortgage. That is why lenders can typically offer lower rates than unsecured credit. It also means your home is collateral, so responsible borrowing matters.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this HELOC calculator</h2>
+    <ol>
+      <li><strong>Enter your home value and mortgage balance.</strong> Enter the current estimated value of your home and the remaining balance on your first mortgage.</li>
+      <li><strong>Set the lender CLTV ceiling.</strong> Choose the maximum combined loan-to-value your lender allows: 80%, 85% or 90%.</li>
+      <li><strong>Enter the credit line you want.</strong> Enter the credit line or draw amount you want to borrow.</li>
+      <li><strong>Set the draw and repayment periods.</strong> Enter the length of the interest-only draw period and the principal-and-interest repayment period, in years.</li>
+      <li><strong>Enter the rates and read the payments.</strong> Enter the variable HELOC APR and the fixed home equity loan APR, then read your CLTV and the payment in each phase.</li>
+    </ol>
+
     <h2>How HELOC payments typically work</h2>
-    <p>Most HELOCs have two phases: a draw period (often 5-10 years) where you can borrow as needed and typically only pay interest on what you've drawn, followed by a repayment period where you pay down both principal and interest on the outstanding balance. This calculator estimates both phases, assuming the full draw is outstanding and the rate stays the same.</p>
-    <p>Because HELOCs commonly carry variable interest rates, your actual payment can change over time as rates move — unlike a fixed-rate home equity loan, where the rate and payment stay constant for the life of the loan.</p>
+    <p>Most HELOCs have two phases. The first is a draw period, often 5-10 years, when you can borrow as needed and typically pay only interest on what you've drawn. The second is a repayment period, when you pay down both principal and interest on the outstanding balance. This calculator estimates both phases. It assumes the full draw is outstanding and the rate stays the same.</p>
+    <p>HELOCs commonly carry variable interest rates, so your actual payment can change as rates move. A fixed-rate home equity loan is different: the rate and payment stay constant for the life of the loan.</p>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>Your home is worth $500,000 and you owe $280,000 on the first mortgage. The lender cap is 80% CLTV, and you want an $80,000 line at 8.25% with a 10-year draw period and a 20-year repayment period.</p>
+    <ul>
+      <li>Maximum lending: $500,000 × 80% = $400,000, minus the $280,000 mortgage = <strong>$120,000</strong> available.</li>
+      <li>CLTV after borrowing $80,000: ($280,000 + $80,000) ÷ $500,000 = <strong>72.0%</strong>.</li>
+      <li>Draw period (years 1 to 10): interest only, <strong>$550 a month</strong>.</li>
+      <li>Repayment period (years 11 to 30): principal and interest, <strong>$682 a month</strong>.</li>
+    </ul>
+    <p>The payment rises by $132 a month (+23.9%) when repayment starts. Total interest is $66,000 in the draw period and $83,597 in the repayment period, or $149,597 over the life of the line.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 100" width="100%" role="img" aria-labelledby="hlChartT hlChartD" style="max-width:600px;height:auto">
+        <title id="hlChartT">HELOC monthly payment by phase</title>
+        <desc id="hlChartD">On an $80,000 HELOC at 8.25%, the interest-only payment in the draw period is $550 a month. In the repayment period it rises to $682 a month.</desc>
+        <text x="0" y="24" font-size="12" fill="#475569">Draw (interest only)</text><rect x="150" y="10" width="354.8" height="22" fill="#0f766e"/><text x="512" y="25" font-size="12" fill="#0f766e" font-weight="700">$550</text>
+        <text x="0" y="68" font-size="12" fill="#475569">Repayment (P&amp;I)</text><rect x="150" y="54" width="440" height="22" fill="#f59e0b"/><text x="520" y="69" font-size="12" fill="#92400e" font-weight="700">$682</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Monthly payment on the $80,000 default line: $550 in the interest-only draw period, $682 once repayment starts.</figcaption>
+    </figure>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>A HELOC is a revolving credit line secured by your home. A home equity loan is a lump sum with a fixed rate and fixed payments.</li>
+      <li>Lenders cap total borrowing at a combined loan-to-value, commonly 80-85%. Your home equity line payments depend on how much you draw and the rate.</li>
+      <li>On the defaults, you could borrow up to $120,000, and an $80,000 draw pays $550 a month interest-only, then $682 a month in repayment.</li>
+      <li>HELOC rates are commonly variable, so payments can change. Your home is the collateral.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What's the difference between a HELOC and a home equity loan?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A HELOC is a revolving credit line you can draw from as needed, typically with a variable rate, while a home equity loan provides a lump sum upfront with a fixed rate and fixed payments.</p></details>
     <details class="sx-faq"><summary>Why is my payment only interest during the draw period?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Many HELOCs are structured to require interest-only payments during an initial draw period, with principal repayment beginning once the draw period ends and the repayment period begins.</p></details>
-    <details class="sx-faq"><summary>What is a HELOC?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A Home Equity Line of Credit (HELOC) lets you borrow against the equity in your home, similar to a credit card with a credit limit. You can draw from it as needed during the draw period (typically 10 years), then repay it during the repayment period.</p></details>
+    <details class="sx-faq"><summary>What is a HELOC?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A Home Equity Line of Credit (HELOC) lets you borrow against the equity in your home, similar to a credit card with a credit limit. You can draw from it as needed during the draw period (often 5-10 years), then repay it during the repayment period.</p></details>
     <details class="sx-faq"><summary>How is a HELOC payment calculated?<span class="msym" aria-hidden="true">expand_more</span></summary><p>During the draw period, most HELOCs require interest-only payments on the amount drawn. During the repayment period, payments cover both principal and interest. This calculator shows both phases based on your credit limit, rate, and terms.</p></details>
+    <details class="sx-faq"><summary>How much can I borrow with a HELOC?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Lenders typically cap combined borrowing at 80-85% of your home’s value. On the calculator defaults, a $500,000 home with a $280,000 first mortgage and an 80% cap supports a line of up to $120,000, which is $400,000 minus $280,000.</p></details>
+    <details class="sx-faq"><summary>What is CLTV?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Combined loan-to-value is your first mortgage plus the new borrowing, divided by your home’s value. On the defaults, $280,000 plus an $80,000 line on a $500,000 home gives a CLTV of 72.0%.</p></details>
+    <details class="sx-faq"><summary>How much is a HELOC payment on $80,000?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At the default 8.25% rate, the interest-only payment in the draw period is about $550 a month. In the 20-year repayment period it rises to about $682 a month, which is $132 more.</p></details>
   </div>
 </section>
 
