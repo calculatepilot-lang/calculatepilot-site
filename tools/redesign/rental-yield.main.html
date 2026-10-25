@@ -6,6 +6,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">verified</span>Real Estate Return Model</span><span class="sx-badge" style="background:var(--sx-hi2)"><span class="msym" aria-hidden="true">tune</span>Cap Rate &amp; Cash-on-Cash Precision</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Client-Side Zero Tracking</span></div>
     <h1>Rental Property Yield &amp; Cash Flow Calculator</h1>
     <p>Calculate the gross and net rental yield on an investment property — plus cap rate, cash-on-cash return, monthly cash flow after the mortgage, and debt service coverage.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -125,17 +126,71 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>Gross yield vs. net yield</h2>
-    <p>Gross yield is a quick, simple comparison metric — annual rent divided by property price — useful for quickly screening properties, but it ignores all ongoing costs. Net yield subtracts annual expenses (property management, maintenance, insurance, property tax, vacancy allowance) before dividing by price, giving a more realistic picture of actual return. On this page, net yield is the cap rate.</p>
-    <p>Two properties with identical gross yields can have very different net yields depending on their expense profile — an older property may need more maintenance, while a newer one might carry higher property tax, both of which erode the gross number differently.</p>
+    <p>Gross yield is annual rent divided by property price. It is a quick way to screen properties, but it ignores all ongoing costs. Net yield subtracts annual expenses before dividing by price. Those expenses include management, maintenance, insurance, property tax and a vacancy allowance. That gives a more realistic picture of your return. On this page, net yield is the cap rate.</p>
+    <p>Two properties with the same gross yield can have very different net yields. An older property may need more maintenance. A newer one might carry higher property tax. Each erodes the gross number in a different way.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this rental yield calculator</h2>
+    <ol>
+      <li><strong>Enter the price and financing.</strong> Enter the purchase price, your down payment, the loan interest rate and term, and the closing costs and make-ready budget.</li>
+      <li><strong>Enter the rent and vacancy.</strong> Enter the gross monthly rent and the vacancy buffer, which is the share of the year the property sits empty.</li>
+      <li><strong>Enter operating expenses.</strong> Enter the management fee, annual property tax, landlord insurance, maintenance and CapEx reserve, and any monthly HOA dues.</li>
+      <li><strong>Set growth assumptions.</strong> Enter the annual appreciation and the annual rent and cost growth to see the 10-year wealth forecast.</li>
+      <li><strong>Read the yield and cash flow.</strong> Read the cap rate, gross yield, cash-on-cash return, monthly cash flow and DSCR.</li>
+    </ol>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>A $350,000 property rents for $2,600 a month. You put $87,500 down (25%) plus $12,500 of closing and make-ready costs, so your total cash in is $100,000. The loan is 30 years at 6.75%.</p>
+    <ul>
+      <li>Gross yield: $31,200 of annual rent ÷ $350,000 = <strong>8.91%</strong>.</li>
+      <li>Vacancy at 5% takes $1,560, leaving $29,640 of effective income.</li>
+      <li>Operating expenses total $11,291: management $2,371, property tax $3,800, insurance $1,400, maintenance $3,120 and HOA $600.</li>
+      <li>Net operating income (NOI): $29,640 − $11,291 = $18,349. Cap rate (net yield): $18,349 ÷ $350,000 = <strong>5.24%</strong>.</li>
+      <li>Mortgage payments (P&amp;I) are $20,431 a year, so cash flow is −$2,082 a year (−$174 a month).</li>
+    </ul>
+    <p>Cash-on-cash return is −$2,082 ÷ $100,000 = −2.08%, and DSCR is 0.90x. The property looks strong on gross yield but does not cover its mortgage.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 230" width="100%" role="img" aria-labelledby="ryChartT ryChartD" style="max-width:600px;height:auto">
+        <title id="ryChartT">Year 1 rental income and costs for the default example</title>
+        <desc id="ryChartD">Gross potential rent $31,200. Effective income after 5% vacancy $29,640. Operating expenses $11,291. Net operating income $18,349. Debt service $20,431. Net pre-tax cash flow minus $2,082.</desc>
+        <line x1="150" y1="4" x2="150" y2="226" stroke="#94a3b8"/>
+        <text x="0" y="24" font-size="12" fill="#475569">Gross rent</text><rect x="150" y="10" width="440" height="20" fill="#0f766e"/><text x="520" y="25" font-size="12" fill="#fff" font-weight="700">$31,200</text>
+        <text x="0" y="58" font-size="12" fill="#475569">Effective income</text><rect x="150" y="44" width="418" height="20" fill="#0f766e"/><text x="500" y="59" font-size="12" fill="#fff" font-weight="700">$29,640</text>
+        <text x="0" y="92" font-size="12" fill="#475569">Operating costs</text><rect x="150" y="78" width="159.2" height="20" fill="#f59e0b"/><text x="316" y="93" font-size="12" fill="#92400e" font-weight="700">$11,291</text>
+        <text x="0" y="126" font-size="12" fill="#475569">NOI</text><rect x="150" y="112" width="258.8" height="20" fill="#0f766e"/><text x="415" y="127" font-size="12" fill="#0f766e" font-weight="700">$18,349</text>
+        <text x="0" y="160" font-size="12" fill="#475569">Mortgage (P&amp;I)</text><rect x="150" y="146" width="288.1" height="20" fill="#94a3b8"/><text x="445" y="161" font-size="12" fill="#475569" font-weight="700">$20,431</text>
+        <text x="0" y="194" font-size="12" fill="#475569">Cash flow</text><rect x="120.6" y="180" width="29.4" height="20" fill="#ef4444"/><text x="156" y="195" font-size="12" fill="#ef4444" font-weight="700">−$2,082</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Year 1 on the defaults: $29,640 of income less $11,291 of costs leaves $18,349 NOI, which is $2,082 short of the $20,431 mortgage payments.</figcaption>
+    </figure>
+
     <h2>What counts as an expense in this calculation</h2>
-    <p>A thorough net yield calculation should include property management fees (if using a manager), routine maintenance and repairs, property insurance, property tax, HOA fees if applicable, and a reasonable allowance for vacancy periods between tenants — leaving any of these out will overstate your actual return.</p>
+    <p>A thorough net yield calculation includes these costs:</p>
+    <ul>
+      <li>Property management fees, if you use a manager.</li>
+      <li>Routine maintenance and repairs.</li>
+      <li>Property insurance and property tax.</li>
+      <li>HOA fees, if they apply.</li>
+      <li>An allowance for vacancy between tenants.</li>
+    </ul>
+    <p>Leaving any of these out will overstate your actual return.</p>
     <p>Mortgage payments are not an operating expense, so they don't affect cap rate or net yield. They are subtracted afterwards to get cash flow, cash-on-cash return and DSCR — the numbers that show how the property performs with your financing.</p>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>Gross yield is rent divided by price. Net yield, the cap rate, subtracts vacancy and operating costs first. Your rental ROI depends on both.</li>
+      <li>Mortgage payments do not change the cap rate. They do change cash flow, cash-on-cash return and DSCR.</li>
+      <li>On the defaults, an 8.91% gross yield becomes a 5.24% cap rate and negative cash flow of $174 a month.</li>
+      <li>This is an estimate. Rents, costs, vacancy and rates vary by market, so use your own figures.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What's considered a good rental yield?<span class="msym" aria-hidden="true">expand_more</span></summary><p>This varies significantly by market and property type, but gross yields in the 5-8% range are commonly cited as solid in many markets, while some higher-risk or lower-cost markets can show higher yields — always compare within your specific local market rather than against a universal benchmark.</p></details>
     <details class="sx-faq"><summary>Should I use gross or net yield to compare properties?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Net yield gives a more accurate picture since it accounts for actual holding costs, though gross yield is useful as a quick first-pass screening tool before digging into expense details.</p></details>
+    <details class="sx-faq"><summary>What is the difference between cap rate and cash-on-cash return?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Cap rate is net operating income divided by the purchase price, so it ignores financing. Cash-on-cash return is pre-tax cash flow after the mortgage divided by the total cash you put in. It shows how your financing affects your return.</p></details>
+    <details class="sx-faq"><summary>What is DSCR on a rental property?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Debt service coverage ratio is net operating income divided by your annual mortgage payments. Lenders typically look for 1.20-1.25x or more. On the calculator defaults it is 0.90x, which means the income does not cover the mortgage.</p></details>
+    <details class="sx-faq"><summary>Can a rental property have a high yield and negative cash flow?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. On the defaults the gross yield is 8.91%, but cash flow is −$174 a month. Operating costs and the mortgage payment come out of the rent, so a high gross yield does not guarantee positive cash flow.</p></details>
+    <details class="sx-faq"><summary>What is the 1% rule?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is a quick screen: monthly rent should be at least 1% of the purchase price. On the defaults the rent is 0.74% of the price, so the property falls below it. Many areas fall below 1%, so treat it as a first filter only.</p></details>
   </div>
 </section>
 
