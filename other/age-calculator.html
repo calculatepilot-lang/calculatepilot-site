@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Age Calculator: Exact Age in Years, Months and Days</title>
 <meta name="description" content="Free age calculator: exact age in years, months and days, total days and hours lived, next birthday, milestone days, zodiac signs and life progress.">
 <link rel="canonical" href="https://www.calculatepilot.com/other/age-calculator.html">
@@ -74,7 +76,14 @@
  "isAccessibleForFree": true,
  "description": "Calculates exact age from a date of birth on any date, with total days, next birthday, milestone days and zodiac signs.",
  "@context": "https://schema.org",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-26",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -88,7 +97,7 @@
   "name": "Suhaib Hassan",
   "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
  },
- "dateModified": "2026-09-29",
+ "dateModified": "2026-10-26",
  "lastReviewed": "2026-09-29",
  "citation": [
   "ISO 8601 and the Gregorian calendar leap-year rule",
@@ -182,9 +191,63 @@
     "@type": "Answer",
     "text": "Use DATEDIF with the birth date and TODAY(): \"Y\" gives completed years, \"YM\" the remaining months and \"MD\" the remaining days."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How many days are there between 14 May 1995 and 5 February 2025?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "There are 10,860 days, which is 1,551 weeks and 3 days."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How old is someone born on 14 May 1995 on 5 February 2025?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "29 years, 8 months and 22 days. The day difference is negative, so the calculator borrows the 31 days of January."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "When is the 10,000th day for someone born on 14 May 1995?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It falls on 29 September 2022, which is 14 May 1995 plus 10,000 days."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to calculate your age",
+ "description": "Work out your exact age in years, months and days from your date of birth.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Subtract the birth year",
+   "text": "Subtract your birth year from the current year to get a first estimate."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Check whether your birthday has passed",
+   "text": "If your birthday has not happened yet this year, subtract one year."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Count months and days",
+   "text": "For months and days, count from your last birthday to today using real month lengths."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Count total days",
+   "text": "For total days, count the days between the two dates. This tool does all of that for you."
+  }
+ ]
 }
 </script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
@@ -193,6 +256,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#agCalc">Skip to calculator</a>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
 <div class="sx" id="agCalc">
@@ -203,6 +267,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">calendar_month</span>Exact calendar age</span><span class="sx-badge"><span class="msym" aria-hidden="true">event</span>Reviewed 29 Sep 2026</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock</span>Runs in your browser</span></div>
     <h1>Exact Age &amp; Lifespan Milestone Calculator</h1>
     <p>Find your exact age in years, months and days from your date of birth, on today's date or any other date. See your total days, weeks, hours and minutes lived, your next birthday, milestone days such as your 10,000th day, and your zodiac signs. Nothing is stored or sent anywhere.</p>
+    <p class="sx-trust" style="margin-top:8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-26">26 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -351,6 +416,14 @@
     <h2 id="age-in-sheets">Calculate age in Excel or Google Sheets</h2>
     <p>Use <code>=DATEDIF(A1, TODAY(), "Y")</code> for completed years, <code>"YM"</code> for the leftover months and <code>"MD"</code> for the leftover days, where A1 holds the birth date.</p>
 
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>An exact age counts completed years, months and days. If the day difference is negative, borrow the days of the previous month.</li>
+      <li>This age calculator uses the real calendar, so leap years and month lengths are exact. Dividing by 365.25 drifts.</li>
+      <li>Someone born on 14 May 1995 is 29 years, 8 months and 22 days old on 5 February 2025. That is 10,860 days.</li>
+      <li>Everything runs in your browser, and your date of birth is not stored or sent anywhere.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>How do you calculate exact age?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Subtract the birth date from the target date year, month and day. If the day difference is negative, borrow the number of days in the previous month and reduce the month count by one. Do the same for months and years.</p></details>
     <details class="sx-faq"><summary>How does the calculator handle leap years?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It uses the real calendar, so 29 February is included in leap years and total days are exact. A year is a leap year if divisible by 4, except century years that are not divisible by 400.</p></details>
@@ -362,6 +435,9 @@
     <details class="sx-faq"><summary>Why do age calculators sometimes show different days?<span class="msym" aria-hidden="true">expand_more</span></summary><p>They borrow days from different months when the day count is negative. This calculator borrows the length of the previous month and uses the real calendar, so total days are exact either way.</p></details>
     <details class="sx-faq"><summary>How old am I if I was born on 29 February?<span class="msym" aria-hidden="true">expand_more</span></summary><p>In leap years you have a birthday on 29 February. In other years the legal date is 28 February or 1 March depending on local law, and this tool shows 1 March.</p></details>
     <details class="sx-faq"><summary>How do I calculate age in Excel or Google Sheets?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Use DATEDIF with the birth date and TODAY(): "Y" gives completed years, "YM" the remaining months and "MD" the remaining days.</p></details>
+    <details class="sx-faq"><summary>How many days are there between 14 May 1995 and 5 February 2025?<span class="msym" aria-hidden="true">expand_more</span></summary><p>There are 10,860 days, which is 1,551 weeks and 3 days.</p></details>
+    <details class="sx-faq"><summary>How old is someone born on 14 May 1995 on 5 February 2025?<span class="msym" aria-hidden="true">expand_more</span></summary><p>29 years, 8 months and 22 days. The day difference is negative, so the calculator borrows the 31 days of January.</p></details>
+    <details class="sx-faq"><summary>When is the 10,000th day for someone born on 14 May 1995?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It falls on 29 September 2022, which is 14 May 1995 plus 10,000 days.</p></details>
   </div>
 </section>
 
