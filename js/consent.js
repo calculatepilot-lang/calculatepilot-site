@@ -1,11 +1,10 @@
 /* CalculatePilot privacy-first analytics consent.
- * Google Analytics, Ahrefs, and Microsoft Clarity load only after the visitor accepts analytics cookies.
+ * Ahrefs and Microsoft Clarity load only after the visitor accepts analytics cookies.
  */
 (function () {
   'use strict';
 
   var CONSENT_KEY = 'calculatepilot_analytics_consent_v1';
-  var GA_ID = 'G-YFZBQ0VRQS';
   var AHREFS_KEY = 'HAKNwRlvdHsSgoa1o6fIfA';
   var CLARITY_ID = 'yf5cj7b49w';
 
@@ -20,26 +19,6 @@
   function loadAnalytics() {
     if (window.__cpAnalyticsLoaded) return;
     window.__cpAnalyticsLoaded = true;
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-    window.gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'granted',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      functionality_storage: 'granted',
-      security_storage: 'granted',
-      wait_for_update: 500
-    });
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, { anonymize_ip: true });
-
-    var ga = document.createElement('script');
-    ga.async = true;
-    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
-    document.head.appendChild(ga);
 
     var ahrefs = document.createElement('script');
     ahrefs.async = true;

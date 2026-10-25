@@ -45,9 +45,8 @@ RewriteRule ^(fr|de|es)/(.+)$ /$2 [R=301,L]
 <IfModule mod_substitute.c>
   AddOutputFilterByType SUBSTITUTE text/html
   SubstituteMaxLineLength 2m
-  Substitute "s|<script async src=\"https://www.googletagmanager.com/gtag/js\?id=G-YFZBQ0VRQS\"></script>||i"
   Substitute "s|<script src=\"https://analytics.ahrefs.com/analytics.js\" data-key=\"HAKNwRlvdHsSgoa1o6fIfA\" async></script>||i"
-  Substitute "s|</head>|<script src=\"/js/consent.js?v=20260908\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260923\" defer></script>\n</head>|i"
+  Substitute "s|</head>|<script src=\"/js/consent.js?v=20261025\" defer></script>\n<script src=\"https://www.calculatepilot.com/js/language-selector.js?v=20260923\" defer></script>\n</head>|i"
   Substitute "s|\"@type\": \"SoftwareApplication\"|\"@type\": \"WebApplication\"|"
   Substitute "s|\"@type\":\"SoftwareApplication\"|\"@type\":\"WebApplication\"|"
   Substitute "s| *\"browserRequirements\": \"Requires a modern web browser\",||"
