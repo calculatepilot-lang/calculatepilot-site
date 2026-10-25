@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>CD vs High-Yield Savings Calculator | CalculatePilot</title>
 <meta name="description" content="Free CD vs HYSA calculator: compare a fixed-rate CD with a high-yield savings account under rate-cut scenarios, with deposits and penalty break-even.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/cd-vs-hysa-calculator.html">
@@ -76,9 +78,12 @@
  "description": "Compare a fixed-rate CD with a variable high-yield savings account under rate-cut scenarios, with monthly deposits and early withdrawal penalty break-even.",
  "creator": {
   "@type": "Person",
-  "name": "Suhaib Hassan"
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
  },
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-09-28",
+ "dateModified": "2026-10-25"
 }
 </script>
 <script type="application/ld+json">
@@ -181,9 +186,60 @@
     "@type": "Answer",
     "text": "Often yes, if the account has no monthly fee and a low or no minimum balance. The difference in rate still applies: $1,000 at 4.00% earns $40 a year, against $4 at 0.40%."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "Which earns more on $25,000 over 24 months, a CD or a HYSA?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On the calculator defaults (a 4.90% CD against a HYSA that starts at 4.60% and falls 0.5 point a year), the CD earns $2,510.02 and the HYSA earns $2,102.66. The CD earns $407.36 more if you hold it to maturity."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does breaking a CD early cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It depends on the bank. On the defaults, a 180-day penalty on a $25,000 CD at 4.90% is about $604.11. On this rate path, breaking the CD early leaves you behind a savings account."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this CD vs high-yield savings calculator",
+ "description": "Compare a fixed-rate CD with a high-yield savings account under different rate-cut scenarios.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter your deposit and term",
+   "text": "Enter your initial deposit and choose the CD term, from 6 to 60 months."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter the CD rate and penalty",
+   "text": "Enter the CD APY, which is fixed for the term, and the early withdrawal penalty in days of interest."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter the savings rate and rate path",
+   "text": "Enter the starting HYSA APY and choose a rate path: rates hold, moderate cuts or aggressive cuts."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add monthly deposits",
+   "text": "Enter any monthly deposits. They go into savings in both strategies, because a CD cannot take new money."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Read the verdict",
+   "text": "Read which option earns more over the term, the balance of each, and what you would net if you broke the CD early."
+  }
+ ]
 }
 </script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
@@ -192,6 +248,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#chCalc">Skip to calculator</a>
 
 <header class="site-header">
   <div class="container">
@@ -216,6 +273,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Fixed Rate Lock vs Floating Rate</span><span class="sx-badge"><span class="msym" aria-hidden="true">monitoring</span>Rate-Cut Sensitivity</span><span class="sx-badge"><span class="msym" aria-hidden="true">lock_clock</span>Early Withdrawal Penalty Check</span></div>
     <h1>CD vs High-Yield Savings (HYSA) Calculator</h1>
     <p>Compare a fixed-rate certificate of deposit with a high-yield savings account whose rate can fall — including rate-cut scenarios, monthly deposits, and what you'd net if you broke the CD early.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -299,12 +357,39 @@
 
 <section class="sx-card sx-method">
   <div class="sx-guide">
+    <h2>How to use this CD vs HYSA calculator</h2>
+    <ol>
+      <li><strong>Enter your deposit and term.</strong> Enter your initial deposit and choose the CD term, from 6 to 60 months.</li>
+      <li><strong>Enter the CD rate and penalty.</strong> Enter the CD APY, which is fixed for the term, and the early withdrawal penalty in days of interest.</li>
+      <li><strong>Enter the savings rate and rate path.</strong> Enter the starting HYSA APY and choose a rate path: rates hold, moderate cuts or aggressive cuts.</li>
+      <li><strong>Add monthly deposits.</strong> Enter any monthly deposits. They go into savings in both strategies, because a CD cannot take new money.</li>
+      <li><strong>Read the verdict.</strong> Read which option earns more over the term, the balance of each, and what you would net if you broke the CD early.</li>
+    </ol>
+
     <h2>How this comparison works</h2>
-    <p>The CD grows at its fixed APY for the full term. The savings account starts at its current APY and, depending on the rate path you pick, declines steadily each month (never below zero). Both balances compound monthly using the APY. Monthly deposits go into savings in both strategies — a CD can't accept new money — so they don't change which option wins on your initial deposit.</p>
-    <p>The early withdrawal penalty is modeled as the chosen number of days of simple interest at the CD rate on the deposit. Banks' exact penalty rules differ, and some can take principal if you break a CD very early.</p>
+    <p>The CD grows at its fixed APY for the full term. The savings account starts at its current APY and, depending on the rate path you pick, declines steadily each month, never below zero. Both balances compound monthly using the APY. Monthly deposits go into savings in both strategies, because a CD can't accept new money. They don't change which option wins on your initial deposit.</p>
+    <p>The early withdrawal penalty is modeled as the chosen number of days of simple interest at the CD rate on the deposit. Banks' exact penalty rules differ. Some can take principal if you break a CD very early.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <!--cp-guide-link--><p class="sx-trust" style="margin:12px 0 0">Read the guide: <a href="/guides/cd-vs-high-yield-savings-account.html">CD vs. high-yield savings account: which earns more?</a></p>
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on a $25,000 deposit for 24 months. The CD pays 4.90% APY, fixed. The HYSA starts at 4.60% and falls 0.50 percentage points a year. The early withdrawal penalty is 180 days of interest.</p>
+    <ul>
+      <li>CD: $25,000 at 4.90% for 24 months grows to <strong>$27,510.02</strong>, which is $2,510.02 of interest.</li>
+      <li>HYSA: the rate falls from 4.60% to 3.64%, so the balance grows to <strong>$27,102.66</strong>, which is $2,102.66 of interest.</li>
+      <li>The CD earns <strong>$407.36 more</strong> if you hold it to maturity.</li>
+      <li>Breaking the CD early costs about <strong>$604.11</strong> (180 days of interest at 4.90%), which leaves you behind savings.</li>
+    </ul>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 100" width="100%" role="img" aria-labelledby="cdChartT cdChartD" style="max-width:600px;height:auto">
+        <title id="cdChartT">Interest earned over 24 months: CD vs HYSA</title>
+        <desc id="cdChartD">On a $25,000 deposit over 24 months, the 4.90% CD earns $2,510.02 of interest and the HYSA, starting at 4.60% and falling, earns $2,102.66. The CD earns $407.36 more.</desc>
+        <text x="0" y="24" font-size="12" fill="#475569">CD 4.90% fixed</text><rect x="130" y="10" width="440" height="22" fill="#0f766e"/><text x="136" y="25" font-size="12" fill="#fff" font-weight="700">$2,510.02</text>
+        <text x="0" y="68" font-size="12" fill="#475569">HYSA 4.60% falling</text><rect x="130" y="54" width="368.5" height="22" fill="#f59e0b"/><text x="136" y="69" font-size="12" fill="#1f2937" font-weight="700">$2,102.66</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Interest on $25,000 over 24 months: $2,510.02 in the CD vs $2,102.66 in the HYSA, a $407.36 difference.</figcaption>
+    </figure>
+
     <h2 id="account-types">CD vs HYSA vs money market vs traditional savings</h2>
     <table class="sx-au-cmp plain"><thead><tr><th scope="col">Feature</th><th scope="col">CD</th><th scope="col">High-yield savings</th><th scope="col">Money market account</th><th scope="col">Traditional savings</th></tr></thead><tbody>
       <tr><td>Rate</td><td>Fixed for the term</td><td>Variable</td><td>Variable</td><td>Variable, usually very low</td></tr>
@@ -355,6 +440,14 @@
     </ul>
 
     
+<h2>Key takeaways</h2>
+<ul>
+  <li>A CD locks its rate for the term. A high-yield savings account (HYSA) does not, so its rate can fall.</li>
+  <li>Falling HYSA rates are what tip the comparison toward a CD. If rates hold, the gap is much smaller.</li>
+  <li>On the defaults, a 4.90% CD earns $407.36 more than a falling HYSA on $25,000 over 24 months.</li>
+  <li>Breaking a CD early costs a penalty. Only lock money you will not need before maturity, and keep emergency cash in a HYSA.</li>
+</ul>
+
 <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Is a CD or a high-yield savings account better?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A CD usually wins if you won't need the money before it matures and rates fall or stay flat. A high-yield savings account wins if you may need the money, or if rates rise during the term. Many savers use both.</p></details>
     <details class="sx-faq"><summary>What happens if I withdraw from a CD early?<span class="msym" aria-hidden="true">expand_more</span></summary><p>You pay an early withdrawal penalty, commonly a set number of days or months of interest. If you break the CD early enough, the penalty can exceed the interest earned and reduce your principal.</p></details>
@@ -368,6 +461,8 @@
     <details class="sx-faq"><summary>Can I have a CD and a HYSA at the same time?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Many savers keep emergency cash in a HYSA and the rest in CDs, often laddered so that one matures every year.</p></details>
     <details class="sx-faq"><summary>Is a high-yield savings rate fixed?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. HYSA rates are variable, and banks can change them at any time, usually after the Federal Reserve changes its policy rate.</p></details>
     <details class="sx-faq"><summary>Is it worth opening a HYSA for a small balance?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Often yes, if the account has no monthly fee and a low or no minimum balance. The difference in rate still applies: $1,000 at 4.00% earns $40 a year, against $4 at 0.40%.</p></details>
+<details class="sx-faq"><summary>Which earns more on $25,000 over 24 months, a CD or a HYSA?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On the calculator defaults (a 4.90% CD against a HYSA that starts at 4.60% and falls 0.5 point a year), the CD earns $2,510.02 and the HYSA earns $2,102.66. The CD earns $407.36 more if you hold it to maturity.</p></details>
+<details class="sx-faq"><summary>What does breaking a CD early cost?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on the bank. On the defaults, a 180-day penalty on a $25,000 CD at 4.90% is about $604.11. On this rate path, breaking the CD early leaves you behind a savings account.</p></details>
   </div>
 </section>
 
