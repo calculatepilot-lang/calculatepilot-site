@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Down Payment Calculator — How Much to Save for a House</title>
 <meta name="description" content="Work out the down payment you need for a home, with PMI impact at 3%, 5%, 10% and 20% down, and how long it takes to save it. Free, no sign-up.">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/down-payment-calculator.html">
@@ -45,7 +47,14 @@
  },
  "isAccessibleForFree": true,
  "description": "Calculate how much you need for a down payment and the resulting loan amount based on home price and down payment percentage.",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-25",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -110,9 +119,76 @@
     "@type": "Answer",
     "text": "Yes — many conventional and government-backed programs (FHA, VA, USDA where applicable) allow down payments well below 20%, sometimes as low as 3%, typically with mortgage insurance required until sufficient equity is reached."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How much should I save for a down payment?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A common target is 20% of the purchase price, because it typically avoids PMI on a conventional loan. Many buyers put down less, from 3% to 10%. Also budget for closing costs, inspection and moving costs, and a cash reserve after closing."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much cash do I need to close on a $400,000 home?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "With the calculator defaults, about $105,500. That is an $80,000 down payment (20%), $12,000 of closing costs (3%), $5,000 for inspection, appraisal and moving, and an $8,500 post-closing reserve."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does PMI cost with 5% down?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On a $400,000 home at 5% down, the calculator estimates about $158 a month in PMI. Your real cost depends on your credit score, loan type and lender."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I use gift money for my down payment?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Often yes. Lenders usually ask for a signed gift letter saying the money is a gift, not a loan, plus proof of the transfer. Rules differ by loan program, so check with your lender."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this down payment calculator",
+ "description": "Work out how much cash you need to buy a home and how much to save each month to get there.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter the home price",
+   "text": "Enter the target home purchase price, or tap a preset."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Set your down payment",
+   "text": "Choose the down payment as a percentage or a dollar amount. The loan amount and PMI estimate update as you type."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add closing and move-in costs",
+   "text": "Enter estimated closing costs, inspection, appraisal and moving costs, and the cash reserve you want after closing."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter your savings and timeline",
+   "text": "Enter the savings you have today and the savings account APY. The calculator shows the monthly deposit needed over 24 months."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Check the PMI trade-off",
+   "text": "Review the PMI matrix and the cost of waiting to reach 20% down, using your mortgage rate and an assumed rate of home price growth."
+  }
+ ]
 }
 </script>
 <!-- cpx-head-extra -->
@@ -125,6 +201,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#dpCalc">Skip to calculator</a>
 
 <header class="site-header">
   <div class="container">
@@ -149,6 +226,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>PMI Elimination Modeling</span><span class="sx-badge">Closing Cost Cushion</span><span class="sx-badge">High-Yield Reserve Pacing</span></div>
     <h1>Down Payment Calculator &amp; Homebuyer Reserve Planner</h1>
     <p>Calculate your down payment and loan amount, the total cash you need to close, mortgage insurance trade-offs from 3% to 20% down, and how much to save each month to get there.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -273,27 +351,71 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>Why 20% is a common target</h2>
-    <p>Putting down 20% typically avoids private mortgage insurance (PMI) on a conventional loan, which can save a meaningful amount over the life of the loan — though many programs allow lower down payments.</p>
+    <p>Putting down 20% typically avoids private mortgage insurance (PMI) on a conventional loan. That can save a meaningful amount over the life of the loan. Many programs still allow lower down payments.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>How down payment size affects your options</h2>
-    <p>Beyond the loan amount itself, down payment size affects which loan programs you qualify for and whether you'll pay for mortgage insurance. Conventional loans typically require PMI below 20% down, while some government-backed programs (FHA, VA) have different down payment and insurance structures entirely.</p>
-    <p>A larger down payment also strengthens your offer in competitive housing markets, since sellers often view buyers with more cash down as lower-risk, better-financed purchasers.</p>
+    <p>Down payment size sets your loan amount. It also affects which loan programs you qualify for and whether you pay for mortgage insurance. Conventional loans typically require PMI below 20% down. Government-backed programs such as FHA and VA have their own down payment and insurance rules.</p>
+    <p>A larger down payment can also strengthen your offer in a competitive market. Sellers often see buyers with more cash down as lower risk.</p>
 
-    <h2>A worked example</h2>
+    <h2>A worked example: 15% vs 20% down</h2>
     <p>On a $425,000 home at 15% down: the down payment is $63,750, leaving a loan amount of $361,250.</p>
-    <p>Compare that to 20% down on the same home: $85,000 down, $340,000 loan — a $21,250 larger upfront payment, but a loan $21,250 smaller, which likely also avoids PMI, potentially saving more over time than the extra upfront cash.</p>
+    <p>Compare that to 20% down on the same home: $85,000 down and a $340,000 loan. You pay $21,250 more upfront, but the loan is $21,250 smaller. It also likely avoids PMI, which could save more over time than the extra cash.</p>
+
+    <h2>Worked example: cash to close on a $400,000 home</h2>
+    <p>These are the calculator defaults: a $400,000 home with 20% down, 3% closing costs, $5,000 for inspection, appraisal and moving, and an $8,500 reserve.</p>
+    <ul>
+      <li>Down payment: $400,000 × 20% = $80,000.</li>
+      <li>Closing costs: $400,000 × 3% = $12,000.</li>
+      <li>Inspection, appraisal and moving: $5,000. Post-closing reserve: $8,500.</li>
+      <li><strong>Total cash to close: $105,500.</strong></li>
+    </ul>
+    <p>With $35,000 saved today in a 4.50% APY account, you would need about $2,687 a month for 24 months. That includes about $6,021 of interest earned along the way.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="dpChartT dpChartD" style="max-width:600px;height:auto">
+        <title id="dpChartT">Where $105,500 of cash to close goes</title>
+        <desc id="dpChartD">Of the $105,500 total, the down payment is $80,000 (75.8%), closing costs are $12,000 (11.4%), the post-closing reserve is $8,500 (8.1%) and inspection, appraisal and moving are $5,000 (4.7%).</desc>
+        <rect x="0" y="10" width="455" height="34" fill="#0f766e"/>
+        <rect x="455" y="10" width="68.2" height="34" fill="#f59e0b"/>
+        <rect x="523.2" y="10" width="48.3" height="34" fill="#94a3b8"/>
+        <rect x="571.5" y="10" width="28.5" height="34" fill="#ef4444"/>
+        <text x="0" y="62" font-size="12" fill="#0f766e" font-weight="700">Down payment $80,000</text>
+        <text x="330" y="62" font-size="12" fill="#64748b">Closing $12,000 · Reserve $8,500 · Move/inspect $5,000</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Where the $105,500 goes: down payment 75.8%, closing costs 11.4%, reserve 8.1%, inspection and moving 4.7%.</figcaption>
+    </figure>
+
+    <h2>How to use this down payment calculator</h2>
+    <ol>
+      <li><strong>Enter the home price.</strong> Enter the target home purchase price, or tap a preset.</li>
+      <li><strong>Set your down payment.</strong> Choose the down payment as a percentage or a dollar amount. The loan amount and PMI estimate update as you type.</li>
+      <li><strong>Add closing and move-in costs.</strong> Enter estimated closing costs, inspection, appraisal and moving costs, and the cash reserve you want after closing.</li>
+      <li><strong>Enter your savings and timeline.</strong> Enter the savings you have today and the savings account APY. The calculator shows the monthly deposit needed over 24 months.</li>
+      <li><strong>Check the PMI trade-off.</strong> Review the PMI matrix and the cost of waiting to reach 20% down, using your mortgage rate and an assumed rate of home price growth.</li>
+    </ol>
 
     <h2>Down payment assistance options</h2>
-    <p>Beyond saving independently, many buyers use down payment assistance programs, gift funds from family, or low-down-payment loan programs (some allow as little as 3-5% down) to reach homeownership sooner rather than waiting to save a full 20%.</p>
-    <p>The trade-off for a smaller down payment is usually private mortgage insurance (PMI) and a larger loan balance, both of which increase the monthly payment — worth weighing against the value of buying sooner rather than continuing to save while home prices and rates may change. Once you've settled on a down payment amount, run the numbers through the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> to see your full monthly payment.</p>
+    <p>Many buyers do not save the full 20%. They use down payment assistance programs, gift funds from family, or low-down-payment loans. Some of those loans allow as little as 3-5% down.</p>
+    <p>The trade-off for a smaller down payment is usually private mortgage insurance (PMI) and a larger loan. Both raise the monthly payment. Weigh that against buying sooner, since home prices and rates may change while you keep saving. Once you've settled on a down payment, run the numbers through the <a href="/financial/mortgage-calculator.html">Mortgage Calculator</a> to see your full monthly payment.</p>
 
     <!--cp-guide-link--><p class="sx-trust" style="margin:12px 0 0">Read the guide: <a href="/guides/down-payment-on-400000-house.html">How much down payment do you need for a $400,000 house?</a></p>
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>How much to save for a house is more than the down payment. Add closing costs, inspection and moving costs, and a cash reserve.</li>
+      <li>On a $400,000 home with 20% down, the defaults add up to about $105,500 of cash to close.</li>
+      <li>Putting down 20% typically avoids PMI on a conventional loan. Many programs allow 3-5% down, with PMI until you build equity.</li>
+      <li>Waiting to reach 20% can cost more if home prices rise. Compare PMI paid with the price increase before you decide.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Can I buy a home with less than 20% down?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — many conventional and government-backed loan programs allow down payments as low as 3-5%, though you'll typically pay for mortgage insurance until you build enough equity.</p></details>
     <details class="sx-faq"><summary>Do I need 20% down to buy a home?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — many loan programs allow down payments as low as 3-5%, though anything below 20% on a conventional loan typically requires paying for private mortgage insurance (PMI).</p></details>
     <details class="sx-faq"><summary>Where should down payment savings be kept?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Since it's typically needed within a few years, many people keep down payment savings in lower-risk accounts like high-yield savings rather than volatile investments, to avoid the risk of a market downturn right before buying.</p></details>
     <details class="sx-faq"><summary>Are there loan programs that allow less than 20% down?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — many conventional and government-backed programs (FHA, VA, USDA where applicable) allow down payments well below 20%, sometimes as low as 3%, typically with mortgage insurance required until sufficient equity is reached.</p></details>
+    <details class="sx-faq"><summary>How much should I save for a down payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A common target is 20% of the purchase price, because it typically avoids PMI on a conventional loan. Many buyers put down less, from 3% to 10%. Also budget for closing costs, inspection and moving costs, and a cash reserve after closing.</p></details>
+    <details class="sx-faq"><summary>How much cash do I need to close on a $400,000 home?<span class="msym" aria-hidden="true">expand_more</span></summary><p>With the calculator defaults, about $105,500. That is an $80,000 down payment (20%), $12,000 of closing costs (3%), $5,000 for inspection, appraisal and moving, and an $8,500 post-closing reserve.</p></details>
+    <details class="sx-faq"><summary>How much does PMI cost with 5% down?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On a $400,000 home at 5% down, the calculator estimates about $158 a month in PMI. Your real cost depends on your credit score, loan type and lender.</p></details>
+    <details class="sx-faq"><summary>Can I use gift money for my down payment?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Often yes. Lenders usually ask for a signed gift letter saying the money is a gift, not a loan, plus proof of the transfer. Rules differ by loan program, so check with your lender.</p></details>
   </div>
 </section>
 
