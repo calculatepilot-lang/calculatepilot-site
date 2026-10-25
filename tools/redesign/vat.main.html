@@ -6,6 +6,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)">Standard &amp; Reduced Rates</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Reverse Charge (B2B)</span><span class="sx-badge em" style="border-color:var(--sx-hover)">Input vs Output Tax Offset</span></div>
     <h1>VAT Calculator: Add or Remove VAT (UK, EU &amp; International)</h1>
     <p>Add VAT to a net price, or work out how much VAT is included in a gross price — with UK, EU and international rates, and an input-tax offset for VAT-registered businesses.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
   <div class="sx-au-badges" style="flex-direction:column;align-items:flex-end;gap:4px"><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Rates checked Sep 2026</span></div>
 </header>
@@ -96,19 +97,59 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>Adding vs. extracting VAT</h2>
-    <p>These are two different calculations that people often mix up. If you have a price before VAT and want to know the final price, you're adding VAT — multiply the net price by (1 + VAT rate). If you have a final price that already includes VAT and want to know the pre-VAT amount, you're extracting VAT — dividing by (1 + VAT rate), not simply subtracting the VAT percentage from the total.</p>
-    <p>This distinction matters because naively subtracting the VAT percentage from a gross price gives an incorrect (too low) net amount — the correct extraction requires dividing, since the VAT percentage in extraction mode applies to the net amount, not the gross amount.</p>
+    <p>Adding VAT and extracting VAT are two different calculations that people often mix up. If you have a price before VAT and want the final price, you are adding VAT. Multiply the net price by (1 + VAT rate). If you have a final price that already includes VAT and want the pre-VAT amount, you are extracting VAT. Divide by (1 + VAT rate). Do not simply subtract the VAT percentage from the total.</p>
+    <p>This matters because subtracting the VAT percentage from a gross price gives a net amount that is too low. The VAT percentage applies to the net amount, not the gross amount, so extraction requires division.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Rates verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
     <h2>VAT rates vary by country and category</h2>
-    <p>Standard VAT rates differ significantly by country — for example, the UK standard rate is 20%, while other countries use different standard and reduced rates for specific categories like food, children's items, or books. Some goods and services may be zero-rated or exempt entirely.</p>
-    <p>Always verify the correct VAT rate for your specific product category and country, since applying the wrong rate is one of the most common invoicing errors for businesses working across borders. For US sales tax, use the <a href="/financial/sales-tax-calculator.html">Sales Tax Calculator</a>.</p>
+    <p>Standard VAT rates differ significantly by country. For example, the UK standard rate is 20%. Other countries use different standard rates and reduced rates for categories like food, children's items or books. Some goods and services may be zero-rated or exempt entirely.</p>
+    <p>Always verify the correct VAT rate for your product category and country. Applying the wrong rate is one of the most common invoicing errors for businesses working across borders. For US sales tax, use the <a href="/financial/sales-tax-calculator.html">Sales Tax Calculator</a>.</p>
+
+    <h2>How to use this VAT calculator</h2>
+    <ol>
+      <li><strong>Choose a direction.</strong> Choose Net to Gross to add VAT to a price, or Gross to Net to extract the VAT from a price that already includes it.</li>
+      <li><strong>Enter the amount.</strong> Enter the net amount before VAT, or the gross amount if you are extracting VAT, or tap a price preset.</li>
+      <li><strong>Choose the jurisdiction and rate.</strong> Choose the country and the rate tier, such as standard or reduced. The default is the UK standard rate of 20%.</li>
+      <li><strong>Choose the transaction type.</strong> Choose B2C domestic retail, B2B registered, or cross-border B2B where the reverse charge applies.</li>
+      <li><strong>Read the VAT and the total.</strong> Read the net value, the VAT amount and the gross total, along with the reverse formula check.</li>
+    </ol>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on adding VAT to a £2,500 net price at the UK standard rate of 20%, for a domestic retail sale.</p>
+    <ul>
+      <li>Adding VAT: £2,500 × 1.2 = <strong>£3,000</strong>, so the VAT is <strong>£500</strong>.</li>
+      <li>Extracting VAT: £3,000 ÷ 1.2 = <strong>£2,500</strong> before VAT.</li>
+      <li>Shortcut: at 20%, the VAT in a VAT-inclusive price is exactly 1/6 of it. £3,000 ÷ 6 = £500.</li>
+      <li>The wrong way: subtracting 20% from £3,000 gives £2,400, which is £100 too low.</li>
+    </ul>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="vtChartT vtChartD" style="max-width:600px;height:auto">
+        <title id="vtChartT">A £3,000 VAT-inclusive price split into net and VAT at 20%</title>
+        <desc id="vtChartD">Of a £3,000 gross price at 20% VAT, the net amount is £2,500 (83.3%) and the VAT is £500 (16.7%).</desc>
+        <rect x="0" y="10" width="500" height="34" fill="#0f766e"/>
+        <rect x="500" y="10" width="100" height="34" fill="#f59e0b"/>
+        <text x="0" y="62" font-size="12" fill="#0f766e" font-weight="700">Net £2,500 (83.3%)</text>
+        <text x="470" y="62" font-size="12" fill="#92400e" font-weight="700">VAT £500 (16.7%)</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">A £3,000 price including 20% VAT: £2,500 net and £500 VAT, which is 1/6 of the gross price.</figcaption>
+    </figure>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>This VAT calculator adds or removes VAT. To add VAT, multiply by (1 + rate). To remove it, divide by (1 + rate).</li>
+      <li>Never subtract the VAT percentage from a gross price. At 20%, VAT is exactly 1/6 of the VAT-inclusive price, not 20%.</li>
+      <li>On the defaults, £2,500 plus 20% VAT is £3,000, and the VAT is £500.</li>
+      <li>VAT rates and reduced-rate categories vary by country. For cross-border B2B services the reverse charge usually applies, so check HMRC or your tax authority.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Can I just subtract the VAT percentage from a gross price to get the net price?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — that gives an incorrect result. To correctly extract VAT from a gross price, divide by (1 + VAT rate) rather than subtracting the percentage directly, since the VAT rate applies to the net amount, not the gross total.</p></details>
     <details class="sx-faq"><summary>Do all products have the same VAT rate?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No — many countries apply reduced rates or exemptions to specific categories like food, children's clothing, or books, alongside a standard rate for most other goods and services.</p></details>
     <details class="sx-faq"><summary>How much is VAT in the UK?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The standard UK VAT rate is 20%. A reduced rate of 5% applies to some goods like domestic energy and children's car seats. Some goods are zero-rated (0%) including most food and children's clothing.</p></details>
     <details class="sx-faq"><summary>How do I calculate VAT?<span class="msym" aria-hidden="true">expand_more</span></summary><p>To add VAT: multiply the price by 1.20 (for 20% VAT). To find the VAT amount in a VAT-inclusive price: multiply the gross price by 1/6 (for 20% VAT). This calculator handles both automatically — just enter the price and select whether to add or remove VAT.</p></details>
+    <details class="sx-faq"><summary>How much is £2,500 plus VAT?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At the UK standard rate of 20%, the VAT on £2,500 is £500, so the total is £3,000. That is £2,500 × 1.2.</p></details>
+    <details class="sx-faq"><summary>How do I remove VAT from £3,000?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide by 1.2 at the 20% rate. £3,000 ÷ 1.2 = £2,500 before VAT, so the VAT is £500. Subtracting 20% instead would give £2,400, which is wrong.</p></details>
+    <details class="sx-faq"><summary>What is the VAT reverse charge?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On cross-border B2B services, the customer accounts for the VAT instead of the supplier. Services imported by a registered business are usually reverse-charged. Check HMRC guidance for your supply.</p></details>
   </div>
 </section>
 
