@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Investment Calculator — Project Portfolio Growth</title>
 <meta name="description" content="Calculate how an investment grows over time with compound returns and regular contributions. Free, instant, formula shown. No signup.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/investment-calculator.html">
@@ -50,7 +52,14 @@
  },
  "isAccessibleForFree": true,
  "description": "Calculate how an investment grows over time with compound returns and regular contributions. No signup needed. CalculatePilot explains the formula behind every ",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-25",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -171,9 +180,68 @@
     "@type": "Answer",
     "text": "The Rule of 72 estimates it as 72 divided by your annual return. At 8%, money doubles in about 9 years (the exact figure is 9.01 years). Regular contributions shorten the time to double your total balance."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "How much will $25,000 plus $500 a month be worth in 20 years?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "With contributions rising 3% a year, an 8.5% return and monthly compounding, the calculator projects about $524,463. You contribute $186,222 and earn $338,241 of growth."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much income can a $524,463 portfolio provide?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Under the 4% rule, a $524,463 balance supports a rough sustainable withdrawal of about $1,748 a month. It is a rough guide, not a guarantee."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the value after inflation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "At 2.5% inflation, a $524,463 balance has the purchasing power of about $320,064 in today’s dollars."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this investment calculator",
+ "description": "Project how an investment grows with regular contributions, compounding, inflation and tax drag.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter your starting amount",
+   "text": "Enter your initial principal investment, or tap a preset."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add regular contributions",
+   "text": "Enter the amount you add each period, choose how often, and switch annual escalation on if you plan to raise contributions each year."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Set the time horizon",
+   "text": "Choose how many years you will invest."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Set the return and compounding",
+   "text": "Enter your estimated nominal annual return and choose how often it compounds."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add inflation and tax, then read the result",
+   "text": "Enter an inflation rate and any tax drag, then read your projected balance, real purchasing power and yearly ledger."
+  }
+ ]
 }
 </script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
@@ -182,6 +250,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#ivCalc">Skip to calculator</a>
 
 <header class="site-header">
   <div class="container">
@@ -205,6 +274,7 @@
   <div>
     <h1>Investment Calculator &amp; Portfolio Growth Simulator</h1>
     <p>Project how an initial investment plus regular contributions could grow over time — with compounding frequency, contribution increases, inflation-adjusted value and tax drag.</p>
+    <p class="sx-trust" style="margin-top:8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
   <div class="sx-au-badges" style="margin:0"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="msym" aria-hidden="true">query_stats</span>Portfolio Growth Engine</span><span class="sx-badge"><span class="msym" aria-hidden="true">trending_up</span>Inflation-Adjusted Real Returns</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Client-Side Precision</span></div>
 </header>
@@ -297,6 +367,15 @@
     <p>It grows your starting balance month by month at the equivalent monthly rate for your chosen compounding frequency, and adds each contribution at the end of its period (monthly or yearly), optionally raising contributions 3% a year. Tax drag reduces each period's growth by the chosen share, and the real value divides the result by cumulative inflation.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026; worked examples re-run through the calculator on 16 Oct 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this investment calculator</h2>
+    <ol>
+      <li><strong>Enter your starting amount.</strong> Enter your initial principal investment, or tap a preset.</li>
+      <li><strong>Add regular contributions.</strong> Enter the amount you add each period, choose how often, and switch annual escalation on if you plan to raise contributions each year.</li>
+      <li><strong>Set the time horizon.</strong> Choose how many years you will invest.</li>
+      <li><strong>Set the return and compounding.</strong> Enter your estimated nominal annual return and choose how often it compounds.</li>
+      <li><strong>Add inflation and tax, then read the result.</strong> Enter an inflation rate and any tax drag, then read your projected balance, real purchasing power and yearly ledger.</li>
+    </ol>
+
     <h2>Understanding investment risk</h2>
     <p>This calculator assumes a constant annual return for simplicity, but real markets fluctuate year to year. Treat the result as a long-term average projection, not a guarantee — higher expected returns generally come with higher volatility.</p>
 
@@ -314,8 +393,29 @@
     <p>This matters most near the point of withdrawal (like retirement), where a downturn early in that phase has an outsized negative impact compared to the same downturn occurring years later, since there's less time to recover before money is withdrawn.</p>
 
     <h2>A worked example</h2>
-    <p>Investing $10,000 upfront plus $300/month at an 8% average annual return (compounded monthly) for 20 years grows to roughly $226,000. Of that, about $82,000 came from contributions and roughly $144,000 came from investment growth — nearly two-thirds of the final balance is growth, not deposits.</p>
-    <p>This illustrates why starting to invest early tends to matter more than the exact monthly amount — the growth portion compounds regardless of when contributions were made, so earlier dollars have simply had more time to work.</p>
+    <p>Investing $10,000 upfront plus $300/month at an 8% average annual return (compounded monthly) for 20 years grows to roughly $226,000. Of that, about $82,000 came from contributions and roughly $144,000 came from investment growth. Nearly two-thirds of the final balance is growth, not deposits.</p>
+    <p>This shows why starting early often matters more than the exact monthly amount. The growth portion compounds no matter when contributions were made, so earlier dollars have more time to work.</p>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on $25,000 invested, plus $500 a month that rises 3% a year, for 20 years at an 8.5% return compounded monthly. Inflation is 2.5% and tax drag is zero.</p>
+    <ul>
+      <li>Projected balance after 20 years: <strong>$524,463</strong>.</li>
+      <li>Total principal: <strong>$186,222</strong>, which is your $25,000 plus about $161,000 of contributions.</li>
+      <li>Compound earnings: <strong>$338,241</strong>, or 64.5% of the final balance.</li>
+      <li>Real purchasing power at 2.5% inflation: <strong>$320,064</strong> in today's dollars.</li>
+    </ul>
+    <p>Yearly growth passes your yearly contributions in year 6. The portfolio crosses $100,000 in year 7, $250,000 in year 14 and $500,000 in year 20. Under the 4% rule, $524,463 supports a rough withdrawal of about $1,748 a month.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="ivChartT ivChartD" style="max-width:600px;height:auto">
+        <title id="ivChartT">What makes up a $524,463 portfolio after 20 years</title>
+        <desc id="ivChartD">Of a $524,463 projected balance, $186,222 (35.5%) is money you put in and $338,241 (64.5%) is compound growth.</desc>
+        <rect x="0" y="10" width="213" height="34" fill="#2563eb"/>
+        <rect x="213" y="10" width="387" height="34" fill="#0f766e"/>
+        <text x="0" y="62" font-size="12" fill="#2563eb" font-weight="700">Principal $186,222 (35.5%)</text>
+        <text x="330" y="62" font-size="12" fill="#0f766e" font-weight="700">Growth $338,241 (64.5%)</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">A $524,463 balance: $186,222 of your own money and $338,241 of compound growth.</figcaption>
+    </figure>
 
     <h2>Diversification and risk</h2>
     <p>This calculator assumes a single constant return rate, but real investments carry risk that varies by asset type — stocks historically offer higher long-term returns than bonds, but with more year-to-year volatility. Diversifying across asset types is a common strategy to manage that volatility while still capturing long-term growth.</p>
@@ -353,6 +453,14 @@
     </ul>
     <p>Want the formulas in more depth? Read <a href="/guides/how-to-calculate-investment-return-roi-cagr.html">how to calculate investment return: ROI vs CAGR, with examples</a>.</p>
 
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>This investment calculator projects portfolio growth from your starting amount, regular contributions, return rate and time horizon.</li>
+      <li>Time and contributions matter more than the exact return. On the defaults, 64.5% of the final balance is compound growth.</li>
+      <li>Inflation cuts what the balance can buy. At 2.5%, $524,463 is worth about $320,064 in today's dollars.</li>
+      <li>Returns are not guaranteed, and real markets fall as well as rise. Use the result to compare scenarios, not to predict outcomes.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Is 8% a realistic return assumption?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It's within the historical long-term range for diversified equity portfolios before inflation, but past performance doesn't guarantee future results.</p></details>
     <details class="sx-faq"><summary>How much difference do monthly contributions make?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A great deal over long periods — consistent contributions often account for more of the final balance than the initial investment itself, thanks to compounding.</p></details>
@@ -365,6 +473,9 @@
     <details class="sx-faq"><summary>How do I calculate real return after inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide one plus your nominal return by one plus the inflation rate, then subtract one. An 8% return with 3% inflation is a real return of about 4.85% a year.</p></details>
     <details class="sx-faq"><summary>How do fees affect investment growth?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Fees come out of your return every year, so they compound. In this calculator, $10,000 plus $300 a month for 20 years ends at about $225,974 at 8% but $196,665 at 7%, so a 1 percentage point fee costs roughly $29,300.</p></details>
     <details class="sx-faq"><summary>How long does it take to double my money?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The Rule of 72 estimates it as 72 divided by your annual return. At 8%, money doubles in about 9 years (the exact figure is 9.01 years). Regular contributions shorten the time to double your total balance.</p></details>
+<details class="sx-faq"><summary>How much will $25,000 plus $500 a month be worth in 20 years?<span class="msym" aria-hidden="true">expand_more</span></summary><p>With contributions rising 3% a year, an 8.5% return and monthly compounding, the calculator projects about $524,463. You contribute $186,222 and earn $338,241 of growth.</p></details>
+<details class="sx-faq"><summary>How much income can a $524,463 portfolio provide?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Under the 4% rule, a $524,463 balance supports a rough sustainable withdrawal of about $1,748 a month. It is a rough guide, not a guarantee.</p></details>
+<details class="sx-faq"><summary>What is the value after inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At 2.5% inflation, a $524,463 balance has the purchasing power of about $320,064 in today’s dollars.</p></details>
   </div>
 </section>
 
