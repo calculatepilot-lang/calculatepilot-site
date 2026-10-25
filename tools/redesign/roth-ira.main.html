@@ -8,6 +8,7 @@
   </div>
   <h1>Roth IRA Calculator</h1>
   <p>Simulate your tax-free retirement growth, compound interest yields, and compare Roth vs Traditional IRA post-tax liquidation advantages.</p>
+  <p class="sx-trust" style="margin-top:8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
 </header>
 
 <div class="sx-grid">
@@ -168,6 +169,15 @@
 
 <section class="sx-card sx-method">
   <div class="sx-guide">
+    <h2>How to use this Roth IRA calculator</h2>
+    <ol>
+      <li><strong>Enter your ages.</strong> Enter your current age and the age you plan to retire.</li>
+      <li><strong>Enter your balance and contribution.</strong> Enter your starting Roth IRA balance and your annual contribution. The calculator caps it at the IRS limit for your age and income.</li>
+      <li><strong>Set the return.</strong> Enter your expected annual return rate.</li>
+      <li><strong>Enter your tax brackets and income.</strong> Enter your current and retirement tax brackets, your filing status and your modified AGI, which sets the Roth contribution phase-out.</li>
+      <li><strong>Set withdrawal and inflation, then read the result.</strong> Enter a safe withdrawal rate and an inflation rate, then read your tax-free balance, your monthly income and the Roth vs Traditional comparison.</li>
+    </ol>
+
     <h2>Why Roth IRA growth is tax-free</h2>
     <p>Roth IRA contributions are made with after-tax dollars — you don't get a tax deduction upfront, unlike a traditional IRA or 401(k). In exchange, both the growth and qualified withdrawals in retirement are entirely tax-free, which can be a significant advantage over a multi-decade investment horizon.</p>
     <p>This makes a Roth IRA particularly valuable if you expect to be in a similar or higher tax bracket in retirement, since you're locking in today's tax rate on contributions rather than paying tax on a potentially larger balance later. If you expect a lower bracket in retirement, the Traditional IRA's up-front deduction can come out ahead — the head-to-head table above shows which way your inputs point.</p>
@@ -184,9 +194,35 @@
     </table>
     <p>Inside the phase-out range the allowed contribution shrinks proportionally (rounded up to the next $10, with a $200 minimum). Enter your filing status and MAGI under <em>Income eligibility</em> and the calculator applies the reduced limit. *If you lived apart from your spouse all year, use the single ranges. Source: <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" rel="noopener" target="_blank">IRS — 2026 IRA limits and Roth phase-out ranges</a>.</p>
 
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on a 28-year-old with $12,000 in a Roth IRA, saving $7,500 a year at an 8.0% return until age 65. Their tax bracket is 22% now and 24% in retirement, and inflation is 2.5%.</p>
+    <ul>
+      <li>Tax-free balance at 65: <strong>$1,884,074</strong>, which is about $755,640 in today's dollars.</li>
+      <li>Principal invested: <strong>$306,000</strong>. Tax-free growth: <strong>$1,578,074</strong>, or 83.8% of the balance.</li>
+      <li>Monthly income at a 4.0% withdrawal rate: <strong>$6,280</strong>.</li>
+    </ul>
+    <p>A Traditional IRA with the same contributions and returns has the same $1,884,074 balance, but withdrawals are taxed at 24%. That is $452,178 of tax, which leaves $1,431,896 to spend. The Traditional account earned a $64,680 deduction up front. That makes the Roth advantage <strong>$387,498</strong> on these assumptions.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 100" width="100%" role="img" aria-labelledby="roChartT roChartD" style="max-width:600px;height:auto">
+        <title id="roChartT">Spendable retirement capital: Roth IRA vs Traditional IRA</title>
+        <desc id="roChartD">On the default example, a Roth IRA leaves $1,884,074 of spendable capital at age 65. A Traditional IRA leaves $1,431,896 after a 24 percent tax on withdrawals.</desc>
+        <text x="0" y="24" font-size="12" fill="#475569">Roth IRA</text><rect x="110" y="10" width="440" height="22" fill="#0f766e"/><text x="116" y="25" font-size="12" fill="#fff" font-weight="700">$1,884,074</text>
+        <text x="0" y="68" font-size="12" fill="#475569">Traditional IRA</text><rect x="110" y="54" width="334.4" height="22" fill="#f59e0b"/><text x="116" y="69" font-size="12" fill="#1f2937" font-weight="700">$1,431,896</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Net spendable capital at 65: $1,884,074 in a Roth IRA vs $1,431,896 in a Traditional IRA after tax.</figcaption>
+    </figure>
+
     <h2>How this calculator works</h2>
-    <p>Each year the calculator adds your contribution at the start of the year (capped at that year's IRS limit for your age and income), then grows the whole balance at your expected return. The Traditional IRA comparison uses the same contributions and returns, taxes the full withdrawal at your retirement bracket, and credits the Traditional side with the tax deduction it would have earned at your current bracket. The monthly income figure applies your chosen safe withdrawal rate to the final balance, and the "today's dollars" figure discounts it by inflation.</p>
-    <p>Unlike a 401(k), an IRA is opened independently through a brokerage rather than through an employer, giving you more control over investment choices but without an employer match. To see your full retirement picture across all accounts, try the <a href="/financial/retirement-calculator.html">Retirement Calculator</a>.</p>
+    <p>Each year the calculator adds your contribution at the start of the year. The contribution is capped at that year's IRS limit for your age and income. Then the whole balance grows at your expected return. The Traditional IRA comparison uses the same contributions and returns. It taxes the full withdrawal at your retirement bracket. It also credits the Traditional side with the tax deduction it would have earned at your current bracket. The monthly income figure applies your chosen safe withdrawal rate to the final balance. The "today's dollars" figure discounts it by inflation.</p>
+    <p>Unlike a 401(k), an IRA is opened on your own through a brokerage, not through an employer. That gives you more control over investment choices, but there is no employer match. To see your full retirement picture across all accounts, try the <a href="/financial/retirement-calculator.html">Retirement Calculator</a>.</p>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>This 2026 Roth IRA calculator projects tax-free growth and compares it with a Traditional IRA. Qualified Roth withdrawals are tax-free.</li>
+      <li>On the defaults, $7,500 a year at 8% from age 28 grows to $1,884,074 by 65, and 83.8% of it is growth.</li>
+      <li>The Roth advantage depends on your tax brackets. It is $387,498 here, with a 22% bracket now and 24% in retirement.</li>
+      <li>Contribution limits and income phase-outs apply. Returns are not guaranteed, and this is not tax advice.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What's the difference between a Roth IRA and a traditional IRA?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Traditional IRA contributions are often tax-deductible now but taxed on withdrawal in retirement. Roth IRA contributions are made with after-tax money now, but qualified withdrawals in retirement are completely tax-free.</p></details>
@@ -194,6 +230,9 @@
     <details class="sx-faq"><summary>How much can I contribute to a Roth IRA in 2026?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Up to $7,500, or $8,600 if you are age 50 or older by the end of the year — but never more than your taxable compensation. The limit is shared across all your traditional and Roth IRAs.</p></details>
     <details class="sx-faq"><summary>When can I withdraw Roth IRA earnings tax-free?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Earnings come out tax- and penalty-free once you are 59½ and your first Roth IRA contribution was made at least five tax years earlier. Your own contributions can be withdrawn at any time without tax or penalty.</p></details>
     <details class="sx-faq"><summary>Do Roth IRAs have required minimum distributions?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. The original owner never has to take RMDs from a Roth IRA, so the balance can keep compounding tax-free for life. Traditional IRAs require distributions starting at age 73 (75 for people born in 1960 or later).</p></details>
+<details class="sx-faq"><summary>How much will a Roth IRA be worth at 65 with these defaults?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A 28-year-old with $12,000 who contributes $7,500 a year and earns 8% reaches about $1,884,074 at 65, tax-free. About $306,000 is principal and $1,578,074 is growth.</p></details>
+<details class="sx-faq"><summary>Is a Roth IRA better than a Traditional IRA?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It depends on your tax brackets. On the defaults, the Roth leaves $1,884,074 of spendable capital against $1,431,896 for a Traditional IRA after a 24% tax on withdrawals. That is a Roth advantage of $387,498.</p></details>
+<details class="sx-faq"><summary>What is a Roth IRA balance worth after inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>At 2.5% inflation, a $1,884,074 balance at age 65 is worth about $755,640 in today’s dollars.</p></details>
 
     <p class="sx-trust">Limits checked against IRS guidance for tax year 2026 · <a href="/methodology.html">Our methodology</a> · Last updated September 2026</p>
   </div>
