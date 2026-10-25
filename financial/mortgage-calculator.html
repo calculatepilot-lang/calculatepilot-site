@@ -4,6 +4,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Mortgage Calculator — Payment with Taxes & PMI</title>
 <meta name="description" content="Free mortgage calculator: monthly payment with property tax, insurance, HOA and PMI, 30- or 15-year and ARM options, extra payments and amortization.">
 <link rel="alternate" hreflang="en" href="https://www.calculatepilot.com/financial/mortgage-calculator.html">
@@ -72,7 +74,14 @@
   "priceCurrency": "USD"
  },
  "description": "Estimate a monthly mortgage payment including principal, interest, property tax, homeowners insurance, HOA and PMI, with fixed and 5/1 ARM options and a full amortization schedule.",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-25",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -228,12 +237,48 @@
  "inLanguage": "en"
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this mortgage calculator",
+ "description": "Estimate a monthly mortgage payment with property tax, insurance, HOA and PMI, and see the amortization schedule.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter the price and down payment",
+   "text": "Enter the home purchase price and your down payment. The loan amount updates as you type."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Set the rate and loan term",
+   "text": "Enter the interest rate and choose a 30-year, 15-year or 5/1 ARM loan."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Add taxes, insurance, HOA and PMI",
+   "text": "Enter annual property tax, annual homeowners insurance, monthly HOA dues, and PMI if your down payment is under 20%."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Try an extra payment",
+   "text": "Enter a monthly extra principal payment to see the payoff time and interest saved."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Read the payment and schedule",
+   "text": "Read your total monthly payment and the full amortization schedule below the inputs."
+  }
+ ]
+}
+</script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
 <link rel="stylesheet" href="/css/footer.css?v=20261011a">
 <link rel="stylesheet" href="/css/mobile-fix.css?v=20261012a">
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#mortCalc">Skip to calculator</a>
 <header class="site-header"><div class="container"><a href="/" class="logo">calculatepilot<span class="dot">.</span></a><ul class="nav-links"><li><a href="/financial-calculators.html">Financial</a></li><li><a href="/health-calculators.html">Health & Fitness</a></li><li><a href="/math-calculators.html">Math</a></li><li><a href="/other-calculators.html">Everyday</a></li><li><a href="/guides/">Guides</a></li></ul><button class="nav-toggle" aria-label="Open menu">Menu</button></div></header>
 <main>
 <div class="sx" id="mortCalc">
@@ -244,6 +289,7 @@
     <div class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="background:var(--sx-emt);animation:none"></span>Mathematical Model: Fixed &amp; ARM Amortization</div>
     <h1>Mortgage Calculator</h1>
     <p>Calculate precise monthly payments including principal, amortized interest, local property taxes, homeowner's insurance, and PMI. Client-side evaluation with a full amortization schedule.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
   <div class="sx-qbs">
     <div class="sx-qb"><span class="msym" aria-hidden="true" style="color:var(--sx-emt)">verified_user</span>Zero Data Collected</div>
@@ -383,6 +429,15 @@
     <p>This calculator uses the standard fixed-rate amortization formula for principal and interest, then adds property tax, home insurance, HOA dues and PMI so you see the full housing cost — not only the loan payment. The loan amount is the home price minus your down payment. PMI is estimated at your chosen rate (0.50% of the loan per year by default) only when you put down less than 20%, and it drops off automatically once the balance reaches 78% of the original home value. Extra principal payments are applied every month and shorten the loan.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 24 Sep 2026; examples re-run 17 Oct 2026 (extra-payment and escrow examples added) · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this mortgage calculator</h2>
+    <ol>
+      <li><strong>Enter the price and down payment.</strong> Enter the home purchase price and your down payment. The loan amount updates as you type.</li>
+      <li><strong>Set the rate and loan term.</strong> Enter the interest rate and choose a 30-year, 15-year or 5/1 ARM loan.</li>
+      <li><strong>Add taxes, insurance, HOA and PMI.</strong> Enter annual property tax, annual homeowners insurance, monthly HOA dues, and PMI if your down payment is under 20%.</li>
+      <li><strong>Try an extra payment.</strong> Enter a monthly extra principal payment to see the payoff time and interest saved.</li>
+      <li><strong>Read the payment and schedule.</strong> Read your total monthly payment and the full amortization schedule below the inputs.</li>
+    </ol>
+
     <h2>What goes into a monthly mortgage payment</h2>
     <p>Most lenders quote PITI: principal, interest, taxes, and insurance.</p>
     <ul>
@@ -440,6 +495,19 @@
     </tbody></table>
     <p>Total interest over 30 years is about $480,583. No PMI applies at 20% down.</p>
 
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="mtChartT mtChartD" style="max-width:600px;height:auto">
+        <title id="mtChartT">Monthly payment breakdown for the default example</title>
+        <desc id="mtChartD">Of the $2,801.62 monthly payment, principal and interest are $2,334.95 (83.3%), property tax is $350.00 (12.5%) and homeowners insurance is $116.67 (4.2%).</desc>
+        <rect x="0" y="10" width="500" height="34" fill="#0f766e"/>
+        <rect x="500" y="10" width="75" height="34" fill="#f59e0b"/>
+        <rect x="575" y="10" width="25" height="34" fill="#94a3b8"/>
+        <text x="0" y="62" font-size="12" fill="#0f766e" font-weight="700">Principal &amp; interest $2,334.95</text>
+        <text x="440" y="62" font-size="12" fill="#64748b">Tax $350 · Insurance $116.67</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Where the $2,801.62 monthly payment goes: principal and interest 83.3%, property tax 12.5%, insurance 4.2%.</figcaption>
+    </figure>
+
     <h2 id="extra-types">One-time, yearly and monthly extra payments compared</h2>
     <p>Extra principal on a $320,000, 30-year loan at 6.5% (base: 360 payments, $408,142 interest):</p>
     <table class="sx-au-cmp plain"><thead><tr><th scope="col">Extra payment</th><th scope="col">Payoff time</th><th scope="col">Interest saved</th></tr></thead><tbody>
@@ -472,6 +540,15 @@
       <li><strong>Prepayment penalty:</strong> check your loan documents; some loans charge one for early payoff.</li>
       <li><strong>Opportunity cost and liquidity:</strong> money in the house is harder to reach in an emergency, and it may earn more elsewhere. See <a href="/guides/mortgage-extra-payments-vs-investing.html">extra payments vs investing</a>.</li>
       <li><strong>Tax deduction:</strong> mortgage interest is deductible only if you itemize, and under IRS Publication 936 (2025 edition) the limit for debt taken on after 15 December 2017 is $750,000 ($375,000 if married filing separately). Check the rules for the year you file.</li>
+    </ul>
+
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>Your monthly mortgage payment with taxes and PMI is principal, interest, property tax, insurance, HOA dues and PMI if you put less than 20% down.</li>
+      <li>On the default example ($450,000 home, 20% down, 6.75% for 30 years), the payment is $2,801.62 a month with no PMI.</li>
+      <li>A higher rate, a lower down payment and a longer term all raise the payment or the total interest. Extra principal shortens the loan.</li>
+      <li>The result is an estimate, not a lender quote. Closing costs and maintenance are not included.</li>
     </ul>
 
     <h2>Frequently asked questions</h2>
