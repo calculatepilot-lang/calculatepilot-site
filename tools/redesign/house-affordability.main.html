@@ -6,6 +6,7 @@
     <div class="sx-au-badges"><span class="sx-badge em" style="border-color:var(--sx-hover)"><span class="dot" style="animation:none"></span>Mathematical Model: Front-End &amp; Back-End DTI Ratios</span><span class="sx-badge"><span class="msym" aria-hidden="true">verified_user</span>Client-Side Precision</span><span class="sx-badge" style="background:var(--sx-sc);color:var(--sx-emt)">28/36 Rule Based</span></div>
     <h1>House Affordability Calculator</h1>
     <p>Estimate how much house you can afford based on your income, existing debts, down payment, and standard debt-to-income qualification limits — including property tax, insurance and PMI.</p>
+    <p class="sx-trust">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
   </div>
 </header>
 
@@ -111,18 +112,62 @@
 
 <section class="sx-card sx-method">
   <div class="sx-guide">
-    <h2>The 28/36 rule explained</h2>
-    <p>Lenders commonly use two ratios to determine affordability: the front-end ratio caps housing costs at 28% of gross monthly income, while the back-end ratio caps total debt payments (housing plus all other debts) at 36%. This calculator uses whichever limit is more restrictive for your situation.</p>
-    <p>These are guidelines, not hard rules — some lenders allow higher ratios (up to 43-50% back-end) for well-qualified borrowers, particularly with strong credit and stable income, while more conservative buyers may prefer to stay well under these limits.</p>
+    <h2>How lenders apply the 28/36 rule</h2>
+    <p>Lenders commonly use two ratios to judge affordability. The front-end ratio caps housing costs at 28% of gross monthly income. The back-end ratio caps total debt payments, housing plus all other debts, at 36%. This calculator uses whichever limit is more restrictive for you.</p>
+    <p>These are guidelines, not hard rules. Some lenders allow higher back-end ratios, up to 43-50%, for well-qualified borrowers with strong credit and stable income. More conservative buyers may prefer to stay well under these limits.</p>
     <p class="sx-trust" style="margin:0 0 8px">By Suhaib Hassan · Formula verified 27 Sep 2026 · <a href="/methodology.html">How CalculatePilot verifies formulas →</a></p>
 
+    <h2>How to use this house affordability calculator</h2>
+    <ol>
+      <li><strong>Enter income and debts.</strong> Enter your annual gross household income and your total monthly debt payments, such as car loans, student loans and credit cards.</li>
+      <li><strong>Enter your down payment.</strong> Enter the cash you have available for a down payment. A down payment under 20% adds PMI.</li>
+      <li><strong>Set the rate and term.</strong> Enter the mortgage interest rate and choose the loan term. The default is a 30-year term.</li>
+      <li><strong>Add taxes, insurance and PMI.</strong> Enter the property tax rate, annual homeowners insurance and the PMI rate that applies if you put down less than 20%.</li>
+      <li><strong>Choose a standard and read the result.</strong> Pick the underwriting standard (conventional 28/36, FHA 31/43 or aggressive 36/45) and read your maximum home price and monthly payment.</li>
+    </ol>
+
+    <h2>Worked example with the calculator defaults</h2>
+    <p>Take a household income of $120,000, $60,000 for a down payment, $550 of monthly debts, a 6.50% rate and a 30-year loan. Property tax is 1.20% of the price, insurance is $1,200 a year and PMI is 0.50%.</p>
+    <ul>
+      <li>Front-end limit: $120,000 ÷ 12 × 28% = $2,800 a month for housing.</li>
+      <li>Back-end limit: $10,000 × 36% − $550 of debts = $3,050 a month for housing.</li>
+      <li>The front-end limit is lower, so it sets the payment cap at $2,800.</li>
+      <li><strong>Maximum home price: about $401,000</strong> with a $341,000 loan and a 15.0% down payment.</li>
+    </ul>
+    <p>That $2,800 monthly payment is about $2,157 of principal and interest, $401 of property tax, $100 of insurance and $142 of PMI.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 70" width="100%" role="img" aria-labelledby="haChartT haChartD" style="max-width:600px;height:auto">
+        <title id="haChartT">Monthly housing payment breakdown for the default example</title>
+        <desc id="haChartD">Of the $2,800 monthly payment, principal and interest are $2,157 (77.0%), property tax is $401 (14.3%), PMI is $142 (5.1%) and insurance is $100 (3.6%).</desc>
+        <rect x="0" y="10" width="462.2" height="34" fill="#0f766e"/>
+        <rect x="462.2" y="10" width="85.9" height="34" fill="#f59e0b"/>
+        <rect x="548.1" y="10" width="30.4" height="34" fill="#ef4444"/>
+        <rect x="578.5" y="10" width="21.5" height="34" fill="#94a3b8"/>
+        <text x="0" y="62" font-size="12" fill="#0f766e" font-weight="700">Principal &amp; interest $2,157</text>
+        <text x="330" y="62" font-size="12" fill="#64748b">Tax $401 · PMI $142 · Insurance $100</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">Where the $2,800 monthly payment goes: principal and interest 77.0%, property tax 14.3%, PMI 5.1%, insurance 3.6%.</figcaption>
+    </figure>
+
     <h2>What this estimate doesn't include</h2>
-    <p>Property tax is applied as a percentage of the home price and insurance as a yearly amount you enter; PMI is added at your chosen rate whenever the down payment is under 20%. Rates differ significantly by state and even by county, so use your local figures.</p>
-    <p>It doesn't include HOA fees, closing costs, or your personal comfort level with a given payment — getting pre-approved by an actual lender remains the most accurate way to know your real number.</p>
+    <p>Property tax is applied as a percentage of the home price. Insurance is a yearly amount you enter. PMI is added at your chosen rate whenever the down payment is under 20%. Rates differ by state and even by county, so use your local figures.</p>
+    <p>It doesn't include HOA fees, closing costs or your personal comfort level with a payment. Getting pre-approved by a lender is still the most accurate way to know your real number.</p>
+
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>Your maximum home price is the price whose full monthly cost fits inside the lower of your front-end (28%) and back-end (36%) limits.</li>
+      <li>On the default example ($120,000 income, $60,000 down, 6.50% for 30 years), the max home price is about $401,000.</li>
+      <li>More monthly debt lowers the back-end limit. A larger down payment, a lower rate or a longer term raises your price.</li>
+      <li>This is a planning estimate, not a pre-approval. HOA fees and closing costs are not included.</li>
+    </ul>
 
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>Why is my back-end ratio lower than my front-end limit?<span class="msym" aria-hidden="true">expand_more</span></summary><p>The back-end ratio subtracts your existing monthly debts (car payments, student loans, credit cards) from your total allowed debt load, which often makes it the more restrictive limit if you carry other debt.</p></details>
     <details class="sx-faq"><summary>Does this account for property taxes and insurance?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes — enter your property tax rate and annual homeowners insurance, and PMI is added automatically when you put down less than 20%. All of them count toward the housing payment used in both ratios.</p></details>
+    <details class="sx-faq"><summary>What is the 28/36 rule?<span class="msym" aria-hidden="true">expand_more</span></summary><p>It is a lending guideline. Housing costs should be no more than 28% of gross monthly income, and total debt payments should be no more than 36%. Some lenders allow higher ratios for well-qualified borrowers.</p></details>
+    <details class="sx-faq"><summary>How much house can I afford on a $120,000 income?<span class="msym" aria-hidden="true">expand_more</span></summary><p>With the calculator defaults ($120,000 income, $60,000 down payment, $550 of monthly debts, 6.50% rate and a 30-year term), the maximum home price is about $401,000. Your own number changes with your debts, down payment, rate and local taxes.</p></details>
+    <details class="sx-faq"><summary>Does a bigger down payment raise how much I can afford?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. The monthly payment cap stays the same, so a bigger down payment lowers the loan and lets the price rise. Below 20% down, PMI is added. At 20% down or more it drops out.</p></details>
+    <details class="sx-faq"><summary>Is this the same as a mortgage pre-approval?<span class="msym" aria-hidden="true">expand_more</span></summary><p>No. This is a planning estimate based on standard ratios. A lender also checks your credit, employment, assets and loan program rules. Get pre-approved to learn your real number.</p></details>
   </div>
 </section>
 
