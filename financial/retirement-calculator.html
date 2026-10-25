@@ -5,6 +5,8 @@
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="HAKNwRlvdHsSgoa1o6fIfA" async></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#fff;color:#000;padding:10px 16px;font-weight:600}.skip-link:focus{left:8px;top:8px}</style>
 <title>Retirement Calculator — FIRE Number & Withdrawals</title>
 <meta name="description" content="Free retirement and FIRE calculator: find your FIRE number with the 4% rule, when you reach it, Coast FIRE, and how long your money lasts.">
 <link rel="canonical" href="https://www.calculatepilot.com/financial/retirement-calculator.html">
@@ -75,7 +77,14 @@
   "priceCurrency": "USD"
  },
  "description": "Calculate your FIRE number from a safe withdrawal rate, when you'll reach financial independence, Coast FIRE, and how long an inflation-adjusted retirement portfolio lasts.",
- "inLanguage": "en"
+ "inLanguage": "en",
+ "datePublished": "2026-08-10",
+ "dateModified": "2026-10-25",
+ "creator": {
+  "@type": "Person",
+  "name": "Suhaib Hassan",
+  "url": "https://www.calculatepilot.com/author/suhaib-hassan.html"
+ }
 }
 </script>
 <script type="application/ld+json">
@@ -130,9 +139,76 @@
     "@type": "Answer",
     "text": "Social Security covers part of most retirees' expenses, so subtract your expected annual benefit from your target spending before applying the withdrawal rate — you likely need less saved than a benefit-blind calculation suggests."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "What is my FIRE number?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your FIRE number is your annual spending divided by the safe withdrawal rate. On the calculator defaults, $72,000 ÷ 4% = $1,800,000."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "When can I reach FIRE with these defaults?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "With $320,000 invested, $36,000 saved a year and a 7.5% return, the calculator projects reaching the $1.8 million FIRE number around age 54, in September 2046."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Will my money last if I retire at 55?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On the defaults, withdrawals of $72,000 a year from age 55 run the portfolio out at age 93, two years before age 95. Saving more, retiring later or spending less would help."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is Coast FIRE?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Coast FIRE is the amount you would need invested today to reach your FIRE number by your target age with no further savings. On the defaults it is about $694,353."
+   }
   }
  ],
  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to use this retirement and FIRE calculator",
+ "description": "Find your FIRE number, when you reach it, and how long your money lasts using a safe withdrawal rate.",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "Enter your ages",
+   "text": "Enter your current age and the age you want to retire."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter your spending target",
+   "text": "Enter the annual spending you want in retirement, in today’s dollars."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Enter your savings",
+   "text": "Enter your current invested net worth and the amount you save each year."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Choose a safe withdrawal rate",
+   "text": "Choose 3.25%, 3.5%, the classic 4% Trinity rule, or enter your own rate."
+  },
+  {
+   "@type": "HowToStep",
+   "name": "Set returns and inflation, then read the result",
+   "text": "Enter your return before and after retirement and an inflation rate. Then read your FIRE number, the date you reach it and how long your money lasts."
+  }
+ ]
 }
 </script>
 <link rel="stylesheet" href="/css/cp-whitelabel.css?v=20261004">
@@ -141,6 +217,7 @@
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#retCalc">Skip to calculator</a>
 
 <header class="site-header">
   <div class="container">
@@ -169,6 +246,7 @@
 <header class="sx-head tight">
   <h1>Retirement &amp; Safe Withdrawal Rate (FIRE) Calculator</h1>
   <p>Determine your exact Financial Independence Number, analyze Trinity Study safe withdrawal rates (3.0% - 4.5%), and evaluate portfolio longevity.</p>
+  <p class="sx-trust" style="margin-top:8px">By <a href="/author/suhaib-hassan.html">Suhaib Hassan</a> · Updated <time datetime="2026-10-25">25 Oct 2026</time> · <a href="/methodology.html">How we verify formulas</a></p>
 </header>
 
 <div class="sx-grid" style="margin-bottom:48px">
@@ -290,21 +368,59 @@
 <section class="sx-card sx-method">
   <div class="sx-guide">
     <h2>How this calculator works</h2>
-    <p>While you are working, your invested net worth grows each month at the pre-retirement return and your annual savings are added in monthly installments. From your target retirement age, savings stop and you withdraw your desired spending, raised every year by inflation, while the rest of the portfolio earns the post-retirement return. The projection runs to age 95.</p>
-    <p>Your FIRE number is your annual spending divided by the safe withdrawal rate, in today's dollars. The FIRE projection shows the first month your portfolio — if you kept saving — would reach that number after adjusting for inflation. Coast FIRE is the amount you'd need invested today to reach your FIRE number by your target age with no further savings.</p>
+    <p>While you are working, your invested net worth grows each month at the pre-retirement return. Your annual savings are added in monthly installments. From your target retirement age, savings stop and you withdraw your desired spending, raised every year by inflation. The rest of the portfolio earns the post-retirement return. The projection runs to age 95.</p>
+    <p>Your FIRE number is your annual spending divided by the safe withdrawal rate, in today's dollars. The FIRE projection shows the first month your portfolio would reach that number, after adjusting for inflation, if you kept saving. Coast FIRE is the amount you'd need invested today to reach your FIRE number by your target age with no further savings.</p>
+
+    <h2>How to use this retirement calculator</h2>
+    <ol>
+      <li><strong>Enter your ages.</strong> Enter your current age and the age you want to retire.</li>
+      <li><strong>Enter your spending target.</strong> Enter the annual spending you want in retirement, in today’s dollars.</li>
+      <li><strong>Enter your savings.</strong> Enter your current invested net worth and the amount you save each year.</li>
+      <li><strong>Choose a safe withdrawal rate.</strong> Choose 3.25%, 3.5%, the classic 4% Trinity rule, or enter your own rate.</li>
+      <li><strong>Set returns and inflation, then read the result.</strong> Enter your return before and after retirement and an inflation rate. Then read your FIRE number, the date you reach it and how long your money lasts.</li>
+    </ol>
 
     <h2 id="sequence-risk">Sequence of returns risk, explained</h2>
-    <p>Two retirees with the same average return can end up with very different outcomes depending on the order of those returns. Losses early in retirement hurt most, because withdrawals lock in the lower prices and leave less capital to recover. That is why the safe withdrawal rate is built around the worst historical starting years rather than the average — and why this calculator's smooth, average-return projection should be read as a central estimate, not a worst case.</p>
+    <p>Two retirees with the same average return can end up with very different outcomes, depending on the order of those returns. Losses early in retirement hurt most, because withdrawals lock in the lower prices and leave less capital to recover. That is why the safe withdrawal rate is built around the worst historical starting years rather than the average. It is also why this calculator's smooth, average-return projection should be read as a central estimate, not a worst case.</p>
     <ul>
       <li><strong>Lower your starting rate.</strong> 3.25–3.5% gives more room for a bad first decade, especially for retirements longer than 30 years.</li>
       <li><strong>Stay flexible.</strong> Guardrail rules that cut spending modestly after poor years have historically let retirees start higher and still finish safely.</li>
       <li><strong>Hold a buffer.</strong> A couple of years of spending in cash or short-term bonds means you rarely have to sell stocks after a crash.</li>
     </ul>
 
+    <h2>Worked example with the calculator defaults</h2>
+    <p>The calculator opens on a 35-year-old who wants to retire at 55 on $72,000 a year. They have $320,000 invested and save $36,000 a year. Returns are 7.5% before retirement and 5.0% after, inflation is 2.5%, and the withdrawal rate is 4%.</p>
+    <ul>
+      <li>FIRE number: $72,000 ÷ 4% = <strong>$1,800,000</strong> in today's dollars.</li>
+      <li>Progress: $320,000 invested is <strong>17.8%</strong> of the target, with $1,480,000 to go.</li>
+      <li>Projection: the portfolio reaches the FIRE number around <strong>age 54</strong>, in September 2046.</li>
+      <li>Coast FIRE: you would need about <strong>$694,353</strong> invested today to reach the target by your retirement age with no more saving.</li>
+    </ul>
+    <p>The calculator also flags a shortfall. Withdrawals of $72,000 a year from age 55 run the portfolio out at age 93, two years before 95. To fix that, save more, retire later or lower your spending.</p>
+    <figure style="margin:8px 0 14px">
+      <svg viewBox="0 0 600 140" width="100%" role="img" aria-labelledby="rtChartT rtChartD" style="max-width:600px;height:auto">
+        <title id="rtChartT">FIRE milestones on the default example</title>
+        <desc id="rtChartD">Quarter FIRE is $450,000, reached at age 37. Lean FIRE is $1.2 million at age 48. Full FIRE is $1.8 million at age 54. Fat FIRE, at $108,000 a year, is $2.7 million at age 62.</desc>
+        <text x="0" y="20" font-size="12" fill="#475569">Quarter FIRE</text><rect x="130" y="6" width="73.3" height="20" fill="#94a3b8"/><text x="210" y="21" font-size="12" fill="#475569" font-weight="700">$450k · age 37</text>
+        <text x="0" y="52" font-size="12" fill="#475569">Lean FIRE</text><rect x="130" y="38" width="195.6" height="20" fill="#2563eb"/><text x="332" y="53" font-size="12" fill="#2563eb" font-weight="700">$1.2M · age 48</text>
+        <text x="0" y="84" font-size="12" fill="#475569">Full FIRE</text><rect x="130" y="70" width="293.3" height="20" fill="#0f766e"/><text x="430" y="85" font-size="12" fill="#0f766e" font-weight="700">$1.8M · age 54</text>
+        <text x="0" y="116" font-size="12" fill="#475569">Fat FIRE</text><rect x="130" y="102" width="440" height="20" fill="#f59e0b"/><text x="400" y="117" font-size="12" fill="#1f2937" font-weight="700">$2.7M · age 62</text>
+      </svg>
+      <figcaption style="font-size:12px;color:var(--sx-muted)">FIRE milestones on the defaults: $450k at 37, $1.2M at 48, $1.8M at 54 and $2.7M at 62.</figcaption>
+    </figure>
+
     <h2>Where Social Security fits in</h2>
     <p>This calculator projects your own investments only — it doesn't include Social Security. Full retirement age is 67 for anyone born in 1960 or later; you can claim as early as 62 at a reduced amount, or delay up to 70 for an increased amount. Subtract your expected annual benefit from your spending before entering it here, and your FIRE number drops accordingly.</p>
 
     <!--cp-guide-link--><p class="sx-trust" style="margin:12px 0 0">Read the guide: <a href="/guides/how-much-do-i-need-to-retire-25x-rule.html">How much money do you need to retire? The 25x rule explained</a></p>
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>This retirement calculator finds your FIRE number: annual spending divided by your safe withdrawal rate. At 4%, that is 25 times your spending.</li>
+      <li>On the defaults, $72,000 a year needs $1,800,000, and the projection reaches it around age 54.</li>
+      <li>Reaching the number is not enough. The same defaults show the portfolio running out at age 93 if withdrawals start at 55.</li>
+      <li>A lower withdrawal rate, flexible spending and a cash buffer all reduce sequence-of-returns risk. This calculator does not include Social Security.</li>
+    </ul>
+
     <h2>Frequently asked questions</h2>
     <details class="sx-faq"><summary>What is the 4% withdrawal rule?<span class="msym" aria-hidden="true">expand_more</span></summary><p>A guideline from William Bengen's 1994 research: withdraw 4% of your portfolio in the first year of retirement, then increase that dollar amount with inflation each year. Historically this lasted at least 30 years for a balanced US stock and bond portfolio. It implies a savings target of about 25× your annual spending.</p></details>
     <details class="sx-faq"><summary>How much do I need to retire?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Divide your expected annual spending by your safe withdrawal rate: $60,000 a year at 4% needs $1.5 million, at 3.5% about $1.71 million. Subtract any Social Security or pension income from spending first.</p></details>
@@ -312,6 +428,10 @@
     <details class="sx-faq"><summary>Does this account for inflation?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Yes. Retirement withdrawals rise with your inflation rate every year, the FIRE projection compares your portfolio to an inflation-adjusted target, and the chart shows balances in today's dollars.</p></details>
     <details class="sx-faq"><summary>What return rate should I assume?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Long-run US stock returns have averaged roughly 10% a year before inflation, and a balanced portfolio less. Many planners use 6–8% while saving and 4–6% in retirement, when portfolios usually hold more bonds. Returns vary widely from year to year and are not guaranteed.</p></details>
     <details class="sx-faq"><summary>How does Social Security change how much I need saved?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Social Security covers part of most retirees' expenses, so subtract your expected annual benefit from your target spending before applying the withdrawal rate — you likely need less saved than a benefit-blind calculation suggests.</p></details>
+<details class="sx-faq"><summary>What is my FIRE number?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Your FIRE number is your annual spending divided by the safe withdrawal rate. On the calculator defaults, $72,000 ÷ 4% = $1,800,000.</p></details>
+<details class="sx-faq"><summary>When can I reach FIRE with these defaults?<span class="msym" aria-hidden="true">expand_more</span></summary><p>With $320,000 invested, $36,000 saved a year and a 7.5% return, the calculator projects reaching the $1.8 million FIRE number around age 54, in September 2046.</p></details>
+<details class="sx-faq"><summary>Will my money last if I retire at 55?<span class="msym" aria-hidden="true">expand_more</span></summary><p>On the defaults, withdrawals of $72,000 a year from age 55 run the portfolio out at age 93, two years before age 95. Saving more, retiring later or spending less would help.</p></details>
+<details class="sx-faq"><summary>What is Coast FIRE?<span class="msym" aria-hidden="true">expand_more</span></summary><p>Coast FIRE is the amount you would need invested today to reach your FIRE number by your target age with no further savings. On the defaults it is about $694,353.</p></details>
 
     <p class="sx-trust">Methodology based on Bengen (1994) and Cooley, Hubbard &amp; Walz (1998) · <a href="/methodology.html">Our methodology</a> · Last updated September 2026</p>
   </div>
