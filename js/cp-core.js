@@ -89,7 +89,10 @@
     var slug = c.querySelector('[data-preview]').getAttribute('data-preview').replace(/^\/embed\//, '').replace(/\.html$/, '');
     var title = c.querySelector('h3').textContent.trim().replace(/"/g, '&quot;');
     var h = c.getAttribute('data-h') || '1500';
-    c.querySelector('.embed-code').textContent = '<iframe src="https://www.calculatepilot.com/embed/' + slug + '.html" width="100%" height="' + h + '" frameborder="0" scrolling="auto" title="' + title + '" loading="lazy"></iframe>\n' + RESIZE;
+    var cat = c.getAttribute('data-category');
+    // visible attribution on the host page (a link inside the iframe does not credit the calculator page)
+    var credit = cat ? '<p style="font-size:12px;margin:6px 0 0;text-align:right">' + title + ' by <a href="https://www.calculatepilot.com/' + cat + '/' + slug + '.html" target="_blank" rel="noopener">CalculatePilot</a></p>\n' : '';
+    c.querySelector('.embed-code').textContent = '<iframe src="https://www.calculatepilot.com/embed/' + slug + '.html" width="100%" height="' + h + '" frameborder="0" scrolling="auto" title="' + title + '" loading="lazy"></iframe>\n' + credit + RESIZE;
   });
 
   // Copy code

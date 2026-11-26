@@ -65,7 +65,7 @@ function updateEmbedCodesForLicensedUser(key) {
     el.textContent = original.replace(
       /src="https:\/\/www\.calculatepilot\.com\/embed\/([a-z0-9-]+)\.html(?:\?[^\"]*)?"/gi,
       'src="https://www.calculatepilot.com/embed/widget.php?calculator=$1&license=' + encodeURIComponent(key) + '"'
-    );
+    ).replace(/<p [^>]*>[^<]* by <a [^>]*>CalculatePilot<\/a><\/p>\n?/g, '');
   });
 }
 
