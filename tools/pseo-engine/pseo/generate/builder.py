@@ -28,8 +28,9 @@ FACTORS = {
     "years": (1.0, 0.5, 0.67, 0.83),
     "months": (1.0, 0.5, 0.67, 0.83),
 }
-MEDICAL_NOTE = ("Informational only. This page is not medical advice; speak to a qualified health "
-                "professional about your own situation.")
+MEDICAL_NOTE = ("This is an educational estimate, not individualized professional advice. For a decision "
+                "with significant health, tax, legal, or financial consequences, verify the details with an "
+                "appropriate qualified professional or official source.")
 
 _env = Environment(loader=FileSystemLoader(str(Path(__file__).parent / "templates")),
                    autoescape=True, trim_blocks=False)
@@ -286,8 +287,8 @@ def build_page(cluster: ClusterRow, calc: Calculator, facts: dict, template_html
     title = f"{h1}: Worked Example and Scenario Table"
     if len(title) > 70:
         title = f"{h1}: Worked Example"
-    description = reg.text(f"{h1}: a worked example with the formula shown step by step, a scenario "
-                           f"table and the assumptions behind it.", origin_k)
+    description = reg.text(f"{h1}: see the formula, a worked example, and how changing "
+                           f"{vary_spec.label.lower()} changes the result.", origin_k)
     page_url = abs_url(site_url, f"{guide_dir}/{slug}.html")
     calc_url = abs_url(site_url, calc.url)
 
@@ -331,11 +332,9 @@ def build_page(cluster: ClusterRow, calc: Calculator, facts: dict, template_html
     scenario_head = [vary_spec.label, formula.headline_label] + [_label(k) for k in others]
 
     # assumptions
-    assumptions = ["Every input on this page is an example, not a quote, rate or offer.",
-                   "Results are estimates from the formula shown; figures from your own provider may differ.",
-                   "Example values other than amounts taken from the search phrase were picked for illustration only.",
-                   "Not for anyone who needs a binding quote, or tax, legal or medical advice for their own case; "
-                   "ask a qualified professional for that."]
+    assumptions = ["The inputs shown are illustrative; replace them with values that match your own situation.",
+                   "The result follows the formula and assumptions shown. Costs or conditions that are not entered are not included.",
+                   "Rates, fees, tax treatment, eligibility, and calculation conventions can vary by provider and location; verify current terms with the relevant official source."]
     medical = MEDICAL_NOTE if formula.ymyl else ""
     if medical:
         assumptions.append(MEDICAL_NOTE)
@@ -377,7 +376,7 @@ def build_page(cluster: ClusterRow, calc: Calculator, facts: dict, template_html
         shell_header=shell_header, shell_footer=shell_footer, jsonld=schema.jsonld(page, page_url),
         breadcrumbs=breadcrumbs, h1=h1, author=AUTHOR, date_iso=date_iso, medical_note=medical,
         quick=quick, also=also, calc_name=calc.name, steps=steps, breakdown_rows=breakdown_rows,
-        breakdown_head=breakdown_head, breakdown_caption=f"Year-by-year view for the example inputs",
+        breakdown_head=breakdown_head, breakdown_caption="Calculated values for the worked example",
         vary_label=vary_spec.label.lower(), scenario_head=scenario_head, scenario_rows=scenario_rows,
         assumptions=assumptions, facts=fact_rows, faq=faq, related=related, how_made=how_made)
     return page
