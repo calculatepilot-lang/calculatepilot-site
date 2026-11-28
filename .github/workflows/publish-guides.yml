@@ -30,16 +30,24 @@ jobs:
           root = Path('.')
           index = root / 'guides' / 'index.html'
           sitemap = root / 'sitemap-guides.xml'
+          sitemap_index = root / 'sitemap.xml'
           today = date.today().isoformat()
 
           if not sitemap.exists():
               raise SystemExit('sitemap-guides.xml not found')
           if not index.exists():
               raise SystemExit('guides/index.html not found')
+          if not sitemap_index.exists():
+              raise SystemExit('sitemap.xml index not found')
 
           sm = sitemap.read_text(encoding='utf-8')
+          sm_index = sitemap_index.read_text(encoding='utf-8')
           if '</urlset>' not in sm:
               raise SystemExit('sitemap-guides.xml is missing </urlset>; refusing to rewrite')
+          if '</sitemapindex>' not in sm_index:
+              raise SystemExit('sitemap.xml is missing </sitemapindex>; refusing to rewrite')
+          if 'https://www.calculatepilot.com/sitemap-guides.xml' not in sm_index:
+              entry = (\n                  '  <sitemap>\\n'\n                  '    <loc>https://www.calculatepilot.com/sitemap-guides.xml</loc>\\n'\n                  f'    <lastmod>{today}</lastmod>\\n'\n                  '  </sitemap>\\n'\n              )\n              sm_index = sm_index.replace('</sitemapindex>', entry + '</sitemapindex>', 1)\n              changed = True
 
           ids = []
           changed = False
@@ -88,6 +96,7 @@ jobs:
 
           if changed:
               sitemap.write_text(sm, encoding='utf-8')
+              sitemap_index.write_text(sm_index, encoding='utf-8')
           else:
               print('Guides already present in index/sitemap; nothing to rewrite')
           PY
