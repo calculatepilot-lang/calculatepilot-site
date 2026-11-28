@@ -28,9 +28,9 @@ FACTORS = {
     "years": (1.0, 0.5, 0.67, 0.83),
     "months": (1.0, 0.5, 0.67, 0.83),
 }
-MEDICAL_NOTE = ("This is an educational estimate, not individualized professional advice. For a decision "
-                "with significant health, tax, legal, or financial consequences, verify the details with an "
-                "appropriate qualified professional or official source.")
+MEDICAL_NOTE = ("This is an educational estimate, not medical advice or individualized professional advice. "
+                "For a decision with significant health, tax, legal, or financial consequences, verify the details "
+                "with an appropriate qualified professional or official source.")
 
 _env = Environment(loader=FileSystemLoader(str(Path(__file__).parent / "templates")),
                    autoescape=True, trim_blocks=False)
